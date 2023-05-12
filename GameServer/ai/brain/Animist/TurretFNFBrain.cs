@@ -54,6 +54,9 @@ namespace DOL.AI.Brain
 
                 if (player.EffectList.GetOfType<NecromancerShadeEffect>() != null)
                     continue;
+                
+                if (EffectListService.GetEffectOnTarget(player, eEffect.IchorOfTheDeep) != null)
+                    continue;
 
                 if (GS.ServerProperties.Properties.FNF_TURRETS_REQUIRE_LOS_TO_AGGRO)
                     player.Out.SendCheckLOS(Body, player, new CheckLOSResponse(LosCheckForAggroCallback));

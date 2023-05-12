@@ -4213,7 +4213,7 @@ namespace DOL.GS
 				if (effect != null && effect is ECSGameSpellEffect spellEffect && spellEffect.SpellHandler.Spell.SpellType != (byte)eSpellType.UnbreakableSpeedDecrease)
 					EffectService.RequestImmediateCancelEffect(effect);
 
-				var ichor_effect = EffectListService.GetEffectOnTarget(this, eEffect.Ichor);
+				var ichor_effect = EffectListService.GetEffectOnTarget(this, eEffect.IchorOfTheDeep);
 				if (ichor_effect != null)
 					EffectService.RequestImmediateCancelEffect(ichor_effect);
             }

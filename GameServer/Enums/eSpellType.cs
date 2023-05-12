@@ -211,6 +211,7 @@ namespace DOL.GS
         SummonJuggernaut = 205,
         SummonAnimistAmbusher = 206,
         StrikingTheSoul = 207,
-        Null = 208
+        Null = 208,
+        IchorOfTheDeep = 209
     }
 }

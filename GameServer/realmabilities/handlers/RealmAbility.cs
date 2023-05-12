@@ -229,11 +229,13 @@ namespace DOL.GS.RealmAbilities
 				{
 					if (player == caster)
 					{
-						player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "RealmAbility.SendCasterSpellEffectAndCastMessage.You", m_name), eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
+						// Message: You cast a {0} spell!
+						player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "SpellHandler.CastSpell.Msg.YouCastSpell", m_name), eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
 					}
 					else
 					{
-						player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "RealmAbility.SendCasterSpellEffectAndCastMessage.Caster", caster.Name), eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
+						// Message: {0} casts a spell!
+						player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "SpellHandler.CastSpell.Msg.LivingCastsSpell", caster.Name), eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
 					}
 				}
 			}
@@ -241,9 +243,12 @@ namespace DOL.GS.RealmAbilities
 		
 		public virtual void SendCasterSpellEffect(GameLiving caster, ushort spellEffect, bool success)
 		{
+			if (caster == null)
+				return;
+
 			foreach (GamePlayer player in caster.GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE))
 			{
-				player.Out.SendSpellEffectAnimation(caster, caster, spellEffect, 0, false, success ? (byte)1 : (byte)0);
+				player?.Out.SendSpellEffectAnimation(caster, caster, spellEffect, 0, false, success ? (byte)1 : (byte)0);
 			}
 		}
 

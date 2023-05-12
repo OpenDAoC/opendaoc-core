@@ -488,6 +488,8 @@ namespace DOL.GS
                 case (byte)eSpellType.SpeedDecrease:
                 case (byte)eSpellType.UnbreakableSpeedDecrease:
                     return eEffect.MovementSpeedDebuff;
+                case (byte)eSpellType.IchorOfTheDeep:
+                    return eEffect.IchorOfTheDeep;
                 case (byte)eSpellType.MeleeDamageDebuff:
                     return eEffect.MeleeDamageDebuff;
                 case (byte)eSpellType.StyleCombatSpeedDebuff:

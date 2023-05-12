@@ -116,14 +116,20 @@ namespace DOL.GS.RealmAbilities
 				*/
 
 			// Do the effect and damage if all went well... not sure why this is a timer
-			//m_expireTimerID = new ECSGameTimer(caster, new ECSGameTimer.ECSTimerCallback(EndCast), 1);
-			//m_expireTimerID.Start();
-			EndCast();
+			m_expireTimerID = new ECSGameTimer(caster, new ECSGameTimer.ECSTimerCallback(EndCast), 1);
+			m_expireTimerID.Start();
 		}
 
-		protected virtual int EndCast()
+		protected virtual int EndCast(ECSGameTimer timer)
 		{
 			GameLiving living = caster.TargetObject as GameLiving;
+
+			if (living == null)
+			{
+				timer.Stop();
+				timer = null;
+				return 0;
+			}
 
 			foreach (GamePlayer i_player in caster.GetPlayersInRadius(WorldMgr.INFO_DISTANCE))
 			{
@@ -157,14 +163,16 @@ namespace DOL.GS.RealmAbilities
 			}
 
 			DisableSkill(caster);
+			timer.Stop();
+			timer = null;
 			return 0;
 		}
 
 		private int CalculateDamageWithFalloff(int initialDamage, GameLiving initTarget, GameLiving aetarget)
 		{
-			//Console.WriteLine($"initial {initialDamage} caster {initTarget} target {aetarget}");
+			Console.WriteLine($"initial {initialDamage} caster {initTarget} target {aetarget}");
 			int modDamage = (int)Math.Round((decimal) (initialDamage * ((500-(initTarget.GetDistance(new Point2D(aetarget.X, aetarget.Y)))) / 500.0)));
-			//Console.WriteLine($"distance {((500-(initTarget.GetDistance(new Point2D(aetarget.X, aetarget.Y)))) / 500.0)} Mod {modDamage}");
+			Console.WriteLine($"distance {((500-(initTarget.GetDistance(new Point2D(aetarget.X, aetarget.Y)))) / 500.0)} Mod {modDamage}");
 			return modDamage;
 		}
 
@@ -218,8 +226,10 @@ namespace DOL.GS.RealmAbilities
 			{
 				case eAttackResult.HitStyle:
 				case eAttackResult.HitUnstyled:
-					living.BuffBonusMultCategory1.Remove((int)eProperty.MaxSpeed, this);
+				{
+					living.BuffBonusMultCategory1.Remove((int) eProperty.MaxSpeed, this);
 					SendUpdates(living);
+				}
 					break;
 			}
 		}
@@ -288,10 +298,8 @@ namespace DOL.GS.RealmAbilities
 			// Make sure they're not using SoS (needs fixing), Charge, or in Shade form
 			var targetCharge = EffectListService.GetEffectOnTarget(target, eEffect.Charge);
 			var targetShade = EffectListService.GetEffectOnTarget(target, eEffect.Shade);
-			var targetSoS = EffectListService.GetEffectOnTarget(target, eEffect.SpeedOfSound);
-			if (targetCharge == null && targetSoS == null && targetShade == null)
+			if (targetCharge == null && target.EffectList.GetOfType<SpeedOfSoundEffect>() == null && targetShade == null)
 			{
-				/*
 				// Send spell message to player if applicable
 				if (target is GamePlayer gpMessage)
 					gpMessage.Out.SendMessage("Constricting bonds surround your body!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
@@ -310,15 +318,6 @@ namespace DOL.GS.RealmAbilities
 					if (player.IsWithinRadius(target, WorldMgr.INFO_DISTANCE) && player != target)
 						player.Out.SendMessage(target.GetName(0, false) + " is surrounded by constricting bonds!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
 				}
-				*/
-				//Check if Ichor root is already on target. If it is, then reset duration.
-				var targetIchor = EffectListService.GetEffectOnTarget(target, eEffect.Ichor);
-				if(targetIchor != null)
-				{
-					//TODO - Refresh existing Ichor duration (or whatever the proper mechanic is?)
-				}
-				else
-					new AtlasOF_IchorECSEffect(new ECSGameEffectInitParams(target, duration, 1));
 			}
 			else
 				// Send resist animation if they cannot be rooted

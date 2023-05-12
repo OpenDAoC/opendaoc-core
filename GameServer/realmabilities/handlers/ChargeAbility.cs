@@ -31,6 +31,15 @@ namespace DOL.GS.RealmAbilities
 				//		}
 				//	}
 				//}
+				
+				var ichor = EffectListService.GetSpellEffectOnTarget(living, eEffect.IchorOfTheDeep);
+				if (ichor != null)
+				{
+					GamePlayer player = living as GamePlayer;
+					if (player != null) player.Out.SendMessage("You may not use this ability while under this effect!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					return true;
+				}
+				
 				var effect = EffectListService.GetSpellEffectOnTarget(living, eEffect.MovementSpeedDebuff);
 				if (effect != null && effect.SpellHandler.Spell.Value != 99)
                 {

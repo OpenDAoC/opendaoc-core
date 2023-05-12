@@ -157,6 +157,6 @@ namespace DOL.GS
         Volley,
         StrikingTheSoul,
         SpeedOfSound,
-        Ichor
+        IchorOfTheDeep
     }
 }
