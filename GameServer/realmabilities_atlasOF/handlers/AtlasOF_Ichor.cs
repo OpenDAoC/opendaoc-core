@@ -95,24 +95,18 @@ namespace DOL.GS.RealmAbilities
 	        if (living == null)
 	        {
 		        log.Warn("No living at execute");
-		        // Message: 
-		        ChatUtil.SendTypeMessage((int)eMsg., client, "", null);
 		        return;
 	        }
 
 	        if (living is not GamePlayer)
 	        {
 		        log.Warn("Living is not GamePlayer");
-		        // Message: 
-		        ChatUtil.SendTypeMessage((int)eMsg., client, "", null);
 		        return;
 	        }
 
             if (CheckPreconditions(living, DEAD | SITTING | MEZZED | STUNNED))
             {
 	            log.Warn("Precondition failed");
-	            // Message: 
-	            ChatUtil.SendTypeMessage((int)eMsg., client, "", null);
 	            return;
             }
             m_caster = (GamePlayer)living;
@@ -122,8 +116,6 @@ namespace DOL.GS.RealmAbilities
             // Player must have a target
 			if (Caster.TargetObject == null)
 			{
-				// Message: 
-				ChatUtil.SendTypeMessage((int)eMsg., client, "", null);
 				Caster.Out.SendMessage("You must select a target for this ability!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
 				Caster.DisableSkill(this, m_interruptTime);
 				return;
@@ -134,8 +126,6 @@ namespace DOL.GS.RealmAbilities
 			// So they can't use Admins or objects as a target
 			if (Owner == null || m_owner is Keeps.GameKeepDoor or Keeps.GameKeepComponent)
 			{
-				// Message: 
-				ChatUtil.SendTypeMessage((int)eMsg., client, "", null);
 				Caster.Out.SendMessage("You have an invalid target!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
 				Caster.DisableSkill(this, m_interruptTime);
 				return;
@@ -144,8 +134,6 @@ namespace DOL.GS.RealmAbilities
 			// Target must be in front of the Player
 			if (!Caster.TargetInView || !Caster.IsObjectInFront(m_owner, 150))
 			{
-				// Message: 
-				ChatUtil.SendTypeMessage((int)eMsg., client, "", null);
 				Caster.Out.SendMessage(m_owner.GetName(0, true) + " is not in view!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
 				Caster.DisableSkill(this, m_interruptTime);
 				return;
@@ -154,8 +142,6 @@ namespace DOL.GS.RealmAbilities
 			// Can't target self
 			if (Caster == m_owner)
 			{
-				// Message: 
-				ChatUtil.SendTypeMessage((int)eMsg., client, "", null);
 				Caster.Out.SendMessage("You can't attack yourself!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
 				Caster.DisableSkill(this, m_interruptTime);
 				return;
@@ -164,8 +150,6 @@ namespace DOL.GS.RealmAbilities
 			// Target must be alive
 			if (!m_owner.IsAlive)
 			{
-				// Message: 
-				ChatUtil.SendTypeMessage((int)eMsg., client, "", null);
 				Caster.Out.SendMessage(m_owner.GetName(0, true) + " is dead!", eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
 				Caster.DisableSkill(this, m_interruptTime);
 				return;
@@ -174,8 +158,6 @@ namespace DOL.GS.RealmAbilities
 			// So they can't use Admins or objects as a target
 			if (!GameServer.ServerRules.IsAllowedToAttack(Caster, m_owner, true) || (m_owner is GamePlayer playerTarget && playerTarget.CharacterClass.ID == (int)eCharacterClass.Necromancer && playerTarget.IsShade))
 			{
-				// Message: 
-				ChatUtil.SendTypeMessage((int)eMsg., client, "", null);
 				Caster.Out.SendMessage(m_owner.GetName(0, true) + " can't be attacked", eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
 				Caster.DisableSkill(this, m_interruptTime);
 				return;
@@ -184,8 +166,6 @@ namespace DOL.GS.RealmAbilities
 			// Target must be within range
 			if (!Caster.IsWithinRadius(m_owner, SpellHandler.CalculateSpellRange()))
 			{
-				// Message: 
-				ChatUtil.SendTypeMessage((int)eMsg., client, "", null);
 				Caster.Out.SendMessage(m_owner.GetName(0, true) + " is too far away!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
 				Caster.DisableSkill(this, m_interruptTime);
 				return;
@@ -194,8 +174,6 @@ namespace DOL.GS.RealmAbilities
 			// Target cannot be an ally or friendly
 			if (Caster.Realm == m_owner.Realm)
 			{
-				// Message: 
-				ChatUtil.SendTypeMessage((int)eMsg., client, "", null);
 				Caster.Out.SendMessage("You can't attack a member of your realm!", eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
 				Caster.DisableSkill(this, m_interruptTime);
 				return;
@@ -204,8 +182,6 @@ namespace DOL.GS.RealmAbilities
 			// Cannot use ability if timer is not expired
 			if (Spell.HasRecastDelay && Caster.GetSkillDisabledDuration(Spell) > 0)
 			{
-				// Message: 
-				ChatUtil.SendTypeMessage((int)eMsg., client, "", null);
 				Caster.Out.SendMessage("You must wait" + Caster.GetSkillDisabledDuration(Spell) / 1000 + " seconds to recast this type of ability!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
 				Caster.DisableSkill(this, m_interruptTime);
 				return;
@@ -318,7 +294,6 @@ namespace DOL.GS.RealmAbilities
 	        ad.IsSpellResisted = false;
 	        ad.Modifier = 0;
 	        ad.Damage = CalculateDamageWithFalloff((int)Spell.Damage, initTarget, aeTarget, m_effectiveness);
-	        ad.UncappedDamage = ad.Damage;
 
 	        return ad;
         }
@@ -353,15 +328,11 @@ namespace DOL.GS.RealmAbilities
 	        ad.Target.LastAttackedByEnemyTickPvP = GameLoop.GameLoopTime;
 
 	        // Spell damage messages
-	        // Message: 
-	        ChatUtil.SendTypeMessage((int)eMsg., client, "", null);
 	        Caster.Out.SendMessage("You hit " + ad.Target.GetName(0, false) + " for " + ad.Damage + " damage!", eChatType.CT_YouHit, eChatLoc.CL_SystemWindow);
 	        // Display damage message to target if any damage is actually caused
 	        if (ad.Damage > 0)
 	        {
 		        if (ad.Target is GamePlayer gpTarget)
-			        // Message: 
-			        ChatUtil.SendTypeMessage((int)eMsg., client, "", null);
 					gpTarget.Out.SendMessage(ad.Attacker.Name + " hits you for " + ad.Damage + " damage!", eChatType.CT_Damaged, eChatLoc.CL_SystemWindow);
 		        ad.Target.StartInterruptTimer(m_interruptTime, ad.AttackType, ad.Attacker);
 	        }
@@ -378,8 +349,6 @@ namespace DOL.GS.RealmAbilities
 	        var effect = EffectListService.GetSpellEffectOnTarget(target, eEffect.MovementSpeedDebuff);
 	        if (effect != null && effect.SpellHandler.Spell.Name.Equals("Prevent Flight"))
 	        {
-		        // Message: 
-		        ChatUtil.SendTypeMessage((int)eMsg., client, "", null);
 		        Caster.Out.SendMessage(target.GetName(0, true) + " is immune to this effect!", eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
 		        SendAnimation(target, Spell.ClientEffect, false);
 		        return;
@@ -389,8 +358,6 @@ namespace DOL.GS.RealmAbilities
 	        if (targetCharge != null)
 	        {
 		        SendAnimation(target, Spell.ClientEffect, false);
-		        // Message: 
-		        ChatUtil.SendTypeMessage((int)eMsg., client, "", null);
 		        Caster.Out.SendMessage(target.Name + " is moving too fast for this spell to have any effect!", eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
 		        return;
 	        }
@@ -399,8 +366,6 @@ namespace DOL.GS.RealmAbilities
 	        if (sos)
 	        {
 		        SendAnimation(target, Spell.ClientEffect, false);
-		        // Message: 
-		        ChatUtil.SendTypeMessage((int)eMsg., client, "", null);
 		        Caster.Out.SendMessage(target.Name + " is moving too fast for this spell to have any effect!", eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
 		        return;
 	        }
