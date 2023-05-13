@@ -15,210 +15,231 @@ namespace DOL.GS.RealmAbilities
 {
     public class AtlasOF_Ichor : TimedRealmAbility, ISpellCastingAbilityHandler
     {
-	    private const string m_ichor = "Ichor of the Deep";
-        private const int m_duration = 20;
-        private const double m_damage = 400;
-        private const eDamageType m_damageType = eDamageType.Spirit;
-        private const eEffect m_effect = eEffect.IchorOfTheDeep;
-        private const eSpellType m_type = eSpellType.IchorOfTheDeep;
-        private const int m_radius = 500;
-        private const int m_range = 1875;
-        private const int m_recast = 900;
-        private const int m_reqLevel = 40;
-        private const int m_interruptTime = 3000;
-        private const int m_effectiveness = 1;
-        private const int m_value = 99;
-        private const int m_spellID = 7029;
-        private DBSpell m_dbspell;
-        private Spell m_spell = null;
-        private SpellLine m_spellline;
-        private SpellHandler m_ichorHandler;
-        private GamePlayer m_caster;
-        private GameLiving m_owner;
+	    private const string ichor = "Ichor of the Deep"; // Ability name
+        private const int duration = 20; // Duration of root in seconds
+        private const double damage = 400; // Base damage
+        private const eDamageType damageType = eDamageType.Spirit;
+        private const eEffect effect = eEffect.IchorOfTheDeep;
+        private const eSpellType type = eSpellType.IchorOfTheDeep;
+        private const int radius = 500; // Area of effect
+        private const int range = 1875; // In units
+        private const int recast = 900; // In seconds
+        private const int reqLevel = 40; // Minimum required level to spec
+        private const int interruptTime = 3000; // In milliseconds
+        private const int effectiveness = 1; // Spell damage effectiveness
+        private const int value = 99; // Root effectiveness
+        private const int spellID = 7029;
+        private DBSpell _dbSpell;
+        private Spell _spell = null;
+        private SpellLine _spellLine;
+        private SpellHandler _ichorHandler;
+        private GamePlayer _caster;
+        private GameLiving _owner;
 
-        public GamePlayer Caster => m_caster;
-        public GameLiving Owner => m_owner;
-        private DBSpell DBSpell => m_dbspell;
-        public Spell Spell => m_spell;
-        public SpellLine SpellLine => m_spellline;
-        public SpellHandler SpellHandler => m_ichorHandler;
+        public GamePlayer Caster => _caster;
+        public GameLiving Owner => _owner;
+        private DBSpell DBSpell => _dbSpell;
+        public Spell Spell => _spell;
+        public SpellLine SpellLine => _spellLine;
+        public SpellHandler SpellHandler => _ichorHandler;
         public Ability Ability => this;
 
         public AtlasOF_Ichor(DBAbility dba, int level) : base(dba, level) { }
 
-        public override string Name => m_ichor;
-        public override ushort Icon => m_spellID;
+        public override string Name => ichor;
+        public override ushort Icon => spellID;
         public override int MaxLevel => 1;
         public override int CostForUpgrade(int level) { return 14; }
-        public override int GetReUseDelay(int level) { return m_recast; } // 15 minutes
+        public override int GetReUseDelay(int level) { return recast; } // 15 minutes
         public override bool CheckRequirement(GamePlayer player)
         {
-	        return AtlasRAHelpers.HasPlayerLevel(player, m_reqLevel);
+	        return AtlasRAHelpers.HasPlayerLevel(player, reqLevel);
         }
 
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod()?.DeclaringType);
+        
+        /// <summary>
+        /// Sets the parameters of the realm ability and its effects.
+        /// </summary>
+        /// <param name="caster">The player casting/using the realm ability.</param>
+        /// <returns></returns>
         public SpellHandler CreateSpell(GamePlayer caster)
         {
-	        m_dbspell = new DBSpell();
-	        m_dbspell.Name = m_ichor;
-	        m_dbspell.Icon = m_spellID;
-	        m_dbspell.ClientEffect = m_spellID;
-	        m_dbspell.Damage = m_damage; // 400
-	        m_dbspell.DamageType = (int)m_damageType; // Spirit
-	        m_dbspell.Target = "Enemy";
-	        m_dbspell.Radius = m_radius; // 500
-	        m_dbspell.Type = m_type.ToString();
-	        m_dbspell.Value = m_value;
-	        m_dbspell.Duration = m_duration; // 20 seconds
-	        m_dbspell.Pulse = 0;
-	        m_dbspell.PulsePower = 0;
-	        m_dbspell.Power = 0;
-	        m_dbspell.CastTime = 0;
-	        m_dbspell.EffectGroup = 0;
-	        m_dbspell.Range = m_range; // 1875
-	        m_dbspell.Frequency = 0;
-	        m_dbspell.RecastDelay = m_recast; // 15 minutes
-	        m_dbspell.InstrumentRequirement = 0;
-	        m_dbspell.Concentration = 0;
-	        m_dbspell.Description = "Damages and roots all enemies in the spell's radius. This ignores existing root immunities.";
-	        m_dbspell.Message1 = "Constricting bonds surround your body!";
-	        m_dbspell.Message2 = "{0} is surrounded by constricting bonds!";
-	        m_spell = new Spell(m_dbspell, m_reqLevel);
-	        m_spellline = new SpellLine("RAs", "RealmAbilities", "RealmAbilities", true);
-	        m_ichorHandler = new SpellHandler(caster, new Spell(m_dbspell,  m_reqLevel) , m_spellline); // make spell level 0 so it bypasses the spec level adjustment code
+	        _dbSpell = new DBSpell();
+	        _dbSpell.Name = ichor;
+	        _dbSpell.Icon = spellID;
+	        _dbSpell.ClientEffect = spellID;
+	        _dbSpell.Damage = damage; // 400
+	        _dbSpell.DamageType = (int)damageType; // Spirit
+	        _dbSpell.Target = "Enemy";
+	        _dbSpell.Radius = radius; // 500
+	        _dbSpell.Type = type.ToString();
+	        _dbSpell.Value = value;
+	        _dbSpell.Duration = duration; // 20 seconds
+	        _dbSpell.Pulse = 0;
+	        _dbSpell.PulsePower = 0;
+	        _dbSpell.Power = 0;
+	        _dbSpell.CastTime = 0; // Instant cast
+	        _dbSpell.EffectGroup = 0;
+	        _dbSpell.Range = range; // 1875 units
+	        _dbSpell.Frequency = 0;
+	        _dbSpell.RecastDelay = recast; // 15 minutes
+	        _dbSpell.InstrumentRequirement = 0;
+	        _dbSpell.Concentration = 0;
+	        _dbSpell.Description = "Damages and roots all enemies in the spell's radius. This ignores existing root immunities.";
+	        _dbSpell.Message1 = "Constricting bonds surround your body!";
+	        _dbSpell.Message2 = "{0} is surrounded by constricting bonds!";
+	        _spell = new Spell(_dbSpell, reqLevel);
+	        _spellLine = new SpellLine("RAs", "RealmAbilities", "RealmAbilities", true);
+	        _ichorHandler = new SpellHandler(caster, new Spell(_dbSpell,  reqLevel) , _spellLine); // Make spell level 0 so that it bypasses the spec level adjustment code
 
-	        return m_ichorHandler;
+	        return _ichorHandler;
         }
 
         public override void Execute(GameLiving living)
         {
+	        // Regular null check
 	        if (living == null)
-	        {
-		        log.Warn("No living at execute");
 		        return;
-	        }
 
+	        // Make sure the caster is an actual player
 	        if (living is not GamePlayer)
-	        {
-		        log.Warn("Living is not GamePlayer");
 		        return;
-	        }
 
-            if (CheckPreconditions(living, DEAD | SITTING | MEZZED | STUNNED))
+	        // Make sure the caster is not indisposed
+	        if (CheckPreconditions(living, DEAD | SITTING | MEZZED | STUNNED))
             {
-	            log.Warn("Precondition failed");
+	            if (CheckPreconditions(living, DEAD))
+		            Caster.Out.SendMessage("You cannot use this ability while dead!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
+	            
+	            if (CheckPreconditions(living, SITTING))
+		            Caster.Out.SendMessage("You cannot use this ability while sitting!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
+	            
+	            if (CheckPreconditions(living, MEZZED))
+		            Caster.Out.SendMessage("You cannot use this ability while mesmerized!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
+	            
+	            if (CheckPreconditions(living, STUNNED))
+		            Caster.Out.SendMessage("You cannot use this ability while stunned!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
+	            
 	            return;
             }
-            m_caster = (GamePlayer)living;
-
-            m_ichorHandler = CreateSpell((GamePlayer)living);
-
-            // Player must have a target
+	        
+            _caster = (GamePlayer)living;
+            _ichorHandler = CreateSpell((GamePlayer)living);
+            _owner = Caster.TargetObject as GameLiving;
+            
+            // Caster must have a target
 			if (Caster.TargetObject == null)
 			{
 				Caster.Out.SendMessage("You must select a target for this ability!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
-				Caster.DisableSkill(this, m_interruptTime);
+				Caster.DisableSkill(this, interruptTime);
 				return;
 			}
-
-			m_owner = Caster.TargetObject as GameLiving;
-
-			// So they can't use Admins or objects as a target
-			if (Owner == null || m_owner is Keeps.GameKeepDoor or Keeps.GameKeepComponent)
-			{
-				Caster.Out.SendMessage("You have an invalid target!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
-				Caster.DisableSkill(this, m_interruptTime);
-				return;
-			}
-
-			// Target must be in front of the Player
-			if (!Caster.TargetInView || !Caster.IsObjectInFront(m_owner, 150))
-			{
-				Caster.Out.SendMessage(m_owner.GetName(0, true) + " is not in view!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
-				Caster.DisableSkill(this, m_interruptTime);
-				return;
-			}
-
-			// Can't target self
-			if (Caster == m_owner)
-			{
-				Caster.Out.SendMessage("You can't attack yourself!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
-				Caster.DisableSkill(this, m_interruptTime);
-				return;
-			}
-
-			// Target must be alive
-			if (!m_owner.IsAlive)
-			{
-				Caster.Out.SendMessage(m_owner.GetName(0, true) + " is dead!", eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
-				Caster.DisableSkill(this, m_interruptTime);
-				return;
-			}
-
-			// So they can't use Admins or objects as a target
-			if (!GameServer.ServerRules.IsAllowedToAttack(Caster, m_owner, true) || (m_owner is GamePlayer playerTarget && playerTarget.CharacterClass.ID == (int)eCharacterClass.Necromancer && playerTarget.IsShade))
-			{
-				Caster.Out.SendMessage(m_owner.GetName(0, true) + " can't be attacked", eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
-				Caster.DisableSkill(this, m_interruptTime);
-				return;
-			}
-
-			// Target must be within range
-			if (!Caster.IsWithinRadius(m_owner, SpellHandler.CalculateSpellRange()))
-			{
-				Caster.Out.SendMessage(m_owner.GetName(0, true) + " is too far away!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
-				Caster.DisableSkill(this, m_interruptTime);
-				return;
-			}
-
-			// Target cannot be an ally or friendly
-			if (Caster.Realm == m_owner.Realm)
-			{
-				Caster.Out.SendMessage("You can't attack a member of your realm!", eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
-				Caster.DisableSkill(this, m_interruptTime);
-				return;
-			}
-
+			
 			// Cannot use ability if timer is not expired
 			if (Spell.HasRecastDelay && Caster.GetSkillDisabledDuration(Spell) > 0)
 			{
 				Caster.Out.SendMessage("You must wait" + Caster.GetSkillDisabledDuration(Spell) / 1000 + " seconds to recast this type of ability!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
-				Caster.DisableSkill(this, m_interruptTime);
+				Caster.DisableSkill(this, interruptTime);
 				return;
 			}
 
+			// Caster can't use objects as a target
+			if (_owner == null || _owner is Keeps.GameKeepDoor or Keeps.GameKeepComponent)
+			{
+				Caster.Out.SendMessage("You have an invalid target!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				Caster.DisableSkill(this, interruptTime);
+				return;
+			}
 
+			// Target must be in front of the Player
+			if (!Caster.TargetInView || !Caster.IsObjectInFront(_owner, 150))
+			{
+				Caster.Out.SendMessage(_owner.GetName(0, true) + " is not in view!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				Caster.DisableSkill(this, interruptTime);
+				return;
+			}
 
-			var ad = DamageDetails(m_owner, m_owner);
+			// Can't target self
+			if (Caster == _owner)
+			{
+				Caster.Out.SendMessage("You can't attack yourself!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				Caster.DisableSkill(this, interruptTime);
+				return;
+			}
+			
+			// Target must be within range
+			if (!Caster.IsWithinRadius(_owner, SpellHandler.CalculateSpellRange()))
+			{
+				Caster.Out.SendMessage(_owner.GetName(0, true) + " is too far away!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				Caster.DisableSkill(this, interruptTime);
+				return;
+			}
+
+			// Target must be alive
+			if (!_owner.IsAlive)
+			{
+				Caster.Out.SendMessage(_owner.GetName(0, true) + " is dead!", eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
+				Caster.DisableSkill(this, interruptTime);
+				return;
+			}
+
+			// So they can't use Admins/GMs or Necros as a target
+			if (!GameServer.ServerRules.IsAllowedToAttack(Caster, _owner, true) || (_owner is GamePlayer playerTarget && playerTarget.CharacterClass.ID == (int)eCharacterClass.Necromancer && playerTarget.IsShade))
+			{
+				Caster.Out.SendMessage(_owner.GetName(0, true) + " can't be attacked", eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
+				Caster.DisableSkill(this, interruptTime);
+				return;
+			}
+
+			// Target cannot be an ally or friendly
+			if (Caster.Realm == _owner.Realm)
+			{
+				Caster.Out.SendMessage("You can't attack a member of your realm!", eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
+				Caster.DisableSkill(this, interruptTime);
+				return;
+			}
+			
+			var ad = DamageDetails(_owner, _owner);
 
 			SendCastMessage(Caster);
 			OnDirectEffect(ad.Target, ad.Target);
-			var targetDur = CalculateEffectDuration(ad.Target, m_effectiveness);
+			var targetDur = CalculateEffectDuration(ad.Target, effectiveness);
 			ApplyEffectOnTarget(ad.Target, targetDur);
 
-			foreach (GamePlayer aePlayers in m_owner.GetPlayersInRadius((ushort) Spell.Radius))
+			// Go through all applicable GamePlayer targets in ability radius and apply damage/effect
+			foreach (GamePlayer aePlayers in _owner.GetPlayersInRadius((ushort) Spell.Radius))
 			{
 				if (aePlayers == null) continue;
+				if (aePlayers.Realm == Caster.Realm) continue;
+				if (aePlayers.Client.Account.PrivLevel > 1) continue;
+				if (!aePlayers.IsAlive) continue;
+				if (aePlayers == Caster) continue;
 
-				var gpAD = DamageDetails(m_owner, aePlayers);
+				var gpAD = DamageDetails(_owner, aePlayers);
 
-				if (gpAD.Target != m_owner && gpAD.Target != Caster)
+				// Apply secondary/reduced damage to all applicable targets in RA radius
+				if (gpAD.Target != _owner)
 				{
-					OnDirectEffect(m_owner, gpAD.Target);
-					var aeDur = CalculateEffectDuration(gpAD.Target, m_effectiveness);
+					OnDirectEffect(_owner, gpAD.Target);
+					var aeDur = CalculateEffectDuration(gpAD.Target, effectiveness);
 					ApplyEffectOnTarget(gpAD.Target, aeDur);
 				}
 			}
-			foreach (GameNPC aeNPCs in m_owner.GetNPCsInRadius((ushort) Spell.Radius))
+			
+			// Go through all applicable GameNPC targets in ability radius and apply damage/effect
+			foreach (GameNPC aeNPCs in _owner.GetNPCsInRadius((ushort) Spell.Radius))
 			{
 				if (aeNPCs == null) continue;
+				if (aeNPCs.Realm == Caster.Realm) continue;
+				if (!aeNPCs.IsAlive) continue;
 
-				var npcAD = DamageDetails(m_owner, aeNPCs);
+				var npcAD = DamageDetails(_owner, aeNPCs);
 
-				if (npcAD.Target != m_owner)
+				if (npcAD.Target != _owner)
 				{
-					OnDirectEffect(m_owner, npcAD.Target);
-					var npcDur = CalculateEffectDuration(npcAD.Target, m_effectiveness);
+					OnDirectEffect(_owner, npcAD.Target);
+					var npcDur = CalculateEffectDuration(npcAD.Target, effectiveness);
 					ApplyEffectOnTarget(npcAD.Target, npcDur);
 				}
 			}
@@ -228,7 +249,7 @@ namespace DOL.GS.RealmAbilities
 
         public void SendAnimation(GameLiving target, ushort spellID, bool success)
         {
-	        if (m_caster == null)
+	        if (_caster == null)
 		        return;
 
 	        if (Caster.GetSkillDisabledDuration(Spell) > 0 || target == null)
@@ -275,11 +296,11 @@ namespace DOL.GS.RealmAbilities
 
         public AttackData DamageDetails(GameLiving initTarget, GameLiving aeTarget)
         {
-	        if (initTarget == null || aeTarget == null || m_caster == null)
+	        if (initTarget == null || aeTarget == null || _caster == null)
 		        return null;
 
 	        var ad = new AttackData();
-	        ad.Attacker = m_caster;
+	        ad.Attacker = _caster;
 	        ad.Target = aeTarget;
 	        ad.AttackType = AttackData.eAttackType.Spell;
 	        ad.SpellHandler = SpellHandler;
@@ -293,7 +314,7 @@ namespace DOL.GS.RealmAbilities
 	        ad.ParryChance = 0;
 	        ad.IsSpellResisted = false;
 	        ad.Modifier = 0;
-	        ad.Damage = CalculateDamageWithFalloff((int)Spell.Damage, initTarget, aeTarget, m_effectiveness);
+	        ad.Damage = CalculateDamageWithFalloff((int)Spell.Damage, initTarget, aeTarget, effectiveness);
 
 	        return ad;
         }
@@ -334,7 +355,7 @@ namespace DOL.GS.RealmAbilities
 	        {
 		        if (ad.Target is GamePlayer gpTarget)
 					gpTarget.Out.SendMessage(ad.Attacker.Name + " hits you for " + ad.Damage + " damage!", eChatType.CT_Damaged, eChatLoc.CL_SystemWindow);
-		        ad.Target.StartInterruptTimer(m_interruptTime, ad.AttackType, ad.Attacker);
+		        ad.Target.StartInterruptTimer(interruptTime, ad.AttackType, ad.Attacker);
 	        }
         }
 
@@ -376,7 +397,7 @@ namespace DOL.GS.RealmAbilities
 	        var speedDebuff = EffectListService.GetEffectOnTarget(target, eEffect.MovementSpeedDebuff);
 	        if (speedDebuff != null)
 		        EffectService.RequestImmediateCancelEffect(speedDebuff);
-	        var ichor = EffectListService.GetEffectOnTarget(target, m_effect);
+	        var ichor = EffectListService.GetEffectOnTarget(target, AtlasOF_Ichor.effect);
 	        if (ichor != null)
 		        EffectService.RequestImmediateCancelEffect(ichor);
 
@@ -389,21 +410,21 @@ namespace DOL.GS.RealmAbilities
             get
             {
                 var delveInfoList = new List<string>();
-                delveInfoList.Add(m_ichor);
+                delveInfoList.Add(ichor);
                 delveInfoList.Add("");
-                delveInfoList.Add("Level Requirement: " + m_reqLevel);
+                delveInfoList.Add("Level Requirement: " + reqLevel);
                 delveInfoList.Add("");
                 delveInfoList.Add("Function: direct damage & root ");
                 delveInfoList.Add("Damages and roots all enemies in the spell's radius.");
-                delveInfoList.Add("Damage: " + m_damage);
+                delveInfoList.Add("Damage: " + damage);
                 delveInfoList.Add("Target: area of effect");
-                delveInfoList.Add("Range: " + m_range);
-                delveInfoList.Add("Duration: " + m_duration + " sec");
-                delveInfoList.Add("Radius: " + m_radius);
-                delveInfoList.Add("Damage: " + m_damageType);
+                delveInfoList.Add("Range: " + range);
+                delveInfoList.Add("Duration: " + duration + " sec");
+                delveInfoList.Add("Radius: " + radius);
+                delveInfoList.Add("Damage: " + damageType);
                 delveInfoList.Add("Casting time: instant");
                 delveInfoList.Add("");
-                delveInfoList.Add("Can use the ability every: " + FormatTimespan(m_recast));
+                delveInfoList.Add("Can use the ability every: " + FormatTimespan(recast));
 
                 return delveInfoList;
             }
@@ -411,22 +432,22 @@ namespace DOL.GS.RealmAbilities
 
         public override void AddEffectsInfo(IList<string> list)
         {
-	        list.Add(m_ichor);
+	        list.Add(ichor);
 	        list.Add("");
-            list.Add("Level Requirement: " + m_reqLevel);
+            list.Add("Level Requirement: " + reqLevel);
             list.Add("");
             list.Add("Function: direct damage & root ");
             list.Add("Damages and roots all enemies in the spell's radius.");
-            list.Add("Damage: " + m_damage);
+            list.Add("Damage: " + damage);
             list.Add("Target: Targeted");
-            list.Add("Range: " + m_range);
-            list.Add("Duration: " + m_duration + " sec");
+            list.Add("Range: " + range);
+            list.Add("Duration: " + duration + " sec");
             list.Add("Casting time: instant");
-            list.Add("Radius: " + m_radius);
-            list.Add("Damage: " + m_damageType);
+            list.Add("Radius: " + radius);
+            list.Add("Damage: " + damageType);
             list.Add("Casting time: instant");
             list.Add("");
-            list.Add("Can use the ability every: " + FormatTimespan(m_recast));
+            list.Add("Can use the ability every: " + FormatTimespan(recast));
         }
     }
 }
