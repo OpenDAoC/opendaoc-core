@@ -163,5 +163,18 @@ namespace DOL.GS.RealmAbilities
 
             return player.CalculateSkillLevel(raLongshot);
         }
+        
+        /// <summary>
+        /// Checks to make sure the player is of sufficient level.
+        /// </summary>
+        /// <param name="player">The player training the ability.</param>
+        /// <param name="level">The minimum level required to train the ability.</param>
+        /// <returns></returns>
+        public static bool HasPlayerLevel(GamePlayer player, int level)
+        {
+            if (player.Client.Account.PrivLevel == (uint)ePrivLevel.Player)
+                return player.Level > level;
+            return true;
+        }
     }
 }
