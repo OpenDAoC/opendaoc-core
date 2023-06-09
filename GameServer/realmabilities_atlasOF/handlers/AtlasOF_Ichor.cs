@@ -139,7 +139,7 @@ namespace DOL.GS.RealmAbilities
 			// Cannot use ability if timer is not expired
 			if (Spell.HasRecastDelay && Caster.GetSkillDisabledDuration(Spell) > 0)
 			{
-				Caster.Out.SendMessage("You must wait" + Caster.GetSkillDisabledDuration(Spell) / 1000 + " seconds to recast this type of ability!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
+				Caster.Out.SendMessage("You must wait " + Caster.GetSkillDisabledDuration(Spell) / 1000 + " seconds to recast this type of ability!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
 				Caster.DisableSkill(this, interruptTime);
 				return;
 			}
@@ -187,7 +187,7 @@ namespace DOL.GS.RealmAbilities
 			// So they can't use Admins/GMs or Necros as a target
 			if (!GameServer.ServerRules.IsAllowedToAttack(Caster, _owner, true) || (_owner is GamePlayer playerTarget && playerTarget.CharacterClass.ID == (int)eCharacterClass.Necromancer && playerTarget.IsShade))
 			{
-				Caster.Out.SendMessage(_owner.GetName(0, true) + " can't be attacked", eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
+				Caster.Out.SendMessage(_owner.GetName(0, true) + " can't be attacked!", eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
 				Caster.DisableSkill(this, interruptTime);
 				return;
 			}

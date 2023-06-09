@@ -5,15 +5,28 @@ RealmAbility.AddReUseDelayInfo.Every:			Level {0}: Can use every: {1}
 RealmAbility..CheckPreconditions.BeInCombat:		You must be in combat recently to use this ability!
 RealmAbility..CheckPreconditions.BeInGroup:		You must be in a group use this ability!
 RealmAbility..CheckPreconditions.Combat:		You have been in combat recently and cannot use this ability!
-RealmAbility..CheckPreconditions.Dead:			You cannot use this ability while dead!
-RealmAbility..CheckPreconditions.Mesmerized:		You cannot use this ability while mesmerized!
-RealmAbility..CheckPreconditions.Sitting:		You cannot use this ability while sitting!
+RealmAbility..CheckPreconditions.Dead:			                You cannot use this ability while dead!
+RealmAbility..CheckPreconditions.Mesmerized:		            You cannot use this ability while mesmerized!
+RealmAbility..CheckPreconditions.Sitting:		                You cannot use this ability while sitting!
 RealmAbility..CheckPreconditions.Stealthed:		You cannot use this ability while stealthed!
-RealmAbility..CheckPreconditions.Stunned:		You cannot use this ability while stunned!
+RealmAbility..CheckPreconditions.Stunned:		                You cannot use this ability while stunned!
 RealmAbility.SendCasterSpellEffectAndCastMessage.Caster:{0} casts a spell!
 RealmAbility.SendCasterSpellEffectAndCastMessage.You:	You cast a {0} Spell!
 RealmAbility.SendCastMessage.PlayerCasts:		{0} casts a spell!
 RealmAbility.SendCastMessage.YouCast:			You cast a {0} Spell!
+RealmAbility.SendCastMessage.SelectTarget:                      You must select a target for this ability!
+RealmAbility.SendCastMessage.WaitToRecast:                      You must wait {0} seconds to recast this type of ability!
+RealmAbility.SendCastMessage.InvalidTarget:                     You have an invalid target!
+RealmAbility.SendCastMessage.NotInView:                         {0} is not in view!
+RealmAbility.SendCastMessage.AttackSelf:                        You can't attack yourself!
+RealmAbility.SendCastMessage.TooFarAway:                        {0} is too far away!
+RealmAbility.SendCastMessage.TargetDead:                        {0} is dead!
+RealmAbility.SendCastMessage.CantAttackTarget:                  {0} can't be attacked!
+RealmAbility.SendCastMessage.MemberOfRealm:                     You can't attack a member of your realm!
+RealmAbility.SendCastMessage.YouHitDamage:                      You hit {0} for {1} damage!
+RealmAbility.SendCastMessage.HitsYouDamage:                     {0} hits you for {1} damage!
+RealmAbility.SendCastMessage.ImmuneToEffect:                    {0} is immune to this effect!
+RealmAbility.SendCastMessage.MovingTooFast:                     {0} is moving too fast for this spell to have any effect!
 
 ## Adrenaline Rush
 AdrenalineRushAbility.AddEffectsInfo.Info1:		
