@@ -278,7 +278,7 @@ namespace DOL.GS.RealmAbilities
 	        if (target == null)
 		        return 0;
 
-	        double duration = Spell.Duration * effectiveness;
+	        var duration = Spell.Duration * effectiveness;
 	        var primaryResistModifier = target.GetResist(Spell.DamageType) * 0.01;
 	        var secondaryResistModifier = target.SpecBuffBonusCategory[(int)eProperty.Resist_Spirit] * 0.01;
 	        var rootdet = target.GetModified(eProperty.SpeedDecreaseDurationReduction) * 0.01;
@@ -321,35 +321,55 @@ namespace DOL.GS.RealmAbilities
 
         public void OnDirectEffect(GameLiving initTarget, GameLiving aeTarget)
         {
+	        // Determining which targets cannot be hurt/affected by ability
+	        
+	        // Skip if target is null
 	        if (initTarget == null)
 		        return;
+	        
+	        // Skip if AE target is null
 	        if (aeTarget == null)
 		        return;
+	        
+	        // Skip if caster is null
 	        if (Caster == null)
 		        return;
+	        
+	        // Skip if target is caster
 	        if (aeTarget == Caster)
 		        return;
+	        
+	        // Skip if target is dead
 	        if (!aeTarget.IsAlive)
 		        return;
-	        // So they can't use Admins or objects as a target
+	        
+	        // So they can't use Admins/GMs as a target
 	        if (!GameServer.ServerRules.IsAllowedToAttack(Caster, aeTarget, true))
 		        return;
+	        
 	        var targetShade = EffectListService.GetEffectOnTarget(aeTarget, eEffect.Shade);
+	        
+	        // Skip if player is in shade form
 	        if (aeTarget is GamePlayer aePlayer && aePlayer.CharacterClass.ID == (int) eCharacterClass.Necromancer && aePlayer.IsShade && targetShade != null)
 		        return;
+	        
 	        // Target cannot be an ally or friendly
 	        if (Caster.Realm == aeTarget.Realm)
 		        return;
 
 	        var ad = DamageDetails(initTarget, aeTarget);
+	        
 	        ad.Target.TakeDamage(ad.Attacker, ad.DamageType, ad.Damage, 0);
+	        
 	        if (ad.Target.IsStealthed && ad.Target is GamePlayer stealther && ad.Damage > 0)
 		        stealther.Stealth(false);
+	        
 	        ad.Target.LastAttackedByEnemyTickPvE = GameLoop.GameLoopTime;
 	        ad.Target.LastAttackedByEnemyTickPvP = GameLoop.GameLoopTime;
 
 	        // Spell damage messages
 	        Caster.Out.SendMessage("You hit " + ad.Target.GetName(0, false) + " for " + ad.Damage + " damage!", eChatType.CT_YouHit, eChatLoc.CL_SystemWindow);
+	        
 	        // Display damage message to target if any damage is actually caused
 	        if (ad.Damage > 0)
 	        {
@@ -368,6 +388,8 @@ namespace DOL.GS.RealmAbilities
 		        return;
 
 	        var effect = EffectListService.GetSpellEffectOnTarget(target, eEffect.MovementSpeedDebuff);
+	        
+	        // Check for Prevent Flight
 	        if (effect != null && effect.SpellHandler.Spell.Name.Equals("Prevent Flight"))
 	        {
 		        Caster.Out.SendMessage(target.GetName(0, true) + " is immune to this effect!", eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
@@ -376,6 +398,8 @@ namespace DOL.GS.RealmAbilities
 	        }
 
 	        var targetCharge = EffectListService.GetEffectOnTarget(target, eEffect.Charge);
+	        
+	        // Check for Charge
 	        if (targetCharge != null)
 	        {
 		        SendAnimation(target, Spell.ClientEffect, false);
@@ -383,7 +407,9 @@ namespace DOL.GS.RealmAbilities
 		        return;
 	        }
 
-	        var sos = target.EffectList.CountOfType<SpeedOfSoundEffect>() == 1;
+	        var sos = target.effectListComponent.Effects.ContainsKey(eEffect.SpeedOfSound);
+	        
+			// Check for Speed of Sound
 	        if (sos)
 	        {
 		        SendAnimation(target, Spell.ClientEffect, false);
@@ -392,12 +418,20 @@ namespace DOL.GS.RealmAbilities
 	        }
 
 	        var snare = EffectListService.GetEffectOnTarget(target, eEffect.Snare);
+	        
+	        // Overwrite snare
 	        if (snare != null)
 		        EffectService.RequestImmediateCancelEffect(snare);
+	        
 	        var speedDebuff = EffectListService.GetEffectOnTarget(target, eEffect.MovementSpeedDebuff);
+	        
+	        // Overwrite speed debuff
 	        if (speedDebuff != null)
 		        EffectService.RequestImmediateCancelEffect(speedDebuff);
+	        
 	        var ichor = EffectListService.GetEffectOnTarget(target, AtlasOF_Ichor.effect);
+	        
+	        // Overwrite existing Ichor effect, if any exists
 	        if (ichor != null)
 		        EffectService.RequestImmediateCancelEffect(ichor);
 
@@ -424,7 +458,7 @@ namespace DOL.GS.RealmAbilities
                 delveInfoList.Add("Damage: " + damageType);
                 delveInfoList.Add("Casting time: instant");
                 delveInfoList.Add("");
-                delveInfoList.Add("Can use the ability every: " + FormatTimespan(recast));
+                delveInfoList.Add("Can use the ability every: " + FormatTimespan(recast / 60) + " min");
 
                 return delveInfoList;
             }
@@ -439,7 +473,7 @@ namespace DOL.GS.RealmAbilities
             list.Add("Function: direct damage & root ");
             list.Add("Damages and roots all enemies in the spell's radius.");
             list.Add("Damage: " + damage);
-            list.Add("Target: Targeted");
+            list.Add("Target: area of effect");
             list.Add("Range: " + range);
             list.Add("Duration: " + duration + " sec");
             list.Add("Casting time: instant");
@@ -447,7 +481,7 @@ namespace DOL.GS.RealmAbilities
             list.Add("Damage: " + damageType);
             list.Add("Casting time: instant");
             list.Add("");
-            list.Add("Can use the ability every: " + FormatTimespan(recast));
+            list.Add("Can use the ability every: " + FormatTimespan(recast / 60) + " min");
         }
     }
 }

@@ -80,8 +80,8 @@ namespace DOL.GS.Effects
                 EffectService.RequestDisableEffect(root);
             }
             
-            if(OwnerPlayer.effectListComponent.ContainsEffectForEffectType(eEffect.Ichor))
-                EffectService.RequestDisableEffect(OwnerPlayer.effectListComponent.GetAllEffects().FirstOrDefault(e => e.EffectType == eEffect.Ichor));
+            if(OwnerPlayer.effectListComponent.ContainsEffectForEffectType(eEffect.IchorOfTheDeep))
+                EffectService.RequestDisableEffect(OwnerPlayer.effectListComponent.GetAllEffects().FirstOrDefault(e => e.EffectType == eEffect.IchorOfTheDeep));
             
             OwnerPlayer.BuffBonusMultCategory1.Set((int) eProperty.MaxSpeed, this,
                 PropertyCalc.MaxSpeedCalculator.SPEED4);
@@ -115,8 +115,8 @@ namespace DOL.GS.Effects
                 EffectService.RequestEnableEffect(root);
             }
             
-            if(OwnerPlayer.effectListComponent.ContainsEffectForEffectType(eEffect.Ichor))
-                EffectService.RequestEnableEffect(OwnerPlayer.effectListComponent.GetAllEffects().FirstOrDefault(e => e.EffectType == eEffect.Ichor));
+            if(OwnerPlayer.effectListComponent.ContainsEffectForEffectType(eEffect.IchorOfTheDeep))
+                EffectService.RequestEnableEffect(OwnerPlayer.effectListComponent.GetAllEffects().FirstOrDefault(e => e.EffectType == eEffect.IchorOfTheDeep));
             
             OwnerPlayer.Out.SendUpdateMaxSpeed();
             

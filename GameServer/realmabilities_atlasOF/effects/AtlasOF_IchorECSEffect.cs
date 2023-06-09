@@ -146,6 +146,7 @@ namespace DOL.GS.Effects
 		        case eAttackResult.HitUnstyled:
 		        {
 			        var ichor = EffectListService.GetEffectOnTarget(living, eEffect.IchorOfTheDeep);
+
 			        if (ichor != null)
 			        {
 				        if (attackArgs.AttackData.Damage > 0)
@@ -178,11 +179,14 @@ namespace DOL.GS.Effects
         {
 	        if (timer == null)
 		        return 0;
+
 	        if (Owner == null)
 		        return 0;
+
 	        var target = Owner;
 
 	        var ichor = EffectListService.GetEffectOnTarget(target, eEffect.IchorOfTheDeep);
+
 	        if (ichor == null)
 	        {
 		        target.TempProperties.removeProperty(timer);
