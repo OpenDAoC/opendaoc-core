@@ -13,30 +13,26 @@ namespace DOL.GS.Effects
     public class AtlasOF_IchorOfTheDeepECSEffect : ECSGameAbilityEffect
     {
 	    private ECSGameTimer m_rootExpire;
-	    private int m_rootDur = m_ichorHandler.Spell.Duration;
 	    private static SpellHandler m_ichorHandler;
-        private Spell m_spell;
+	    private int m_rootDur = m_ichorHandler.Spell.Duration;
+	    private Spell m_spell = m_ichorHandler.Spell;
         private SpellLine m_spellline;
         public Spell Spell { get { return m_spell; } }
         public SpellLine SpellLine { get { return m_spellline; } }
         public SpellHandler SpellHandler { get { return m_ichorHandler; }}
-        private GamePlayer m_caster;
+
         /// <summary>
         /// The Spell Caster
         /// </summary>
-        private GamePlayer Caster
-        {
-	        get { return m_caster; }
-	        set { m_caster = value; }
-        }
+        private GamePlayer Caster { get; set; }
 
         public AtlasOF_IchorOfTheDeepECSEffect(ECSGameEffectInitParams initParams)
             : base(initParams)
         {
 	        Caster = (GamePlayer)SpellHandler.Caster;
-	        Owner = (GameLiving)SpellHandler.Caster.TargetObject;
+	        Owner = (GameLiving)m_ichorHandler.Caster.TargetObject;
             EffectType = eEffect.IchorOfTheDeep;
-            Duration = SpellHandler.Spell.Duration;
+            Duration = m_rootDur;
             Effectiveness = 1;
             CancelEffect = false;
             RenewEffect = false;

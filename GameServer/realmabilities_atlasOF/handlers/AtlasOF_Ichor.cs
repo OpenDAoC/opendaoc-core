@@ -15,6 +15,8 @@ namespace DOL.GS.RealmAbilities
 {
     public class AtlasOF_Ichor : TimedRealmAbility, ISpellCastingAbilityHandler
     {
+	    public AtlasOF_Ichor(DBAbility dba, int level) : base(dba, level) { }
+
 	    private const string ichor = "Ichor of the Deep"; // Ability name
         private const int duration = 20; // Duration of root in seconds
         private const double damage = 400; // Base damage
@@ -28,7 +30,7 @@ namespace DOL.GS.RealmAbilities
         private const int interruptTime = 3000; // In milliseconds
         private const int effectiveness = 1; // Spell damage effectiveness
         private const int value = 99; // Root effectiveness
-        private const int spellID = 7029;
+        private const int spellId = 7029;
         private DBSpell _dbSpell;
         private Spell _spell = null;
         private SpellLine _spellLine;
@@ -44,10 +46,8 @@ namespace DOL.GS.RealmAbilities
         public SpellHandler SpellHandler => _ichorHandler;
         public Ability Ability => this;
 
-        public AtlasOF_Ichor(DBAbility dba, int level) : base(dba, level) { }
-
         public override string Name => ichor;
-        public override ushort Icon => spellID;
+        public override ushort Icon => spellId;
         public override int MaxLevel => 1;
         public override int CostForUpgrade(int level) { return 14; }
         public override int GetReUseDelay(int level) { return recast; } // 15 minutes
@@ -67,8 +67,8 @@ namespace DOL.GS.RealmAbilities
         {
 	        _dbSpell = new DBSpell();
 	        _dbSpell.Name = ichor;
-	        _dbSpell.Icon = spellID;
-	        _dbSpell.ClientEffect = spellID;
+	        _dbSpell.Icon = spellId;
+	        _dbSpell.ClientEffect = spellId;
 	        _dbSpell.Damage = damage; // 400
 	        _dbSpell.DamageType = (int)damageType; // Spirit
 	        _dbSpell.Target = "Enemy";
