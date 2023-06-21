@@ -107,24 +107,9 @@ namespace DOL.GS.RealmAbilities
 		        return;
 
 	        // Make sure the caster is not indisposed
-	        if (CheckPreconditions(living, DEAD | SITTING | MEZZED | STUNNED))
-            {
-	            if (CheckPreconditions(living, DEAD))
-		            Caster.Out.SendMessage("You cannot use this ability while dead!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
-	            
-	            if (CheckPreconditions(living, SITTING))
-		            Caster.Out.SendMessage("You cannot use this ability while sitting!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
-	            
-	            if (CheckPreconditions(living, MEZZED))
-		            Caster.Out.SendMessage("You cannot use this ability while mesmerized!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
-	            
-	            if (CheckPreconditions(living, STUNNED))
-		            Caster.Out.SendMessage("You cannot use this ability while stunned!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
-	            
-	            return;
-            }
-	        
-            _caster = (GamePlayer)living;
+	        CheckPreconditions(living, DEAD | SITTING | MEZZED | STUNNED);
+
+	        _caster = (GamePlayer)living;
             _ichorHandler = CreateSpell((GamePlayer)living);
             _owner = Caster.TargetObject as GameLiving;
             
@@ -458,7 +443,7 @@ namespace DOL.GS.RealmAbilities
                 delveInfoList.Add("Damage: " + damageType);
                 delveInfoList.Add("Casting time: instant");
                 delveInfoList.Add("");
-                delveInfoList.Add("Can use the ability every: " + FormatTimespan(recast / 60) + " min");
+                delveInfoList.Add("Can use the ability every: " + FormatTimespan(recast));
 
                 return delveInfoList;
             }
@@ -481,7 +466,7 @@ namespace DOL.GS.RealmAbilities
             list.Add("Damage: " + damageType);
             list.Add("Casting time: instant");
             list.Add("");
-            list.Add("Can use the ability every: " + FormatTimespan(recast / 60) + " min");
+            list.Add("Can use the ability every: " + FormatTimespan(recast));
         }
     }
 }
