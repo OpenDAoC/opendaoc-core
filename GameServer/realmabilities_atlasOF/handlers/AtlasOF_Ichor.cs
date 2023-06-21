@@ -263,20 +263,20 @@ namespace DOL.GS.RealmAbilities
 	        if (target == null)
 		        return 0;
 
-	        var duration = Spell.Duration * effectiveness;
+	        var calcDuration = AtlasOF_Ichor.duration * effectiveness;
 	        var primaryResistModifier = target.GetResist(Spell.DamageType) * 0.01;
 	        var secondaryResistModifier = target.SpecBuffBonusCategory[(int)eProperty.Resist_Spirit] * 0.01;
-	        var rootdet = target.GetModified(eProperty.SpeedDecreaseDurationReduction) * 0.01;
+	        var speedModifier = target.GetModified(eProperty.SpeedDecreaseDurationReduction) * 0.01;
 
-			duration *= (int)primaryResistModifier;
-			duration *= (int)rootdet;
-			duration *= (int)secondaryResistModifier;
+	        calcDuration *= (int)primaryResistModifier;
+	        calcDuration *= (int)speedModifier;
+	        calcDuration *= (int)secondaryResistModifier;
 
-	        if (duration < 1)
-		        duration = 1;
-	        else if (duration > (Spell.Duration * 4))
-		        duration = (Spell.Duration * 4);
-	        return (int)duration;
+	        if (calcDuration < 1)
+		        calcDuration = 1;
+	        else if (calcDuration > (Spell.Duration * 4))
+		        calcDuration = (Spell.Duration * 4);
+	        return (int)calcDuration;
         }
 
         public AttackData DamageDetails(GameLiving initTarget, GameLiving aeTarget)

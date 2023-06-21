@@ -14,7 +14,6 @@ namespace DOL.GS.Effects
     {
 	    private ECSGameTimer m_rootExpire;
 	    private static SpellHandler m_ichorHandler;
-	    private int m_rootDur = m_ichorHandler.Spell.Duration;
 	    private Spell m_spell = m_ichorHandler.Spell;
         private SpellLine m_spellline;
         public Spell Spell { get { return m_spell; } }
@@ -30,9 +29,9 @@ namespace DOL.GS.Effects
             : base(initParams)
         {
 	        Caster = (GamePlayer)SpellHandler.Caster;
-	        Owner = (GameLiving)m_ichorHandler.Caster.TargetObject;
+	        Owner = (GameLiving)SpellHandler.Caster.TargetObject;
             EffectType = eEffect.IchorOfTheDeep;
-            Duration = m_rootDur;
+            Duration = Spell.Duration;
             Effectiveness = 1;
             CancelEffect = false;
             RenewEffect = false;
