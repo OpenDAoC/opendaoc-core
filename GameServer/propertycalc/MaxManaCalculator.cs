@@ -1,21 +1,3 @@
-/*
- * DAWN OF LIGHT - The first free open source DAoC server emulator
- * 
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- * 
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
- *
- */
 using System;
 
 namespace DOL.GS.PropertyCalc
@@ -86,7 +68,7 @@ namespace DOL.GS.PropertyCalc
 
 				//Q: What exactly does the power pool % increase do?Does it increase the amount of power my cleric
 				//can generate (like having higher piety)? Or, like the dex cap increase, do I have to put spellcraft points into power to make it worth anything?
-				//A: I’m better off quoting Balance Boy directly here: ” Power pool is affected by
+				//A: Iï¿½m better off quoting Balance Boy directly here: ï¿½ Power pool is affected by
 				//your acuity stat, +power bonus, the Ethereal Bond Realm ability, and your level.
 				//The resulting power pool is adjusted by your power pool % increase bonus.
 				return (int)(manaBase + itemBonus + abilityBonus + (manaBase + itemBonus + abilityBonus) * poolBonus * 0.01); 
