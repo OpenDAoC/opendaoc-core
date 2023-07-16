@@ -126,8 +126,8 @@ If you're already familiar with the process and wish to skip it, in the followin
 
 #### Adding `DummyDB.sql` (Ubuntu)
 
-The most recent version of the required `DummyDB.sql` file is available as archive at `\OpenDAoC-Core\DummyDB.zip`. 
-Without it, you cannot successfully build a local OpenDAoC server. 
+The most recent version of the required `DummyDB.sql` file is available as archive at `\OpenDAoC-Core\DummyDB.zip`.
+Without it, you cannot successfully build a local OpenDAoC server.
 After installing MariaDB, you should also notice it installed a program called HeidiSQL, which you'll need to use for this section.
 
 1. Launch the Terminal and type `sudo mysql -u root opendaoc < ~/path/to/DummyDB.sql`. This copies the file's contents to the `opendaoc` database.
@@ -158,7 +158,7 @@ With the repo on your local hard drive, you need to alter the `serverconfig.xml`
    2. To test over LAN, enter your machine's IP address (use the Terminal command `ip a`, and it should start with `192`).
    3. To test outside your network, [enter your public IP address](https://api.ipify.org).
 4. Configure the database access as per your own configuration.
-   
+
 Now you're ready to [run your own instance of OpenDAoC](#building-your-dol-server-locally)!
 
 ## Setting Up on Windows
@@ -331,5 +331,17 @@ Logging is controlled by the `/OpenDAoC-Core/Debug/config/logconfig.xml` file. T
 
 
 ## License
+
+OpenDAoC is an open source branch of the Dawn of Light DAoC server emulator program. While originally designed to accommodate the v1.65 patch level, OpenDAoC has undergone numerous fixes and system-wide improvements to resolve stability issues and reduce bugs, thus making it a significant and unique deviation from the original DOL project.
+
+### Dawn of Light
+
+DAWN OF LIGHT - The first free open source DAoC server emulator
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)
