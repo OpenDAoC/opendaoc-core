@@ -78,7 +78,7 @@ namespace DOL.GS.Spells
 				return false;
 			}
 
-			if(Caster.ControlledBrain != null && Caster.ControlledBrain is AI.Brain.NecromancerPetBrain necroPet && necroPet.Body.InCombatInLast(5000))
+			if(Caster.ControlledBrain != null && Caster.ControlledBrain is AI.Brain.NecroPetBrain necroPet && necroPet.Body.InCombatInLast(5000))
             {
 				if (Caster is GamePlayer p)
 					p.Out.SendMessage("Your pet must be out of combat for 5 seconds to use this.", eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
@@ -101,7 +101,7 @@ namespace DOL.GS.Spells
 			endSpellHandler.StartSpell(target);
 			healthConSpellHandler.StartSpell(target);
 
-			if(Caster.ControlledBrain != null && Caster.ControlledBrain is AI.Brain.NecromancerPetBrain necrop)
+			if(Caster.ControlledBrain != null && Caster.ControlledBrain is AI.Brain.NecroPetBrain necrop)
             {
 				SpellHandler petHealHandler = ScriptMgr.CreateSpellHandler(necrop.Body, healSpell, potionEffectLine) as SpellHandler;
 				petHealHandler.StartSpell(necrop.Body);

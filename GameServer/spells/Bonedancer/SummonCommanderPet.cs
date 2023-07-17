@@ -40,7 +40,7 @@ namespace DOL.GS.Spells
 
 			if (pet.ControlledNpcList != null)
 			{
-				foreach (BDPetBrain cnpc in pet.ControlledNpcList)
+				foreach (BdPetBrain cnpc in pet.ControlledNpcList)
 				{
 					if (cnpc != null)
 						GameEventMgr.Notify(GameLivingEvent.PetReleased, cnpc.Body);
@@ -51,7 +51,7 @@ namespace DOL.GS.Spells
 
 		protected override IControlledBrain GetPetBrain(GameLiving owner)
 		{
-			return new CommanderBrain(owner);
+			return new BdCommanderBrain(owner);
 		}
 
 		protected override GameSummonedPet GetGamePet(INpcTemplate template)

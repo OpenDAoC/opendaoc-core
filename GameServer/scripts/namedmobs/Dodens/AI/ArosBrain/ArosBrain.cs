@@ -33,11 +33,11 @@ namespace DOL.AI.Brain
 
             FSM.ClearStates();
 
-            FSM.Add(new StandardMobState_WAKING_UP(FSM, this));
+            FSM.Add(new StandardMobState_WakingUp(FSM, this));
             FSM.Add(new ArosState_RETURN_TO_SPAWN(FSM, this));
             FSM.Add(new ArosState_IDLE(FSM, this));
             FSM.Add(new ArosState_AGGRO(FSM, this));
-            FSM.Add(new StandardMobState_DEAD(FSM, this));
+            FSM.Add(new StandardMobState_Dead(FSM, this));
 
             FSM.SetCurrentState(eFSMStateType.WAKING_UP);
         }

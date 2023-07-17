@@ -18,7 +18,7 @@ namespace DOL.GS
 		public override void CommandNpcRelease()
 		{
 			BDPet subpet = Player.TargetObject as BDPet;
-			if (subpet != null && subpet.Brain is BDPetBrain && Player.ControlledBrain is CommanderBrain && (Player.ControlledBrain as CommanderBrain).FindPet(subpet.Brain as IControlledBrain))
+			if (subpet != null && subpet.Brain is BdPetBrain && Player.ControlledBrain is BdCommanderBrain && (Player.ControlledBrain as BdCommanderBrain).FindPet(subpet.Brain as IControlledBrain))
 			{
 				Player.Notify(GameLivingEvent.PetReleased, subpet);
 				CommanderPet commander = (subpet.Brain as IControlledBrain).Owner as CommanderPet;

@@ -26,7 +26,7 @@ namespace DOL.GS.Keeps
 
         protected override KeepGuardBrain GetBrain()
         {
-            return new CasterBrain();
+            return new GuardCasterBrain();
         }
 
         protected override void SetName()

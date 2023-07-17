@@ -658,7 +658,7 @@ namespace DOL.GS.Spells
 						return false;
 					}
 				}
-				else if (m_caster is NecromancerPet necroPet && necroPet.Brain is NecromancerPetBrain)
+				else if (m_caster is NecromancerPet necroPet && necroPet.Brain is NecroPetBrain)
 				{
 					if (!necroPet.effectListComponent.ContainsEffectForEffectType(eEffect.FacilitatePainworking))
 					{
@@ -1217,7 +1217,7 @@ namespace DOL.GS.Spells
 							Target = Caster?.TargetObject as GameLiving;
 
 						if (Target == null && Caster is NecromancerPet nPet)
-							Target = (nPet.Brain as NecromancerPetBrain).GetSpellTarget();
+							Target = (nPet.Brain as NecroPetBrain).GetSpellTarget();
 					}
 
 					// Initial LoS state.

@@ -112,7 +112,7 @@ namespace DOL.GS.Spells
 
 		protected override IControlledBrain GetPetBrain(GameLiving owner)
 		{
-			return new NecromancerPetBrain(owner);
+			return new NecroPetBrain(owner);
 		}
 
 		protected override GameSummonedPet GetGamePet(INpcTemplate template)

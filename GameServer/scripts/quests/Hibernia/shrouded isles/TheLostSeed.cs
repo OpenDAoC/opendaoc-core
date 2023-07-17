@@ -304,7 +304,7 @@ namespace DOL.GS.Quests.Hibernia
 		{
 			foreach (GameNPC npc in WorldMgr.GetNPCsCloseToSpot(181, 288348, 319950, 2328,8000))
 			{
-				if (npc.Brain is SINeckBossBrain)
+				if (npc.Brain is SiNeckBossBrain)
 					return;
 			}
 			Feairna_Athar = new SINeckBoss();
@@ -323,7 +323,7 @@ namespace DOL.GS.Quests.Hibernia
 			Feairna_Athar.Z = 2328;
 			Feairna_Athar.MaxSpeedBase = 250;
 
-			var brain = new SINeckBossBrain();
+			var brain = new SiNeckBossBrain();
 			brain.AggroLevel = 200;
 			brain.AggroRange = 500;
 			Feairna_Athar.SetOwnBrain(brain);

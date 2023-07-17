@@ -327,7 +327,7 @@ public class LostStoneofArawn : BaseQuest
         Nyaegha.MaxSpeedBase = 250;
         Nyaegha.AddToWorld();
 
-        var brain = new SINeckBossBrain();
+        var brain = new SiNeckBossBrain();
         brain.AggroLevel = 200;
         brain.AggroRange = 500;
         Nyaegha.SetOwnBrain(brain);

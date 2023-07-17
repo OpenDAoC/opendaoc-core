@@ -159,7 +159,7 @@ namespace DOL.GS
         {
             _petLosCheckInterval = 0;
 
-            if (_npcOwner.Brain is NecromancerPetBrain necromancerPetBrain)
+            if (_npcOwner.Brain is NecroPetBrain necromancerPetBrain)
                 necromancerPetBrain.ClearAttackSpellQueue();
 
             base.CleanUp();

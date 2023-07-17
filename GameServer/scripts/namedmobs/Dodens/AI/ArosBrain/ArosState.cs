@@ -5,7 +5,7 @@ using FiniteStateMachine;
 public class ArosState : StandardMobState
 {
     protected new ArosBrain _brain = null;
-    public ArosState(FSM fsm, ArosBrain brain) : base(fsm, brain)
+    public ArosState(Fsm fsm, ArosBrain brain) : base(fsm, brain)
     {
         _brain = brain;
     }
@@ -13,7 +13,7 @@ public class ArosState : StandardMobState
 
 public class ArosState_IDLE : ArosState
 {
-    public ArosState_IDLE(FSM fsm, ArosBrain brain) : base(fsm, brain)
+    public ArosState_IDLE(Fsm fsm, ArosBrain brain) : base(fsm, brain)
     {
         _id = eFSMStateType.IDLE;
     }
@@ -70,7 +70,7 @@ public class ArosState_IDLE : ArosState
 
 public class ArosState_AGGRO : ArosState
 {
-    public ArosState_AGGRO(FSM fsm, ArosBrain brain) : base(fsm, brain)
+    public ArosState_AGGRO(Fsm fsm, ArosBrain brain) : base(fsm, brain)
     {
         _id = eFSMStateType.AGGRO;
     }
@@ -102,7 +102,7 @@ public class ArosState_AGGRO : ArosState
 
 public class ArosState_RETURN_TO_SPAWN : ArosState
 {
-    public ArosState_RETURN_TO_SPAWN(FSM fsm, ArosBrain brain) : base(fsm, brain)
+    public ArosState_RETURN_TO_SPAWN(Fsm fsm, ArosBrain brain) : base(fsm, brain)
     {
         _id = eFSMStateType.RETURN_TO_SPAWN;
     }

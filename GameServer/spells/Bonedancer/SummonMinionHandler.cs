@@ -111,25 +111,25 @@ namespace DOL.GS.Spells
 
 			base.ApplyEffectOnTarget(target, effectiveness);
 
-			if (m_pet.Brain is BDPetBrain brain && !brain.MinionsAssisting)
-				brain.SetAggressionState(eAggressionState.Passive);
+			if (m_pet.Brain is BdPetBrain brain && !brain.MinionsAssisting)
+				brain.SetAggressionState(EAggressionState.Passive);
 
 			// Assign weapons
 			if (m_pet is BDSubPet subPet)
 				switch (subPet.Brain)
 				{
-					case BDArcherBrain archer:
+					case BdArcherBrain archer:
 						subPet.MinionGetWeapon(CommanderPet.eWeaponType.OneHandSword);
 						subPet.MinionGetWeapon(CommanderPet.eWeaponType.Bow);
 						break;
-					case BDDebufferBrain debuffer:
+					case BbDebufferBrain debuffer:
 						subPet.MinionGetWeapon(CommanderPet.eWeaponType.OneHandHammer);
 						break;
-					case BDBufferBrain buffer:
-					case BDCasterBrain caster:
+					case BdBufferBrain buffer:
+					case BdCasterBrain caster:
 						subPet.MinionGetWeapon(CommanderPet.eWeaponType.Staff);
 						break;
-					case BDMeleeBrain melee:
+					case BdMeleeBrain melee:
 						if(Util.Chance(60))
 							subPet.MinionGetWeapon(CommanderPet.eWeaponType.TwoHandAxe);
 						else
@@ -180,27 +180,27 @@ namespace DOL.GS.Spells
 			{
 				//Melee
 				case BDSubPet.SubPetType.Melee:
-					controlledBrain = new BDMeleeBrain(owner);
+					controlledBrain = new BdMeleeBrain(owner);
 					break;
 				//Healer
 				case BDSubPet.SubPetType.Healer:
-					controlledBrain = new BDHealerBrain(owner);
+					controlledBrain = new BdHealerBrain(owner);
 					break;
 				//Mage
 				case BDSubPet.SubPetType.Caster:
-					controlledBrain = new BDCasterBrain(owner);
+					controlledBrain = new BdCasterBrain(owner);
 					break;
 				//Debuffer
 				case BDSubPet.SubPetType.Debuffer:
-					controlledBrain = new BDDebufferBrain(owner);
+					controlledBrain = new BbDebufferBrain(owner);
 					break;
 				//Buffer
 				case BDSubPet.SubPetType.Buffer:
-					controlledBrain = new BDBufferBrain(owner);
+					controlledBrain = new BdBufferBrain(owner);
 					break;
 				//Range
 				case BDSubPet.SubPetType.Archer:
-					controlledBrain = new BDArcherBrain(owner);
+					controlledBrain = new BdArcherBrain(owner);
 					break;
 				//Other
 				default:

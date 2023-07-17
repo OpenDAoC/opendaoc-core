@@ -32,7 +32,7 @@ namespace DOL.GS
 
             if (Brain is IControlledBrain brain)
             {
-                if (brain.AggressionState == eAggressionState.Passive)
+                if (brain.AggressionState == EAggressionState.Passive)
                     return;
             }
 

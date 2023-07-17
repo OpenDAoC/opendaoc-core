@@ -1,6 +1,7 @@
 ﻿<Project>
   <PropertyGroup>
     <BaseIntermediateOutputPath>..\build\GameServer\$(Configuration)\</BaseIntermediateOutputPath>
+    <RootNamespace>Core.GS</RootNamespace>
   </PropertyGroup>
   <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
   <PropertyGroup>
@@ -49,16 +50,16 @@
     <APIDocs Include=".\API\docs\*" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="API\docs\index.css" />
-    <Content Include="API\docs\index.html" />
-    <Content Include="API\docs\oauth2-redirect.html" />
-    <Content Include="API\docs\swagger-initializer.js" />
-    <Content Include="API\docs\swagger-ui-bundle.js" />
-    <Content Include="API\docs\swagger-ui-es-bundle-core.js" />
-    <Content Include="API\docs\swagger-ui-es-bundle.js" />
-    <Content Include="API\docs\swagger-ui-standalone-preset.js" />
-    <Content Include="API\docs\swagger-ui.css" />
-    <Content Include="API\docs\swagger-ui.js" />
+    <Content Include="API\Docs\index.css" />
+    <Content Include="API\Docs\index.html" />
+    <Content Include="API\Docs\oauth2-redirect.html" />
+    <Content Include="API\Docs\swagger-initializer.js" />
+    <Content Include="API\Docs\swagger-ui-bundle.js" />
+    <Content Include="API\Docs\swagger-ui-es-bundle-core.js" />
+    <Content Include="API\Docs\swagger-ui-es-bundle.js" />
+    <Content Include="API\Docs\swagger-ui-standalone-preset.js" />
+    <Content Include="API\Docs\swagger-ui.css" />
+    <Content Include="API\Docs\swagger-ui.js" />
   </ItemGroup>
   <Target Name="CopyFiles" AfterTargets="AfterBuild">
     <Copy SourceFiles="@(TranslationFiles)" DestinationFiles="@(TranslationFiles->'$(MSBuildProjectDirectory)\..\$(Configuration)\languages\%(RecursiveDir)%(Filename)%(Extension)')" />
