@@ -421,7 +421,7 @@ namespace DOL.GS.GameEvents
 
 namespace DOL.GS.Commands
 {
-    [CmdAttribute(
+    [Command(
         "&vote",
         ePrivLevel.Player,
         "Displays the current poll or let you vote",
@@ -464,7 +464,7 @@ namespace DOL.GS.Commands
 
 namespace DOL.GS.Commands
 {
-    [CmdAttribute(
+    [Command(
         "&gmvote",
        ePrivLevel.GM,
         "Various voting commands!",

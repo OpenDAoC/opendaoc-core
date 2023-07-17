@@ -12,7 +12,7 @@ using System.Collections.Generic;
 
 namespace DOL.GS.Commands
 {
-    [Cmd("&ngg", //command to handle
+    [Command("&ngg", //command to handle
        ePrivLevel.GM, //minimum privelege level
        "NPC Gear Generator", //command description
        "'/ngg random [color]' Create a completely random equipment template",

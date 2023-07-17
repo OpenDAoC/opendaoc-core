@@ -219,7 +219,7 @@ namespace ECS.Debug
 
 namespace DOL.GS.Commands
 {
-    [CmdAttribute(
+    [Command(
     "&diag",
     ePrivLevel.GM,
     "Toggle server logging of performance diagnostics.",
@@ -323,7 +323,7 @@ namespace DOL.GS.Commands
     }
 
     // This should be moved outside of this file if we want this as a real player-facing feature.
-    [CmdAttribute(
+    [Command(
         "&charstats",
         ePrivLevel.GM,
         "Shows normally hidden character stats.")]
@@ -395,7 +395,7 @@ namespace DOL.GS.Commands
         }
     }
 
-    [CmdAttribute(
+    [Command(
     "&fsm",
     ePrivLevel.GM,
     "Toggle server logging of mob FSM states.",
@@ -435,7 +435,7 @@ namespace DOL.GS.Commands
         }
     }
 
-    [CmdAttribute(
+    [Command(
     "&aggro",
     ePrivLevel.GM,
     "Toggle server logging of mob aggro tables.",

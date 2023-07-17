@@ -3,7 +3,7 @@ using DOL.GS.Keeps;
 
 namespace DOL.GS.Commands
 {
-    [CmdAttribute(
+    [Command(
         "&transfercorpse",
         new string[] {"&tc"},
         ePrivLevel.Player, // Set to player.

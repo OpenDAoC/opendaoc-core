@@ -2,7 +2,7 @@
 
 namespace DOL.GS.Commands
 {
-    [CmdAttribute(
+    [Command(
         "&servernews",
          new string[] { "&sn" },
         ePrivLevel.Player,

@@ -6,7 +6,7 @@ using DOL.GS.PacketHandler;
 
 namespace DOL.GS.Commands
 {
-    [CmdAttribute(
+    [Command(
 		"&jp",
         ePrivLevel.GM,
         "Modify or use the jumppoint system",

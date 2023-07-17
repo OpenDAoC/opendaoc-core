@@ -175,8 +175,8 @@ namespace DOL.GS
 
 					try
 					{
-						object[] objs = type.GetCustomAttributes(typeof(CmdAttribute), false);
-						foreach (CmdAttribute attrib in objs)
+						object[] objs = type.GetCustomAttributes(typeof(CommandAttribute), false);
+						foreach (CommandAttribute attrib in objs)
 						{
 							bool disabled = false;
 							foreach (string str in disabledarray)

@@ -16,7 +16,7 @@ public class Shutdown
 
     public bool ShutdownServer()
     {
-        ShutdownCommandHandler.CountDown(0); // Immediately shutdown server
+        ShutDownCommand.CountDown(0); // Immediately shutdown server
         return true;
     }
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DOL.GS.Commands
 {
-	[CmdAttribute(
+	[Command(
 		 "&sameip",
 		 ePrivLevel.GM,
 		 "Find the double logins",

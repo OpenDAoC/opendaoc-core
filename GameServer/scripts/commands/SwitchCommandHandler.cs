@@ -12,7 +12,7 @@ using DOL.Database;
 
 namespace DOL.GS.Commands
 {
-    [Cmd("&switch", ePrivLevel.Player,
+    [Command("&switch", ePrivLevel.Player,
         "Equip Weapons from bag. (/switch 1h 1, will replace your mainhand weapon with the first slot in your backpack)",
         "/switch 1h <slot>",
         "/switch offhand <slot>",

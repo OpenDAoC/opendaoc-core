@@ -5,7 +5,7 @@ using DOL.GS.ServerProperties;
 
 namespace DOL.GS.Scripts
 {
-    [CmdAttribute(
+    [Command(
         "&bounty",
         ePrivLevel.Player,
         "Allows to set a bounty on an enemy player", "/bounty list", "/bounty add <amount>")]

@@ -7,7 +7,7 @@ using DOL.Language;
 
 namespace DOL.GS.Commands
 {
-    [CmdAttribute(
+    [Command(
         "&online",
         new string[] { "&on" },
         ePrivLevel.Player,

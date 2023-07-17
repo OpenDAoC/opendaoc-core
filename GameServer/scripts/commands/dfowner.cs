@@ -3,7 +3,7 @@ using DOL.GS.ServerRules;
 using System;
 namespace DOL.GS.Commands
 {
-    [Cmd("&dfowner", ePrivLevel.Admin,
+    [Command("&dfowner", ePrivLevel.Admin,
         "Changes the Realm owning access to Darkness Falls", "&dfowner <Realm>")]
 
     public class DFOwnerCommandHandler : AbstractCommandHandler, ICommandHandler

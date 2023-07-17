@@ -8,7 +8,7 @@ namespace DOL.GS.Commands
     /// <summary>
     /// Command handler for the /killself command
     /// </summary>
-    [CmdAttribute(
+    [Command(
         "&suicide",
         ePrivLevel.Admin,
         "Kill yourself. You can't suicide while in combat!")]

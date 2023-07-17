@@ -3,7 +3,7 @@
 
 namespace DOL.GS.Scripts
 {
-    [CmdAttribute(
+    [Command(
        "&realmtask",
        ePrivLevel.Player,
          "Displays the current realm bonuses status.", "/realmtask")]

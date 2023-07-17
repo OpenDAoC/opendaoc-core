@@ -7,7 +7,7 @@ using DOL.GS.ServerProperties;
 
 namespace DOL.GS.Scripts
 {
-    [CmdAttribute(
+    [Command(
         "&predator",
         ePrivLevel.Player,
         "Join the hunt or view your current prey", "/predator join", "/predator prey", "/predator abandon")]

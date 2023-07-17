@@ -1,0 +1,26 @@
+using DOL.GS.PacketHandler;
+using DOL.Language;
+
+namespace DOL.GS.Commands
+{
+	[Command(
+		"&dismount",
+		ePrivLevel.Player,
+		"Dismount your steed",
+		"/dismount")]
+	public class DismountCommand : AbstractCommandHandler, ICommandHandler
+	{
+		public void OnCommand(GameClient client, string[] args)
+		{
+			if (!client.Player.IsRiding)
+			{
+				if (client.Player.IsOnHorse)
+					client.Player.IsOnHorse = false;
+				else
+					DisplayMessage(client, (LanguageMgr.GetTranslation(client.Account.Language, "Scripts.Players.Dismount")));
+			}
+			else 
+				client.Player.DismountSteed(false);
+		}
+	}
+}

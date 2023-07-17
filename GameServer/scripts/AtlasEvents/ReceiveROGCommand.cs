@@ -7,7 +7,7 @@ using DOL.GS.PacketHandler;
 
 namespace DOL.GS.Commands
 {
-    [CmdAttribute(
+    [Command(
         "&eventrog",
         ePrivLevel.Player,
         "Toggle receiving ROGs during the event",

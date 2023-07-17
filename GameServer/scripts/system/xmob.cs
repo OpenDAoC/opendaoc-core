@@ -7,7 +7,7 @@ using DOL.GS.PacketHandler;
 
 namespace DOL.GS.Commands
 {
-    [Cmd("&xmob", //command to handle
+    [Command("&xmob", //command to handle
          ePrivLevel.GM, //minimum privelege level
          "/xmob get <radius> (max5000)",
          "/xmob view",

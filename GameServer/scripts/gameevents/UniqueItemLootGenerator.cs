@@ -30,7 +30,7 @@ namespace DOL.GS
 {
     public class LootGeneratorUniqueItem : LootGeneratorBase
     {
-        [CmdAttribute(
+        [Command(
             "&genuniques",
             ePrivLevel.GM,
             "/genuniques ([TOA] || [L51] || [self] || [suit] || [objecttype]) [itemtype] : generate 8 unique items")]
@@ -138,7 +138,7 @@ namespace DOL.GS
             }
         }
 
-        [CmdAttribute(
+        [Command(
             "&clearinventory",
             ePrivLevel.GM,
             "/clearinventory YES - clears your entire inventory!")]

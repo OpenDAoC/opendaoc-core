@@ -13,7 +13,7 @@ using DOL.GS.ServerRules;
 
 namespace DOL.GS.Commands
 {
-	[CmdAttribute(
+	[Command(
 	   "&dismisspet",
 	   ePrivLevel.Player,
 		 "Dismiss the novelty pet", "/dismisspet")]

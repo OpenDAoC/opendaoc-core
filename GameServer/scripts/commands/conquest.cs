@@ -3,7 +3,7 @@
 
 namespace DOL.GS.Scripts
 {
-    [CmdAttribute(
+    [Command(
        "&conquest",
        ePrivLevel.Player,
          "Displays the current conqust status.", "/conquest")]

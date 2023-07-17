@@ -7,7 +7,7 @@ using DOL.GS.ServerProperties;
 
 namespace DOL.GS.Scripts
 {
-    [CmdAttribute(
+    [Command(
         "&achievements",
         ePrivLevel.Player,
         "View your progress towards various achievements", "/achievements list")]

@@ -12,7 +12,7 @@ using DOL.GS.ServerRules;
 
 namespace DOL.GS.Commands
 {
-	[CmdAttribute(
+	[Command(
 	   "&ck",
 	   ePrivLevel.Player,
 		 "Displays who owns the CK while in a battleground.", "/ck")]
