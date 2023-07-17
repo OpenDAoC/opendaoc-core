@@ -78,7 +78,7 @@ namespace DOL.GS
 				// salvageYield = new SalvageYield();
 				whereClause = DB.Column("ID").IsEqualTo(item.SalvageYieldID);
 				
-				salvageYield = DOLDB<DbSalvageYields>.SelectObject(whereClause);
+				salvageYield = CoreDb<DbSalvageYields>.SelectObject(whereClause);
 				DbItemTemplates material = null;
    
 				if (salvageYield != null && string.IsNullOrEmpty(salvageYield.MaterialId_nb) == false)
@@ -252,7 +252,7 @@ namespace DOL.GS
 			siegeWeapon.ReleaseControl();
 			siegeWeapon.RemoveFromWorld();
 			bool error = false;
-			var recipe = DOLDB<DbCraftedItems>.SelectObject(DB.Column("Id_nb").IsEqualTo(siegeWeapon.ItemId));
+			var recipe = CoreDb<DbCraftedItems>.SelectObject(DB.Column("Id_nb").IsEqualTo(siegeWeapon.ItemId));
 
 			if (recipe == null)
             {
@@ -261,7 +261,7 @@ namespace DOL.GS
 				return 1;
             }
 
-			var rawMaterials = DOLDB<DbCraftedXItems>.SelectObjects(DB.Column("CraftedItemId_nb").IsEqualTo(recipe.Id_nb));
+			var rawMaterials = CoreDb<DbCraftedXItems>.SelectObjects(DB.Column("CraftedItemId_nb").IsEqualTo(recipe.Id_nb));
 
 			if (rawMaterials == null || rawMaterials.Count == 0)
             {

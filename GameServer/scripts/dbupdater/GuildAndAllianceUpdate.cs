@@ -10,7 +10,7 @@ namespace DOL.GS.DatabaseUpdate
 	/// <summary>
 	/// Update Guild and Alliance Database then perform Clean Up
 	/// </summary>
-	[DatabaseUpdate]
+	[DatabaseUpdater]
 	public class GuildAndAllianceUpdate : IDatabaseUpdater
 	{
 		/// <summary>
@@ -24,12 +24,12 @@ namespace DOL.GS.DatabaseUpdate
 				log.Info("Start Searching for records that need update...");
 			
 			// Change the Leader Relation if Missing
-			var alliances = DOLDB<DbGuildAlliances>.SelectObjects(DB.Column("LeaderGuildID").IsEqualTo(string.Empty).Or(DB.Column("LeaderGuildID").IsNull()));
+			var alliances = CoreDb<DbGuildAlliances>.SelectObjects(DB.Column("LeaderGuildID").IsEqualTo(string.Empty).Or(DB.Column("LeaderGuildID").IsNull()));
 			
 			if (alliances.Any())
 			{
 				
-				var leadingGuilds = DOLDB<DbGuilds>.MultipleSelectObjects(alliances.Select(al => DB.Column("AllianceID").IsEqualTo(al.ObjectId).And(DB.Column("GuildName").IsEqualTo(al.AllianceName))));
+				var leadingGuilds = CoreDb<DbGuilds>.MultipleSelectObjects(alliances.Select(al => DB.Column("AllianceID").IsEqualTo(al.ObjectId).And(DB.Column("GuildName").IsEqualTo(al.AllianceName))));
 				
 				var alliancesWithLeader = leadingGuilds.Select((gd, i) => {
 				                                               	var al = alliances[i];

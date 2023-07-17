@@ -564,7 +564,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 												};
 
 								// If we already have soemthing here, do not place more
-								foreach (var hpitem in DOLDB<DbHouseHookPointItems>.SelectObjects(DB.Column("HouseNumber").IsEqualTo(house.HouseNumber)))
+								foreach (var hpitem in CoreDb<DbHouseHookPointItems>.SelectObjects(DB.Column("HouseNumber").IsEqualTo(house.HouseNumber)))
 								{
 									if (hpitem.HookpointID == point.HookpointID)
 									{
@@ -712,7 +712,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 							}
 
 							// If we already have soemthing here, do not place more
-							foreach (var hpitem in DOLDB<DbHouseHookPointItems>.SelectObjects(DB.Column("HouseNumber").IsEqualTo(house.HouseNumber)))
+							foreach (var hpitem in CoreDb<DbHouseHookPointItems>.SelectObjects(DB.Column("HouseNumber").IsEqualTo(house.HouseNumber)))
 							{
 								if (hpitem.HookpointID == _position)
 								{

@@ -139,7 +139,7 @@ namespace DOL.GS.Quests
 			int lowLevel = mediumCraftingLevel - 20;
 			int highLevel = mediumCraftingLevel + 20;
 
-			var craftitem = DOLDB<DbCraftedItems>.SelectObjects(DB.Column("CraftingSkillType").IsEqualTo((int)player.CraftingPrimarySkill)
+			var craftitem = CoreDb<DbCraftedItems>.SelectObjects(DB.Column("CraftingSkillType").IsEqualTo((int)player.CraftingPrimarySkill)
 				.And(DB.Column("CraftingLevel").IsGreatherThan(lowLevel).And(DB.Column("CraftingLevel").IsLessThan(highLevel))));
 			int craftrnd = Util.Random(craftitem.Count);
 

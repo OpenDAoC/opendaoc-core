@@ -24,7 +24,7 @@ namespace DOL.GS.Commands
 				if (args.Length == 4 && args[2] == "to" && args[3] == "jail")
 				{
 					DbCoreCharacters character;
-					character = DOLDB<DbCoreCharacters>.SelectObject(DB.Column("Name").IsEqualTo(args[1]));
+					character = CoreDb<DbCoreCharacters>.SelectObject(DB.Column("Name").IsEqualTo(args[1]));
 					if (character == null)
 					{
 						client.Out.SendMessage("Character " + args[1] + " not found", eChatType.CT_Staff, eChatLoc.CL_SystemWindow);
@@ -42,7 +42,7 @@ namespace DOL.GS.Commands
 				else if (args.Length == 4 && args[2] == "to" && args[3] == "capital")
 				{
 					DbCoreCharacters character;
-					character = DOLDB<DbCoreCharacters>.SelectObject(DB.Column("Name").IsEqualTo(args[1]));
+					character = CoreDb<DbCoreCharacters>.SelectObject(DB.Column("Name").IsEqualTo(args[1]));
 					if (character == null)
 					{
 						client.Out.SendMessage("Character " + args[1] + " not found", eChatType.CT_Staff, eChatLoc.CL_SystemWindow);

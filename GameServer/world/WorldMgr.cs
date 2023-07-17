@@ -305,7 +305,7 @@ namespace DOL.GS
 			{
 				foreach (string loadRegion in Util.SplitCSV(ServerProperties.Properties.DEBUG_LOAD_REGIONS, true))
 				{
-					mobList.AddRange(DOLDB<DbMobs>.SelectObjects(DB.Column("Region").IsEqualTo(loadRegion)));
+					mobList.AddRange(CoreDb<DbMobs>.SelectObjects(DB.Column("Region").IsEqualTo(loadRegion)));
 				}
 			}
 			else

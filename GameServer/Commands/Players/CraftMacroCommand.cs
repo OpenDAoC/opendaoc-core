@@ -103,7 +103,7 @@ namespace DOL.GS.Commands
                     {
                         if (client.Player.TargetObject is GameMerchant merchant)
                         {
-                            var merchantitems = DOLDB<DbMerchantItems>.SelectObjects(DB.Column("ItemListID")
+                            var merchantitems = CoreDb<DbMerchantItems>.SelectObjects(DB.Column("ItemListID")
                                 .IsEqualTo(merchant.TradeItems.ItemsListID));
                             
                             IList<Ingredient> recipeIngredients;
@@ -130,7 +130,7 @@ namespace DOL.GS.Commands
                         }
                         else if (client.Player.TargetObject is GameGuardMerchant guardMerchant)
                         {
-                            var merchantitems = DOLDB<DbMerchantItems>.SelectObjects(DB.Column("ItemListID")
+                            var merchantitems = CoreDb<DbMerchantItems>.SelectObjects(DB.Column("ItemListID")
                                 .IsEqualTo(guardMerchant.TradeItems.ItemsListID));
                             
                             IList<Ingredient> recipeIngredients;
@@ -157,7 +157,7 @@ namespace DOL.GS.Commands
                         }
                         else if (client.Player.TargetObject is GuardCurrencyMerchant guardCurrencyMerchant)
                         {
-                            var merchantitems = DOLDB<DbMerchantItems>.SelectObjects(DB.Column("ItemListID")
+                            var merchantitems = CoreDb<DbMerchantItems>.SelectObjects(DB.Column("ItemListID")
                                 .IsEqualTo(guardCurrencyMerchant.TradeItems.ItemsListID));
                             
                             IList<Ingredient> recipeIngredients;
@@ -219,7 +219,7 @@ namespace DOL.GS.Commands
                     {
                         if (client.Player.TargetObject is GameMerchant merchant)
                         {
-                            var merchantitems = DOLDB<DbMerchantItems>.SelectObjects(DB.Column("ItemListID")
+                            var merchantitems = CoreDb<DbMerchantItems>.SelectObjects(DB.Column("ItemListID")
                                 .IsEqualTo(merchant.TradeItems.ItemsListID));
 
                             IList<Ingredient> recipeIngredients;

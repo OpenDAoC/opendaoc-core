@@ -20,7 +20,7 @@ namespace DOL.GS.DatabaseUpdate
 	/// Will read for folder "insert" or "replace" inside Game Server Scripts to track File Package
 	/// Will try to load accordingly at Server Startup (insert as insert ignore, replace to override data)
 	/// </summary>
-    [DatabaseUpdate]
+    [DatabaseUpdater]
 	public class AutoXMLDatabaseUpdate : IDatabaseUpdater
 	{
 		#region ServerProperties

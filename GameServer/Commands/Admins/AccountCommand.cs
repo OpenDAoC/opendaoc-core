@@ -515,7 +515,7 @@ namespace DOL.GS.Commands
 							return;
 						}
 
-						var banacc = DOLDB<DbBans>.SelectObjects(DB.Column("Type").IsEqualTo("A").Or(DB.Column("Type").IsEqualTo("B")).And(DB.Column("Account").IsEqualTo(accountname)));
+						var banacc = CoreDb<DbBans>.SelectObjects(DB.Column("Type").IsEqualTo("A").Or(DB.Column("Type").IsEqualTo("B")).And(DB.Column("Account").IsEqualTo(accountname)));
 						
 						// If no ban record exists for the specified account
 						if (banacc.Count == 0)
@@ -642,7 +642,7 @@ namespace DOL.GS.Commands
 			GameClient client = WorldMgr.GetClientByPlayerName(charname, true, false);
 			if (client != null)
 				return client.Player.DBCharacter;
-			return DOLDB<DbCoreCharacters>.SelectObject(DB.Column("Name").IsEqualTo(charname));
+			return CoreDb<DbCoreCharacters>.SelectObject(DB.Column("Name").IsEqualTo(charname));
 		}
 
 		/// <summary>
@@ -684,7 +684,7 @@ namespace DOL.GS.Commands
 			if (client != null)
 				return client.Account.Name;
 
-			var ch = DOLDB<DbCoreCharacters>.SelectObject(DB.Column("Name").IsEqualTo(charname));
+			var ch = CoreDb<DbCoreCharacters>.SelectObject(DB.Column("Name").IsEqualTo(charname));
 			if (ch != null)
 				return ch.AccountName;
 			else

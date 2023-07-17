@@ -103,7 +103,7 @@ namespace DOL.GS
 			if (m_destinations.Count > 0 || GuildName == null || GuildName.Length == 0)
 				return;
 
-			m_destinations.AddRange(DOLDB<DbTeleports>.SelectObjects(DB.Column("Type").IsEqualTo(GuildName)));
+			m_destinations.AddRange(CoreDb<DbTeleports>.SelectObjects(DB.Column("Type").IsEqualTo(GuildName)));
 		}
 
 		public override bool WhisperReceive(GameLiving source, string text)

@@ -38,7 +38,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 			}
 
 			var filterRealm = DB.Column("Realm").IsEqualTo((byte)targetRealm).Or(DB.Column("Realm").IsEqualTo(0)).Or(DB.Column("Realm").IsNull());
-			var zonePoint = DOLDB<DbZonePoints>.SelectObject(DB.Column("Id").IsEqualTo(jumpSpotId).And(filterRealm));
+			var zonePoint = CoreDb<DbZonePoints>.SelectObject(DB.Column("Id").IsEqualTo(jumpSpotId).And(filterRealm));
 
 			if (zonePoint == null || zonePoint.TargetRegion == 0)
 			{

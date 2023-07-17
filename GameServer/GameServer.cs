@@ -1146,7 +1146,7 @@ namespace DOL.GS
 						if (!typeof(IDatabaseUpdater).IsAssignableFrom(type))
 							continue;
 
-						object[] attributes = type.GetCustomAttributes(typeof(DatabaseUpdateAttribute), false);
+						object[] attributes = type.GetCustomAttributes(typeof(DatabaseUpdaterAttribute), false);
 						if (attributes.Length <= 0)
 							continue;
 

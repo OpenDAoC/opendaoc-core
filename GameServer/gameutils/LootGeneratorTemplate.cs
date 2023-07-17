@@ -183,7 +183,7 @@ namespace DOL.GS
 
             // First see if there are any MobXLootTemplates associated with this mob
 
-            var mxlts = DOLDB<DbMobXLootTemplates>.SelectObjects(DB.Column("MobName").IsEqualTo(mob.Name.ToLower()));
+            var mxlts = CoreDb<DbMobXLootTemplates>.SelectObjects(DB.Column("MobName").IsEqualTo(mob.Name.ToLower()));
 
             if (mxlts != null)
             {
@@ -226,7 +226,7 @@ namespace DOL.GS
             }
 
             var lootTemplates =
-                DOLDB<DbLootTemplates>.SelectObjects(DB.Column("TemplateName").IsEqualTo(templateName.ToLower()));
+                CoreDb<DbLootTemplates>.SelectObjects(DB.Column("TemplateName").IsEqualTo(templateName.ToLower()));
 
             if (lootTemplates != null)
             {

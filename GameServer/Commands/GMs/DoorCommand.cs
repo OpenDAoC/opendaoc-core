@@ -144,7 +144,7 @@ namespace DOL.GS.Commands
 
 		private void add(GameClient client, GameDoor targetDoor)
 		{
-			var DOOR = DOLDB<DbDoors>.SelectObject(DB.Column("InternalID").IsEqualTo(DoorID));
+			var DOOR = CoreDb<DbDoors>.SelectObject(DB.Column("InternalID").IsEqualTo(DoorID));
 
 			if (DOOR != null)
 			{
@@ -209,7 +209,7 @@ namespace DOL.GS.Commands
 
 		private void delete(GameClient client, GameDoor targetDoor)
 		{
-			var DOOR = DOLDB<DbDoors>.SelectObject(DB.Column("InternalID").IsEqualTo(DoorID));
+			var DOOR = CoreDb<DbDoors>.SelectObject(DB.Column("InternalID").IsEqualTo(DoorID));
 
 			if (DOOR != null)
 			{

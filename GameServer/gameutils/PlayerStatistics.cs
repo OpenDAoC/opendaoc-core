@@ -166,7 +166,7 @@ namespace DOL.GS
             }
 
             #region /stats top
-            var chars = DOLDB<DbCoreCharacters>.SelectObjects(DB.Column("RealmPoints").IsGreatherThan(213881)).OrderByDescending(dc => dc.RealmPoints).Take(100).ToArray();
+            var chars = CoreDb<DbCoreCharacters>.SelectObjects(DB.Column("RealmPoints").IsGreatherThan(213881)).OrderByDescending(dc => dc.RealmPoints).Take(100).ToArray();
             // assuming we can get at least 20 players
             if (toplist.Count > 0)
             {

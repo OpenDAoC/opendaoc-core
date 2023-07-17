@@ -168,7 +168,7 @@ namespace DOL.GS
                 //throw new ArgumentException(craftingDebug);
             }
 
-            var rawMaterials = DOLDB<DbCraftedXItems>.SelectObjects(DB.Column("CraftedItemId_nb").IsEqualTo(dbRecipe.Id_nb));
+            var rawMaterials = CoreDb<DbCraftedXItems>.SelectObjects(DB.Column("CraftedItemId_nb").IsEqualTo(dbRecipe.Id_nb));
             if (rawMaterials.Count == 0)
             {
                 craftingDebug = "[CRAFTING] Recipe with ID " + dbRecipe.CraftedItemID + " has no ingredients.";

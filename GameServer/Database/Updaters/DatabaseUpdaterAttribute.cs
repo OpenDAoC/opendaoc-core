@@ -7,14 +7,14 @@ namespace DOL.GS.DatabaseUpdate
 	/// from previous version to the specified in attribute
 	/// </summary>
 	[AttributeUsage(AttributeTargets.Class, AllowMultiple=false)]
-	public class DatabaseUpdateAttribute : Attribute
+	public class DatabaseUpdaterAttribute : Attribute
 	{
 		//private int m_targetVersion;
 
 		/// <summary>
 		/// Constructs new attribute for database updater classes
 		/// </summary>
-		public DatabaseUpdateAttribute()
+		public DatabaseUpdaterAttribute()
 		{
 		}
 	}

@@ -6,7 +6,7 @@ public class KillCreditUtils
 {
     public static string GetRequiredKillMob(string id_nb)
     {
-        var mobToKill = DOLDB<DbItemXKillCredits>.SelectObject(DB.Column("ItemTemplate")
+        var mobToKill = CoreDb<DbItemXKillCredits>.SelectObject(DB.Column("ItemTemplate")
             .IsEqualTo(id_nb));
 
         return mobToKill?.m_mobName;

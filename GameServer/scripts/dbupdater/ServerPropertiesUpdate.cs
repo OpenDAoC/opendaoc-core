@@ -7,7 +7,7 @@ namespace DOL.GS.DatabaseUpdate
     /// <summary>
     /// Checks and updates the ServerProperty table.
     /// </summary>
-    [DatabaseUpdate]
+    [DatabaseUpdater]
     public class ServerPropertiesUpdate : IDatabaseUpdater
     {
         /// <summary>

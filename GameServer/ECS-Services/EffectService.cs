@@ -787,7 +787,7 @@ namespace DOL.GS
             if (player == null || player.DBCharacter == null || GameServer.Database == null)
                 return;
 
-            IList<DbPlayerXEffects> effs = DOLDB<DbPlayerXEffects>.SelectObjects(DB.Column("ChardID").IsEqualTo(player.ObjectId));
+            IList<DbPlayerXEffects> effs = CoreDb<DbPlayerXEffects>.SelectObjects(DB.Column("ChardID").IsEqualTo(player.ObjectId));
             if (effs == null)
                 return;
 
@@ -836,7 +836,7 @@ namespace DOL.GS
             if (player == null || player.effectListComponent.GetAllEffects().Count == 0)
                 return;
 
-            IList<DbPlayerXEffects> effs = DOLDB<DbPlayerXEffects>.SelectObjects(DB.Column("ChardID").IsEqualTo(player.ObjectId));
+            IList<DbPlayerXEffects> effs = CoreDb<DbPlayerXEffects>.SelectObjects(DB.Column("ChardID").IsEqualTo(player.ObjectId));
             if (effs != null)
                 GameServer.Database.DeleteObject(effs);
 

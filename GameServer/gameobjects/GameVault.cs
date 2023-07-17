@@ -165,7 +165,7 @@ namespace DOL.GS
 		public IList<InventoryItem> DBItems(GamePlayer player = null)
 		{
 			var filterBySlot = DB.Column("SlotPosition").IsGreaterOrEqualTo(FirstDBSlot).And(DB.Column("SlotPosition").IsLessOrEqualTo(LastDBSlot));
-			return DOLDB<InventoryItem>.SelectObjects(DB.Column("OwnerID").IsEqualTo(GetOwner(player)).And(filterBySlot));
+			return CoreDb<InventoryItem>.SelectObjects(DB.Column("OwnerID").IsEqualTo(GetOwner(player)).And(filterBySlot));
 		}
 
 		/// <summary>

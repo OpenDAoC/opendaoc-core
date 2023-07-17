@@ -80,7 +80,7 @@ namespace DOL.GS.Scripts
 			if (str.Equals("full suit"))
 			{
 				const string customKey = "free_event_armor";
-				var hasFreeArmor = DOLDB<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId").IsEqualTo(player.ObjectId).And(DB.Column("KeyName").IsEqualTo(customKey)));
+				var hasFreeArmor = CoreDb<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId").IsEqualTo(player.ObjectId).And(DB.Column("KeyName").IsEqualTo(customKey)));
 
 				if (hasFreeArmor != null)
 				{
@@ -99,7 +99,7 @@ namespace DOL.GS.Scripts
 			else if (str.Equals("weapons")) {
 				
 				const string customKey = "free_event_weapons";
-				var hasFreeWeapons = DOLDB<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId").IsEqualTo(player.ObjectId).And(DB.Column("KeyName").IsEqualTo(customKey)));
+				var hasFreeWeapons = CoreDb<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId").IsEqualTo(player.ObjectId).And(DB.Column("KeyName").IsEqualTo(customKey)));
 
 				if (hasFreeWeapons != null)
 				{
@@ -117,7 +117,7 @@ namespace DOL.GS.Scripts
 			} else if (str.Equals("gems"))
             {
 				const string customKey = "free_event_gems";
-				var hasFreeArmor = DOLDB<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId").IsEqualTo(player.ObjectId).And(DB.Column("KeyName").IsEqualTo(customKey)));
+				var hasFreeArmor = CoreDb<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId").IsEqualTo(player.ObjectId).And(DB.Column("KeyName").IsEqualTo(customKey)));
 
 				if (hasFreeArmor != null)
 				{
@@ -155,15 +155,15 @@ namespace DOL.GS.Scripts
 				}
 				else
 				{
-					List<DbItemTemplates> atlasGem = new List<DbItemTemplates>(DOLDB<DbItemTemplates>.SelectObjects(DB.Column("Id_nb").IsEqualTo("atlas_gem")));
+					List<DbItemTemplates> atlasGem = new List<DbItemTemplates>(CoreDb<DbItemTemplates>.SelectObjects(DB.Column("Id_nb").IsEqualTo("atlas_gem")));
 					InventoryItem invitem = GameInventoryItem.Create<DbItemUnique>(atlasGem.FirstOrDefault());
 					player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, invitem);
 				
-					List<DbItemTemplates> atlasCloak = new List<DbItemTemplates>(DOLDB<DbItemTemplates>.SelectObjects(DB.Column("Id_nb").IsEqualTo("atlas_cloak")));
+					List<DbItemTemplates> atlasCloak = new List<DbItemTemplates>(CoreDb<DbItemTemplates>.SelectObjects(DB.Column("Id_nb").IsEqualTo("atlas_cloak")));
 					InventoryItem invitem2 = GameInventoryItem.Create<DbItemUnique>(atlasCloak.FirstOrDefault());
 					player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, invitem2);
 					
-					List<DbItemTemplates> atlasRing = new List<DbItemTemplates>(DOLDB<DbItemTemplates>.SelectObjects(DB.Column("Id_nb").IsEqualTo("atlas_ring")));
+					List<DbItemTemplates> atlasRing = new List<DbItemTemplates>(CoreDb<DbItemTemplates>.SelectObjects(DB.Column("Id_nb").IsEqualTo("atlas_ring")));
 					InventoryItem invitem3 = GameInventoryItem.Create<DbItemUnique>(atlasRing.FirstOrDefault());
 					player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, invitem3);
 				}
@@ -182,7 +182,7 @@ namespace DOL.GS.Scripts
 				const string moneyKey = "free_money";
 				//var hasFreeOrbs = DOLDB<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId").IsEqualTo(player.ObjectId).And(DB.Column("KeyName").IsEqualTo(customKey)));
 				string customKey = moneyKey + player.Realm;
-				var hasAccountMoney = DOLDB<AccountXCustomParam>.SelectObject(DB.Column("Name").IsEqualTo(player.Client.Account.Name).And(DB.Column("KeyName").IsEqualTo(customKey)));
+				var hasAccountMoney = CoreDb<AccountXCustomParam>.SelectObject(DB.Column("Name").IsEqualTo(player.Client.Account.Name).And(DB.Column("KeyName").IsEqualTo(customKey)));
 			
 				if (hasAccountMoney != null)
 				{
@@ -203,7 +203,7 @@ namespace DOL.GS.Scripts
 
 				const string orbKey = "free_orbs";
 				string customKey = orbKey + player.Realm;
-				var hasFreeOrbs = DOLDB<AccountXCustomParam>.SelectObject(DB.Column("Name").IsEqualTo(player.Client.Account.Name).And(DB.Column("KeyName").IsEqualTo(customKey)));
+				var hasFreeOrbs = CoreDb<AccountXCustomParam>.SelectObject(DB.Column("Name").IsEqualTo(player.Client.Account.Name).And(DB.Column("KeyName").IsEqualTo(customKey)));
 
 				if (hasFreeOrbs != null)
 				{

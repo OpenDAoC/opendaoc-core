@@ -54,7 +54,7 @@ namespace DOL.GS.GameEvents
 
             if (creationDate >= launch) return;
 
-            var needsReset = DOLDB<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId")
+            var needsReset = CoreDb<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId")
                 .IsEqualTo(player.ObjectId).And(DB.Column("KeyName").IsEqualTo(RestartKey)));
 
             if (needsReset != null) return;

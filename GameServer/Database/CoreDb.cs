@@ -4,7 +4,7 @@ using DOL.Database;
 
 namespace DOL.GS
 {
-    public class DOLDB<T> where T : DataObject
+    public class CoreDb<T> where T : DataObject
     {
         public static IList<T> SelectAllObjects()
             => GameServer.Database.SelectAllObjects<T>();

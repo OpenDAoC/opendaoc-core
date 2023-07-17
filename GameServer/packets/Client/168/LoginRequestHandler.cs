@@ -299,7 +299,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
 								// check for account bombing
 								TimeSpan ts;
-								var allAccByIp = DOLDB<DbAccounts>.SelectObjects(DB.Column("LastLoginIP").IsEqualTo(ipAddress));
+								var allAccByIp = CoreDb<DbAccounts>.SelectObjects(DB.Column("LastLoginIP").IsEqualTo(ipAddress));
 								int totalacc = 0;
 								foreach (DbAccounts ac in allAccByIp)
 								{

@@ -230,7 +230,7 @@ namespace DOL.GS.PacketHandler
 							pak.WriteByte((byte) characters[j].Empathy);
 							pak.WriteByte((byte) characters[j].Charisma);
 
-							var items = DOLDB<InventoryItem>.SelectObjects(DB.Column("OwnerID").IsEqualTo(characters[j].ObjectId)
+							var items = CoreDb<InventoryItem>.SelectObjects(DB.Column("OwnerID").IsEqualTo(characters[j].ObjectId)
 								.And(DB.Column("SlotPosition").IsGreaterOrEqualTo(10).And(DB.Column("SlotPosition").IsLessOrEqualTo(29))));
 							int found = 0;
 							//16 bytes: armor model

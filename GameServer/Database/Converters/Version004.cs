@@ -29,7 +29,7 @@ namespace DOL.GS.DatabaseConverters
 				return;
 			}
 
-			var mobs = DOLDB<DbMobs>.SelectObjects(DB.Column("ClassType").IsEqualTo("DOL.GS.GameMob"));
+			var mobs = CoreDb<DbMobs>.SelectObjects(DB.Column("ClassType").IsEqualTo("DOL.GS.GameMob"));
 
 			int count = 0;
 			foreach (DbMobs mob in mobs)

@@ -17,7 +17,7 @@ namespace DOL.GS.Commands
         public void OnCommand(GameClient client, string[] args)
         {
             
-            DbAccountXRealmLoyalty realmLoyalty = DOLDB<DbAccountXRealmLoyalty>.SelectObject(DB.Column("AccountID").IsEqualTo(client.Account.ObjectId).And(DB.Column("Realm").IsEqualTo(client.Player.Realm)));
+            DbAccountXRealmLoyalty realmLoyalty = CoreDb<DbAccountXRealmLoyalty>.SelectObject(DB.Column("AccountID").IsEqualTo(client.Account.ObjectId).And(DB.Column("Realm").IsEqualTo(client.Player.Realm)));
             int ROGCap = 0;
             int tmpLoyal = realmLoyalty.LoyalDays > 30 ? 30 : realmLoyalty.LoyalDays;
             int cachedInput = 0;

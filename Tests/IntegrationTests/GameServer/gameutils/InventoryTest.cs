@@ -20,13 +20,13 @@ namespace DOL.Tests.Integration.Server
 		{
 			player = CreateMockGamePlayer();
 			Assert.IsNotNull(player, "Player is null !");
-			itemt = DOLDB<DbItemTemplates>.SelectObject(DB.Column("Id_nb").IsEqualTo("championDocharWardenBlade"));
+			itemt = CoreDb<DbItemTemplates>.SelectObject(DB.Column("Id_nb").IsEqualTo("championDocharWardenBlade"));
 			Assert.IsNotNull(itemt, "ItemTemplate is null !");
 			itemu = new DbItemUnique();
 			itemu.Id_nb = "tunik"+DateTime.Now.Ticks;
 			GameServer.Database.AddObject(itemu);
 			Assert.IsNotNull(itemu, "ItemUnique is created !");
-			_ = DOLDB<DbItemTemplates>.SelectObject(DB.Column("id_nb").IsEqualTo("traitors_dagger_hib"));
+			_ = CoreDb<DbItemTemplates>.SelectObject(DB.Column("id_nb").IsEqualTo("traitors_dagger_hib"));
 		}
 
 		/* Tests for items - 1/ IT 2/ IU 3/ Ghost

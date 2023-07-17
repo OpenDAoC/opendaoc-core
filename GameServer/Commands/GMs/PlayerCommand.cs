@@ -78,7 +78,7 @@ namespace DOL.GS.Commands
                         if (player == null)
                             player = client.Player;
 
-                        var character = DOLDB<DbCoreCharacters>.SelectObject(DB.Column("Name").IsEqualTo(args[2]));
+                        var character = CoreDb<DbCoreCharacters>.SelectObject(DB.Column("Name").IsEqualTo(args[2]));
 
                         if (character != null)
                         {

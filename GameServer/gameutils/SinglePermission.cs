@@ -15,7 +15,7 @@ namespace DOL.GS
 
 		public static bool HasPermission(GamePlayer player,string command)
 		{
-			var obj = DOLDB<DBSinglePermission>.SelectObject(DB.Column("Command").IsEqualTo(command).And(DB.Column("PlayerID").IsEqualTo(player.ObjectId).Or(DB.Column("PlayerID").IsEqualTo(player.AccountName))));
+			var obj = CoreDb<DBSinglePermission>.SelectObject(DB.Column("Command").IsEqualTo(command).And(DB.Column("PlayerID").IsEqualTo(player.ObjectId).Or(DB.Column("PlayerID").IsEqualTo(player.AccountName))));
 			if (obj == null)
 				return false;
 			return true;
@@ -39,7 +39,7 @@ namespace DOL.GS
 
 		public static bool removePermission(GamePlayer player,string command)
 		{
-			var obj = DOLDB<DBSinglePermission>.SelectObject(DB.Column("Command").IsEqualTo(command).And(DB.Column("PlayerID").IsEqualTo(player.ObjectId)));
+			var obj = CoreDb<DBSinglePermission>.SelectObject(DB.Column("Command").IsEqualTo(command).And(DB.Column("PlayerID").IsEqualTo(player.ObjectId)));
 			if (obj == null)
 			{
 				return false;
@@ -50,7 +50,7 @@ namespace DOL.GS
 
         public static bool removePermissionAccount(GamePlayer player, string command)
         {
-            var obj = DOLDB<DBSinglePermission>.SelectObject(DB.Column("Command").IsEqualTo(command).And(DB.Column("PlayerID").IsEqualTo(player.AccountName)));
+            var obj = CoreDb<DBSinglePermission>.SelectObject(DB.Column("Command").IsEqualTo(command).And(DB.Column("PlayerID").IsEqualTo(player.AccountName)));
             if (obj == null)
             {
                 return false;

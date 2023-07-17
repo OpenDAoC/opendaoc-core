@@ -33,7 +33,7 @@ namespace DOL.GS.Commands
 				}
 			
 				const string customKey = "grouped_char";
-				var hasGrouped = DOLDB<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId")
+				var hasGrouped = CoreDb<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId")
 					.IsEqualTo(client.Player.ObjectId).And(DB.Column("KeyName").IsEqualTo(customKey)));
 			
 				DateTime d1 = new DateTime(2022, 1, 4);
@@ -111,7 +111,7 @@ namespace DOL.GS.Commands
 					player.Out.SendMessage("You have chickened out. You can now run back to your ...friends.",
 						eChatType.CT_Important, eChatLoc.CL_SystemWindow);
 					const string customKey = "grouped_char";
-					var hasGrouped = DOLDB<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId")
+					var hasGrouped = CoreDb<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId")
 						.IsEqualTo(player.ObjectId).And(DB.Column("KeyName").IsEqualTo(customKey)));
 					if (hasGrouped == null)
 					{
@@ -240,7 +240,7 @@ namespace DOL.GS.PlayerTitles
 		public override bool IsSuitable(GamePlayer player)
 		{
 			const string customKey2 = "solo_to_50";
-			var solo_to_50 = DOLDB<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId")
+			var solo_to_50 = CoreDb<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId")
 				.IsEqualTo(player.ObjectId).And(DB.Column("KeyName").IsEqualTo(customKey2)));
 
 			return player.NoHelp || solo_to_50 != null;

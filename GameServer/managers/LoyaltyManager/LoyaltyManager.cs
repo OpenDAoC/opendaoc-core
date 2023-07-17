@@ -48,7 +48,7 @@ public class LoyaltyManager
 
     public static void CachePlayer(GamePlayer player)
     {
-        List<DbAccountXRealmLoyalty> realmLoyalty = new List<DbAccountXRealmLoyalty>(DOLDB<DbAccountXRealmLoyalty>.SelectObjects(DB.Column("AccountID").IsEqualTo(player.Client.Account.ObjectId)));
+        List<DbAccountXRealmLoyalty> realmLoyalty = new List<DbAccountXRealmLoyalty>(CoreDb<DbAccountXRealmLoyalty>.SelectObjects(DB.Column("AccountID").IsEqualTo(player.Client.Account.ObjectId)));
         if (_CachedPlayerLoyaltyDict == null) _CachedPlayerLoyaltyDict = new Dictionary<GamePlayer, PlayerLoyalty>();
 
         lock (CachedDictLock)
@@ -149,21 +149,21 @@ public class LoyaltyManager
 
     public static void LoyaltyUpdateAddDays(GamePlayer player, int days)
     {
-        List<DbAccountXRealmLoyalty> realmLoyalty = new List<DbAccountXRealmLoyalty>(DOLDB<DbAccountXRealmLoyalty>.SelectObjects(DB.Column("AccountID").IsEqualTo(player.Client.Account.ObjectId)));
+        List<DbAccountXRealmLoyalty> realmLoyalty = new List<DbAccountXRealmLoyalty>(CoreDb<DbAccountXRealmLoyalty>.SelectObjects(DB.Column("AccountID").IsEqualTo(player.Client.Account.ObjectId)));
         DateTime lastUpdatedTime = realmLoyalty.First().LastLoyaltyUpdate;
         lastUpdatedTime.AddDays(days);
     }
     
     public static void LoyaltyUpdateAddHours(GamePlayer player, int hours)
     {
-        List<DbAccountXRealmLoyalty> realmLoyalty = new List<DbAccountXRealmLoyalty>(DOLDB<DbAccountXRealmLoyalty>.SelectObjects(DB.Column("AccountID").IsEqualTo(player.Client.Account.ObjectId)));
+        List<DbAccountXRealmLoyalty> realmLoyalty = new List<DbAccountXRealmLoyalty>(CoreDb<DbAccountXRealmLoyalty>.SelectObjects(DB.Column("AccountID").IsEqualTo(player.Client.Account.ObjectId)));
         DateTime lastUpdatedTime = realmLoyalty.First().LastLoyaltyUpdate;
         lastUpdatedTime.AddHours(hours);
     }
     
     public static DateTime GetLastLoyaltyUpdate(GamePlayer player)
     {
-        List<DbAccountXRealmLoyalty> realmLoyalty = new List<DbAccountXRealmLoyalty>(DOLDB<DbAccountXRealmLoyalty>.SelectObjects(DB.Column("AccountID").IsEqualTo(player.Client.Account.ObjectId)));
+        List<DbAccountXRealmLoyalty> realmLoyalty = new List<DbAccountXRealmLoyalty>(CoreDb<DbAccountXRealmLoyalty>.SelectObjects(DB.Column("AccountID").IsEqualTo(player.Client.Account.ObjectId)));
         DateTime lastUpdatedTime = realmLoyalty.First().LastLoyaltyUpdate;
         return lastUpdatedTime;
     }
@@ -176,7 +176,7 @@ public class LoyaltyManager
     public static void HandlePVPKill(GamePlayer player)
     {
         return; //disabled due to low pop
-        List<DbAccountXRealmLoyalty> rloyal = new List<DbAccountXRealmLoyalty>(DOLDB<DbAccountXRealmLoyalty>.SelectObjects(DB.Column("AccountID").IsEqualTo(player.Client.Account.ObjectId)));
+        List<DbAccountXRealmLoyalty> rloyal = new List<DbAccountXRealmLoyalty>(CoreDb<DbAccountXRealmLoyalty>.SelectObjects(DB.Column("AccountID").IsEqualTo(player.Client.Account.ObjectId)));
         
         foreach (var loyalty in rloyal)
         {

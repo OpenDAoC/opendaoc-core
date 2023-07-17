@@ -8,7 +8,7 @@ namespace DOL.GS.DatabaseUpdate
 	/// <summary>
 	/// Checks and updates the new SalvageYields table
 	/// </summary>
-	[DatabaseUpdate]
+	[DatabaseUpdater]
 	public class SalvageYieldsUpdate : IDatabaseUpdater
 	{
 		/// <summary>

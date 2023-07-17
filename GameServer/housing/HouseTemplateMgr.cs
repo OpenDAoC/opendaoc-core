@@ -302,7 +302,7 @@ namespace DOL.GS.Housing
 
         private static void CheckMerchantItems(string merchantid, ICollection<string> itemids)
         {
-            var merchantitems = DOLDB<DbMerchantItems>.SelectObjects(DB.Column("ItemListID").IsEqualTo(merchantid));
+            var merchantitems = CoreDb<DbMerchantItems>.SelectObjects(DB.Column("ItemListID").IsEqualTo(merchantid));
 
             int slot = 0;
             foreach (string itemid in itemids)

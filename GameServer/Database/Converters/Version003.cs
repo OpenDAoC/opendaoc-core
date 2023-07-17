@@ -29,7 +29,7 @@ namespace DOL.GS.DatabaseConverters
 				return;
 			}
 
-			var templates = DOLDB<DbItemTemplates>.SelectObjects(DB.Column("SpellID").IsEqualTo(0));
+			var templates = CoreDb<DbItemTemplates>.SelectObjects(DB.Column("SpellID").IsEqualTo(0));
 
 			int count = 0;
 			foreach (DbItemTemplates template in templates)
@@ -61,7 +61,7 @@ namespace DOL.GS.DatabaseConverters
 
 			log.Info("Converted " + count + " templates");
 
-			var items = DOLDB<InventoryItem>.SelectObjects(DB.Column("SpellID").IsEqualTo(0));
+			var items = CoreDb<InventoryItem>.SelectObjects(DB.Column("SpellID").IsEqualTo(0));
 			count = 0;
 			foreach (InventoryItem item in items)
 			{

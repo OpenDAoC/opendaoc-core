@@ -31,7 +31,7 @@ namespace DOL.GS
 
 			TurnTo(player, 5000);
 			
-			var alreadyReset = DOLDB<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId")
+			var alreadyReset = CoreDb<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId")
 				.IsEqualTo(player.ObjectId).And(DB.Column("KeyName").IsEqualTo(StatsResetKey)));
 			
 			if(alreadyReset == null)
@@ -61,7 +61,7 @@ namespace DOL.GS
 			if (player == null)
 				return false;
 			
-			var alreadyReset = DOLDB<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId")
+			var alreadyReset = CoreDb<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId")
 				.IsEqualTo(player.ObjectId).And(DB.Column("KeyName").IsEqualTo(StatsResetKey)));
 
 			if (alreadyReset == null && text == "stats respec")

@@ -25,7 +25,7 @@ namespace DOL.GS.Keeps
 			var filterTemplateID = DB.Column("TemplateID").IsEqualTo(guard.TemplateID);
 			var filterComponentSkin = DB.Column("ComponentSkin").IsEqualTo(guard.Component.Skin);
 			var filterHeight = DB.Column("Height").IsLessOrEqualTo(guard.Component.Height);
-			return DOLDB<DbKeepPositions>.SelectObjects(filterClassType.And(filterTemplateID).And(filterComponentSkin).And(filterHeight))
+			return CoreDb<DbKeepPositions>.SelectObjects(filterClassType.And(filterTemplateID).And(filterComponentSkin).And(filterHeight))
 				.OrderByDescending(it => it.Height).FirstOrDefault();
 		}
 
@@ -40,7 +40,7 @@ namespace DOL.GS.Keeps
 			var filterTemplateID = DB.Column("TemplateID").IsEqualTo(b.TemplateID);
 			var filterComponentSkin = DB.Column("ComponentSkin").IsEqualTo(b.Component.Skin);
 			var filterHeight = DB.Column("Height").IsLessOrEqualTo(b.Component.Height);
-			return DOLDB<DbKeepPositions>.SelectObjects(filterClassType.And(filterTemplateID).And(filterComponentSkin).And(filterHeight))
+			return CoreDb<DbKeepPositions>.SelectObjects(filterClassType.And(filterTemplateID).And(filterComponentSkin).And(filterHeight))
 				.OrderByDescending(it => it.Height).FirstOrDefault();
 		}
 
@@ -54,7 +54,7 @@ namespace DOL.GS.Keeps
 			var filterTemplateID = DB.Column("TemplateID").IsEqualTo(guard.TemplateID);
 			var filterComponentSkin = DB.Column("ComponentSkin").IsEqualTo(guard.Component.Skin);
 			var filterHeight = DB.Column("Height").IsLessOrEqualTo(guard.Component.Height);
-			return DOLDB<DbKeepPositions>.SelectObject(filterTemplateID.And(filterComponentSkin).And(filterHeight));
+			return CoreDb<DbKeepPositions>.SelectObject(filterTemplateID.And(filterComponentSkin).And(filterHeight));
 		}
 
 
@@ -302,7 +302,7 @@ namespace DOL.GS.Keeps
 		{
 			SortedList sorted = new SortedList();
 			pathID.Replace('\'', '/'); // we must replace the ', found no other way yet
-			var dbpath = DOLDB<DbPaths>.SelectObject(DB.Column("PathID").IsEqualTo(pathID));
+			var dbpath = CoreDb<DbPaths>.SelectObject(DB.Column("PathID").IsEqualTo(pathID));
 			IList<DbPathPoints> pathpoints = null;
 			ePathType pathType = ePathType.Once;
 
@@ -312,7 +312,7 @@ namespace DOL.GS.Keeps
 			}
 			if (pathpoints == null)
 			{
-				pathpoints = DOLDB<DbPathPoints>.SelectObjects(DB.Column("PathID").IsEqualTo(pathID));
+				pathpoints = CoreDb<DbPathPoints>.SelectObjects(DB.Column("PathID").IsEqualTo(pathID));
 			}
 
 			foreach (DbPathPoints point in pathpoints)
@@ -360,7 +360,7 @@ namespace DOL.GS.Keeps
 				return;
 
 			pathID.Replace('\'', '/'); // we must replace the ', found no other way yet
-			GameServer.Database.DeleteObject(DOLDB<DbPaths>.SelectObjects(DB.Column("PathID").IsEqualTo(pathID)));
+			GameServer.Database.DeleteObject(CoreDb<DbPaths>.SelectObjects(DB.Column("PathID").IsEqualTo(pathID)));
 			PathPoint root = MovementMgr.FindFirstPathPoint(path);
 
 			//Set the current pathpoint to the rootpoint!

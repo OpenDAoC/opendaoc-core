@@ -56,7 +56,7 @@ namespace DOL.GS.GameEvents
             //Characters created after Female Stat Fix Date dont need stats reset.
             if (player.CreationDate > femaleFixDate) return;
             
-            var needsAdjustment = DOLDB<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId")
+            var needsAdjustment = CoreDb<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId")
                 .IsEqualTo(player.ObjectId).And(DB.Column("KeyName").IsEqualTo("StatsAdjust")));
             
             if (needsAdjustment != null) return;

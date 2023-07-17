@@ -135,7 +135,7 @@ namespace DOL.GS.Scripts
         {
 
             var LaunchQuestParamKey = $"{CUSTOM_KEY}{Realm}";
-            var HasLaunchQuestParam = DOLDB<AccountXCustomParam>.SelectObject(DB.Column("Name").IsEqualTo(player.Client.Account.Name).And(DB.Column("KeyName").IsEqualTo(LaunchQuestParamKey)));
+            var HasLaunchQuestParam = CoreDb<AccountXCustomParam>.SelectObject(DB.Column("Name").IsEqualTo(player.Client.Account.Name).And(DB.Column("KeyName").IsEqualTo(LaunchQuestParamKey)));
 
             if (HasLaunchQuestParam != null) return;
             
@@ -150,7 +150,7 @@ namespace DOL.GS.Scripts
         {
             var LaunchQuestParamKey = $"{CUSTOM_KEY}{Realm}";
             
-            return DOLDB<AccountXCustomParam>.SelectObject(DB.Column("Name").IsEqualTo(player.Client.Account.Name).And(DB.Column("KeyName").IsEqualTo(LaunchQuestParamKey))) != null;
+            return CoreDb<AccountXCustomParam>.SelectObject(DB.Column("Name").IsEqualTo(player.Client.Account.Name).And(DB.Column("KeyName").IsEqualTo(LaunchQuestParamKey))) != null;
 
         }
 

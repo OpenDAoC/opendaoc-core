@@ -34,7 +34,7 @@ namespace DOL.GS.Commands
 					client.Player.Out.SendMessage($"This command will be available after {endSoftLaunch} UTC+1", eChatType.CT_System, eChatLoc.CL_SystemWindow);
 					return;
 				}
-				var alreadyUsed = DOLDB<AccountXCustomParam>.SelectObject(DB.Column("Name").IsEqualTo(client.Account.Name).And(DB.Column("KeyName").IsEqualTo(SoftLaunchLevelKey)));
+				var alreadyUsed = CoreDb<AccountXCustomParam>.SelectObject(DB.Column("Name").IsEqualTo(client.Account.Name).And(DB.Column("KeyName").IsEqualTo(SoftLaunchLevelKey)));
 				
 				if (alreadyUsed != null)
 				{
@@ -93,7 +93,7 @@ namespace DOL.GS.Commands
 						return;
 					}
 					
-					var alreadyUsed = DOLDB<AccountXCustomParam>.SelectObject(DB.Column("Name").IsEqualTo(client.Account.Name).And(DB.Column("KeyName").IsEqualTo(SoftLaunchLevelGearKey)));
+					var alreadyUsed = CoreDb<AccountXCustomParam>.SelectObject(DB.Column("Name").IsEqualTo(client.Account.Name).And(DB.Column("KeyName").IsEqualTo(SoftLaunchLevelGearKey)));
 					
 					if (alreadyUsed != null)
 					{

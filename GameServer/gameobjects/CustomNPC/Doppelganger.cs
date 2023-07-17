@@ -31,7 +31,7 @@ namespace DOL.GS
 
         static Doppelganger()
         {
-           DBNpcTemplate chthonian = DOLDB<DBNpcTemplate>.SelectObject(DB.Column("Name").IsEqualTo("chthonian crawler"));
+           DBNpcTemplate chthonian = CoreDb<DBNpcTemplate>.SelectObject(DB.Column("Name").IsEqualTo("chthonian crawler"));
             if (chthonian != null)
                 m_petTemplate = new NpcTemplate(chthonian);
         }

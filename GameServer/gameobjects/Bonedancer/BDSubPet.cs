@@ -36,11 +36,11 @@ namespace DOL.GS
                 if (m_PetSpecLine == null && Brain is IControlledBrain brain && brain.GetPlayerOwner() is GamePlayer player)
                 {
                     // Get the spell that summoned this pet
-                    DBSpell dbSummoningSpell = DOLDB<DBSpell>.SelectObject(DB.Column("LifeDrainReturn").IsEqualTo(NPCTemplate.TemplateId));
+                    DBSpell dbSummoningSpell = CoreDb<DBSpell>.SelectObject(DB.Column("LifeDrainReturn").IsEqualTo(NPCTemplate.TemplateId));
                     if (dbSummoningSpell != null)
                     {
                         // Figure out which spell line the summoning spell is from
-                        DbLineXSpells dbLineSpell = DOLDB<DbLineXSpells>.SelectObject(DB.Column("SpellID").IsEqualTo(dbSummoningSpell.SpellID));
+                        DbLineXSpells dbLineSpell = CoreDb<DbLineXSpells>.SelectObject(DB.Column("SpellID").IsEqualTo(dbSummoningSpell.SpellID));
                         if (dbLineSpell != null)
                         {
                             // Now figure out what the spec name is

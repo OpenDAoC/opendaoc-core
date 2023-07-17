@@ -47,7 +47,7 @@ namespace DOL.GS
 		/// <param name="instanceName"></param>
 		public virtual void LoadFromDatabase(string instanceName)
 		{
-			var objects = DOLDB<DbInstanceXElements>.SelectObjects(DB.Column("InstanceID").IsEqualTo(instanceName));
+			var objects = CoreDb<DbInstanceXElements>.SelectObjects(DB.Column("InstanceID").IsEqualTo(instanceName));
 
 			if (objects.Count == 0)
 				return;

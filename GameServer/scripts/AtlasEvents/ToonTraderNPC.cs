@@ -71,7 +71,7 @@ namespace DOL.GS.Scripts
             GamePlayer player = source as GamePlayer;
             
             const string soloKey = "solo_to_50";
-            var isSolo = DOLDB<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId").IsEqualTo(player?.ObjectId).And(DB.Column("KeyName").IsEqualTo(soloKey)));
+            var isSolo = CoreDb<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId").IsEqualTo(player?.ObjectId).And(DB.Column("KeyName").IsEqualTo(soloKey)));
 
             if (player == null)
                 return false;
@@ -163,7 +163,7 @@ namespace DOL.GS.Scripts
             {
                 {
                     const string soloKey = "solo_to_50";
-                    var isSolo = DOLDB<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId").IsEqualTo(player?.ObjectId).And(DB.Column("KeyName").IsEqualTo(soloKey)));
+                    var isSolo = CoreDb<DOLCharactersXCustomParam>.SelectObject(DB.Column("DOLCharactersObjectId").IsEqualTo(player?.ObjectId).And(DB.Column("KeyName").IsEqualTo(soloKey)));
                     
                     var orbAmount = 1000;
                     player.Client.Account.CharactersTraded++;

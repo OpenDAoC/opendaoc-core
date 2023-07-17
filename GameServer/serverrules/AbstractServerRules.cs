@@ -59,7 +59,7 @@ namespace DOL.GS.ServerRules
 
 			// Ban account
 			IList<DbBans> objs;
-			objs = DOLDB<DbBans>.SelectObjects(DB.Column("Type").IsEqualTo("A").Or(DB.Column("Type").IsEqualTo("B")).And(DB.Column("Account").IsEqualTo(username)));
+			objs = CoreDb<DbBans>.SelectObjects(DB.Column("Type").IsEqualTo("A").Or(DB.Column("Type").IsEqualTo("B")).And(DB.Column("Account").IsEqualTo(username)));
 			if (objs.Count > 0)
 			{
 				client.IsConnected = false;
@@ -70,7 +70,7 @@ namespace DOL.GS.ServerRules
 
 			// Ban IP Address or range (example: 5.5.5.%)
 			string accip = client.TcpEndpointAddress;
-			objs = DOLDB<DbBans>.SelectObjects(DB.Column("Type").IsEqualTo("I").Or(DB.Column("Type").IsEqualTo("B")).And(DB.Column("Ip").IsLike(accip)));
+			objs = CoreDb<DbBans>.SelectObjects(DB.Column("Type").IsEqualTo("I").Or(DB.Column("Type").IsEqualTo("B")).And(DB.Column("Ip").IsLike(accip)));
 			if (objs.Count > 0)
 			{
 				client.IsConnected = false;

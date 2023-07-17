@@ -333,16 +333,16 @@ namespace DOL.GS
 				if (removeGuild == null)
 					return false;
 
-				var guilds = DOLDB<DbGuilds>.SelectObjects(DB.Column("GuildID").IsEqualTo(removeGuild.GuildID));
+				var guilds = CoreDb<DbGuilds>.SelectObjects(DB.Column("GuildID").IsEqualTo(removeGuild.GuildID));
 				foreach (var guild in guilds)
 				{
-					foreach (var cha in DOLDB<DbCoreCharacters>.SelectObjects(DB.Column("GuildID").IsEqualTo(guild.GuildID)))
+					foreach (var cha in CoreDb<DbCoreCharacters>.SelectObjects(DB.Column("GuildID").IsEqualTo(guild.GuildID)))
 						cha.GuildID = "";
 				}
 				GameServer.Database.DeleteObject(guilds);
 
 				//[StephenxPimentel] We need to delete the guild specific ranks aswell!
-				var ranks = DOLDB<DbGuildRanks>.SelectObjects(DB.Column("GuildID").IsEqualTo(removeGuild.GuildID));
+				var ranks = CoreDb<DbGuildRanks>.SelectObjects(DB.Column("GuildID").IsEqualTo(removeGuild.GuildID));
 				GameServer.Database.DeleteObject(ranks);
 
 				lock (removeGuild.GetListOfOnlineMembers())
@@ -447,12 +447,12 @@ namespace DOL.GS
 					RepairRanks(myguild);
 
 					// now reload the guild to fix the relations
-					myguild = new Guild(DOLDB<DbGuilds>.SelectObjects(DB.Column("GuildID").IsEqualTo(obj.GuildID)).FirstOrDefault());
+					myguild = new Guild(CoreDb<DbGuilds>.SelectObjects(DB.Column("GuildID").IsEqualTo(obj.GuildID)).FirstOrDefault());
 				}
 
 				AddGuild(myguild);
 
-				var guildCharacters = DOLDB<DbCoreCharacters>.SelectObjects(DB.Column("GuildID").IsEqualTo(myguild.GuildID));
+				var guildCharacters = CoreDb<DbCoreCharacters>.SelectObjects(DB.Column("GuildID").IsEqualTo(myguild.GuildID));
 				var tempList = new Dictionary<string, GuildMemberDisplay>(guildCharacters.Count);
 
 				foreach (DbCoreCharacters ch in guildCharacters)
@@ -547,7 +547,7 @@ namespace DOL.GS
 			{
 				player.RemoveMoney(COST_RE_EMBLEM, null);
                 InventoryLogging.LogInventoryAction(player, "(GUILD;" + player.GuildName + ")", eInventoryActionType.Other, COST_RE_EMBLEM);
-                var objs = DOLDB<InventoryItem>.SelectObjects(DB.Column("Emblem").IsEqualTo(oldemblem));
+                var objs = CoreDb<InventoryItem>.SelectObjects(DB.Column("Emblem").IsEqualTo(oldemblem));
 				
 				foreach (InventoryItem item in objs)
 				{

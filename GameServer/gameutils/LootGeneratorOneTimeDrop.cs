@@ -57,7 +57,7 @@ namespace DOL.GS
 
 					foreach (DbLootOtds l in lootOTDs)
 					{
-						IList<DbMobs> mobs = DOLDB<DbMobs>.SelectObjects(DB.Column("Name").IsEqualTo(l.MobName));
+						IList<DbMobs> mobs = CoreDb<DbMobs>.SelectObjects(DB.Column("Name").IsEqualTo(l.MobName));
 
 						if (mobs == null || mobs.Count == 0)
 						{
@@ -114,7 +114,7 @@ namespace DOL.GS
 			if (mob == null)
 				return;
 
-			IList<DbLootOtds> otds = DOLDB<DbLootOtds>.SelectObjects(DB.Column("MobName").IsEqualTo(mob.Name));
+			IList<DbLootOtds> otds = CoreDb<DbLootOtds>.SelectObjects(DB.Column("MobName").IsEqualTo(mob.Name));
 
 			lock (m_mobOTDList)
 			{
@@ -180,7 +180,7 @@ namespace DOL.GS
 								{
 									if (drop.MinLevel <= player.Level)
 									{
-										var hasDrop = DOLDB<DbCharacterXOneTimeDrop>.SelectObject(DB.Column("CharacterID").IsEqualTo(player.QuestPlayerID).And(DB.Column("ItemTemplateID").IsEqualTo(drop.ItemTemplateID)));
+										var hasDrop = CoreDb<DbCharacterXOneTimeDrop>.SelectObject(DB.Column("CharacterID").IsEqualTo(player.QuestPlayerID).And(DB.Column("ItemTemplateID").IsEqualTo(drop.ItemTemplateID)));
 
 										if (hasDrop == null)
 										{
