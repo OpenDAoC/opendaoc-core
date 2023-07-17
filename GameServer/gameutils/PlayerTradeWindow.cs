@@ -210,7 +210,7 @@ namespace DOL.GS
 					return;
 				}
 
-				if(Repair.IsAllowedToBeginWork(m_owner, itemToRepair, 100))
+				if(RepairMgr.IsAllowedToBeginWork(m_owner, itemToRepair, 100))
 				{
 					m_partnerWindow.m_repair = true;
 					m_repair = true;
@@ -295,8 +295,8 @@ namespace DOL.GS
 				{
 					if(((AdvancedCraftingSkill)skill).IsAllowedToCombine(m_owner, itemToCombine))
 					{
-						if(skill is SpellCrafting)
-							((SpellCrafting)skill).ShowSpellCraftingInfos(m_owner, itemToCombine);
+						if(skill is SpellCraftingSkill)
+							((SpellCraftingSkill)skill).ShowSpellCraftingInfos(m_owner, itemToCombine);
 
 						m_partnerWindow.m_combine = true;
 						m_combine = true;

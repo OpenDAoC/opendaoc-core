@@ -9,7 +9,7 @@ using DOL.GS.ServerProperties;
 
 namespace DOL.GS
 {
-    public class Recipe
+    public class RecipeMgr
     {
         protected static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -21,13 +21,13 @@ namespace DOL.GS
         public List<Ingredient> Ingredients => new List<Ingredient>(ingredients);
         public bool IsForUniqueProduct { get; private set; } = false;
 
-        public Recipe(DbItemTemplates product, List<Ingredient> ingredients)
+        public RecipeMgr(DbItemTemplates product, List<Ingredient> ingredients)
         {
             this.ingredients = ingredients.ToArray();
             Product = product;
         }
 
-        public Recipe(DbItemTemplates product, List<Ingredient> ingredients, eCraftingSkill requiredSkill, int level, bool makeTemplated)
+        public RecipeMgr(DbItemTemplates product, List<Ingredient> ingredients, eCraftingSkill requiredSkill, int level, bool makeTemplated)
             : this(product, ingredients)
         {
             RequiredCraftingSkill = requiredSkill;
@@ -108,11 +108,11 @@ namespace DOL.GS
     public class RecipeDB
     {
         protected static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-        private static Dictionary<ushort, Recipe> recipeCache = new Dictionary<ushort, Recipe>();
+        private static Dictionary<ushort, RecipeMgr> recipeCache = new Dictionary<ushort, RecipeMgr>();
 
-        public static Recipe FindBy(ushort recipeDatabaseID)
+        public static RecipeMgr FindBy(ushort recipeDatabaseID)
         {
-            Recipe recipe;
+            RecipeMgr recipe;
             recipeCache.TryGetValue(recipeDatabaseID, out recipe);
             if (recipe != null)
             {
@@ -141,9 +141,9 @@ namespace DOL.GS
 
         }
 
-        private static Recipe NullRecipe => new Recipe(null, null);
+        private static RecipeMgr NullRecipe => new RecipeMgr(null, null);
 
-        private static Recipe LoadFromDB(ushort recipeDatabaseID)
+        private static RecipeMgr LoadFromDB(ushort recipeDatabaseID)
         {
 
             string craftingDebug = "";
@@ -199,7 +199,7 @@ namespace DOL.GS
                 //throw new ArgumentException(errorText);
             }
 
-            var recipe = new Recipe(product, ingredients, (eCraftingSkill)dbRecipe.CraftingSkillType, dbRecipe.CraftingLevel, dbRecipe.MakeTemplated);
+            var recipe = new RecipeMgr(product, ingredients, (eCraftingSkill)dbRecipe.CraftingSkillType, dbRecipe.CraftingLevel, dbRecipe.MakeTemplated);
             return recipe;
         }
     }

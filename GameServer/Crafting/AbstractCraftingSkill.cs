@@ -99,7 +99,7 @@ namespace DOL.GS
 		#endregion
 
 		#region First call function and callback
-		public virtual void CraftItem(GamePlayer player, Recipe recipe)
+		public virtual void CraftItem(GamePlayer player, RecipeMgr recipe)
 		{
 			if (!CanPlayerStartToCraftItem(player, recipe))
 			{
@@ -124,7 +124,7 @@ namespace DOL.GS
 			player.craftComponent.StartCraft(recipe, this, craftingTime);
 		}
 
-		protected virtual void StartCraftingTimerAndSetCallBackMethod(GamePlayer player, Recipe recipe, int craftingTime)
+		protected virtual void StartCraftingTimerAndSetCallBackMethod(GamePlayer player, RecipeMgr recipe, int craftingTime)
         {
 			//player.CraftTimer = new ECSGameTimer(player);
 			//player.CraftTimer.Callback = new ECSGameTimer.ECSTimerCallback(MakeItem);
@@ -140,7 +140,7 @@ namespace DOL.GS
 			player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "AbstractCraftingSkill.CraftItem.StopWork", itemToCraft.Name), eChatType.CT_System, eChatLoc.CL_SystemWindow);
 		}
 
-		protected virtual bool CanPlayerStartToCraftItem(GamePlayer player, Recipe recipe)
+		protected virtual bool CanPlayerStartToCraftItem(GamePlayer player, RecipeMgr recipe)
 		{
 			
 			player.TempProperties.setProperty("RecipeToCraft", recipe);
@@ -191,12 +191,12 @@ namespace DOL.GS
 
 		#region Requirement check
 
-		protected virtual bool CheckForTools(GamePlayer player, Recipe recipe)
+		protected virtual bool CheckForTools(GamePlayer player, RecipeMgr recipe)
 		{
 			return true;
 		}
 
-		public virtual bool CheckSecondCraftingSkillRequirement(GamePlayer player, Recipe recipe)
+		public virtual bool CheckSecondCraftingSkillRequirement(GamePlayer player, RecipeMgr recipe)
         {
 			int minimumLevel = GetSecondaryCraftingSkillMinimumLevel(recipe);
 
@@ -254,7 +254,7 @@ namespace DOL.GS
 			return true;
 		}
 
-		public virtual bool CheckRawMaterials(GamePlayer player, Recipe recipe)
+		public virtual bool CheckRawMaterials(GamePlayer player, RecipeMgr recipe)
         {
 			ArrayList missingMaterials = null;
 
@@ -316,7 +316,7 @@ namespace DOL.GS
 		#endregion
 
 		#region Gain points
-		public virtual void GainCraftingSkillPoints(GamePlayer player, Recipe recipe)
+		public virtual void GainCraftingSkillPoints(GamePlayer player, RecipeMgr recipe)
 		{
 			foreach (var ingredient in recipe.Ingredients)
 			{
@@ -369,7 +369,7 @@ namespace DOL.GS
 		#endregion
 
 		#region Use materials and created crafted item
-		public virtual bool RemoveUsedMaterials(GamePlayer player, Recipe recipe)
+		public virtual bool RemoveUsedMaterials(GamePlayer player, RecipeMgr recipe)
 		{
 			Dictionary<int, int?> dataSlots = new Dictionary<int, int?>(10);
 
@@ -437,7 +437,7 @@ namespace DOL.GS
 			return true;//all raw material removed and item created
 		}
 
-		public virtual void BuildCraftedItem(GamePlayer player, Recipe recipe)
+		public virtual void BuildCraftedItem(GamePlayer player, RecipeMgr recipe)
 		{
 			var product = recipe.Product;
 
@@ -633,7 +633,7 @@ namespace DOL.GS
 
 			return chance;
 		}
-		public virtual int GetCraftingTime(GamePlayer player, Recipe recipe)
+		public virtual int GetCraftingTime(GamePlayer player, RecipeMgr recipe)
 		{
 			double baseMultiplier = (recipe.Level / 100) + 1;
 			if (baseMultiplier < 1) baseMultiplier = 1;
@@ -707,7 +707,7 @@ namespace DOL.GS
 			return craftingTime;
 		}
 
-		public virtual int GetSecondaryCraftingSkillMinimumLevel(Recipe recipe)
+		public virtual int GetSecondaryCraftingSkillMinimumLevel(RecipeMgr recipe)
 		{
 			return 0;
 		}

@@ -1,17 +1,14 @@
 using System;
-using System.Collections.Generic;
-
-using DOL.Database;
 using DOL.Language;
 
 namespace DOL.GS
 {
-	public class BasicCrafting : AbstractProfession
+	public class BasicCraftingSkill : AbstractProfession
 	{
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		public BasicCrafting()
+		public BasicCraftingSkill()
 		{
 			Icon = 0x0F;
             Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "Crafting.Name.BasicCrafting");
@@ -34,7 +31,7 @@ namespace DOL.GS
             }
 		}
 
-		public override void GainCraftingSkillPoints(GamePlayer player, Recipe recipe)
+		public override void GainCraftingSkillPoints(GamePlayer player, RecipeMgr recipe)
 		{
 			if (Util.Chance(CalculateChanceToGainPoint(player, recipe.Level)))
 			{

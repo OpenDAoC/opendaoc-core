@@ -1,13 +1,12 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using DOL.Database;
-using DOL.Language;
 using DOL.GS.PacketHandler;
+using DOL.Language;
 
 namespace DOL.GS
 {
-	public class SpellCrafting : AdvancedCraftingSkill
+	public class SpellCraftingSkill : AdvancedCraftingSkill
 	{
         protected override String Profession
         {
@@ -75,7 +74,7 @@ namespace DOL.GS
         private static readonly int[] OCStartPercentages = { 0, 10, 20, 30, 50, 70 };
         private static readonly int[] ItemQualOCModifiers = { 0, 0, 6, 8, 10, 18, 26 };
 
-		public SpellCrafting()
+		public SpellCraftingSkill()
 		{
 			Icon = 0x0D;
 			Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, 
@@ -84,7 +83,7 @@ namespace DOL.GS
 		}
 
 		#region Classic craft functions
-		public override void GainCraftingSkillPoints(GamePlayer player, Recipe recipe)
+		public override void GainCraftingSkillPoints(GamePlayer player, RecipeMgr recipe)
 		{
 			if (Util.Chance(CalculateChanceToGainPoint(player, recipe.Level)))
 			{

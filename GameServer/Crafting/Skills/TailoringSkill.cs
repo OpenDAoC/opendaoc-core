@@ -1,14 +1,12 @@
-using DOL.Database;
-using DOL.Language;
-using DOL.GS.PacketHandler;
 using System;
-using System.Collections.Generic;
+using DOL.GS.PacketHandler;
+using DOL.Language;
 
 namespace DOL.GS
 {
-    public class Tailoring : AbstractProfession
+    public class TailoringSkill : AbstractProfession
     {
-        public Tailoring()
+        public TailoringSkill()
         {
             Icon = 0x0B;
             Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, 
@@ -24,7 +22,7 @@ namespace DOL.GS
             }
         }
 
-		protected override bool CheckForTools(GamePlayer player, Recipe recipe)
+		protected override bool CheckForTools(GamePlayer player, RecipeMgr recipe)
 		{
             bool needForge = false;
 
@@ -57,7 +55,7 @@ namespace DOL.GS
             return true;
         }
 
-        public override int GetSecondaryCraftingSkillMinimumLevel(Recipe recipe)
+        public override int GetSecondaryCraftingSkillMinimumLevel(RecipeMgr recipe)
         {
             switch (recipe.Product.Object_Type)
             {
@@ -70,7 +68,7 @@ namespace DOL.GS
             return base.GetSecondaryCraftingSkillMinimumLevel(recipe);
         }
 
-		public override void GainCraftingSkillPoints(GamePlayer player, Recipe recipe)
+		public override void GainCraftingSkillPoints(GamePlayer player, RecipeMgr recipe)
         {
             if (Util.Chance(CalculateChanceToGainPoint(player, recipe.Level)))
             {

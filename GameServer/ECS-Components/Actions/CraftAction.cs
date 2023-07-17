@@ -10,7 +10,7 @@ namespace DOL.GS
         protected static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         private GamePlayer _owner;
-        private Recipe _recipe;
+        private RecipeMgr _recipe;
         private AbstractCraftingSkill _skill;
         private int _craftTime;
         private long _startTick;
@@ -18,7 +18,7 @@ namespace DOL.GS
 
         private long EndTime => _startTick + _craftTime;
 
-        public CraftAction(GamePlayer owner, int CraftingTime, Recipe recipe, AbstractCraftingSkill skill)
+        public CraftAction(GamePlayer owner, int CraftingTime, RecipeMgr recipe, AbstractCraftingSkill skill)
         {
             _owner = owner;
             _startTick = GameLoop.GameLoopTime;
@@ -71,7 +71,7 @@ namespace DOL.GS
         protected virtual void MakeItem()
         {
             GamePlayer player = _owner as GamePlayer;
-            Recipe recipe = _recipe;
+            RecipeMgr recipe = _recipe;
             AbstractCraftingSkill skill = _skill;
             int queue = player.TempProperties.getProperty<int>("CraftQueueLength");
             int remainingToCraft = player.TempProperties.getProperty<int>("CraftQueueRemaining");

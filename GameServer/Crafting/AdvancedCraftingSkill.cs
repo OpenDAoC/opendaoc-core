@@ -10,7 +10,7 @@ namespace DOL.GS
 	public abstract class AdvancedCraftingSkill : AbstractProfession
     {
 		#region Classic craft function
-		protected override bool CheckForTools(GamePlayer player, Recipe recipe)
+		protected override bool CheckForTools(GamePlayer player, RecipeMgr recipe)
 		{
 			foreach (GameStaticItem item in player.GetItemsInRadius(CRAFT_DISTANCE))
 			{

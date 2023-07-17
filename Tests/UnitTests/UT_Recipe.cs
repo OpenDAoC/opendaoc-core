@@ -21,7 +21,7 @@ namespace DOL.Tests.Unit.Gameserver
             var item = new DbItemTemplates();
             item.Price = 2;
             var ingredient = new Ingredient(1, item);
-            var recipe = new Recipe(null, new List<Ingredient>() { ingredient});
+            var recipe = new RecipeMgr(null, new List<Ingredient>() { ingredient});
 
             var actual = recipe.CostToCraft;
 
@@ -35,7 +35,7 @@ namespace DOL.Tests.Unit.Gameserver
             var item = new DbItemTemplates() { Price = 2 };
             var ingredient1 = new Ingredient(1, item);
             var ingredient2 = new Ingredient(2, item);
-            var recipe = new Recipe(null, new List<Ingredient>() { ingredient1, ingredient2 });
+            var recipe = new RecipeMgr(null, new List<Ingredient>() { ingredient1, ingredient2 });
 
             var actual = recipe.CostToCraft;
 
@@ -48,7 +48,7 @@ namespace DOL.Tests.Unit.Gameserver
         {
             var product = new DbItemTemplates() { Price = 2 };
             var ingredients = new List<Ingredient>() { };
-            var recipe = new Recipe(product, ingredients);
+            var recipe = new RecipeMgr(product, ingredients);
 
             recipe.SetRecommendedProductPriceInDB();
 
@@ -64,7 +64,7 @@ namespace DOL.Tests.Unit.Gameserver
             var count = 1;
             var material = new DbItemTemplates() { Price = 100 };
             var ingredients = new List<Ingredient>() { new Ingredient(count, material) };
-            var recipe = new Recipe(product, ingredients);
+            var recipe = new RecipeMgr(product, ingredients);
             GS.ServerProperties.Properties.CRAFTING_SELLBACK_PERCENT = 95;
 
             recipe.SetRecommendedProductPriceInDB();

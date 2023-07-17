@@ -10,7 +10,7 @@ namespace DOL.GS
 	/// <summary>
 	/// The class holding all repair functions
 	/// </summary>
-	public class Repair
+	public class RepairMgr
 	{
 		/// <summary>
 		/// Defines a logger for this class.

@@ -1,14 +1,12 @@
-
+using System;
 using DOL.Database;
 using DOL.Language;
-using System;
-using System.Collections.Generic;
 
 namespace DOL.GS
 {
-	public class Alchemy : AdvancedCraftingSkill
+	public class AlchemySkill : AdvancedCraftingSkill
 	{
-		public Alchemy()
+		public AlchemySkill()
 		{
 			Icon = 0x04;
 			Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, 
@@ -25,7 +23,7 @@ namespace DOL.GS
         }
 
 		#region Classic Crafting Overrides
-		public override void GainCraftingSkillPoints(GamePlayer player, Recipe recipe)
+		public override void GainCraftingSkillPoints(GamePlayer player, RecipeMgr recipe)
 		{
 			if (Util.Chance( CalculateChanceToGainPoint(player, recipe.Level)))
 			{

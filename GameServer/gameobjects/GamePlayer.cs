@@ -13423,12 +13423,12 @@ namespace DOL.GS
         /// </summary>
         public virtual void SalvageItem(InventoryItem item)
         {
-            Salvage.BeginWork(this, item);
+            SalvageMgr.BeginWork(this, item);
         }
 
         public virtual void SalvageItemList(IList<InventoryItem> itemList)
         {
-            Salvage.BeginWorkList(this, itemList);
+            SalvageMgr.BeginWorkList(this, itemList);
         }
 
         /// <summary>
@@ -13436,7 +13436,7 @@ namespace DOL.GS
         /// </summary>
         public virtual void RepairItem(InventoryItem item)
         {
-            Repair.BeginWork(this, item);
+            RepairMgr.BeginWork(this, item);
         }
 
         #endregion
@@ -13873,7 +13873,7 @@ namespace DOL.GS
                 this.Out.SendMessage("You cannot salvage another realm's siege weapon!", eChatType.CT_Say, eChatLoc.CL_SystemWindow);
                 return;
             }
-            Salvage.BeginWork(this, siegeWeapon);
+            SalvageMgr.BeginWork(this, siegeWeapon);
         }
         #endregion
 

@@ -1,14 +1,11 @@
-using DOL.Database;
-using DOL.Language;
-using DOL.GS.PacketHandler;
 using System;
-using System.Collections.Generic;
+using DOL.Language;
 
 namespace DOL.GS
 {
-	public class SiegeCrafting : AbstractProfession
+	public class SiegeCraftingSkill : AbstractProfession
 	{
-		public SiegeCrafting()
+		public SiegeCraftingSkill()
 			: base()
 		{
 			Icon = 0x03;
@@ -31,7 +28,7 @@ namespace DOL.GS
             }
         }
 
-		public override void GainCraftingSkillPoints(GamePlayer player, Recipe recipe)
+		public override void GainCraftingSkillPoints(GamePlayer player, RecipeMgr recipe)
 		{
 			if (Util.Chance(CalculateChanceToGainPoint(player, recipe.Level)))
 			{
@@ -40,7 +37,7 @@ namespace DOL.GS
 			}
 		}
 
-		public override void BuildCraftedItem(GamePlayer player, Recipe recipe)
+		public override void BuildCraftedItem(GamePlayer player, RecipeMgr recipe)
 		{
 			var product = recipe.Product;
 			GameSiegeWeapon siegeweapon;

@@ -15,7 +15,7 @@ namespace DOL.GS
 	/// <summary>
 	/// The class holding all salvage functions
 	/// </summary>
-	public class Salvage
+	public class SalvageMgr
 	{
 		/// <summary>
 		/// Defines a logger for this class.

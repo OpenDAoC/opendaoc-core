@@ -60,7 +60,7 @@ namespace DOL.GS.Commands
                     client.Player.TempProperties.removeProperty(CraftQueueLength);
                     
 
-                    var recipe = client.Player.TempProperties.getProperty<Recipe>(RecipeToCraft);
+                    var recipe = client.Player.TempProperties.getProperty<RecipeMgr>(RecipeToCraft);
                     if (recipe != null)
                     {
                         client.Player.TempProperties.removeProperty(RecipeToCraft);
@@ -98,7 +98,7 @@ namespace DOL.GS.Commands
                         }
                     }
 
-                    var recipe = client.Player.TempProperties.getProperty<Recipe>("RecipeToCraft");
+                    var recipe = client.Player.TempProperties.getProperty<RecipeMgr>("RecipeToCraft");
                     if (recipe != null)
                     {
                         if (client.Player.TargetObject is GameMerchant merchant)
@@ -214,7 +214,7 @@ namespace DOL.GS.Commands
                         return;
                     }
 
-                    var recipe = client.Player.TempProperties.getProperty<Recipe>("RecipeToCraft");
+                    var recipe = client.Player.TempProperties.getProperty<RecipeMgr>("RecipeToCraft");
                     if (recipe != null)
                     {
                         if (client.Player.TargetObject is GameMerchant merchant)

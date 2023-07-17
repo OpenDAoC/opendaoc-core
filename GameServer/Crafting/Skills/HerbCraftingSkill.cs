@@ -1,25 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Reflection;
-using DOL.Database;
-using DOL.GS.PacketHandler;
 using DOL.Language;
-using log4net;
 
 namespace DOL.GS
 {
 
-	public class HerbalCrafting : AbstractCraftingSkill
+	public class HerbCraftingSkill : AbstractCraftingSkill
 	{
-		public HerbalCrafting()
+		public HerbCraftingSkill()
 		{
 			Icon = 0x0A;
 			Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "Crafting.Name.Herbcrafting");
 			eSkill = eCraftingSkill.HerbalCrafting;
 		}
 
-		public override void GainCraftingSkillPoints(GamePlayer player, Recipe recipe)
+		public override void GainCraftingSkillPoints(GamePlayer player, RecipeMgr recipe)
 		{
 			if (Util.Chance(CalculateChanceToGainPoint(player, recipe.Level)))
 			{

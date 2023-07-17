@@ -1,12 +1,10 @@
-using DOL.Database;
-using DOL.Language;
-using DOL.GS.PacketHandler;
 using System;
-using System.Collections.Generic;
+using DOL.GS.PacketHandler;
+using DOL.Language;
 
 namespace DOL.GS
 {
-	public class Fletching : AbstractProfession
+	public class FletchingSkill : AbstractProfession
 	{
         protected override String Profession
         {
@@ -16,7 +14,7 @@ namespace DOL.GS
             }
         }
 
-		public Fletching()
+		public FletchingSkill()
 		{
 			Icon = 0x0C;
 			Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, 
@@ -24,7 +22,7 @@ namespace DOL.GS
 			eSkill = eCraftingSkill.Fletching;
 		}
 
-		protected override bool CheckForTools(GamePlayer player, Recipe recipe)
+		protected override bool CheckForTools(GamePlayer player, RecipeMgr recipe)
 		{
 			if (recipe.Product.Object_Type != (int)eObjectType.Arrow &&
 				recipe.Product.Object_Type != (int)eObjectType.Bolt)
@@ -47,7 +45,7 @@ namespace DOL.GS
 			return true;
 		}
 
-		public override int GetSecondaryCraftingSkillMinimumLevel(Recipe recipe)
+		public override int GetSecondaryCraftingSkillMinimumLevel(RecipeMgr recipe)
 		{
 			switch (recipe.Product.Object_Type)
 			{
@@ -71,7 +69,7 @@ namespace DOL.GS
 			return base.GetSecondaryCraftingSkillMinimumLevel(recipe);
 		}
 
-		public override void GainCraftingSkillPoints(GamePlayer player, Recipe recipe)
+		public override void GainCraftingSkillPoints(GamePlayer player, RecipeMgr recipe)
 		{
 			if (Util.Chance(CalculateChanceToGainPoint(player, recipe.Level)))
 			{

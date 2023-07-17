@@ -262,8 +262,8 @@ namespace DOL.GS
 				{
 					if(((AdvancedCraftingSkill)skill).IsAllowedToCombine(m_owner, itemToCombine))
 					{
-						if(skill is SpellCrafting)
-							((SpellCrafting)skill).ShowSpellCraftingInfos(m_owner, itemToCombine);
+						if(skill is SpellCraftingSkill)
+							((SpellCraftingSkill)skill).ShowSpellCraftingInfos(m_owner, itemToCombine);
 					}
 				}
 

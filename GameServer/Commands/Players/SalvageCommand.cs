@@ -144,7 +144,7 @@ namespace DOL.GS.Commands
 					if (item == null)
 						continue;
 
-					if (!Salvage.IsAllowedToBeginWork(client.Player, item, true))
+					if (!SalvageMgr.IsAllowedToBeginWork(client.Player, item, true))
 						continue;
 
 					if (qualityInt > 0)
