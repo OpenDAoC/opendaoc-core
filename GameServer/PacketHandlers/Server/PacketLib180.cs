@@ -325,9 +325,9 @@ namespace DOL.GS.PacketHandler
 
 							switch (style.OpeningRequirementType)
 							{
-								case Style.eOpening.Offensive:
+								case Style.EStyleOpening.Offensive:
 									pre = (int)style.AttackResultRequirement; // last result of our attack against enemy hit, miss, target blocked, target parried, ...
-									if (style.AttackResultRequirement == Style.eAttackResultRequirement.Style)
+									if (style.AttackResultRequirement == Style.EAttackResultRequirement.Style)
 									{
 										// get style requirement value... find prerequisite style index from specs beginning...
 										int styleindex = Math.Max(0, usableSkills.FindIndex(it => (it.Item1 is Style) && it.Item1.ID == style.OpeningRequirementValue));
@@ -335,10 +335,10 @@ namespace DOL.GS.PacketHandler
 										pre |= ((byte)(100 + styleindex - speccount)) << 8;
 									}
 									break;
-								case Style.eOpening.Defensive:
+								case Style.EStyleOpening.Defensive:
 									pre = 100 + (int)style.AttackResultRequirement; // last result of enemies attack against us hit, miss, you block, you parry, ...
 									break;
-								case Style.eOpening.Positional:
+								case Style.EStyleOpening.Positional:
 									pre = 200 + style.OpeningRequirementValue;
 									break;
 							}

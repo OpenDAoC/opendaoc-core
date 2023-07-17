@@ -16,7 +16,7 @@ namespace DOL.GS.Styles
         /// <summary>
         /// The opening type of a style
         /// </summary>
-        public enum eOpening : int
+        public enum EStyleOpening : int
         {
             /// <summary>
             /// Offensive opening, depending on the attacker's actions
@@ -35,7 +35,7 @@ namespace DOL.GS.Styles
         /// <summary>
         /// The opening positions if the style is a position based style
         /// </summary>
-        public enum eOpeningPosition : int
+        public enum EStyleOpeningPosition : int
         {
             /// <summary>
             /// Towards back of the target
@@ -54,7 +54,7 @@ namespace DOL.GS.Styles
         /// <summary>
         /// The required attack result of the style 
         /// </summary>
-        public enum eAttackResultRequirement : int
+        public enum EAttackResultRequirement : int
         {
             /// <summary>
             /// Any attack result is fine
@@ -140,7 +140,7 @@ namespace DOL.GS.Styles
         /// <summary>
         /// (readonly) The opening type of this style
         /// </summary>
-        public eOpening OpeningRequirementType => (eOpening) baseStyle.OpeningRequirementType;
+        public EStyleOpening OpeningRequirementType => (EStyleOpening) baseStyle.OpeningRequirementType;
 
         /// <summary>
         /// (readonly) Depending on the OpeningRequirementType.
@@ -160,7 +160,7 @@ namespace DOL.GS.Styles
         /// (readonly) The attack result required from 
         /// attacker(offensive style) or defender(defensive style)
         /// </summary>
-        public eAttackResultRequirement AttackResultRequirement => (eAttackResultRequirement) baseStyle.AttackResultRequirement;
+        public EAttackResultRequirement AttackResultRequirement => (EAttackResultRequirement) baseStyle.AttackResultRequirement;
 
         /// <summary>
         /// (readonly) The type of weapon required to execute this style.

@@ -2080,7 +2080,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 				IEnumerable<Style> styles = clt.Player.GetSpecList().SelectMany(e => e.PretendStylesForLiving(clt.Player, clt.Player.MaxLevel));
 				
 				// Is a followup
-				if (style.OpeningRequirementType == Style.eOpening.Offensive && style.AttackResultRequirement == Style.eAttackResultRequirement.Style)
+				if (style.OpeningRequirementType == Style.EStyleOpening.Offensive && style.AttackResultRequirement == Style.EAttackResultRequirement.Style)
 				{
 					Style st = styles.Where(s => s.ID == style.OpeningRequirementValue).FirstOrDefault();
 					if (st != null)
@@ -2091,7 +2091,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 				}
 				
 				// Has Followup ?
-				foreach (Style stl in styles.Where(s => (s.OpeningRequirementType == Style.eOpening.Offensive && s.AttackResultRequirement == Style.eAttackResultRequirement.Style && s.OpeningRequirementValue == style.ID)))
+				foreach (Style stl in styles.Where(s => (s.OpeningRequirementType == Style.EStyleOpening.Offensive && s.AttackResultRequirement == Style.EAttackResultRequirement.Style && s.OpeningRequirementValue == style.ID)))
 				{
 					// we found the style that needs this one for opening.
 					dw.AppendKeyValuePair("FollowupStyle", stl.Name);
@@ -2110,7 +2110,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 				dw.AddKeyValuePair("OpeningType", (int)style.OpeningRequirementType);
                 if (style.AttackResultRequirement != 0)
                     dw.AddKeyValuePair("OpeningResult", (int)style.AttackResultRequirement);
-				if (style.OpeningRequirementType == Style.eOpening.Positional)
+				if (style.OpeningRequirementType == Style.EStyleOpening.Positional)
 					dw.AddKeyValuePair("OpeningNumber", style.OpeningRequirementValue);				
 				//.Value("OpeningResult",GetOpeningResult(style,clt),GetOpeningResult(style,clt)>0)
 				//.Value("OpeningStyle",GetOpeningStyle(style),(Style.eAttackResult)GetOpeningResult(style,clt) == Style.eAttackResult.Style)

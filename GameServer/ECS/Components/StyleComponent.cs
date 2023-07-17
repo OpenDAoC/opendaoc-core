@@ -226,12 +226,12 @@ namespace DOL.GS
 
                         string message = null;
 
-                        if (Style.eOpening.Offensive == style.OpeningRequirementType)
+                        if (Style.EStyleOpening.Offensive == style.OpeningRequirementType)
                         {
                             switch (style.AttackResultRequirement)
                             {
-                                case Style.eAttackResultRequirement.Style:
-                                case Style.eAttackResultRequirement.Hit: // TODO: make own message for hit after styles DB is updated
+                                case Style.EAttackResultRequirement.Style:
+                                case Style.EAttackResultRequirement.Hit: // TODO: make own message for hit after styles DB is updated
 
                                     Style reqStyle = SkillBase.GetStyleByID(style.OpeningRequirementValue, p.CharacterClass.ID);
 
@@ -241,46 +241,46 @@ namespace DOL.GS
                                     else message = LanguageMgr.GetTranslation(p.Client.Account.Language, "GamePlayer.RefreshSpec.AfterStyle", reqStyle.Name);
 
                                     break;
-                                case Style.eAttackResultRequirement.Miss:
+                                case Style.EAttackResultRequirement.Miss:
                                     message = LanguageMgr.GetTranslation(p.Client.Account.Language, "GamePlayer.RefreshSpec.AfterMissed");
                                     break;
-                                case Style.eAttackResultRequirement.Parry:
+                                case Style.EAttackResultRequirement.Parry:
                                     message = LanguageMgr.GetTranslation(p.Client.Account.Language, "GamePlayer.RefreshSpec.AfterParried");
                                     break;
-                                case Style.eAttackResultRequirement.Block:
+                                case Style.EAttackResultRequirement.Block:
                                     message = LanguageMgr.GetTranslation(p.Client.Account.Language, "GamePlayer.RefreshSpec.AfterBlocked");
                                     break;
-                                case Style.eAttackResultRequirement.Evade:
+                                case Style.EAttackResultRequirement.Evade:
                                     message = LanguageMgr.GetTranslation(p.Client.Account.Language, "GamePlayer.RefreshSpec.AfterEvaded");
                                     break;
-                                case Style.eAttackResultRequirement.Fumble:
+                                case Style.EAttackResultRequirement.Fumble:
                                     message = LanguageMgr.GetTranslation(p.Client.Account.Language, "GamePlayer.RefreshSpec.AfterFumbles");
                                     break;
                             }
                         }
-                        else if (Style.eOpening.Defensive == style.OpeningRequirementType)
+                        else if (Style.EStyleOpening.Defensive == style.OpeningRequirementType)
                         {
                             switch (style.AttackResultRequirement)
                             {
-                                case Style.eAttackResultRequirement.Miss:
+                                case Style.EAttackResultRequirement.Miss:
                                     message = LanguageMgr.GetTranslation(p.Client.Account.Language, "GamePlayer.RefreshSpec.TargetMisses");
                                     break;
-                                case Style.eAttackResultRequirement.Hit:
+                                case Style.EAttackResultRequirement.Hit:
                                     message = LanguageMgr.GetTranslation(p.Client.Account.Language, "GamePlayer.RefreshSpec.TargetHits");
                                     break;
-                                case Style.eAttackResultRequirement.Parry:
+                                case Style.EAttackResultRequirement.Parry:
                                     message = LanguageMgr.GetTranslation(p.Client.Account.Language, "GamePlayer.RefreshSpec.TargetParried");
                                     break;
-                                case Style.eAttackResultRequirement.Block:
+                                case Style.EAttackResultRequirement.Block:
                                     message = LanguageMgr.GetTranslation(p.Client.Account.Language, "GamePlayer.RefreshSpec.TargetBlocked");
                                     break;
-                                case Style.eAttackResultRequirement.Evade:
+                                case Style.EAttackResultRequirement.Evade:
                                     message = LanguageMgr.GetTranslation(p.Client.Account.Language, "GamePlayer.RefreshSpec.TargetEvaded");
                                     break;
-                                case Style.eAttackResultRequirement.Fumble:
+                                case Style.EAttackResultRequirement.Fumble:
                                     message = LanguageMgr.GetTranslation(p.Client.Account.Language, "GamePlayer.RefreshSpec.TargetFumbles");
                                     break;
-                                case Style.eAttackResultRequirement.Style:
+                                case Style.EAttackResultRequirement.Style:
                                     message = LanguageMgr.GetTranslation(p.Client.Account.Language, "GamePlayer.RefreshSpec.TargetStyle");
                                     break;
                             }

@@ -4099,25 +4099,25 @@ namespace DOL.GS
 
 				switch (s.OpeningRequirementType)
 				{
-					case Style.eOpening.Defensive:
+					case Style.EStyleOpening.Defensive:
 						if (StylesDefensive == null)
 							StylesDefensive = new List<Style>(1);
 						StylesDefensive.Add(s);
 						break;
-					case Style.eOpening.Positional:
-						switch ((Style.eOpeningPosition)s.OpeningRequirementValue)
+					case Style.EStyleOpening.Positional:
+						switch ((Style.EStyleOpeningPosition)s.OpeningRequirementValue)
 						{
-							case Style.eOpeningPosition.Back:
+							case Style.EStyleOpeningPosition.Back:
 								if (StylesBack == null)
 									StylesBack = new List<Style>(1);
 								StylesBack.Add(s);
 								break;
-							case Style.eOpeningPosition.Side:
+							case Style.EStyleOpeningPosition.Side:
 								if (StylesSide == null)
 									StylesSide = new List<Style>(1);
 								StylesSide.Add(s);
 								break;
-							case Style.eOpeningPosition.Front:
+							case Style.EStyleOpeningPosition.Front:
 								if (StylesFront == null)
 									StylesFront = new List<Style>(1);
 								StylesFront.Add(s);

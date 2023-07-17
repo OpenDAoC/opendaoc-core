@@ -208,21 +208,21 @@ namespace DOL.GS
 		/// </summary>
 		public static string StyleOpeningTypeToName(int openingType)
 		{
-			return Enum.GetName(typeof(Styles.Style.eOpening), openingType);
+			return Enum.GetName(typeof(Styles.Style.EStyleOpening), openingType);
 		}
 		/// <summary>
 		/// Position, Back, Side, Front
 		/// </summary>
 		public static string StyleOpeningPositionToName(int openingRequirement)
 		{
-			return Enum.GetName(typeof(Styles.Style.eOpeningPosition), openingRequirement);
+			return Enum.GetName(typeof(Styles.Style.EStyleOpeningPosition), openingRequirement);
 		}
 		/// <summary>
 		/// Attack Result. Any, Miss, Hit, Parry, Block, Evade, Fumble, Style.
 		/// </summary>
 		public static string StyleAttackResultToName(int attackResult)
 		{
-			return Enum.GetName(typeof(Styles.Style.eAttackResultRequirement), attackResult);
+			return Enum.GetName(typeof(Styles.Style.EAttackResultRequirement), attackResult);
 		}
 
 		public static string InstrumentTypeToName(int instrumentTypeID)
