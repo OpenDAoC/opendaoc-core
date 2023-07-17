@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Delete the existing serverconfig.xml and create it from scratch
-rm -f /app/config/serverconfig.xml
+rm -f /app/Config/serverConfig.xml
 
 # Create serverconfig.xml with environment variables
-cat << EOF > /app/config/serverconfig.xml
+cat << EOF > /app/Config/serverConfig.xml
 <?xml version="1.0" encoding="utf-8"?>
 <root>
     <Server>

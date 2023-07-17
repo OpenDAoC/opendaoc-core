@@ -32,7 +32,7 @@ namespace DOL.DOLServer.Actions
 		/// </summary>
 		public string Syntax
 		{
-			get { return "--start [-config=./config/serverconfig.xml]"; }
+			get { return "--start [-config=./Config/serverConfig.xml]"; }
 		}
 
 		/// <summary>
@@ -66,7 +66,7 @@ namespace DOL.DOLServer.Actions
 			else
 			{
 				currentAssembly = new FileInfo(Assembly.GetEntryAssembly().Location);
-				configFile = new FileInfo(currentAssembly.DirectoryName + Path.DirectorySeparatorChar + "config" + Path.DirectorySeparatorChar + "serverconfig.xml");
+				configFile = new FileInfo(currentAssembly.DirectoryName + Path.DirectorySeparatorChar + "config" + Path.DirectorySeparatorChar + "serverConfig.xml");
 			}
 			if (parameters.ContainsKey("-crashonfail")) crashOnFail = true;
 

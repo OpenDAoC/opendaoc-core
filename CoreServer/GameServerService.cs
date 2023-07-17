@@ -27,7 +27,7 @@ namespace DOL.DOLServer
 			//TODO parse args for -config parameter!
 			FileInfo dolserver = new FileInfo(Assembly.GetExecutingAssembly().Location);
 			Directory.SetCurrentDirectory(dolserver.DirectoryName);
-			FileInfo configFile = new FileInfo("./config/serverconfig.xml");
+			FileInfo configFile = new FileInfo("./Config/serverConfig.xml");
 			GameServerConfiguration config = new GameServerConfiguration();
 			if (configFile.Exists)
 			{

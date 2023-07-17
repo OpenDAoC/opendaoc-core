@@ -12,7 +12,7 @@ namespace DOLConfig
 		/// <summary>
 		/// The general serverconfig filename
 		/// </summary>
-		private static string configFileName = "serverconfig.xml";
+		private static string configFileName = "serverConfig.xml";
 
 		/// <summary>
 		/// Gets the path to the folder of the config file

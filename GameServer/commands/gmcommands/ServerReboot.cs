@@ -35,7 +35,7 @@ namespace DOL.GS.Commands
             {
                 GameServer.Instance.Stop();  
                 Thread.Sleep(2000);
-                Process.Start(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "DOLServer.exe"));
+                Process.Start(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "CoreServer.exe"));
                 Environment.Exit(0);
             }
         }

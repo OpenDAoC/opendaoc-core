@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DOLBase", "DOLBase\DOLBase.csproj", "{A4A0FB22-124C-45CA-A653-2887DE0CC3E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreBase", "CoreBase\CoreBase.csproj", "{A4A0FB22-124C-45CA-A653-2887DE0CC3E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DOLDatabase", "DOLDatabase\DOLDatabase.csproj", "{43BFC675-13B7-4AA8-97F6-6109948849CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreDatabase", "CoreDatabase\CoreDatabase.csproj", "{43BFC675-13B7-4AA8-97F6-6109948849CC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameServer", "GameServer\GameServer.csproj", "{ACB92917-3D42-4F40-97F9-EA904A41DE36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DOLServer", "DOLServer\DOLServer.csproj", "{6DDF274A-91A3-4EAF-B0E3-30FD559ABD51}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreServer", "CoreServer\CoreServer.csproj", "{6DDF274A-91A3-4EAF-B0E3-30FD559ABD51}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{564E8F20-3834-4F3D-B5F3-2981C1FC8300}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameServerScripts", "GameServerScripts\GameServerScripts.csproj", "{136FE76A-A70A-4E52-BCE5-03B587BCB31B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DOLConfig", "DOLConfig\DOLConfig.csproj", "{E1131DC5-BA14-4FD3-B717-FA2ACA6E49AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreConfig", "CoreConfig\CoreConfig.csproj", "{E1131DC5-BA14-4FD3-B717-FA2ACA6E49AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

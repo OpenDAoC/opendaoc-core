@@ -2631,7 +2631,7 @@ namespace DOL.GS.ServerProperties
 		/// <summary>
 		/// Allow auto-account creation  This is also set in serverconfig.xml and must be enabled for this property to work.
 		/// </summary>
-		[ServerProperty("account", "allow_auto_account_creation", "Allow auto-account creation  This is also set in serverconfig.xml and must be enabled for this property to work.", true)]
+		[ServerProperty("account", "allow_auto_account_creation", "Allow auto-account creation  This is also set in serverConfig.xml and must be enabled for this property to work.", true)]
 		public static bool ALLOW_AUTO_ACCOUNT_CREATION;
 
 		/// <summary>
