@@ -61,9 +61,6 @@
     <Content Include="API\Docs\swagger-ui.css" />
     <Content Include="API\Docs\swagger-ui.js" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="EntityManager\" />
-  </ItemGroup>
   <Target Name="CopyFiles" AfterTargets="AfterBuild">
     <Copy SourceFiles="@(TranslationFiles)" DestinationFiles="@(TranslationFiles->'$(MSBuildProjectDirectory)\..\$(Configuration)\languages\%(RecursiveDir)%(Filename)%(Extension)')" />
     <Copy SourceFiles="@(APIDocs)" DestinationFiles="@(APIDocs->'$(MSBuildProjectDirectory)\..\$(Configuration)\wwwroot\docs\%(RecursiveDir)%(Filename)%(Extension)')" />

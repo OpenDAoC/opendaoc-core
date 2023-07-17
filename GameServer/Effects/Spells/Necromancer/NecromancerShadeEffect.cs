@@ -1,12 +1,9 @@
-using System;
-
 namespace DOL.GS.Effects
 {
 	/// <summary>
 	/// Necromancer shade effect (grants immunity to all forms of
 	/// attack).
 	/// </summary>
-	/// <author>Aredhel</author>
 	public class NecromancerShadeEffect : ShadeEffect
 	{
 		/// <summary>
