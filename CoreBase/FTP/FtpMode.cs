@@ -3,18 +3,18 @@
 namespace DOL.FTP
 {
 	/// <summary>
-	/// The FTP transfer type
+	/// FTP Modes
 	/// </summary>
-	public enum FTPFileTransferType
+	public enum FtpMode
 	{
 		/// <summary>
-		/// Transfer will be in ASCII mode
+		/// Ftp connection in passive mode
 		/// </summary>
-		ASCII = 1,
+		Passive = 1,
 
 		/// <summary>
-		/// Transfer will be in BINARY mode
+		/// Ftp connection in active mode
 		/// </summary>
-		Binary = 2
+		Active = 2
 	}
 }

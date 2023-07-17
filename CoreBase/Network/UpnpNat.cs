@@ -6,9 +6,9 @@ using System.Net.Sockets;
 using System.Text;
 using System.Xml;
 
-public class UPnPNat
+public class UpnpNat
 {
-	public class PortForwading
+	public class PortForwarding
 	{
 		public IPAddress internalIP;
 		public int internalPort;
@@ -17,7 +17,7 @@ public class UPnPNat
 		public string description;
 		public bool enabled;
 
-		public PortForwading()
+		public PortForwarding()
 		{
 			internalIP = IPAddress.None;
 			internalPort = 0;
@@ -80,7 +80,7 @@ public class UPnPNat
 		return resp;
 	}
 
-	public UPnPNat()
+	public UpnpNat()
 	{
 	}
 
@@ -132,12 +132,12 @@ public class UPnPNat
 	/// Get list of forwarded port on UPnP gateway
 	/// </summary>
 	/// <returns></returns>
-	public List<PortForwading> ListForwardedPort()
+	public List<PortForwarding> ListForwardedPort()
 	{
 		if (string.IsNullOrEmpty(_serviceUrl))
 			throw new Exception("No UPnP service available or Discover() has not been called");
 
-		List<PortForwading> forwadedPort = new List<PortForwading>();
+		List<PortForwarding> forwadedPort = new List<PortForwarding>();
 		for (int index = 0; ; ++index)
 		{
 			try
@@ -150,7 +150,7 @@ public class UPnPNat
 					"GetGenericPortMappingEntry");
 				XmlNamespaceManager nsMgr = new XmlNamespaceManager(xdoc.NameTable);
 				nsMgr.AddNamespace("tns", "urn:schemas-upnp-org:device-1-0");
-				PortForwading port = new PortForwading();
+				PortForwarding port = new PortForwarding();
 				XmlNode node = xdoc.SelectSingleNode("//NewInternalClient/text()", nsMgr);
 				if (node != null)
 					port.internalIP = IPAddress.Parse(node.Value);

@@ -35,7 +35,7 @@
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
         <PackageReference Include="NUnit" Version="3.13.2" />
         <PackageReference Include="NUnit3TestAdapter" Version="4.1.0" />
-        <ProjectReference Include="..\DOLBase\DOLBase.csproj" Name="DOLBase" />
+        <ProjectReference Include="..\CoreBase\CoreBase.csproj" Name="DOLBase" />
         <ProjectReference Include="..\DOLDatabase\DOLDatabase.csproj" Name="DOLDatabase" />
         <ProjectReference Include="..\DOLServer\DOLServer.csproj" Name="DOLServer" />
         <ProjectReference Include="..\GameServer\GameServer.csproj" Name="GameServer" />
@@ -46,15 +46,9 @@
         <TranslationFiles Include="..\GameServer\language\**\*.txt" />
     </ItemGroup>
     <Target Name="CopyFiles" AfterTargets="AfterBuild">
-        <Copy
-          SourceFiles="@(ScriptFiles)"
-          DestinationFiles="@(ScriptFiles->'$(MSBuildProjectDirectory)\$(OutputPath)\..\scripts\%(RecursiveDir)%(Filename)%(Extension)')"/>
-        <Copy
-          SourceFiles="@(DbUpdaterFiles)"
-          DestinationFiles="@(DbUpdaterFiles->'$(MSBuildProjectDirectory)\$(OutputPath)\..\scripts\dbupdater\%(RecursiveDir)%(Filename)%(Extension)')"/>
-        <Copy
-          SourceFiles="@(TranslationFiles)"
-          DestinationFiles="@(TranslationFiles->'$(MSBuildProjectDirectory)\$(OutputPath)\..\languages\%(RecursiveDir)%(Filename)%(Extension)')"/>
+        <Copy SourceFiles="@(ScriptFiles)" DestinationFiles="@(ScriptFiles->'$(MSBuildProjectDirectory)\$(OutputPath)\..\scripts\%(RecursiveDir)%(Filename)%(Extension)')" />
+        <Copy SourceFiles="@(DbUpdaterFiles)" DestinationFiles="@(DbUpdaterFiles->'$(MSBuildProjectDirectory)\$(OutputPath)\..\scripts\dbupdater\%(RecursiveDir)%(Filename)%(Extension)')" />
+        <Copy SourceFiles="@(TranslationFiles)" DestinationFiles="@(TranslationFiles->'$(MSBuildProjectDirectory)\$(OutputPath)\..\languages\%(RecursiveDir)%(Filename)%(Extension)')" />
     </Target>
     <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
 </Project>

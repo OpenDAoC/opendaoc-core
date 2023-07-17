@@ -168,7 +168,7 @@ namespace DOL.Config
 			if (configFile == null)
 				throw new ArgumentNullException("configFile");
 
-			XMLConfigFile xmlConfig = XMLConfigFile.ParseXMLFile(configFile);
+			XmlConfigFile xmlConfig = XmlConfigFile.ParseXMLFile(configFile);
 			LoadFromConfig(xmlConfig);
 		}
 
@@ -197,7 +197,7 @@ namespace DOL.Config
 			if (configFile == null)
 				throw new ArgumentNullException("configFile");
 
-			var config = new XMLConfigFile();
+			var config = new XmlConfigFile();
 			SaveToConfig(config);
 
 			config.Save(configFile);

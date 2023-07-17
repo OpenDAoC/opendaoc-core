@@ -49,7 +49,7 @@ namespace DOL
 
 		private class NullValue
 		{
-		} ;
+		}
 
 		#endregion
 	}

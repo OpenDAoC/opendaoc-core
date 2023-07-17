@@ -8,12 +8,12 @@ namespace DOL.Config
 	/// <summary>
 	/// Reads and writes an XML configuration file.
 	/// </summary>
-	public class XMLConfigFile : ConfigElement
+	public class XmlConfigFile : ConfigElement
 	{
 		/// <summary>
 		/// Constructs a new XML config file.
 		/// </summary>
-		public XMLConfigFile()
+		public XmlConfigFile()
 			: base(null)
 		{
 		}
@@ -128,12 +128,12 @@ namespace DOL.Config
 		/// </summary>
 		/// <param name="configFile">The config file</param>
 		/// <returns>The parsed config</returns>
-		public static XMLConfigFile ParseXMLFile(FileInfo configFile)
+		public static XmlConfigFile ParseXMLFile(FileInfo configFile)
 		{
 			if (configFile == null)
 				throw new ArgumentNullException("configFile");
 
-			var root = new XMLConfigFile();
+			var root = new XmlConfigFile();
 
 			if (!configFile.Exists)
 				return root;

@@ -2063,7 +2063,7 @@ namespace DOL.GS
 
 			BuildAmbientTexts();
 
-			if (GameServer.Instance.ServerStatus == eGameServerStatus.GSS_Open)
+			if (GameServer.Instance.ServerStatus == EGameServerStatus.GSS_Open)
 				FireAmbientSentence(eAmbientTrigger.spawning, this);
 
 			if (ShowTeleporterIndicator)

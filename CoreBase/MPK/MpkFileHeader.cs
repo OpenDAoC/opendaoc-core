@@ -7,7 +7,7 @@ namespace DOL.MPK
 	/// <summary>
 	/// Represents the header of an internal file in an MPK archive.
 	/// </summary>
-	public class MPKFileHeader
+	public class MpkFileHeader
 	{
 		/// <summary>
 		/// Maximum size of a file header
@@ -52,7 +52,7 @@ namespace DOL.MPK
 		/// <summary>
 		/// Creates a new MPK file header
 		/// </summary>
-		public MPKFileHeader()
+		public MpkFileHeader()
 		{
 		}
 
@@ -60,7 +60,7 @@ namespace DOL.MPK
 		/// Creates a new MPK file header
 		/// </summary>
 		/// <param name="rdr">The binary reader pointing to the MPK header</param>
-		public MPKFileHeader(BinaryReader rdr)
+		public MpkFileHeader(BinaryReader rdr)
 		{
 			Read(rdr);
 		}

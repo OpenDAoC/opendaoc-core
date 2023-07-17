@@ -214,7 +214,7 @@ namespace DOL.GS
 
 			// Part of the hack to make friendly pets untargetable (or targetable again) with TAB on a PvP server.
 			// We could also check for non controlled pets (turrets for example) around the player, but it isn't very important.
-			if (GameServer.Instance.Configuration.ServerType == eGameServerType.GST_PvP)
+			if (GameServer.Instance.Configuration.ServerType == EGameServerType.GST_PvP)
 			{
 				IControlledBrain controlledBrain = player.ControlledBrain;
 				Guild playerGuild = player.Guild;
@@ -288,7 +288,7 @@ namespace DOL.GS
 
 				// Part of the hack to make friendly pets untargetable (or targetable again) with TAB on a PvP server.
 				// We could also check for non controlled pets (turrets for example) around the player, but it isn't very important.
-				if (GameServer.Instance.Configuration.ServerType == eGameServerType.GST_PvP)
+				if (GameServer.Instance.Configuration.ServerType == EGameServerType.GST_PvP)
 				{
 					IControlledBrain controlledBrain = player.ControlledBrain;
 					Guild playerGuild = player.Guild;

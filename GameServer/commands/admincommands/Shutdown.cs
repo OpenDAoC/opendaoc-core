@@ -282,7 +282,7 @@ namespace DOL.GS.Commands
 					}
 				}
 
-				if (secs <= 120 && GameServer.Instance.ServerStatus != eGameServerStatus.GSS_Closed) // 2 mins remaining
+				if (secs <= 120 && GameServer.Instance.ServerStatus != EGameServerStatus.GSS_Closed) // 2 mins remaining
 				{
 					GameServer.Instance.Close();
 
@@ -295,7 +295,7 @@ namespace DOL.GS.Commands
 					}
 				}
 				
-				if (secs == 119 && GameServer.Instance.ServerStatus != eGameServerStatus.GSS_Closed && Properties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(Properties.DISCORD_WEBHOOK_ID))) // 2 mins remaining
+				if (secs == 119 && GameServer.Instance.ServerStatus != EGameServerStatus.GSS_Closed && Properties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(Properties.DISCORD_WEBHOOK_ID))) // 2 mins remaining
 				{
 						var discordClient = new DiscordWebhookClient(Properties.DISCORD_WEBHOOK_ID);
 						// var discordClient = new DiscordWebhookClient("https://discord.com/api/webhooks/928723074898075708/cyZbVefc0gc__9c2wq3DwVxOBFIT45VyK-1-z7tT_uXDd--WcHrY1lw1y9H6wPg6SEyM");
@@ -464,7 +464,7 @@ namespace DOL.GS.Commands
 					}
 				}
 
-				if (secs <= 120 && GameServer.Instance.ServerStatus != eGameServerStatus.GSS_Closed) // 2 mins remaining
+				if (secs <= 120 && GameServer.Instance.ServerStatus != EGameServerStatus.GSS_Closed) // 2 mins remaining
 				{
 					GameServer.Instance.Close();
 
@@ -477,7 +477,7 @@ namespace DOL.GS.Commands
 					}
 				}
 				
-				if (secs == 119 && GameServer.Instance.ServerStatus != eGameServerStatus.GSS_Closed && Properties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(Properties.DISCORD_WEBHOOK_ID))) // 2 mins remaining
+				if (secs == 119 && GameServer.Instance.ServerStatus != EGameServerStatus.GSS_Closed && Properties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(Properties.DISCORD_WEBHOOK_ID))) // 2 mins remaining
 				{
 						var discordClient = new DiscordWebhookClient(Properties.DISCORD_WEBHOOK_ID);
 						// var discordClient = new DiscordWebhookClient("https://discord.com/api/webhooks/928723074898075708/cyZbVefc0gc__9c2wq3DwVxOBFIT45VyK-1-z7tT_uXDd--WcHrY1lw1y9H6wPg6SEyM");
@@ -592,7 +592,7 @@ namespace DOL.GS.Commands
 						}
 
 						// If server status is closed (< 2 min to shutdown)
-						if (GameServer.Instance.ServerStatus == eGameServerStatus.GSS_Closed)
+						if (GameServer.Instance.ServerStatus == EGameServerStatus.GSS_Closed)
 						{
 							// Allow incoming connections
 							GameServer.Instance.Open();

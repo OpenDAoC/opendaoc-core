@@ -27,7 +27,7 @@ namespace DOL.GS.ServerRules
             {
                 return true;
             }
-			if (GameServer.Instance.Configuration.ServerType != eGameServerType.GST_Normal)
+			if (GameServer.Instance.Configuration.ServerType != EGameServerType.GST_Normal)
 				return true;
 			if (ServerProperties.Properties.ALLOW_ALL_REALMS_DF)
 				return true;

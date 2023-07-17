@@ -171,7 +171,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 			}*/
 
 			// check server status
-			if (GameServer.Instance.ServerStatus == eGameServerStatus.GSS_Closed)
+			if (GameServer.Instance.ServerStatus == EGameServerStatus.GSS_Closed)
             {
                 client.IsConnected = false;
 				client.Out.SendLoginDenied(eLoginError.GameCurrentlyClosed);

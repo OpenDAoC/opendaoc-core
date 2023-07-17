@@ -3,18 +3,13 @@
 namespace DOL.FTP
 {
 	/// <summary>
-	/// FTP Modes
+	/// This class represents a FTP file
 	/// </summary>
-	public enum FTPMode
+	public class FtpFile
 	{
 		/// <summary>
-		/// Ftp connection in passive mode
+		/// Sets the name of the file
 		/// </summary>
-		Passive = 1,
-
-		/// <summary>
-		/// Ftp connection in active mode
-		/// </summary>
-		Active = 2
+		public string Name { get; set; }
 	}
 }

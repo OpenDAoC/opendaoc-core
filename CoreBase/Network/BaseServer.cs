@@ -134,7 +134,7 @@ namespace DOL.Network
 			{
 				try
 				{
-					UPnPNat nat = new UPnPNat();
+					UpnpNat nat = new UpnpNat();
 					if (!nat.Discover())
 						throw new Exception("[UPNP] Unable to access the UPnP Internet Gateway Device");
 					
