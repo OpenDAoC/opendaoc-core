@@ -40,8 +40,8 @@ namespace DOL.GS.Spells
             {               
                 deamons[i] = new ZoarkatPet(template);
                 deamons[i].SetOwnBrain(new ProcPetBrain(player));
-                deamons[i].X = spawnPoint.X + Util.Random(20,40) - Util.Random(20,40);
-                deamons[i].Y = spawnPoint.Y + Util.Random(20,40) - Util.Random(20,40);
+                deamons[i].X = spawnPoint.X + UtilCollection.Random(20,40) - UtilCollection.Random(20,40);
+                deamons[i].Y = spawnPoint.Y + UtilCollection.Random(20,40) - UtilCollection.Random(20,40);
                 deamons[i].Z = Caster.Z;
                 deamons[i].CurrentRegion = Caster.CurrentRegion;
                 deamons[i].Heading = (ushort)((Caster.Heading + 2048) % 4096);
@@ -81,7 +81,7 @@ namespace DOL.GS.Spells
 		public override void ApplyEffectOnTarget(GameLiving target, double effectiveness)
 		{
 			base.ApplyEffectOnTarget(target, effectiveness);
-			target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.eAttackType.Spell, Caster);
+			target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.EAttackType.Spell, Caster);
 		}
 		
         public ZoDebuffSpellHandler(GameLiving caster, Spell spell, SpellLine line) : base(caster, spell, line) { }

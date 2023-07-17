@@ -402,7 +402,7 @@ namespace DOL.GS.Commands
                                         //We do not check if the targeted guard is attacking us, because this can be a bug!
 
                                         GameKeepGuard targetGuard = client.Player.TargetObject as GameKeepGuard;
-                                        Guild targetedGuardGuild = GuildMgr.GetGuildByName(targetGuard.GuildName);
+                                        GuildUtil targetedGuardGuild = GuildMgr.GetGuildByName(targetGuard.GuildName);
 
                                         //We can assist guards of an unclaimed keep!
                                         if(targetedGuardGuild == null)

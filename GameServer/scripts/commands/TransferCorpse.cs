@@ -103,7 +103,7 @@ namespace DOL.GS.Commands
                         else
                         {
                             Point3D targetPoint;
-                            targetPoint = new Point3D(guard.GetPointFromHeading((ushort) Util.Random(4096), 50),
+                            targetPoint = new Point3D(guard.GetPointFromHeading((ushort) UtilCollection.Random(4096), 50),
                                 guard.Z);
                             client.Player.WasMovedByCorpseSummoner = true;
                             client.Player.MoveTo(guard.CurrentRegionID, targetPoint.X, targetPoint.Y, targetPoint.Z,

@@ -43,7 +43,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		/// <summary>
 		/// Handles the LOS check response
 		/// </summary>
-		protected class HandleCheckAction : RegionECSAction
+		protected class HandleCheckAction : RegionAction
 		{
 			/// <summary>
 			/// The LOS source OID

@@ -117,29 +117,29 @@ namespace DOL.AI.Brain
 					IsPulled = true;
 				}
 				GameLiving target = Body.TargetObject as GameLiving;
-				if (Util.Chance(15) && Body.TargetObject != null)
+				if (UtilCollection.Chance(15) && Body.TargetObject != null)
 				{
 					Body.CastSpell(Droom_Dot, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 				}
-				if (Util.Chance(15) && Body.TargetObject != null)
+				if (UtilCollection.Chance(15) && Body.TargetObject != null)
 				{
 					Body.CastSpell(Droom_Dot2, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 				}
-				if (Util.Chance(15) && Body.TargetObject != null)
+				if (UtilCollection.Chance(15) && Body.TargetObject != null)
 				{
 					if (LivingHasEffect(Body.TargetObject as GameLiving, Droom_SC_Debuff) == false && Body.TargetObject.IsVisibleTo(Body))
 					{
 						new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastSCDebuff), 3000);
 					}
 				}
-				if (Util.Chance(15) && Body.TargetObject != null)
+				if (UtilCollection.Chance(15) && Body.TargetObject != null)
 				{
 					if (LivingHasEffect(Body.TargetObject as GameLiving, Droom_Haste_Debuff) == false && Body.TargetObject.IsVisibleTo(Body))
 					{
 						new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastHasteDebuff), 3000);
 					}
 				}
-				if (Util.Chance(15) && Body.TargetObject != null)
+				if (UtilCollection.Chance(15) && Body.TargetObject != null)
 				{
 					if (LivingHasEffect(Body.TargetObject as GameLiving, DroomDisease) == false && Body.TargetObject.IsVisibleTo(Body))
 					{

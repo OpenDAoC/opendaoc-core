@@ -35,8 +35,8 @@ namespace DOL.GS.Behaviour.Actions
                 player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Behaviour.TeleportAction.TeleportedToLoc", player, location.Name), eChatType.CT_System, eChatLoc.CL_SystemWindow);
             }
 
-            location.X += Util.Random(-radius, radius);
-            location.Y += Util.Random(-radius, radius);
+            location.X += UtilCollection.Random(-radius, radius);
+            location.Y += UtilCollection.Random(-radius, radius);
             player.MoveTo(location.RegionID, location.X, location.Y, location.Z, location.Heading);
         }
     }

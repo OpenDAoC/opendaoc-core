@@ -344,7 +344,7 @@ namespace DOL.GS
 			if (GameLoop.GameLoopTime - m_timeRelicOnGround < ReturnRelicInterval)
 			{
 				// Note: This does not show up, possible issue with SendSpellEffect
-				ushort effectID = (ushort)Util.Random(5811, 5815);
+				ushort effectID = (ushort)UtilCollection.Random(5811, 5815);
 				foreach (GamePlayer ppl in GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE))
 				{
 					ppl.Out.SendSpellEffectAnimation(this, this, effectID, 0, false, 0x01);
@@ -430,7 +430,7 @@ namespace DOL.GS
 			}
 
 			//fireworks spells temp
-			ushort effectID = (ushort)Util.Random(5811, 5815);
+			ushort effectID = (ushort)UtilCollection.Random(5811, 5815);
 			foreach (GamePlayer ppl in m_currentCarrier.GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE))
 				ppl.Out.SendSpellEffectAnimation(m_currentCarrier, m_currentCarrier, effectID, 0, false, 0x01);
 

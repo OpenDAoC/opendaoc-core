@@ -402,7 +402,7 @@ namespace DOL.AI.Brain
 			if (Body.Abilities == null || Body.Abilities.Count <= 0)
 				return;
 
-			foreach (Ability ab in Body.Abilities.Values)
+			foreach (AbilityUtil ab in Body.Abilities.Values)
 			{
 				switch (ab.KeyName)
 				{

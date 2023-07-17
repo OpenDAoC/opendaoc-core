@@ -119,14 +119,14 @@ namespace DOL.AI.Brain
 				}
 				if (Body.TargetObject != null)
 				{
-					if (Util.Chance(15))
+					if (UtilCollection.Chance(15))
 					{
 						if (LivingHasEffect(Body.TargetObject as GameLiving, Stanga_SC_Debuff) == false && Body.TargetObject.IsVisibleTo(Body))
 						{
 							new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastSCDebuff), 1000);
 						}
 					}
-					if (Util.Chance(15))
+					if (UtilCollection.Chance(15))
 					{
 						if (LivingHasEffect(Body.TargetObject as GameLiving, StangaDisease) == false && Body.TargetObject.IsVisibleTo(Body))
 						{

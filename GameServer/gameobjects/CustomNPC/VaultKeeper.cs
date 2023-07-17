@@ -8,7 +8,7 @@ namespace DOL.GS
 	/// <summary>
 	/// Represents an in-game VaultKeeper NPC
 	/// </summary>
-	[NPCGuildScript("Vault Keeper")]
+	[NpcGuild("Vault Keeper")]
 	public class GameVaultKeeper : GameNPC
 	{
 		/// <summary>

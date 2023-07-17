@@ -294,10 +294,10 @@ namespace DOL.GS.Scripts
             //get random int from 1-3 to decide realm
             //if realm is undefined or current realm, reroll to new result
             //set new realm
-            int rand = Util.Random(2) + 1;
+            int rand = UtilCollection.Random(2) + 1;
             while(rand == currentRvRRealm)
             {
-                rand = Util.Random(2) + 1;
+                rand = UtilCollection.Random(2) + 1;
             }
             currentRvRRealm = rand;
         }
@@ -335,7 +335,7 @@ namespace DOL.GS.Scripts
             else
                 currentHiberniaZoneSI = 0;
             */
-            bool UseClassicAlbHighZones = Util.Chance(50);
+            bool UseClassicAlbHighZones = UtilCollection.Chance(50);
             if (UseClassicAlbHighZones)
             {
                 List<int> ClassicHighZones = new List<int>();
@@ -352,8 +352,8 @@ namespace DOL.GS.Scripts
                         SILowZones.Add(lowZone);
                 }
                 
-                currentAlbionZone = ClassicHighZones[Util.Random(ClassicHighZones.Count - 1)];
-                currentAlbionZoneSI = SILowZones[Util.Random(SILowZones.Count - 1)];
+                currentAlbionZone = ClassicHighZones[UtilCollection.Random(ClassicHighZones.Count - 1)];
+                currentAlbionZoneSI = SILowZones[UtilCollection.Random(SILowZones.Count - 1)];
             }
             else
             {
@@ -371,13 +371,13 @@ namespace DOL.GS.Scripts
                         SIHighZones.Add(highZone);
                 }
                 
-                currentAlbionZone = ClassicLowZones[Util.Random(ClassicLowZones.Count - 1)];
-                currentAlbionZoneSI = SIHighZones[Util.Random(SIHighZones.Count - 1)];
+                currentAlbionZone = ClassicLowZones[UtilCollection.Random(ClassicLowZones.Count - 1)];
+                currentAlbionZoneSI = SIHighZones[UtilCollection.Random(SIHighZones.Count - 1)];
             }
             //currentAlbionZone = Util.Random(albionClassicZones.Count - 1);
             //currentAlbionZoneSI = Util.Random(albionSIZones.Count - 1);
 
-            bool UseClassicMidHighZones = Util.Chance(50);
+            bool UseClassicMidHighZones = UtilCollection.Chance(50);
             if (UseClassicMidHighZones)
             {
                 List<int> ClassicHighZones = new List<int>();
@@ -394,8 +394,8 @@ namespace DOL.GS.Scripts
                         SILowZones.Add(lowZone);
                 }
                 
-                currentMidgardZone = ClassicHighZones[Util.Random(ClassicHighZones.Count - 1)];
-                currentMidgardZoneSI = SILowZones[Util.Random(SILowZones.Count - 1)];
+                currentMidgardZone = ClassicHighZones[UtilCollection.Random(ClassicHighZones.Count - 1)];
+                currentMidgardZoneSI = SILowZones[UtilCollection.Random(SILowZones.Count - 1)];
             }
             else
             {
@@ -413,14 +413,14 @@ namespace DOL.GS.Scripts
                         SIHighZones.Add(highZone);
                 }
                 
-                currentMidgardZone = ClassicLowZones[Util.Random(ClassicLowZones.Count - 1)];
-                currentMidgardZoneSI = SIHighZones[Util.Random(SIHighZones.Count - 1)];
+                currentMidgardZone = ClassicLowZones[UtilCollection.Random(ClassicLowZones.Count - 1)];
+                currentMidgardZoneSI = SIHighZones[UtilCollection.Random(SIHighZones.Count - 1)];
             }
             
             //currentMidgardZone = Util.Random(midgardClassicZones.Count - 1);
             //currentMidgardZoneSI = Util.Random(midgardSIZones.Count - 1);
 
-            bool UseClassicHibHighZones = Util.Chance(50);
+            bool UseClassicHibHighZones = UtilCollection.Chance(50);
             if (UseClassicHibHighZones)
             {
                 List<int> ClassicHighZones = new List<int>();
@@ -437,8 +437,8 @@ namespace DOL.GS.Scripts
                         SILowZones.Add(lowZone);
                 }
                 
-                currentHiberniaZone = ClassicHighZones[Util.Random(ClassicHighZones.Count - 1)];
-                currentHiberniaZoneSI = SILowZones[Util.Random(SILowZones.Count - 1)];
+                currentHiberniaZone = ClassicHighZones[UtilCollection.Random(ClassicHighZones.Count - 1)];
+                currentHiberniaZoneSI = SILowZones[UtilCollection.Random(SILowZones.Count - 1)];
             }
             else
             {
@@ -456,8 +456,8 @@ namespace DOL.GS.Scripts
                         SIHighZones.Add(highZone);
                 }
                 
-                currentHiberniaZone = ClassicLowZones[Util.Random(ClassicLowZones.Count - 1)];
-                currentHiberniaZoneSI = SIHighZones[Util.Random(SIHighZones.Count - 1)];
+                currentHiberniaZone = ClassicLowZones[UtilCollection.Random(ClassicLowZones.Count - 1)];
+                currentHiberniaZoneSI = SIHighZones[UtilCollection.Random(SIHighZones.Count - 1)];
             }
             //currentHiberniaZone = Util.Random(hiberniaClassicZones.Count - 1);
             //currentHiberniaZoneSI = Util.Random(hiberniaSIZones.Count - 1);

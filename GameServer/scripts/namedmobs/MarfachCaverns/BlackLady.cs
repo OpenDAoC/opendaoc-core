@@ -204,7 +204,7 @@ namespace DOL.AI.Brain
                 RemoveAdds = false;
                 Body.CastSpell(BlackLady_DD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 
-                if(Util.Chance(20))
+                if(UtilCollection.Chance(20))
                 {
                     SpawnOgress();
                 }
@@ -215,7 +215,7 @@ namespace DOL.AI.Brain
         {
             if (Ogress.OgressCount < 5)
             {
-                switch (Util.Random(1, 2))
+                switch (UtilCollection.Random(1, 2))
                 {
                     case 1:
                         {
@@ -254,7 +254,7 @@ namespace DOL.AI.Brain
                     DBSpell spell = new DBSpell();
                     spell.AllowAdd = false;
                     spell.CastTime = 3.5;
-                    spell.RecastDelay = Util.Random(6,12);
+                    spell.RecastDelay = UtilCollection.Random(6,12);
                     spell.ClientEffect = 4568;
                     spell.Icon = 4568;
                     spell.TooltipId = 4568;
@@ -320,9 +320,9 @@ namespace DOL.GS
         public override bool AddToWorld()
         {
             Model = 402;
-            Level = (byte)Util.Random(50, 55);
+            Level = (byte)UtilCollection.Random(50, 55);
             Name = "Ogress";
-            Size = (byte)Util.Random(40, 50);
+            Size = (byte)UtilCollection.Random(40, 50);
             Faction = FactionMgr.GetFactionByID(187);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(187));
             RespawnInterval = -1;

@@ -208,11 +208,11 @@ namespace DOL.GS
 			{
 				if(living == null)
 					continue;
-				int damageAmount = CalcDamageToTarget(living) + Util.Random(50);
+				int damageAmount = CalcDamageToTarget(living) + UtilCollection.Random(50);
 
 				AttackData ad = new AttackData();
 				ad.Target = living;
-				ad.AttackType = AttackData.eAttackType.Ranged;
+				ad.AttackType = AttackData.EAttackType.Ranged;
 				ad.AttackResult = EAttackResult.HitUnstyled;
 				ad.Damage = damageAmount;
 				ad.DamageType = MeleeDamageType;

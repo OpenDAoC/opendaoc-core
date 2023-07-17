@@ -99,8 +99,8 @@ namespace DOL.AI.Brain
             for (int i = 0; i < 7; i++) //Spawn 8 ants
             {
                 GnatAnts Add = new GnatAnts();
-                Add.X = Body.X + Util.Random(50, 80);
-                Add.Y = Body.Y + Util.Random(50, 80);
+                Add.X = Body.X + UtilCollection.Random(50, 80);
+                Add.Y = Body.Y + UtilCollection.Random(50, 80);
                 Add.Z = Body.Z;
                 Add.CurrentRegion = Body.CurrentRegion;
                 Add.IsWorthReward = false;
@@ -136,8 +136,8 @@ namespace DOL.GS
             MaxDistance = 1500;
             TetherRange = 2000;
             IsWorthReward = false; //worth no reward
-            Size = (byte) Util.Random(8, 12);
-            Level = (byte) Util.Random(30, 34);
+            Size = (byte) UtilCollection.Random(8, 12);
+            Level = (byte) UtilCollection.Random(30, 34);
             Realm = ERealm.None;
             GnatAntsBrain adds = new GnatAntsBrain();
             LoadedFromScript = true;

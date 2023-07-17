@@ -94,8 +94,8 @@ namespace DOL.GS
 			for (int i = 0; i < 20; i++)
 			{
 				MokkurvalveAdds add = new MokkurvalveAdds();
-				add.X = X + Util.Random(-200, 200);
-				add.Y = Y + Util.Random(-200, 200);
+				add.X = X + UtilCollection.Random(-200, 200);
+				add.Y = Y + UtilCollection.Random(-200, 200);
 				add.Z = Z;
 				add.Heading = Heading;
 				add.CurrentRegion = CurrentRegion;
@@ -147,7 +147,7 @@ namespace DOL.AI.Brain
 				RemoveAdds = false;
 				if(!CanSpawnShard)
                 {
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnShards), Util.Random(15000, 35000));
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnShards), UtilCollection.Random(15000, 35000));
 					CanSpawnShard = true;
                 }
 			}
@@ -159,8 +159,8 @@ namespace DOL.AI.Brain
 			{
 				BroadcastMessage("Part of " + Body.Name + "'s body falls to the ground.");
 				MokkurvalveAdds add = new MokkurvalveAdds();
-				add.X = Body.X + Util.Random(-200, 200);
-				add.Y = Body.Y + Util.Random(-200, 200);
+				add.X = Body.X + UtilCollection.Random(-200, 200);
+				add.Y = Body.Y + UtilCollection.Random(-200, 200);
 				add.Z = Body.Z;
 				add.Heading = Body.Heading;
 				add.CurrentRegion = Body.CurrentRegion;
@@ -209,10 +209,10 @@ namespace DOL.GS
 		public override bool AddToWorld()
 		{
 			Model = 1770;
-			Size = (byte)Util.Random(25, 35);
+			Size = (byte)UtilCollection.Random(25, 35);
 			Name = "Mokkurvalve's shard";
 			RespawnInterval = -1;
-			Level = (byte)Util.Random(42, 44);
+			Level = (byte)UtilCollection.Random(42, 44);
 			MaxSpeedBase = 225;
 
 			MokkurvalveAddsBrain sbrain = new MokkurvalveAddsBrain();

@@ -808,7 +808,7 @@ namespace DOL.AI.Brain
             int maxAdds = percentBAF / 100; // Multiple of 100 are guaranteed BAFs
 
             // Calculate chance of an addition add based on the remainder
-            if (Util.Chance(percentBAF % 100))
+            if (UtilCollection.Chance(percentBAF % 100))
                 maxAdds++;
 
             if (maxAdds > 0)
@@ -831,7 +831,7 @@ namespace DOL.AI.Brain
 
                             GameLiving target;
                             if (victims != null && victims.Count > 0)
-                                target = victims[Util.Random(0, victims.Count - 1)];
+                                target = victims[UtilCollection.Random(0, victims.Count - 1)];
                             else
                                 target = actualPuller;
 
@@ -892,7 +892,7 @@ namespace DOL.AI.Brain
                         }
                         if (Body.ControlledBrain != null && Body.ControlledBrain.Body != null)
                         {
-                            if (Util.Chance(30) && Body.ControlledBrain != null && spell.SpellType == ESpellType.Heal &&
+                            if (UtilCollection.Chance(30) && Body.ControlledBrain != null && spell.SpellType == ESpellType.Heal &&
                                 Body.GetDistanceTo(Body.ControlledBrain.Body) <= spell.Range &&
                                 Body.ControlledBrain.Body.HealthPercent < DOL.GS.ServerProperties.Properties.NPC_HEAL_THRESHOLD
                                 && spell.Target.ToLower() != "self")
@@ -907,7 +907,7 @@ namespace DOL.AI.Brain
                     }
                     if (spell_rec.Count > 0)
                     {
-                        spellToCast = (Spell)spell_rec[Util.Random((spell_rec.Count - 1))];
+                        spellToCast = (Spell)spell_rec[UtilCollection.Random((spell_rec.Count - 1))];
                         if (!Body.IsReturningToSpawnPoint)
                         {
                             if ((spellToCast.Uninterruptible || !Body.IsBeingInterrupted) && CheckDefensiveSpells(spellToCast))
@@ -930,7 +930,7 @@ namespace DOL.AI.Brain
                     }
                     if (spell_rec.Count > 0)
                     {
-                        spellToCast = (Spell)spell_rec[Util.Random((spell_rec.Count - 1))];
+                        spellToCast = (Spell)spell_rec[UtilCollection.Random((spell_rec.Count - 1))];
 
                         if ((spellToCast.Uninterruptible || !Body.IsBeingInterrupted) && CheckOffensiveSpells(spellToCast))
                             casted = true;
@@ -1029,12 +1029,12 @@ namespace DOL.AI.Brain
                     {
                         // Buff self, if not in melee, but not each and every mob
                         // at the same time, because it looks silly.
-                        if (!LivingHasEffect(Body, spell) && !Body.attackComponent.AttackState && Util.Chance(40) && spell.Target.ToLower() != "pet")
+                        if (!LivingHasEffect(Body, spell) && !Body.attackComponent.AttackState && UtilCollection.Chance(40) && spell.Target.ToLower() != "pet")
                         {
                             Body.TargetObject = Body;
                             break;
                         }
-                        if (Body.ControlledBrain != null && Body.ControlledBrain.Body != null && Util.Chance(40) && Body.GetDistanceTo(Body.ControlledBrain.Body) <= spell.Range && !LivingHasEffect(Body.ControlledBrain.Body, spell) && spell.Target.ToLower() != "self")
+                        if (Body.ControlledBrain != null && Body.ControlledBrain.Body != null && UtilCollection.Chance(40) && Body.GetDistanceTo(Body.ControlledBrain.Body) <= spell.Range && !LivingHasEffect(Body.ControlledBrain.Body, spell) && spell.Target.ToLower() != "self")
                         {
                             Body.TargetObject = Body.ControlledBrain.Body;
                             break;
@@ -1115,7 +1115,7 @@ namespace DOL.AI.Brain
 
                     // Chance to heal self when dropping below 30%, do NOT spam it.
                     if (Body.HealthPercent < (DOL.GS.ServerProperties.Properties.NPC_HEAL_THRESHOLD / 2.0)
-                        && Util.Chance(10) && spell.Target.ToLower() != "pet")
+                        && UtilCollection.Chance(10) && spell.Target.ToLower() != "pet")
                     {
                         Body.TargetObject = Body;
                         break;

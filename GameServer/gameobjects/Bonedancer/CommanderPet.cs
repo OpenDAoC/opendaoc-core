@@ -111,11 +111,11 @@ namespace DOL.GS
 					bool oneHand = CanUseWeaponSlot(EActiveWeaponSlot.Standard);
 					bool twoHand = CanUseWeaponSlot(EActiveWeaponSlot.TwoHanded);
 					if (oneHand && twoHand)
-						CommanderSwitchWeapon((eWeaponType)Util.Random((int)eWeaponType.OneHandAxe, (int)eWeaponType.TwoHandSword));
+						CommanderSwitchWeapon((eWeaponType)UtilCollection.Random((int)eWeaponType.OneHandAxe, (int)eWeaponType.TwoHandSword));
 					else if (oneHand)
-						CommanderSwitchWeapon((eWeaponType)Util.Random((int)eWeaponType.OneHandAxe, (int)eWeaponType.OneHandSword));
+						CommanderSwitchWeapon((eWeaponType)UtilCollection.Random((int)eWeaponType.OneHandAxe, (int)eWeaponType.OneHandSword));
 					else if (twoHand)
-						CommanderSwitchWeapon((eWeaponType)Util.Random((int)eWeaponType.TwoHandAxe, (int)eWeaponType.TwoHandSword));
+						CommanderSwitchWeapon((eWeaponType)UtilCollection.Random((int)eWeaponType.TwoHandAxe, (int)eWeaponType.TwoHandSword));
 					break;
 			}
 
@@ -684,7 +684,7 @@ namespace DOL.GS
 			if (weapon != null)
 			{
 				if (Inventory == null)
-					Inventory = new GameNPCInventory(new GameNpcInventoryTemplate());
+					Inventory = new GameNpcInventory(new GameNpcInventoryTemplate());
 				else
 				{
 					if (itemTemp.Hand == (int)EActiveWeaponSlot.Distance)

@@ -106,7 +106,7 @@ namespace DOL.GS.Spells
 		        return false;
 
 	        // Ignore SpellResisted values by returning 0
-            if (Util.Chance(CalculateSpellResistChance(target)))
+            if (UtilCollection.Chance(CalculateSpellResistChance(target)))
             {
                 OnSpellResisted(target);
             }
@@ -274,50 +274,50 @@ namespace DOL.GS.Spells
 			        switch((eCharmType)m_spell.AmnesiaChance) {
 			                
 				        case eCharmType.HumanoidAnimalInsectMagicalUndead: 
-					        if (charmMob.BodyType == (ushort)NpcTemplateMgr.eBodyType.Undead)
+					        if (charmMob.BodyType == (ushort)NpcTemplateMgr.EBodyType.Undead)
 						        isCharmable = true;
 					        goto case eCharmType.HumanoidAnimalInsectMagical;
 				                
 				        // Plant and Elemental body types are considered to be inherently Magical
 				        case eCharmType.HumanoidAnimalInsectMagical: 
-					        if (charmMob.BodyType == (ushort)NpcTemplateMgr.eBodyType.Magical)
+					        if (charmMob.BodyType == (ushort)NpcTemplateMgr.EBodyType.Magical)
 						        isCharmable = true; 
-					        if (charmMob.BodyType == (ushort)NpcTemplateMgr.eBodyType.Plant)
+					        if (charmMob.BodyType == (ushort)NpcTemplateMgr.EBodyType.Plant)
 						        isCharmable = true;
-					        if (charmMob.BodyType == (ushort)NpcTemplateMgr.eBodyType.Elemental)
+					        if (charmMob.BodyType == (ushort)NpcTemplateMgr.EBodyType.Elemental)
 						        isCharmable = true;
 					        goto case eCharmType.HumanoidAnimalInsect;
 				                
 				        case eCharmType.HumanoidAnimalInsect:
-					        if (charmMob.BodyType == (ushort)NpcTemplateMgr.eBodyType.Insect)
+					        if (charmMob.BodyType == (ushort)NpcTemplateMgr.EBodyType.Insect)
 						        isCharmable = true;
-					        if (charmMob.BodyType == (ushort)NpcTemplateMgr.eBodyType.Reptile)
+					        if (charmMob.BodyType == (ushort)NpcTemplateMgr.EBodyType.Reptile)
 						        isCharmable = true;
 					        goto case eCharmType.HumanoidAnimal;
 
 				        case eCharmType.HumanoidAnimal: 
-					        if (charmMob.BodyType == (ushort)NpcTemplateMgr.eBodyType.Animal)
+					        if (charmMob.BodyType == (ushort)NpcTemplateMgr.EBodyType.Animal)
 						        isCharmable = true;
 					        goto case eCharmType.Humanoid;
 
 				        case eCharmType.Humanoid:
-					        if (charmMob.BodyType == (ushort)NpcTemplateMgr.eBodyType.Humanoid)
+					        if (charmMob.BodyType == (ushort)NpcTemplateMgr.EBodyType.Humanoid)
 						        isCharmable = true;
 					        break;
 
 				        case eCharmType.Animal: 
-					        if (charmMob.BodyType == (ushort)NpcTemplateMgr.eBodyType.Animal)
+					        if (charmMob.BodyType == (ushort)NpcTemplateMgr.EBodyType.Animal)
 						        isCharmable = true;
 					        break;
 
 				        case eCharmType.Insect:
-					        if (charmMob.BodyType == (ushort)NpcTemplateMgr.eBodyType.Insect)
+					        if (charmMob.BodyType == (ushort)NpcTemplateMgr.EBodyType.Insect)
 						        isCharmable = true;
 					        break;
 			                
 				        // Only available for spells with AmnesiaChance of 'eCharmType.HumanoidAnimalInsect' or higher
 				        case eCharmType.Reptile:
-					        if (charmMob.BodyType == (ushort)NpcTemplateMgr.eBodyType.Reptile)
+					        if (charmMob.BodyType == (ushort)NpcTemplateMgr.EBodyType.Reptile)
 						        isCharmable = true;
 					        break;
 			        }

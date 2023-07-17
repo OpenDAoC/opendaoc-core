@@ -7,7 +7,7 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Mentalist Trainer
 	/// </summary>	
-	[NPCGuildScript("Mentalist Trainer", ERealm.Hibernia)]		// this attribute instructs DOL to use this script for all "Mentalist Trainer" NPC's in Albion (multiple guilds are possible for one script)
+	[NpcGuild("Mentalist Trainer", ERealm.Hibernia)]		// this attribute instructs DOL to use this script for all "Mentalist Trainer" NPC's in Albion (multiple guilds are possible for one script)
 	public class MentalistTrainer : GameTrainer
 	{
 		public override ECharacterClass TrainedClass

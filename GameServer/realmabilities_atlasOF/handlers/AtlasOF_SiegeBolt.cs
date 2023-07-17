@@ -11,7 +11,7 @@ namespace DOL.GS.RealmAbilities
         // ISpellCastingAbilityHandler
         public Spell Spell { get { return m_spell; } }
         public SpellLine SpellLine { get { return m_spellline; } }
-        public Ability Ability { get { return this; } }
+        public AbilityUtil Ability { get { return this; } }
 
         private const int m_dmgValue = 65000; //from thread: you can ONE SHOT miles gates, keep doors at level 1 ( just take keep by another realm for exemple ) to level 2 doors, OS ram and other siege equipement ...
                                               //on relic raid, with doors level 10, you need 5 theurg to rekt this door ( something like 20% dmg on doors level 10 )

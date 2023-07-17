@@ -136,8 +136,8 @@ namespace DOL.GS.Spells
                 if (targetStorm.Movable)
                 {
                     GameNPC targetNPC = targetStorm as GameNPC;
-                    int range = Util.Random(0, 750);
-                    double angle = Util.RandomDouble() * 2 * Math.PI;
+                    int range = UtilCollection.Random(0, 750);
+                    double angle = UtilCollection.RandomDouble() * 2 * Math.PI;
                     targetNPC.WalkTo(targetNPC.X + (int)(range * Math.Cos(angle)), targetNPC.Y + (int)(range * Math.Sin(angle)), targetNPC.Z, targetNPC.MaxSpeed);
                 }
             }

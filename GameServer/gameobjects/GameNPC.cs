@@ -416,11 +416,11 @@ namespace DOL.GS
 			}
 		}
 
-		private Faction m_faction = null;
+		private FactionUtil m_faction = null;
 		/// <summary>
 		/// Gets the Faction of the NPC
 		/// </summary>
-		public Faction Faction
+		public FactionUtil Faction
 		{
 			get { return m_faction; }
 			set
@@ -904,7 +904,7 @@ namespace DOL.GS
 			get => movementComponent.PathID;
 			set => movementComponent.PathID = value;
 		}
-		public PathPoint CurrentWaypoint
+		public PathPointUtil CurrentWaypoint
 		{
 			get => movementComponent.CurrentWaypoint;
 			set => movementComponent.CurrentWaypoint = value;
@@ -1039,7 +1039,7 @@ namespace DOL.GS
 
 						if (twohand != null && onehand != null)
 							//Let's add some random chance
-							SwitchWeapon(Util.Chance(50) ? EActiveWeaponSlot.TwoHanded : EActiveWeaponSlot.Standard);
+							SwitchWeapon(UtilCollection.Chance(50) ? EActiveWeaponSlot.TwoHanded : EActiveWeaponSlot.Standard);
 						else if (twohand != null)
 							//Hmm our right hand weapon may have been null
 							SwitchWeapon(EActiveWeaponSlot.TwoHanded);
@@ -1326,10 +1326,10 @@ namespace DOL.GS
 			if (template.ReplaceMobValues)
 			{
 				byte choosenLevel = 1;
-				if (!Util.IsEmpty(template.Level))
+				if (!UtilCollection.IsEmpty(template.Level))
 				{
-					var split = Util.SplitCSV(template.Level, true);
-					byte.TryParse(split[Util.Random(0, split.Count - 1)], out choosenLevel);
+					var split = UtilCollection.SplitCSV(template.Level, true);
+					byte.TryParse(split[UtilCollection.Random(0, split.Count - 1)], out choosenLevel);
 				}
 				this.Level = choosenLevel; // Also calls AutosetStats()
 			}
@@ -1340,7 +1340,7 @@ namespace DOL.GS
 			{
 				lock (m_lockAbilities)
 				{
-					foreach (Ability ab in template.Abilities)
+					foreach (AbilityUtil ab in template.Abilities)
 						m_abilities[ab.KeyName] = ab;
 				}
 			}
@@ -1362,13 +1362,13 @@ namespace DOL.GS
 			// Grav: this.Model/Size/Level accessors are triggering SendUpdate()
 			// so i must use them, and not directly use private variables
 			ushort choosenModel = 1;
-			var splitModel = Util.SplitCSV(template.Model, true);
-			ushort.TryParse(splitModel[Util.Random(0, splitModel.Count - 1)], out choosenModel);
+			var splitModel = UtilCollection.SplitCSV(template.Model, true);
+			ushort.TryParse(splitModel[UtilCollection.Random(0, splitModel.Count - 1)], out choosenModel);
 			this.Model = choosenModel;
 
 			// Graveen: template.Gender is 0,1 or 2 for respectively eGender.Neutral("it"), eGender.Male ("he"), 
 			// eGender.Female ("she"). Any other value is randomly choosing a gender for current GameNPC
-			int choosenGender = template.Gender > 2 ? Util.Random(0, 2) : template.Gender;
+			int choosenGender = template.Gender > 2 ? UtilCollection.Random(0, 2) : template.Gender;
 
 			switch (choosenGender)
 			{
@@ -1379,10 +1379,10 @@ namespace DOL.GS
 			}
 
 			byte choosenSize = 50;
-			if (!Util.IsEmpty(template.Size))
+			if (!UtilCollection.IsEmpty(template.Size))
 			{
-				var split = Util.SplitCSV(template.Size, true);
-				byte.TryParse(split[Util.Random(0, split.Count - 1)], out choosenSize);
+				var split = UtilCollection.SplitCSV(template.Size, true);
+				byte.TryParse(split[UtilCollection.Random(0, split.Count - 1)], out choosenSize);
 			}
 			this.Size = choosenSize;
 			#endregion
@@ -1398,13 +1398,13 @@ namespace DOL.GS
 
 			#region Inventory
 			//Ok lets start loading the npc equipment - only if there is a value!
-			if (!Util.IsEmpty(template.Inventory))
+			if (!UtilCollection.IsEmpty(template.Inventory))
 			{
 				bool equipHasItems = false;
 				GameNpcInventoryTemplate equip = new GameNpcInventoryTemplate();
 				//First let's try to reach the npcequipment table and load that!
 				//We use a ';' split to allow npctemplates to support more than one equipmentIDs
-				var equipIDs = Util.SplitCSV(template.Inventory);
+				var equipIDs = UtilCollection.SplitCSV(template.Inventory);
 				if (!template.Inventory.Contains(":"))
 				{
 
@@ -1420,7 +1420,7 @@ namespace DOL.GS
 						if (m_templatedInventory.Count == 1)
 							equipid = template.Inventory;
 						else
-							equipid = m_templatedInventory[Util.Random(m_templatedInventory.Count - 1)];
+							equipid = m_templatedInventory[UtilCollection.Random(m_templatedInventory.Count - 1)];
 					}
 					if (equip.LoadFromDatabase(equipid))
 						equipHasItems = true;
@@ -1459,7 +1459,7 @@ namespace DOL.GS
 
 								//If we found some models let's randomly pick one and add it the equipment
 								if (tempModels.Count > 0)
-									equipHasItems |= equip.AddNPCEquipment((eInventorySlot)slot, tempModels[Util.Random(tempModels.Count - 1)]);
+									equipHasItems |= equip.AddNPCEquipment((eInventorySlot)slot, tempModels[UtilCollection.Random(tempModels.Count - 1)]);
 							}
 						}
 					}
@@ -1469,7 +1469,7 @@ namespace DOL.GS
 				//We added some items - let's make it the new inventory
 				if (equipHasItems)
 				{
-					this.Inventory = new GameNPCInventory(equip);
+					this.Inventory = new GameNpcInventory(equip);
 					if (this.Inventory.GetItem(eInventorySlot.DistanceWeapon) != null)
 						this.SwitchWeapon(EActiveWeaponSlot.Distance);
 					else
@@ -1479,7 +1479,7 @@ namespace DOL.GS
 
 						if (twohand != null && onehand != null)
 							//Let's add some random chance
-							SwitchWeapon(Util.Chance(50) ? EActiveWeaponSlot.TwoHanded : EActiveWeaponSlot.Standard);
+							SwitchWeapon(UtilCollection.Chance(50) ? EActiveWeaponSlot.TwoHanded : EActiveWeaponSlot.Standard);
 						else if (twohand != null)
 							//Hmm our right hand weapon may have been null
 							SwitchWeapon(EActiveWeaponSlot.TwoHanded);
@@ -3102,7 +3102,7 @@ namespace DOL.GS
 		/// <returns></returns>
 		public int CalculateLeftHandSwingCount()
 		{
-			if (Util.Chance(m_leftHandSwingChance))
+			if (UtilCollection.Chance(m_leftHandSwingChance))
 				return 1;
 			return 0;
 		}
@@ -3133,7 +3133,7 @@ namespace DOL.GS
 				SwitchWeapon(EActiveWeaponSlot.TwoHanded);
 			else if (twohand != null && righthand != null)
 			{
-				if (Util.Chance(50))
+				if (UtilCollection.Chance(50))
 					SwitchWeapon(EActiveWeaponSlot.TwoHanded);
 				else SwitchWeapon(EActiveWeaponSlot.Standard);
 			}
@@ -3155,7 +3155,7 @@ namespace DOL.GS
 			attackComponent.RequestStartAttack(target);
 		}
 
-		public override void StartInterruptTimer(int duration, AttackData.eAttackType attackType, GameLiving attacker)
+		public override void StartInterruptTimer(int duration, AttackData.EAttackType attackType, GameLiving attacker)
 		{
 			// Increase substantially the base interrupt timer duration for non player controlled NPCs
 			// so that they don't start attacking immediately after the attacker's melee swing interval.
@@ -3166,10 +3166,10 @@ namespace DOL.GS
 			base.StartInterruptTimer(duration, attackType, attacker);
 		}
 
-		protected override bool CheckRangedAttackInterrupt(GameLiving attacker, AttackData.eAttackType attackType)
+		protected override bool CheckRangedAttackInterrupt(GameLiving attacker, AttackData.EAttackType attackType)
 		{
 			// Immobile NPCs can only be interrupted from close range attacks.
-			if (MaxSpeedBase == 0 && attackType is AttackData.eAttackType.Ranged or AttackData.eAttackType.Spell && !IsWithinRadius(attacker, 150))
+			if (MaxSpeedBase == 0 && attackType is AttackData.EAttackType.Ranged or AttackData.EAttackType.Spell && !IsWithinRadius(attacker, 150))
 				return false;
 
 			bool interrupted = base.CheckRangedAttackInterrupt(attacker, attackType);
@@ -3208,7 +3208,7 @@ namespace DOL.GS
 				if (m_respawnInterval > 0 || m_respawnInterval < 0)
 					return m_respawnInterval;
 
-				int minutes = Util.Random(ServerProperties.Properties.NPC_MIN_RESPAWN_INTERVAL, ServerProperties.Properties.NPC_MIN_RESPAWN_INTERVAL + 5);
+				int minutes = UtilCollection.Random(ServerProperties.Properties.NPC_MIN_RESPAWN_INTERVAL, ServerProperties.Properties.NPC_MIN_RESPAWN_INTERVAL + 5);
 
 				if (Name != Name.ToLower())
 				{
@@ -3222,7 +3222,7 @@ namespace DOL.GS
 				else if (Realm != 0)
 				{
 					// 5 to 10 minutes for realm npc's
-					return Util.Random(5 * 60000, 10 * 60000);
+					return UtilCollection.Random(5 * 60000, 10 * 60000);
 				}
 				else
 				{
@@ -3280,7 +3280,7 @@ namespace DOL.GS
 			int respawnInt = RespawnInterval;
 			int minBound = (int) Math.Floor(respawnInt * .95);
 			int maxBound = (int) Math.Floor(respawnInt * 1.05);
-			respawnInt = Util.Random(minBound, maxBound);
+			respawnInt = UtilCollection.Random(minBound, maxBound);
 			if (respawnInt > 0)
 			{
 				lock (m_respawnTimerLock)
@@ -4225,15 +4225,15 @@ namespace DOL.GS
 		/// <summary>
 		/// The Abilities for this NPC
 		/// </summary>
-		public Dictionary<string, Ability> Abilities
+		public Dictionary<string, AbilityUtil> Abilities
 		{
 			get
 			{
-				Dictionary<string, Ability> tmp = new Dictionary<string, Ability>();
+				Dictionary<string, AbilityUtil> tmp = new Dictionary<string, AbilityUtil>();
 
 				lock (m_lockAbilities)
 				{
-					tmp = new Dictionary<string, Ability>(m_abilities);
+					tmp = new Dictionary<string, AbilityUtil>(m_abilities);
 				}
 
 				return tmp;
@@ -4273,8 +4273,8 @@ namespace DOL.GS
 			if (mxa.Count == 0) return;
 
 			// grab random sentence
-			var chosen = mxa[Util.Random(mxa.Count - 1)];
-			if (!Util.Chance(chosen.Chance)) return;
+			var chosen = mxa[UtilCollection.Random(mxa.Count - 1)];
+			if (!UtilCollection.Chance(chosen.Chance)) return;
 
 			string controller = string.Empty;
 			if (Brain is IControlledBrain) // Used for '{controller}' trigger keyword, use the name of the mob's owner (else returns blank)--this is used when a pet has an ambient trigger.
@@ -4559,7 +4559,7 @@ namespace DOL.GS
 
 			if (Abilities != null && Abilities.Count > 0)
 			{
-				foreach (Ability targetAbility in Abilities.Values)
+				foreach (AbilityUtil targetAbility in Abilities.Values)
 				{
 					if (targetAbility != null)
 						copyTarget.AddAbility(targetAbility);

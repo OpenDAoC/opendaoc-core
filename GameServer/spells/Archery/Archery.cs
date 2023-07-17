@@ -396,7 +396,7 @@ namespace DOL.GS.Spells
 			int syphon = Caster.GetModified(EProperty.ArcaneSyphon);
 			if (syphon > 0)
 			{
-				if(Util.Chance(syphon))
+				if(UtilCollection.Chance(syphon))
 				{
 					return 0;
 				}
@@ -418,7 +418,7 @@ namespace DOL.GS.Spells
 				chance = Math.Max(1, chance);
 				chance = Math.Min(99, chance);
 				if (attacker is GamePlayer) chance = 100;
-				if (Util.Chance((int)chance))
+				if (UtilCollection.Chance((int)chance))
 				{
 					Caster.TempProperties.setProperty(INTERRUPT_TIMEOUT_PROPERTY, GameLoop.GameLoopTime + Caster.SpellInterruptDuration);
 					MessageToLiving(Caster, attacker.GetName(0, true) + " attacks you and your shot is interrupted!", eChatType.CT_SpellResisted);

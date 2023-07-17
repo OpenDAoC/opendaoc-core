@@ -643,7 +643,7 @@ namespace DOL.GS
         public GameNPC GetRandomNPC(ERealm[] realms, int minLevel, int maxLevel)
         {
             List<GameNPC> npcs = GetNPCsOfZone(realms, minLevel, maxLevel, 0, 0, true);
-            GameNPC randomNPC = npcs.Count == 0 ? null : npcs[Util.Random(npcs.Count - 1)];
+            GameNPC randomNPC = npcs.Count == 0 ? null : npcs[UtilCollection.Random(npcs.Count - 1)];
             return randomNPC;
         }
 

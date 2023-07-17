@@ -66,7 +66,7 @@ namespace DOL.GS.Spells
 			//spread += Util.Random(50);
 			double dpsCap = DPSCap(attacker.Level);
 			double dps = IgnoreDamageCap ? Spell.Damage : Math.Min(Spell.Damage, dpsCap);
-			double damage = Util.Random((int)(minVariance * dps * atkArgs.AttackData.WeaponSpeed * 0.1), (int)(maxVariance * dps * atkArgs.AttackData.WeaponSpeed * 0.1)); ; // attack speed is 10 times higher (2.5spd=25)
+			double damage = UtilCollection.Random((int)(minVariance * dps * atkArgs.AttackData.WeaponSpeed * 0.1), (int)(maxVariance * dps * atkArgs.AttackData.WeaponSpeed * 0.1)); ; // attack speed is 10 times higher (2.5spd=25)
 			double damageResisted = damage * target.GetResist(Spell.DamageType) * -0.01;
 
 			//Console.WriteLine("dps: {0}, damage: {1}, damageResisted: {2}, minDamageSpread: {3}", dps, damage, damageResisted, m_minDamageSpread);
@@ -83,7 +83,7 @@ namespace DOL.GS.Spells
 			ad.Damage = (int)((damage + damageResisted) * effectiveness);
 			ad.Modifier = (int)damageResisted;
 			ad.DamageType = Spell.DamageType;
-			ad.AttackType = AttackData.eAttackType.Spell;
+			ad.AttackType = AttackData.EAttackType.Spell;
 			ad.SpellHandler = this;
 			ad.AttackResult = EAttackResult.HitUnstyled;
 
@@ -177,7 +177,7 @@ namespace DOL.GS.Spells
 			if (target.IsAlive == false) return;
 
 			int spread = m_minDamageSpread;
-			spread += Util.Random(50);
+			spread += UtilCollection.Random(50);
 			double damage = Spell.Damage * target.AttackSpeed(target.ActiveWeapon) * spread * 0.00001;
 			double damageResisted = damage * target.GetResist(Spell.DamageType) * -0.01;
 
@@ -201,7 +201,7 @@ namespace DOL.GS.Spells
 			ad.Modifier = (int)damageResisted;
 			ad.DamageType = Spell.DamageType;
 			ad.SpellHandler = this;
-			ad.AttackType = AttackData.eAttackType.Spell;
+			ad.AttackType = AttackData.EAttackType.Spell;
 			ad.AttackResult = EAttackResult.HitUnstyled;
 
 			GamePlayer owner = null;
@@ -336,7 +336,7 @@ namespace DOL.GS.Spells
 			}
 			bool upperCase = Spell.Message2.StartsWith("{0}");
 			MessageToLiving(effect.Owner, Spell.Message1, chatType);
-			Message.SystemToArea(effect.Owner, Util.MakeSentence(Spell.Message2, 
+			Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message2, 
 				effect.Owner.GetName(0, upperCase)), chatType, effect.Owner);
 			GameEventMgr.AddHandler(effect.Owner, EventType, new CoreEventHandler(EventHandler));
 		}
@@ -356,7 +356,7 @@ namespace DOL.GS.Spells
 				// "{0}'s weapon returns to normal."
 				bool upperCase = Spell.Message4.StartsWith("{0}");
 				MessageToLiving(effect.Owner, Spell.Message3, eChatType.CT_SpellExpires);
-				Message.SystemToArea(effect.Owner, Util.MakeSentence(Spell.Message4, 
+				Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, 
 					effect.Owner.GetName(0, upperCase)), eChatType.CT_SpellExpires, effect.Owner);
 			}
 			GameEventMgr.RemoveHandler(effect.Owner, EventType, new CoreEventHandler(EventHandler));

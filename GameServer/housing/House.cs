@@ -1308,7 +1308,7 @@ namespace DOL.GS.Housing
 			// check based on guild
 			if (player.Guild != null)
 			{
-				return OwnerID == player.Guild.GuildID && player.Guild.HasRank(player, Guild.eRank.Leader);
+				return OwnerID == player.Guild.GuildID && player.Guild.HasRank(player, GuildUtil.EGuildRank.Leader);
 			}
 
 			// no character/account/guild match, not an owner

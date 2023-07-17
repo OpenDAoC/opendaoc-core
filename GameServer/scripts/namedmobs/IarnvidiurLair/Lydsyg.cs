@@ -32,7 +32,7 @@ namespace DOL.GS
 		}
 		public override void OnAttackEnemy(AttackData ad) //on enemy actions
 		{
-			if (Util.Chance(45))
+			if (UtilCollection.Chance(45))
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 				{
@@ -181,7 +181,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 3;
-					spell.RecastDelay = Util.Random(10, 15);
+					spell.RecastDelay = UtilCollection.Random(10, 15);
 					spell.ClientEffect = 2610;
 					spell.Icon = 2610;
 					spell.Name = "Drain Life";

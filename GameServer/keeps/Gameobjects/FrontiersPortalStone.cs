@@ -109,8 +109,8 @@ namespace DOL.GS.Keeps
 		public void GetTeleportLocation(out int x, out int y)
 		{
 			ushort originalHeading = _heading;
-			_heading = (ushort)Util.Random((_heading - 500), (_heading + 500));
-			int distance = Util.Random(50, 150);
+			_heading = (ushort)UtilCollection.Random((_heading - 500), (_heading + 500));
+			int distance = UtilCollection.Random(50, 150);
             Point2D portloc = this.GetPointFromHeading( this.Heading, distance );
             x = portloc.X;
             y = portloc.Y;

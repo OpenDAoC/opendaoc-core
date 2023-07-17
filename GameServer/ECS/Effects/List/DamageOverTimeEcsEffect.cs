@@ -78,7 +78,7 @@ namespace DOL.GS
                     if (OwnerPlayer != null)
                     {
                         bleedHandler.MessageToLiving(Owner, bleedHandler.Spell.Message1, eChatType.CT_YouWereHit);
-                        Message.SystemToArea(Owner, Util.MakeSentence(bleedHandler.Spell.Message2, Owner.GetName(0, false)), eChatType.CT_YouHit, Owner);
+                        Message.SystemToArea(Owner, UtilCollection.MakeSentence(bleedHandler.Spell.Message2, Owner.GetName(0, false)), eChatType.CT_YouHit, Owner);
                     }
 
                     int bleedValue = Owner.TempProperties.getProperty<int>(StyleBleeding.BLEED_VALUE_PROPERTY);
@@ -123,7 +123,7 @@ namespace DOL.GS
             }
             
             if(SpellHandler.Caster is GameSummonedPet)
-                Owner.StartInterruptTimer(SpellHandler.Caster.SpellInterruptDuration, AttackData.eAttackType.Spell, SpellHandler.Caster);
+                Owner.StartInterruptTimer(SpellHandler.Caster.SpellInterruptDuration, AttackData.EAttackType.Spell, SpellHandler.Caster);
                 
         }
     }

@@ -5,7 +5,7 @@ namespace DOL.GS
 	/// <summary>
 	/// the master for armorcrafting
 	/// </summary>
-	[NPCGuildScript("Armorsmiths Master")]
+	[NpcGuild("Armorsmiths Master")]
 	public class ArmorCraftingMaster : CraftNPC
 	{
 		private static readonly eCraftingSkill[] m_trainedSkills = 

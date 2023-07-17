@@ -66,8 +66,8 @@ namespace DOL.GS
             for (int i = 0; i < 2; i++)
             {
                 HrimthursaSeer Add1 = new HrimthursaSeer();
-                Add1.X = 29996 + Util.Random(-100, 100);
-                Add1.Y = 52911 + Util.Random(-100, 100);
+                Add1.X = 29996 + UtilCollection.Random(-100, 100);
+                Add1.Y = 52911 + UtilCollection.Random(-100, 100);
                 Add1.Z = 11890;
                 Add1.CurrentRegion = this.CurrentRegion;
                 Add1.Heading = 2032;
@@ -90,7 +90,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(140);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(140));
             RespawnInterval = ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
-            BodyType = (ushort)NpcTemplateMgr.eBodyType.Giant;
+            BodyType = (ushort)NpcTemplateMgr.EBodyType.Giant;
             SteinvorBrain.PlayerX = 0;
             SteinvorBrain.PlayerY = 0;
             SteinvorBrain.PlayerZ = 0;
@@ -128,7 +128,7 @@ namespace DOL.GS
                     60000; //1min is 60000 miliseconds
                 TG.Faction = FactionMgr.GetFactionByID(140);
                 TG.Faction.AddFriendFaction(FactionMgr.GetFactionByID(140));
-                TG.BodyType = (ushort)NpcTemplateMgr.eBodyType.Giant;
+                TG.BodyType = (ushort)NpcTemplateMgr.EBodyType.Giant;
 
                 TG.X = 25405;
                 TG.Y = 57241;
@@ -278,7 +278,7 @@ namespace DOL.AI.Brain
                     }
                     if (damage_enemies.Count > 0)
                     {
-                        GamePlayer PortTarget = (GamePlayer)damage_enemies[Util.Random(0, damage_enemies.Count - 1)];
+                        GamePlayer PortTarget = (GamePlayer)damage_enemies[UtilCollection.Random(0, damage_enemies.Count - 1)];
                         RandomTarget = PortTarget;
                         PlayerX = RandomTarget.X;
                         PlayerY = RandomTarget.Y;
@@ -311,7 +311,7 @@ namespace DOL.AI.Brain
                             npc.RemoveFromWorld();
                     }
                 }
-                new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(RestartEffectTimer), Util.Random(10000, 15000));
+                new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(RestartEffectTimer), UtilCollection.Random(10000, 15000));
             }
             return 0;
         }
@@ -411,7 +411,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(140);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(140));
             RespawnInterval =ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
-            BodyType = (ushort)NpcTemplateMgr.eBodyType.Giant;
+            BodyType = (ushort)NpcTemplateMgr.EBodyType.Giant;
 
             SkufBrain sbrain = new SkufBrain();
             SetOwnBrain(sbrain);
@@ -444,7 +444,7 @@ namespace DOL.GS
                     60000; //1min is 60000 miliseconds
                 TG.Faction = FactionMgr.GetFactionByID(140);
                 TG.Faction.AddFriendFaction(FactionMgr.GetFactionByID(140));
-                TG.BodyType = (ushort)NpcTemplateMgr.eBodyType.Giant;
+                TG.BodyType = (ushort)NpcTemplateMgr.EBodyType.Giant;
 
                 TG.X = 25405;
                 TG.Y = 57241;
@@ -585,12 +585,12 @@ namespace DOL.GS
             MaxDistance = 3500;
             TetherRange = 3800;
             Size = 60;
-            Level = (byte)Util.Random(73, 75);
+            Level = (byte)UtilCollection.Random(73, 75);
             MaxSpeedBase = 270;
 
             Faction = FactionMgr.GetFactionByID(140);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(140));
-            BodyType = (ushort)NpcTemplateMgr.eBodyType.Giant;
+            BodyType = (ushort)NpcTemplateMgr.EBodyType.Giant;
             Realm = ERealm.None;
             RespawnInterval = -1;
 

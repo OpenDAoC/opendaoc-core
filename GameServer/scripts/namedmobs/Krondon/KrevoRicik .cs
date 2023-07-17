@@ -58,7 +58,7 @@ namespace DOL.GS
 		public override bool AddToWorld()
 		{
 			Model = 919;
-			Level = (byte)(Util.Random(72, 75));
+			Level = (byte)(UtilCollection.Random(72, 75));
 			Name = "Krevo Ricik";
 			Size = 120;
 
@@ -113,9 +113,9 @@ namespace DOL.AI.Brain
         {
 			if(ad != null && ad.Attacker is GamePlayer && ad.Damage > 0)
             {
-				if(Util.Chance(10))
+				if(UtilCollection.Chance(10))
 					ad.Attacker.MoveTo(Body.CurrentRegionID, Body.X, Body.Y, Body.Z + 400, Body.Heading);
-				if (Util.Chance(15))
+				if (UtilCollection.Chance(15))
 					SpawnGhost();
             }
             base.OnAttackedByEnemy(ad);
@@ -153,8 +153,8 @@ namespace DOL.AI.Brain
 				}
 			}
 			KrevolAdd npc = new KrevolAdd();
-			npc.X = Body.X + Util.Random(-100, 100);
-			npc.Y = Body.Y + Util.Random(-100, 100);
+			npc.X = Body.X + UtilCollection.Random(-100, 100);
+			npc.Y = Body.Y + UtilCollection.Random(-100, 100);
 			npc.Z = Body.Z;
 			npc.Heading = Body.Heading;
 			npc.CurrentRegion = Body.CurrentRegion;
@@ -210,9 +210,9 @@ namespace DOL.GS
 		public override bool AddToWorld()
 		{
 			Model = 902;
-			Level = (byte)(Util.Random(62, 64));
+			Level = (byte)(UtilCollection.Random(62, 64));
 			Name = "forgoten ghost";
-			Size = (byte)(Util.Random(50, 70));
+			Size = (byte)(UtilCollection.Random(50, 70));
 			MaxSpeedBase = 250;
 			RespawnInterval = ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 

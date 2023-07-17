@@ -62,7 +62,7 @@ namespace DOL.GS
                 attackers.Add(source as GamePlayer);
                 attackers_count = attackers.Count / 10;
 
-                if (Util.Chance(attackers_count))
+                if (UtilCollection.Chance(attackers_count))
                 {
                     if (resist_timer == false)
                     {

@@ -7,7 +7,7 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Warlock Trainer
 	/// </summary>
-	[NPCGuildScript("Warlock Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Warlock Trainer" NPC's in Albion (multiple guilds are possible for one script)
+	[NpcGuild("Warlock Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Warlock Trainer" NPC's in Albion (multiple guilds are possible for one script)
 	public class WarlockTrainer : GameTrainer
 	{
 		public override ECharacterClass TrainedClass

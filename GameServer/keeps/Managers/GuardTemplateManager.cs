@@ -266,7 +266,7 @@ namespace DOL.GS.Keeps
                 }
                 else
                 {
-                    guard.ModelRealm = (ERealm)Util.Random(1, 3);
+                    guard.ModelRealm = (ERealm)UtilCollection.Random(1, 3);
                 }
             }
             else
@@ -296,7 +296,7 @@ namespace DOL.GS.Keeps
         {
             if (guard is GuardFighterRK)
             {
-                guard.RespawnInterval = Util.Random(30, 35) * 60 * 1000; // 60-100 minutes spawn
+                guard.RespawnInterval = UtilCollection.Random(30, 35) * 60 * 1000; // 60-100 minutes spawn
             }
             else if (guard is FrontierHastener)
             {
@@ -326,12 +326,12 @@ namespace DOL.GS.Keeps
                 if (guard.Component != null && guard.Component.Keep != null)
                 {
                     if (!guard.Component.Keep.IsRelic)
-                        guard.RespawnInterval = Util.Random(13, 17) * 60 * 1000; // 8 to 10 mn
+                        guard.RespawnInterval = UtilCollection.Random(13, 17) * 60 * 1000; // 8 to 10 mn
                     else
-                        guard.RespawnInterval = Util.Random(21, 25) * 60 * 1000; // 21 to 25 mn
+                        guard.RespawnInterval = UtilCollection.Random(21, 25) * 60 * 1000; // 21 to 25 mn
                 }
                 else
-                    guard.RespawnInterval = Util.Random(13, 17) * 60 * 1000;
+                    guard.RespawnInterval = UtilCollection.Random(13, 17) * 60 * 1000;
             }
         }
 
@@ -383,7 +383,7 @@ namespace DOL.GS.Keeps
             }
             else
             {
-                if (Util.Chance(50))
+                if (UtilCollection.Chance(50))
                 {
                     guard.Gender = EGender.Male;
                 }
@@ -500,7 +500,7 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.Gender == EGender.Male)
                             {
-                                switch (Util.Random(0, 3))
+                                switch (UtilCollection.Random(0, 3))
                                 {
                                     case 0: guard.Model = SaracenMale; break;//Saracen Male
                                     case 1: guard.Model = HighlanderMale; break;//Highlander Male
@@ -510,7 +510,7 @@ namespace DOL.GS.Keeps
                             }
                             else
                             {
-                                switch (Util.Random(0, 3))
+                                switch (UtilCollection.Random(0, 3))
                                 {
                                     case 0: guard.Model = SaracenFemale; break;//Saracen Female
                                     case 1: guard.Model = HighlanderFemale; break;//Highlander Female
@@ -523,7 +523,7 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.Gender == EGender.Male)
                             {
-                                switch (Util.Random(0, 1))
+                                switch (UtilCollection.Random(0, 1))
                                 {
                                     case 0: guard.Model = AvalonianMale; break;//Avalonian Male
                                     case 1: guard.Model = BritonMale; break;//Briton Male
@@ -532,7 +532,7 @@ namespace DOL.GS.Keeps
                             }
                             else
                             {
-                                switch (Util.Random(0, 1))
+                                switch (UtilCollection.Random(0, 1))
                                 {
                                     case 0: guard.Model = AvalonianFemale; break;//Avalonian Female
                                     case 1: guard.Model = BritonFemale; break;//Briton Female
@@ -544,7 +544,7 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.Gender == EGender.Male)
                             {
-                                switch (Util.Random(0, 4))
+                                switch (UtilCollection.Random(0, 4))
                                 {
                                     case 0: guard.Model = HighlanderMale; break;//Highlander Male
                                     case 1: guard.Model = BritonMale; break;//Briton Male
@@ -557,7 +557,7 @@ namespace DOL.GS.Keeps
                             }
                             else
                             {
-                                switch (Util.Random(0, 4))
+                                switch (UtilCollection.Random(0, 4))
                                 {
                                     case 0: guard.Model = HighlanderFemale; break;//Highlander Female
                                     case 1: guard.Model = BritonFemale; break;//Briton Female
@@ -571,7 +571,7 @@ namespace DOL.GS.Keeps
                         else if (guard is GuardFighterRK)
                         {
 
-                            switch (Util.Random(0, 2))
+                            switch (UtilCollection.Random(0, 2))
                             {
                                 case 0: guard.Model = HighlanderMale; break;//Highlander Male
                                 case 1: guard.Model = BritonMale; break;//Briton Male
@@ -582,7 +582,7 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.Gender == EGender.Male)
                             {
-                                switch (Util.Random(0, 2))
+                                switch (UtilCollection.Random(0, 2))
                                 {
                                     case 0: guard.Model = HighlanderMale; break;//Highlander Male
                                     case 1: guard.Model = BritonMale; break;//Briton Male
@@ -591,7 +591,7 @@ namespace DOL.GS.Keeps
                             }
                             else
                             {
-                                switch (Util.Random(0, 2))
+                                switch (UtilCollection.Random(0, 2))
                                 {
                                     case 0: guard.Model = HighlanderFemale; break;//Highlander Female
                                     case 1: guard.Model = BritonFemale; break;//Briton Female
@@ -603,7 +603,7 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.Gender == EGender.Male)
                             {
-                                switch (Util.Random(0, 2))
+                                switch (UtilCollection.Random(0, 2))
                                 {
                                     case 0: guard.Model = HighlanderMale; break;//Highlander Male
                                     case 1: guard.Model = BritonMale; break;//Briton Male
@@ -612,7 +612,7 @@ namespace DOL.GS.Keeps
                             }
                             else
                             {
-                                switch (Util.Random(0, 2))
+                                switch (UtilCollection.Random(0, 2))
                                 {
                                     case 0: guard.Model = HighlanderFemale; break;//Highlander Female
                                     case 1: guard.Model = BritonFemale; break;//Briton Female
@@ -624,7 +624,7 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.Gender == EGender.Male)
                             {
-                                switch (Util.Random(0, 2))
+                                switch (UtilCollection.Random(0, 2))
                                 {
                                     case 0: guard.Model = SaracenMale; break;//Saracen Male
                                     case 1: guard.Model = BritonMale; break;//Briton Male
@@ -633,7 +633,7 @@ namespace DOL.GS.Keeps
                             }
                             else
                             {
-                                switch (Util.Random(0, 2))
+                                switch (UtilCollection.Random(0, 2))
                                 {
                                     case 0: guard.Model = SaracenFemale; break;//Saracen Female
                                     case 1: guard.Model = BritonFemale; break;//Briton Female
@@ -652,7 +652,7 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.Gender == EGender.Male)
                             {
-                                switch (Util.Random(0, 3))
+                                switch (UtilCollection.Random(0, 3))
                                 {
                                     case 0: guard.Model = NorseMale; break;//Norse Male
                                     case 1: guard.Model = KoboldMale; break;//Kobold Male
@@ -663,7 +663,7 @@ namespace DOL.GS.Keeps
                             }
                             else
                             {
-                                switch (Util.Random(0, 3))
+                                switch (UtilCollection.Random(0, 3))
                                 {
                                     case 0: guard.Model = NorseFemale; break;//Norse Female
                                     case 1: guard.Model = KoboldFemale; break;//Kobold Female
@@ -677,7 +677,7 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.Gender == EGender.Male)
                             {
-                                switch (Util.Random(0, 2))
+                                switch (UtilCollection.Random(0, 2))
                                 {
                                     case 0: guard.Model = KoboldMale; break;//Kobold Male
                                     case 1: guard.Model = NorseMale; break;//Norse Male
@@ -687,7 +687,7 @@ namespace DOL.GS.Keeps
                             }
                             else
                             {
-                                switch (Util.Random(0, 2))
+                                switch (UtilCollection.Random(0, 2))
                                 {
                                     case 0: guard.Model = KoboldFemale; break;//Kobold Female
                                     case 1: guard.Model = NorseFemale; break;//Norse Female
@@ -700,7 +700,7 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.Gender == EGender.Male)
                             {
-                                switch (Util.Random(0, 4))
+                                switch (UtilCollection.Random(0, 4))
                                 {
                                     case 0: guard.Model = TrollMale; break;//Troll Male
                                     case 1: guard.Model = NorseMale; break;//Norse Male
@@ -712,7 +712,7 @@ namespace DOL.GS.Keeps
                             }
                             else
                             {
-                                switch (Util.Random(0, 4))
+                                switch (UtilCollection.Random(0, 4))
                                 {
                                     case 0: guard.Model = TrollFemale; break;//Troll Female
                                     case 1: guard.Model = NorseFemale; break;//Norse Female
@@ -725,7 +725,7 @@ namespace DOL.GS.Keeps
                         else if (guard is GuardFighterRK)
                         {
 
-                            switch (Util.Random(0, 4))
+                            switch (UtilCollection.Random(0, 4))
                             {
                                 case 0: guard.Model = TrollMale; break;//Troll Male
                                 case 1: guard.Model = NorseMale; break;//Norse Male
@@ -738,7 +738,7 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.Gender == EGender.Male)
                             {
-                                switch (Util.Random(0, 1))
+                                switch (UtilCollection.Random(0, 1))
                                 {
                                     case 0: guard.Model = DwarfMale; break;//Dwarf Male
                                     case 1: guard.Model = NorseMale; break;//Norse Male
@@ -747,7 +747,7 @@ namespace DOL.GS.Keeps
                             }
                             else
                             {
-                                switch (Util.Random(0, 1))
+                                switch (UtilCollection.Random(0, 1))
                                 {
                                     case 0: guard.Model = DwarfFemale; break;//Dwarf Female
                                     case 1: guard.Model = NorseFemale; break;//Norse Female
@@ -759,7 +759,7 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.Gender == EGender.Male)
                             {
-                                switch (Util.Random(0, 3))
+                                switch (UtilCollection.Random(0, 3))
                                 {
                                     case 0: guard.Model = DwarfMale; break;//Dwarf Male
                                     case 1: guard.Model = NorseMale; break;//Norse Male
@@ -770,7 +770,7 @@ namespace DOL.GS.Keeps
                             }
                             else
                             {
-                                switch (Util.Random(0, 3))
+                                switch (UtilCollection.Random(0, 3))
                                 {
                                     case 0: guard.Model = DwarfFemale; break;//Dwarf Female
                                     case 1: guard.Model = NorseFemale; break;//Norse Female
@@ -783,7 +783,7 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.Gender == EGender.Male)
                             {
-                                switch (Util.Random(0, 2))
+                                switch (UtilCollection.Random(0, 2))
                                 {
                                     case 0: guard.Model = KoboldMale; break;//Kobold Male
                                     case 1: guard.Model = NorseMale; break;//Norse Male
@@ -792,7 +792,7 @@ namespace DOL.GS.Keeps
                             }
                             else
                             {
-                                switch (Util.Random(0, 2))
+                                switch (UtilCollection.Random(0, 2))
                                 {
                                     case 0: guard.Model = KoboldFemale; break;//Kobold Female
                                     case 1: guard.Model = NorseFemale; break;//Norse Female
@@ -811,7 +811,7 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.Gender == EGender.Male)
                             {
-                                switch (Util.Random(0, 2))
+                                switch (UtilCollection.Random(0, 2))
                                 {
                                     case 0: guard.Model = LurikeenMale; break;//Lurikeen Male
                                     case 1: guard.Model = ElfMale; break;//Elf Male
@@ -821,7 +821,7 @@ namespace DOL.GS.Keeps
                             }
                             else
                             {
-                                switch (Util.Random(0, 2))
+                                switch (UtilCollection.Random(0, 2))
                                 {
                                     case 0: guard.Model = LurikeenFemale; break;//Lurikeen Female
                                     case 1: guard.Model = ElfFemale; break;//Elf Female
@@ -834,7 +834,7 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.Gender == EGender.Male)
                             {
-                                switch (Util.Random(0, 1))
+                                switch (UtilCollection.Random(0, 1))
                                 {
                                     case 0: guard.Model = ElfMale; break;//Elf Male
                                     case 1: guard.Model = LurikeenMale; break;//Lurikeen Male
@@ -842,7 +842,7 @@ namespace DOL.GS.Keeps
                             }
                             else
                             {
-                                switch (Util.Random(0, 1))
+                                switch (UtilCollection.Random(0, 1))
                                 {
                                     case 0: guard.Model = ElfFemale; break;//Elf Female
                                     case 1: guard.Model = LurikeenFemale; break;//Lurikeen Female
@@ -853,7 +853,7 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.Gender == EGender.Male)
                             {
-                                switch (Util.Random(0, 2))
+                                switch (UtilCollection.Random(0, 2))
                                 {
                                     case 0: guard.Model = FirbolgMale; break;//Firbolg Male
                                     case 1: guard.Model = LurikeenMale; break;//Lurikeen Male
@@ -864,7 +864,7 @@ namespace DOL.GS.Keeps
                             }
                             else
                             {
-                                switch (Util.Random(0, 2))
+                                switch (UtilCollection.Random(0, 2))
                                 {
                                     case 0: guard.Model = FirbolgFemale; break;//Firbolg Female
                                     case 1: guard.Model = LurikeenFemale; break;//Lurikeen Female
@@ -876,7 +876,7 @@ namespace DOL.GS.Keeps
                         else if (guard is GuardFighterRK)
                         {
 
-                            switch (Util.Random(0, 2))
+                            switch (UtilCollection.Random(0, 2))
                             {
                                 case 0: guard.Model = FirbolgMale; break;//Firbolg Male
                                 case 1: guard.Model = LurikeenMale; break;//Lurikeen Male
@@ -887,7 +887,7 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.Gender == EGender.Male)
                             {
-                                switch (Util.Random(0, 2))
+                                switch (UtilCollection.Random(0, 2))
                                 {
                                     case 0: guard.Model = CeltMale; break;//Celt Male
                                     case 1: guard.Model = FirbolgMale; break;//Firbolg Male
@@ -896,7 +896,7 @@ namespace DOL.GS.Keeps
                             }
                             else
                             {
-                                switch (Util.Random(0, 2))
+                                switch (UtilCollection.Random(0, 2))
                                 {
                                     case 0: guard.Model = CeltFemale; break;//Celt Female
                                     case 1: guard.Model = FirbolgFemale; break;//Firbolg Female
@@ -908,7 +908,7 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.Gender == EGender.Male)
                             {
-                                switch (Util.Random(0, 3))
+                                switch (UtilCollection.Random(0, 3))
                                 {
                                     case 0: guard.Model = CeltMale; break;//Celt Male
                                     case 1: guard.Model = FirbolgMale; break;//Firbolg Male
@@ -919,7 +919,7 @@ namespace DOL.GS.Keeps
                             }
                             else
                             {
-                                switch (Util.Random(0, 3))
+                                switch (UtilCollection.Random(0, 3))
                                 {
                                     case 0: guard.Model = CeltFemale; break;//Celt Female
                                     case 1: guard.Model = FirbolgFemale; break;//Firbolg Female
@@ -932,7 +932,7 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.Gender == EGender.Male)
                             {
-                                switch (Util.Random(0, 1))
+                                switch (UtilCollection.Random(0, 1))
                                 {
                                     case 0: guard.Model = ElfMale; break;//Elf Male
                                     case 1: guard.Model = LurikeenMale; break;//Lurikeen Male
@@ -940,7 +940,7 @@ namespace DOL.GS.Keeps
                             }
                             else
                             {
-                                switch (Util.Random(0, 1))
+                                switch (UtilCollection.Random(0, 1))
                                 {
                                     case 0: guard.Model = ElfFemale; break;//Elf Female
                                     case 1: guard.Model = LurikeenFemale; break;//Lurikeen Female

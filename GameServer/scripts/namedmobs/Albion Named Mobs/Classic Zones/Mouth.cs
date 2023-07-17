@@ -89,7 +89,7 @@ namespace DOL.GS
         }
         public override void OnAttackEnemy(AttackData ad)
 		{
-			if (Util.Chance(30))
+			if (UtilCollection.Chance(30))
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 				{
@@ -100,7 +100,7 @@ namespace DOL.GS
 		}
         public override void DealDamage(AttackData ad)
         {
-			if (ad != null && ad.AttackType == AttackData.eAttackType.Spell && ad.Damage > 0)
+			if (ad != null && ad.AttackType == AttackData.EAttackType.Spell && ad.Damage > 0)
 			{
 				Health += ad.Damage;
 			}
@@ -173,7 +173,7 @@ namespace DOL.AI.Brain
 				RemoveAdds = false;
 				if (SpawnAdd==false)
                 {
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(MouthAdds), Util.Random(20000, 35000));
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(MouthAdds), UtilCollection.Random(20000, 35000));
 					SpawnAdd = true;
                 }
 			}
@@ -186,16 +186,16 @@ namespace DOL.AI.Brain
 				GameNPC add = new GameNPC();
 				add.Name = Body.Name + "'s minion";
 				add.Model = 584;
-				add.Size = (byte)Util.Random(45, 55);
-				add.Level = (byte)Util.Random(55, 59);
+				add.Size = (byte)UtilCollection.Random(45, 55);
+				add.Level = (byte)UtilCollection.Random(55, 59);
 				add.Strength = 150;
 				add.Quickness = 80;
 				add.MeleeDamageType = EDamageType.Thrust;
 				add.MaxSpeedBase = 225;
 				add.PackageID = "MouthAdd";
 				add.RespawnInterval = -1;
-				add.X = Body.X + Util.Random(-100, 100);
-				add.Y = Body.Y + Util.Random(-100, 100);
+				add.X = Body.X + UtilCollection.Random(-100, 100);
+				add.Y = Body.Y + UtilCollection.Random(-100, 100);
 				add.Z = Body.Z;
 				add.CurrentRegion = Body.CurrentRegion;
 				add.Heading = Body.Heading;

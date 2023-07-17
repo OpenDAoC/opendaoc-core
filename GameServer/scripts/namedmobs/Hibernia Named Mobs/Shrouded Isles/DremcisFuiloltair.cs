@@ -166,8 +166,8 @@ namespace DOL.AI.Brain
 					return;
 			}
 			Beomarbhan stag = new Beomarbhan();
-			stag.X = Body.X + Util.Random(-200, 200);
-			stag.Y = Body.Y + Util.Random(-200, 200);
+			stag.X = Body.X + UtilCollection.Random(-200, 200);
+			stag.Y = Body.Y + UtilCollection.Random(-200, 200);
 			stag.Z = Body.Z;
 			stag.Heading = Body.Heading;
 			stag.CurrentRegion = Body.CurrentRegion;
@@ -180,11 +180,11 @@ namespace DOL.AI.Brain
 				if (npc.Brain is FuilslathachBrain)
 					return;
 			}
-			for (int i = 0; i < Util.Random(4,6); i++)
+			for (int i = 0; i < UtilCollection.Random(4,6); i++)
 			{
 				Fuilslathach blobs = new Fuilslathach();
-				blobs.X = Body.X + Util.Random(-200, 200);
-				blobs.Y = Body.Y + Util.Random(-200, 200);
+				blobs.X = Body.X + UtilCollection.Random(-200, 200);
+				blobs.Y = Body.Y + UtilCollection.Random(-200, 200);
 				blobs.Z = Body.Z;
 				blobs.Heading = Body.Heading;
 				blobs.CurrentRegion = Body.CurrentRegion;
@@ -335,8 +335,8 @@ namespace DOL.GS
 		{
 			Model = 932;
 			Name = "fuilslathach";
-			Level = (byte)Util.Random(51, 59);
-			Size = (byte)Util.Random(15, 20);
+			Level = (byte)UtilCollection.Random(51, 59);
+			Size = (byte)UtilCollection.Random(15, 20);
 			RespawnInterval = -1;
 			RoamingRange = 200;
 

@@ -21,7 +21,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		/// <summary>
 		/// Handles players cancel effect actions
 		/// </summary>
-		protected class CancelEffectHandler : RegionECSAction
+		protected class CancelEffectHandler : RegionAction
 		{
 			/// <summary>
 			/// The effect Id
@@ -66,7 +66,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		/// <summary>
 		/// Handles players cancel effect actions
 		/// </summary>
-		protected class CancelEffectHandler1110 : RegionECSAction
+		protected class CancelEffectHandler1110 : RegionAction
 		{
 			/// <summary>
 			/// The effect Id

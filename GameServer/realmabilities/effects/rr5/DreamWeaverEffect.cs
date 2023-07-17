@@ -69,7 +69,7 @@ namespace DOL.GS.Effects
 
 		public static ushort GetRandomMorph()
 		{
-			return (ushort)Util.Random(1649, 1668);
+			return (ushort)UtilCollection.Random(1649, 1668);
 			// Returns random morph/gender (like live..)
 		}
 

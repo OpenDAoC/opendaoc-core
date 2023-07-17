@@ -116,7 +116,7 @@ namespace ECS.Debug
                         string counterName = counter.Key;
                         float elapsed = (float)counter.Value.Elapsed.TotalMilliseconds;
                         string elapsedString = elapsed.ToString();
-                        elapsedString = Util.TruncateString(elapsedString, 4);
+                        elapsedString = UtilCollection.TruncateString(elapsedString, 4);
                         logString += $"{counterName} {elapsedString}ms | ";
                     }
 
@@ -175,7 +175,7 @@ namespace ECS.Debug
 
         private static void ReportGameEventMgrNotifyTimes()
         {
-            string ActualInterval = Util.TruncateString((GameLoop.GetCurrentTime() - GameEventMgrNotifyTimerStartTick).ToString(), 5);
+            string ActualInterval = UtilCollection.TruncateString((GameLoop.GetCurrentTime() - GameEventMgrNotifyTimerStartTick).ToString(), 5);
             Console.WriteLine($"==== GameEventMgr Notify() Costs (Requested Interval: {GameEventMgrNotifyTimerInterval}ms | Actual Interval: {ActualInterval}ms) ====");
 
             lock (_GameEventMgrNotifyLock)
@@ -202,10 +202,10 @@ namespace ECS.Debug
                     int NumValues = EventTimeValues.Count;
                     double AvgCost = TotalCost / NumValues;
                     string NumValuesString = NumValues.ToString().PadRight(4);
-                    string TotalCostString = Util.TruncateString(TotalCost.ToString(), 5);
-                    string MinCostString = Util.TruncateString(MinCost.ToString(), 5);
-                    string MaxCostString = Util.TruncateString(MaxCost.ToString(), 5);
-                    string AvgCostString = Util.TruncateString(AvgCost.ToString(), 5);
+                    string TotalCostString = UtilCollection.TruncateString(TotalCost.ToString(), 5);
+                    string MinCostString = UtilCollection.TruncateString(MinCost.ToString(), 5);
+                    string MaxCostString = UtilCollection.TruncateString(MaxCost.ToString(), 5);
+                    string AvgCostString = UtilCollection.TruncateString(AvgCost.ToString(), 5);
                     Console.WriteLine($"{EventNameString} - # Calls: {NumValuesString} | Total: {TotalCostString}ms | Avg: {AvgCostString}ms | Min: {MinCostString}ms | Max: {MaxCostString}ms");
                 }
 

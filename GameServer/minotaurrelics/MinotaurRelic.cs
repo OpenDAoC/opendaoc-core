@@ -477,7 +477,7 @@ namespace DOL.GS
 				respawntimer = null;
 			}
 			respawntimer = new AuxECSGameTimer(this, new AuxECSGameTimer.AuxECSTimerCallback(RespawnTimerCallback),
-			                               Util.Random(MinotaurRelicManager.MIN_RESPAWN_TIMER, MinotaurRelicManager.MAX_RESPAWN_TIMER));
+			                               UtilCollection.Random(MinotaurRelicManager.MIN_RESPAWN_TIMER, MinotaurRelicManager.MAX_RESPAWN_TIMER));
 		}
 
 		/// <summary>

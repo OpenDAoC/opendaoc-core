@@ -204,7 +204,7 @@ namespace DOL.AI.Brain
 							AddAggroListTo(npc.Brain as StandardMobBrain);
 					}
 				}
-				if(!Body.IsCasting && Util.Chance(20))
+				if(!Body.IsCasting && UtilCollection.Chance(20))
 					Body.CastSpell(CailleachUragaigDD2, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			}
 			base.Think();
@@ -246,7 +246,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 4;
-					spell.RecastDelay = Util.Random(10,20);
+					spell.RecastDelay = UtilCollection.Random(10,20);
 					spell.ClientEffect = 378;
 					spell.Icon = 378;
 					spell.Damage = 200;

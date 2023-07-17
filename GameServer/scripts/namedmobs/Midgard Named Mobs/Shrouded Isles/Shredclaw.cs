@@ -69,7 +69,7 @@ namespace DOL.GS
 			Name = "Shredclaw";
 			Model = 891;
 			Size = 100;
-			Level = (byte)Util.Random(66,68);
+			Level = (byte)UtilCollection.Random(66,68);
 
 			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			ShredclawBrain sbrain = new ShredclawBrain();
@@ -81,14 +81,14 @@ namespace DOL.GS
 		}
 		public override void OnAttackEnemy(AttackData ad) //on enemy actions
 		{
-			if (Util.Chance(35) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
+			if (UtilCollection.Chance(35) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 					CastSpell(ShredclawPoison, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			}
 			if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 			{
-				if (Util.Chance(35) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.Bleed) && ad.Target.IsAlive)
+				if (UtilCollection.Chance(35) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.Bleed) && ad.Target.IsAlive)
 					CastSpell(ShredclawBleed, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			}
 			base.OnAttackEnemy(ad);

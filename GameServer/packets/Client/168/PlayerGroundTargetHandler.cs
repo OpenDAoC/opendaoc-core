@@ -17,7 +17,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		/// <summary>
 		/// Handles ground target changes
 		/// </summary>
-		protected class ChangeGroundTargetHandler : RegionECSAction
+		protected class ChangeGroundTargetHandler : RegionAction
 		{
 			protected readonly ushort m_flag;
 

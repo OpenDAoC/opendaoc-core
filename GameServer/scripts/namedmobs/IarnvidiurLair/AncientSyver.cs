@@ -41,7 +41,7 @@ namespace DOL.GS
 		}
 		public override void OnAttackEnemy(AttackData ad) //on enemy actions
 		{
-			if (Util.Chance(35))
+			if (UtilCollection.Chance(35))
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 				{
@@ -160,7 +160,7 @@ namespace DOL.AI.Brain
 				}
 				if (Body.TargetObject != null)
 				{
-					if (Util.Chance(15))
+					if (UtilCollection.Chance(15))
 					{
 						GameLiving target = Body.TargetObject as GameLiving;
 						if (!target.effectListComponent.ContainsEffectForEffectType(EEffect.Disease))
@@ -168,14 +168,14 @@ namespace DOL.AI.Brain
 							new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastDisease), 1000);
 						}
 					}
-					if (Util.Chance(15))
+					if (UtilCollection.Chance(15))
 					{
 						if (LivingHasEffect(Body.TargetObject as GameLiving, Syver_Str_Debuff) == false && Body.TargetObject.IsVisibleTo(Body))
 						{
 							new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastStrengthDebuff), 1000);
 						}
 					}
-					if (Util.Chance(15))
+					if (UtilCollection.Chance(15))
 					{
 						if (!Body.effectListComponent.ContainsEffectForEffectType(EEffect.MeleeHasteBuff))
 						{

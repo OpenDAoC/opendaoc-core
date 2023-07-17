@@ -14,7 +14,7 @@ namespace DOL.GS
 
 		public override void GainCraftingSkillPoints(GamePlayer player, RecipeMgr recipe)
 		{
-			if (Util.Chance(CalculateChanceToGainPoint(player, recipe.Level)))
+			if (UtilCollection.Chance(CalculateChanceToGainPoint(player, recipe.Level)))
 			{
                 if (player.GetCraftingSkillValue(eCraftingSkill.HerbalCrafting) < subSkillCap)
                 {

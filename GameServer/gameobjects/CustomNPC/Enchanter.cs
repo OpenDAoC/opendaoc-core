@@ -13,7 +13,7 @@ using DOL.GS.Quests;
 
 namespace DOL.GS
 {
-	[NPCGuildScript("Enchanter")]
+	[NpcGuild("Enchanter")]
 	public class Enchanter : GameNPC
 	{
 		private const string ENCHANT_ITEM_WEAK = "enchanting item";

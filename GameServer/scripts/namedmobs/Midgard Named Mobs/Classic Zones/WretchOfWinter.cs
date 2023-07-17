@@ -70,7 +70,7 @@ namespace DOL.GS
 		}
 		public override void OnAttackEnemy(AttackData ad) //on enemy actions
 		{
-			if (Util.Chance(25) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
+			if (UtilCollection.Chance(25) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 					CastSpell(WoWPoison, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
@@ -209,7 +209,7 @@ namespace DOL.GS
 		}
 		public override void OnAttackEnemy(AttackData ad) //on enemy actions
 		{
-			if (Util.Chance(25) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
+			if (UtilCollection.Chance(25) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 					CastSpell(WoWPoison, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
@@ -348,7 +348,7 @@ namespace DOL.GS
 		}
 		public override void OnAttackEnemy(AttackData ad) //on enemy actions
 		{
-			if (Util.Chance(25) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
+			if (UtilCollection.Chance(25) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 					CastSpell(WoWPoison, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
@@ -488,7 +488,7 @@ namespace DOL.GS
 		{
 			if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 			{
-				if (Util.Chance(25))
+				if (UtilCollection.Chance(25))
 					CastSpell(WoWDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			}
 			base.OnAttackEnemy(ad);
@@ -619,7 +619,7 @@ namespace DOL.GS
 		{
 			if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 			{
-				if(Util.Chance(25))
+				if(UtilCollection.Chance(25))
 					CastSpell(WoWDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			}
 			base.OnAttackEnemy(ad);
@@ -750,7 +750,7 @@ namespace DOL.GS
 		{
 			if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 			{
-				if (Util.Chance(25))
+				if (UtilCollection.Chance(25))
 					CastSpell(WoWDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			}
 			base.OnAttackEnemy(ad);
@@ -881,7 +881,7 @@ namespace DOL.GS
 		{
 			if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 			{
-				if (Util.Chance(25))
+				if (UtilCollection.Chance(25))
 					CastSpell(WoWDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			}
 			base.OnAttackEnemy(ad);
@@ -1012,7 +1012,7 @@ namespace DOL.GS
 		{
 			if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 			{
-				if (Util.Chance(25))
+				if (UtilCollection.Chance(25))
 					CastSpell(WoWDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			}
 			base.OnAttackEnemy(ad);
@@ -1141,7 +1141,7 @@ namespace DOL.GS
 		}
 		public override void OnAttackEnemy(AttackData ad) //on enemy actions
 		{
-			if (Util.Chance(25) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
+			if (UtilCollection.Chance(25) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 					CastSpell(WoWPoison, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));

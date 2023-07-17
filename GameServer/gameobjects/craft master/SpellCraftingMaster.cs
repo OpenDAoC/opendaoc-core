@@ -6,7 +6,7 @@ namespace DOL.GS
 	/// <summary>
 	/// the master for spell crafting
 	/// </summary>
-	[NPCGuildScript("Spellcrafters Master")]
+	[NpcGuild("Spellcrafters Master")]
 	public class SpellCraftingMaster : CraftNPC
 	{
 		private static readonly eCraftingSkill[] m_trainedSkills = 

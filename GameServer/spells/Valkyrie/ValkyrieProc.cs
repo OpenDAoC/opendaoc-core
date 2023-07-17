@@ -25,7 +25,7 @@ namespace DOL.GS.Spells
                 chatType = eChatType.CT_Spell;
             }
             MessageToLiving(effect.Owner, Spell.Message1, chatType);
-            Message.SystemToArea(effect.Owner, Util.MakeSentence(Spell.Message2, effect.Owner.GetName(0, true)), chatType, effect.Owner);
+            Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message2, effect.Owner.GetName(0, true)), chatType, effect.Owner);
             GameEventMgr.AddHandler(effect.Owner, GameLivingEvent.AttackFinished, new CoreEventHandler(EventHandler));
         }
 
@@ -34,7 +34,7 @@ namespace DOL.GS.Spells
             if (!noMessages)
             {
                 MessageToLiving(effect.Owner, Spell.Message3, eChatType.CT_SpellExpires);
-                Message.SystemToArea(effect.Owner, Util.MakeSentence(Spell.Message4, effect.Owner.GetName(0, true)), eChatType.CT_SpellExpires, effect.Owner);
+                Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, effect.Owner.GetName(0, true)), eChatType.CT_SpellExpires, effect.Owner);
             }
             GameEventMgr.RemoveHandler(effect.Owner, GameLivingEvent.AttackFinished, new CoreEventHandler(EventHandler));
             return 0;
@@ -52,7 +52,7 @@ namespace DOL.GS.Spells
                 return;
 
             int baseChance = 0;
-            if (ad.AttackType == AttackData.eAttackType.Ranged)
+            if (ad.AttackType == AttackData.EAttackType.Ranged)
             {
                 baseChance = (int)(Spell.Frequency * .0001);
             }
@@ -72,7 +72,7 @@ namespace DOL.GS.Spells
                 }
             }
 
-            if (Util.Chance(15))
+            if (UtilCollection.Chance(15))
             {
                 Spell m_procSpell = SkillBase.GetSpellByID((int)Spell.Value);
                 ISpellHandler handler = ScriptMgr.CreateSpellHandler((GameLiving)sender, m_procSpell, SkillBase.GetSpellLine(GlobalSpellsLines.Reserved_Spells));

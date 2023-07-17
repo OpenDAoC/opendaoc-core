@@ -146,7 +146,7 @@ namespace DOL.GS
                         && p.CheckStyleStun(s)) // Make sure we don't spam stun styles like Brutalize
                         return s;
 
-            if (Util.Chance(Properties.GAMENPC_CHANCES_TO_STYLE))
+            if (UtilCollection.Chance(Properties.GAMENPC_CHANCES_TO_STYLE))
             {
                 // All of the remaining lists are randomly picked from,
                 // as this creates more variety with each combat result.
@@ -158,28 +158,28 @@ namespace DOL.GS
                 // in case the defender is facing another direction
                 if (p.StylesBack != null && p.StylesBack.Count > 0)
                 {
-                    Style s = p.StylesBack[Util.Random(0, p.StylesBack.Count - 1)];
+                    Style s = p.StylesBack[UtilCollection.Random(0, p.StylesBack.Count - 1)];
                     if (StyleProcessor.CanUseStyle(p, s, p.ActiveWeapon))
                         return s;
                 }
 
                 if (p.StylesSide != null && p.StylesSide.Count > 0)
                 {
-                    Style s = p.StylesSide[Util.Random(0, p.StylesSide.Count - 1)];
+                    Style s = p.StylesSide[UtilCollection.Random(0, p.StylesSide.Count - 1)];
                     if (StyleProcessor.CanUseStyle(p, s, p.ActiveWeapon))
                         return s;
                 }
 
                 if (p.StylesFront != null && p.StylesFront.Count > 0)
                 {
-                    Style s = p.StylesFront[Util.Random(0, p.StylesFront.Count - 1)];
+                    Style s = p.StylesFront[UtilCollection.Random(0, p.StylesFront.Count - 1)];
                     if (StyleProcessor.CanUseStyle(p, s, p.ActiveWeapon))
                         return s;
                 }
 
                 // Pick a random anytime style
                 if (p.StylesAnytime != null && p.StylesAnytime.Count > 0)
-                    return p.StylesAnytime[Util.Random(0, p.StylesAnytime.Count - 1)];
+                    return p.StylesAnytime[UtilCollection.Random(0, p.StylesAnytime.Count - 1)];
             }
 
             return null;
@@ -286,7 +286,7 @@ namespace DOL.GS
                             }
                         }
 
-                        if (!Util.IsEmpty(message))
+                        if (!UtilCollection.IsEmpty(message))
                             p.Out.SendMessage(message, eChatType.CT_System, eChatLoc.CL_SystemWindow);
                     }
                 }

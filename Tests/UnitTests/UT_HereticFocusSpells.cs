@@ -26,7 +26,7 @@ namespace DOL.Tests.Unit.Gameserver
             var damageFocus = new RampingDamageFocus(source, spell, spellLine);
             var effectiveness = 1;
 
-            Util.LoadTestDouble(new ChanceAlwaysHundredPercent());
+            UtilCollection.LoadTestDouble(new ChanceAlwaysHundredPercent());
             damageFocus.OnDirectEffect(target, effectiveness);
 
             var actual = source.LastDamageDealt;
@@ -46,7 +46,7 @@ namespace DOL.Tests.Unit.Gameserver
             var damageFocus = new RampingDamageFocus(source, spell, spellLine);
             var effectiveness = 1;
 
-            Util.LoadTestDouble(new ChanceAlwaysHundredPercent());
+            UtilCollection.LoadTestDouble(new ChanceAlwaysHundredPercent());
             damageFocus.OnSpellPulse(null);
             damageFocus.OnSpellPulse(null);
             damageFocus.OnDirectEffect(target, effectiveness);
@@ -68,7 +68,7 @@ namespace DOL.Tests.Unit.Gameserver
             var damageFocus = new RampingDamageFocus(source, spell, spellLine);
             var effectiveness = 1;
 
-            Util.LoadTestDouble(new ChanceAlwaysHundredPercent());
+            UtilCollection.LoadTestDouble(new ChanceAlwaysHundredPercent());
             damageFocus.OnSpellPulse(null);
             damageFocus.OnDirectEffect(target, effectiveness);
 
@@ -90,7 +90,7 @@ namespace DOL.Tests.Unit.Gameserver
             var damageFocus = new RampingDamageFocus(source, spell, spellLine);
             var effectiveness = 1;
 
-            Util.LoadTestDouble(new ChanceAlwaysHundredPercent());
+            UtilCollection.LoadTestDouble(new ChanceAlwaysHundredPercent());
             damageFocus.OnSpellPulse(null);
             damageFocus.OnSpellPulse(null);
             damageFocus.OnDirectEffect(target, effectiveness);
@@ -131,7 +131,7 @@ namespace DOL.Tests.Unit.Gameserver
             return player;
         }
 
-        private class ChanceAlwaysHundredPercent : Util
+        private class ChanceAlwaysHundredPercent : UtilCollection
         {
             protected override int RandomImpl(int min, int max)
             {

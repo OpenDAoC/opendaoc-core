@@ -32,7 +32,7 @@ namespace DOL.GS
 			int numAdds = Math.Max(1, PlayersInLair / 2);
 			for (int add = 1; add <= numAdds; ++add)
 			{
-				SpawnTimedAdd(600, Util.Random(57, 60),	X + Util.Random(300, 600), Y + Util.Random(300, 600), 30, false);	// granite giant pounder lvl 57-60
+				SpawnTimedAdd(600, UtilCollection.Random(57, 60),	X + UtilCollection.Random(300, 600), Y + UtilCollection.Random(300, 600), 30, false);	// granite giant pounder lvl 57-60
 			}
 			return true;
 		}

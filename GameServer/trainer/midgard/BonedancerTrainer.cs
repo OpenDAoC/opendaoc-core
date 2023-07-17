@@ -8,7 +8,7 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Bonedancer Trainer
 	/// </summary>
-	[NPCGuildScript("Bonedancer Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Bonedancer Trainer" NPC's in Albion (multiple guilds are possible for one script)
+	[NpcGuild("Bonedancer Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Bonedancer Trainer" NPC's in Albion (multiple guilds are possible for one script)
 	public class BonedancerTrainer : GameTrainer
 	{
 		public override ECharacterClass TrainedClass

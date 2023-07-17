@@ -328,7 +328,7 @@ namespace DOL.GS.AtlasQuest.Albion
             Beetle.GuildName = "";
             Beetle.Realm = ERealm.Albion;
             Beetle.Race = 2007;
-            Beetle.BodyType = (ushort) NpcTemplateMgr.eBodyType.Magical;
+            Beetle.BodyType = (ushort) NpcTemplateMgr.EBodyType.Magical;
             Beetle.Size = 40;
             Beetle.Level = 55;
             Beetle.Flags ^= GameNPC.eFlags.PEACE;
@@ -350,7 +350,7 @@ namespace DOL.GS.AtlasQuest.Albion
 			MobEffect.GuildName = "";
 			MobEffect.Realm = ERealm.Hibernia;
 			MobEffect.Race = 2007;
-			MobEffect.BodyType = (ushort) NpcTemplateMgr.eBodyType.Magical;
+			MobEffect.BodyType = (ushort) NpcTemplateMgr.EBodyType.Magical;
 			MobEffect.Size = 25;
 			MobEffect.Level = 65;
 			MobEffect.Flags ^= GameNPC.eFlags.CANTTARGET;
@@ -604,7 +604,7 @@ namespace DOL.GS.AtlasQuest.Albion
 		
 		public override void FinishQuest()
 		{
-			m_questPlayer.AddMoney(Money.GetMoney(0, 0, m_questPlayer.Level * 8, 32, Util.Random(50)),
+			m_questPlayer.AddMoney(Money.GetMoney(0, 0, m_questPlayer.Level * 8, 32, UtilCollection.Random(50)),
 				"You receive {0} as a reward.");
 			AtlasROGManager.GenerateReward(m_questPlayer, 5000);
 			_grandSummonerKilled = 0;

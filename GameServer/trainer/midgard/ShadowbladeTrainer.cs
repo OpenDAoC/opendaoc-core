@@ -7,7 +7,7 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Shadowblade Trainer
 	/// </summary>
-	[NPCGuildScript("Shadowblade Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Shadowblade Trainer" NPC's in Albion (multiple guilds are possible for one script)
+	[NpcGuild("Shadowblade Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Shadowblade Trainer" NPC's in Albion (multiple guilds are possible for one script)
 	public class ShadowbladeTrainer : GameTrainer
 	{
 		public override ECharacterClass TrainedClass

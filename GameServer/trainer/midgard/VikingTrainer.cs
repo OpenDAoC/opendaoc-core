@@ -8,7 +8,7 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Viking Trainer
 	/// </summary>
-	[NPCGuildScript("Viking Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Acolyte Trainer" NPC's in Albion (multiple guilds are possible for one script)
+	[NpcGuild("Viking Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Acolyte Trainer" NPC's in Albion (multiple guilds are possible for one script)
 	public class VikingTrainer : GameTrainer
 	{
 		public const string PRACTICE_WEAPON_ID = "training_axe";

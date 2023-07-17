@@ -741,7 +741,7 @@ namespace DOL.GS.Keeps
 				return;
 			}
 			GameNpcInventoryTemplate template = guard.Inventory as GameNpcInventoryTemplate;
-			guard.Inventory = new GameNPCInventory(template);
+			guard.Inventory = new GameNpcInventory(template);
 
 			const int renegadeArmorColor = 19;
 
@@ -819,7 +819,7 @@ namespace DOL.GS.Keeps
 				guard.SwitchWeapon(EActiveWeaponSlot.TwoHanded);
 			else if (guard is GuardArcher)
 				guard.SwitchWeapon(EActiveWeaponSlot.Distance);
-            else if ((guard is GuardFighter || guard is GuardCommander || guard is GuardLord || guard is GuardFighterRK) && Util.Chance(50))
+            else if ((guard is GuardFighter || guard is GuardCommander || guard is GuardLord || guard is GuardFighterRK) && UtilCollection.Chance(50))
 				guard.SwitchWeapon(EActiveWeaponSlot.TwoHanded);
 			else guard.SwitchWeapon(EActiveWeaponSlot.Standard);
 		}

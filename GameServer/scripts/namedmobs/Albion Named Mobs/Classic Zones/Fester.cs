@@ -80,7 +80,7 @@ namespace DOL.GS
 		}
 		public override void OnAttackEnemy(AttackData ad)
 		{
-			if (Util.Chance(35))//cast nasty heat proc
+			if (UtilCollection.Chance(35))//cast nasty heat proc
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle) 
 					&& !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.Disease))
@@ -162,7 +162,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 3;
-					spell.RecastDelay = Util.Random(20,30);
+					spell.RecastDelay = UtilCollection.Random(20,30);
 					spell.ClientEffect = 3411;
 					spell.Icon = 3411;
 					spell.Name = "Fester's Venom";

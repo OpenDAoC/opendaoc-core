@@ -11,7 +11,7 @@ namespace DOL.GS.SkillHandler
 	[SkillHandlerAttribute(Abilities.SureShot)]
 	public class SureShotAbilityHandler : IAbilityActionHandler
 	{
-		public void Execute(Ability ab, GamePlayer player)
+		public void Execute(AbilityUtil ab, GamePlayer player)
 		{
 			SureShotEcsEffect sureShot = (SureShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, EEffect.SureShot);
 			if (sureShot != null)

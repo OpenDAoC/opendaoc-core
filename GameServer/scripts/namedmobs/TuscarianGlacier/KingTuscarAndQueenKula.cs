@@ -40,7 +40,7 @@ namespace DOL.GS
             foreach (GamePlayer player in GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE))
             {
                 player.KillsEpicBoss++;
-                player.Achieve(AchievementUtils.AchievementNames.Epic_Boss_Kills);
+                player.Achieve(AchievementUtil.AchievementNames.Epic_Boss_Kills);
                 count++;
             }
             return count;
@@ -185,7 +185,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(140);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(140));
             RespawnInterval = Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
-            BodyType = (ushort)NpcTemplateMgr.eBodyType.Giant;
+            BodyType = (ushort)NpcTemplateMgr.EBodyType.Giant;
             if (!Styles.Contains(taunt))
                 Styles.Add(taunt);
             ++QueenKulaCount;
@@ -215,11 +215,11 @@ namespace DOL.GS
             {
                 if(KingTuscar.KingTuscarCount == 0 || HealthPercent <= 50)
                 {
-                    if (Util.Chance(50))
+                    if (UtilCollection.Chance(50))
                         CastSpell(Cold_DD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
                 }
                 if (KingTuscar.KingTuscarCount > 0 || HealthPercent > 50)
-                    if (Util.Chance(10))
+                    if (UtilCollection.Chance(10))
                     CastSpell(Cold_DD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
             }
             base.OnAttackedByEnemy(ad);
@@ -316,7 +316,7 @@ namespace DOL.AI.Brain
                 {
                     if (Port_Enemys.Count > 0)
                     {
-                        GamePlayer Target = (GamePlayer)Port_Enemys[Util.Random(0, Port_Enemys.Count - 1)];
+                        GamePlayer Target = (GamePlayer)Port_Enemys[UtilCollection.Random(0, Port_Enemys.Count - 1)];
                         RandomTarget = Target;
                         if (RandomTarget.IsAlive && RandomTarget != null)
                         {
@@ -343,7 +343,7 @@ namespace DOL.AI.Brain
                     {
                         GameLiving oldTarget = Body.TargetObject as GameLiving;//old target
                         Body.TargetObject = player;//set target to randomly picked
-                        switch (Util.Random(1, 2))
+                        switch (UtilCollection.Random(1, 2))
                         {
                             case 1:
                                 {//check here if target is not already mezzed or rotted or got mezzimmunity
@@ -429,11 +429,11 @@ namespace DOL.AI.Brain
                 {
                     if (KingTuscar.KingTuscarCount == 1)
                     {
-                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickPlayer), Util.Random(15000, 25000));//timer to port and pick player
+                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickPlayer), UtilCollection.Random(15000, 25000));//timer to port and pick player
                     }
                     else if(KingTuscar.KingTuscarCount == 0)
                     {
-                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickPlayer), Util.Random(8000, 12000));//timer to port and pick player
+                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickPlayer), UtilCollection.Random(8000, 12000));//timer to port and pick player
                     }
                     IsTargetPicked = true;
                 }
@@ -672,12 +672,12 @@ namespace DOL.GS
             if (ad != null && ad.AttackResult == EAttackResult.Blocked)
             {
                 styleComponent.NextCombatStyle = after_block;//target blocked boss attack so use after block style
-                if(Util.Chance(50))
+                if(UtilCollection.Chance(50))
                     CastSpell(Hammers_aoe2, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));//aoe mjolnirs after style big dmg
             }
             if (ad != null && ad.AttackResult == EAttackResult.Parried)
             {
-                if (Util.Chance(50))
+                if (UtilCollection.Chance(50))
                     CastSpell(Thunder_aoe2, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));//aoe mjolnirs after style big dmg
             }
             if (QueenKula.QueenKulaCount == 0 || (HealthPercent <= 50 && KingTuscarBrain.TuscarRage==true))
@@ -713,7 +713,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(140);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(140));
             RespawnInterval = Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
-            BodyType = (ushort)NpcTemplateMgr.eBodyType.Giant;
+            BodyType = (ushort)NpcTemplateMgr.EBodyType.Giant;
             if(!Styles.Contains(taunt))
                 Styles.Add(taunt);
             if (!Styles.Contains(after_parry))

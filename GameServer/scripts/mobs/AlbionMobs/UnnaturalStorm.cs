@@ -19,7 +19,7 @@ namespace DOL.GS
 		{
 			Name = "Unnatural Storm";
 			Model = 665;
-			Level = (byte)Util.Random(65, 70);
+			Level = (byte)UtilCollection.Random(65, 70);
 			Size = 100;
 			MeleeDamageType = EDamageType.Crush;
 			Race = 2003;
@@ -77,12 +77,12 @@ namespace DOL.GS
 					client.Out.SendMessage("An intense supernatural storm explodes in the sky over the northeastern expanse of Lyonesse!", eChatType.CT_Broadcast, eChatLoc.CL_ChatWindow);
 				}
 			}
-			for (int i = 0; i < Util.Random(4, 5); i++)
+			for (int i = 0; i < UtilCollection.Random(4, 5); i++)
 			{
 				UnnaturalStormAdds Add = new UnnaturalStormAdds();
-				Add.X = X + Util.Random(-1000, 1000);
-				Add.Y = Y + Util.Random(-1000, 800);
-				Add.Z = Z + Util.Random(-400, 400);
+				Add.X = X + UtilCollection.Random(-1000, 1000);
+				Add.Y = Y + UtilCollection.Random(-1000, 800);
+				Add.Z = Z + UtilCollection.Random(-400, 400);
 				Add.CurrentRegion = CurrentRegion;
 				Add.Heading = Heading;
 				Add.AddToWorld();
@@ -154,7 +154,7 @@ namespace DOL.GS
 		{
 			Name = "Unnatural Storm";
 			Model = 665;
-			Level = (byte)Util.Random(40, 42);
+			Level = (byte)UtilCollection.Random(40, 42);
 			Size = 100;
 			MeleeDamageType = EDamageType.Crush;
 			Race = 2003;

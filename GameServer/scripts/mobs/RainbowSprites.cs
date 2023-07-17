@@ -261,7 +261,7 @@ namespace DOL.AI.Brain
 			if (!CheckProximityAggro())
 				CallforHelp = false;
 
-			if(Body.HealthPercent <= 50 && !Body.IsCasting && Util.Chance(100))
+			if(Body.HealthPercent <= 50 && !Body.IsCasting && UtilCollection.Chance(100))
 				Body.CastSpell(GreenSpriteHeal, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 
 			if (HasAggro && Body.TargetObject != null)

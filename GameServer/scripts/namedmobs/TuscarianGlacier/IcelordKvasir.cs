@@ -229,11 +229,11 @@ namespace DOL.AI.Brain
             {
                 if (!StartMezz)
                 {
-                   ECSGameTimer prepareMezz = new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PrepareMezz), Util.Random(45000, 60000));
+                   ECSGameTimer prepareMezz = new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PrepareMezz), UtilCollection.Random(45000, 60000));
                     Body.TempProperties.setProperty("kvasir_prepareMezz", prepareMezz);
                     StartMezz = true;
                 }
-                if(!Body.IsCasting && Util.Chance(5))
+                if(!Body.IsCasting && UtilCollection.Chance(5))
                     Body.CastSpell(IssoRoot, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells),false);
             }
             base.Think();
@@ -292,7 +292,7 @@ namespace DOL.AI.Brain
                     DBSpell spell = new DBSpell();
                     spell.AllowAdd = false;
                     spell.CastTime = 0;
-                    spell.RecastDelay = Util.Random(45,55);
+                    spell.RecastDelay = UtilCollection.Random(45,55);
                     spell.ClientEffect = 277;
                     spell.Icon = 277;
                     spell.Duration = 60;

@@ -39,7 +39,7 @@ namespace DOL.GS.Spells
 
             foreach (GameLiving healTarget in targets)
             {
-                int heal = Util.Random(minHeal, maxHeal);
+                int heal = UtilCollection.Random(minHeal, maxHeal);
 
 				if (SpellLine.KeyName == GlobalSpellsLines.Item_Effects)
 				{
@@ -156,7 +156,7 @@ namespace DOL.GS.Spells
 
             amount = cache;
 
-            int randNum = Util.CryptoNextInt(1, 100); //grab our random number
+            int randNum = UtilCollection.CryptoNextInt(1, 100); //grab our random number
 
             if (this.Caster is GamePlayer spellCaster && spellCaster.UseDetailedCombatLog)
             {
@@ -168,7 +168,7 @@ namespace DOL.GS.Spells
             {
                 double minValue = amount / 10;
                 double maxValue = amount / 2 + 1;
-                criticalvalue = Util.RandomDouble() * (maxValue - minValue) + minValue;
+                criticalvalue = UtilCollection.RandomDouble() * (maxValue - minValue) + minValue;
                 criticalvalue = Math.Round(criticalvalue, MidpointRounding.ToEven); /// [Atlas - Takii] Round crit value for simplicity and to remove decimals from combat log.
             }
 
@@ -357,7 +357,7 @@ namespace DOL.GS.Spells
                     AttackData ad = new AttackData();
                     ad.Attacker = Caster;
                     ad.Target = target;
-                    ad.AttackType = AttackData.eAttackType.Spell;
+                    ad.AttackType = AttackData.EAttackType.Spell;
                     ad.SpellHandler = this;
                     ad.AttackResult = EAttackResult.HitUnstyled;
                     ad.IsSpellResisted = false;

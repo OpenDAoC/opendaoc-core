@@ -7,7 +7,7 @@ using DOL.Language;
 
 namespace DOL.GS;
 
-[NPCGuildScript("Smith")]
+[NpcGuild("Smith")]
 public class Blacksmith : GameNPC
 {
     private const string REPAIR_ITEM_WEAK = "repair item";

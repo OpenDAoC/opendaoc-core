@@ -53,7 +53,7 @@ namespace DOL.GS
                 this.styleComponent.NextCombatBackupStyle = Taunt;
                 this.styleComponent.NextCombatStyle = EvadeFollowUp;
             }
-            if (Util.Chance(35))
+            if (UtilCollection.Chance(35))
             {
                 if (!ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
                 {
@@ -139,7 +139,7 @@ namespace DOL.GS
         {
             Faction = FactionMgr.GetFactionByID(187);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(187));
-            BodyType = (ushort)NpcTemplateMgr.eBodyType.Humanoid;
+            BodyType = (ushort)NpcTemplateMgr.EBodyType.Humanoid;
 
             GameNpcInventoryTemplate template = new GameNpcInventoryTemplate();
             template.AddNPCEquipment(eInventorySlot.TorsoArmor, 134, 0, 0, 0);//modelID,color,effect,extension

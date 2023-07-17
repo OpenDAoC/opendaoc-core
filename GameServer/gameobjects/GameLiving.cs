@@ -1139,7 +1139,7 @@ namespace DOL.GS
 		/// <param name="duration"></param>
 		/// <param name="attackType"></param>
 		/// <param name="attacker"></param>
-		public virtual void StartInterruptTimer(int duration, eAttackType attackType, GameLiving attacker)
+		public virtual void StartInterruptTimer(int duration, EAttackType attackType, GameLiving attacker)
 		{
 			if (!IsAlive || ObjectState != eObjectState.Active)
 			{
@@ -1231,16 +1231,16 @@ namespace DOL.GS
 				chance = Math.Min(99, chance);
 			}
 
-			return Util.Chance((int)chance);
+			return UtilCollection.Chance((int)chance);
 		}
 
-		protected virtual bool CheckRangedAttackInterrupt(GameLiving attacker, eAttackType attackType)
+		protected virtual bool CheckRangedAttackInterrupt(GameLiving attacker, EAttackType attackType)
 		{
 			if (rangeAttackComponent.RangedAttackType == ERangedAttackType.SureShot)
 			{
-				if (attackType is not eAttackType.MeleeOneHand
-					and not eAttackType.MeleeTwoHand
-					and not eAttackType.MeleeDualWield)
+				if (attackType is not EAttackType.MeleeOneHand
+					and not EAttackType.MeleeTwoHand
+					and not EAttackType.MeleeDualWield)
 					return false;
 			}
 
@@ -1318,12 +1318,12 @@ namespace DOL.GS
             }
 
             // Proc #1
-            if (procSpell != null && Util.Chance(procChance))
+            if (procSpell != null && UtilCollection.Chance(procChance))
 
                 StartWeaponMagicalEffect(weapon, ad, SkillBase.GetSpellLine(GlobalSpellsLines.Item_Effects), weapon.ProcSpellID, false);
 
             // Proc #2
-            if (procSpell1 != null && Util.Chance(procChance))
+            if (procSpell1 != null && UtilCollection.Chance(procChance))
 
                 StartWeaponMagicalEffect(weapon, ad, SkillBase.GetSpellLine(GlobalSpellsLines.Item_Effects), weapon.ProcSpellID1, false);
 
@@ -1346,7 +1346,7 @@ namespace DOL.GS
 				{
 					GamePlayer PlayerAttacker = ad.Attacker as GamePlayer;
 					if (PlayerAttacker.GetSpellLine("Spymaster") != null)
-						if (Util.ChanceDouble((double)(15 * 0.0001))) return;
+						if (UtilCollection.ChanceDouble((double)(15 * 0.0001))) return;
 				}
 				weapon.PoisonCharges--;
 				if (weapon.PoisonCharges <= 0) { weapon.PoisonMaxCharges = 0; weapon.PoisonSpellID = 0; }
@@ -1496,7 +1496,7 @@ namespace DOL.GS
                 //Console.WriteLine($"evade before {evadeChance} defPen {GetAttackerDefensePenetration(ad.Attacker, ad.Weapon)/100} after evade {evadeChance * (1 - (GetAttackerDefensePenetration(ad.Attacker, ad.Weapon)/100))}");
                 evadeChance *= 1 - GetAttackerDefensePenetration(ad.Attacker, ad.Weapon)/100; //reduce chance by attacker's defense penetration
 
-				if ( ad.AttackType == AttackData.eAttackType.Ranged )
+				if ( ad.AttackType == AttackData.EAttackType.Ranged )
 					evadeChance /= 5.0;
 
 				if( evadeChance < 0.01 )
@@ -1506,7 +1506,7 @@ namespace DOL.GS
 				else if( evadeChance > 0.995 )
 					evadeChance = 0.995;
 				
-				if (ad.AttackType == AttackData.eAttackType.MeleeDualWield)
+				if (ad.AttackType == AttackData.EAttackType.MeleeDualWield)
 				{
 					evadeChance = Math.Max(evadeChance * 0.5, 0);
 				}
@@ -1517,7 +1517,7 @@ namespace DOL.GS
 				else if (IsObjectInFront( ad.Attacker, 180 ) 
 				         && ( evadeBuff != null || (player != null && player.HasAbility( Abilities.Evade )))
 				         && evadeChance < 0.05
-				         && ad.AttackType != AttackData.eAttackType.Ranged)
+				         && ad.AttackType != AttackData.EAttackType.Ranged)
 				{
 					//if player has a hard evade source, 5% miniumum evade chance
 					evadeChance = 0.05;
@@ -1626,7 +1626,7 @@ namespace DOL.GS
 				}
 			}
 
-			if (ad.AttackType == AttackData.eAttackType.MeleeTwoHand)
+			if (ad.AttackType == AttackData.EAttackType.MeleeTwoHand)
 			{
 				parryChance = Math.Max(parryChance * 0.5, 0);
 			}
@@ -1740,7 +1740,7 @@ namespace DOL.GS
 				}
 			}
 
-			if (ad.AttackType == eAttackType.MeleeDualWield)
+			if (ad.AttackType == EAttackType.MeleeDualWield)
 				blockChance = Math.Max(blockChance * 0.5, 0);
 
 			// Infi RR5
@@ -1964,7 +1964,7 @@ namespace DOL.GS
 
 			var oProcEffects = effectListComponent.GetSpellEffects(EEffect.OffensiveProc);
             //OffensiveProcs
-            if (ad != null && ad.Attacker == this && oProcEffects != null && ad.AttackType != AttackData.eAttackType.Spell && ad.AttackResult != EAttackResult.Missed)
+            if (ad != null && ad.Attacker == this && oProcEffects != null && ad.AttackType != AttackData.EAttackType.Spell && ad.AttackResult != EAttackResult.Missed)
             {
                 for (int i = 0; i < oProcEffects.Count; i++)
                 {
@@ -2012,7 +2012,7 @@ namespace DOL.GS
 			}
 
 			// Don't cancel offensive focus spell
-			if (ad.AttackType != eAttackType.Spell)
+			if (ad.AttackType != EAttackType.Spell)
 				CancelFocusSpell();
         }
 
@@ -2125,7 +2125,7 @@ namespace DOL.GS
 				// Handle DefensiveProcs.
 				List<ECSGameSpellEffect> dProcEffects = effectListComponent.GetSpellEffects(EEffect.DefensiveProc);
 
-				if (ad != null && ad.Target == this && dProcEffects != null && ad.AttackType != eAttackType.Spell)
+				if (ad != null && ad.Target == this && dProcEffects != null && ad.AttackType != EAttackType.Spell)
 				{
 					for (int i = 0; i < dProcEffects.Count; i++)
 						(dProcEffects[i].SpellHandler as DefensiveProcSpellHandler).EventHandler(ad);
@@ -2166,7 +2166,7 @@ namespace DOL.GS
 			bool removeMovementSpeedDebuff = false; // Non-immunity snares like focus snare, melee snares, DD+Snare spells, etc.
 
 			// Attack was Melee
-			if (ad.AttackType != AttackData.eAttackType.Spell)
+			if (ad.AttackType != AttackData.EAttackType.Spell)
 			{
 				switch (ad.AttackResult)
 				{
@@ -4206,7 +4206,7 @@ namespace DOL.GS
         /// <summary>
         /// Holds all abilities of the living (KeyName -> Ability)
         /// </summary>
-        protected readonly Dictionary<string, Ability> m_abilities = new Dictionary<string, Ability>();
+        protected readonly Dictionary<string, AbilityUtil> m_abilities = new Dictionary<string, AbilityUtil>();
 
 		protected readonly Object m_lockAbilities = new Object();
 
@@ -4243,7 +4243,7 @@ namespace DOL.GS
 		/// Add a new ability to a living
 		/// </summary>
 		/// <param name="ability"></param>
-		public virtual void AddAbility(Ability ability)
+		public virtual void AddAbility(AbilityUtil ability)
 		{
 			AddAbility(ability, true);
 		}
@@ -4253,12 +4253,12 @@ namespace DOL.GS
 		/// </summary>
 		/// <param name="ability"></param>
 		/// <param name="sendUpdates"></param>
-		public virtual void AddAbility(Ability ability, bool sendUpdates)
+		public virtual void AddAbility(AbilityUtil ability, bool sendUpdates)
 		{
 			bool isNewAbility = false;
 			lock (m_lockAbilities)
 			{
-				Ability oldAbility = null;
+				AbilityUtil oldAbility = null;
 				m_abilities.TryGetValue(ability.KeyName, out oldAbility);
 				
 				if (oldAbility == null)
@@ -4289,7 +4289,7 @@ namespace DOL.GS
 		/// <returns></returns>
 		public virtual bool RemoveAbility(string abilityKeyName)
 		{
-			Ability ability = null;
+			AbilityUtil ability = null;
 			lock (m_lockAbilities)
 			{
 				m_abilities.TryGetValue(abilityKeyName, out ability);
@@ -4311,9 +4311,9 @@ namespace DOL.GS
 		/// </summary>
 		/// <param name="abilityKey"></param>
 		/// <returns></returns>
-		public Ability GetAbility(string abilityKey)
+		public AbilityUtil GetAbility(string abilityKey)
 		{
-			Ability ab = null;
+			AbilityUtil ab = null;
 			lock (m_lockAbilities)
 			{
 				m_abilities.TryGetValue(abilityKey, out ab);
@@ -4326,7 +4326,7 @@ namespace DOL.GS
 		/// returns ability of living or null if no existant
 		/// </summary>
 		/// <returns></returns>
-		public T GetAbility<T>() where T : Ability
+		public T GetAbility<T>() where T : AbilityUtil
 		{
 			T tmp;
 			lock (m_lockAbilities)
@@ -4343,11 +4343,11 @@ namespace DOL.GS
 		/// <param name="abilityType"></param>
 		/// <returns></returns>
 		[Obsolete("Use GetAbility<T>() instead")]
-		public Ability GetAbility(Type abilityType)
+		public AbilityUtil GetAbility(Type abilityType)
 		{
 			lock (m_lockAbilities)
 			{
-				foreach (Ability ab in m_abilities.Values)
+				foreach (AbilityUtil ab in m_abilities.Values)
 				{
 					if (ab.GetType().Equals(abilityType))
 						return ab;
@@ -4364,7 +4364,7 @@ namespace DOL.GS
 		/// <returns></returns>
 		public int GetAbilityLevel(string keyName)
 		{
-			Ability ab = null;
+			AbilityUtil ab = null;
 			
 			lock (m_lockAbilities)
 			{
@@ -4383,10 +4383,10 @@ namespace DOL.GS
 		/// <returns></returns>
 		public IList GetAllAbilities()
 		{
-			List<Ability> list = new List<Ability>();
+			List<AbilityUtil> list = new List<AbilityUtil>();
 			lock (m_lockAbilities)
 			{
-				list = new List<Ability>(m_abilities.Values);
+				list = new List<AbilityUtil>(m_abilities.Values);
 			}
 			
 			return list;
@@ -4548,7 +4548,7 @@ namespace DOL.GS
 				attackComponent.Attackers.Clear();
 			}
 
-			Util.ForEach(temp.OfType<GameLiving>(), o => o.EnemyKilled(this));
+			UtilCollection.ForEach(temp.OfType<GameLiving>(), o => o.EnemyKilled(this));
 			StopHealthRegeneration();
 			StopPowerRegeneration();
 			StopEnduranceRegeneration();

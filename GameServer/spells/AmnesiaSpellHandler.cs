@@ -133,7 +133,7 @@ namespace DOL.GS.Spells
 				IOldAggressiveBrain aggroBrain = npc.Brain as IOldAggressiveBrain;
 				if (aggroBrain != null)
 				{
-					if (Util.Chance(Spell.AmnesiaChance) && npc.TargetObject != null && npc.TargetObject is GameLiving living)
+					if (UtilCollection.Chance(Spell.AmnesiaChance) && npc.TargetObject != null && npc.TargetObject is GameLiving living)
 					{
 						aggroBrain.ClearAggroList();
 						aggroBrain.AddToAggroList(living, 1);
@@ -153,7 +153,7 @@ namespace DOL.GS.Spells
 			if (Spell.CastTime == 0)
 			{
 				// start interrupt even for resisted instant amnesia
-				target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.eAttackType.Spell, Caster);
+				target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.EAttackType.Spell, Caster);
 			}
 		}
 

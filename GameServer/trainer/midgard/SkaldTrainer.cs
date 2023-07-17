@@ -7,7 +7,7 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Skald Trainer
 	/// </summary>
-	[NPCGuildScript("Skald Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Skald Trainer" NPC's in Albion (multiple guilds are possible for one script)
+	[NpcGuild("Skald Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Skald Trainer" NPC's in Albion (multiple guilds are possible for one script)
 	public class SkaldTrainer : GameTrainer
 	{
 		public override ECharacterClass TrainedClass

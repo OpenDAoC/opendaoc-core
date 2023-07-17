@@ -79,7 +79,7 @@ namespace DOL.GS
         }
 		public override void DealDamage(AttackData ad)
 		{
-			if (ad != null && ad.AttackType == AttackData.eAttackType.Spell && ad.Damage > 0 && ad.DamageType == EDamageType.Body)
+			if (ad != null && ad.AttackType == AttackData.EAttackType.Spell && ad.Damage > 0 && ad.DamageType == EDamageType.Body)
 			{
 				Health += ad.Damage;
 			}
@@ -134,17 +134,17 @@ namespace DOL.AI.Brain
 				}
 				if(target != null && target.IsAlive)
                 {
-					if (Util.Chance(100) && !Body.IsCasting)
+					if (UtilCollection.Chance(100) && !Body.IsCasting)
 					{
 						if (!target.effectListComponent.ContainsEffectForEffectType(EEffect.StrConDebuff))
 							Body.CastSpell(Ydenia_SC_Debuff, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 					}
-					if (Util.Chance(100) && !Body.IsCasting)
+					if (UtilCollection.Chance(100) && !Body.IsCasting)
 						Body.CastSpell(YdeniaDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 				}
-				if(Util.Chance(35) && !canPort)
+				if(UtilCollection.Chance(35) && !canPort)
                 {
-					ECSGameTimer portTimer = new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(InitiatePort), Util.Random(25000, 35000));
+					ECSGameTimer portTimer = new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(InitiatePort), UtilCollection.Random(25000, 35000));
 					Body.TempProperties.setProperty("ydenia_teleport", portTimer);
 					canPort = true;
                 }				
@@ -162,7 +162,7 @@ namespace DOL.AI.Brain
         {
 			if(target != null && target.IsAlive && target is GamePlayer player)
             {
-				switch(Util.Random(1,4))
+				switch(UtilCollection.Random(1,4))
                 {
 					case 1: 
 						player.MoveTo(100, 664713, 896689, 1553, 2373);
@@ -220,7 +220,7 @@ namespace DOL.AI.Brain
 					spell.AllowAdd = false;
 					spell.CastTime = 3;
 					spell.Power = 0;
-					spell.RecastDelay = Util.Random(4,6);
+					spell.RecastDelay = UtilCollection.Random(4,6);
 					spell.ClientEffect = 9191;
 					spell.Icon = 9191;
 					spell.Damage = 320;

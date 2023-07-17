@@ -138,7 +138,7 @@ namespace DOL.AI.Brain
 		//private bool CanAddJunk = false;
 		public override void OnAttackedByEnemy(AttackData ad)
 		{
-			if (Util.Chance(40) && ad != null /*&& !CanAddJunk*/ && ad.Attacker is GamePlayer && ad.Attacker != null)
+			if (UtilCollection.Chance(40) && ad != null /*&& !CanAddJunk*/ && ad.Attacker is GamePlayer && ad.Attacker != null)
 			{
 				//ItemTemplate sackJunk = GameServer.Database.FindObjectByKey<ItemTemplate>("sack_of_decaying_junk");
 				//InventoryItem item = GameInventoryItem.Create(sackJunk);
@@ -199,7 +199,7 @@ namespace DOL.AI.Brain
 				#region Walk path
 				if (!Body.IsWithinRadius(point1, 30) && point1check == false)
 				{
-					Body.WalkTo(point1, (short)Util.Random(195, 300));
+					Body.WalkTo(point1, (short)UtilCollection.Random(195, 300));
 					//log.Warn("Moving to point1, " + point1+"Corrent Pos: "+Body.X+", "+Body.Y+", "+Body.Z);
 				}
 				else
@@ -208,7 +208,7 @@ namespace DOL.AI.Brain
 					point8check = false;
 					if (!Body.IsWithinRadius(point2, 30) && point1check == true && point2check == false)
 					{
-						Body.WalkTo(point2, (short)Util.Random(195, 300));
+						Body.WalkTo(point2, (short)UtilCollection.Random(195, 300));
 						//log.Warn("Arrived at point1,Moving to point2, " + point2);
 					}
 					else
@@ -217,7 +217,7 @@ namespace DOL.AI.Brain
 						if (!Body.IsWithinRadius(point3, 30) && point1check == true && point2check == true &&
 							point3check == false)
 						{
-							Body.WalkTo(point3, (short)Util.Random(195, 300));
+							Body.WalkTo(point3, (short)UtilCollection.Random(195, 300));
 							//log.Warn("Arrived at point2,Moving to point3, " + point3);
 						}
 						else
@@ -226,7 +226,7 @@ namespace DOL.AI.Brain
 							if (!Body.IsWithinRadius(point4, 30) && point1check == true && point2check == true &&
 								point3check == true && point4check == false)
 							{
-								Body.WalkTo(point4, (short)Util.Random(195, 300));
+								Body.WalkTo(point4, (short)UtilCollection.Random(195, 300));
 								//log.Warn("Arrived at point3,Moving to point4, " + point4);
 							}
 							else
@@ -235,7 +235,7 @@ namespace DOL.AI.Brain
 								if (!Body.IsWithinRadius(point5, 30) && point1check == true && point2check == true &&
 									point3check == true && point4check == true && point5check == false)
 								{
-									Body.WalkTo(point5, (short)Util.Random(195, 300));
+									Body.WalkTo(point5, (short)UtilCollection.Random(195, 300));
 									//log.Warn("Arrived at point4,Moving to point5, " + point4);
 								}
 								else
@@ -244,7 +244,7 @@ namespace DOL.AI.Brain
 									if (!Body.IsWithinRadius(point6, 30) && point1check == true && point2check == true &&
 									point3check == true && point4check == true && point5check == true && point6check == false)
 									{
-										Body.WalkTo(point6, (short)Util.Random(195, 300));
+										Body.WalkTo(point6, (short)UtilCollection.Random(195, 300));
 										//log.Warn("Arrived at point5,Moving to point6, " + point6);
 									}
 									else
@@ -253,7 +253,7 @@ namespace DOL.AI.Brain
 										if (!Body.IsWithinRadius(point7, 30) && point1check == true && point2check == true &&
 										point3check == true && point4check == true && point5check == true && point6check == true && point7check == false)
 										{
-											Body.WalkTo(point7, (short)Util.Random(195, 300));
+											Body.WalkTo(point7, (short)UtilCollection.Random(195, 300));
 											//log.Warn("Arrived at point6,Moving to point7, " + point7);
 										}
 										else
@@ -262,7 +262,7 @@ namespace DOL.AI.Brain
 											if (!Body.IsWithinRadius(point8, 30) && point1check == true && point2check == true &&
 											point3check == true && point4check == true && point5check == true && point6check == true && point7check == true && !point8check)
 											{
-												Body.WalkTo(point8, (short)Util.Random(195, 300));
+												Body.WalkTo(point8, (short)UtilCollection.Random(195, 300));
 												//log.Warn("Arrived at point7,Moving to point8, " + point8);
 											}
 											else

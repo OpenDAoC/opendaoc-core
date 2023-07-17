@@ -112,7 +112,7 @@ namespace DOL.AI.Brain
             {
                 if (PlayersInGalla.Count > 0)
                 {
-                    GamePlayer ptarget = PlayersInGalla[Util.Random(1, PlayersInGalla.Count) - 1];
+                    GamePlayer ptarget = PlayersInGalla[UtilCollection.Random(1, PlayersInGalla.Count) - 1];
                     RandomTarget = ptarget;
                     if (RandomTarget != null && RandomTarget.Client.Account.PrivLevel == 1 && RandomTarget.IsAlive && RandomTarget.CurrentRegionID == 191)
                     {
@@ -138,7 +138,7 @@ namespace DOL.AI.Brain
                 DoStuff();
             if (!allowTimer)
             {
-                new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(TimerDoStuff), Util.Random(25000, 45000));
+                new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(TimerDoStuff), UtilCollection.Random(25000, 45000));
                 allowTimer = true;
             }
         }

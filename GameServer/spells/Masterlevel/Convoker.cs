@@ -245,7 +245,7 @@ namespace DOL.GS.Spells
 			: base(caster, spell, line)
 		{
 			string ammo = "";
-			switch (Util.Random(1, 2))
+			switch (UtilCollection.Random(1, 2))
 			{
 				case 1:
 					ammo = "mystic_ammo_heat";
@@ -836,7 +836,7 @@ namespace DOL.AI.Brain
 			if (enemies.Count > 0 && Target == null)
 			{
 				//pick a random target...
-				int targetnum = Util.Random(0, enemies.Count - 1);
+				int targetnum = UtilCollection.Random(0, enemies.Count - 1);
 
 				//Choose a random target.
 				Target = enemies[targetnum] as GameLiving;

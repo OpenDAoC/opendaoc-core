@@ -1,6 +1,6 @@
 ﻿
+using Core.GS.Events;
 using DOL.Language;
-using DOL.GS.Appeal;
 using DOL.GS.PacketHandler;
 using DOL.GS.ServerProperties;
 

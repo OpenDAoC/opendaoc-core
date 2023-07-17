@@ -83,7 +83,7 @@ namespace DOL.GS.Quests
 				}
 
 				if (m_keep == null)
-					m_keep = list[Util.Random(list.Count - 1)] as AbstractGameKeep;
+					m_keep = list[UtilCollection.Random(list.Count - 1)] as AbstractGameKeep;
 			}
 
 			GameEventMgr.AddHandler(KeepEvent.KeepTaken, new CoreEventHandler(Notify));

@@ -785,7 +785,7 @@ namespace DOL.GS
 						template.AddNPCEquipment(eInventorySlot.FeetArmor, 1301);
 						template.AddNPCEquipment(eInventorySlot.LegsArmor, 1312);
 
-						if (Util.Chance(50))
+						if (UtilCollection.Chance(50))
 						{
 							template.AddNPCEquipment(eInventorySlot.TorsoArmor, 1005, 67);
 						}
@@ -804,7 +804,7 @@ namespace DOL.GS
 						template.AddNPCEquipment(eInventorySlot.FeetArmor, 1301);
 						template.AddNPCEquipment(eInventorySlot.LegsArmor, 1303);
 
-						if (Util.Chance(50))
+						if (UtilCollection.Chance(50))
 						{
 							template.AddNPCEquipment(eInventorySlot.TorsoArmor, 1300);
 						}
@@ -822,7 +822,7 @@ namespace DOL.GS
 						template.AddNPCEquipment(eInventorySlot.RightHandWeapon, 457, 81);
 						template.AddNPCEquipment(eInventorySlot.FeetArmor, 1333);
 
-						if (Util.Chance(50))
+						if (UtilCollection.Chance(50))
 						{
 							template.AddNPCEquipment(eInventorySlot.TorsoArmor, 1336);
 						}

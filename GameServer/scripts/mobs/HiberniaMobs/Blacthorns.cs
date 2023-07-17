@@ -66,7 +66,7 @@ namespace DOL.AI.Brain
             {
 				if(!PickedNpc)
                 {
-					GameNPC mob = npcs_to_call[Util.Random(0, npcs_to_call.Count - 1)];//picking randomly mob from list
+					GameNPC mob = npcs_to_call[UtilCollection.Random(0, npcs_to_call.Count - 1)];//picking randomly mob from list
 					RandomNpc = mob;
 					PickedNpc = true;
                 }

@@ -353,9 +353,9 @@ namespace DOL.GS.DailyQuest.Hibernia
 		public override void FinishQuest()
 		{
 			m_questPlayer.ForceGainExperience((m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel)/10);
-			m_questPlayer.AddMoney(Money.GetMoney(0,0,m_questPlayer.Level,50,Util.Random(50)), "You receive {0} as a reward.");
+			m_questPlayer.AddMoney(Money.GetMoney(0,0,m_questPlayer.Level,50,UtilCollection.Random(50)), "You receive {0} as a reward.");
 			AtlasROGManager.GenerateReward(m_questPlayer, 150);
-			AtlasROGManager.GenerateJewel(m_questPlayer, (byte)(m_questPlayer.Level + 1), m_questPlayer.Level + Util.Random(5, 11));
+			AtlasROGManager.GenerateJewel(m_questPlayer, (byte)(m_questPlayer.Level + 1), m_questPlayer.Level + UtilCollection.Random(5, 11));
 			FrontierMobsKilled = 0;
 			base.FinishQuest(); //Defined in Quest, changes the state, stores in DB etc ...
 		}

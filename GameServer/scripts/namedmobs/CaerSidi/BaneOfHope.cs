@@ -86,7 +86,7 @@ namespace DOL.AI.Brain
             if(ad != null && ad.Attacker != null && Body.TargetObject != ad.Attacker && CanPoison==false)
             {
                 GameLiving target = Body.TargetObject as GameLiving;
-                if (Util.Chance(25))
+                if (UtilCollection.Chance(25))
                 {
                     GameObject oldTarget = Body.TargetObject;
                     Body.TurnTo(ad.Attacker);
@@ -107,14 +107,14 @@ namespace DOL.AI.Brain
         {
             if (TeleportTarget != null && HasAggro)
             {
-                switch (Util.Random(1, 3))
+                switch (UtilCollection.Random(1, 3))
                 {
                     case 1: TeleportTarget.MoveTo(Body.CurrentRegionID, 34496, 30879, 14551, 1045); break;
                     case 2: TeleportTarget.MoveTo(Body.CurrentRegionID, 37377, 30154, 13973, 978); break;
                     case 3: TeleportTarget.MoveTo(Body.CurrentRegionID, 38292, 31794, 13940, 986); break;
                 }
             }
-            new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetTeleport), Util.Random(12000,18000));
+            new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetTeleport), UtilCollection.Random(12000,18000));
             return 0;
         }
         private int ResetTeleport(ECSGameTimer timer)

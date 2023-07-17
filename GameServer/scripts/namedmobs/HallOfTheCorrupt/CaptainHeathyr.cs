@@ -25,7 +25,7 @@ namespace DOL.GS
         }
         public override void OnAttackEnemy(AttackData ad) //on enemy actions
         {
-            if (Util.Chance(35))
+            if (UtilCollection.Chance(35))
             {
                 if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
                 {
@@ -117,7 +117,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(187);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(187));
             RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
-            BodyType = (ushort)NpcTemplateMgr.eBodyType.Humanoid;
+            BodyType = (ushort)NpcTemplateMgr.EBodyType.Humanoid;
 
             GameNpcInventoryTemplate template = new GameNpcInventoryTemplate();
             template.AddNPCEquipment(eInventorySlot.TorsoArmor, 46, 0, 0, 0);//modelID,color,effect,extension

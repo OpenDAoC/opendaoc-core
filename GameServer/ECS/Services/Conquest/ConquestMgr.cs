@@ -30,7 +30,7 @@ public class ConquestMgr
     public long LastConquestStopTime;
     public long LastConquestWindowStart;
 
-    public ERealm ActiveConquestRealm = (ERealm)Util.Random(1, 3);
+    public ERealm ActiveConquestRealm = (ERealm)UtilCollection.Random(1, 3);
 
     private HashSet<GamePlayer> ContributedPlayers = new HashSet<GamePlayer>();
     private HashSet<GamePlayer> ActiveDefenders = new HashSet<GamePlayer>();
@@ -388,7 +388,7 @@ public class ConquestMgr
         }
 
         if ((int) ActiveConquestRealm < 1 || (int) ActiveConquestRealm > 3)
-            ActiveConquestRealm = (ERealm)Util.Random(1, 3);
+            ActiveConquestRealm = (ERealm)UtilCollection.Random(1, 3);
         
         PredatorMgr.PlayerKillTallyDict.Clear();
         
@@ -471,7 +471,7 @@ public class ConquestMgr
                         albKeepsSort = new List<ConquestObjective>(keepDict.Keys.Where(x => keepDict[x] == objectiveWeight)); 
                     
                     ActiveAlbionObjective =
-                        albKeepsSort[Util.Random(albKeepsSort.Count() - 1)]; //pick one at random
+                        albKeepsSort[UtilCollection.Random(albKeepsSort.Count() - 1)]; //pick one at random
                     break;
                 case ERealm.Hibernia:
                     List<ConquestObjective> hibKeepsSort = new List<ConquestObjective>(keepDict.Keys.Where(x =>
@@ -480,7 +480,7 @@ public class ConquestMgr
                         hibKeepsSort = new List<ConquestObjective>(keepDict.Keys.Where(x => keepDict[x] == objectiveWeight)); 
                     
                     ActiveHiberniaObjective =
-                        hibKeepsSort[Util.Random(hibKeepsSort.Count() - 1)]; //pick one at random
+                        hibKeepsSort[UtilCollection.Random(hibKeepsSort.Count() - 1)]; //pick one at random
                     break;
                 case ERealm.Midgard:
                     List<ConquestObjective> midKeepsSort = new List<ConquestObjective>(keepDict.Keys.Where(x =>
@@ -489,7 +489,7 @@ public class ConquestMgr
                         midKeepsSort = new List<ConquestObjective>(keepDict.Keys.Where(x => keepDict[x] == objectiveWeight)); 
                     
                     ActiveMidgardObjective =
-                        midKeepsSort[Util.Random(midKeepsSort.Count() - 1)]; //pick one at random
+                        midKeepsSort[UtilCollection.Random(midKeepsSort.Count() - 1)]; //pick one at random
                     break;
             }
         }
@@ -553,7 +553,7 @@ public class ConquestMgr
                     List<ConquestObjective> albKeepsSort = new List<ConquestObjective>(keepDict.Keys.Where(x =>
                         keepDict[x] == objectiveWeight &&
                         x.Keep.OriginalRealm != x.Keep.Realm)); //get a list of all keeps with the current weight
-                    ActiveAlbionObjective = albKeepsSort[Util.Random(albKeepsSort.Count() - 1)]; //pick one at random
+                    ActiveAlbionObjective = albKeepsSort[UtilCollection.Random(albKeepsSort.Count() - 1)]; //pick one at random
                 }
 
                 break;
@@ -567,7 +567,7 @@ public class ConquestMgr
                     List<ConquestObjective> hibKeepsSort = new List<ConquestObjective>(keepDict.Keys.Where(x =>
                         keepDict[x] == objectiveWeight &&
                         x.Keep.OriginalRealm != x.Keep.Realm)); //get a list of all keeps with the current weight
-                    ActiveHiberniaObjective = hibKeepsSort[Util.Random(hibKeepsSort.Count() - 1)]; //pick one at random
+                    ActiveHiberniaObjective = hibKeepsSort[UtilCollection.Random(hibKeepsSort.Count() - 1)]; //pick one at random
                 }
 
                 break;
@@ -581,7 +581,7 @@ public class ConquestMgr
                     List<ConquestObjective> midKeepsSort = new List<ConquestObjective>(keepDict.Keys.Where(x =>
                         keepDict[x] == objectiveWeight &&
                         x.Keep.OriginalRealm != x.Keep.Realm)); //get a list of all keeps with the current weight
-                    ActiveMidgardObjective = midKeepsSort[Util.Random(midKeepsSort.Count() - 1)]; //pick one at random
+                    ActiveMidgardObjective = midKeepsSort[UtilCollection.Random(midKeepsSort.Count() - 1)]; //pick one at random
                 }
 
                 break;

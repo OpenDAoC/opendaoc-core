@@ -118,7 +118,7 @@ namespace DOL.AI.Brain
 				}
 				if (!CanSpawnAdd)
 				{
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CreateAdd), Util.Random(60000, 120000));
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CreateAdd), UtilCollection.Random(60000, 120000));
 					CanSpawnAdd = true;
 				}
 			}
@@ -139,8 +139,8 @@ namespace DOL.AI.Brain
 					return;
 			}
 			GneissAdd tree = new GneissAdd();
-			tree.X = Body.X + Util.Random(-200, 200);
-			tree.Y = Body.Y + Util.Random(-200, 200);
+			tree.X = Body.X + UtilCollection.Random(-200, 200);
+			tree.Y = Body.Y + UtilCollection.Random(-200, 200);
 			tree.Z = Body.Z;
 			tree.Heading = Body.Heading;
 			tree.CurrentRegion = Body.CurrentRegion;
@@ -190,7 +190,7 @@ namespace DOL.GS
 			Model = 925;
 			Name = "Gneiss's Piece";
 			Level = 58;
-			Size = (byte)Util.Random(50, 55);
+			Size = (byte)UtilCollection.Random(50, 55);
 			RespawnInterval = -1;
 			RoamingRange = 200;
 

@@ -140,9 +140,9 @@ namespace DOL.AI.Brain
 							brain.AddToAggroList(target, 10);
 					}
 				}				
-				if (Util.Chance(50) && !Body.IsCasting)
+				if (UtilCollection.Chance(50) && !Body.IsCasting)
 					Body.CastSpell(CurengkurDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
-				if (Util.Chance(50) && !Body.IsCasting && !target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
+				if (UtilCollection.Chance(50) && !Body.IsCasting && !target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
 					Body.CastSpell(CurengkurPoison, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
 			}
 			base.Think();
@@ -241,7 +241,7 @@ namespace DOL.GS
 			Model = 665;
 			Name = "Curengkur's Nest Radiation";
 			Level = 70;
-			Size = (byte)Util.Random(50, 55);
+			Size = (byte)UtilCollection.Random(50, 55);
 			RespawnInterval = 5000;
 			Flags = (GameNPC.eFlags)42;
 			MaxSpeedBase = 0;

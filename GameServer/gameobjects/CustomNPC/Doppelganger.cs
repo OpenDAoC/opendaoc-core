@@ -73,7 +73,7 @@ namespace DOL.GS
                 {
                     Model = doppelModel;
                     Name = "doppelganger";
-                    Inventory = new GameNPCInventory(GameNpcInventoryTemplate.EmptyTemplate);
+                    Inventory = new GameNpcInventory(GameNpcInventoryTemplate.EmptyTemplate);
                     BroadcastLivingEquipmentUpdate();
                 }
             }
@@ -104,7 +104,7 @@ namespace DOL.GS
 
                 if (standard && twoHanded)
                 {
-                    if (Util.Random(1) < 1)
+                    if (UtilCollection.Random(1) < 1)
                         SwitchWeapon(EActiveWeaponSlot.Standard);
                     else
                         SwitchWeapon(EActiveWeaponSlot.TwoHanded);
@@ -123,19 +123,19 @@ namespace DOL.GS
         /// </summary>
         protected void Disguise()
         {
-            if (Util.Chance(50))
+            if (UtilCollection.Chance(50))
                 Gender = EGender.Male;
             else
                 Gender = EGender.Female;
 
             ICharacterClass characterClass = new DefaultCharacterClass();
 
-            switch (Util.Random(2))
+            switch (UtilCollection.Random(2))
             {
                 case 0: // Albion
                     Name = $"Albion {LanguageMgr.GetTranslation(LanguageMgr.DefaultLanguage, "GamePlayer.RealmTitle.Invader")}";
 
-                    switch (Util.Random(4))
+                    switch (UtilCollection.Random(4))
                     {
                         case 0: // Archer
                             Inventory = ClothingMgr.Albion_Archer.CloneTemplate();
@@ -163,7 +163,7 @@ namespace DOL.GS
                 case 1: // Hibernia
                     Name = $"Hibernia {LanguageMgr.GetTranslation(LanguageMgr.DefaultLanguage, "GamePlayer.RealmTitle.Invader")}";
 
-                    switch (Util.Random(4))
+                    switch (UtilCollection.Random(4))
                     {
                         case 0: // Archer
                             Inventory = ClothingMgr.Hibernia_Archer.CloneTemplate();
@@ -191,7 +191,7 @@ namespace DOL.GS
                 case 2: // Midgard
                     Name = $"Midgard {LanguageMgr.GetTranslation(LanguageMgr.DefaultLanguage, "GamePlayer.RealmTitle.Invader")}";
 
-                    switch (Util.Random(4))
+                    switch (UtilCollection.Random(4))
                     {
                         case 0: // Archer
                             Inventory = ClothingMgr.Midgard_Archer.CloneTemplate();
@@ -219,7 +219,7 @@ namespace DOL.GS
             }
 
             var possibleRaces = characterClass.EligibleRaces;
-            var indexPick = Util.Random(0, possibleRaces.Count - 1);
+            var indexPick = UtilCollection.Random(0, possibleRaces.Count - 1);
             Model = (ushort)possibleRaces[indexPick].GetModel(Gender);
 
             bool distance = Inventory.GetItem(eInventorySlot.DistanceWeapon) != null;
@@ -230,7 +230,7 @@ namespace DOL.GS
                 SwitchWeapon(EActiveWeaponSlot.Distance);
             else if (standard && twoHanded)
             {
-                if (Util.Random(1) < 1)
+                if (UtilCollection.Random(1) < 1)
                     SwitchWeapon(EActiveWeaponSlot.Standard);
                 else
                     SwitchWeapon(EActiveWeaponSlot.TwoHanded);

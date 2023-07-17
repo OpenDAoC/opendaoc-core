@@ -13,7 +13,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		/// <summary>
 		/// Handles player sit requests
 		/// </summary>
-		protected class SitRequestHandler : RegionECSAction
+		protected class SitRequestHandler : RegionAction
 		{
 			/// <summary>
 			/// The new sit state

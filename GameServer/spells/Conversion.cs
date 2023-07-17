@@ -27,7 +27,7 @@ namespace DOL.GS.Spells
 			eChatType toLiving = (Spell.Pulse == 0) ? eChatType.CT_Spell : eChatType.CT_SpellPulse;
 			eChatType toOther = (Spell.Pulse == 0) ? eChatType.CT_System : eChatType.CT_Spell;
 			MessageToLiving(effect.Owner, Spell.Message1, toLiving);
-			Message.SystemToArea(effect.Owner, Util.MakeSentence(Spell.Message2, effect.Owner.GetName(0, false)), toOther, effect.Owner);
+			Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message2, effect.Owner.GetName(0, false)), toOther, effect.Owner);
 		}
 
 		public override int OnEffectExpires(GameSpellEffect effect, bool noMessages)
@@ -158,7 +158,7 @@ namespace DOL.GS.Spells
 			{
 				switch (attackedByEnemy.AttackData.AttackType)
 				{
-					case AttackData.eAttackType.Spell:
+					case AttackData.EAttackType.Spell:
 						{
 							int reduceddmg = living.TempProperties.getProperty<int>(ConvertDamage, 0);
 							double absorbPercent = Spell.Damage;

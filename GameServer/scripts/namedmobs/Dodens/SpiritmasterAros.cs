@@ -101,7 +101,7 @@ namespace DOL.GS
 				}
 			}
 
-			switch (Util.Random(1, 2))
+			switch (UtilCollection.Random(1, 2))
 			{
 				case 1: BroadcastMessage("'You will remember my name! " + Name + "!'"); break;
 				case 2: BroadcastMessage(Name + " trips and falls on the hard stone floor."); break;
@@ -110,7 +110,7 @@ namespace DOL.GS
         }
         public override void DealDamage(AttackData ad)
         {
-			if (ad != null && ad.AttackType == AttackData.eAttackType.Spell && ad.Damage > 0 && ad.DamageType == EDamageType.Cold)
+			if (ad != null && ad.AttackType == AttackData.EAttackType.Spell && ad.Damage > 0 && ad.DamageType == EDamageType.Cold)
 				Health += ad.Damage / 6;
             base.DealDamage(ad);
         }
@@ -193,13 +193,13 @@ namespace DOL.AI.Brain
 								Body.Follow(target, spells.Range - 50, 5000);
 							if(spells == Aros_Bomb && Body.GetSkillDisabledDuration(Aros_Bomb) == 0)
                             {
-								string message = Aros_bomb_text[Util.Random(0, Aros_bomb_text.Count - 1)];
+								string message = Aros_bomb_text[UtilCollection.Random(0, Aros_bomb_text.Count - 1)];
 								BroadcastMessage(message);
 							}
 							if(spells == Aros_Debuff && DebuffTarget != null)
 								BroadcastMessage(Body.Name+" weakens "+ DebuffTarget.Name + " and everyone around!");
 							//Body.TurnTo(target);
-							if (Util.Chance(100))
+							if (UtilCollection.Chance(100))
 							{
 								if (!Body.IsCasting && Body.GetSkillDisabledDuration(Aros_Bomb) == 0)									
 									Body.CastSpell(Aros_Bomb, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
@@ -267,7 +267,7 @@ namespace DOL.AI.Brain
 				{
 					if (CanCastDebuff == false && Body.GetSkillDisabledDuration(Aros_Debuff) == 0)
 					{
-						GamePlayer Target = Enemys_To_Debuff[Util.Random(0, Enemys_To_Debuff.Count - 1)];//pick random target from list
+						GamePlayer Target = Enemys_To_Debuff[UtilCollection.Random(0, Enemys_To_Debuff.Count - 1)];//pick random target from list
 						DebuffTarget = Target;//set random target to static RandomTarget
 						new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetDebuff), 5000);
 						CanCastDebuff = true;
@@ -322,7 +322,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 5;
-					spell.RecastDelay = Util.Random(35,45);
+					spell.RecastDelay = UtilCollection.Random(35,45);
 					spell.ClientEffect = 2797;
 					spell.Icon = 2797;
 					spell.TooltipId = 2797;
@@ -351,7 +351,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 0;
-					spell.RecastDelay = Util.Random(15,25);
+					spell.RecastDelay = UtilCollection.Random(15,25);
 					spell.ClientEffect = 4575;
 					spell.Icon = 4575;
 					spell.TooltipId = 4575;
@@ -399,7 +399,7 @@ namespace DOL.GS
 		{
 			if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 			{
-				if (Util.Chance(25) && (!ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.StunImmunity) || !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.Stun)) && ad.Target.IsAlive)
+				if (UtilCollection.Chance(25) && (!ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.StunImmunity) || !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.Stun)) && ad.Target.IsAlive)
 					CastSpell(SpiritChampion_stun, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			}
 			base.OnAttackEnemy(ad);
@@ -429,7 +429,7 @@ namespace DOL.GS
 		public override bool AddToWorld()
 		{
 			Name = "spirit champion";
-			Model = spirit_champion_models[Util.Random(0, spirit_champion_models.Count - 1)];
+			Model = spirit_champion_models[UtilCollection.Random(0, spirit_champion_models.Count - 1)];
 			GameNpcInventoryTemplate template = new GameNpcInventoryTemplate();
 			template.AddNPCEquipment(eInventorySlot.TorsoArmor, 295, 0, 0, 0); //Slot,model,color,effect,extension
 			template.AddNPCEquipment(eInventorySlot.ArmsArmor, 297, 0);

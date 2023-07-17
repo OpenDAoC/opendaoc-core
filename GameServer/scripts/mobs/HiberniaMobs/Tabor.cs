@@ -85,13 +85,13 @@ namespace DOL.AI.Brain
 			if (HasAggro && Body.TargetObject != null)
             {
 				GameLiving target = Body.TargetObject as GameLiving;
-				if(!LivingHasEffect(target, Tabor_Dot) && Util.Chance(15) && !Body.IsCasting)
+				if(!LivingHasEffect(target, Tabor_Dot) && UtilCollection.Chance(15) && !Body.IsCasting)
 					Body.CastSpell(Tabor_Dot, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
-				if (!LivingHasEffect(target, Tabor_Dot2) && Util.Chance(15) && !Body.IsCasting)
+				if (!LivingHasEffect(target, Tabor_Dot2) && UtilCollection.Chance(15) && !Body.IsCasting)
 					Body.CastSpell(Tabor_Dot2, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
-				if (Util.Chance(15) && !Body.IsCasting)
+				if (UtilCollection.Chance(15) && !Body.IsCasting)
 					Body.CastSpell(Tabor_DD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
-				if (Util.Chance(15) && !Body.IsCasting)
+				if (UtilCollection.Chance(15) && !Body.IsCasting)
 					Body.CastSpell(Tabor_DD2, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			}
 			base.Think();
@@ -107,7 +107,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 3.5;
-					spell.RecastDelay = Util.Random(10,15);
+					spell.RecastDelay = UtilCollection.Random(10,15);
 					spell.ClientEffect = 5087;
 					spell.Icon = 5087;
 					spell.TooltipId = 5087;
@@ -135,7 +135,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 3.5;
-					spell.RecastDelay = Util.Random(15, 20);
+					spell.RecastDelay = UtilCollection.Random(15, 20);
 					spell.ClientEffect = 5087;
 					spell.Icon = 5087;
 					spell.TooltipId = 5087;
@@ -299,13 +299,13 @@ namespace DOL.AI.Brain
 			if (HasAggro && Body.TargetObject != null)
 			{
 				GameLiving target = Body.TargetObject as GameLiving;
-				if (!LivingHasEffect(target, Tabor_Dot) && Util.Chance(15) && !Body.IsCasting)
+				if (!LivingHasEffect(target, Tabor_Dot) && UtilCollection.Chance(15) && !Body.IsCasting)
 					Body.CastSpell(Tabor_Dot, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
-				if (!LivingHasEffect(target, Tabor_Dot2) && Util.Chance(15) && !Body.IsCasting)
+				if (!LivingHasEffect(target, Tabor_Dot2) && UtilCollection.Chance(15) && !Body.IsCasting)
 					Body.CastSpell(Tabor_Dot2, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
-				if (Util.Chance(15) && !Body.IsCasting)
+				if (UtilCollection.Chance(15) && !Body.IsCasting)
 					Body.CastSpell(Tabor_DD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
-				if (Util.Chance(15) && !Body.IsCasting)
+				if (UtilCollection.Chance(15) && !Body.IsCasting)
 					Body.CastSpell(Tabor_DD2, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 
 			}
@@ -322,7 +322,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 3.5;
-					spell.RecastDelay = Util.Random(10, 15);
+					spell.RecastDelay = UtilCollection.Random(10, 15);
 					spell.ClientEffect = 5087;
 					spell.Icon = 5087;
 					spell.TooltipId = 5087;
@@ -350,7 +350,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 3.5;
-					spell.RecastDelay = Util.Random(15, 20);
+					spell.RecastDelay = UtilCollection.Random(15, 20);
 					spell.ClientEffect = 5087;
 					spell.Icon = 5087;
 					spell.TooltipId = 5087;

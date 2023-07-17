@@ -13,7 +13,7 @@ namespace DOL.GS
 	/// <summary>
 	/// Stable master that sells and takes horse route tickes
 	/// </summary>
-	[NPCGuildScript("Stable Master", ERealm.None)]
+	[NpcGuild("Stable Master", ERealm.None)]
 	public class GameStableMaster : GameMerchant
 	{
 		/// <summary>
@@ -114,7 +114,7 @@ namespace DOL.GS
 
 				if (item.Item_Type == 40 && isItemInMerchantList(item))
 				{
-					PathPoint path = MovementMgr.LoadPath(item.Id_nb);
+					PathPointUtil path = MovementMgr.LoadPath(item.Id_nb);
 
 					if ((path != null) && ((Math.Abs(path.X - this.X)) < 500) && ((Math.Abs(path.Y - this.Y)) < 500))
 					{
@@ -284,7 +284,7 @@ namespace DOL.GS
 		/// <summary>
 		/// Handles delayed player mount on horse
 		/// </summary>
-		protected class MountHorseAction : RegionECSAction
+		protected class MountHorseAction : RegionAction
 		{
 			/// <summary>
 			/// The target horse
@@ -318,7 +318,7 @@ namespace DOL.GS
 		/// <summary>
 		/// Handles delayed horse ride actions
 		/// </summary>
-		protected class HorseRideAction : RegionECSAction
+		protected class HorseRideAction : RegionAction
 		{
 			/// <summary>
 			/// Constructs a new HorseStartAction

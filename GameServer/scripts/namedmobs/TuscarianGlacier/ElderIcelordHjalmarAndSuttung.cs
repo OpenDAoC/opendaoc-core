@@ -77,7 +77,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(140);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(140));
             RespawnInterval = -1; 
-            BodyType = (ushort)NpcTemplateMgr.eBodyType.Giant;
+            BodyType = (ushort)NpcTemplateMgr.EBodyType.Giant;
 
             GameNpcInventoryTemplate template = new GameNpcInventoryTemplate();
             template.AddNPCEquipment(eInventorySlot.RightHandWeapon, 573, 0);
@@ -102,7 +102,7 @@ namespace DOL.GS
         }
         public override void OnAttackEnemy(AttackData ad) //on enemy actions
         {
-            if (Util.Chance(15))
+            if (UtilCollection.Chance(15))
             {
                 if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.Disease))
                     CastSpell(SuttungDisease, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
@@ -179,7 +179,7 @@ namespace DOL.AI.Brain
                 Body.Strength = 850;
                 Body.MaxSpeedBase = 200; //slow under zerk mode
                 Body.Size = 75;
-                new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(EndBerserkerPhase),Util.Random(10000, 20000)); //10-20s in berserk stance
+                new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(EndBerserkerPhase),UtilCollection.Random(10000, 20000)); //10-20s in berserk stance
             }
             return 0;
         }
@@ -247,13 +247,13 @@ namespace DOL.AI.Brain
                 }
                 if (IsBerserker == false)
                 {
-                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(BerserkerPhase), Util.Random(20000, 35000));
+                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(BerserkerPhase), UtilCollection.Random(20000, 35000));
                     IsBerserker = true;
                 }
             }
             if(HasAggro && Body.TargetObject != null)
             {
-                if (Util.Chance(55))
+                if (UtilCollection.Chance(55))
                     Body.CastSpell(IcelordHjalmar_aoe, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
             }
             base.Think();
@@ -370,7 +370,7 @@ namespace DOL.GS
         {
             if (ad != null && (ad.AttackResult == EAttackResult.HitStyle || ad.AttackResult == EAttackResult.HitUnstyled))
             {
-                if (Util.Chance(20))
+                if (UtilCollection.Chance(20))
                     SpawnAdds();
             }
             base.OnAttackEnemy(ad);
@@ -390,7 +390,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(140);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(140));
             RespawnInterval = -1;
-            BodyType = (ushort)NpcTemplateMgr.eBodyType.Giant;
+            BodyType = (ushort)NpcTemplateMgr.EBodyType.Giant;
             HjalmarBrain.message1 = false;
             HjalmarBrain.message2 = false;
             HjalmarCount = 1;
@@ -424,8 +424,8 @@ namespace DOL.GS
         {
             BroadcastMessage(Name + " spasms as dark energies swirl around his body!");
             Morkimma npc = new Morkimma();
-            npc.X = TargetObject.X + Util.Random(-100, 100);
-            npc.Y = TargetObject.Y + Util.Random(-100, 100);
+            npc.X = TargetObject.X + UtilCollection.Random(-100, 100);
+            npc.Y = TargetObject.Y + UtilCollection.Random(-100, 100);
             npc.Z = TargetObject.Z;
             npc.RespawnInterval = -1;
             npc.Heading = Heading;
@@ -528,7 +528,7 @@ namespace DOL.AI.Brain
                 {
                     float angle = Body.TargetObject.GetAngle(Body);
                     GameLiving living = Body.TargetObject as GameLiving;
-                    if (Util.Chance(100))
+                    if (UtilCollection.Chance(100))
                     {
                         if (angle >= 150 && angle < 210)
                         {
@@ -615,7 +615,7 @@ namespace DOL.GS
             Constitution = 100;
             MaxSpeedBase = 220;
             Name = "Morkimma";
-            Level = (byte)Util.Random(50, 55);
+            Level = (byte)UtilCollection.Random(50, 55);
 
             Faction = FactionMgr.GetFactionByID(140);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(140));
@@ -633,7 +633,7 @@ namespace DOL.GS
         }
         public override void OnAttackEnemy(AttackData ad) //on enemy actions
         {
-            if (Util.Chance(15))
+            if (UtilCollection.Chance(15))
             {
                 if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle) && HealthPercent < 100)
                     CastSpell(MorkimmaHeal, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
@@ -718,7 +718,7 @@ namespace DOL.GS
         }
         private void SpawnBoss()
         {
-            switch (Util.Random(1, 2))
+            switch (UtilCollection.Random(1, 2))
             {
                 case 1: SpawnSuttung(); break;
                 case 2: SpawnHjalmar(); break;
@@ -796,7 +796,7 @@ namespace DOL.AI.Brain
 
         private int SpawnBoss(ECSGameTimer timer)
         {
-            switch(Util.Random(1,2))
+            switch(UtilCollection.Random(1,2))
             {
                 case 1: SpawnSuttung(); break;
                 case 2: SpawnHjalmar(); break;

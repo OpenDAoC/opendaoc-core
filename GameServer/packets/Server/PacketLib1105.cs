@@ -91,7 +91,7 @@ namespace DOL.GS.PacketHandler
 				{
 					var toAdd = new List<Tuple<int, int, Skill>>();
 
-					foreach (Ability ab in spec.PretendAbilitiesForLiving(player, player.MaxLevel))
+					foreach (AbilityUtil ab in spec.PretendAbilitiesForLiving(player, player.MaxLevel))
 					{
 						toAdd.Add(new Tuple<int, int, Skill>(5, ab.InternalID, ab));
 					}
@@ -109,7 +109,7 @@ namespace DOL.GS.PacketHandler
 						toAdd.Add(new Tuple<int, int, Skill>((int)st.SkillType, st.InternalID, st));
 					}
 
-					skillDictCache.Add(new Tuple<Specialization, List<Tuple<int, int, Skill>>>(spec, toAdd.OrderBy(e => (e.Item3 is Ability) ? ((Ability)e.Item3).SpecLevelRequirement : (((e.Item3 is Style) ? ((Style)e.Item3).SpecLevelRequirement : e.Item3.Level))).ToList()));
+					skillDictCache.Add(new Tuple<Specialization, List<Tuple<int, int, Skill>>>(spec, toAdd.OrderBy(e => (e.Item3 is AbilityUtil) ? ((AbilityUtil)e.Item3).SpecLevelRequirement : (((e.Item3 is Style) ? ((Style)e.Item3).SpecLevelRequirement : e.Item3.Level))).ToList()));
 				}
 
 				// save to cache
@@ -199,9 +199,9 @@ namespace DOL.GS.PacketHandler
 						if (pakskill.Length >= 2040)
 							break;
 
-						if (sk.Item3 is Ability)
+						if (sk.Item3 is AbilityUtil)
 						{
-							Ability ab = (Ability)sk.Item3;
+							AbilityUtil ab = (AbilityUtil)sk.Item3;
 							// skill description
 							pakskill.WriteByte((byte)ab.SpecLevelRequirement); // level
 																			   // tooltip

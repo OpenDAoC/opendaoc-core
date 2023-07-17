@@ -140,7 +140,7 @@ namespace DOL.GS
 				OF.Constitution = 100;
 				OF.Quickness = 80;
 				OF.Empathy = 300;
-				OF.BodyType = (ushort)NpcTemplateMgr.eBodyType.Humanoid;
+				OF.BodyType = (ushort)NpcTemplateMgr.EBodyType.Humanoid;
 				OF.MeleeDamageType = EDamageType.Crush;
 				OF.Faction = FactionMgr.GetFactionByID(187);
 				OF.Faction.AddFriendFaction(FactionMgr.GetFactionByID(206));
@@ -182,7 +182,7 @@ namespace DOL.AI.Brain
         {
 			if(ad.Damage > 0 && ad != null)
             {
-				if(Util.Chance(15))//here edit to change teleport chance to happen
+				if(UtilCollection.Chance(15))//here edit to change teleport chance to happen
 					PickRandomTarget();//start teleport here
             }
             base.OnAttackedByEnemy(ad);
@@ -232,7 +232,7 @@ namespace DOL.AI.Brain
 			{
 				if (CanCast == false)
 				{
-					GamePlayer Target = (GamePlayer)Enemys_To_DD[Util.Random(0, Enemys_To_DD.Count - 1)];//pick random target from list
+					GamePlayer Target = (GamePlayer)Enemys_To_DD[UtilCollection.Random(0, Enemys_To_DD.Count - 1)];//pick random target from list
 					RandomTarget = Target;//set random target to static RandomTarget
 					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastBolt), 1000);
 					CanCast = true;
@@ -254,7 +254,7 @@ namespace DOL.AI.Brain
 					Body.TargetObject = RandomTarget;//set target as randomtarget
 			}
 			if (oldTarget != null) Body.TargetObject = oldTarget;//return to old target
-			new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetBolt), Util.Random(8000, 12000));//teleport every 8-12s if melee hit got chance to proc teleport
+			new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetBolt), UtilCollection.Random(8000, 12000));//teleport every 8-12s if melee hit got chance to proc teleport
 			return 0;
 		}
 		public int ResetBolt(ECSGameTimer timer)//reset here so boss can start dot again

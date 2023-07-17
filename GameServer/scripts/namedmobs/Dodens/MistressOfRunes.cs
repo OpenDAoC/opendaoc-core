@@ -270,7 +270,7 @@ namespace DOL.AI.Brain
 
 			if (inRangeLiving.Count > 0)
 			{
-				return CheckNearsight((GameLiving)(inRangeLiving[Util.Random(1, inRangeLiving.Count) - 1]));
+				return CheckNearsight((GameLiving)(inRangeLiving[UtilCollection.Random(1, inRangeLiving.Count) - 1]));
 			}
 
 			return false;
@@ -305,7 +305,7 @@ namespace DOL.AI.Brain
 			if (castsSpear && cast && Body.IsCasting)
 			{
 				castsSpear = false;
-				int messageNo = Util.Random(1, m_SpearAnnounce.Length) - 1;
+				int messageNo = UtilCollection.Random(1, m_SpearAnnounce.Length) - 1;
 				BroadcastMessage(String.Format(m_SpearAnnounce[messageNo], Body.Name, target.Name));
 			}
 			else
@@ -345,7 +345,7 @@ namespace DOL.AI.Brain
 		public bool CheckNearsight(GameLiving target)
 		{
 			if (target == null || NearsightTarget != null) return false;
-			bool success = Util.Chance(NearsightChance);
+			bool success = UtilCollection.Chance(NearsightChance);
 			if (success)
 				NearsightTarget = target;
 			return success;

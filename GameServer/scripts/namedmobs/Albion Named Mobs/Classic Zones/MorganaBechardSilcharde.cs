@@ -329,11 +329,11 @@ namespace DOL.GS
 		private void SpawnDemonic()
 		{
 			Point3D spawn = new Point3D(306041, 670103, 3310);
-			for (int i = 0; i < Morgana.BechardMinionCount + Util.Random(4, 6); i++)
+			for (int i = 0; i < Morgana.BechardMinionCount + UtilCollection.Random(4, 6); i++)
 			{
 				DemonicMinion npc = new DemonicMinion();
-				npc.X = spawn.X + Util.Random(-150, 150);
-				npc.Y = spawn.Y + Util.Random(-150, 150);
+				npc.X = spawn.X + UtilCollection.Random(-150, 150);
+				npc.Y = spawn.Y + UtilCollection.Random(-150, 150);
 				npc.Z = spawn.Z;
 				npc.Heading = 3148;
 				npc.CurrentRegion = CurrentRegion;
@@ -343,7 +343,7 @@ namespace DOL.GS
 		}
 		public override void DealDamage(AttackData ad)
 		{
-			if (ad != null && ad.AttackType == AttackData.eAttackType.Spell && ad.Damage > 0 && ad.DamageType == EDamageType.Body)
+			if (ad != null && ad.AttackType == AttackData.EAttackType.Spell && ad.Damage > 0 && ad.DamageType == EDamageType.Body)
 			{
 				Health += ad.Damage;
 			}
@@ -495,11 +495,11 @@ namespace DOL.GS
 		private void SpawnDemonic()
 		{
 			Point3D spawn = new Point3D(306041, 670103, 3310);
-			for (int i = 0; i < Morgana.SilchardeMinionCount + Util.Random(4, 6); i++)
+			for (int i = 0; i < Morgana.SilchardeMinionCount + UtilCollection.Random(4, 6); i++)
 			{
 				DemonicMinion npc = new DemonicMinion();
-				npc.X = spawn.X + Util.Random(-150, 150);
-				npc.Y = spawn.Y + Util.Random(-150, 150); 
+				npc.X = spawn.X + UtilCollection.Random(-150, 150);
+				npc.Y = spawn.Y + UtilCollection.Random(-150, 150); 
 				npc.Z = spawn.Z;
 				npc.Heading = 3148;
 				npc.CurrentRegion = CurrentRegion;
@@ -556,7 +556,7 @@ namespace DOL.GS
 		public override bool AddToWorld()
 		{
 			Name = "demonic minion";
-			Level = (byte)Util.Random(30, 33);
+			Level = (byte)UtilCollection.Random(30, 33);
 			Model = 606;
 			RoamingRange = 200;
 			MaxSpeedBase = 245;

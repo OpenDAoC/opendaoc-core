@@ -141,7 +141,7 @@ namespace DOL.GS.RealmAbilities
             return removed;
         }
 
-        protected class PurgeTimer : RegionECSAction
+        protected class PurgeTimer : RegionAction
         {
             GameLiving m_caster;
             PurgeAbility m_purge;

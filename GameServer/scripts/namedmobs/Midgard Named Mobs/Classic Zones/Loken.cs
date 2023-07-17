@@ -114,8 +114,8 @@ namespace DOL.GS
 			for (int i = 0; i < 2; i++)
 			{
 				LokenWolf npc = new LokenWolf();
-				npc.X = spawn.X + Util.Random(-100, 100);
-				npc.Y = spawn.Y + Util.Random(-100, 100);
+				npc.X = spawn.X + UtilCollection.Random(-100, 100);
+				npc.Y = spawn.Y + UtilCollection.Random(-100, 100);
 				npc.Z = spawn.Z;
 				npc.Heading = Heading;
 				npc.CurrentRegion = CurrentRegion;
@@ -169,7 +169,7 @@ namespace DOL.AI.Brain
 							brian.AddToAggroList(target, 10);
 					}
 				}
-				if(Util.Chance(100) && !Body.IsCasting)
+				if(UtilCollection.Chance(100) && !Body.IsCasting)
 					Body.CastSpell(LokenDD2, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			}
 			if (Body.IsOutOfTetherRange && Body.TargetObject != null)
@@ -197,8 +197,8 @@ namespace DOL.AI.Brain
 				if (LokenWolf.WolfsCount < 2)
 				{
 					LokenWolf npc = new LokenWolf();
-					npc.X = spawn.X + Util.Random(-100, 100);
-					npc.Y = spawn.Y + Util.Random(-100, 100);
+					npc.X = spawn.X + UtilCollection.Random(-100, 100);
+					npc.Y = spawn.Y + UtilCollection.Random(-100, 100);
 					npc.Z = spawn.Z;
 					npc.Heading = Body.Heading;
 					npc.CurrentRegion = Body.CurrentRegion;
@@ -248,7 +248,7 @@ namespace DOL.AI.Brain
 					spell.AllowAdd = false;
 					spell.CastTime = 3;
 					spell.Power = 0;
-					spell.RecastDelay = Util.Random(5,10);
+					spell.RecastDelay = UtilCollection.Random(5,10);
 					spell.ClientEffect = 360;
 					spell.Icon = 360;
 					spell.Damage = 280;
@@ -279,7 +279,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 3;
-					spell.RecastDelay = Util.Random(15,20);
+					spell.RecastDelay = UtilCollection.Random(15,20);
 					spell.ClientEffect = 378;
 					spell.Icon = 378;
 					spell.Damage = 200;

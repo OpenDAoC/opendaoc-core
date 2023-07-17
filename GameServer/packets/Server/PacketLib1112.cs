@@ -70,9 +70,9 @@ namespace DOL.GS.PacketHandler
 							pak.WriteShort((ushort)spec.Icon);
 							pak.WritePascalString(spec.Name);
 						}
-						else if (skill is Ability)
+						else if (skill is AbilityUtil)
 						{
-							Ability ab = (Ability)skill;
+							AbilityUtil ab = (AbilityUtil)skill;
 							pak.WriteByte((byte)ab.Level);
 							pak.WriteShort((ushort)ab.InternalID); //new 1.112
 							pak.WriteByte((byte)ab.SkillType);
@@ -98,7 +98,7 @@ namespace DOL.GS.PacketHandler
 							else
 							{
 								// find this line Specialization index !
-								if (skillrelated is SpellLine && !Util.IsEmpty(((SpellLine)skillrelated).Spec))
+								if (skillrelated is SpellLine && !UtilCollection.IsEmpty(((SpellLine)skillrelated).Spec))
 								{
 									spin = usableSkills.FindIndex(sk => (sk.Item1 is Specialization) && ((Specialization)sk.Item1).KeyName == ((SpellLine)skillrelated).Spec);
 
@@ -231,8 +231,8 @@ namespace DOL.GS.PacketHandler
 							int reqLevel = 1;
 							if (sk is Style)
 								reqLevel = ((Style)sk).SpecLevelRequirement;
-							else if (sk is Ability)
-								reqLevel = ((Ability)sk).SpecLevelRequirement;
+							else if (sk is AbilityUtil)
+								reqLevel = ((AbilityUtil)sk).SpecLevelRequirement;
 
 							pak.WriteShortLowEndian((ushort)((byte)reqLevel + (sk is Style ? 512 : 256)));
 							pak.WriteShort((ushort)sk.InternalID); //new 1.112

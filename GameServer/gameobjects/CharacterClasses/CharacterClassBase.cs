@@ -107,7 +107,7 @@ namespace DOL.GS
 					m_id = ((CharacterClassAttribute)attr).ID;
 					m_name = ((CharacterClassAttribute)attr).Name;
 					m_basename = ((CharacterClassAttribute)attr).BaseName;
-					if (Util.IsEmpty(((CharacterClassAttribute)attr).FemaleName) == false)
+					if (UtilCollection.IsEmpty(((CharacterClassAttribute)attr).FemaleName) == false)
 						m_femaleName = ((CharacterClassAttribute)attr).FemaleName;
 					break;
 				}
@@ -142,7 +142,7 @@ namespace DOL.GS
 
 		public string Name
 		{
-			get { return (Player != null && Player.Gender == EGender.Female && !Util.IsEmpty(m_femaleName)) ? m_femaleName : m_name; }
+			get { return (Player != null && Player.Gender == EGender.Female && !UtilCollection.IsEmpty(m_femaleName)) ? m_femaleName : m_name; }
 		}
 
 		public string BaseName

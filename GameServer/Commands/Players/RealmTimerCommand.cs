@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DOL.Language;
 using DOL.GS.ServerRules;
 using System;
+using Core.GS.GameUtils;
 using DOL.GS.Utils;
 
 namespace DOL.GS.Commands

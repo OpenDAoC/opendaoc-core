@@ -129,7 +129,7 @@ namespace DOL.AI.Brain
 								Body.Follow(Body.TargetObject, spells.Range - 50, 5000);
 
 							Body.TurnTo(Body.TargetObject);
-							if (Util.Chance(100))
+							if (UtilCollection.Chance(100))
 							{
 								GameLiving target = Body.TargetObject as GameLiving;
 								if (target != null)

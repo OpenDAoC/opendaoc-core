@@ -124,7 +124,7 @@ namespace DOL.AI.Brain
             {
 				RemoveAdds = false;
 				GameLiving target = Body.TargetObject as GameLiving;
-				if (Util.Chance(25) && target != null)
+				if (UtilCollection.Chance(25) && target != null)
 				{
 					if (!target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
 					{
@@ -141,11 +141,11 @@ namespace DOL.AI.Brain
 		}
 		public void SpawnMushrooms()
 		{
-			for (int i = 0; i < Util.Random(4, 5); i++)
+			for (int i = 0; i < UtilCollection.Random(4, 5); i++)
 			{
 				RotoddjurAdd add = new RotoddjurAdd();
-				add.X = Body.X + Util.Random(-100, 100);
-				add.Y = Body.Y + Util.Random(-100, 100);
+				add.X = Body.X + UtilCollection.Random(-100, 100);
+				add.Y = Body.Y + UtilCollection.Random(-100, 100);
 				add.Z = Body.Z;
 				add.CurrentRegion = Body.CurrentRegion;
 				add.Heading = Body.Heading;
@@ -247,8 +247,8 @@ namespace DOL.GS
 			RespawnInterval = -1;
 			MaxSpeedBase = 225;
 
-			Size = (byte)Util.Random(40, 60);
-			Level = (byte)Util.Random(62, 66);
+			Size = (byte)UtilCollection.Random(40, 60);
+			Level = (byte)UtilCollection.Random(62, 66);
 			Faction = FactionMgr.GetFactionByID(150);
 			Faction.AddFriendFaction(FactionMgr.GetFactionByID(150));
 			RotoddjurAddBrain add = new RotoddjurAddBrain();

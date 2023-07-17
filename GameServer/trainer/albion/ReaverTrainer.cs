@@ -7,7 +7,7 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Reaver Trainer
 	/// </summary>
-	[NPCGuildScript("Reaver Trainer", ERealm.Albion)]		// this attribute instructs DOL to use this script for all "Reaver Trainer" NPC's in Albion (multiple guilds are possible for one script)
+	[NpcGuild("Reaver Trainer", ERealm.Albion)]		// this attribute instructs DOL to use this script for all "Reaver Trainer" NPC's in Albion (multiple guilds are possible for one script)
 	public class ReaverTrainer : GameTrainer
 	{
 		public override ECharacterClass TrainedClass

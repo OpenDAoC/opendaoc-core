@@ -167,7 +167,7 @@ namespace DOL.GS
             {
                 int highmod = Level + 50;
                 int lowmod = Level / 3;
-                int result = Util.Random(lowmod, highmod);
+                int result = UtilCollection.Random(lowmod, highmod);
                 return result * 60 * 1000 * DragonDifficulty / 100;
             }
         }
@@ -394,7 +394,7 @@ namespace DOL.GS
             foreach (GamePlayer player in GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE))
             {
                 player.KillsDragon++;
-                player.Achieve(AchievementUtils.AchievementNames.Dragon_Kills);
+                player.Achieve(AchievementUtil.AchievementNames.Dragon_Kills);
                 count++;
             }
             return count;
@@ -452,7 +452,7 @@ namespace DOL.GS
                         add.SetOwnBrain(new RetrieverMobBrain());
                     }
                     add.CurrentRegion = this.CurrentRegion;
-                    add.Heading = (ushort)(Util.Random(0, 4095));
+                    add.Heading = (ushort)(UtilCollection.Random(0, 4095));
                     add.Realm = 0;
                     add.X = x;
                     add.Y = y;
@@ -475,7 +475,7 @@ namespace DOL.GS
         /// Provides a timer to remove an NPC from the world after some
         /// time has passed.
         /// </summary>
-        protected class DespawnTimer : RegionECSAction
+        protected class DespawnTimer : RegionAction
         {
             private GameNPC m_npc;
 
@@ -572,7 +572,7 @@ namespace DOL.GS
             // Prevent brain from casting this over and over.
 
             HealthPercentOld = HealthPercent;
-            int messageNo = Util.Random(1, m_breathAnnounce.Length) - 1;
+            int messageNo = UtilCollection.Random(1, m_breathAnnounce.Length) - 1;
             BroadcastMessage(String.Format(m_breathAnnounce[messageNo], Name));
             new ECSGameTimer(this, new ECSGameTimer.ECSTimerCallback(CastBreath), 5000);
         }
@@ -633,7 +633,7 @@ namespace DOL.GS
         public bool CheckGlare(GameLiving target)
         {
             if (target == null || GlareTarget != null) return false;
-            bool success = Util.Chance(GlareChance) && (Brain is DragonBrain { GlareAvailable: true });
+            bool success = UtilCollection.Chance(GlareChance) && (Brain is DragonBrain { GlareAvailable: true });
             if (success)
                 GlareTarget = target;
             return success;
@@ -705,7 +705,7 @@ namespace DOL.GS
         public bool CheckMeleeDebuff(GamePlayer target)
         {
             if (target == null) return false;
-            bool success = Util.Chance(MeleeDebuffChance);
+            bool success = UtilCollection.Chance(MeleeDebuffChance);
             if (success)
                 CastMeleeDebuff(target);
             return success;
@@ -753,7 +753,7 @@ namespace DOL.GS
         public bool CheckRangedDebuff(GamePlayer target)
         {
             if (target == null) return false;
-            bool success = Util.Chance(RangedDebuffChance);
+            bool success = UtilCollection.Chance(RangedDebuffChance);
             if (success)
                 CastRangedDebuff(target);
             return success;
@@ -792,7 +792,7 @@ namespace DOL.GS
             if (target == null || !target.IsAlive || target.IsStunned)
                 return false;
 
-            bool success = Util.Chance(ThrowChance);
+            bool success = UtilCollection.Chance(ThrowChance);
 
             if (success)
                 ThrowLiving(target);
@@ -810,7 +810,7 @@ namespace DOL.GS
 
             // Face the target, then push it 700 units up and 300 - 500 units backwards.
             TurnTo(target);
-            Point3D targetPosition = PositionOfTarget(target, 700, Heading, Util.Random(300, 500));
+            Point3D targetPosition = PositionOfTarget(target, 700, Heading, UtilCollection.Random(300, 500));
 
             if (target is GamePlayer)
                 target.MoveTo(target.CurrentRegionID, targetPosition.X, targetPosition.Y, targetPosition.Z, target.Heading);
@@ -901,7 +901,7 @@ namespace DOL.GS
         /// <returns>Whether or not the stun was cast.</returns>
         public bool CheckStun(bool firstTime)
         {
-            if (GetSkillDisabledDuration(Stun) == 0 && (firstTime || Util.Chance(StunChance)))
+            if (GetSkillDisabledDuration(Stun) == 0 && (firstTime || UtilCollection.Chance(StunChance)))
             {
                 PrepareToStun();
                 return true;

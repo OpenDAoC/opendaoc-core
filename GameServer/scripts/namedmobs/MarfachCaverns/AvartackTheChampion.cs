@@ -110,7 +110,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(187);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(187));
             RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
-            BodyType = (ushort)NpcTemplateMgr.eBodyType.Humanoid;
+            BodyType = (ushort)NpcTemplateMgr.EBodyType.Humanoid;
 
             GameNpcInventoryTemplate template = new GameNpcInventoryTemplate();
             template.AddNPCEquipment(eInventorySlot.TorsoArmor, 667, 0, 0, 6);//modelID,color,effect,extension
@@ -225,7 +225,7 @@ namespace DOL.AI.Brain
                     DBSpell spell = new DBSpell();
                     spell.AllowAdd = false;
                     spell.CastTime = 0;
-                    spell.RecastDelay = Util.Random(15,25);
+                    spell.RecastDelay = UtilCollection.Random(15,25);
                     spell.ClientEffect = 5435;
                     spell.Icon = 5435;
                     spell.TooltipId = 5435;

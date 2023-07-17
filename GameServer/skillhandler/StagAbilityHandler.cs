@@ -30,7 +30,7 @@ namespace DOL.GS.SkillHandler
 		/// </summary>
 		public const int DURATION = 30 * 1000; // 30 seconds
 
-		public void Execute(Ability ab, GamePlayer player)
+		public void Execute(AbilityUtil ab, GamePlayer player)
 		{
 			if (player == null)
 			{

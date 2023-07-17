@@ -70,7 +70,7 @@ namespace DOL.GS.Commands
 			}
 
 			// throw result
-			int thrown = Util.Random(dice, dice * ONE_DIE_MAX_VALUE);
+			int thrown = UtilCollection.Random(dice, dice * ONE_DIE_MAX_VALUE);
 
 			// building roll result msg
 			string selfMessage = String.Format(MESSAGE_RESULT_SELF, dice, thrown);

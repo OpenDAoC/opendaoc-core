@@ -340,7 +340,7 @@ namespace DOL.GS.Quests.Hibernia
 			AncestralKeeper.GuildName = "";
 			AncestralKeeper.Realm = ERealm.None;
 			AncestralKeeper.Race = 2003;
-			AncestralKeeper.BodyType = (ushort) NpcTemplateMgr.eBodyType.Elemental;
+			AncestralKeeper.BodyType = (ushort) NpcTemplateMgr.EBodyType.Elemental;
 			AncestralKeeper.CurrentRegionID = 151;
 			AncestralKeeper.Size = 140;
 			AncestralKeeper.Level = 65;
@@ -489,7 +489,7 @@ namespace DOL.GS.Quests.Hibernia
 						case 2:
 							OtaYrling.SayTo(player, "Hey "+player.Name+", don't listen to Longbeard and his friend Styr, they came from Dellingstad and fled.");
 							
-							int random = Util.Random(0, 3);
+							int random = UtilCollection.Random(0, 3);
 							var message = "";
 							switch (random)
 							{
@@ -995,7 +995,7 @@ namespace DOL.GS.Quests.Hibernia
 						(m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel) / 2, false);
 				RemoveItem(m_questPlayer, stone_pendant);
 				GiveItem(m_questPlayer, beaded_resisting_stone);
-				m_questPlayer.AddMoney(Money.GetMoney(0, 0, 121, 41, Util.Random(50)), "You receive {0} as a reward.");
+				m_questPlayer.AddMoney(Money.GetMoney(0, 0, 121, 41, UtilCollection.Random(50)), "You receive {0} as a reward.");
 
 
 				base.FinishQuest(); //Defined in Quest, changes the state, stores in DB etc ...

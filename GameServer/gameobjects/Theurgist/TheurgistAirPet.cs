@@ -18,7 +18,7 @@
 			// Make air pet's instant stun a bit more random.
 			// Should ideally be in its own class.
 			if (skill is Spell spell && spell.IsInstantCast)
-				duration += Util.Random((int)(spell.RecastDelay / 2.5));
+				duration += UtilCollection.Random((int)(spell.RecastDelay / 2.5));
 
 			base.DisableSkill(skill, duration);
 		}

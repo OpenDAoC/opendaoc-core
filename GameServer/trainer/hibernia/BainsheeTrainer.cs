@@ -7,7 +7,7 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Bainshee Trainer
 	/// </summary>
-	[NPCGuildScript("Bainshee Trainer", ERealm.Hibernia)]		// this attribute instructs DOL to use this script for all "Bainshee Trainer" NPC's in Albion (multiple guilds are possible for one script)
+	[NpcGuild("Bainshee Trainer", ERealm.Hibernia)]		// this attribute instructs DOL to use this script for all "Bainshee Trainer" NPC's in Albion (multiple guilds are possible for one script)
 	public class BainsheeTrainer : GameTrainer
 	{
 		public override ECharacterClass TrainedClass

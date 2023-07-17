@@ -81,11 +81,11 @@ public class AchievementReskinVendor : GameNPC
         int characterClassUnknown = (int)ECharacterClass.Unknown;
         int playerClass = (int)(ECharacterClass)t.CharacterClass.ID;
         int playerRealmRank = (int)Math.Floor((double)(t.RealmLevel + 10.0) / 10.0);
-        int accountRealmRank = t.GetAchievementProgress(AchievementUtils.AchievementNames.Realm_Rank);
-        int playerDragonKills = t.GetAchievementProgress(AchievementUtils.AchievementNames.Dragon_Kills);
-        int playerOrbs = t.GetAchievementProgress(AchievementUtils.AchievementNames.Orbs_Earned);
-        int epicBossPlayerKills = t.GetAchievementProgress(AchievementUtils.AchievementNames.Epic_Boss_Kills);
-        int masteredCrafts = t.GetAchievementProgress(AchievementUtils.AchievementNames.Mastered_Crafts);
+        int accountRealmRank = t.GetAchievementProgress(AchievementUtil.AchievementNames.Realm_Rank);
+        int playerDragonKills = t.GetAchievementProgress(AchievementUtil.AchievementNames.Dragon_Kills);
+        int playerOrbs = t.GetAchievementProgress(AchievementUtil.AchievementNames.Orbs_Earned);
+        int epicBossPlayerKills = t.GetAchievementProgress(AchievementUtil.AchievementNames.Epic_Boss_Kills);
+        int masteredCrafts = t.GetAchievementProgress(AchievementUtil.AchievementNames.Mastered_Crafts);
         int itemSlot = item.Item_Type;
         bool isGM = t.Client.Account.PrivLevel != 1;
 
@@ -446,12 +446,12 @@ public class AchievementReskinVendor : GameNPC
         tempAd.Target = display;
         if (item.Hand == 1)
         {
-            tempAd.AttackType = AttackData.eAttackType.MeleeTwoHand;
+            tempAd.AttackType = AttackData.EAttackType.MeleeTwoHand;
             display.SwitchWeapon(EActiveWeaponSlot.TwoHanded);
         }
         else
         {
-            tempAd.AttackType = AttackData.eAttackType.MeleeOneHand;
+            tempAd.AttackType = AttackData.EAttackType.MeleeOneHand;
             display.SwitchWeapon(EActiveWeaponSlot.Standard);
         }
 
@@ -534,11 +534,11 @@ public class AchievementReskinVendor : GameNPC
         int characterClassUnknown = (int)ECharacterClass.Unknown;
         int playerClass = (int)(ECharacterClass)player.CharacterClass.ID;
         int playerRealmRank = (int)Math.Floor((double)(player.RealmLevel + 10.0) / 10.0);
-        int accountRealmRank = player.GetAchievementProgress(AchievementUtils.AchievementNames.Realm_Rank);
-        int playerDragonKills = player.GetAchievementProgress(AchievementUtils.AchievementNames.Dragon_Kills);
-        int playerOrbs = player.GetAchievementProgress(AchievementUtils.AchievementNames.Orbs_Earned);
-        int epicBossPlayerKills = player.GetAchievementProgress(AchievementUtils.AchievementNames.Epic_Boss_Kills);
-        int masteredCrafts = player.GetAchievementProgress(AchievementUtils.AchievementNames.Mastered_Crafts);
+        int accountRealmRank = player.GetAchievementProgress(AchievementUtil.AchievementNames.Realm_Rank);
+        int playerDragonKills = player.GetAchievementProgress(AchievementUtil.AchievementNames.Dragon_Kills);
+        int playerOrbs = player.GetAchievementProgress(AchievementUtil.AchievementNames.Orbs_Earned);
+        int epicBossPlayerKills = player.GetAchievementProgress(AchievementUtil.AchievementNames.Epic_Boss_Kills);
+        int masteredCrafts = player.GetAchievementProgress(AchievementUtil.AchievementNames.Mastered_Crafts);
         bool isGM = player.Client.Account.PrivLevel != 1;
 
 

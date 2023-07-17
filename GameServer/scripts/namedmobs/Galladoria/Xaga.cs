@@ -473,7 +473,7 @@ namespace DOL.AI.Brain
                     DBSpell spell = new DBSpell();
                     spell.AllowAdd = false;
                     spell.CastTime = 0;
-                    spell.RecastDelay = Util.Random(4,8);
+                    spell.RecastDelay = UtilCollection.Random(4,8);
                     spell.ClientEffect = 4568;
                     spell.Icon = 4568;
                     spell.Damage = 450;
@@ -687,7 +687,7 @@ namespace DOL.AI.Brain
                     DBSpell spell = new DBSpell();
                     spell.AllowAdd = false;
                     spell.CastTime = 0;
-                    spell.RecastDelay = Util.Random(4,8);
+                    spell.RecastDelay = UtilCollection.Random(4,8);
                     spell.ClientEffect = 4227;
                     spell.Icon = 4227;
                     spell.Damage = 450;

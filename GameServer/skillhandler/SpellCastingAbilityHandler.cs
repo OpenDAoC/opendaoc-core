@@ -6,8 +6,8 @@ namespace DOL.GS.SkillHandler
 {
 	public class SpellCastingAbilityHandler : IAbilityActionHandler, ISpellCastingAbilityHandler
 	{
-		protected Ability m_ability = null;
-		public Ability Ability
+		protected AbilityUtil m_ability = null;
+		public AbilityUtil Ability
 		{
 			get { return m_ability; }
 		}
@@ -43,7 +43,7 @@ namespace DOL.GS.SkillHandler
 			}
 		}
 
-		public void Execute(Ability ab, GamePlayer player)
+		public void Execute(AbilityUtil ab, GamePlayer player)
 		{
 			if (player == null)
 				return;

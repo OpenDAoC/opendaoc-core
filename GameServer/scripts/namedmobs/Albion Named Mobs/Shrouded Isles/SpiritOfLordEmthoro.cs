@@ -115,7 +115,7 @@ namespace DOL.GS
 		}
 		public override void DealDamage(AttackData ad)
 		{
-			if (ad != null && ad.AttackType == AttackData.eAttackType.Spell && ad.Damage > 0)
+			if (ad != null && ad.AttackType == AttackData.EAttackType.Spell && ad.Damage > 0)
 				Health += ad.Damage;
 			base.DealDamage(ad);
 		}
@@ -174,7 +174,7 @@ namespace DOL.AI.Brain
 				}
 				if(CanSpawnAdd == false)
                 {
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnAdd), Util.Random(25000, 40000));
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnAdd), UtilCollection.Random(25000, 40000));
 					CanSpawnAdd = true;
                 }
 				Body.SetGroundTarget(Body.X, Body.Y, Body.Z);
@@ -188,21 +188,21 @@ namespace DOL.AI.Brain
 			{
 				GameNPC add = new GameNPC();
 				add.Name = Body.Name + "'s servant";
-				switch(Util.Random(1,2))
+				switch(UtilCollection.Random(1,2))
                 {
 					case 1: add.Model = 814; break;//orc
 					case 2: add.Model = 921; break;//zombie
 				}				
-				add.Size = (byte)Util.Random(55, 65);
-				add.Level = (byte)Util.Random(55, 59);
+				add.Size = (byte)UtilCollection.Random(55, 65);
+				add.Level = (byte)UtilCollection.Random(55, 59);
 				add.Strength = 150;
 				add.Quickness = 80;
 				add.MeleeDamageType = EDamageType.Crush;
 				add.MaxSpeedBase = 225;
 				add.PackageID = "EmthoroAdd";
 				add.RespawnInterval = -1;
-				add.X = Body.SpawnPoint.X + Util.Random(-100, 100);
-				add.Y = Body.SpawnPoint.Y + Util.Random(-100, 100);
+				add.X = Body.SpawnPoint.X + UtilCollection.Random(-100, 100);
+				add.Y = Body.SpawnPoint.Y + UtilCollection.Random(-100, 100);
 				add.Z = Body.SpawnPoint.Z;
 				add.CurrentRegion = Body.CurrentRegion;
 				add.Heading = Body.Heading;

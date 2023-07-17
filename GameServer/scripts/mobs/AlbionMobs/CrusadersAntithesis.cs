@@ -29,7 +29,7 @@ namespace DOL.GS
 		}
 		public override void OnAttackEnemy(AttackData ad) //on enemy actions
 		{
-			if (Util.Chance(35) && ad != null)
+			if (UtilCollection.Chance(35) && ad != null)
 			{
 				CastSpell(CrusaderDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			}
@@ -49,7 +49,7 @@ namespace DOL.GS
 					spell.RecastDelay = 3;
 					spell.ClientEffect = 0;
 					spell.Icon = 0;
-					spell.Damage = Util.Random(350,450);
+					spell.Damage = UtilCollection.Random(350,450);
 					spell.DamageType = (int)EDamageType.Slash;
 					spell.Name = "Melee Swing";
 					spell.Range = 400;
@@ -78,7 +78,7 @@ namespace DOL.AI.Brain
 
 		public override void Think()
 		{
-			if (Util.Chance(20))
+			if (UtilCollection.Chance(20))
 			{
 				SetFlags();
 			}
@@ -88,7 +88,7 @@ namespace DOL.AI.Brain
         {
 			if (HasAggro)
 			{
-				switch (Util.Random(8))
+				switch (UtilCollection.Random(8))
 				{
 					case 0:
 						if (Body.Model != 667)

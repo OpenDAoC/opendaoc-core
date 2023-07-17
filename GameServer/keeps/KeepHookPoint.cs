@@ -107,7 +107,7 @@ namespace DOL.GS.Keeps
 		}
 	}
 
-	public class HookpointTimer : RegionECSAction
+	public class HookpointTimer : RegionAction
 	{
 		private GameKeepHookPoint m_hookpoint;
 

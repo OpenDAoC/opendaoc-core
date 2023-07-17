@@ -124,8 +124,8 @@ namespace DOL.GS
 			for (int i = 0; i < 4; i++)
 			{
 				FallenExecutioner npc = new FallenExecutioner();
-				npc.X = spawn.X + Util.Random(-150, 150);
-				npc.Y = spawn.Y + Util.Random(-150, 150);
+				npc.X = spawn.X + UtilCollection.Random(-150, 150);
+				npc.Y = spawn.Y + UtilCollection.Random(-150, 150);
 				npc.Z = spawn.Z;
 				npc.Heading = Heading;
 				npc.CurrentRegion = CurrentRegion;
@@ -170,7 +170,7 @@ namespace DOL.AI.Brain
 				GameLiving target = Body.TargetObject as GameLiving;
 				if (!Message1)
                 {
-					switch(Util.Random(1,2))
+					switch(UtilCollection.Random(1,2))
                     {
 						case 1: BroadcastMessage("Sister Blythe shouts in a language you cannot understand!"); break;
 						case 2: BroadcastMessage(String.Format("{0} says, \"Come my pets! Let us show these fools what comes of failure!\"", Body.Name)); break;
@@ -191,7 +191,7 @@ namespace DOL.AI.Brain
                 {
 					if (!Message2)
 					{
-						new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SisterSummonEffect), Util.Random(6000,10000));
+						new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SisterSummonEffect), UtilCollection.Random(6000,10000));
 						Message2 = true;
 					}
 				}
@@ -229,8 +229,8 @@ namespace DOL.AI.Brain
 				if (FallenExecutionerCount < 4)
 				{
 					FallenExecutioner npc = new FallenExecutioner();
-					npc.X = spawn.X + Util.Random(-150, 150);
-					npc.Y = spawn.Y + Util.Random(-150, 150);
+					npc.X = spawn.X + UtilCollection.Random(-150, 150);
+					npc.Y = spawn.Y + UtilCollection.Random(-150, 150);
 					npc.Z = spawn.Z;
 					npc.Heading = Body.Heading;
 					npc.CurrentRegion = Body.CurrentRegion;

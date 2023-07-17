@@ -468,7 +468,7 @@ namespace DOL.GS.Quests.Hibernia
                 MobEffect.GuildName = "";
                 MobEffect.Realm = ERealm.Hibernia;
                 MobEffect.Race = 2007;
-                MobEffect.BodyType = (ushort) NpcTemplateMgr.eBodyType.Magical;
+                MobEffect.BodyType = (ushort) NpcTemplateMgr.EBodyType.Magical;
                 MobEffect.Size = 100;
                 MobEffect.Level = 65;
                 MobEffect.Flags ^= GameNPC.eFlags.CANTTARGET;
@@ -773,7 +773,7 @@ namespace DOL.GS.Quests.Hibernia
         public override void FinishQuest()
         {
             m_questPlayer.GainExperience(EXpSource.Quest, 20, false);
-            m_questPlayer.AddMoney(Money.GetMoney(0, 0, 1, 32, Util.Random(50)), "You receive {0} as a reward.");
+            m_questPlayer.AddMoney(Money.GetMoney(0, 0, 1, 32, UtilCollection.Random(50)), "You receive {0} as a reward.");
 
             base.FinishQuest(); //Defined in Quest, changes the state, stores in DB etc ...
         }

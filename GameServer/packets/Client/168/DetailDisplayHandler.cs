@@ -253,7 +253,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 										return sSpell.Level == spellId;
 									case Style sStyle:
 										return sStyle.SpecLevelRequirement == spellId;
-									case Ability sAbility:
+									case AbilityUtil sAbility:
 										return sAbility.SpecLevelRequirement == spellId;
 								}
 								return false;
@@ -274,7 +274,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 							caption = sk.Name;
 							WriteStyleInfo(objectInfo, style, client);
 						}
-						else if (sk is Ability ability)
+						else if (sk is AbilityUtil ability)
 						{
 							caption = sk.Name;
 							if (ability.DelveInfo.Count > 0)
@@ -661,10 +661,10 @@ namespace DOL.GS.PacketHandler.Client.v168
 					#region Ability
 				case 8://abilities
 					{
-						Ability abil = null;
+						AbilityUtil abil = null;
 						// are we in list ?
 						if (indexAtSpecOid < snapSkills.Count)
-							abil = (Ability)snapSkills[indexAtSpecOid].Item1;
+							abil = (AbilityUtil)snapSkills[indexAtSpecOid].Item1;
 						if (abil == null)
 							return;
 						
@@ -689,7 +689,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 							objectInfo.Add(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.HandlePacket.LevName"));
 							foreach (Skill sk in client.TrainerSkillCache[objectId].Item2.Select(e => e.Item3))
 							{
-								if (sk is Ability ability)
+								if (sk is AbilityUtil ability)
 									objectInfo.Add($"{ability.SpecLevelRequirement}: {sk.Name}");
 								else if (sk is Style style)
 									objectInfo.Add($"{style.SpecLevelRequirement}: {sk.Name}");
@@ -750,14 +750,14 @@ namespace DOL.GS.PacketHandler.Client.v168
 							client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.HandlePacket.DontBelongGuild"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
 							return;
 						}
-						if (!client.Player.Guild.HasRank(client.Player, Guild.eRank.GcSpeak))
+						if (!client.Player.Guild.HasRank(client.Player, GuildUtil.EGuildRank.GcSpeak))
 						{
 							client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.HandlePacket.NoPermissionToSpeak"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
 							return;
 						}
 						foreach (GamePlayer ply in client.Player.Guild.GetListOfOnlineMembers())
 						{
-							if (!client.Player.Guild.HasRank(ply, Guild.eRank.GcHear))
+							if (!client.Player.Guild.HasRank(ply, GuildUtil.EGuildRank.GcHear))
 								continue;
 							ply.Out.SendMessage(str, eChatType.CT_Guild, eChatLoc.CL_ChatWindow);
 						}
@@ -827,9 +827,9 @@ namespace DOL.GS.PacketHandler.Client.v168
 							caption = spell.Name;
 							WriteSpellInfo(objectInfo, spell, SkillBase.GetSpellLine(GlobalSpellsLines.Reserved_Spells), client);
 						}
-						else if (sk is Ability)
+						else if (sk is AbilityUtil)
 						{
-							Ability abil = (Ability)sk;
+							AbilityUtil abil = (AbilityUtil)sk;
 							caption = abil.Name;
 						
 							if (abil.DelveInfo.Count > 0)
@@ -1012,7 +1012,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 			}
 			else
 			{
-				Util.AddRange(output, spellHandler.DelveInfo);
+				UtilCollection.AddRange(output, spellHandler.DelveInfo);
 				//Subspells
 				if (spell.SubSpellID > 0)
 				{
@@ -1020,7 +1020,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 					output.Add(" ");
 
 					ISpellHandler sh = ScriptMgr.CreateSpellHandler(client.Player, s, SkillBase.GetSpellLine(GlobalSpellsLines.Reserved_Spells));
-					Util.AddRange(output, sh.DelveInfo);
+					UtilCollection.AddRange(output, sh.DelveInfo);
 				}
 			}
 			if (client.Account.PrivLevel > 1)
@@ -1249,12 +1249,12 @@ namespace DOL.GS.PacketHandler.Client.v168
 		}
 		public void WriteUsableClasses(IList<string> output, DbItemTemplates item, GameClient client)
 		{
-			if (Util.IsEmpty(item.AllowedClasses, true))
+			if (UtilCollection.IsEmpty(item.AllowedClasses, true))
 				return;
 
 			output.Add(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.WriteUsableClasses.UsableBy"));
 
-			foreach (string allowed in Util.SplitCSV(item.AllowedClasses, true))
+			foreach (string allowed in UtilCollection.SplitCSV(item.AllowedClasses, true))
 			{
 				int classID = -1;
 				if (int.TryParse(allowed, out classID))
@@ -1454,7 +1454,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 							ISpellHandler spellHandler = ScriptMgr.CreateSpellHandler(client.Player, procSpell, line);
 							if (spellHandler != null)
 							{
-								Util.AddRange(output, spellHandler.DelveInfo);
+								UtilCollection.AddRange(output, spellHandler.DelveInfo);
 								output.Add(" ");
 							}
 							else
@@ -1501,7 +1501,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 							ISpellHandler spellHandler = ScriptMgr.CreateSpellHandler(client.Player, procSpell, line);
 							if (spellHandler != null)
 							{
-								Util.AddRange(output, spellHandler.DelveInfo);
+								UtilCollection.AddRange(output, spellHandler.DelveInfo);
 								output.Add(" ");
 							}
 							else
@@ -1545,7 +1545,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 									output.Add(" ");
 								}
 
-								Util.AddRange(output, spellHandler.DelveInfo);
+								UtilCollection.AddRange(output, spellHandler.DelveInfo);
 								output.Add(" ");
 								output.Add("- This spell is cast when the item is used.");
 							}
@@ -1584,7 +1584,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 									output.Add(" ");
 								}
 
-								Util.AddRange(output, spellHandler.DelveInfo);
+								UtilCollection.AddRange(output, spellHandler.DelveInfo);
 								output.Add(" ");
 								output.Add("- This spell is cast when the item is used.");
 							}
@@ -1627,7 +1627,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 									ISpellHandler spellHandler = ScriptMgr.CreateSpellHandler(client.Player, spl, poisonLine);
 									if (spellHandler != null)
 									{
-										Util.AddRange(output, spellHandler.DelveInfo);
+										UtilCollection.AddRange(output, spellHandler.DelveInfo);
 										output.Add(" ");
 									}
 									else
@@ -1668,7 +1668,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 								ISpellHandler spellHandler = ScriptMgr.CreateSpellHandler(client.Player, spl, chargeEffectsLine);
 								if (spellHandler != null)
 								{
-									Util.AddRange(output, spellHandler.DelveInfo);
+									UtilCollection.AddRange(output, spellHandler.DelveInfo);
 									output.Add(" ");
 								}
 								else
@@ -1678,14 +1678,14 @@ namespace DOL.GS.PacketHandler.Client.v168
 								output.Add(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.WriteMagicalBonuses.UsedItem"));
 								output.Add(" ");
 								if (spl.RecastDelay > 0)
-									output.Add(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.WriteMagicalBonuses.UseItem1", Util.FormatTime(spl.RecastDelay / 1000)));
+									output.Add(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.WriteMagicalBonuses.UseItem1", UtilCollection.FormatTime(spl.RecastDelay / 1000)));
 								else
 									output.Add(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.WriteMagicalBonuses.UseItem2"));
 								long lastChargedItemUseTick = client.Player.TempProperties.getProperty<long>(GamePlayer.LAST_CHARGED_ITEM_USE_TICK);
 								long changeTime = client.Player.CurrentRegion.Time - lastChargedItemUseTick;
 								long recastDelay = (spl.RecastDelay > 0) ? spl.RecastDelay : 60000 * 3;
 								if (changeTime < recastDelay) //3 minutes reuse timer
-									output.Add(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.WriteMagicalBonuses.UseItem3", Util.FormatTime((recastDelay - changeTime) / 1000)));
+									output.Add(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.WriteMagicalBonuses.UseItem3", UtilCollection.FormatTime((recastDelay - changeTime) / 1000)));
 								return;
 							}
 						}
@@ -1834,7 +1834,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 							ISpellHandler spellHandler = ScriptMgr.CreateSpellHandler(client.Player, spl, poisonLine);
 							if (spellHandler != null)
 							{
-								Util.AddRange(list, spellHandler.DelveInfo);
+								UtilCollection.AddRange(list, spellHandler.DelveInfo);
 							}
 							else
 							{
@@ -1882,7 +1882,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 							// into Future, set with value of "itemtemplate.CanUseEvery" and no longer back into past
 							if (nextPotionAvailTime > client.Player.CurrentRegion.Time)
 							{
-								list.Add(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.WritePotionInfo.UseItem3", Util.FormatTime((nextPotionAvailTime - client.Player.CurrentRegion.Time) / 1000)));
+								list.Add(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.WritePotionInfo.UseItem3", UtilCollection.FormatTime((nextPotionAvailTime - client.Player.CurrentRegion.Time) / 1000)));
 							}
 							else
 							{
@@ -1963,7 +1963,7 @@ namespace DOL.GS.PacketHandler.Client.v168
         public static string DelveAbility(GameClient clt, int id)
         { /* or skill */
 
-        	Skill sk = clt.Player.GetAllUsableSkills().Where(e => e.Item1.InternalID == id).OrderBy(e => e.Item1 is Ability ? 0 : 1).Select(e => e.Item1).FirstOrDefault();
+        	Skill sk = clt.Player.GetAllUsableSkills().Where(e => e.Item1.InternalID == id).OrderBy(e => e.Item1 is AbilityUtil ? 0 : 1).Select(e => e.Item1).FirstOrDefault();
         	
         	if(sk == null)
         		sk = SkillBase.GetAbilityByInternalID(id);
@@ -1971,7 +1971,7 @@ namespace DOL.GS.PacketHandler.Client.v168
         	if(sk == null)
         		sk = SkillBase.GetSpecializationByInternalID(id);
         	
-        	MiniDelveWriter dw = new MiniDelveWriter(sk is Ability ? "Ability" : "Skill");
+        	MiniDelveWriter dw = new MiniDelveWriter(sk is AbilityUtil ? "Ability" : "Skill");
 
         	dw.AddKeyValuePair("Index", unchecked((short)id));
 
@@ -2221,7 +2221,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		/// <returns></returns>
         public static string DelveRealmAbility(GameClient clt, int id)
         {
-			Skill ra = clt.Player.GetAllUsableSkills().Where(e => e.Item1.InternalID == id && e.Item1 is Ability).Select(e => e.Item1).FirstOrDefault();
+			Skill ra = clt.Player.GetAllUsableSkills().Where(e => e.Item1.InternalID == id && e.Item1 is AbilityUtil).Select(e => e.Item1).FirstOrDefault();
 			
 			if (ra == null)
 			{

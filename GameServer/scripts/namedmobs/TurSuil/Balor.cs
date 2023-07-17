@@ -254,7 +254,7 @@ namespace DOL.AI.Brain
 			}
 			if (Enemys_To_DD.Count > 0)
 			{
-				GamePlayer Target = Enemys_To_DD[Util.Random(0, Enemys_To_DD.Count - 1)];//pick random target from list
+				GamePlayer Target = Enemys_To_DD[UtilCollection.Random(0, Enemys_To_DD.Count - 1)];//pick random target from list
 				RandomTarget = Target;//set random target to static RandomTarget
 				new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(StartCast), 3000);
 			}
@@ -332,7 +332,7 @@ namespace DOL.GS
 			BalorEyeBrain.Cancast = false;
 			++EyeCount;
 			Size = 20;
-			Level = (byte)Util.Random(65, 70);
+			Level = (byte)UtilCollection.Random(65, 70);
 			Faction = FactionMgr.GetFactionByID(93);
 			Faction.AddFriendFaction(FactionMgr.GetFactionByID(93));//minions of balor
 			BalorEyeBrain eye = new BalorEyeBrain();

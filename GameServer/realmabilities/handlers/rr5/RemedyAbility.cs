@@ -17,7 +17,7 @@ namespace DOL.GS.SkillHandler
 		/// Action
 		/// </summary>
 		/// <param name="living"></param>
-        public void Execute(Ability ab, GamePlayer player)
+        public void Execute(AbilityUtil ab, GamePlayer player)
 		{
             if (!player.IsAlive || player.IsSitting || player.IsMezzed || player.IsStunned)
                 return;

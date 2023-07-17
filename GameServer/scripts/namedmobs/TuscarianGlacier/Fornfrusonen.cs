@@ -224,11 +224,11 @@ namespace DOL.AI.Brain
         public static bool FornInCombat = false;
         public void SpawnShards()
         {
-            for (int i = 0; i < Util.Random(2, 3); i++)
+            for (int i = 0; i < UtilCollection.Random(2, 3); i++)
             {
                 FornfrusenenShard Add = new FornfrusenenShard();
-                Add.X = Body.X + Util.Random(-100, 100);
-                Add.Y = Body.Y + Util.Random(-100, 100);
+                Add.X = Body.X + UtilCollection.Random(-100, 100);
+                Add.Y = Body.Y + UtilCollection.Random(-100, 100);
                 Add.Z = Body.Z;
                 Add.CurrentRegion = Body.CurrentRegion;
                 Add.Heading = Body.Heading;
@@ -336,7 +336,7 @@ namespace DOL.GS
             Level = 75;
             Model = 920;
             Realm = 0;
-            Size = (byte) Util.Random(30, 40);
+            Size = (byte) UtilCollection.Random(30, 40);
             MeleeDamageType = EDamageType.Cold;
 
             RespawnInterval = -1;
@@ -349,7 +349,7 @@ namespace DOL.GS
         }
         public override void OnAttackEnemy(AttackData ad) //on enemy actions
         {
-            if (Util.Chance(20))
+            if (UtilCollection.Chance(20))
             {
                 if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
                     CastSpell(FornShardDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));

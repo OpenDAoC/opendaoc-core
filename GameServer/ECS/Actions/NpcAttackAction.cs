@@ -97,7 +97,7 @@ namespace DOL.GS
                 if (_nextVicinityCheck < GameLoop.GameLoopTime)
                 {
                     // Set the next check for NPCs. Will be in a range from 100ms -> NPC_VICINITY_CHECK_DELAY.
-                    _nextVicinityCheck = GameLoop.GameLoopTime + Util.Random(100, NPC_VICINITY_CHECK_INTERVAL);
+                    _nextVicinityCheck = GameLoop.GameLoopTime + UtilCollection.Random(100, NPC_VICINITY_CHECK_INTERVAL);
 
                     foreach (GameNPC npcInRadius in _npcOwner.GetNPCsInRadius((ushort)_attackComponent.AttackRange))
                     {

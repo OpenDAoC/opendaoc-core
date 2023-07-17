@@ -20,7 +20,7 @@ using DOL.GS.PacketHandler;
 using DOL.Database.UniqueID;
 
 namespace DOL.GS {
-    [NPCGuildScript("Effect Master")]
+    [NpcGuild("Effect Master")]
     public class EffectNPC : GameNPC {
         private string EFFECTNPC_ITEM_WEAK = "DOL.GS.Scripts.EffectNPC_Item_Manipulation";//used to store the item in the player
         private ushort spell = 7215;//The spell which is casted
@@ -1174,12 +1174,12 @@ namespace DOL.GS {
             tempAd.Target = display;
             if (item.Hand == 1)
             {
-                tempAd.AttackType = AttackData.eAttackType.MeleeTwoHand;
+                tempAd.AttackType = AttackData.EAttackType.MeleeTwoHand;
                 display.SwitchWeapon(EActiveWeaponSlot.TwoHanded);
             }
             else
             {
-                tempAd.AttackType = AttackData.eAttackType.MeleeOneHand;
+                tempAd.AttackType = AttackData.EAttackType.MeleeOneHand;
                 display.SwitchWeapon(EActiveWeaponSlot.Standard);
             }
 

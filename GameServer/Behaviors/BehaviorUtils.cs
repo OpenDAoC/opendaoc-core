@@ -101,9 +101,9 @@ namespace DOL.GS.Behaviour
             {
                 result = (IPoint3D)obj;
             }
-            else if (destinationType == typeof(PathPoint))
+            else if (destinationType == typeof(PathPointUtil))
             {
-                result = (PathPoint)obj;
+                result = (PathPointUtil)obj;
             }                  
             else
             {

@@ -676,7 +676,7 @@ namespace DOL.GS.PacketHandler
 	            LanguageDataObject translation = LanguageMgr.GetTranslation(m_gameClient, siegeWeapon);
 	            if (translation != null)
 	            {
-	                if (!Util.IsEmpty(((DbLanguageNpcs)translation).Name))
+	                if (!UtilCollection.IsEmpty(((DbLanguageNpcs)translation).Name))
 	                    name = ((DbLanguageNpcs)translation).Name;
 	            }
 

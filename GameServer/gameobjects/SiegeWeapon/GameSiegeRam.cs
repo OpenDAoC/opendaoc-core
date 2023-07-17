@@ -153,7 +153,7 @@ namespace DOL.GS
 			AttackData ad = new AttackData();
 			ad.Attacker = this;
 			ad.Target = target;
-			ad.AttackType = AttackData.eAttackType.Ranged;
+			ad.AttackType = AttackData.EAttackType.Ranged;
 			ad.AttackResult = EAttackResult.HitUnstyled;
 			ad.Damage = damageAmount;
 			ad.DamageType = MeleeDamageType;

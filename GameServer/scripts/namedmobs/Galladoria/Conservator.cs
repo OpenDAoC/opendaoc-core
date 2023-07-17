@@ -271,7 +271,7 @@ namespace DOL.AI.Brain
                     if (spamaoe == false)
                     {
                         Body.TurnTo(Body.TargetObject);
-                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(AoeTimer), Util.Random(15000, 20000));//15s to avoid being it too often called
+                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(AoeTimer), UtilCollection.Random(15000, 20000));//15s to avoid being it too often called
                         spamaoe = true;
                     }
                 }

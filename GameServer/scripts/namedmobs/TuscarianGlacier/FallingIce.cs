@@ -50,7 +50,7 @@ namespace DOL.GS
             Size = 100;
             Level = 70;
             MaxSpeedBase = 0;
-            RespawnInterval = Util.Random(30000, 50000);
+            RespawnInterval = UtilCollection.Random(30000, 50000);
 
             Faction = FactionMgr.GetFactionByID(140);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(140));

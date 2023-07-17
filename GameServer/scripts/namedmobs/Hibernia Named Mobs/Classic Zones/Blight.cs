@@ -144,8 +144,8 @@ namespace DOL.GS
 					if (npc.Brain is BlightControllerBrain)
                     {
 						FireBlight boss = new FireBlight();
-						boss.X = npc.X + Util.Random(-500, 500);
-						boss.Y = npc.Y + Util.Random(-500, 500);
+						boss.X = npc.X + UtilCollection.Random(-500, 500);
+						boss.Y = npc.Y + UtilCollection.Random(-500, 500);
 						boss.Z = npc.Z;
 						boss.Heading = npc.Heading;
 						boss.CurrentRegion = npc.CurrentRegion;
@@ -157,7 +157,7 @@ namespace DOL.GS
 		}
 		public override void OnAttackEnemy(AttackData ad) //on enemy actions
 		{
-			if (Util.Chance(25))
+			if (UtilCollection.Chance(25))
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 					CastSpell(BlightDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
@@ -284,7 +284,7 @@ namespace DOL.GS
 		{
 			Model = 26;
 			Name = "Fire Blight";
-			Level = (byte)Util.Random(38, 44);
+			Level = (byte)UtilCollection.Random(38, 44);
 			Size = 50;
 			RespawnInterval = -1;
 			RoamingRange = 200;
@@ -395,7 +395,7 @@ namespace DOL.GS
 		{
 			Model = 26;
 			Name = "Late Blight";
-			Level = (byte)Util.Random(50, 55);
+			Level = (byte)UtilCollection.Random(50, 55);
 			Size = 70;
 			RespawnInterval = -1;
 			RoamingRange = 200;
@@ -506,7 +506,7 @@ namespace DOL.GS
 		{
 			Model = 26;
 			Name = "Flesh Blight";
-			Level = (byte)Util.Random(60, 63);
+			Level = (byte)UtilCollection.Random(60, 63);
 			Size = 100;
 			RespawnInterval = -1;
 			RoamingRange = 200;
@@ -618,8 +618,8 @@ namespace DOL.GS
 			for (int i = 0; i < 8; i++)
 			{
 				FireBlight boss = new FireBlight();
-				boss.X = X + Util.Random(-500, 500);
-				boss.Y = Y + Util.Random(-500, 500);
+				boss.X = X + UtilCollection.Random(-500, 500);
+				boss.Y = Y + UtilCollection.Random(-500, 500);
 				boss.Z = Z;
 				boss.Heading = Heading;
 				boss.CurrentRegion = CurrentRegion;
@@ -672,8 +672,8 @@ namespace DOL.AI.Brain
 				for (int i = 0; i < 4; i++)
 				{
 					LateBlight boss = new LateBlight();
-					boss.X = Body.X + Util.Random(-500, 500);
-					boss.Y = Body.Y + Util.Random(-500, 500);
+					boss.X = Body.X + UtilCollection.Random(-500, 500);
+					boss.Y = Body.Y + UtilCollection.Random(-500, 500);
 					boss.Z = Body.Z;
 					boss.Heading = Body.Heading;
 					boss.CurrentRegion = Body.CurrentRegion;
@@ -694,8 +694,8 @@ namespace DOL.AI.Brain
 				for (int i = 0; i < 2; i++)
 				{
 					FleshBlight boss = new FleshBlight();
-					boss.X = Body.X + Util.Random(-500, 500);
-					boss.Y = Body.Y + Util.Random(-500, 500);
+					boss.X = Body.X + UtilCollection.Random(-500, 500);
+					boss.Y = Body.Y + UtilCollection.Random(-500, 500);
 					boss.Z = Body.Z;
 					boss.Heading = Body.Heading;
 					boss.CurrentRegion = Body.CurrentRegion;
@@ -714,8 +714,8 @@ namespace DOL.AI.Brain
 			if (FleshBlight.FleshBlightCount == 2 && LateBlight.LateBlightCount == 4 && FireBlight.FireBlightCount == 8 && !CreateBlight)
 			{
 				Blight boss = new Blight();
-				boss.X = Body.X + Util.Random(-500, 500);
-				boss.Y = Body.Y + Util.Random(-500, 500);
+				boss.X = Body.X + UtilCollection.Random(-500, 500);
+				boss.Y = Body.Y + UtilCollection.Random(-500, 500);
 				boss.Z = Body.Z;
 				boss.Heading = Body.Heading;
 				boss.CurrentRegion = Body.CurrentRegion;

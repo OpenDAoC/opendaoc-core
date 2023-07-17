@@ -4,7 +4,7 @@ using DOL.GS.PacketHandler;
 
 namespace DOL.GS
 {
-	[NPCGuildScript("Guild Emblemeer")]
+	[NpcGuild("Guild Emblemeer")]
 	public class EmblemNPC : GameNPC
 	{
 		public const long EMBLEM_COST = 50000;
@@ -77,7 +77,7 @@ namespace DOL.GS
 
 				}
 
-				if (!t.Guild.HasRank(t, Guild.eRank.Emblem))
+				if (!t.Guild.HasRank(t, GuildUtil.EGuildRank.Emblem))
 				{
 					t.Out.SendMessage("You do not have enough privileges for that.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
 					return false;

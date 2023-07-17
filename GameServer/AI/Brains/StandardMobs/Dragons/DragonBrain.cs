@@ -325,7 +325,7 @@ namespace DOL.AI.Brain
 
 			if (inRangeLiving.Count > 0)
 			{
-				return dragon.CheckGlare((GameLiving)(inRangeLiving[Util.Random(1, inRangeLiving.Count) - 1]));
+				return dragon.CheckGlare((GameLiving)(inRangeLiving[UtilCollection.Random(1, inRangeLiving.Count) - 1]));
 			}
 
 			return false;
@@ -363,7 +363,7 @@ namespace DOL.AI.Brain
 
 			if (inRangeLiving.Count > 0)
 			{
-				return dragon.CheckThrow((GameLiving)(inRangeLiving[Util.Random(1, inRangeLiving.Count) - 1]));
+				return dragon.CheckThrow((GameLiving)(inRangeLiving[UtilCollection.Random(1, inRangeLiving.Count) - 1]));
 			}
 
 			return false;

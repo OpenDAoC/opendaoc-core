@@ -101,7 +101,7 @@ namespace DOL.GS.PropertyCalc
 				regen *= ServerProperties.Properties.ENDURANCE_REGEN_RATE;
 
 			double decimals = regen - (int)regen;
-			if (Util.ChanceDouble(decimals))
+			if (UtilCollection.ChanceDouble(decimals))
 			{
 				regen += 1;	// compensate int rounding error
 			}

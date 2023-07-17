@@ -44,11 +44,11 @@ namespace DOL.GS
 
                     if (!string.IsNullOrEmpty(SpellHandler.Spell.Message1))
                         // Message: "{0}The slough serpent} is now enthralled!"
-                        Message.SystemToArea(charmMob, Util.MakeSentence(SpellHandler.Spell.Message1, charmMob.GetName(0, true)), eChatType.CT_System, charmMob, casterPlayer);
+                        Message.SystemToArea(charmMob, UtilCollection.MakeSentence(SpellHandler.Spell.Message1, charmMob.GetName(0, true)), eChatType.CT_System, charmMob, casterPlayer);
 
                     if (!string.IsNullOrEmpty(SpellHandler.Spell.Message2))
                         // Message: {0} is now under your control.
-                        ((CharmSpellHandler)SpellHandler).MessageToCaster(Util.MakeSentence(SpellHandler.Spell.Message2, charmMob.GetName(0, true)), eChatType.CT_Spell);
+                        ((CharmSpellHandler)SpellHandler).MessageToCaster(UtilCollection.MakeSentence(SpellHandler.Spell.Message2, charmMob.GetName(0, true)), eChatType.CT_Spell);
                     else
                         // Message: {0} is now under your control.
                         ((CharmSpellHandler)SpellHandler).MessageToCaster(LanguageMgr.GetTranslation(casterPlayer.Client, "GamePlayer.GamePet.StartSpell.UnderControl", charmMob.GetName(0, true)), eChatType.CT_Spell);

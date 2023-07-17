@@ -111,7 +111,7 @@ namespace DOL.GS
 			foreach (GamePlayer player in GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE))
 			{
 				player.KillsDragon++;
-				player.Achieve(AchievementUtils.AchievementNames.Dragon_Kills);
+				player.Achieve(AchievementUtil.AchievementNames.Dragon_Kills);
 				count++;
 			}
 			return count;
@@ -466,7 +466,7 @@ namespace DOL.AI.Brain
 			{
 				if (!CanGlare2 && !Body.IsCasting)
 				{
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PrepareGlareRoam), Util.Random(5000, 8000));//Glare at target every 5-10s
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PrepareGlareRoam), UtilCollection.Random(5000, 8000));//Glare at target every 5-10s
 					CanGlare2 = true;
 				}
 			}
@@ -477,25 +477,25 @@ namespace DOL.AI.Brain
 				DragonBreath();//Method that handle dragon kabooom breaths
 				if (CanThrow == false && !IsRestless)
 				{
-					ECSGameTimer throwPlayer = new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ThrowPlayer), Util.Random(60000, 80000));//Teleport 2-5 Players every 60-80s
+					ECSGameTimer throwPlayer = new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ThrowPlayer), UtilCollection.Random(60000, 80000));//Teleport 2-5 Players every 60-80s
 					Body.TempProperties.setProperty("golestandt_throw", throwPlayer);
 					CanThrow = true;
 				}
 				if (CanGlare == false && !Body.IsCasting && !IsRestless)
 				{
-					ECSGameTimer prepareGlare = new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PrepareGlare), Util.Random(40000, 60000));//Glare at target every 40-60s
+					ECSGameTimer prepareGlare = new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PrepareGlare), UtilCollection.Random(40000, 60000));//Glare at target every 40-60s
 					Body.TempProperties.setProperty("golestandt_glare", prepareGlare);
 					CanGlare = true;
 				}
 				if (CanStun == false && !Body.IsCasting && !IsRestless)
 				{
-					ECSGameTimer prepareStun = new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PrepareStun), Util.Random(120000, 180000));//prepare Stun every 120s-180s
+					ECSGameTimer prepareStun = new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PrepareStun), UtilCollection.Random(120000, 180000));//prepare Stun every 120s-180s
 					Body.TempProperties.setProperty("golestandt_stun", prepareStun);
 					CanStun = true;
 				}
 				if (Body.HealthPercent <= 50 && CanSpawnMessengers == false && !IsRestless)
 				{
-					ECSGameTimer spawnMessengers = new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnMssengers), Util.Random(80000, 90000));//spawn messengers at 50% hp every 80/90s
+					ECSGameTimer spawnMessengers = new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnMssengers), UtilCollection.Random(80000, 90000));//spawn messengers at 50% hp every 80/90s
 					Body.TempProperties.setProperty("golestandt_messengers", spawnMessengers);
 					CanSpawnMessengers = true;
 				}
@@ -555,7 +555,7 @@ namespace DOL.AI.Brain
 				}
 				if (Port_Enemys.Count > 0)
 				{
-					randomlyPickedPlayers = GetRandomElements(Port_Enemys, Util.Random(2, 5));//pick 2-5players from list to new list
+					randomlyPickedPlayers = GetRandomElements(Port_Enemys, UtilCollection.Random(2, 5));//pick 2-5players from list to new list
 
 					if (randomlyPickedPlayers.Count > 0)
 					{
@@ -564,7 +564,7 @@ namespace DOL.AI.Brain
 							if (player != null && player.IsAlive && player.Client.Account.PrivLevel == 1 && HasAggro && player.IsWithinRadius(Body, 2000))
 							{
 								player.Out.SendMessage(Body.Name + " begins flapping his wings violently. You struggle to hold your footing on the ground!", eChatType.CT_Broadcast, eChatLoc.CL_ChatWindow);
-								switch (Util.Random(1, 5))
+								switch (UtilCollection.Random(1, 5))
 								{
 									case 1: player.MoveTo(Body.CurrentRegionID, 391348, 755751, 1815, 2069); break;//lair spawn point
 									case 2: player.MoveTo(Body.CurrentRegionID, 398605, 754458, 1404, 1042); break;
@@ -612,7 +612,7 @@ namespace DOL.AI.Brain
 				}
 				if (Glare_Enemys.Count > 0)
 				{
-					GamePlayer Target = Glare_Enemys[Util.Random(0, Glare_Enemys.Count - 1)];
+					GamePlayer Target = Glare_Enemys[UtilCollection.Random(0, Glare_Enemys.Count - 1)];
 					RandomTarget = Target;
 					if (RandomTarget != null && RandomTarget.IsAlive && RandomTarget.IsWithinRadius(Body, Dragon_DD.Range))
 					{
@@ -634,7 +634,7 @@ namespace DOL.AI.Brain
 				Body.TargetObject = RandomTarget;
 				Body.TurnTo(RandomTarget);
 				Body.CastSpell(Dragon_DD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
-				string glaretext = glare_text[Util.Random(0, glare_text.Count - 1)];
+				string glaretext = glare_text[UtilCollection.Random(0, glare_text.Count - 1)];
 				RandomTarget.Out.SendMessage(String.Format(glaretext, Body.Name, RandomTarget.CharacterClass.Name), eChatType.CT_Say, eChatLoc.CL_ChatWindow);
 			}
 			new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetGlare), 2000);
@@ -682,7 +682,7 @@ namespace DOL.AI.Brain
 				}
 				if (GlareRoam_Enemys.Count > 0)
 				{
-					GamePlayer Target = GlareRoam_Enemys[Util.Random(0, GlareRoam_Enemys.Count - 1)];
+					GamePlayer Target = GlareRoam_Enemys[UtilCollection.Random(0, GlareRoam_Enemys.Count - 1)];
 					RandomTarget2 = Target;
 					if (RandomTarget2 != null && RandomTarget2.IsAlive && RandomTarget2.IsWithinRadius(Body, Dragon_DD2.Range))
 					{
@@ -708,7 +708,7 @@ namespace DOL.AI.Brain
 				Body.TargetObject = RandomTarget2;
 				Body.TurnTo(RandomTarget2);
 				Body.CastSpell(Dragon_DD2, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);//special roaming glare
-				string glaretextroam = glareroam_text[Util.Random(0, glareroam_text.Count - 1)];
+				string glaretextroam = glareroam_text[UtilCollection.Random(0, glareroam_text.Count - 1)];
 				RandomTarget2.Out.SendMessage(String.Format(glaretextroam,Body.Name,RandomTarget2.CharacterClass.Name), eChatType.CT_Say, eChatLoc.CL_ChatWindow);
 			}
 			new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetGlareRoam), 2000);
@@ -769,7 +769,7 @@ namespace DOL.AI.Brain
 
 		private void DragonBreath()
 		{
-			string message = breath_text[Util.Random(0, breath_text.Count - 1)];
+			string message = breath_text[UtilCollection.Random(0, breath_text.Count - 1)];
 			if (Body.HealthPercent <= 90 && DragonKaboom1 == false && !Body.IsCasting && !IsRestless)
 			{
 				BroadcastMessage(String.Format(message, Body.Name));
@@ -844,11 +844,11 @@ namespace DOL.AI.Brain
 		#region Messengers
 		private int SpawnMssengers(ECSGameTimer timer)
 		{
-			for (int i = 0; i <= Util.Random(3, 5); i++)
+			for (int i = 0; i <= UtilCollection.Random(3, 5); i++)
 			{
 				GolestandtMessenger messenger = new GolestandtMessenger();
-				messenger.X = 391345 + Util.Random(-100, 100);
-				messenger.Y = 755661 + Util.Random(-100, 100);
+				messenger.X = 391345 + UtilCollection.Random(-100, 100);
+				messenger.Y = 755661 + UtilCollection.Random(-100, 100);
 				messenger.Z = 410;
 				messenger.Heading = Body.Heading;
 				messenger.CurrentRegion = Body.CurrentRegion;
@@ -1052,7 +1052,7 @@ namespace DOL.GS
 			Model = 2386;
 			Name = "Golestandt's messenger";
 			Size = 80;
-			Level = (byte)Util.Random(50, 55);
+			Level = (byte)UtilCollection.Random(50, 55);
 			RespawnInterval = -1;
 			Realm = ERealm.None;
 			MaxSpeedBase = 225;
@@ -1097,7 +1097,7 @@ namespace DOL.AI.Brain
 			{
 				if (ChoosePath == false)
 				{
-					switch (Util.Random(1, 4))//choose which path messenger will walk
+					switch (UtilCollection.Random(1, 4))//choose which path messenger will walk
 					{
 						case 1: ChoosePath1 = true; break;
 						case 2: ChoosePath2 = true; break;
@@ -1311,11 +1311,11 @@ namespace DOL.AI.Brain
 		}
 		private protected void SpawnGraniteGiants()
 		{
-			for (int i = 0; i <= Util.Random(3, 5); i++)
+			for (int i = 0; i <= UtilCollection.Random(3, 5); i++)
 			{
 				GolestandtSpawnedAdd add = new GolestandtSpawnedAdd();
-				add.X = Body.X + Util.Random(-200, 200);
-				add.Y = Body.Y + Util.Random(-200, 200);
+				add.X = Body.X + UtilCollection.Random(-200, 200);
+				add.Y = Body.Y + UtilCollection.Random(-200, 200);
 				add.Z = Body.Z;
 				add.Heading = Body.Heading;
 				add.CurrentRegion = Body.CurrentRegion;
@@ -1387,14 +1387,14 @@ namespace DOL.GS
 		public override short Strength { get => base.Strength; set => base.Strength = 120; }
 		public override bool AddToWorld()
 		{
-			Name = adds_names[Util.Random(0, adds_names.Count - 1)];
+			Name = adds_names[UtilCollection.Random(0, adds_names.Count - 1)];
 			switch (Name)
 			{
-				case "granite giant stonelord": Model = 2386; Size = (byte)Util.Random(150, 170); break;
-				case "granite giant pounder": Model = 2386; Size = (byte)Util.Random(130, 150); break;
-				case "granite giant outlooker": Model = 2386; Size = (byte)Util.Random(130, 140); break;
+				case "granite giant stonelord": Model = 2386; Size = (byte)UtilCollection.Random(150, 170); break;
+				case "granite giant pounder": Model = 2386; Size = (byte)UtilCollection.Random(130, 150); break;
+				case "granite giant outlooker": Model = 2386; Size = (byte)UtilCollection.Random(130, 140); break;
 			}
-			Level = (byte)Util.Random(60, 64);
+			Level = (byte)UtilCollection.Random(60, 64);
 			Faction = FactionMgr.GetFactionByID(31);
 			Faction.AddFriendFaction(FactionMgr.GetFactionByID(31));
 			RespawnInterval = -1;

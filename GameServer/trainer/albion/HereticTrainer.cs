@@ -7,7 +7,7 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Heretic Trainer
 	/// </summary>
-	[NPCGuildScript("Heretic Trainer", ERealm.Albion)]		// this attribute instructs DOL to use this script for all "Heretic Trainer" NPC's in Albion (multiple guilds are possible for one script)
+	[NpcGuild("Heretic Trainer", ERealm.Albion)]		// this attribute instructs DOL to use this script for all "Heretic Trainer" NPC's in Albion (multiple guilds are possible for one script)
 	public class HereticTrainer : GameTrainer
 	{
 		public override ECharacterClass TrainedClass

@@ -101,7 +101,7 @@ namespace DOL.AI.Brain
 					spell.AllowAdd = false;
 					spell.CastTime = 3;
 					spell.Power = 0;
-					spell.RecastDelay = Util.Random(5, 7);
+					spell.RecastDelay = UtilCollection.Random(5, 7);
 					spell.ClientEffect = 4111;
 					spell.Icon = 4111;
 					spell.Damage = 80;

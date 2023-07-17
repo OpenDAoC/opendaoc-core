@@ -218,7 +218,7 @@ namespace DOL.AI.Brain
 								Body.Follow(Body.TargetObject, spells.Range - 50, 5000);
 
 							Body.TurnTo(Body.TargetObject);
-							if (Util.Chance(100))
+							if (UtilCollection.Chance(100))
 							{
 								if (Body.GetSkillDisabledDuration(OonaBolt) == 0)
 									Body.CastSpell(OonaBolt, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
@@ -273,7 +273,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 3;
-					spell.RecastDelay = Util.Random(15, 20);
+					spell.RecastDelay = UtilCollection.Random(15, 20);
 					spell.ClientEffect = 4559;
 					spell.Icon = 4559;
 					spell.Damage = 200;
@@ -346,7 +346,7 @@ namespace DOL.GS
 		public OonaUndeadAdd() : base() { }
 		public override bool AddToWorld()
 		{
-			Level = (byte)Util.Random(36,38);
+			Level = (byte)UtilCollection.Random(36,38);
 			Size = 50;
 			MaxSpeedBase = 225;
 			RoamingRange = 200;

@@ -32,7 +32,7 @@ namespace DOL.AI.Brain
 
         public void SetModel()
         {
-            switch (Util.Random(5))
+            switch (UtilCollection.Random(5))
             {
                 case 0:
                     Body.Model = 69; // small goblin whelp
@@ -54,7 +54,7 @@ namespace DOL.AI.Brain
                     break;
             }
 
-            var size = (byte)Util.Random(25, 55);
+            var size = (byte)UtilCollection.Random(25, 55);
             Body.Size = size;
 
         }
@@ -62,7 +62,7 @@ namespace DOL.AI.Brain
         public override void Think()
         {
             base.Think();
-            if (Util.Chance(10))
+            if (UtilCollection.Chance(10))
             {
                 SetModel();
             }

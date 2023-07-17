@@ -128,8 +128,8 @@ namespace DOL.GS
             for (int i = 0; i < 2; i++)
             {
                 HakrAdd Add1 = new HakrAdd();
-                Add1.X = X + Util.Random(-100, 100);
-                Add1.Y = Y + Util.Random(-100, 100);
+                Add1.X = X + UtilCollection.Random(-100, 100);
+                Add1.Y = Y + UtilCollection.Random(-100, 100);
                 Add1.Z = Z;
                 Add1.CurrentRegion = CurrentRegion;
                 Add1.Heading = Heading;
@@ -140,8 +140,8 @@ namespace DOL.GS
             for (int i = 0; i < 2; i++)
             {
                 HakrAdd Add2 = new HakrAdd();
-                Add2.X = 30008 + Util.Random(-100, 100);
-                Add2.Y = 56329 + Util.Random(-100, 100);
+                Add2.X = 30008 + UtilCollection.Random(-100, 100);
+                Add2.Y = 56329 + UtilCollection.Random(-100, 100);
                 Add2.Z = 11894;
                 Add2.CurrentRegion = CurrentRegion;
                 Add2.Heading = Heading;
@@ -222,11 +222,11 @@ namespace DOL.AI.Brain
                     }
                     if (damage_enemies.Count > 0)
                     {
-                        GamePlayer PortTarget = (GamePlayer) damage_enemies[Util.Random(0, damage_enemies.Count - 1)];
+                        GamePlayer PortTarget = (GamePlayer) damage_enemies[UtilCollection.Random(0, damage_enemies.Count - 1)];
                         if (PortTarget.IsVisibleTo(Body) && Body.TargetInView)
                         {
-                            PortTarget.MoveTo(Body.CurrentRegionID, Body.X + Util.Random(-50, 50),
-                            Body.Y + Util.Random(-50, 50), Body.Z + 220, Body.Heading);
+                            PortTarget.MoveTo(Body.CurrentRegionID, Body.X + UtilCollection.Random(-50, 50),
+                            Body.Y + UtilCollection.Random(-50, 50), Body.Z + 220, Body.Heading);
                             BroadcastMessage(String.Format("Icelord Hakr says, '" + PortTarget.Name +" Touchdown! That's a really cool way of putting it!'"));
                             PortTarget = null;
                         }
@@ -274,7 +274,7 @@ namespace DOL.AI.Brain
             {
                 if (spam_teleport == false && Body.TargetObject != null && HakrAdd.IceweaverCount > 0)
                 {
-                    int rand = Util.Random(10000, 20000);
+                    int rand = UtilCollection.Random(10000, 20000);
                     new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PortTimer), rand);
                     spam_teleport = true;
                 }
@@ -407,7 +407,7 @@ namespace DOL.AI.Brain
                         GameLiving target = Body.TargetObject as GameLiving;
                         if (!target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
                         {
-                            if (Util.Chance(25))
+                            if (UtilCollection.Chance(25))
                                 Body.CastSpell(IceweaverPoison, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
                         }
                     }

@@ -1,10 +1,10 @@
 
 using System.Reflection;
 using System.Collections.Generic;
+using Core.GS.Events;
 using log4net;
 using DOL.GS.PacketHandler;
 using DOL.Language;
-using DOL.GS.Appeal;
 
 namespace DOL.GS.Commands
 {
@@ -80,7 +80,7 @@ namespace DOL.GS.Commands
                             if (appeal.Status != "Being Helped")
                             {
                                 AppealMgr.ChangeStatus(client.Player.Name, targetClient.Player, appeal, "Being Helped");
-                                string message = LanguageMgr.GetTranslation(client.Account.Language, "Scripts.Players.Appeal.RandMessage" + Util.Random(4), targetClient.Player.Name);
+                                string message = LanguageMgr.GetTranslation(client.Account.Language, "Scripts.Players.Appeal.RandMessage" + UtilCollection.Random(4), targetClient.Player.Name);
                                 client.Player.TempProperties.setProperty("AppealAssist", targetClient.Player);
                                 client.Player.SendPrivateMessage(targetClient.Player, message);
                                 targetClient.Out.SendPlaySound(eSoundType.Craft, 0x04);

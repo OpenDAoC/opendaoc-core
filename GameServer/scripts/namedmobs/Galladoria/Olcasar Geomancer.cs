@@ -36,7 +36,7 @@ namespace DOL.GS
         {
             if(ad != null)
             {
-                if(Util.Chance(35))
+                if(UtilCollection.Chance(35))
                     CastSpell(OGDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
             }
             base.OnAttackEnemy(ad);
@@ -248,7 +248,7 @@ namespace DOL.AI.Brain
                 RemoveAdds = false;
                 if (StartCastRoot == false)
                 {
-                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickRandomTarget2), Util.Random(25000, 35000));
+                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickRandomTarget2), UtilCollection.Random(25000, 35000));
                     StartCastRoot = true;
                 }
                 if(spawnadds ==false)
@@ -256,7 +256,7 @@ namespace DOL.AI.Brain
                     new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastEffectBubble), 25000);
                     spawnadds = true;
                 }
-                if (Util.Chance(15))
+                if (UtilCollection.Chance(15))
                 {
                     if (LivingHasEffect(Body.TargetObject as GameLiving, OGDS) == false)
                     {
@@ -302,7 +302,7 @@ namespace DOL.AI.Brain
                 {
                     if (CanCast2 == false)
                     {
-                        GamePlayer Target = (GamePlayer)Enemys_To_Root[Util.Random(0, Enemys_To_Root.Count - 1)];//pick random target from list
+                        GamePlayer Target = (GamePlayer)Enemys_To_Root[UtilCollection.Random(0, Enemys_To_Root.Count - 1)];//pick random target from list
                         RandomTarget2 = Target;//set random target to static RandomTarget
                         new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastRoot), 2000);
                         CanCast2 = true;
@@ -347,13 +347,13 @@ namespace DOL.AI.Brain
             if (Body.IsAlive && HasAggro && Body.TargetObject != null)
             {
                 OGAdds Add = new OGAdds();
-                Add.X = Body.X + Util.Random(-50, 80);
-                Add.Y = Body.Y + Util.Random(-50, 80);
+                Add.X = Body.X + UtilCollection.Random(-50, 80);
+                Add.Y = Body.Y + UtilCollection.Random(-50, 80);
                 Add.Z = Body.Z;
                 Add.CurrentRegion = Body.CurrentRegion;
                 Add.Heading = Body.Heading;
                 Add.AddToWorld();             
-                new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetSpawn), Util.Random(45000, 60000));
+                new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetSpawn), UtilCollection.Random(45000, 60000));
             }
             return 0;
         }
@@ -369,7 +369,7 @@ namespace DOL.AI.Brain
             if (Body.IsAlive && HasAggro)
             {
                 Body.CastSpell(OGAoeSnare, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
-                new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetAoeSnare), Util.Random(45000, 60000));
+                new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetAoeSnare), UtilCollection.Random(45000, 60000));
             }
             return 0;
         }
@@ -546,8 +546,8 @@ namespace DOL.GS
         {
             BroadcastMessage(String.Format("As Olcasar minion falls to the ground, he begins to mutter some strange words and his slain minion rises back from the dead."));
             OGAdds Add = new OGAdds();
-            Add.X = killer.X + Util.Random(-50, 80);
-            Add.Y = killer.Y + Util.Random(-50, 80);
+            Add.X = killer.X + UtilCollection.Random(-50, 80);
+            Add.Y = killer.Y + UtilCollection.Random(-50, 80);
             Add.Z = killer.Z;
             Add.CurrentRegion = killer.CurrentRegion;
             Add.Heading = killer.Heading;
@@ -577,8 +577,8 @@ namespace DOL.GS
             RespawnInterval = -1;
             MaxDistance = 0;
             TetherRange = 0;
-            Size = (byte) Util.Random(45, 55);
-            Level = (byte) Util.Random(62, 66);
+            Size = (byte) UtilCollection.Random(45, 55);
+            Level = (byte) UtilCollection.Random(62, 66);
             Faction = FactionMgr.GetFactionByID(96);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(96));
             BodyType = 8;

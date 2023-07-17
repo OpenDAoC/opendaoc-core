@@ -11,7 +11,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		/// <summary>
 		/// Handles group invlite actions
 		/// </summary>
-		protected class HandleGroupInviteAction : RegionECSAction
+		protected class HandleGroupInviteAction : RegionAction
 		{
 			/// <summary>
 			/// constructs a new HandleGroupInviteAction

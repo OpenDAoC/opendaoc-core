@@ -225,10 +225,10 @@ namespace DOL.GS.PacketHandler
 					LanguageDataObject translation = LanguageMgr.GetTranslation(m_gameClient, npc);
 					if (translation != null)
 					{
-						if (!Util.IsEmpty(((DbLanguageNpcs)translation).Name))
+						if (!UtilCollection.IsEmpty(((DbLanguageNpcs)translation).Name))
 							name = ((DbLanguageNpcs)translation).Name;
 
-						if (!Util.IsEmpty(((DbLanguageNpcs)translation).GuildName))
+						if (!UtilCollection.IsEmpty(((DbLanguageNpcs)translation).GuildName))
 							guildName = ((DbLanguageNpcs)translation).GuildName;
 					}
 
@@ -270,12 +270,12 @@ namespace DOL.GS.PacketHandler
 			{
 				GamePlayer playerOwner = petBrain.GetPlayerOwner();
 				GamePlayer player = m_gameClient.Player;
-				Guild playerGuild = player.Guild;
+				GuildUtil playerGuild = player.Guild;
 
 				// Leave if the player we send this packet to isn't the pet's owner and isn't in the same guild or group.
 				if (playerOwner != player)
 				{
-					Guild playerOwnerGuild = playerOwner.Guild;
+					GuildUtil playerOwnerGuild = playerOwner.Guild;
 
 					if (playerOwnerGuild == null || playerGuild == null || playerOwnerGuild != playerGuild)
 					{
@@ -288,8 +288,8 @@ namespace DOL.GS.PacketHandler
 
 				// Make the client believe the pet is in the same guild as them.
 				// Use a dummy guild for guildless players.
-				SendObjectGuildID(pet, playerGuild ?? Guild.DummyGuild);
-				SendObjectGuildID(player, playerGuild ?? Guild.DummyGuild);
+				SendObjectGuildID(pet, playerGuild ?? GuildUtil.DummyGuild);
+				SendObjectGuildID(player, playerGuild ?? GuildUtil.DummyGuild);
 			}
 
 			void SendNpcFakeFriendlyGuildID(GameNPC npc)
@@ -297,12 +297,12 @@ namespace DOL.GS.PacketHandler
 				if (npc.Flags.HasFlag(GameNPC.eFlags.PEACE) || npc.Realm != ERealm.None)
 				{
 					GamePlayer player = m_gameClient.Player;
-					Guild playerGuild = player.Guild;
+					GuildUtil playerGuild = player.Guild;
 
 					// Make the client believe the NPC is in the same guild as them.
 					// Use a dummy guild for guildless players.
-					SendObjectGuildID(npc, playerGuild ?? Guild.DummyGuild);
-					SendObjectGuildID(player, playerGuild ?? Guild.DummyGuild);
+					SendObjectGuildID(npc, playerGuild ?? GuildUtil.DummyGuild);
+					SendObjectGuildID(player, playerGuild ?? GuildUtil.DummyGuild);
 				}
 			}
 		}
@@ -715,7 +715,7 @@ namespace DOL.GS.PacketHandler
 				LanguageDataObject translation = LanguageMgr.GetTranslation(m_gameClient, siegeWeapon);
 				if (translation != null)
 				{
-					if (!Util.IsEmpty(((DbLanguageNpcs)translation).Name))
+					if (!UtilCollection.IsEmpty(((DbLanguageNpcs)translation).Name))
 						name = ((DbLanguageNpcs)translation).Name;
 				}
 

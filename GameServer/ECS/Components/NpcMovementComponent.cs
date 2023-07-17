@@ -31,7 +31,7 @@ namespace DOL.GS
         public int FollowMaxDist { get; private set; } = 3000;
         public int FollowMinDist { get; private set; } = 100;
         public string PathID { get; set; }
-        public PathPoint CurrentWaypoint { get; set; }
+        public PathPointUtil CurrentWaypoint { get; set; }
         public bool IsReturningToSpawnPoint { get; private set; }
         public bool IsTargetPositionValid { get; private set; }
         public int RoamingRange { get; set; }
@@ -266,8 +266,8 @@ namespace DOL.GS
                 return;
             }
 
-            double targetX = Owner.SpawnPoint.X + Util.Random(-maxRoamingRadius, maxRoamingRadius);
-            double targetY = Owner.SpawnPoint.Y + Util.Random(-maxRoamingRadius, maxRoamingRadius);
+            double targetX = Owner.SpawnPoint.X + UtilCollection.Random(-maxRoamingRadius, maxRoamingRadius);
+            double targetY = Owner.SpawnPoint.Y + UtilCollection.Random(-maxRoamingRadius, maxRoamingRadius);
             WalkTo(new Point3D((int) targetX, (int) targetY, Owner.SpawnPoint.Z), speed);
         }
 
@@ -470,8 +470,8 @@ namespace DOL.GS
 
         private void MoveToNextWaypoint()
         {
-            PathPoint oldPathPoint = CurrentWaypoint;
-            PathPoint nextPathPoint = CurrentWaypoint.Next;
+            PathPointUtil oldPathPoint = CurrentWaypoint;
+            PathPointUtil nextPathPoint = CurrentWaypoint.Next;
 
             if ((CurrentWaypoint.Type == ePathType.Path_Reverse) && CurrentWaypoint.FiredFlag)
                 nextPathPoint = CurrentWaypoint.Prev;

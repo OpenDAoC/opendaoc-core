@@ -138,7 +138,7 @@ namespace DOL.AI.Brain
                     DefensiveSpellTargets.Add(npc);
             }
 
-            return Enumerable.Any(DefensiveSpellTargets) ? DefensiveSpellTargets[Util.Random(DefensiveSpellTargets.Count - 1)] : null;
+            return Enumerable.Any(DefensiveSpellTargets) ? DefensiveSpellTargets[UtilCollection.Random(DefensiveSpellTargets.Count - 1)] : null;
         }
 
         public override bool Stop()

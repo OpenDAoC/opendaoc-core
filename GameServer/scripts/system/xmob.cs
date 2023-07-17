@@ -295,11 +295,11 @@ namespace DOL.GS.Commands
                             mob.LoadTemplate(targetMob.NPCTemplate);
 
                             //Fill the object variables
-                            mob.X = Util.Random(client.Player.X - 250 / 2, client.Player.X + 250 / 2);
-                            mob.Y = Util.Random(client.Player.Y - 250 / 2, client.Player.Y + 250 / 2);
+                            mob.X = UtilCollection.Random(client.Player.X - 250 / 2, client.Player.X + 250 / 2);
+                            mob.Y = UtilCollection.Random(client.Player.Y - 250 / 2, client.Player.Y + 250 / 2);
                             mob.Z = client.Player.Z;
                             mob.CurrentRegion = client.Player.CurrentRegion;
-                            mob.Heading = (ushort)Util.Random(1, 4100);
+                            mob.Heading = (ushort)UtilCollection.Random(1, 4100);
                             mob.Level = targetMob.Level;
                             mob.Realm = targetMob.Realm;
                             mob.Name = targetMob.Name;
@@ -440,7 +440,7 @@ namespace DOL.GS.Commands
                                     foreach (GameNPC npc in player.GetNPCsInRadius(radius))
                                         if (npc.Realm == ERealm.None)
                                         {
-                                            npc.Level = (byte)Util.Random(min, max);
+                                            npc.Level = (byte)UtilCollection.Random(min, max);
                                             npc.AutoSetStats();
                                             npc.SaveIntoDatabase();
                                         }
@@ -573,11 +573,11 @@ namespace DOL.GS.Commands
                 mob.LoadTemplate(targetMob.NPCTemplate);
 
                 //Fill the object variables
-                mob.X = Util.Random(client.Player.X - radius, client.Player.X + radius);
-                mob.Y = Util.Random(client.Player.Y - radius, client.Player.Y + radius);
+                mob.X = UtilCollection.Random(client.Player.X - radius, client.Player.X + radius);
+                mob.Y = UtilCollection.Random(client.Player.Y - radius, client.Player.Y + radius);
                 mob.Z = client.Player.Z;
                 mob.CurrentRegion = client.Player.CurrentRegion;
-                mob.Heading = (ushort)Util.Random(1, 4100);
+                mob.Heading = (ushort)UtilCollection.Random(1, 4100);
                 mob.Level = targetMob.Level;
                 mob.Realm = targetMob.Realm;
                 mob.Name = targetMob.Name;
@@ -665,9 +665,9 @@ namespace DOL.GS.Commands
         private void move(GameClient client, GameNPC targetMob, ushort radius)
         {
 
-            int X = Util.Random(client.Player.X - radius / 2, client.Player.X + radius / 2);
-            int Y = Util.Random(client.Player.Y - radius / 2, client.Player.Y + radius / 2);
-            targetMob.MoveTo(client.Player.CurrentRegionID, X, Y, client.Player.Z, (ushort)Util.Random(1, 4100));
+            int X = UtilCollection.Random(client.Player.X - radius / 2, client.Player.X + radius / 2);
+            int Y = UtilCollection.Random(client.Player.Y - radius / 2, client.Player.Y + radius / 2);
+            targetMob.MoveTo(client.Player.CurrentRegionID, X, Y, client.Player.Z, (ushort)UtilCollection.Random(1, 4100));
             targetMob.SaveIntoDatabase();
         }
         

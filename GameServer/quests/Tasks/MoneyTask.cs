@@ -50,7 +50,7 @@ namespace DOL.GS.Quests
 				ushort Scarto = 3; // Add/Remove % to the Result
 								
 				int ValueScarto = ((MoneyReward[m_taskPlayer.Level-1]/100)*Scarto);
-				return Util.Random(MoneyReward[m_taskPlayer.Level-1]-ValueScarto,MoneyReward[m_taskPlayer.Level-1]+ValueScarto); 
+				return UtilCollection.Random(MoneyReward[m_taskPlayer.Level-1]-ValueScarto,MoneyReward[m_taskPlayer.Level-1]+ValueScarto); 
 			}
 		}
 
@@ -139,9 +139,9 @@ namespace DOL.GS.Quests
 		/// <returns>A Generated NPC Item</returns>
 		public static InventoryItem GenerateNPCItem(string Name, int Level)
 		{			
-			int Id = Util.Random(0, TaskObjects.Length-1);
-			int format = Util.Random(0, StrFormat.Length-1);
-			int middle = Util.Random(0, Middle.Length-1);
+			int Id = UtilCollection.Random(0, TaskObjects.Length-1);
+			int format = UtilCollection.Random(0, StrFormat.Length-1);
+			int middle = UtilCollection.Random(0, Middle.Length-1);
 			return GenerateItem(string.Format(StrFormat[format] ,Name,Middle[middle],TaskObjects[Id]), Level, ObjectModels[Id]);
 		}		
 

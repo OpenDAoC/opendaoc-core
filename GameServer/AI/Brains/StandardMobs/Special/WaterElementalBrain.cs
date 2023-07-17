@@ -56,7 +56,7 @@ namespace DOL.AI.Brain
                 var regionWeather = GameServer.Instance.WorldManager.WeatherManager[Body.CurrentRegionID];
                 if(_isInStorm(regionWeather))
                 {
-                    if (Util.Random(5) == 0)
+                    if (UtilCollection.Random(5) == 0)
                     {
                         foreach (GamePlayer player in Body.GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE))
                         {

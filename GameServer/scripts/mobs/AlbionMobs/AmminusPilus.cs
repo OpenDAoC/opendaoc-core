@@ -143,8 +143,8 @@ namespace DOL.AI.Brain
 			for (int i = 0; i < 4; i++)
 			{
 				PilusAdd npc = new PilusAdd();
-				npc.X = Body.X + Util.Random(-100, 100);
-				npc.Y = Body.Y + Util.Random(-100, 100);
+				npc.X = Body.X + UtilCollection.Random(-100, 100);
+				npc.Y = Body.Y + UtilCollection.Random(-100, 100);
 				npc.Z = Body.Z;
 				npc.Heading = Body.Heading;
 				npc.CurrentRegion = Body.CurrentRegion;
@@ -168,8 +168,8 @@ namespace DOL.GS
 		public override bool AddToWorld()
 		{
 			Name = "centurio princeps preatorii";
-			Level = (byte)Util.Random(37, 39);
-			Size = (byte)Util.Random(50, 60);
+			Level = (byte)UtilCollection.Random(37, 39);
+			Size = (byte)UtilCollection.Random(50, 60);
 			Model = 108;
 			Race = 2009;
 			BodyType = 11;

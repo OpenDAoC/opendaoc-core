@@ -304,7 +304,7 @@ namespace DOL.GS
 		/// <summary>
 		/// Automated Closing Timer for Instances
 		/// </summary>
-		protected class AutoCloseRegionTimer : RegionECSAction
+		protected class AutoCloseRegionTimer : RegionAction
         {
             public AutoCloseRegionTimer(GameObject target, BaseInstance i) : base(target)
             {
@@ -348,7 +348,7 @@ namespace DOL.GS
 		/// <summary>
 		/// Delay Closing Timer for Instances
 		/// </summary>
-		protected class DelayCloseRegionTimer : RegionECSAction
+		protected class DelayCloseRegionTimer : RegionAction
 		{
 			public DelayCloseRegionTimer(GameObject target, BaseInstance i) : base(target)
 			{

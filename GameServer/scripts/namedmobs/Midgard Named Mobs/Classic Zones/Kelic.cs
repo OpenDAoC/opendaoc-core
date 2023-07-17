@@ -131,17 +131,17 @@ namespace DOL.AI.Brain
 							brain.AddToAggroList(target, 100);
 					}
 				}
-				if(Util.Chance(25) && target != null && target.IsAlive)
+				if(UtilCollection.Chance(25) && target != null && target.IsAlive)
                 {
 					if(!target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
 						Body.CastSpell(KelicDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 				}
-				if (Util.Chance(25) && target != null && target.IsAlive)
+				if (UtilCollection.Chance(25) && target != null && target.IsAlive)
 				{
 					if (!target.effectListComponent.ContainsEffectForEffectType(EEffect.Disease))
 						Body.CastSpell(KelicDisease, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 				}
-				if (Util.Chance(25) && target != null && target.IsAlive)
+				if (UtilCollection.Chance(25) && target != null && target.IsAlive)
 				{
 					if (!target.effectListComponent.ContainsEffectForEffectType(EEffect.SnareImmunity))
 						Body.CastSpell(KelicRoot, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));

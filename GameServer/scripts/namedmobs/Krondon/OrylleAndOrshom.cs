@@ -135,7 +135,7 @@ namespace DOL.AI.Brain
 				}
 				if (Port_Enemys.Count > 0)
 				{
-					GamePlayer Target = Port_Enemys[Util.Random(0, Port_Enemys.Count - 1)];
+					GamePlayer Target = Port_Enemys[UtilCollection.Random(0, Port_Enemys.Count - 1)];
 					RandomTarget = Target;
 					if (RandomTarget.IsAlive && RandomTarget != null)
 					{
@@ -163,7 +163,7 @@ namespace DOL.AI.Brain
 			{
 				if (IsTargetPicked == false && OrshomFire.FireCount > 0)
 				{
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ThrowPlayer), Util.Random(15000, 20000));//timer to port and pick player
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ThrowPlayer), UtilCollection.Random(15000, 20000));//timer to port and pick player
 					IsTargetPicked = true;
 				}
 				if(IsPulled==false)

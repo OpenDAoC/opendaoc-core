@@ -107,8 +107,8 @@ namespace DOL.GS
 			for (int i = 0; i < 3; i++)
 			{
 				GreenMawAdd npc = new GreenMawAdd();
-				npc.X = X + Util.Random(-50, 50);
-				npc.Y = Y + Util.Random(-50, 50);
+				npc.X = X + UtilCollection.Random(-50, 50);
+				npc.Y = Y + UtilCollection.Random(-50, 50);
 				npc.Z = Z;
 				npc.Heading = Heading;
 				npc.CurrentRegion = CurrentRegion;
@@ -188,7 +188,7 @@ namespace DOL.GS
 		public override bool AddToWorld()
 		{
 			Name = "Part of Green Maw";
-			Level = (byte)Util.Random(58,60);
+			Level = (byte)UtilCollection.Random(58,60);
 			Model = 136;
 			Size = 120;
 			GreenMawAddBrain sbrain = new GreenMawAddBrain();
@@ -214,8 +214,8 @@ namespace DOL.GS
 			for (int i = 0; i < 4; i++)
 			{
 				GreenMawAdd2 npc = new GreenMawAdd2();
-				npc.X = X + Util.Random(-50, 50);
-				npc.Y = Y + Util.Random(-50, 50);
+				npc.X = X + UtilCollection.Random(-50, 50);
+				npc.Y = Y + UtilCollection.Random(-50, 50);
 				npc.Z = Z;
 				npc.Heading = Heading;
 				npc.CurrentRegion = CurrentRegion;
@@ -289,7 +289,7 @@ namespace DOL.GS
 		public override bool AddToWorld()
 		{
 			Name = "Part of Green Maw";
-			Level = (byte)Util.Random(53, 55);
+			Level = (byte)UtilCollection.Random(53, 55);
 			Model = 136;
 			Size = 95;
 			GreenMawAdd2Brain sbrain = new GreenMawAdd2Brain();
@@ -315,8 +315,8 @@ namespace DOL.GS
 			for (int i = 0; i < 2; i++)
 			{
 				GreenMawAdd3 npc = new GreenMawAdd3();
-				npc.X = X + Util.Random(-50, 50);
-				npc.Y = Y + Util.Random(-50, 50);
+				npc.X = X + UtilCollection.Random(-50, 50);
+				npc.Y = Y + UtilCollection.Random(-50, 50);
 				npc.Z = Z;
 				npc.Heading = Heading;
 				npc.CurrentRegion = CurrentRegion;

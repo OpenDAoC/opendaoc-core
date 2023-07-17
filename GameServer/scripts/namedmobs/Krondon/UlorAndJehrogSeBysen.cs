@@ -61,7 +61,7 @@ namespace DOL.GS
 		public override bool AddToWorld()
 		{
 			Model = 919;
-			Level = (byte)(Util.Random(72,77));
+			Level = (byte)(UtilCollection.Random(72,77));
 			Name = "Ulor se Bysen";
 			Size = 120;
 
@@ -151,7 +151,7 @@ namespace DOL.AI.Brain
 									Body.Follow(Body.TargetObject, spells.Range - 50, 5000);
 
 								Body.TurnTo(Body.TargetObject);
-								if (Util.Chance(100))
+								if (UtilCollection.Chance(100))
 								{
 									if (Body.GetSkillDisabledDuration(Ulor_aoedot) == 0)
 										Body.CastSpell(Ulor_aoedot, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
@@ -325,7 +325,7 @@ namespace DOL.GS
 		public override bool AddToWorld()
 		{
 			Model = 919;
-			Level = (byte)(Util.Random(72, 77));
+			Level = (byte)(UtilCollection.Random(72, 77));
 			Name = "Jehrog se Bysen";
 			Size = 120;
 

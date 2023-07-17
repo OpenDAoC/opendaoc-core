@@ -72,7 +72,7 @@ namespace DOL.GS
 
                         // Offset LastThinkTick for non-controlled mobs so that 'Think' ticks are not all "grouped" in one server tick.
                         if (brain is not ControlledNpcBrain)
-                            brain.LastThinkTick += Util.Random(-2, 2) * GameLoop.TICK_RATE;
+                            brain.LastThinkTick += UtilCollection.Random(-2, 2) * GameLoop.TICK_RATE;
                     }
 
                     npc.movementComponent.Tick(tick);

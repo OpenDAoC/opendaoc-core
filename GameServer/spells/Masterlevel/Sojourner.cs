@@ -96,8 +96,8 @@ namespace DOL.GS.Spells
                 GamePlayer casterPlayer = caster as GamePlayer;
                 merchant = new GameMerchant();
                 //Fill the object variables
-                merchant.X = casterPlayer.X + Util.Random(20, 40) - Util.Random(20, 40);
-                merchant.Y = casterPlayer.Y + Util.Random(20, 40) - Util.Random(20, 40);
+                merchant.X = casterPlayer.X + UtilCollection.Random(20, 40) - UtilCollection.Random(20, 40);
+                merchant.Y = casterPlayer.Y + UtilCollection.Random(20, 40) - UtilCollection.Random(20, 40);
                 merchant.Z = casterPlayer.Z;
                 merchant.CurrentRegion = casterPlayer.CurrentRegion;
                 merchant.Heading = (ushort)((casterPlayer.Heading + 2048) % 4096);
@@ -320,8 +320,8 @@ namespace DOL.GS.Spells
 
         public virtual IPoint3D GetTargetLoc()
         {
-            double targetX = m_npc.X + Util.Random(-1500, 1500);
-            double targetY = m_npc.Y + Util.Random(-1500, 1500);
+            double targetX = m_npc.X + UtilCollection.Random(-1500, 1500);
+            double targetY = m_npc.Y + UtilCollection.Random(-1500, 1500);
 
             return new Point3D((int)targetX, (int)targetY, m_npc.Z);
         }

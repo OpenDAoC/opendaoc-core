@@ -370,7 +370,7 @@ public class PredatorMgr
         if (AlbPlayers.Count > 0) validRealms.Add(ERealm.Albion);
         if (validRealms.Count < 2) return; //bail if not enough realms
 
-        ERealm loopRealm = validRealms[Util.Random(validRealms.Count - 1)];
+        ERealm loopRealm = validRealms[UtilCollection.Random(validRealms.Count - 1)];
 
         GamePlayer LastPredator = null;
 
@@ -408,7 +408,7 @@ public class PredatorMgr
             LastPredator = NextPredator;
             if (PotentialTargets.Count < 1 || NextPredator == null) break;
 
-            GamePlayer NextPrey = PotentialTargets[Util.Random(PotentialTargets.Count - 1)];
+            GamePlayer NextPrey = PotentialTargets[UtilCollection.Random(PotentialTargets.Count - 1)];
             loopRealm = NextPrey.Realm;
             //Console.WriteLine($"NextPrey {NextPrey} nextRealm {loopRealm}");
 

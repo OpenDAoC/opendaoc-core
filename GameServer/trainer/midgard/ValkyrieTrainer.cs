@@ -8,7 +8,7 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Valkyrie Trainer
 	/// </summary>
-	[NPCGuildScript("Valkyrie Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Valkyrie Trainer" NPC's in Albion (multiple guilds are possible for one script)
+	[NpcGuild("Valkyrie Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Valkyrie Trainer" NPC's in Albion (multiple guilds are possible for one script)
 	public class ValkyrieTrainer : GameTrainer
 	{
 		public override ECharacterClass TrainedClass

@@ -77,8 +77,8 @@ namespace DOL.GS.Scripts
 					if (t.Group == null)
 					{
 						log.Info("Solo player");
-						int randX = Util.Random(223000, 235000);
-						int randY = Util.Random(216000, 227000);
+						int randX = UtilCollection.Random(223000, 235000);
+						int randY = UtilCollection.Random(216000, 227000);
 						int z = 6000;
 						
 						t.StartInvulnerabilityTimer(ServerProperties.Properties.TIMER_PVP_TELEPORT*1000,null);
@@ -103,8 +103,8 @@ namespace DOL.GS.Scripts
 						}
 						// fallback if no group member is in the zone or safe
 						log.Info("Distance < 5k or too close to enemies");
-						int randX = Util.Random(205000, 253000);
-						int randY = Util.Random(204000, 216000);
+						int randX = UtilCollection.Random(205000, 253000);
+						int randY = UtilCollection.Random(204000, 216000);
 						int z = 9000;
 						
 						t.StartInvulnerabilityTimer(ServerProperties.Properties.TIMER_PVP_TELEPORT*1000,null);

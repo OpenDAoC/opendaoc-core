@@ -17,7 +17,7 @@ namespace DOL.GS
 		{
 			Name = "rocky golem";
 			Model = 114;
-			Level = (byte)Util.Random(40, 42);
+			Level = (byte)UtilCollection.Random(40, 42);
 			Size = 100;
 			MeleeDamageType = EDamageType.Crush;
 			Race = 2003;
@@ -73,7 +73,7 @@ namespace DOL.GS
 			{
                 #region 1st teleports
                 case "TreibhPort1a":
-				switch (Util.Random(1, 2))
+				switch (UtilCollection.Random(1, 2))
 				{
 					case 1:
 						foreach (GamePlayer player in GetPlayersInRadius(100))
@@ -92,7 +92,7 @@ namespace DOL.GS
 				}
 				break;
 				case "TreibhPort1b":
-					switch (Util.Random(1, 2))
+					switch (UtilCollection.Random(1, 2))
 					{
 						case 1:
 							foreach (GamePlayer player in GetPlayersInRadius(100))
@@ -111,7 +111,7 @@ namespace DOL.GS
 					}
 					break;
 				case "TreibhPort1c":
-					switch (Util.Random(1, 2))
+					switch (UtilCollection.Random(1, 2))
 					{
 						case 1:
 							foreach (GamePlayer player in GetPlayersInRadius(100))
@@ -132,7 +132,7 @@ namespace DOL.GS
 				#endregion
 				#region 2nd teleports
 				case "TreibhPort2a":
-					switch (Util.Random(1, 2))
+					switch (UtilCollection.Random(1, 2))
 					{
 						case 1:
 							foreach (GamePlayer player in GetPlayersInRadius(100))
@@ -151,7 +151,7 @@ namespace DOL.GS
 					}
 				break;
 				case "TreibhPort2b":
-					switch (Util.Random(1, 2))
+					switch (UtilCollection.Random(1, 2))
 					{
 						case 1:
 							foreach (GamePlayer player in GetPlayersInRadius(100))
@@ -170,7 +170,7 @@ namespace DOL.GS
 					}
 					break;
 				case "TreibhPort2c":
-					switch (Util.Random(1, 2))
+					switch (UtilCollection.Random(1, 2))
 					{
 						case 1:
 							foreach (GamePlayer player in GetPlayersInRadius(100))
@@ -191,7 +191,7 @@ namespace DOL.GS
 				#endregion
 				#region 3th teleports
 				case "TreibhPort3a":
-					switch (Util.Random(1, 2))
+					switch (UtilCollection.Random(1, 2))
 					{
 						case 1:
 							foreach (GamePlayer player in GetPlayersInRadius(100))
@@ -210,7 +210,7 @@ namespace DOL.GS
 					}
 				break;
 				case "TreibhPort3b":
-					switch (Util.Random(1, 2))
+					switch (UtilCollection.Random(1, 2))
 					{
 						case 1:
 							foreach (GamePlayer player in GetPlayersInRadius(100))
@@ -229,7 +229,7 @@ namespace DOL.GS
 					}
 					break;
 				case "TreibhPort3c":
-					switch (Util.Random(1, 2))
+					switch (UtilCollection.Random(1, 2))
 					{
 						case 1:
 							foreach (GamePlayer player in GetPlayersInRadius(100))

@@ -8,7 +8,7 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Midgard Rogue Trainer
 	/// </summary>
-	[NPCGuildScript("Rogue Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Rogue Trainer" NPC's in Midgard (multiple guilds are possible for one script)
+	[NpcGuild("Rogue Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Rogue Trainer" NPC's in Midgard (multiple guilds are possible for one script)
 	public class MidgardRogueTrainer : GameTrainer
 	{
 		public override ECharacterClass TrainedClass

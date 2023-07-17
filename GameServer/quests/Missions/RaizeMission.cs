@@ -38,7 +38,7 @@ namespace DOL.GS.Quests
 			}
 
 			if (list.Count > 0)
-				m_keep = list[Util.Random(list.Count - 1)] as AbstractGameKeep;
+				m_keep = list[UtilCollection.Random(list.Count - 1)] as AbstractGameKeep;
 
 			GameEventMgr.AddHandler(KeepEvent.TowerRaized, new CoreEventHandler(Notify));
 		}

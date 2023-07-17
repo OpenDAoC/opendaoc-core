@@ -98,7 +98,7 @@ namespace DOL.GS.Commands
                                                eChatLoc.CL_SystemWindow);
 
                         // Log change
-                        AuditMgr.AddAuditEntry(client, AuditType.Character, AuditSubtype.CharacterRename, oldName, args[2]);
+                        AuditMgr.AddAuditEntry(client, EAuditType.Character, EAuditSubtype.CharacterRename, oldName, args[2]);
 
                         player.SaveIntoDatabase();
                         break;

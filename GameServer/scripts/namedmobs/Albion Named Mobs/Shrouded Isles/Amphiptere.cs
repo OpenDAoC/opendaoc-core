@@ -90,7 +90,7 @@ namespace DOL.GS
         }
         public override void OnAttackEnemy(AttackData ad)
         {
-			if (Util.Chance(35))//cast nasty heat proc
+			if (UtilCollection.Chance(35))//cast nasty heat proc
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 					CastSpell(HeatProc, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
@@ -150,7 +150,7 @@ namespace DOL.AI.Brain
 		private bool RemoveAdds = false;
 		public override void OnAttackedByEnemy(AttackData ad)
 		{
-			if(ad != null && ad.Damage > 0 && ad.Attacker != null && CanSpawnAdds == false && Util.Chance(20))
+			if(ad != null && ad.Damage > 0 && ad.Attacker != null && CanSpawnAdds == false && UtilCollection.Chance(20))
             {
 				BroadcastMessage(String.Format("A blow knocks one of " + Body.Name + "'s tooths to the ground."));
 				new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnAdd), 5000);
@@ -163,14 +163,14 @@ namespace DOL.AI.Brain
 			if (HasAggro && Body.IsAlive)
 			{
 				AmphiptereAdds add = new AmphiptereAdds();
-				add.X = Body.X + Util.Random(-500, 500);
-				add.Y = Body.Y + Util.Random(-500, 500);
+				add.X = Body.X + UtilCollection.Random(-500, 500);
+				add.Y = Body.Y + UtilCollection.Random(-500, 500);
 				add.Z = Body.Z;
 				add.Heading = Body.Heading;
 				add.CurrentRegion = Body.CurrentRegion;
 				add.AddToWorld();
 			}
-			new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetSpawnAdd), Util.Random(25000, 35000));
+			new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetSpawnAdd), UtilCollection.Random(25000, 35000));
 			return 0;
         }
 		private int ResetSpawnAdd(ECSGameTimer timer)
@@ -216,11 +216,11 @@ namespace DOL.AI.Brain
 							Body.StopFollowing();
 					}
 					Body.TurnTo(Body.TargetObject);
-					if (Util.Chance(25) && !Body.IsCasting && !target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
+					if (UtilCollection.Chance(25) && !Body.IsCasting && !target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
 						Body.CastSpell(Amphiptere_Dot, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
-					if (Util.Chance(25) && !Body.IsCasting && !target.effectListComponent.ContainsEffectForEffectType(EEffect.Disease))
+					if (UtilCollection.Chance(25) && !Body.IsCasting && !target.effectListComponent.ContainsEffectForEffectType(EEffect.Disease))
 						Body.CastSpell(AmphiptereDisease, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
-					if (Util.Chance(25) && !Body.IsCasting && !Body.effectListComponent.ContainsEffectForEffectType(EEffect.Bladeturn))
+					if (UtilCollection.Chance(25) && !Body.IsCasting && !Body.effectListComponent.ContainsEffectForEffectType(EEffect.Bladeturn))
 						Body.CastSpell(Bubble, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells),false);
 				}
 			}
@@ -366,10 +366,10 @@ namespace DOL.GS
 		public override bool AddToWorld()
 		{
 			Model = 921;
-			Size = (byte)Util.Random(65, 75);
+			Size = (byte)UtilCollection.Random(65, 75);
 			Name = "ancient zombie";
 			RespawnInterval = -1;
-			Level = (byte)Util.Random(61, 63);
+			Level = (byte)UtilCollection.Random(61, 63);
 			MaxSpeedBase = 225;
 			Faction = FactionMgr.GetFactionByID(64);
 			Faction.AddFriendFaction(FactionMgr.GetFactionByID(64));

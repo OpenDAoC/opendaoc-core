@@ -46,7 +46,7 @@ namespace DOL.GS
 
                 int lvl = mob.Level + 1;
 
-                int maxcount = Util.Random(player.Level, lvl);
+                int maxcount = UtilCollection.Random(player.Level, lvl);
                 loot.AddFixed(m_token_many, maxcount);
 
             }

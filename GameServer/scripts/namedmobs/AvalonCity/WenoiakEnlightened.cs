@@ -118,9 +118,9 @@ namespace DOL.AI.Brain
 					}
 					IsPulled = true;
 				}
-				if (Util.Chance(25))
+				if (UtilCollection.Chance(25))
 					Body.CastSpell(Light_dd, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
-				if (Util.Chance(25))
+				if (UtilCollection.Chance(25))
 					Body.CastSpell(Light_pbaoe, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			}
 			base.Think();
@@ -135,7 +135,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 3;
-					spell.RecastDelay = Util.Random(10,15);
+					spell.RecastDelay = UtilCollection.Random(10,15);
 					spell.ClientEffect = 1678;
 					spell.Icon = 1678;
 					spell.TooltipId = 1678;
@@ -164,7 +164,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 0;
-					spell.RecastDelay = Util.Random(20, 25);
+					spell.RecastDelay = UtilCollection.Random(20, 25);
 					spell.ClientEffect = 1666;
 					spell.Icon = 1666;
 					spell.TooltipId = 1666;

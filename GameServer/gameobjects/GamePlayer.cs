@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using Core.GS.GameUtils;
 using DOL.AI;
 using DOL.AI.Brain;
 using DOL.Database;
@@ -64,7 +65,7 @@ namespace DOL.GS
         }
 
         protected ECSGameTimer m_predatortimer;
-        private PlayerDeck _randomNumberDeck;
+        private PlayerDeckMgr _randomNumberDeck;
 
         #region Client/Character/VariousFlags
 
@@ -163,12 +164,12 @@ namespace DOL.GS
 
         public override int TargetInViewAlwaysTrueMinRange => (TargetObject is GamePlayer targetPlayer && targetPlayer.IsMoving) ? 100 : 64;
 
-        public PlayerDeck RandomNumberDeck
+        public PlayerDeckMgr RandomNumberDeck
         {
             get
             {
                 if (_randomNumberDeck == null)
-                    _randomNumberDeck = new PlayerDeck();
+                    _randomNumberDeck = new PlayerDeckMgr();
 
                 return _randomNumberDeck;
             }
@@ -1117,7 +1118,7 @@ namespace DOL.GS
                             continue;
 
                         int occurences = 0;
-                        registeredTempProp = Util.SplitCSV(Properties.TEMPPROPERTIES_TO_REGISTER).ToList();
+                        registeredTempProp = UtilCollection.SplitCSV(Properties.TEMPPROPERTIES_TO_REGISTER).ToList();
                         occurences = (from j in registeredTempProp where property.Contains(j) select j).Count();
 
                         if (occurences == 0)
@@ -1133,7 +1134,7 @@ namespace DOL.GS
                             if (Properties.ACTIVATE_TEMP_PROPERTIES_MANAGER_CHECKUP_DEBUG)
                                 log.Debug("On Disconnection found and was saved: " + property + " with value: " + propertyValue.ToString() + " for player: " + Name);
 
-                            TempPropertiesManager.TempPropContainerList.Add(new TempPropertiesManager.TempPropContainer(DBCharacter.ObjectId, property, propertyValue.ToString()));
+                            TempPropertiesMgr.TempPropContainerList.Add(new TempPropertiesMgr.TempPropContainer(DBCharacter.ObjectId, property, propertyValue.ToString()));
                             TempProperties.removeProperty(property);
                         }
                         else if (Properties.ACTIVATE_TEMP_PROPERTIES_MANAGER_CHECKUP_DEBUG)
@@ -1212,7 +1213,7 @@ namespace DOL.GS
             else
             {
                 Notify(GamePlayerEvent.Quit, this);
-                AuditMgr.AddAuditEntry(Client, AuditType.Character, AuditSubtype.CharacterLogout, "", Name);
+                AuditMgr.AddAuditEntry(Client, EAuditType.Character, EAuditSubtype.CharacterLogout, "", Name);
                 Delete();
             }
 
@@ -3505,7 +3506,7 @@ namespace DOL.GS
         {
             bool any = m_realmAbilities.Count > 0;
 
-            foreach (Ability ab in m_realmAbilities)
+            foreach (AbilityUtil ab in m_realmAbilities)
                 RemoveAbility(ab.KeyName);
 
             m_realmAbilities.Clear();
@@ -3646,7 +3647,7 @@ namespace DOL.GS
         /// </summary>
         /// <param name="ability"></param>
         /// <param name="sendUpdates"></param>
-        public override void AddAbility(Ability ability, bool sendUpdates)
+        public override void AddAbility(AbilityUtil ability, bool sendUpdates)
         {
             if (ability == null)
                 return;
@@ -4006,15 +4007,15 @@ namespace DOL.GS
                 // Abilities order should be saved to db and loaded each time								
                 foreach (Specialization spec in specs)
                 {
-                    foreach (Ability abv in spec.GetAbilitiesForLiving(this))
+                    foreach (AbilityUtil abv in spec.GetAbilitiesForLiving(this))
                     {
                         // We need the Instantiated Ability Object for Displaying Correctly According to Player "Activation" Method (if Available)
-                        Ability ab = GetAbility(abv.KeyName);
+                        AbilityUtil ab = GetAbility(abv.KeyName);
 
                         if (ab == null)
                             ab = abv;
 
-                        int index = innerList.FindIndex(k => (k.Item1 is Ability) && ((Ability)k.Item1).KeyName == ab.KeyName);
+                        int index = innerList.FindIndex(k => (k.Item1 is AbilityUtil) && ((AbilityUtil)k.Item1).KeyName == ab.KeyName);
 
                         if (index < 0)
                         {
@@ -4134,7 +4135,7 @@ namespace DOL.GS
                 foreach (Specialization spec in m_specialization.Values)
                 {
                     // check for new Abilities
-                    foreach (Ability ab in spec.GetAbilitiesForLiving(this))
+                    foreach (AbilityUtil ab in spec.GetAbilitiesForLiving(this))
                     {
                         if (!HasAbility(ab.KeyName) || GetAbility(ab.KeyName).Level < ab.Level)
                             AddAbility(ab, sendMessages);
@@ -4432,9 +4433,9 @@ namespace DOL.GS
                 }
             }
 
-            if (GetAchievementProgress(AchievementUtils.AchievementNames.Realm_Rank) <= (int) Math.Floor((double)(RealmLevel + 10.0) / 10.0))
+            if (GetAchievementProgress(AchievementUtil.AchievementNames.Realm_Rank) <= (int) Math.Floor((double)(RealmLevel + 10.0) / 10.0))
             {
-                SetAchievementTo(AchievementUtils.AchievementNames.Realm_Rank, (int) Math.Floor((double)(RealmLevel + 10.0) / 10.0));
+                SetAchievementTo(AchievementUtil.AchievementNames.Realm_Rank, (int) Math.Floor((double)(RealmLevel + 10.0) / 10.0));
             }
 
             Out.SendUpdatePoints();
@@ -5317,7 +5318,7 @@ namespace DOL.GS
 
             #region Guild XP Bonus
             long guildBonus = 0;
-            if (this.Guild != null && !this.Guild.IsStartingGuild && this.Guild.BonusType == Guild.eBonusType.Experience && xpSource == EXpSource.NPC)
+            if (this.Guild != null && !this.Guild.IsStartingGuild && this.Guild.GuildBonusType == GuildUtil.EGuildBonusType.Experience && xpSource == EXpSource.NPC)
             {
                 guildBonus = (long)Math.Ceiling((double)expTotal * ServerProperties.Properties.GUILD_BUFF_XP / 100);
             }else if (this.Guild != null && this.Guild.IsStartingGuild && xpSource == EXpSource.NPC)
@@ -6234,7 +6235,7 @@ namespace DOL.GS
                         Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GamePlayer.Attack.Fumbled", ad.Attacker.GetName(0, true)), eChatType.CT_Missed, eChatLoc.CL_SystemWindow);
                     break;
                 case EAttackResult.Missed:
-                    if (ad.AttackType == AttackData.eAttackType.Spell)
+                    if (ad.AttackType == AttackData.EAttackType.Spell)
                         break;
                     if (ad.Attacker is GameNPC)
                         Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GamePlayer.Attack.Missed", ad.Attacker.GetName(0, true, Client.Account.Language, (ad.Attacker as GameNPC))) + " (" + Math.Min(ad.MissRate, 100).ToString("0") + "%)", eChatType.CT_Missed, eChatLoc.CL_SystemWindow);
@@ -6249,12 +6250,12 @@ namespace DOL.GS
 
                     // If attacked by a non-damaging spell, we should not show damage numbers.
                     // We need to check the damage on the spell here, not in the AD, since this could in theory be a damaging spell that had its damage modified to 0.
-                    if (ad.AttackType == AttackData.eAttackType.Spell && ad.SpellHandler.Spell?.Damage == 0)
+                    if (ad.AttackType == AttackData.EAttackType.Spell && ad.SpellHandler.Spell?.Damage == 0)
                         break;
 
                     if (IsStealthed && !effectListComponent.ContainsEffectForEffectType(EEffect.Vanish))
                     {
-                        if (!(ad.AttackType == AttackData.eAttackType.Spell && ad.SpellHandler.Spell.SpellType == ESpellType.DamageOverTime))
+                        if (!(ad.AttackType == AttackData.EAttackType.Spell && ad.SpellHandler.Spell.SpellType == ESpellType.DamageOverTime))
                             Stealth(false);
                     }
 
@@ -6393,7 +6394,7 @@ namespace DOL.GS
                             {
                                 int chance = reactiveItem.ProcChance > 0 ? reactiveItem.ProcChance : 10;
 
-                                if (Util.Chance(chance))
+                                if (UtilCollection.Chance(chance))
                                 {
                                     ISpellHandler spellHandler = ScriptMgr.CreateSpellHandler(this, spell, reactiveEffectLine);
                                     if (spellHandler != null)
@@ -6412,7 +6413,7 @@ namespace DOL.GS
                             {
                                 int chance = reactiveItem.ProcChance > 0 ? reactiveItem.ProcChance : 10;
 
-                                if (Util.Chance(chance))
+                                if (UtilCollection.Chance(chance))
                                 {
                                     ISpellHandler spellHandler = ScriptMgr.CreateSpellHandler(this, spell, reactiveEffectLine);
                                     if (spellHandler != null)
@@ -6433,7 +6434,7 @@ namespace DOL.GS
         /// <param name="attacker">the attacker that is interrupting</param>
         /// <param name="attackType">The attack type</param>
         /// <returns>true if interrupted successfully</returns>
-        protected override bool CheckRangedAttackInterrupt(GameLiving attacker, AttackData.eAttackType attackType)
+        protected override bool CheckRangedAttackInterrupt(GameLiving attacker, AttackData.EAttackType attackType)
         {
             if (base.CheckRangedAttackInterrupt(attacker, attackType))
             {
@@ -6581,7 +6582,7 @@ namespace DOL.GS
                 if (ad.Style.ArmorHitLocation != EArmorSlot.NOTSET)
                     return ad.Style.ArmorHitLocation;
             }
-            int chancehit = Util.Random(1, 100);
+            int chancehit = UtilCollection.Random(1, 100);
             if (chancehit <= 40)
             {
                 return EArmorSlot.TORSO;
@@ -7312,7 +7313,7 @@ namespace DOL.GS
         /// <summary>
         /// Get the GameDuel of this player
         /// </summary>
-        protected GameDuel Duel { get; set; }
+        protected DuelEvent Duel { get; set; }
 
         /// <summary>
         /// Starts the duel
@@ -7323,7 +7324,7 @@ namespace DOL.GS
             if (Duel != null)
                 return;
 
-            Duel = new GameDuel(this, duelTarget);
+            Duel = new DuelEvent(this, duelTarget);
             Duel.Start();
 
             //Get PvP Combat ticks before duel.
@@ -9176,7 +9177,7 @@ namespace DOL.GS
             }
             else
             {
-                this.RandomNumberDeck = new PlayerDeck();
+                this.RandomNumberDeck = new PlayerDeckMgr();
             }
 
             return true;
@@ -9463,13 +9464,13 @@ namespace DOL.GS
 
         #region Group/Friendlist/guild
 
-        private Guild m_guild;
+        private GuildUtil m_guild;
         private DBRank m_guildRank;
 
         /// <summary>
         /// Gets or sets the player's guild
         /// </summary>
-        public Guild Guild
+        public GuildUtil Guild
         {
             get => m_guild;
             set
@@ -11200,7 +11201,7 @@ namespace DOL.GS
                             return;
                         }
 
-                        int i = Util.Random(0, eligibleMembers.Count - 1);
+                        int i = UtilCollection.Random(0, eligibleMembers.Count - 1);
                         GamePlayer eligibleMember = eligibleMembers[i];
                         if (eligibleMember != null)
                         {
@@ -11441,7 +11442,7 @@ namespace DOL.GS
             }
 
             // Build Serialized Ability List to save Order
-            foreach (Ability ability in m_usableSkills.Where(e => e.Item1 is Ability).Select(e => e.Item1).Cast<Ability>())
+            foreach (AbilityUtil ability in m_usableSkills.Where(e => e.Item1 is AbilityUtil).Select(e => e.Item1).Cast<AbilityUtil>())
             {					
                 if (ability != null)
                 {
@@ -11474,9 +11475,9 @@ namespace DOL.GS
 
                     disabledSpells.AppendFormat("{0}|{1}", spl.ID, duration);
                 }
-                else if (skill is Ability)
+                else if (skill is AbilityUtil)
                 {
-                    Ability ability = (Ability)skill;
+                    AbilityUtil ability = (AbilityUtil)skill;
 
                     if (disabledAbilities.Length > 0)
                         disabledAbilities.Append(";");
@@ -11528,7 +11529,7 @@ namespace DOL.GS
             string tmpStr = character.SerializedSpecs;
             if (tmpStr != null && tmpStr.Length > 0)
             {
-                foreach (string spec in Util.SplitCSV(tmpStr))
+                foreach (string spec in UtilCollection.SplitCSV(tmpStr))
                 {
                     string[] values = spec.Split('|');
                     if (values.Length >= 2)
@@ -11571,7 +11572,7 @@ namespace DOL.GS
             tmpStr = character.SerializedAbilities;
             if (tmpStr != null && tmpStr.Length > 0 && m_usableSkills.Count == 0)
             {
-                foreach (string abilities in Util.SplitCSV(tmpStr))
+                foreach (string abilities in UtilCollection.SplitCSV(tmpStr))
                 {
                     string[] values = abilities.Split('|');
                     if (values.Length >= 2)
@@ -11579,7 +11580,7 @@ namespace DOL.GS
                         int level;
                         if (int.TryParse(values[1], out level))
                         {
-                            Ability ability = SkillBase.GetAbility(values[0], level);
+                            AbilityUtil ability = SkillBase.GetAbility(values[0], level);
                             if (ability != null)
                             {
                                 // this is for display order only
@@ -11594,7 +11595,7 @@ namespace DOL.GS
             tmpStr = character.SerializedRealmAbilities;
             if (tmpStr != null && tmpStr.Length > 0)
             {
-                foreach (string abilities in Util.SplitCSV(tmpStr))
+                foreach (string abilities in UtilCollection.SplitCSV(tmpStr))
                 {
                     string[] values = abilities.Split('|');
                     if (values.Length >= 2)
@@ -11602,7 +11603,7 @@ namespace DOL.GS
                         int level;
                         if (int.TryParse(values[1], out level))
                         {
-                            Ability ability = SkillBase.GetAbility(values[0], level);
+                            AbilityUtil ability = SkillBase.GetAbility(values[0], level);
                             if (ability != null && ability is RealmAbility)
                             {
                                 // this enable realm abilities for Career Computing.
@@ -11623,7 +11624,7 @@ namespace DOL.GS
             tmpStr = character.DisabledAbilities;
             if (tmpStr != null && tmpStr.Length > 0)
             {
-                foreach (string str in Util.SplitCSV(tmpStr))
+                foreach (string str in UtilCollection.SplitCSV(tmpStr))
                 {
                     string[] values = str.Split('|');
                     if (values.Length >= 2)
@@ -11648,7 +11649,7 @@ namespace DOL.GS
             tmpStr = character.DisabledSpells;
             if (!string.IsNullOrEmpty(tmpStr))
             {
-                foreach (string str in Util.SplitCSV(tmpStr))
+                foreach (string str in UtilCollection.SplitCSV(tmpStr))
                 {
                     string[] values = str.Split('|');
                     int spellid;
@@ -12453,7 +12454,7 @@ namespace DOL.GS
         /// <summary>
         /// Uncovers the player if a mob is too close
         /// </summary>
-        protected class UncoverStealthAction : RegionECSAction
+        protected class UncoverStealthAction : RegionAction
         {
             /// <summary>
             /// Constructs a new uncover stealth action
@@ -12529,7 +12530,7 @@ namespace DOL.GS
                     double chanceToUncover = 0.1 + (npc.Level - stealthLevel) * 0.01 * chanceMod;
                     if (chanceToUncover < 0.01) chanceToUncover = 0.01;
 
-                    if (Util.ChanceDouble(chanceToUncover))
+                    if (UtilCollection.ChanceDouble(chanceToUncover))
                     {
                         if (canSeePlayer)
                             player.Out.SendCheckLOS(player, npc, new CheckLOSResponse(player.UncoverLOSHandler));
@@ -13137,7 +13138,7 @@ namespace DOL.GS
                 if (speed <= 0)
                     speed = 1.0;
 
-                if (Guild != null && Guild.BonusType == Guild.eBonusType.CraftingHaste)
+                if (Guild != null && Guild.GuildBonusType == GuildUtil.EGuildBonusType.CraftingHaste)
                 {
                     speed *= (1.0 + Properties.GUILD_BUFF_CRAFTING * .01);
                 }
@@ -13315,7 +13316,7 @@ namespace DOL.GS
 
                 lock (CraftingLock)
                 {
-                    foreach (string skill in Util.SplitCSV(CraftingForRealm.SerializedCraftingSkills))
+                    foreach (string skill in UtilCollection.SplitCSV(CraftingForRealm.SerializedCraftingSkills))
                     {
                         string[] values = skill.Split('|');
                         //Load by crafting skill name
@@ -13946,7 +13947,7 @@ namespace DOL.GS
         /// <summary>
         /// The timer to call invulnerability expired callbacks
         /// </summary>
-        protected class InvulnerabilityTimer : RegionECSAction
+        protected class InvulnerabilityTimer : RegionAction
         {
             /// <summary>
             /// Defines a logger for this class.
@@ -14601,12 +14602,12 @@ namespace DOL.GS
         #endregion
 
         #region GuildBanner
-        protected GuildBanner m_guildBanner = null;
+        protected GuildBannerUtil m_guildBanner = null;
 
         /// <summary>
         /// Gets/Sets the visibility of the carryable RvrGuildBanner. Wont work if the player has no guild.
         /// </summary>
-        public GuildBanner GuildBanner
+        public GuildBannerUtil GuildBanner
         {
             get { return m_guildBanner; }
             set

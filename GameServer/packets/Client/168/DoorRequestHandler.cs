@@ -186,7 +186,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		/// <summary>
 		/// Handles the door state change actions
 		/// </summary>
-		protected class ChangeDoorAction : RegionECSAction
+		protected class ChangeDoorAction : RegionAction
 		{
 			/// <summary>
 			/// The target door Id

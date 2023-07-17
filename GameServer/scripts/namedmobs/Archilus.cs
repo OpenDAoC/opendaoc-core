@@ -46,7 +46,7 @@ namespace DOL.GS.Scripts
 			GameNPC mob = new GameNPC();
 			SetVariables(mob);
 			//Level Range of 40-45
-			int level = Util.Random(40, 45);
+			int level = UtilCollection.Random(40, 45);
 			mob.Level = (byte) level;
 			BroadcastMessage(String.Format(m_SpawnAnnounce, this.Name, mob.Name));
 			mob.AddToWorld();

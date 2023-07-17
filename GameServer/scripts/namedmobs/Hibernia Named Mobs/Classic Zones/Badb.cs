@@ -163,7 +163,7 @@ namespace DOL.AI.Brain
 							brain.AddToAggroList(target, 10);
 					}
 				}
-				if (Util.Chance(50) && !Body.IsCasting)
+				if (UtilCollection.Chance(50) && !Body.IsCasting)
 					Body.CastSpell(BadbDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells),false);
 			}
 			base.Think();
@@ -174,8 +174,8 @@ namespace DOL.AI.Brain
 			for (int i = 0; i < 3; i++)
 			{
 				BadbWraith wraith = new BadbWraith();
-				wraith.X = 384497 + Util.Random(-100, 100);
-				wraith.Y = 745145 + Util.Random(-100, 100);
+				wraith.X = 384497 + UtilCollection.Random(-100, 100);
+				wraith.Y = 745145 + UtilCollection.Random(-100, 100);
 				wraith.Z = 4888;
 				wraith.Heading = 3895;
 				wraith.CurrentRegion = Body.CurrentRegion;
@@ -185,8 +185,8 @@ namespace DOL.AI.Brain
 			for (int i = 0; i < 3; i++)
 			{
 				BadbWraith wraith = new BadbWraith();
-				wraith.X = 383922 + Util.Random(-100, 100);
-				wraith.Y = 745175 + Util.Random(-100, 100);
+				wraith.X = 383922 + UtilCollection.Random(-100, 100);
+				wraith.Y = 745175 + UtilCollection.Random(-100, 100);
 				wraith.Z = 4888;
 				wraith.Heading = 669;
 				wraith.CurrentRegion = Body.CurrentRegion;
@@ -196,8 +196,8 @@ namespace DOL.AI.Brain
 			for (int i = 0; i < 3; i++)
 			{
 				BadbWraith wraith = new BadbWraith();
-				wraith.X = 384146 + Util.Random(-100, 100);
-				wraith.Y = 744564 + Util.Random(-100, 100);
+				wraith.X = 384146 + UtilCollection.Random(-100, 100);
+				wraith.Y = 744564 + UtilCollection.Random(-100, 100);
 				wraith.Z = 4888;
 				wraith.Heading = 1859;
 				wraith.CurrentRegion = Body.CurrentRegion;
@@ -207,8 +207,8 @@ namespace DOL.AI.Brain
 			for (int i = 0; i < 3; i++)
 			{
 				BadbWraith wraith = new BadbWraith();
-				wraith.X = 384677 + Util.Random(-100, 100);
-				wraith.Y = 744788 + Util.Random(-100, 100);
+				wraith.X = 384677 + UtilCollection.Random(-100, 100);
+				wraith.Y = 744788 + UtilCollection.Random(-100, 100);
 				wraith.Z = 4888;
 				wraith.Heading = 2621;
 				wraith.CurrentRegion = Body.CurrentRegion;
@@ -291,8 +291,8 @@ namespace DOL.GS
 		{
 			Model = 441;
 			Name = "raven wraith";
-			Level = (byte)Util.Random(58, 64);
-			Size = (byte)Util.Random(50, 55);
+			Level = (byte)UtilCollection.Random(58, 64);
+			Size = (byte)UtilCollection.Random(50, 55);
 			RespawnInterval = -1;
 			RoamingRange = 200;
 			Flags = eFlags.GHOST;

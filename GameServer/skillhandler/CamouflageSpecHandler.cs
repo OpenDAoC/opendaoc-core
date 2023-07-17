@@ -18,7 +18,7 @@ namespace DOL.GS.SkillHandler
 		/// </summary>
 		/// <param name="ab"></param>
 		/// <param name="player"></param>
-		public void Execute(Ability ab, GamePlayer player)
+		public void Execute(AbilityUtil ab, GamePlayer player)
 		{
 			if (!player.IsStealthed)
 			{

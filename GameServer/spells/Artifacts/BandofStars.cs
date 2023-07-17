@@ -51,7 +51,7 @@ namespace DOL.GS.Spells
 			base.FinishSpellCast(target);
 		}
 		
-		protected class BoltOnTargetAction : RegionECSAction
+		protected class BoltOnTargetAction : RegionAction
 		{
 			protected readonly GameLiving m_boltTarget;
 			protected readonly StarsProc m_handler;
@@ -89,7 +89,7 @@ namespace DOL.GS.Spells
 					spellhandler.StartSpell(target);
 				}
 					
-				target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.eAttackType.Spell, caster);
+				target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.EAttackType.Spell, caster);
 				return 0;
 			}
 		}

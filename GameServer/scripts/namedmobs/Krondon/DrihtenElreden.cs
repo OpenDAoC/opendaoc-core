@@ -94,7 +94,7 @@ namespace DOL.GS
 		public override bool AddToWorld()
 		{
 			Model = 919;
-			Level = (byte)(Util.Random(78, 80));
+			Level = (byte)(UtilCollection.Random(78, 80));
 			Name = "Drihten Elreden";
 			Size = 120;
 
@@ -168,7 +168,7 @@ namespace DOL.AI.Brain
             }
 			if(CallHelp.Count > 0)
             {
-				GameNPC friend = CallHelp[Util.Random(0, CallHelp.Count - 1)];
+				GameNPC friend = CallHelp[UtilCollection.Random(0, CallHelp.Count - 1)];
 				GameLiving target = Body.TargetObject as GameLiving;
 				if(target != null && target.IsAlive && friend != null && friend.Brain is StandardMobBrain brain)
                 {
@@ -210,7 +210,7 @@ namespace DOL.AI.Brain
 
 				if (canbringhelp==false)
                 {
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickRandomMob), Util.Random(15000, 30000));
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickRandomMob), UtilCollection.Random(15000, 30000));
 					canbringhelp=true;
                 }
 			}

@@ -63,7 +63,7 @@ namespace DOL.GS.RealmAbilities
                 }
                 else
                 {
-                    Ability QuickcastAbility = player.GetAbility(Abilities.Quickcast);
+                    AbilityUtil QuickcastAbility = player.GetAbility(Abilities.Quickcast);
 
                     if (QuickcastAbility == null)
                         return;

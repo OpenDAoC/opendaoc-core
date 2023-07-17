@@ -39,7 +39,7 @@ namespace DOL.GS
 			}
 
 
-			double m_amountPercent = (m_level + 0.5 + Util.RandomDouble()) / 10; //+-5% random
+			double m_amountPercent = (m_level + 0.5 + UtilCollection.RandomDouble()) / 10; //+-5% random
 			if (OwnerPlayer != null)
 				m_amount = (int)(OwnerPlayer.CalculateMaxHealth(OwnerPlayer.Level, OwnerPlayer.GetModified(EProperty.Constitution)) * m_amountPercent);
 			else m_amount = (int)(Owner.MaxHealth * m_amountPercent);

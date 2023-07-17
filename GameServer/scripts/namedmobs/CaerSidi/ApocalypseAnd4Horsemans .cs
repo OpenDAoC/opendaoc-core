@@ -150,7 +150,7 @@ namespace DOL.GS
             }
             if (PickedTarget == false && PlayersInRoom.Count > 0)
             {
-                GamePlayer ptarget = ((GamePlayer)(PlayersInRoom[Util.Random(1, PlayersInRoom.Count) - 1]));
+                GamePlayer ptarget = ((GamePlayer)(PlayersInRoom[UtilCollection.Random(1, PlayersInRoom.Count) - 1]));
                 RandomTarget = ptarget;
 
                 if(RandomTarget != null)
@@ -851,7 +851,7 @@ namespace DOL.GS
 
         public override bool AddToWorld()
         {
-            int random = Util.Random(1, 3);
+            int random = UtilCollection.Random(1, 3);
             switch(random)
             {
                 case 1:
@@ -922,7 +922,7 @@ namespace DOL.AI.Brain
             {
                 GameLiving ptarget = CalculateNextAttackTarget();
                 WarIncarnateCrush Add = new WarIncarnateCrush();
-                int random = Util.Random(1, 3);
+                int random = UtilCollection.Random(1, 3);
                 switch (random)
                 {
                     case 1:
@@ -953,8 +953,8 @@ namespace DOL.AI.Brain
                         }
                         break;
                 }
-                Add.X = Body.X + Util.Random(-200, 200);
-                Add.Y = Body.Y + Util.Random(-200, 200);
+                Add.X = Body.X + UtilCollection.Random(-200, 200);
+                Add.Y = Body.Y + UtilCollection.Random(-200, 200);
                 Add.Z = Body.Z;
                 Add.CurrentRegionID = Body.CurrentRegionID;
                 Add.MeleeDamageType = EDamageType.Crush;
@@ -1011,7 +1011,7 @@ namespace DOL.GS
 
         public override bool AddToWorld()
         {
-            int random = Util.Random(1, 4);
+            int random = UtilCollection.Random(1, 4);
             switch (random)
             {
                 case 1:
@@ -1091,7 +1091,7 @@ namespace DOL.AI.Brain
             {
                 GameLiving ptarget = CalculateNextAttackTarget();
                 WarIncarnateSlash Add = new WarIncarnateSlash();
-                int random = Util.Random(1, 4);
+                int random = UtilCollection.Random(1, 4);
                 switch (random)
                 {
                     case 1:
@@ -1131,8 +1131,8 @@ namespace DOL.AI.Brain
                         }
                         break;
                 }
-                Add.X = Body.X + Util.Random(-200, 200);
-                Add.Y = Body.Y + Util.Random(-200, 200);
+                Add.X = Body.X + UtilCollection.Random(-200, 200);
+                Add.Y = Body.Y + UtilCollection.Random(-200, 200);
                 Add.Z = Body.Z;
                 Add.CurrentRegionID = Body.CurrentRegionID;
                 Add.MeleeDamageType = EDamageType.Slash;
@@ -1189,7 +1189,7 @@ namespace DOL.GS
 
         public override bool AddToWorld()
         {
-            int random = Util.Random(1, 3);
+            int random = UtilCollection.Random(1, 3);
             switch (random)
             {
                 case 1:
@@ -1260,7 +1260,7 @@ namespace DOL.AI.Brain
             {
                 GameLiving ptarget = CalculateNextAttackTarget();
                 WarIncarnateThrust Add = new WarIncarnateThrust();
-                int random = Util.Random(1, 3);
+                int random = UtilCollection.Random(1, 3);
                 switch (random)
                 {
                     case 1:
@@ -1292,8 +1292,8 @@ namespace DOL.AI.Brain
                         }
                         break;
                 }
-                Add.X = Body.X + Util.Random(-200, 200);
-                Add.Y = Body.Y + Util.Random(-200, 200);
+                Add.X = Body.X + UtilCollection.Random(-200, 200);
+                Add.Y = Body.Y + UtilCollection.Random(-200, 200);
                 Add.Z = Body.Z;
                 Add.CurrentRegionID = Body.CurrentRegionID;
                 Add.MeleeDamageType = EDamageType.Thrust;
@@ -1643,7 +1643,7 @@ namespace DOL.AI.Brain
                 {
                     if (spawn_swarm == false)
                     {
-                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnSwarm), Util.Random(25000, 40000));//25s-40s
+                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnSwarm), UtilCollection.Random(25000, 40000));//25s-40s
 
                         foreach (GameNPC npc in WorldMgr.GetNPCsFromRegion(Body.CurrentRegionID))
                         {
@@ -1665,11 +1665,11 @@ namespace DOL.AI.Brain
         {
             if (Body.IsAlive)
             {
-                for (int i = 0; i < Util.Random(6,10); i++)
+                for (int i = 0; i < UtilCollection.Random(6,10); i++)
                 {
                     MorbusSwarm Add = new MorbusSwarm();
-                    Add.X = Body.X + Util.Random(-100, 100);
-                    Add.Y = Body.Y + Util.Random(-100, 100);
+                    Add.X = Body.X + UtilCollection.Random(-100, 100);
+                    Add.Y = Body.Y + UtilCollection.Random(-100, 100);
                     Add.Z = Body.Z;
                     Add.CurrentRegionID = Body.CurrentRegionID;
                     Add.Heading = Body.Heading;
@@ -1734,7 +1734,7 @@ namespace DOL.GS
         {         
             Name = "swarm of morbus";
             RespawnInterval = -1;
-            int random = Util.Random(1, 5);
+            int random = UtilCollection.Random(1, 5);
             switch (random)
             {
                 case 1:
@@ -1744,7 +1744,7 @@ namespace DOL.GS
                         Strength = 35;
                         Dexterity = 100;
                         Quickness = 80;
-                        Size = (byte)Util.Random(20, 45);
+                        Size = (byte)UtilCollection.Random(20, 45);
                         MaxSpeedBase = 185;
                         MeleeDamageType = EDamageType.Crush;
                     }
@@ -1756,7 +1756,7 @@ namespace DOL.GS
                         Strength = 55;
                         Dexterity = 100;
                         Quickness = 100;
-                        Size = (byte)Util.Random(20, 30);
+                        Size = (byte)UtilCollection.Random(20, 30);
                         MaxSpeedBase = 200;
                         MeleeDamageType = EDamageType.Slash;
                     }
@@ -1768,7 +1768,7 @@ namespace DOL.GS
                         Strength = 80;
                         Dexterity = 100;
                         Quickness = 65;
-                        Size = (byte)Util.Random(20, 30);
+                        Size = (byte)UtilCollection.Random(20, 30);
                         MaxSpeedBase = 165;
                         MeleeDamageType = EDamageType.Crush;
                     }
@@ -1776,7 +1776,7 @@ namespace DOL.GS
                 case 4:
                     {
                         Model = 824;//cicada quick attacks
-                        Size = (byte)Util.Random(20, 30);
+                        Size = (byte)UtilCollection.Random(20, 30);
                         Constitution = 100;
                         Strength = 25;
                         Dexterity = 100;
@@ -1788,7 +1788,7 @@ namespace DOL.GS
                 case 5:
                     {
                         Model = 819;//dragonfly quick attacks
-                        Size = (byte)Util.Random(20, 30);
+                        Size = (byte)UtilCollection.Random(20, 30);
                         Constitution = 100;
                         Strength = 25;
                         Dexterity = 100;
@@ -1843,7 +1843,7 @@ namespace DOL.AI.Brain
                 GameLiving target = Body.TargetObject as GameLiving;
                 if (target != null && target.IsAlive)
                 {
-                    if (Util.Chance(15) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.Disease))
+                    if (UtilCollection.Chance(15) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.Disease))
                         Body.CastSpell(BlackPlague, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
                 }
             }
@@ -2215,7 +2215,7 @@ namespace DOL.GS
             foreach (GamePlayer player in GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE))
             {
                 player.KillsEpicBoss++;
-                player.Achieve(AchievementUtils.AchievementNames.Epic_Boss_Kills);
+                player.Achieve(AchievementUtil.AchievementNames.Epic_Boss_Kills);
                 count++;
             }
             return count;
@@ -2493,8 +2493,8 @@ namespace DOL.AI.Brain
                 for (int i = 0; i < 2; i++)
                 {
                     HarbringerOfFate Add = new HarbringerOfFate();
-                    Add.X = Body.SpawnPoint.X + Util.Random(-100, 100);
-                    Add.Y = Body.SpawnPoint.Y + Util.Random(-100, 100);
+                    Add.X = Body.SpawnPoint.X + UtilCollection.Random(-100, 100);
+                    Add.Y = Body.SpawnPoint.Y + UtilCollection.Random(-100, 100);
                     Add.Z = Body.SpawnPoint.Z;
                     Add.CurrentRegionID = Body.CurrentRegionID;
                     Add.Heading = Body.Heading;
@@ -2518,8 +2518,8 @@ namespace DOL.AI.Brain
                 for (int i = 0; i < 2; i++)
                 {
                     HarbringerOfFate Add = new HarbringerOfFate();
-                    Add.X = Body.SpawnPoint.X + Util.Random(-100, 100);
-                    Add.Y = Body.SpawnPoint.Y + Util.Random(-100, 100);
+                    Add.X = Body.SpawnPoint.X + UtilCollection.Random(-100, 100);
+                    Add.Y = Body.SpawnPoint.Y + UtilCollection.Random(-100, 100);
                     Add.Z = Body.SpawnPoint.Z;
                     Add.CurrentRegionID = Body.CurrentRegionID;
                     Add.Heading = Body.Heading;
@@ -2822,7 +2822,7 @@ namespace DOL.AI.Brain
             {
                 if (cast_dd == false)
                 {
-                    GamePlayer ptarget = ((GamePlayer)(ApocPlayerList[Util.Random(1, ApocPlayerList.Count) - 1]));
+                    GamePlayer ptarget = ((GamePlayer)(ApocPlayerList[UtilCollection.Random(1, ApocPlayerList.Count) - 1]));
                     DD_Target = ptarget;
                     new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastDD), 6000);
                     cast_dd = true;

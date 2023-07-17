@@ -19,7 +19,7 @@ namespace DOL.GS
 		}
 		public override void OnAttackEnemy(AttackData ad) //on enemy actions
 		{
-			if (Util.Chance(35))
+			if (UtilCollection.Chance(35))
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 				{
@@ -264,8 +264,8 @@ namespace DOL.GS
 			RespawnInterval = -1;
 			++AddsCount;
 
-			Size = (byte)Util.Random(80, 100);
-			Level = (byte)Util.Random(50,55);
+			Size = (byte)UtilCollection.Random(80, 100);
+			Level = (byte)UtilCollection.Random(50,55);
 			MaxSpeedBase = 200;
 
 			Faction = FactionMgr.GetFactionByID(93);

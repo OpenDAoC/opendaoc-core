@@ -128,7 +128,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(187);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(187));
             RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
-            BodyType = (ushort)NpcTemplateMgr.eBodyType.Humanoid;
+            BodyType = (ushort)NpcTemplateMgr.EBodyType.Humanoid;
 
             GameNpcInventoryTemplate template = new GameNpcInventoryTemplate();
             template.AddNPCEquipment(eInventorySlot.TorsoArmor, 46, 0, 0, 6);//modelID,color,effect,extension

@@ -96,7 +96,7 @@ namespace DOL.GS
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(187));
             RespawnInterval =
                 ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
-            BodyType = (ushort)NpcTemplateMgr.eBodyType.Humanoid;
+            BodyType = (ushort)NpcTemplateMgr.EBodyType.Humanoid;
 
             GameNpcInventoryTemplate template = new GameNpcInventoryTemplate();
             template.AddNPCEquipment(eInventorySlot.TorsoArmor, 58, 54, 0, 0);//modelID,color,effect,extension
@@ -267,12 +267,12 @@ namespace DOL.AI.Brain
                 }
                 if (CanCast == false)
                 {
-                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastDD), Util.Random(10000, 15000));
+                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastDD), UtilCollection.Random(10000, 15000));
                     CanCast = true;
                 }
                 if (SpawnCopiesAgain == false)
                 {
-                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnMoreCopies), Util.Random(30000, 45000));
+                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnMoreCopies), UtilCollection.Random(30000, 45000));
                     SpawnCopiesAgain = true;
                 }
             }
@@ -290,7 +290,7 @@ namespace DOL.AI.Brain
         {
             if (HasAggro && AidonCopyFire.CopyCountFire == 0 && AidonCopyIce.CopyCountIce == 0 && AidonCopyAir.CopyCountAir == 0 && AidonCopyEarth.CopyCountEarth == 0)
             {
-                switch (Util.Random(1, 4))
+                switch (UtilCollection.Random(1, 4))
                 {
                     case 1:
                         AidonCopyAir Add3 = new AidonCopyAir();

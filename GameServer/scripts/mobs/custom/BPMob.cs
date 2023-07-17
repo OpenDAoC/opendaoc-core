@@ -52,9 +52,9 @@ public class BPMob : GameNPC
         int rewardbp;
         bool isjackpot;
 
-        int multiplier = Util.Random(2, 3);
-        int bonus = Util.Random(1, 3);
-        int chance = Util.Random(1, 25);
+        int multiplier = UtilCollection.Random(2, 3);
+        int bonus = UtilCollection.Random(1, 3);
+        int chance = UtilCollection.Random(1, 25);
         
         if (chance == 25)
         {

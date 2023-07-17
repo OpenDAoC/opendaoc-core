@@ -181,7 +181,7 @@ namespace DOL.AI.Brain
                 }
                 if (damage_enemies.Count > 0)
                 {
-                    GamePlayer PortTarget = (GamePlayer) damage_enemies[Util.Random(0, damage_enemies.Count - 1)];
+                    GamePlayer PortTarget = (GamePlayer) damage_enemies[UtilCollection.Random(0, damage_enemies.Count - 1)];
                     if (PortTarget.IsVisibleTo(Body) && Body.TargetInView && PortTarget != null && PortTarget.IsAlive)
                     {
                         AggroTable.Remove(PortTarget);
@@ -245,7 +245,7 @@ namespace DOL.AI.Brain
                 RemoveAdds = false;
                 if (spam_teleport == false && Body.TargetObject != null)
                 {
-                    int rand = Util.Random(25000, 45000);
+                    int rand = UtilCollection.Random(25000, 45000);
                     new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PortTimer), rand);
                     spam_teleport = true;
                 }

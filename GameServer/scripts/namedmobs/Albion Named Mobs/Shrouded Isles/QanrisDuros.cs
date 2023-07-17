@@ -107,7 +107,7 @@ namespace DOL.AI.Brain
 					if (npc != null && npc.IsAlive && npc.PackageID == "DurosBaf")
 						AddAggroListTo(npc.Brain as StandardMobBrain);
 				}
-				if (!Body.IsCasting && Util.Chance(30))
+				if (!Body.IsCasting && UtilCollection.Chance(30))
 				{
 					Body.SetGroundTarget(Body.X, Body.Y, Body.Z);
 					Body.CastSpell(Boss_PBAOE, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
@@ -125,7 +125,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 3;
-					spell.RecastDelay = Util.Random(8, 18);
+					spell.RecastDelay = UtilCollection.Random(8, 18);
 					spell.ClientEffect = 1695;
 					spell.Icon = 1695;
 					spell.TooltipId = 1695;

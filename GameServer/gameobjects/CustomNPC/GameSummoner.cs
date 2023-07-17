@@ -127,7 +127,7 @@ namespace DOL.GS
 
                     // Summon pet to the left or right of the summoner
                     ushort sideHeading = (ushort)(Heading + 900);
-                    if (Util.Random(1) < 1)
+                    if (UtilCollection.Random(1) < 1)
                         sideHeading += 1800;
                     Point2D point = GetPointFromHeading(sideHeading, PetSummonDistance);
                     m_pet.X = point.X;

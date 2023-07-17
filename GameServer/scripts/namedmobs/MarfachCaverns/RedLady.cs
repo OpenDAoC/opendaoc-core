@@ -149,8 +149,8 @@ namespace DOL.AI.Brain
                 if (SpecialInnocent.InnocentCount < 9)
                 {
                     SpecialInnocent add = new SpecialInnocent();
-                    add.X = Body.X + Util.Random(-100, 100);
-                    add.Y = Body.Y + Util.Random(-100, 100);
+                    add.X = Body.X + UtilCollection.Random(-100, 100);
+                    add.Y = Body.Y + UtilCollection.Random(-100, 100);
                     add.Z = Body.Z;
                     add.CurrentRegionID = 276;
                     add.RespawnInterval = -1;
@@ -187,7 +187,7 @@ namespace DOL.AI.Brain
                 RemoveAdds = false;
                 if(SpecialInnocent.InnocentCount<9 && CanSpawnAdds == false)
                 {
-                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnAdd), Util.Random(20000, 30000));
+                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnAdd), UtilCollection.Random(20000, 30000));
                     CanSpawnAdds=true;
                 }
                 foreach (GameNPC npc in WorldMgr.GetNPCsFromRegion(Body.CurrentRegionID))
@@ -211,7 +211,7 @@ namespace DOL.AI.Brain
                     DBSpell spell = new DBSpell();
                     spell.AllowAdd = false;
                     spell.CastTime = 3;
-                    spell.RecastDelay = Util.Random(25, 35);
+                    spell.RecastDelay = UtilCollection.Random(25, 35);
                     spell.ClientEffect = 4445;
                     spell.Icon = 4445;
                     spell.TooltipId = 4445;
@@ -252,7 +252,7 @@ namespace DOL.GS
         }
         public override void OnAttackEnemy(AttackData ad)
         {
-            if (Util.Chance(5))
+            if (UtilCollection.Chance(5))
             {
                 if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
                 {
@@ -264,9 +264,9 @@ namespace DOL.GS
         public static int InnocentCount = 0;
         public override bool AddToWorld()
         {
-            Model = (ushort)Util.Random(442, 446);
+            Model = (ushort)UtilCollection.Random(442, 446);
             Size = 50;
-            Level = (byte)Util.Random(34, 38);
+            Level = (byte)UtilCollection.Random(34, 38);
             Name = "summoned innocent";
             Realm = ERealm.None;
             MaxDistance = 0;

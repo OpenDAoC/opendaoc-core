@@ -108,7 +108,7 @@ namespace DOL.AI.Brain
 			{
 				if (IsTargetTeleported == false)
 				{
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickTeleportPlayer), Util.Random(25000, 45000));
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickTeleportPlayer), UtilCollection.Random(25000, 45000));
 					IsTargetTeleported = true;
 				}
 				GameLiving target = Body.TargetObject as GameLiving;
@@ -153,7 +153,7 @@ namespace DOL.AI.Brain
 				{
 					if (Port_Enemys.Count > 0)
 					{
-						GamePlayer Target = Port_Enemys[Util.Random(0, Port_Enemys.Count - 1)];
+						GamePlayer Target = Port_Enemys[UtilCollection.Random(0, Port_Enemys.Count - 1)];
 						TeleportTarget = Target;
 						if (TeleportTarget.IsAlive && TeleportTarget != null)
 							new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(TeleportPlayer), 3000);
@@ -166,7 +166,7 @@ namespace DOL.AI.Brain
 		{
 			if (TeleportTarget.IsAlive && TeleportTarget != null && HasAggro)
 			{
-				switch (Util.Random(1, 4))
+				switch (UtilCollection.Random(1, 4))
 				{
 					case 1: TeleportTarget.MoveTo(151, 409989, 378960, 7752, 3040); break;
 					case 2: TeleportTarget.MoveTo(151, 411003, 377902, 7704, 3070); break;

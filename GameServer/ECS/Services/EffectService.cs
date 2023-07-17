@@ -807,7 +807,7 @@ namespace DOL.GS
 
                 SpellLine line = null;
 
-                if (!Util.IsEmpty(eff.SpellLine))
+                if (!UtilCollection.IsEmpty(eff.SpellLine))
                 {
                     line = SkillBase.GetSpellLine(eff.SpellLine, false);
 

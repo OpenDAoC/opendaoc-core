@@ -7,7 +7,7 @@ namespace DOL.GS.Trainer
 	/// Necromancer trainer.
 	/// </summary>
 	/// <author>Aredhel</author>
-	[NPCGuildScript("Necromancer Trainer", ERealm.Albion)]
+	[NpcGuild("Necromancer Trainer", ERealm.Albion)]
 	public class NecromancerTrainer : GameTrainer
 	{
 		public override ECharacterClass TrainedClass

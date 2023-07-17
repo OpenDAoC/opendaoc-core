@@ -130,7 +130,7 @@ namespace DOL.GS.Spells
 						subPet.MinionGetWeapon(CommanderPet.eWeaponType.Staff);
 						break;
 					case BdMeleeBrain melee:
-						if(Util.Chance(60))
+						if(UtilCollection.Chance(60))
 							subPet.MinionGetWeapon(CommanderPet.eWeaponType.TwoHandAxe);
 						else
 							subPet.MinionGetWeapon(CommanderPet.eWeaponType.OneHandAxe);

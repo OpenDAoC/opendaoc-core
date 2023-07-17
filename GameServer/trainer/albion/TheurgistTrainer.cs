@@ -7,7 +7,7 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Theurgist Trainer
 	/// </summary>
-	[NPCGuildScript("Theurgist Trainer", ERealm.Albion)]		// this attribute instructs DOL to use this script for all "Theurgist Trainer" NPC's in Albion (multiple guilds are possible for one script)
+	[NpcGuild("Theurgist Trainer", ERealm.Albion)]		// this attribute instructs DOL to use this script for all "Theurgist Trainer" NPC's in Albion (multiple guilds are possible for one script)
 	public class TheurgistTrainer : GameTrainer
 	{
 		public override ECharacterClass TrainedClass

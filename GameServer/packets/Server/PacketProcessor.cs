@@ -870,7 +870,7 @@ namespace DOL.GS.PacketHandler
 							builder.Append("null");
 						}
 						builder.Append("\n");
-						builder.Append(Util.GetFormattedStackTraceFrom(Thread.CurrentThread));
+						builder.Append(UtilCollection.GetFormattedStackTraceFrom(Thread.CurrentThread));
 						builder.Append("\n\n");
 					}
 					catch (Exception e)

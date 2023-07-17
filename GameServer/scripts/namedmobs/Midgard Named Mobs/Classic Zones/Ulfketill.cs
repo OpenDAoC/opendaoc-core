@@ -123,8 +123,8 @@ namespace DOL.AI.Brain
 				if (UlfketillAdds.JotunsCount < 3)
 				{
 					UlfketillAdds add = new UlfketillAdds();
-					add.X = Body.X + Util.Random(-500, 500);
-					add.Y = Body.Y + Util.Random(-500, 500);
+					add.X = Body.X + UtilCollection.Random(-500, 500);
+					add.Y = Body.Y + UtilCollection.Random(-500, 500);
 					add.Z = Body.Z;
 					add.Heading = Body.Heading;
 					add.CurrentRegion = Body.CurrentRegion;
@@ -179,10 +179,10 @@ namespace DOL.GS
 		public override bool AddToWorld()
 		{
 			Model = 1770;
-			Size = (byte)Util.Random(40, 50);
+			Size = (byte)UtilCollection.Random(40, 50);
 			Name = "clay jotun guard";
 			RespawnInterval = -1;
-			Level = (byte)Util.Random(50, 55);
+			Level = (byte)UtilCollection.Random(50, 55);
 			MaxSpeedBase = 225;
 			++JotunsCount;
 

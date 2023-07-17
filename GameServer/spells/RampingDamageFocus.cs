@@ -113,7 +113,7 @@ namespace DOL.GS.Spells
 
 			foreach (GameLiving t in targets)
 			{
-				if (Util.Chance(CalculateSpellResistChance(t)))
+				if (UtilCollection.Chance(CalculateSpellResistChance(t)))
 				{
 					OnSpellResisted(t);
 					continue;

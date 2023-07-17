@@ -20,7 +20,7 @@ namespace DOL.GS.Commands
 
         public static void ExecuteCode(GameClient client, string methodBody)
         {
-            var compiler = new DOLScriptCompiler();
+            var compiler = new CoreScriptCompiler();
             var compiledAssembly = compiler.CompileFromSource(GetCode(methodBody));
 
             var errorMessages = compiler.GetErrorMessages();

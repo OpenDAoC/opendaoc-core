@@ -192,7 +192,7 @@ namespace DOL.AI.Brain
 					Body.CastSpell(RiftDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 					if (SpawnMoreAdds == false)
 					{
-						new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnAdds), Util.Random(10000, 20000));//10-20s spawn add
+						new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnAdds), UtilCollection.Random(10000, 20000));//10-20s spawn add
 						SpawnMoreAdds = true;
 					}
 				}
@@ -205,8 +205,8 @@ namespace DOL.AI.Brain
 			if (Body.IsAlive && HasAggro && IsRift)
 			{
 				Morkenhet Add1 = new Morkenhet();
-				Add1.X = Body.X + Util.Random(-100, 100);
-				Add1.Y = Body.Y + Util.Random(-100, 100);
+				Add1.X = Body.X + UtilCollection.Random(-100, 100);
+				Add1.Y = Body.Y + UtilCollection.Random(-100, 100);
 				Add1.Z = Body.Z;
 				Add1.CurrentRegion = Body.CurrentRegion;
 				Add1.Heading = Body.Heading;
@@ -226,7 +226,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 0;
-					spell.RecastDelay = Util.Random(6, 10);
+					spell.RecastDelay = UtilCollection.Random(6, 10);
 					spell.ClientEffect = 3510;
 					spell.Icon = 3510;
 					spell.TooltipId = 3510;
@@ -307,8 +307,8 @@ namespace DOL.GS
 			RespawnInterval = -1;
 			MaxSpeedBase = 225;
 
-			Size = (byte)Util.Random(50, 60);
-			Level = (byte)Util.Random(58, 62);
+			Size = (byte)UtilCollection.Random(50, 60);
+			Level = (byte)UtilCollection.Random(58, 62);
 			Faction = FactionMgr.GetFactionByID(150);
 			Faction.AddFriendFaction(FactionMgr.GetFactionByID(150));
 			MorkenhetBrain add = new MorkenhetBrain();

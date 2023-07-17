@@ -79,7 +79,7 @@ namespace DOL.GS
 		}
         public override void OnAttackEnemy(AttackData ad)
         {
-			if (Util.Chance(20))//cast nasty heat proc
+			if (UtilCollection.Chance(20))//cast nasty heat proc
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 				{

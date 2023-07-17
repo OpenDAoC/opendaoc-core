@@ -129,9 +129,9 @@ namespace DOL.GS.PacketHandler.Client.v168
 							handler.Execute(spec, player);
 						}
 					}
-					else if (sk is Ability)
+					else if (sk is AbilityUtil)
 					{
-						Ability ab = (Ability)sk;
+						AbilityUtil ab = (AbilityUtil)sk;
 						IAbilityActionHandler handler = SkillBase.GetAbilityActionHandler(ab.KeyName);
 						if (handler != null)
 						{
@@ -171,7 +171,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		/// <summary>
 		/// Handles player use skill actions
 		/// </summary>
-		protected class UseSkillAction : RegionECSAction
+		protected class UseSkillAction : RegionAction
 		{
 			/// <summary>
 			/// The speed and flags data
@@ -290,9 +290,9 @@ namespace DOL.GS.PacketHandler.Client.v168
 							handler.Execute(spec, player);
 						}
 					}
-					else if (sk is Ability)
+					else if (sk is AbilityUtil)
 					{
-						Ability ab = (Ability)sk;
+						AbilityUtil ab = (AbilityUtil)sk;
 						IAbilityActionHandler handler = SkillBase.GetAbilityActionHandler(ab.KeyName);
 						if (handler != null)
 						{

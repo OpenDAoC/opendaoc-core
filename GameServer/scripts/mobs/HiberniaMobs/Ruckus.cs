@@ -49,7 +49,7 @@ namespace DOL.AI.Brain
 			if(HasAggro && Body.TargetObject != null)
             {
 				GameLiving target = Body.TargetObject as GameLiving;
-				if (Util.Chance(25) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.StunImmunity) 
+				if (UtilCollection.Chance(25) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.StunImmunity) 
 					&& !target.effectListComponent.ContainsEffectForEffectType(EEffect.Stun) && target.IsAlive && target != null && !PrepareStun)
                 {
 					foreach(GamePlayer player in Body.GetPlayersInRadius(1500))

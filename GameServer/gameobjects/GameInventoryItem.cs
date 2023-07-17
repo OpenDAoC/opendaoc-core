@@ -266,7 +266,7 @@ namespace DOL.GS {
             {
                 GamePlayer player = owner as GamePlayer;
 
-                if (ConditionPercent > 70 && Util.Chance(ServerProperties.Properties.ITEM_CONDITION_LOSS_CHANCE))
+                if (ConditionPercent > 70 && UtilCollection.Chance(ServerProperties.Properties.ITEM_CONDITION_LOSS_CHANCE))
                 {
                     int oldPercent = ConditionPercent;
                     double con = GamePlayer.GetConLevel(player.Level, Level);
@@ -310,7 +310,7 @@ namespace DOL.GS {
             {
                 GamePlayer player = owner as GamePlayer;
 
-                if (ConditionPercent > 70 && Util.Chance(ServerProperties.Properties.ITEM_CONDITION_LOSS_CHANCE))
+                if (ConditionPercent > 70 && UtilCollection.Chance(ServerProperties.Properties.ITEM_CONDITION_LOSS_CHANCE))
                 {
                     int oldPercent = ConditionPercent;
                     double con = GamePlayer.GetConLevel(player.Level, Level);
@@ -522,12 +522,12 @@ namespace DOL.GS {
 
         protected virtual void WriteUsableClasses(IList<string> output, GameClient client)
         {
-            if (Util.IsEmpty(AllowedClasses, true))
+            if (UtilCollection.IsEmpty(AllowedClasses, true))
                 return;
 
             output.Add(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.WriteUsableClasses.UsableBy"));
 
-            foreach (string allowed in Util.SplitCSV(AllowedClasses, true))
+            foreach (string allowed in UtilCollection.SplitCSV(AllowedClasses, true))
             {
                 int classID = -1;
                 if (int.TryParse(allowed, out classID))
@@ -629,7 +629,7 @@ namespace DOL.GS {
                             ISpellHandler spellHandler = ScriptMgr.CreateSpellHandler(client.Player, procSpell, line);
                             if (spellHandler != null)
                             {
-                                Util.AddRange(output, spellHandler.DelveInfo);
+                                UtilCollection.AddRange(output, spellHandler.DelveInfo);
                                 output.Add(" ");
                             }
                             else
@@ -676,7 +676,7 @@ namespace DOL.GS {
                             ISpellHandler spellHandler = ScriptMgr.CreateSpellHandler(client.Player, procSpell, line);
                             if (spellHandler != null)
                             {
-                                Util.AddRange(output, spellHandler.DelveInfo);
+                                UtilCollection.AddRange(output, spellHandler.DelveInfo);
                                 output.Add(" ");
                             }
                             else
@@ -720,7 +720,7 @@ namespace DOL.GS {
                                     output.Add(" ");
                                 }
 
-                                Util.AddRange(output, spellHandler.DelveInfo);
+                                UtilCollection.AddRange(output, spellHandler.DelveInfo);
                                 output.Add(" ");
                                 output.Add("- This spell is cast when the item is used.");
                             }
@@ -759,7 +759,7 @@ namespace DOL.GS {
                                     output.Add(" ");
                                 }
 
-                                Util.AddRange(output, spellHandler.DelveInfo);
+                                UtilCollection.AddRange(output, spellHandler.DelveInfo);
                                 output.Add(" ");
                                 output.Add("- This spell is cast when the item is used.");
                             }
@@ -802,7 +802,7 @@ namespace DOL.GS {
                                     ISpellHandler spellHandler = ScriptMgr.CreateSpellHandler(client.Player, spl, poisonLine);
                                     if (spellHandler != null)
                                     {
-                                        Util.AddRange(output, spellHandler.DelveInfo);
+                                        UtilCollection.AddRange(output, spellHandler.DelveInfo);
                                         output.Add(" ");
                                     }
                                     else
@@ -843,7 +843,7 @@ namespace DOL.GS {
                                 ISpellHandler spellHandler = ScriptMgr.CreateSpellHandler(client.Player, spl, chargeEffectsLine);
                                 if (spellHandler != null)
                                 {
-                                    Util.AddRange(output, spellHandler.DelveInfo);
+                                    UtilCollection.AddRange(output, spellHandler.DelveInfo);
                                     output.Add(" ");
                                 }
                                 else
@@ -853,14 +853,14 @@ namespace DOL.GS {
                                 output.Add(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.WriteMagicalBonuses.UsedItem"));
                                 output.Add(" ");
                                 if (spl.RecastDelay > 0)
-                                    output.Add(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.WriteMagicalBonuses.UseItem1", Util.FormatTime(spl.RecastDelay / 1000)));
+                                    output.Add(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.WriteMagicalBonuses.UseItem1", UtilCollection.FormatTime(spl.RecastDelay / 1000)));
                                 else
                                     output.Add(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.WriteMagicalBonuses.UseItem2"));
                                 long lastChargedItemUseTick = client.Player.TempProperties.getProperty<long>(GamePlayer.LAST_CHARGED_ITEM_USE_TICK);
                                 long changeTime = client.Player.CurrentRegion.Time - lastChargedItemUseTick;
                                 long recastDelay = (spl.RecastDelay > 0) ? spl.RecastDelay : 60000 * 3;
                                 if (changeTime < recastDelay) //3 minutes reuse timer
-                                    output.Add(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.WriteMagicalBonuses.UseItem3", Util.FormatTime((recastDelay - changeTime) / 1000)));
+                                    output.Add(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.WriteMagicalBonuses.UseItem3", UtilCollection.FormatTime((recastDelay - changeTime) / 1000)));
                                 return;
                             }
                         }
@@ -1398,7 +1398,7 @@ namespace DOL.GS {
                             ISpellHandler spellHandler = ScriptMgr.CreateSpellHandler(client.Player, spl, poisonLine);
                             if (spellHandler != null)
                             {
-                                Util.AddRange(list, spellHandler.DelveInfo);
+                                UtilCollection.AddRange(list, spellHandler.DelveInfo);
                             }
                             else
                             {
@@ -1436,7 +1436,7 @@ namespace DOL.GS {
                             // into Future, set with value of "itemtemplate.CanUseEvery" and no longer back into past
                             if (nextPotionAvailTime > client.Player.CurrentRegion.Time)
                             {
-                                list.Add(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.WritePotionInfo.UseItem3", Util.FormatTime((nextPotionAvailTime - client.Player.CurrentRegion.Time) / 1000)));
+                                list.Add(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.WritePotionInfo.UseItem3", UtilCollection.FormatTime((nextPotionAvailTime - client.Player.CurrentRegion.Time) / 1000)));
                             }
                             else
                             {
@@ -1478,7 +1478,7 @@ namespace DOL.GS {
             // into Future, set with value of "itemtemplate.CanUseEvery" and no longer back into past
             if (nextPotionAvailTime > client.Player.CurrentRegion.Time)
             {
-                list.Add(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.WritePotionInfo.UseItem3", Util.FormatTime((nextPotionAvailTime - client.Player.CurrentRegion.Time) / 1000)));
+                list.Add(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.WritePotionInfo.UseItem3", UtilCollection.FormatTime((nextPotionAvailTime - client.Player.CurrentRegion.Time) / 1000)));
             }
             else
             {

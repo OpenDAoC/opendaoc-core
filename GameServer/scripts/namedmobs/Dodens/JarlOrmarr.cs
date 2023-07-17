@@ -184,9 +184,9 @@ namespace DOL.GS.Scripts
 				base.Notify(e, sender, args);
 				if (e == GameObjectEvent.TakeDamage)
 				{
-					if (Util.Chance(3))
+					if (UtilCollection.Chance(3))
 					{
-						int messageNo = Util.Random(1, m_HitAnnounce.Length) - 1;
+						int messageNo = UtilCollection.Random(1, m_HitAnnounce.Length) - 1;
 						BroadcastMessage(String.Format(m_HitAnnounce[messageNo]));
 					}
 				}

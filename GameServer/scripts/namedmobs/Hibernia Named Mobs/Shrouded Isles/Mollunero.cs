@@ -88,7 +88,7 @@ namespace DOL.GS
 		}
 		public override void OnAttackEnemy(AttackData ad) //on enemy actions
 		{
-			if (Util.Chance(25))
+			if (UtilCollection.Chance(25))
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 					CastSpell(MolluneroDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
@@ -168,11 +168,11 @@ namespace DOL.AI.Brain
 		}
 		private void SpawnAdds()
 		{
-			for (int i = 0; i < Util.Random(7, 8); i++)
+			for (int i = 0; i < UtilCollection.Random(7, 8); i++)
 			{
 				MolluneroAdd add = new MolluneroAdd();
-				add.X = Body.X + Util.Random(-300, 300);
-				add.Y = Body.Y + Util.Random(-300, 300);
+				add.X = Body.X + UtilCollection.Random(-300, 300);
+				add.Y = Body.Y + UtilCollection.Random(-300, 300);
 				add.Z = Body.Z;
 				add.Heading = Body.Heading;
 				add.CurrentRegion = Body.CurrentRegion;
@@ -231,8 +231,8 @@ namespace DOL.GS
 		{
 			Model = 904;
 			Name = "young octonoid";
-			Level = (byte)Util.Random(50, 55);
-			Size = (byte)Util.Random(35, 45);
+			Level = (byte)UtilCollection.Random(50, 55);
+			Size = (byte)UtilCollection.Random(35, 45);
 			RespawnInterval = -1;
 			RoamingRange = 200;
 			MaxDistance = 2500;

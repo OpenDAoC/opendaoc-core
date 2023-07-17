@@ -178,8 +178,8 @@ namespace DOL.GS.Commands
                 }
 
                 //Fill the object variables
-                mob.X = client.Player.X + Util.Random(radius);
-                mob.Y = client.Player.Y + Util.Random(radius);
+                mob.X = client.Player.X + UtilCollection.Random(radius);
+                mob.Y = client.Player.Y + UtilCollection.Random(radius);
                 mob.Z = client.Player.Z;
                 mob.CurrentRegion = client.Player.CurrentRegion;
                 mob.Heading = client.Player.Heading;
@@ -269,7 +269,7 @@ namespace DOL.GS.SpamMob
 
                     if (spell_rec.Count > 0)
                     {
-                        spellToCast = (Spell) spell_rec[Util.Random((spell_rec.Count - 1))];
+                        spellToCast = (Spell) spell_rec[UtilCollection.Random((spell_rec.Count - 1))];
 
 
                         if (spellToCast.Uninterruptible && CheckOffensiveSpells(spellToCast))
@@ -355,12 +355,12 @@ namespace DOL.GS.SpamMob
                     {
                         // Buff self, if not in melee, but not each and every mob
                         // at the same time, because it looks silly.
-                        if (!LivingHasEffect(Body, spell) && !Body.attackComponent.AttackState && Util.Chance(40) && spell.Target.ToLower() != "pet")
+                        if (!LivingHasEffect(Body, spell) && !Body.attackComponent.AttackState && UtilCollection.Chance(40) && spell.Target.ToLower() != "pet")
                         {
                             Body.TargetObject = Body;
                             break;
                         }
-                        if (Body.ControlledBrain != null && Body.ControlledBrain.Body != null && Util.Chance(40) && Body.GetDistanceTo(Body.ControlledBrain.Body) <= spell.Range && !LivingHasEffect(Body.ControlledBrain.Body, spell) && spell.Target.ToLower() != "self")
+                        if (Body.ControlledBrain != null && Body.ControlledBrain.Body != null && UtilCollection.Chance(40) && Body.GetDistanceTo(Body.ControlledBrain.Body) <= spell.Range && !LivingHasEffect(Body.ControlledBrain.Body, spell) && spell.Target.ToLower() != "self")
                         {
                             Body.TargetObject = Body.ControlledBrain.Body;
                             break;
@@ -441,7 +441,7 @@ namespace DOL.GS.SpamMob
 
                     // Chance to heal self when dropping below 30%, do NOT spam it.
                     if (Body.HealthPercent < (DOL.GS.ServerProperties.Properties.NPC_HEAL_THRESHOLD / 2.0)
-                        && Util.Chance(10) && spell.Target.ToLower() != "pet")
+                        && UtilCollection.Chance(10) && spell.Target.ToLower() != "pet")
                     {
                         Body.TargetObject = Body;
                         break;

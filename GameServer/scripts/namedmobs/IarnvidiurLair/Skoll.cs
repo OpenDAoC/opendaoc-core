@@ -42,7 +42,7 @@ namespace DOL.GS
 		}
 		public override void OnAttackEnemy(AttackData ad) //on enemy actions
 		{
-			if (Util.Chance(35))
+			if (UtilCollection.Chance(35))
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 				{
@@ -163,14 +163,14 @@ namespace DOL.AI.Brain
 				if(Body.TargetObject != null)
                 {
 					GameLiving target = Body.TargetObject as GameLiving;
-					if (Util.Chance(15))
+					if (UtilCollection.Chance(15))
 					{
 						if (!target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
 						{
 							new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastDot), 1000);
 						}
 					}
-					if (Util.Chance(15))
+					if (UtilCollection.Chance(15))
 					{
 						if (LivingHasEffect(Body.TargetObject as GameLiving, Skoll_Haste_Debuff) == false && Body.TargetObject.IsVisibleTo(Body))
 						{

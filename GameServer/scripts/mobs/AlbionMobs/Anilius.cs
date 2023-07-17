@@ -91,8 +91,8 @@ namespace DOL.AI.Brain
 			for (int i = 0; i < 3; i++)
 			{
 				AniliusAdd npc = new AniliusAdd();
-				npc.X = Body.X + Util.Random(-50, 50);
-				npc.Y = Body.Y + Util.Random(-50, 50);
+				npc.X = Body.X + UtilCollection.Random(-50, 50);
+				npc.Y = Body.Y + UtilCollection.Random(-50, 50);
 				npc.Z = Body.Z;
 				npc.Heading = Body.Heading;
 				npc.CurrentRegion = Body.CurrentRegion;

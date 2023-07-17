@@ -491,7 +491,7 @@ namespace DOL.AI.Brain
                     SpawnGuardians();
                     spawn_guardians = true;
                 }
-                if (Util.Chance(10))
+                if (UtilCollection.Chance(10))
                 {
                     Body.CastSpell(AroonRoot, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
                 }
@@ -503,72 +503,72 @@ namespace DOL.AI.Brain
         public void SpawnGuardians()
         {
             CorpScaith Add = new CorpScaith();
-            Add.X = Body.X + Util.Random(-100, 150);
-            Add.Y = Body.Y + Util.Random(-100, 150);
+            Add.X = Body.X + UtilCollection.Random(-100, 150);
+            Add.Y = Body.Y + UtilCollection.Random(-100, 150);
             Add.Z = Body.Z;
             Add.CurrentRegion = Body.CurrentRegion;
             Add.Heading = Body.Heading;
             Add.AddToWorld();
 
             SpioradScaith Add2 = new SpioradScaith();
-            Add2.X = Body.X + Util.Random(-100, 150);
-            Add2.Y = Body.Y + Util.Random(-100, 150);
+            Add2.X = Body.X + UtilCollection.Random(-100, 150);
+            Add2.Y = Body.Y + UtilCollection.Random(-100, 150);
             Add2.Z = Body.Z;
             Add2.CurrentRegion = Body.CurrentRegion;
             Add2.Heading = Body.Heading;
             Add2.AddToWorld();
 
             RopadhScaith Add3 = new RopadhScaith();
-            Add3.X = Body.X + Util.Random(-100, 150);
-            Add3.Y = Body.Y + Util.Random(-100, 150);
+            Add3.X = Body.X + UtilCollection.Random(-100, 150);
+            Add3.Y = Body.Y + UtilCollection.Random(-100, 150);
             Add3.Z = Body.Z;
             Add3.CurrentRegion = Body.CurrentRegion;
             Add3.Heading = Body.Heading;
             Add3.AddToWorld();
 
             DamhnaScaith Add4 = new DamhnaScaith();
-            Add4.X = Body.X + Util.Random(-100, 150);
-            Add4.Y = Body.Y + Util.Random(-100, 150);
+            Add4.X = Body.X + UtilCollection.Random(-100, 150);
+            Add4.Y = Body.Y + UtilCollection.Random(-100, 150);
             Add4.Z = Body.Z;
             Add4.CurrentRegion = Body.CurrentRegion;
             Add4.Heading = Body.Heading;
             Add4.AddToWorld();
 
             FuinneamgScaith Add5 = new FuinneamgScaith();
-            Add5.X = Body.X + Util.Random(-100, 150);
-            Add5.Y = Body.Y + Util.Random(-100, 150);
+            Add5.X = Body.X + UtilCollection.Random(-100, 150);
+            Add5.Y = Body.Y + UtilCollection.Random(-100, 150);
             Add5.Z = Body.Z;
             Add5.CurrentRegion = Body.CurrentRegion;
             Add5.Heading = Body.Heading;
             Add5.AddToWorld();
 
             BruScaith Add6 = new BruScaith();
-            Add6.X = Body.X + Util.Random(-100, 150);
-            Add6.Y = Body.Y + Util.Random(-100, 150);
+            Add6.X = Body.X + UtilCollection.Random(-100, 150);
+            Add6.Y = Body.Y + UtilCollection.Random(-100, 150);
             Add6.Z = Body.Z;
             Add6.CurrentRegion = Body.CurrentRegion;
             Add6.Heading = Body.Heading;
             Add6.AddToWorld();
 
             FuarScaith Add7 = new FuarScaith();
-            Add7.X = Body.X + Util.Random(-100, 150);
-            Add7.Y = Body.Y + Util.Random(-100, 150);
+            Add7.X = Body.X + UtilCollection.Random(-100, 150);
+            Add7.Y = Body.Y + UtilCollection.Random(-100, 150);
             Add7.Z = Body.Z;
             Add7.CurrentRegion = Body.CurrentRegion;
             Add7.Heading = Body.Heading;
             Add7.AddToWorld();
 
             TaesScaith Add8 = new TaesScaith();
-            Add8.X = Body.X + Util.Random(-100, 150);
-            Add8.Y = Body.Y + Util.Random(-100, 150);
+            Add8.X = Body.X + UtilCollection.Random(-100, 150);
+            Add8.Y = Body.Y + UtilCollection.Random(-100, 150);
             Add8.Z = Body.Z;
             Add8.CurrentRegion = Body.CurrentRegion;
             Add8.Heading = Body.Heading;
             Add8.AddToWorld();
 
             ScorScaith Add9 = new ScorScaith();
-            Add9.X = Body.X + Util.Random(-100, 150);
-            Add9.Y = Body.Y + Util.Random(-100, 150);
+            Add9.X = Body.X + UtilCollection.Random(-100, 150);
+            Add9.Y = Body.Y + UtilCollection.Random(-100, 150);
             Add9.Z = Body.Z;
             Add9.CurrentRegion = Body.CurrentRegion;
             Add9.Heading = Body.Heading;
@@ -674,7 +674,7 @@ namespace DOL.GS
         public override bool AddToWorld()
         {
             CorpScaithBrain.Message1 = false;
-            Model = (ushort) Util.Random(889, 890);
+            Model = (ushort) UtilCollection.Random(889, 890);
             Name = "Corp Scaith";
             RespawnInterval = -1;
             Strength = 350;
@@ -738,7 +738,7 @@ namespace DOL.AI.Brain
             }
             else
             {
-                RandomTarget = PlayersToAttack[Util.Random(0, PlayersToAttack.Count - 1)];
+                RandomTarget = PlayersToAttack[UtilCollection.Random(0, PlayersToAttack.Count - 1)];
                 AggroTable.Clear();
                 AggroTable.Add(RandomTarget, 500);
                 switch_target = false;
@@ -770,11 +770,11 @@ namespace DOL.AI.Brain
                     }
                 }
 
-                if (Util.Chance(15))
+                if (UtilCollection.Chance(15))
                 {
                     if (switch_target == false)
                     {
-                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(RandomAttackTarget), Util.Random(10000, 20000));
+                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(RandomAttackTarget), UtilCollection.Random(10000, 20000));
                         switch_target = true;
                     }
                 }
@@ -876,7 +876,7 @@ namespace DOL.GS
         public override bool AddToWorld()
         {
             SpioradScaithBrain.Message2 = false;
-            Model = (ushort) Util.Random(889, 890);
+            Model = (ushort) UtilCollection.Random(889, 890);
             Name = "Spiorad Scaith";
             RespawnInterval = -1;
             Strength = 350;
@@ -937,7 +937,7 @@ namespace DOL.AI.Brain
             }
             else
             {
-                RandomTarget = PlayersToAttack[Util.Random(0, PlayersToAttack.Count - 1)];
+                RandomTarget = PlayersToAttack[UtilCollection.Random(0, PlayersToAttack.Count - 1)];
                 AggroTable.Clear();
                 AggroTable.Add(RandomTarget, 500);
                 switch_target = false;
@@ -967,11 +967,11 @@ namespace DOL.AI.Brain
                         }
                     }
                 }
-                if (Util.Chance(15))
+                if (UtilCollection.Chance(15))
                 {
                     if (switch_target == false)
                     {
-                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(RandomAttackTarget), Util.Random(10000, 20000));
+                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(RandomAttackTarget), UtilCollection.Random(10000, 20000));
                         switch_target = true;
                     }
                 }
@@ -1071,7 +1071,7 @@ namespace DOL.GS
         public override bool AddToWorld()
         {
             RopadhScaithBrain.Message3 = false;
-            Model = (ushort) Util.Random(889, 890);
+            Model = (ushort) UtilCollection.Random(889, 890);
             Name = "Ropadh Scaith";
             RespawnInterval = -1;
             Strength = 350;
@@ -1135,7 +1135,7 @@ namespace DOL.AI.Brain
             }
             else
             {
-                RandomTarget = PlayersToAttack[Util.Random(0, PlayersToAttack.Count - 1)];
+                RandomTarget = PlayersToAttack[UtilCollection.Random(0, PlayersToAttack.Count - 1)];
                 AggroTable.Clear();
                 AggroTable.Add(RandomTarget, 500);
                 switch_target = false;
@@ -1167,11 +1167,11 @@ namespace DOL.AI.Brain
                     }
                 }
 
-                if (Util.Chance(15))
+                if (UtilCollection.Chance(15))
                 {
                     if (switch_target == false)
                     {
-                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(RandomAttackTarget), Util.Random(10000, 20000));
+                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(RandomAttackTarget), UtilCollection.Random(10000, 20000));
                         switch_target = true;
                     }
                 }
@@ -1272,7 +1272,7 @@ namespace DOL.GS
         public override bool AddToWorld()
         {
             DamhnaScaithBrain.Message4 = false;
-            Model = (ushort) Util.Random(889, 890);
+            Model = (ushort) UtilCollection.Random(889, 890);
             Name = "Damhna Scaith";
             RespawnInterval = -1;
             Strength = 350;
@@ -1336,7 +1336,7 @@ namespace DOL.AI.Brain
             }
             else
             {
-                RandomTarget = PlayersToAttack[Util.Random(0, PlayersToAttack.Count - 1)];
+                RandomTarget = PlayersToAttack[UtilCollection.Random(0, PlayersToAttack.Count - 1)];
                 AggroTable.Clear();
                 AggroTable.Add(RandomTarget, 500);
                 switch_target = false;
@@ -1368,11 +1368,11 @@ namespace DOL.AI.Brain
                     }
                 }
 
-                if (Util.Chance(15))
+                if (UtilCollection.Chance(15))
                 {
                     if (switch_target == false)
                     {
-                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(RandomAttackTarget), Util.Random(10000, 20000));
+                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(RandomAttackTarget), UtilCollection.Random(10000, 20000));
                         switch_target = true;
                     }
                 }
@@ -1474,7 +1474,7 @@ namespace DOL.GS
         public override bool AddToWorld()
         {
             FuinneamgScaithBrain.Message5 = false;
-            Model = (ushort) Util.Random(889, 890);
+            Model = (ushort) UtilCollection.Random(889, 890);
             Name = "Fuinneamg Scaith";
             Strength = 350;
             Dexterity = 200;
@@ -1538,7 +1538,7 @@ namespace DOL.AI.Brain
             }
             else
             {
-                RandomTarget = PlayersToAttack[Util.Random(0, PlayersToAttack.Count - 1)];
+                RandomTarget = PlayersToAttack[UtilCollection.Random(0, PlayersToAttack.Count - 1)];
                 AggroTable.Clear();
                 AggroTable.Add(RandomTarget, 500);
                 switch_target = false;
@@ -1571,11 +1571,11 @@ namespace DOL.AI.Brain
                     }
                 }
 
-                if (Util.Chance(15))
+                if (UtilCollection.Chance(15))
                 {
                     if (switch_target == false)
                     {
-                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(RandomAttackTarget), Util.Random(10000, 20000));
+                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(RandomAttackTarget), UtilCollection.Random(10000, 20000));
                         switch_target = true;
                     }
                 }
@@ -1677,7 +1677,7 @@ namespace DOL.GS
         public override bool AddToWorld()
         {
             BruScaithBrain.Message6 = false;
-            Model = (ushort) Util.Random(889, 890);
+            Model = (ushort) UtilCollection.Random(889, 890);
             Name = "Bru Scaith";
             RespawnInterval = -1;
             Strength = 350;
@@ -1741,7 +1741,7 @@ namespace DOL.AI.Brain
             }
             else
             {
-                RandomTarget = PlayersToAttack[Util.Random(0, PlayersToAttack.Count - 1)];
+                RandomTarget = PlayersToAttack[UtilCollection.Random(0, PlayersToAttack.Count - 1)];
                 AggroTable.Clear();
                 AggroTable.Add(RandomTarget, 500);
                 switch_target = false;
@@ -1774,11 +1774,11 @@ namespace DOL.AI.Brain
                     }
                 }
 
-                if (Util.Chance(15))
+                if (UtilCollection.Chance(15))
                 {
                     if (switch_target == false)
                     {
-                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(RandomAttackTarget), Util.Random(10000, 20000));
+                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(RandomAttackTarget), UtilCollection.Random(10000, 20000));
                         switch_target = true;
                     }
                 }
@@ -1880,7 +1880,7 @@ namespace DOL.GS
         public override bool AddToWorld()
         {
             FuarScaithBrain.Message7 = false;
-            Model = (ushort) Util.Random(889, 890);
+            Model = (ushort) UtilCollection.Random(889, 890);
             Name = "Fuar Scaith";
             RespawnInterval = -1;
             Strength = 350;
@@ -1944,7 +1944,7 @@ namespace DOL.AI.Brain
             }
             else
             {
-                RandomTarget = PlayersToAttack[Util.Random(0, PlayersToAttack.Count - 1)];
+                RandomTarget = PlayersToAttack[UtilCollection.Random(0, PlayersToAttack.Count - 1)];
                 AggroTable.Clear();
                 AggroTable.Add(RandomTarget, 500);
                 switch_target = false;
@@ -1977,11 +1977,11 @@ namespace DOL.AI.Brain
                     }
                 }
 
-                if (Util.Chance(15))
+                if (UtilCollection.Chance(15))
                 {
                     if (switch_target == false)
                     {
-                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(RandomAttackTarget), Util.Random(10000, 20000));
+                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(RandomAttackTarget), UtilCollection.Random(10000, 20000));
                         switch_target = true;
                     }
                 }
@@ -2084,7 +2084,7 @@ namespace DOL.GS
         public override bool AddToWorld()
         {
             TaesScaithBrain.Message8 = false;
-            Model = (ushort) Util.Random(889, 890);
+            Model = (ushort) UtilCollection.Random(889, 890);
             Name = "Taes Scaith";
             RespawnInterval = -1;
             Strength = 350;
@@ -2148,7 +2148,7 @@ namespace DOL.AI.Brain
             }
             else
             {
-                RandomTarget = PlayersToAttack[Util.Random(0, PlayersToAttack.Count - 1)];
+                RandomTarget = PlayersToAttack[UtilCollection.Random(0, PlayersToAttack.Count - 1)];
                 AggroTable.Clear();
                 AggroTable.Add(RandomTarget, 500);
                 switch_target = false;
@@ -2181,11 +2181,11 @@ namespace DOL.AI.Brain
                     }
                 }
 
-                if (Util.Chance(15))
+                if (UtilCollection.Chance(15))
                 {
                     if (switch_target == false)
                     {
-                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(RandomAttackTarget), Util.Random(10000, 20000));
+                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(RandomAttackTarget), UtilCollection.Random(10000, 20000));
                         switch_target = true;
                     }
                 }
@@ -2288,7 +2288,7 @@ namespace DOL.GS
         public override bool AddToWorld()
         {
             ScorScaithBrain.Message9 = false;
-            Model = (ushort) Util.Random(889, 890);
+            Model = (ushort) UtilCollection.Random(889, 890);
             Name = "Scor Scaith";
             RespawnInterval = -1;
             Strength = 350;
@@ -2352,7 +2352,7 @@ namespace DOL.AI.Brain
             }
             else
             {
-                RandomTarget = PlayersToAttack[Util.Random(0, PlayersToAttack.Count - 1)];
+                RandomTarget = PlayersToAttack[UtilCollection.Random(0, PlayersToAttack.Count - 1)];
                 AggroTable.Clear();
                 AggroTable.Add(RandomTarget, 500);
                 switch_target = false;
@@ -2385,11 +2385,11 @@ namespace DOL.AI.Brain
                     }
                 }
 
-                if (Util.Chance(15))
+                if (UtilCollection.Chance(15))
                 {
                     if (switch_target == false)
                     {
-                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(RandomAttackTarget), Util.Random(10000, 20000));
+                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(RandomAttackTarget), UtilCollection.Random(10000, 20000));
                         switch_target = true;
                     }
                 }

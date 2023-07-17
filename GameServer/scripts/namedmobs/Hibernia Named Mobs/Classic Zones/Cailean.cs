@@ -175,9 +175,9 @@ namespace DOL.AI.Brain
                 }
 				if(Body.TargetObject != null)
                 {					
-					if(Util.Chance(20) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.SnareImmunity) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.MovementSpeedDebuff))
+					if(UtilCollection.Chance(20) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.SnareImmunity) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.MovementSpeedDebuff))
 						Body.CastSpell(TreeRoot, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
-					if (Util.Chance(20) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.MezImmunity) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.Mez))
+					if (UtilCollection.Chance(20) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.MezImmunity) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.Mez))
 						Body.CastSpell(BossMezz, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 				}
 				foreach (GameNPC npc in Body.GetNPCsInRadius(2500))
@@ -210,11 +210,11 @@ namespace DOL.AI.Brain
 				if (npc.Brain is WalkingTreeBrain)
 					return;
 			}
-			for (int i = 0; i < Util.Random(4, 5); i++)
+			for (int i = 0; i < UtilCollection.Random(4, 5); i++)
 			{
 				WalkingTree tree = new WalkingTree();
-				tree.X = Body.X + Util.Random(-500, 500);
-				tree.Y = Body.Y + Util.Random(-500, 500);
+				tree.X = Body.X + UtilCollection.Random(-500, 500);
+				tree.Y = Body.Y + UtilCollection.Random(-500, 500);
 				tree.Z = Body.Z;
 				tree.Heading = Body.Heading;
 				tree.CurrentRegion = Body.CurrentRegion;
@@ -231,24 +231,24 @@ namespace DOL.AI.Brain
 			Point3D point1 = new Point3D(479778, 508293, 4534);
 			Point3D point2 = new Point3D(478647, 508450, 4639);
 			Point3D point3 = new Point3D(479444, 508548, 4532);
-			for (int i = 0; i < Util.Random(8, 10); i++)
+			for (int i = 0; i < UtilCollection.Random(8, 10); i++)
 			{
 				WalkingTree2 tree = new WalkingTree2();
-				switch(Util.Random(1,3))
+				switch(UtilCollection.Random(1,3))
                 {
 					case 1:
-						tree.X = point1.X + Util.Random(-200, 200);
-						tree.Y = point1.Y + Util.Random(-200, 200);
+						tree.X = point1.X + UtilCollection.Random(-200, 200);
+						tree.Y = point1.Y + UtilCollection.Random(-200, 200);
 						tree.Z = point1.Z;
 						break;
 					case 2:
-						tree.X = point2.X + Util.Random(-200, 200);
-						tree.Y = point2.Y + Util.Random(-200, 200);
+						tree.X = point2.X + UtilCollection.Random(-200, 200);
+						tree.Y = point2.Y + UtilCollection.Random(-200, 200);
 						tree.Z = point2.Z;
 						break;
 					case 3:
-						tree.X = point3.X + Util.Random(-200, 200);
-						tree.Y = point3.Y + Util.Random(-200, 200);
+						tree.X = point3.X + UtilCollection.Random(-200, 200);
+						tree.Y = point3.Y + UtilCollection.Random(-200, 200);
 						tree.Z = point3.Z;
 						break;
 				}
@@ -383,8 +383,8 @@ namespace DOL.GS
 		{
 			Model = 1703;
 			Name = "walking tree";
-			Level = (byte)Util.Random(48, 50);
-			Size = (byte)Util.Random(50, 55);
+			Level = (byte)UtilCollection.Random(48, 50);
+			Size = (byte)UtilCollection.Random(50, 55);
 			RespawnInterval = -1;
 			RoamingRange = 200;
 
@@ -412,9 +412,9 @@ namespace DOL.AI.Brain
 			if(HasAggro && Body.TargetObject != null)
             {
 				GameLiving target = Body.TargetObject as GameLiving;
-				if(Util.Chance(20) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.SnareImmunity) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.MovementSpeedDebuff))
+				if(UtilCollection.Chance(20) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.SnareImmunity) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.MovementSpeedDebuff))
 					Body.CastSpell(TreeRoot, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
-				if (Util.Chance(20) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
+				if (UtilCollection.Chance(20) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
 					Body.CastSpell(CaileanTree_Dot, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
 			}
 			base.Think();
@@ -525,8 +525,8 @@ namespace DOL.GS
 		{
 			Model = 1703;
 			Name = "rotted tree";
-			Level = (byte)Util.Random(40, 44);
-			Size = (byte)Util.Random(40, 50);
+			Level = (byte)UtilCollection.Random(40, 44);
+			Size = (byte)UtilCollection.Random(40, 50);
 			RespawnInterval = -1;
 			MaxSpeedBase = 0;
 
@@ -554,7 +554,7 @@ namespace DOL.AI.Brain
 			if (HasAggro && Body.TargetObject != null)
 			{
 				GameLiving target = Body.TargetObject as GameLiving;
-				if (Util.Chance(20))
+				if (UtilCollection.Chance(20))
 				{
 					if(target.effectListComponent.ContainsEffectForEffectType(EEffect.SnareImmunity) && target != null && target.IsAlive)
                     {

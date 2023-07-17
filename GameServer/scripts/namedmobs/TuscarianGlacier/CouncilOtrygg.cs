@@ -150,8 +150,8 @@ namespace DOL.AI.Brain
             for (int i = 0; i < 8; i++) // Spawn 8 pets
             {
                 OtryggAdd Add = new OtryggAdd();
-                Add.X = Body.SpawnPoint.X + Util.Random(-50, 80);
-                Add.Y = Body.SpawnPoint.Y + Util.Random(-50, 80);
+                Add.X = Body.SpawnPoint.X + UtilCollection.Random(-50, 80);
+                Add.Y = Body.SpawnPoint.Y + UtilCollection.Random(-50, 80);
                 Add.Z = Body.SpawnPoint.Z;
                 Add.CurrentRegion = Body.CurrentRegion;
                 Add.Heading = Body.Heading;
@@ -162,8 +162,8 @@ namespace DOL.AI.Brain
         public void SpawnPetsMore()
         {
             OtryggAdd Add = new OtryggAdd();
-            Add.X = Body.SpawnPoint.X + Util.Random(-50, 80);
-            Add.Y = Body.SpawnPoint.Y + Util.Random(-50, 80);
+            Add.X = Body.SpawnPoint.X + UtilCollection.Random(-50, 80);
+            Add.Y = Body.SpawnPoint.Y + UtilCollection.Random(-50, 80);
             Add.Z = Body.SpawnPoint.Z;
             Add.CurrentRegion = Body.CurrentRegion;
             Add.Heading = Body.Heading;
@@ -232,7 +232,7 @@ namespace DOL.GS
         #endregion
         public override bool AddToWorld()
         {
-            Model = (byte)Util.Random(241,244);
+            Model = (byte)UtilCollection.Random(241,244);
             MeleeDamageType = EDamageType.Crush;
             Name = "summoned pet";
             RespawnInterval = -1;

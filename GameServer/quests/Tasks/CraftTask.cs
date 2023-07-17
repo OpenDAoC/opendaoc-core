@@ -141,7 +141,7 @@ namespace DOL.GS.Quests
 
 			var craftitem = CoreDb<DbCraftedItems>.SelectObjects(DB.Column("CraftingSkillType").IsEqualTo((int)player.CraftingPrimarySkill)
 				.And(DB.Column("CraftingLevel").IsGreatherThan(lowLevel).And(DB.Column("CraftingLevel").IsLessThan(highLevel))));
-			int craftrnd = Util.Random(craftitem.Count);
+			int craftrnd = UtilCollection.Random(craftitem.Count);
 
 			DbItemTemplates template = GameServer.Database.FindObjectByKey<DbItemTemplates>(craftitem[craftrnd].Id_nb);
 			return template;

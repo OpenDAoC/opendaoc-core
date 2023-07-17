@@ -132,9 +132,9 @@ namespace DOL.GS.Spells
             if (playerCaster?.UseDetailedCombatLog == true && critChance > 0)
                 playerCaster.Out.SendMessage($"Debuff crit chance: {Caster.DotCriticalChance}", eChatType.CT_DamageAdd, eChatLoc.CL_SystemWindow);
 
-            if (Util.Chance(critChance))
+            if (UtilCollection.Chance(critChance))
             {                    
-                critMod *= 1 + Util.Random(1, 10) * 0.1;
+                critMod *= 1 + UtilCollection.Random(1, 10) * 0.1;
                 playerCaster?.Out.SendMessage($"Your {Spell.Name} critically debuffs the enemy for {Math.Round(critMod - 1,3) * 100}% additional effect!", eChatType.CT_YouHit, eChatLoc.CL_SystemWindow);
             }
 

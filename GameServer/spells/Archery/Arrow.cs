@@ -88,7 +88,7 @@ namespace DOL.GS.Spells
 		/// <summary>
 		/// Delayed action when arrow reach the target
 		/// </summary>
-		protected class ArrowOnTargetAction : RegionECSAction
+		protected class ArrowOnTargetAction : RegionAction
 		{
 			/// <summary>
 			/// The arrow target
@@ -143,7 +143,7 @@ namespace DOL.GS.Spells
 					return 0;
 				}
 
-				if (Util.Chance(missrate))
+				if (UtilCollection.Chance(missrate))
 				{
 					ad.AttackResult = EAttackResult.Missed;
 					m_handler.MessageToCaster("You miss!", eChatType.CT_YouHit);
@@ -207,7 +207,7 @@ namespace DOL.GS.Spells
 								}
 							}
 
-							if (blockchance >= Util.Random(1, 100))
+							if (blockchance >= UtilCollection.Random(1, 100))
 							{
 								arrowBlock = true;
 								m_handler.MessageToLiving(player, "You block " + caster.GetName(0, false) + "'s arrow!", eChatType.CT_System);
@@ -286,7 +286,7 @@ namespace DOL.GS.Spells
 						else
 						{
 							int critMax = (target is GamePlayer) ? ad.Damage / 2 : ad.Damage;
-							ad.CriticalDamage = Util.Random(critMax / 10, critMax);
+							ad.CriticalDamage = UtilCollection.Random(critMax / 10, critMax);
 						}
 					}
 

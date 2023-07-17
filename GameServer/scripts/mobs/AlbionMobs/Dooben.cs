@@ -36,7 +36,7 @@ namespace DOL.GS
 		
 		public override void OnAttackEnemy(AttackData ad) //on enemy actions
 		{
-			if (Util.Chance(45))
+			if (UtilCollection.Chance(45))
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 					CastSpell(DoobenDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));

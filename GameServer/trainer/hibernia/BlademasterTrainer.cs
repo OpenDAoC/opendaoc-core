@@ -7,7 +7,7 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Blademaster Trainer
 	/// </summary>
-	[NPCGuildScript("Blademaster Trainer", ERealm.Hibernia)]		// this attribute instructs DOL to use this script for all "Blademaster Trainer" NPC's in Albion (multiple guilds are possible for one script)
+	[NpcGuild("Blademaster Trainer", ERealm.Hibernia)]		// this attribute instructs DOL to use this script for all "Blademaster Trainer" NPC's in Albion (multiple guilds are possible for one script)
 	public class BlademasterTrainer : GameTrainer
 	{
 		public override ECharacterClass TrainedClass

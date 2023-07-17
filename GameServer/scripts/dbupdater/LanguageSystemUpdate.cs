@@ -92,7 +92,7 @@ namespace DOL.GS.DatabaseUpdate
 
                     foreach (language obj in objs)
                     {
-                        if (Util.IsEmpty(obj.TranslationID))
+                        if (UtilCollection.IsEmpty(obj.TranslationID))
                             continue;
 
                         // This kind of row will later be readded by the LanguageMgr
@@ -102,7 +102,7 @@ namespace DOL.GS.DatabaseUpdate
 
                         DBLanguageSystem lngObj = null;
 
-                        if (!Util.IsEmpty(obj.EN))
+                        if (!UtilCollection.IsEmpty(obj.EN))
                         {
                             if (!ListContainsObjectData(lngObjs, "EN", obj.TranslationID)) // Ignore duplicates
                             {
@@ -115,7 +115,7 @@ namespace DOL.GS.DatabaseUpdate
                             }
                         }
 
-                        if (!Util.IsEmpty(obj.DE))
+                        if (!UtilCollection.IsEmpty(obj.DE))
                         {
                             if (!ListContainsObjectData(lngObjs, "DE", obj.TranslationID)) // Ignore duplicates
                             {
@@ -128,7 +128,7 @@ namespace DOL.GS.DatabaseUpdate
                             }
                         }
 
-                        if (!Util.IsEmpty(obj.FR))
+                        if (!UtilCollection.IsEmpty(obj.FR))
                         {
                             if (!ListContainsObjectData(lngObjs, "FR", obj.TranslationID)) // Ignore duplicates
                             {
@@ -141,7 +141,7 @@ namespace DOL.GS.DatabaseUpdate
                             }
                         }
 
-                        if (!Util.IsEmpty(obj.IT))
+                        if (!UtilCollection.IsEmpty(obj.IT))
                         {
                             if (!ListContainsObjectData(lngObjs, "IT", obj.TranslationID)) // Ignore duplicates
                             {

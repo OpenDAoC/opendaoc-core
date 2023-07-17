@@ -351,9 +351,9 @@ namespace DOL.GS.DailyQuest.Hibernia
 			int reward = ServerProperties.Properties.DAILY_RVR_REWARD;
 			
 			m_questPlayer.ForceGainExperience((m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel)/5);
-			m_questPlayer.AddMoney(Money.GetMoney(0,0,m_questPlayer.Level,32,Util.Random(50)), "You receive {0} as a reward.");
+			m_questPlayer.AddMoney(Money.GetMoney(0,0,m_questPlayer.Level,32,UtilCollection.Random(50)), "You receive {0} as a reward.");
 			AtlasROGManager.GenerateReward(m_questPlayer, 250);
-			AtlasROGManager.GenerateJewel(m_questPlayer, (byte)(m_questPlayer.Level + 1), m_questPlayer.Level + Util.Random(5, 15));
+			AtlasROGManager.GenerateJewel(m_questPlayer, (byte)(m_questPlayer.Level + 1), m_questPlayer.Level + UtilCollection.Random(5, 15));
 			PlayersKilled = 0;
 			
 			if (reward > 0)

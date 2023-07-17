@@ -21,7 +21,7 @@
 		}
 		public override void Die(GameObject killer)
 		{
-			switch (Util.Random(1, 4))
+			switch (UtilCollection.Random(1, 4))
 			{
 				case 1:
 					SpawnPoint.X = 743068;

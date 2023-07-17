@@ -72,13 +72,13 @@ namespace DOL.Tests.Unit.Gameserver
         public bool UpdateObjsInCache<TObject>(IEnumerable<object> keys) where TObject : DataObject => throw new NotImplementedException();
     }
 
-    public class UtilChanceIsHundredPercent : Util
+    public class UtilChanceIsHundredPercent : UtilCollection
     {
         protected override int RandomImpl(int min, int max) => 100;
 
         public static void Enable()
         {
-            Util.LoadTestDouble(new UtilChanceIsHundredPercent());
+            UtilCollection.LoadTestDouble(new UtilChanceIsHundredPercent());
         }
     }
 }

@@ -18,7 +18,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		/// <summary>
 		/// Handles player interact actions
 		/// </summary>
-		protected class InteractActionHandler : AuxRegionECSAction
+		protected class InteractActionHandler : AuxRegionAction
 		{
 			/// <summary>
 			/// The interact target OID

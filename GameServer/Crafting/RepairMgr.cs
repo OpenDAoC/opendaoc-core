@@ -86,7 +86,7 @@ namespace DOL.GS
 			player.CraftTimer?.Stop();
 			player.Out.SendCloseTimerWindow();
 
-			if (Util.Chance(CalculateSuccessChances(player, item)))
+			if (UtilCollection.Chance(CalculateSuccessChances(player, item)))
 			{
 				int toRecoverCond = (int)((item.MaxCondition - item.Condition) * 0.01 / item.MaxCondition) + 1;
 				if (toRecoverCond >= item.Durability)
@@ -249,7 +249,7 @@ namespace DOL.GS
 					log.Warn("There was a problem getting back the item to the player in the secondary craft system.");
 				return 0;
 			}
-			if (!Util.Chance(CalculateSuccessChances(player, siegeWeapon)))
+			if (!UtilCollection.Chance(CalculateSuccessChances(player, siegeWeapon)))
 			{
 				player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Repair.ProceedSiegeWeapon.FailRepair", siegeWeapon.Name), eChatType.CT_System, eChatLoc.CL_SystemWindow);
 				return 0;

@@ -40,10 +40,10 @@ namespace DOL.GS
 
 			for (int glimmer = 1; glimmer <= 10; ++glimmer)
 			{
-				isMessenger = Util.Chance(25);
-				glimmerSpawn = SpawnTimedAdd((isMessenger) ? 620 : 621+Util.Random(2),
-					(isMessenger) ? Util.Random(47, 53) : Util.Random(57, 63),
-					X + Util.Random(300, 600), Y + Util.Random(300, 600), 60, isMessenger);
+				isMessenger = UtilCollection.Chance(25);
+				glimmerSpawn = SpawnTimedAdd((isMessenger) ? 620 : 621+UtilCollection.Random(2),
+					(isMessenger) ? UtilCollection.Random(47, 53) : UtilCollection.Random(57, 63),
+					X + UtilCollection.Random(300, 600), Y + UtilCollection.Random(300, 600), 60, isMessenger);
 
 				// We got a messenger, tell it who its master is and which exit
 				// to run to.
@@ -54,7 +54,7 @@ namespace DOL.GS
 					{
 						(glimmerSpawn.Brain as RetrieverMobBrain).Master = this;
 						m_messengerList.Add(glimmerSpawn);
-						glimmerSpawn.WalkTo(GetExitCoordinates(Util.Random(1, 4)), 200);	// Pick 1 out of 4 possible exits.
+						glimmerSpawn.WalkTo(GetExitCoordinates(UtilCollection.Random(1, 4)), 200);	// Pick 1 out of 4 possible exits.
 					}
 				}
 			}
@@ -95,7 +95,7 @@ namespace DOL.GS
 			// Spawn nasty adds.
 
 			if (m_messengerList.Contains(sender))
-				SpawnGlimmers(Util.Random(7, 10), sender.X, sender.Y);
+				SpawnGlimmers(UtilCollection.Random(7, 10), sender.X, sender.Y);
 		}
 
 		/// <summary>
@@ -111,7 +111,7 @@ namespace DOL.GS
 			GameNPC glimmer;
 			for (int add = 0; add < numAdds; ++add)
 			{
-				glimmer = SpawnTimedAdd(624+Util.Random(2), Util.Random(62, 68), x + Util.Random(250), y + Util.Random(250), 120, false);
+				glimmer = SpawnTimedAdd(624+UtilCollection.Random(2), UtilCollection.Random(62, 68), x + UtilCollection.Random(250), y + UtilCollection.Random(250), 120, false);
 
 				if (glimmer != null && glimmer.Brain is StandardMobBrain && this.Brain is DragonBrain)
 				{

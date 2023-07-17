@@ -17,7 +17,7 @@ namespace DOL.GS.SkillHandler
 
         public const int GUARD_DISTANCE = 256;
 
-        public void Execute(Ability ab, GamePlayer player)
+        public void Execute(AbilityUtil ab, GamePlayer player)
         {
             if (player == null)
             {

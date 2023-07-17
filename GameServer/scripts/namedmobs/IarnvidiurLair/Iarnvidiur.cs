@@ -133,7 +133,7 @@ namespace DOL.AI.Brain
 				{
 					if (Port_Enemys.Count > 0)
 					{
-						GamePlayer Target = Port_Enemys[Util.Random(0, Port_Enemys.Count - 1)];
+						GamePlayer Target = Port_Enemys[UtilCollection.Random(0, Port_Enemys.Count - 1)];
 						TeleportTarget = Target;
 						if (TeleportTarget.IsAlive && TeleportTarget != null)
 						{							
@@ -153,7 +153,7 @@ namespace DOL.AI.Brain
 			GamePlayer oldTarget = (GamePlayer)Body.TargetObject; //old target
 			if (TeleportTarget.IsAlive && TeleportTarget != null)
 			{
-				switch (Util.Random(1, 4))
+				switch (UtilCollection.Random(1, 4))
 				{
 					case 1: TeleportTarget.MoveTo(161, 12563, 13450, 18537, 2997); break;
 					case 2: TeleportTarget.MoveTo(161, 15212, 13331, 18537, 920); break;
@@ -219,14 +219,14 @@ namespace DOL.AI.Brain
 
 					if (damage_enemies.Count > 0)
 					{
-						GamePlayer Target = (GamePlayer)damage_enemies[Util.Random(0, damage_enemies.Count - 1)];
+						GamePlayer Target = (GamePlayer)damage_enemies[UtilCollection.Random(0, damage_enemies.Count - 1)];
 						RandomTarget = Target; //randomly picked target is now RandomTarget
 						if (RandomTarget != null && RandomTarget.IsAlive)
 						{
 							GameLiving oldTarget = Body.TargetObject as GameLiving; //old target
 							Body.TargetObject = RandomTarget; //set target to randomly picked
 							Body.TurnTo(RandomTarget);
-							switch (Util.Random(1, 2)) //pick one of 2 spells to cast
+							switch (UtilCollection.Random(1, 2)) //pick one of 2 spells to cast
 							{
 								case 1: Body.CastSpell(Iarnvidiur_Dot,SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells)); break; //dot
 								case 2: Body.CastSpell(IarnvidiurDD,SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells)); break; //dd
@@ -260,7 +260,7 @@ namespace DOL.AI.Brain
 			{
 				if(Body.TargetObject != null)
                 {
-					if (Util.Chance(15))
+					if (UtilCollection.Chance(15))
 					{
 						GameLiving target = Body.TargetObject as GameLiving;
 						if (!target.effectListComponent.ContainsEffectForEffectType(EEffect.Disease))
@@ -268,11 +268,11 @@ namespace DOL.AI.Brain
 							new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastDisease), 1000);
 						}
 					}
-					if (Util.Chance(15))
+					if (UtilCollection.Chance(15))
 					{
 						if (IsTargetPicked==false)
 						{
-							new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickPlayerToDD), Util.Random(15000, 25000));
+							new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickPlayerToDD), UtilCollection.Random(15000, 25000));
 							IsTargetPicked = true;
 						}
 					}
@@ -281,7 +281,7 @@ namespace DOL.AI.Brain
                 {
 					if (IsTargetTeleported == false)
 					{
-						new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickTeleportPlayer), Util.Random(25000, 45000));
+						new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickTeleportPlayer), UtilCollection.Random(25000, 45000));
 						IsTargetTeleported = true;
 					}
 				}

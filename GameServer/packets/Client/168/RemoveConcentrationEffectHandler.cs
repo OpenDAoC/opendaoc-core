@@ -18,7 +18,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		/// <summary>
 		/// Handles player cancel effect requests
 		/// </summary>
-		protected class CancelEffectHandler : RegionECSAction
+		protected class CancelEffectHandler : RegionAction
 		{
 			/// <summary>
 			/// The effect index

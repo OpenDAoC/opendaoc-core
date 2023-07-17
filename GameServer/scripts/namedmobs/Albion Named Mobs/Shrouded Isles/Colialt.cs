@@ -96,11 +96,11 @@ namespace DOL.GS
         }
         private void SpawnZombies()
         {
-			for(int i=0; i<Util.Random(10,15); i++)
+			for(int i=0; i<UtilCollection.Random(10,15); i++)
             {
 				ColialtAdds add = new ColialtAdds();
-				add.X = X + Util.Random(-500, 500);
-				add.Y = Y + Util.Random(-500, 500);
+				add.X = X + UtilCollection.Random(-500, 500);
+				add.Y = Y + UtilCollection.Random(-500, 500);
 				add.Z = Z;
 				add.Heading = Heading;
 				add.CurrentRegion = CurrentRegion;
@@ -109,7 +109,7 @@ namespace DOL.GS
         }
 		public override void DealDamage(AttackData ad)
 		{
-			if (ad != null && ad.AttackType == AttackData.eAttackType.Spell && ad.Damage > 0 && ColialtBrain.ColialtPhase)
+			if (ad != null && ad.AttackType == AttackData.EAttackType.Spell && ad.Damage > 0 && ColialtBrain.ColialtPhase)
 			{
 				Health += ad.Damage;
 			}
@@ -266,10 +266,10 @@ namespace DOL.GS
         public override bool AddToWorld()
 		{
 			Model = 921;
-			Size = (byte)Util.Random(65, 75);
+			Size = (byte)UtilCollection.Random(65, 75);
 			Name = "ancient zombie";
 			RespawnInterval = -1;
-			Level = (byte)Util.Random(61, 66);
+			Level = (byte)UtilCollection.Random(61, 66);
 			MaxSpeedBase = 225;
 			Faction = FactionMgr.GetFactionByID(64);
 			Faction.AddFriendFaction(FactionMgr.GetFactionByID(64));

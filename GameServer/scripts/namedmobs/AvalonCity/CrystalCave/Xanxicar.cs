@@ -234,7 +234,7 @@ namespace DOL.AI.Brain
 				}
 				if (Port_Enemys.Count > 0)
 				{
-					GamePlayer Target = Port_Enemys[Util.Random(0, Port_Enemys.Count - 1)];
+					GamePlayer Target = Port_Enemys[UtilCollection.Random(0, Port_Enemys.Count - 1)];
 					RandomTarget = Target;
 					if (RandomTarget.IsAlive && RandomTarget != null && HasAggro)
 					{
@@ -268,7 +268,7 @@ namespace DOL.AI.Brain
 				}
 				if (DD_Enemys.Count > 0)
 				{
-					GamePlayer Target = DD_Enemys[Util.Random(0, DD_Enemys.Count - 1)];
+					GamePlayer Target = DD_Enemys[UtilCollection.Random(0, DD_Enemys.Count - 1)];
 					RandomTarget2 = Target;
 					if (RandomTarget2.IsAlive && RandomTarget2 != null && HasAggro)
 					{
@@ -344,12 +344,12 @@ namespace DOL.AI.Brain
 				RemoveAdds = false;
 				if (IsTargetPicked == false)
 				{
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ThrowPlayer), Util.Random(20000, 40000));//timer to port and pick player
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ThrowPlayer), UtilCollection.Random(20000, 40000));//timer to port and pick player
 					IsTargetPicked = true;
 				}
 				if (IsTargetPicked2 == false)
 				{
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(GlarePlayer), Util.Random(35000, 45000));//timer to glare at player
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(GlarePlayer), UtilCollection.Random(35000, 45000));//timer to glare at player
 					IsTargetPicked2 = true;
 				}
 				if(Body.HealthPercent <= 80 && Bomb1 == false)
@@ -381,7 +381,7 @@ namespace DOL.AI.Brain
                     }
 					if(SpawnAddsOnce && CheckForSingleAdd==false && XanxicarianChampion.XanxicarianChampionCount == 0)
                     {
-						new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnMoreAdds), Util.Random(15000, 25000));//spawn 1 add every 25-35s
+						new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnMoreAdds), UtilCollection.Random(15000, 25000));//spawn 1 add every 25-35s
 						CheckForSingleAdd = true;
                     }
                 }
@@ -398,8 +398,8 @@ namespace DOL.AI.Brain
 			for (int i = 0; i < 5; i++)
 			{
 				XanxicarianChampion Add = new XanxicarianChampion();
-				Add.X = Body.X + Util.Random(-150, 150);
-				Add.Y = Body.Y + Util.Random(-150, 150);
+				Add.X = Body.X + UtilCollection.Random(-150, 150);
+				Add.Y = Body.Y + UtilCollection.Random(-150, 150);
 				Add.Z = Body.Z;
 				Add.Level = 65;
 				Add.CurrentRegion = Body.CurrentRegion;
@@ -412,8 +412,8 @@ namespace DOL.AI.Brain
 			if (XanxicarianChampion.XanxicarianChampionCount == 0 && HasAggro)
 			{
 				XanxicarianChampion Add = new XanxicarianChampion();
-				Add.X = Body.X + Util.Random(-150, 150);
-				Add.Y = Body.Y + Util.Random(-150, 150);
+				Add.X = Body.X + UtilCollection.Random(-150, 150);
+				Add.Y = Body.Y + UtilCollection.Random(-150, 150);
 				Add.Z = Body.Z;
 				Add.Level = 65;
 				Add.CurrentRegion = Body.CurrentRegion;

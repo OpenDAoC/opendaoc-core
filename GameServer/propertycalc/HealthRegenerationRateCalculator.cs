@@ -64,7 +64,7 @@ namespace DOL.GS.PropertyCalc
 				regen *= 1.75;
 
 			double decimals = regen - (int)regen;
-			if (Util.ChanceDouble(decimals)) 
+			if (UtilCollection.ChanceDouble(decimals)) 
 			{
 				regen += 1;	// compensate int rounding error
 			}

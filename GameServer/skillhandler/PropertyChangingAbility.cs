@@ -4,7 +4,7 @@ using DOL.Database;
 
 namespace DOL.GS.SkillHandler
 {
-	public class PropertyChangingAbility : Ability
+	public class PropertyChangingAbility : AbilityUtil
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 

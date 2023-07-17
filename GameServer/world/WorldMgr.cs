@@ -303,7 +303,7 @@ namespace DOL.GS
 			var mobList = new List<DbMobs>();
 			if (ServerProperties.Properties.DEBUG_LOAD_REGIONS != string.Empty)
 			{
-				foreach (string loadRegion in Util.SplitCSV(ServerProperties.Properties.DEBUG_LOAD_REGIONS, true))
+				foreach (string loadRegion in UtilCollection.SplitCSV(ServerProperties.Properties.DEBUG_LOAD_REGIONS, true))
 				{
 					mobList.AddRange(CoreDb<DbMobs>.SelectObjects(DB.Column("Region").IsEqualTo(loadRegion)));
 				}

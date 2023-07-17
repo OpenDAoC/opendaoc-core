@@ -92,7 +92,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 			{
 				int index = snap[spellLineIndex].Item2.FindIndex(s => s is Spell ? s.Level == spellLevel :
 																(s is Styles.Style style ? style.SpecLevelRequirement == spellLevel :
-																(s is Ability ability ? ability.SpecLevelRequirement == spellLevel :
+																(s is AbilityUtil ability ? ability.SpecLevelRequirement == spellLevel :
 																false)));
 				
 				if (index > -1)
@@ -118,9 +118,9 @@ namespace DOL.GS.PacketHandler.Client.v168
 			{
 				player.styleComponent.ExecuteWeaponStyle((Styles.Style)sk);
 			}
-			else if (sk is Ability)
+			else if (sk is AbilityUtil)
 			{
-				Ability ab = (Ability)sk;
+				AbilityUtil ab = (AbilityUtil)sk;
 				IAbilityActionHandler handler = SkillBase.GetAbilityActionHandler(ab.KeyName);
 				if (handler != null)
 				{
@@ -145,7 +145,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		/// <summary>
 		/// Handles player use spell actions
 		/// </summary>
-		protected class UseSpellAction : RegionECSAction
+		protected class UseSpellAction : RegionAction
 		{
 			/// <summary>
 			/// Defines a logger for this class.
@@ -211,7 +211,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 					int index = snap[m_spellLineIndex].Item2.FindIndex(s => s is Spell ? 
 																	   s.Level == m_spellLevel 
 																	   : (s is Styles.Style ? ((Styles.Style)s).SpecLevelRequirement == m_spellLevel
-																		  : (s is Ability ? ((Ability)s).SpecLevelRequirement == m_spellLevel : false)));
+																		  : (s is AbilityUtil ? ((AbilityUtil)s).SpecLevelRequirement == m_spellLevel : false)));
 					
 					if (index > -1)
 					{
@@ -230,9 +230,9 @@ namespace DOL.GS.PacketHandler.Client.v168
 				{
 					player.styleComponent.ExecuteWeaponStyle((Styles.Style)sk);
 				}
-				else if (sk is Ability)
+				else if (sk is AbilityUtil)
 				{
-					Ability ab = (Ability)sk;
+					AbilityUtil ab = (AbilityUtil)sk;
 					IAbilityActionHandler handler = SkillBase.GetAbilityActionHandler(ab.KeyName);
 					if (handler != null)
 					{

@@ -37,7 +37,7 @@ namespace DOL.GS.Spells
                 ((GamePlayer)target).Out.SendMessage(" You lose " + end + " endurance!", eChatType.CT_YouWereHit, eChatLoc.CL_SystemWindow);
             (m_caster as GamePlayer).Out.SendMessage("" + target.Name + " loses " + end + " endurance!", eChatType.CT_YouWereHit, eChatLoc.CL_SystemWindow);
 
-            target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.eAttackType.Spell, Caster);
+            target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.EAttackType.Spell, Caster);
         }
     }
     #endregion
@@ -73,7 +73,7 @@ namespace DOL.GS.Spells
             int mana = (int)(Spell.Damage);
             target.ChangeMana(target, EPowerChangeType.Spell, (-mana));
 
-            target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.eAttackType.Spell, Caster);
+            target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.EAttackType.Spell, Caster);
         }
     }
     #endregion
@@ -214,7 +214,7 @@ namespace DOL.GS.Spells
             if (baseChance < 1)
                 baseChance = 1;
 
-            if (Util.Chance(baseChance))
+            if (UtilCollection.Chance(baseChance))
             {
                 ISpellHandler handler = ScriptMgr.CreateSpellHandler((GameLiving)sender, m_procSpell, m_procSpellLine);
                 if (handler != null)
@@ -553,10 +553,10 @@ namespace DOL.GS.Spells
                 default:
                 case Slot.RIGHTHAND:
                 case Slot.LEFTHAND:
-                    ad.AttackType = AttackData.eAttackType.MeleeOneHand;
+                    ad.AttackType = AttackData.EAttackType.MeleeOneHand;
                     break;
                 case Slot.TWOHAND:
-                    ad.AttackType = AttackData.eAttackType.MeleeTwoHand;
+                    ad.AttackType = AttackData.EAttackType.MeleeTwoHand;
                     break;
             }
             //Throw Weapon is subject to all the conventional attack results, parry, evade, block, etc.
@@ -587,7 +587,7 @@ namespace DOL.GS.Spells
                 else
                     damage *= 1.0 - Math.Min(0.85, ad.Target.GetArmorAbsorb(ad.ArmorHitLocation));
 
-                damage *= (lowerboundary + Util.Random(50)) * 0.01;
+                damage *= (lowerboundary + UtilCollection.Random(50)) * 0.01;
 
                 ad.Modifier = (int)(damage * (ad.Target.GetResist(ad.DamageType) + SkillBase.GetArmorResist(armor, ad.DamageType)) * -0.01);
 

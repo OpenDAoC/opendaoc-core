@@ -345,7 +345,7 @@ namespace DOL.GS.Scripts
         public bool CheckChanceBomb(GameLiving target)
         {
             if (target == null || BombTarget != null) return false;
-            bool success = Util.Chance(BombChance);
+            bool success = UtilCollection.Chance(BombChance);
             if (success)
                 BombTarget = target;
             return success; // Has a 3% chance to cast.
@@ -358,7 +358,7 @@ namespace DOL.GS.Scripts
             if (BombTarget == null) return;
             TurnTo(BombTarget);
             WalkTo(BombTarget, 250);
-            int messageNo = Util.Random(1, m_BombAnnounce.Length) - 1;
+            int messageNo = UtilCollection.Random(1, m_BombAnnounce.Length) - 1;
             BroadcastMessage(String.Format(m_BombAnnounce[messageNo], Name));
             new ECSGameTimer(this, new ECSGameTimer.ECSTimerCallback(CastBomb), 5000);
         }
@@ -385,7 +385,7 @@ namespace DOL.GS.Scripts
         {
             // Prevent brain from casting this over and over.
             HealthPercentOld = HealthPercent;
-            int messageNo = Util.Random(1, m_BombAnnounce.Length) - 1;
+            int messageNo = UtilCollection.Random(1, m_BombAnnounce.Length) - 1;
             BroadcastMessage(String.Format(m_BombAnnounce[messageNo], Name));
             new ECSGameTimer(this, new ECSGameTimer.ECSTimerCallback(CastBomb), 5000);
         }
@@ -456,7 +456,7 @@ namespace DOL.GS.Scripts
         public bool CheckDebuff(GameLiving target)
         {
             if (target == null || DebuffTarget != null) return false;
-            bool success = Util.Chance(DebuffChance);
+            bool success = UtilCollection.Chance(DebuffChance);
             if (success)
                 DebuffTarget = target;
             return success;

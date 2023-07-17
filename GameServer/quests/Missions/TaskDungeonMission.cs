@@ -117,20 +117,20 @@ namespace DOL.GS.Quests
                 {
                     if (m_bossName == "")
                         m_bossName = npc.Name; //Some instances have multiple bosses, eg Gregorian - why break?
-                    else if (Util.Chance(50))
+                    else if (UtilCollection.Chance(50))
                         m_bossName = npc.Name;
                 } //else what if we aren't looking at a boss, but a normal mob?
                 else
-                    if (Util.Chance(20) || m_targetName == "")
+                    if (UtilCollection.Chance(20) || m_targetName == "")
                         m_targetName = npc.Name;
             }
 
 			int specificCount = 0;
             
             //Draw the mission type before we do anymore counting...
-            if (Util.Chance(40) && m_bossName != "")
+            if (UtilCollection.Chance(40) && m_bossName != "")
                 m_missionType = eTDMissionType.Boss;
-            else if (Util.Chance(20) && m_targetName != "")
+            else if (UtilCollection.Chance(20) && m_targetName != "")
                 m_missionType = eTDMissionType.Specific;
             else
                 m_missionType = eTDMissionType.Clear;
@@ -337,7 +337,7 @@ namespace DOL.GS.Quests
 
 		private static ushort GetRandomRegion(ushort[] regions)
 		{
-			return regions[Util.Random(0, regions.Length - 1)];
+			return regions[UtilCollection.Random(0, regions.Length - 1)];
 		}
 
 		public override void Notify(CoreEvent e, object sender, EventArgs args)

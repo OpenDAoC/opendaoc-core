@@ -88,7 +88,7 @@ namespace DOL.GS
 
             player.Out.SendCloseTimerWindow();
 
-            if (Util.Chance(skill.CalculateChanceToMakeItem(player, recipe.Level)))
+            if (UtilCollection.Chance(skill.CalculateChanceToMakeItem(player, recipe.Level)))
             {
                 if (!skill.RemoveUsedMaterials(player, recipe))
                 {

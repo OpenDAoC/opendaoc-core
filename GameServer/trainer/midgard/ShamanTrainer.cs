@@ -7,7 +7,7 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Shaman Trainer
 	/// </summary>
-	[NPCGuildScript("Shaman Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Shaman Trainer" NPC's in Albion (multiple guilds are possible for one script)
+	[NpcGuild("Shaman Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Shaman Trainer" NPC's in Albion (multiple guilds are possible for one script)
 	public class ShamanTrainer : GameTrainer
 	{
 		public override ECharacterClass TrainedClass

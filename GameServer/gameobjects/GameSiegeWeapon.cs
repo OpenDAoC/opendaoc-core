@@ -740,7 +740,7 @@ namespace DOL.GS
 	}
 	#endregion
 	#region siegeTimer
-	public class SiegeTimer : RegionECSAction
+	public class SiegeTimer : RegionAction
 	{
 		public enum eAction : byte
 		{

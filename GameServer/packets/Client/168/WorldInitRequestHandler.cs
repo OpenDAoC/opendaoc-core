@@ -54,14 +54,14 @@ namespace DOL.GS.PacketHandler.Client.v168
                     client.ActiveCharIndex = -1;
                 }
                 else
-                    AuditMgr.AddAuditEntry(client, AuditType.Character, AuditSubtype.CharacterLogin, "", selectedChar);
+                    AuditMgr.AddAuditEntry(client, EAuditType.Character, EAuditSubtype.CharacterLogin, "", selectedChar);
             }
         }
 
         /// <summary>
         /// Handles player world init requests
         /// </summary>
-        protected class WorldInitAction : AuxRegionECSAction
+        protected class WorldInitAction : AuxRegionAction
         {
             /// <summary>
             /// Constructs a new WorldInitAction
@@ -84,7 +84,7 @@ namespace DOL.GS.PacketHandler.Client.v168
                 {
                     lock (player.Inventory)
                     {
-                        Guild playerGuild = player.Guild;
+                        GuildUtil playerGuild = player.Guild;
                         foreach (InventoryItem myitem in player.Inventory.AllItems)
                         {
                             if (myitem != null && myitem.Emblem != 0)

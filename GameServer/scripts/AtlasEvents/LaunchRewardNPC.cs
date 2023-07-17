@@ -47,9 +47,9 @@ namespace DOL.GS.Scripts
             
             var LaunchQuestParamKey = $"{CUSTOM_KEY}{Realm}";
             
-            var hasRealmCredit = AchievementUtils.CheckPlayerCredit(LAUNCH_QUEST_ACHIEVEMENT, player, (int)Realm);
+            var hasRealmCredit = AchievementUtil.CheckPlayerCredit(LAUNCH_QUEST_ACHIEVEMENT, player, (int)Realm);
             
-            var hasAccountCredit = AchievementUtils.CheckAccountCredit(LAUNCH_QUEST_ACHIEVEMENT, player);
+            var hasAccountCredit = AchievementUtil.CheckAccountCredit(LAUNCH_QUEST_ACHIEVEMENT, player);
 
             if (hasRealmCredit)
             {
@@ -96,7 +96,7 @@ namespace DOL.GS.Scripts
 
             var player = source as GamePlayer;
 
-            var hasRealmCredit = AchievementUtils.CheckPlayerCredit(LAUNCH_QUEST_ACHIEVEMENT, player, (int)player.Realm);
+            var hasRealmCredit = AchievementUtil.CheckPlayerCredit(LAUNCH_QUEST_ACHIEVEMENT, player, (int)player.Realm);
             
             switch(str)
             {

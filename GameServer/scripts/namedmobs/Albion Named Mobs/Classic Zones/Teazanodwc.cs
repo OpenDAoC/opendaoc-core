@@ -139,11 +139,11 @@ namespace DOL.AI.Brain
 		}
 		private void SpawnAdds()
 		{
-			for (int i = 0; i < Util.Random(4,5); i++)
+			for (int i = 0; i < UtilCollection.Random(4,5); i++)
 			{
 				TeazanodwcAdd npc = new TeazanodwcAdd();
-				npc.X = Body.X + Util.Random(-100, 100);
-				npc.Y = Body.Y + Util.Random(-100, 100);
+				npc.X = Body.X + UtilCollection.Random(-100, 100);
+				npc.Y = Body.Y + UtilCollection.Random(-100, 100);
 				npc.Z = Body.Z;
 				npc.Heading = Body.Heading;
 				npc.CurrentRegion = Body.CurrentRegion;
@@ -161,9 +161,9 @@ namespace DOL.GS
 		public override bool AddToWorld()
 		{
 			Name = "Teazanodwc's servant";
-			Level = (byte)Util.Random(50, 53);
+			Level = (byte)UtilCollection.Random(50, 53);
 			Model = 601;
-			Size =(byte)Util.Random(100,130);
+			Size =(byte)UtilCollection.Random(100,130);
 			TeazanodwcAddBrain sbrain = new TeazanodwcAddBrain();
 			SetOwnBrain(sbrain);
 			LoadedFromScript = true;

@@ -204,7 +204,7 @@ namespace DOL.GS.Commands
 			if (!PreFireChecks(player, obj))
 				return 0;
 
-			if (Util.ChanceDouble(CalculateRepairChance(player,obj)))
+			if (UtilCollection.ChanceDouble(CalculateRepairChance(player,obj)))
 			{
 				if (obj is GameKeepDoor)
 				{

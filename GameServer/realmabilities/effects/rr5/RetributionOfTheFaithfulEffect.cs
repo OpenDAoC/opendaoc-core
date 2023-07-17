@@ -121,7 +121,7 @@ namespace DOL.GS.Effects
 			if (args.AttackData.Attacker.EffectList.GetOfType<ChargeEffect>() != null || args.AttackData.Attacker.TempProperties.getProperty("Charging", false))
 				return;
             if ( !owner.IsWithinRadius( args.AttackData.Attacker, 300 ) ) return;
-            if (Util.Chance(50))
+            if (UtilCollection.Chance(50))
             {
                 RetributionOfTheFaithfulStunEffect effect = new RetributionOfTheFaithfulStunEffect();
                 effect.Start(args.AttackData.Attacker);

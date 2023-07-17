@@ -295,7 +295,7 @@ namespace DOL.AI.Brain
 		{
 			if (RandomTarget.IsAlive && RandomTarget != null)
 			{
-				switch (Util.Random(1, 4))
+				switch (UtilCollection.Random(1, 4))
 				{
 					case 1: RandomTarget.MoveTo(61, 50986, 20031, 16964, 3091); break;
 					case 2: RandomTarget.MoveTo(61, 51936, 21012, 16964, 2093); break;
@@ -310,10 +310,10 @@ namespace DOL.AI.Brain
 		}
 		public override void OnAttackedByEnemy(AttackData ad)
 		{
-			if (ad != null && Util.Chance(25) && IsTargetPicked == false && ad.Attacker.IsAlive && ad.Attacker != null && ad.Attacker is GamePlayer)
+			if (ad != null && UtilCollection.Chance(25) && IsTargetPicked == false && ad.Attacker.IsAlive && ad.Attacker != null && ad.Attacker is GamePlayer)
 			{
 				RandomTarget = ad.Attacker as GamePlayer;
-				new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(TeleportPlayer), Util.Random(8000, 15000));
+				new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(TeleportPlayer), UtilCollection.Random(8000, 15000));
 				IsTargetPicked = true;
 			}
 			base.OnAttackedByEnemy(ad);
@@ -425,7 +425,7 @@ namespace DOL.AI.Brain
 		{
 			if (RandomTarget.IsAlive && RandomTarget != null)
 			{
-				switch (Util.Random(1, 4))
+				switch (UtilCollection.Random(1, 4))
 				{
 					case 1: RandomTarget.MoveTo(61, 50986, 20031, 16964, 3091); break;
 					case 2: RandomTarget.MoveTo(61, 51936, 21012, 16964, 2093); break;
@@ -440,10 +440,10 @@ namespace DOL.AI.Brain
 		}
 		public override void OnAttackedByEnemy(AttackData ad)
 		{
-			if (ad != null && Util.Chance(25) && IsTargetPicked == false && ad.Attacker.IsAlive && ad.Attacker != null && ad.Attacker is GamePlayer)
+			if (ad != null && UtilCollection.Chance(25) && IsTargetPicked == false && ad.Attacker.IsAlive && ad.Attacker != null && ad.Attacker is GamePlayer)
 			{
 				RandomTarget = ad.Attacker as GamePlayer;
-				new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(TeleportPlayer), Util.Random(8000, 15000));
+				new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(TeleportPlayer), UtilCollection.Random(8000, 15000));
 				IsTargetPicked = true;
 			}
 			base.OnAttackedByEnemy(ad);
@@ -555,7 +555,7 @@ namespace DOL.AI.Brain
 		{
 			if (RandomTarget.IsAlive && RandomTarget != null)
 			{
-				switch (Util.Random(1, 4))
+				switch (UtilCollection.Random(1, 4))
 				{
 					case 1: RandomTarget.MoveTo(61, 50986, 20031, 16964, 3091); break;
 					case 2: RandomTarget.MoveTo(61, 51936, 21012, 16964, 2093); break;
@@ -570,10 +570,10 @@ namespace DOL.AI.Brain
 		}
 		public override void OnAttackedByEnemy(AttackData ad)
 		{
-			if (ad != null && Util.Chance(25) && IsTargetPicked == false && ad.Attacker.IsAlive && ad.Attacker != null && ad.Attacker is GamePlayer)
+			if (ad != null && UtilCollection.Chance(25) && IsTargetPicked == false && ad.Attacker.IsAlive && ad.Attacker != null && ad.Attacker is GamePlayer)
 			{
 				RandomTarget = ad.Attacker as GamePlayer;
-				new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(TeleportPlayer), Util.Random(8000, 15000));
+				new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(TeleportPlayer), UtilCollection.Random(8000, 15000));
 				IsTargetPicked = true;
 			}
 			base.OnAttackedByEnemy(ad);
@@ -685,7 +685,7 @@ namespace DOL.AI.Brain
 		{
 			if (RandomTarget.IsAlive && RandomTarget != null)
 			{
-				switch (Util.Random(1, 4))
+				switch (UtilCollection.Random(1, 4))
 				{
 					case 1: RandomTarget.MoveTo(61, 50986, 20031, 16964, 3091); break;
 					case 2: RandomTarget.MoveTo(61, 51936, 21012, 16964, 2093); break;
@@ -700,10 +700,10 @@ namespace DOL.AI.Brain
 		}
 		public override void OnAttackedByEnemy(AttackData ad)
 		{
-			if (ad != null && Util.Chance(25) && IsTargetPicked == false && ad.Attacker.IsAlive && ad.Attacker != null && ad.Attacker is GamePlayer)
+			if (ad != null && UtilCollection.Chance(25) && IsTargetPicked == false && ad.Attacker.IsAlive && ad.Attacker != null && ad.Attacker is GamePlayer)
 			{
 				RandomTarget = ad.Attacker as GamePlayer;
-				new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(TeleportPlayer), Util.Random(8000, 15000));
+				new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(TeleportPlayer), UtilCollection.Random(8000, 15000));
 				IsTargetPicked = true;
 			}
 			base.OnAttackedByEnemy(ad);

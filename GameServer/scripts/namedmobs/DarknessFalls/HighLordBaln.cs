@@ -122,11 +122,11 @@ namespace DOL.AI.Brain
         private bool CanPopMinions = false;
         private int SpawnMinion(ECSGameTimer timer)
         {
-            for (int i = 0; i < Util.Random(8, 12); i++)
+            for (int i = 0; i < UtilCollection.Random(8, 12); i++)
             {
                 BalnMinion sMinion = new BalnMinion();
-                sMinion.X = Body.X + Util.Random(-100, 100);
-                sMinion.Y = Body.Y + Util.Random(-100, 100);
+                sMinion.X = Body.X + UtilCollection.Random(-100, 100);
+                sMinion.Y = Body.Y + UtilCollection.Random(-100, 100);
                 sMinion.Z = Body.Z;
                 sMinion.CurrentRegion = Body.CurrentRegion;
                 sMinion.Heading = Body.Heading;
@@ -160,7 +160,7 @@ namespace DOL.AI.Brain
                 RemoveAdds = false;
                 if (!CanPopMinions)
                 {
-                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnMinion), Util.Random(20000, 35000));
+                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnMinion), UtilCollection.Random(20000, 35000));
                     CanPopMinions = true;
                 }
             }

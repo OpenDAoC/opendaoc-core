@@ -262,7 +262,7 @@ namespace DOL.GS.Quests
             lock (m_customProperties)
             {
                 m_customProperties.Clear();
-                foreach (string property in Util.SplitCSV(m_dbTask.CustomPropertiesString))
+                foreach (string property in UtilCollection.SplitCSV(m_dbTask.CustomPropertiesString))
                     if (property.Length > 0)
                     {
                         string[] values = property.Split('=');
@@ -538,7 +538,7 @@ namespace DOL.GS.Quests
                     eChatType.CT_Say, eChatLoc.CL_PopupWindow);
                 return false;
             }
-            if (Util.Chance(chanceOfSuccess))
+            if (UtilCollection.Chance(chanceOfSuccess))
             {
                 return true;
             }

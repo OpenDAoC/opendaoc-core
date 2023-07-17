@@ -53,7 +53,7 @@ namespace DOL.GS.Behaviour.Requirements
 		{
 			bool result = true;
 
-            result = Util.Chance(N);
+            result = UtilCollection.Chance(N);
 
 			return result;
 		}

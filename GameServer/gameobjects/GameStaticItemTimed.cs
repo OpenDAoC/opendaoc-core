@@ -78,7 +78,7 @@ namespace DOL.GS
 		/// <summary>
 		/// The callback function that will remove this bag after some time
 		/// </summary>
-		protected class RemoveItemAction : AuxRegionECSAction
+		protected class RemoveItemAction : AuxRegionAction
 		{
 			/// <summary>
 			/// Constructs a new remove action

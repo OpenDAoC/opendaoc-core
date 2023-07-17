@@ -10,7 +10,7 @@ namespace DOL.GS.RealmAbilities
 	/// <summary>
 	/// Base for all Realm Abilities
 	/// </summary>
-	public class RealmAbility : Ability
+	public class RealmAbility : AbilityUtil
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public RealmAbility(DbAbilities ability, int level) : base(ability, level) { }

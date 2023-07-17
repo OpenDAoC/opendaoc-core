@@ -100,11 +100,11 @@ namespace DOL.GS
 			GameLiving target = (TargetObject as GameLiving);
 			if (target == null) return;
 
-			int damageAmount = CalcDamageToTarget(target) + Util.Random(50);
+			int damageAmount = CalcDamageToTarget(target) + UtilCollection.Random(50);
 
 			AttackData ad = new AttackData();
 			ad.Target = target;
-			ad.AttackType = AttackData.eAttackType.Ranged;
+			ad.AttackType = AttackData.EAttackType.Ranged;
 			ad.AttackResult = EAttackResult.HitUnstyled;
 			ad.Damage = damageAmount;
 			ad.DamageType = MeleeDamageType;

@@ -455,7 +455,7 @@ namespace DOL.GS.Keeps
 					{
 						CurrentWaypoint = guard.CurrentWaypoint;
 						m_changingPositions = true;
-						MoveTo(guard.CurrentRegionID, guard.X - Util.Random(200, 350), guard.Y - Util.Random(200, 350), guard.Z, guard.Heading);
+						MoveTo(guard.CurrentRegionID, guard.X - UtilCollection.Random(200, 350), guard.Y - UtilCollection.Random(200, 350), guard.Z, guard.Heading);
 						m_changingPositions = false;
 						foundGuard = true;
 						break;
@@ -705,7 +705,7 @@ namespace DOL.GS.Keeps
 				GuildName = "Orb Merchant";
 				return;
 			}
-			Guild guild = Component.Keep.Guild;
+			GuildUtil guild = Component.Keep.Guild;
 			string guildname = "";
 			if (guild != null)
 				guildname = guild.Name;
@@ -890,7 +890,7 @@ namespace DOL.GS.Keeps
 			}
 			else
 			{
-				ModelRealm = (ERealm)Util.Random(1, 3);
+				ModelRealm = (ERealm)UtilCollection.Random(1, 3);
 			}
 		}
 
@@ -922,7 +922,7 @@ namespace DOL.GS.Keeps
 		{
 			int iVariance = 1000 * Math.Abs(Properties.GUARD_RESPAWN_VARIANCE);
 			int iRespawn = 60 * ((Math.Abs(Properties.GUARD_RESPAWN) * 1000) +
-				(Util.Random(-iVariance, iVariance)));
+				(UtilCollection.Random(-iVariance, iVariance)));
 
 			RespawnInterval = (iRespawn > 1000) ? iRespawn : 1000; // Make sure we don't end up with an impossibly low respawn interval.
 		}
@@ -946,7 +946,7 @@ namespace DOL.GS.Keeps
 			}
 			else
 			{
-				if (Util.Chance(50))
+				if (UtilCollection.Chance(50))
 				{
 					Gender = EGender.Male;
 				}
@@ -972,7 +972,7 @@ namespace DOL.GS.Keeps
 			var possibleRaces = GetClass().EligibleRaces.FindAll(s => s.GetModel(Gender) != ELivingModel.None);
 			if (possibleRaces.Count > 0)
 			{
-				var indexPick = Util.Random(0, possibleRaces.Count - 1);
+				var indexPick = UtilCollection.Random(0, possibleRaces.Count - 1);
 				Model = (ushort)possibleRaces[indexPick].GetModel(Gender);
 			}
 		}

@@ -340,7 +340,7 @@ namespace DOL.GS
 		/// <param name="ad">information about the attack</param>
 		public override void OnAttackedByEnemy(AttackData ad)
 		{
-			if (ad.AttackType == AttackData.eAttackType.Spell && ad.Damage > 0)
+			if (ad.AttackType == AttackData.EAttackType.Spell && ad.Damage > 0)
 			{
 				GamePlayer player = Owner as GamePlayer;
 				string modmessage = "";
@@ -430,7 +430,7 @@ namespace DOL.GS
 
 			if (inventoryTemplate.LoadFromDatabase(templateID))
 			{
-				Inventory = new GameNPCInventory(inventoryTemplate);
+				Inventory = new GameNpcInventory(inventoryTemplate);
 				InventoryItem item;
 
 				if ((item = Inventory.GetItem(eInventorySlot.TwoHandWeapon)) != null)

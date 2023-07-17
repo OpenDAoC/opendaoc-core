@@ -265,7 +265,7 @@ namespace DOL.GS
 				if (weather == null)
 					return 0;
 				
-				if (!Util.Chance(DefaultWeatherChance))
+				if (!UtilCollection.Chance(DefaultWeatherChance))
 				{
 					if (weather.StartTime != 0)
 						StopWeather(weather);

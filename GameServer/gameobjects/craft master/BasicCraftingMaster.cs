@@ -2,7 +2,7 @@
 
 namespace DOL.GS
 {
-	[NPCGuildScript("Basic Crafters Master")]
+	[NpcGuild("Basic Crafters Master")]
 	public class BasicCraftingMaster: CraftNPC
 	{
 		private static readonly eCraftingSkill[] m_trainedSkills = {

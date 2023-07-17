@@ -1336,13 +1336,13 @@ namespace DOL.GS.Spells
 
 			//1.108 - Valhallas Blessing now has a 75% chance to not use power.
 			ValhallasBlessingEffect ValhallasBlessing = m_caster.EffectList.GetOfType<ValhallasBlessingEffect>();
-			if (ValhallasBlessing != null && Util.Chance(75))
+			if (ValhallasBlessing != null && UtilCollection.Chance(75))
 				return 0;
 
 			//patch 1.108 increases the chance to not use power to 50%.
 			FungalUnionEffect FungalUnion = m_caster.EffectList.GetOfType<FungalUnionEffect>();
 			{
-				if (FungalUnion != null && Util.Chance(50))
+				if (FungalUnion != null && UtilCollection.Chance(50))
 					return 0;
 			}
 
@@ -1350,7 +1350,7 @@ namespace DOL.GS.Spells
 			int syphon = Caster.GetModified(EProperty.ArcaneSyphon);
 			if (syphon > 0)
 			{
-				if(Util.Chance(syphon))
+				if(UtilCollection.Chance(syphon))
 				{
 					return 0;
 				}
@@ -2464,7 +2464,7 @@ namespace DOL.GS.Spells
 				AttackData ad = new AttackData();
 				ad.Attacker = Caster;
 				ad.Target = target;
-				ad.AttackType = AttackData.eAttackType.Spell;
+				ad.AttackType = AttackData.EAttackType.Spell;
 				ad.SpellHandler = this;
 				ad.AttackResult = EAttackResult.HitUnstyled;
 				ad.IsSpellResisted = false;
@@ -2787,7 +2787,7 @@ namespace DOL.GS.Spells
 
 			if (spellResistChance > 0)
 			{
-				int randNum = Caster is GamePlayer caster && !UseRNGOverride ? caster.RandomNumberDeck.GetInt() : Util.CryptoNextInt(100);
+				int randNum = Caster is GamePlayer caster && !UseRNGOverride ? caster.RandomNumberDeck.GetInt() : UtilCollection.CryptoNextInt(100);
 
 				if (Caster is GamePlayer playerCaster && playerCaster.UseDetailedCombatLog)
 					playerCaster.Out.SendMessage($"Target chance to resist: {spellResistChance} RandomNumber: {randNum}", eChatType.CT_DamageAdd, eChatLoc.CL_SystemWindow);
@@ -2879,7 +2879,7 @@ namespace DOL.GS.Spells
 			AttackData ad = new AttackData();
 			ad.Attacker = Caster;
 			ad.Target = target;
-			ad.AttackType = AttackData.eAttackType.Spell;
+			ad.AttackType = AttackData.EAttackType.Spell;
 			ad.SpellHandler = this;
 			ad.AttackResult = EAttackResult.Missed;
 			ad.IsSpellResisted = true;
@@ -2895,7 +2895,7 @@ namespace DOL.GS.Spells
 			// Spells that would have caused damage or are not instant will still
 			// interrupt a casting player.
 			if(!(Spell.SpellType.ToString().IndexOf("debuff", StringComparison.OrdinalIgnoreCase) >= 0 && Spell.CastTime == 0))
-				target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.eAttackType.Spell, Caster);			
+				target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.EAttackType.Spell, Caster);			
 		}
 		
 		/// <summary>
@@ -3535,7 +3535,7 @@ namespace DOL.GS.Spells
 			{
 				Attacker = m_caster,
 				Target = target,
-				AttackType = AttackData.eAttackType.Spell,
+				AttackType = AttackData.EAttackType.Spell,
 				SpellHandler = this,
 				AttackResult = EAttackResult.HitUnstyled
 			};
@@ -3562,7 +3562,7 @@ namespace DOL.GS.Spells
 			// Apply caster's effectiveness.
 			spellDamage *= m_caster.Effectiveness;
 
-			int finalDamage = Util.Random((int)(minVariance * spellDamage), (int)(maxVariance * spellDamage));
+			int finalDamage = UtilCollection.Random((int)(minVariance * spellDamage), (int)(maxVariance * spellDamage));
 
 			// Live testing done Summer 2009 by Bluraven, Tolakram. Levels 40, 45, 50, 55, 60, 65, 70.
 			// Damage reduced by chance < 55, no extra damage increase noted with hitchance > 100.
@@ -3605,7 +3605,7 @@ namespace DOL.GS.Spells
 				critDamage = 0;
 			}
 
-			int randNum = Util.CryptoNextInt(1, 100);
+			int randNum = UtilCollection.CryptoNextInt(1, 100);
 			int critCap = Math.Min(50, criticalchance);
 
 			if (Caster is GamePlayer spellCaster && spellCaster.UseDetailedCombatLog && critCap > 0)
@@ -3614,7 +3614,7 @@ namespace DOL.GS.Spells
 			if (critCap > randNum && finalDamage >= 1)
 			{
 				int critmax = (ad.Target is GamePlayer) ? finalDamage / 2 : finalDamage;
-				critDamage = Util.Random(finalDamage / 10, critmax);
+				critDamage = UtilCollection.Random(finalDamage / 10, critmax);
 			}
 
 			if (ad.Target is GamePlayer && ad.Target.GetModified(EProperty.Conversion) > 0)

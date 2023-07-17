@@ -233,7 +233,7 @@ namespace DOL.AI.Brain
             }
             if (inRangeLiving.Count > 0)
             {
-                return aros.CheckDebuff((GameLiving)(inRangeLiving[Util.Random(1, inRangeLiving.Count) - 1]));
+                return aros.CheckDebuff((GameLiving)(inRangeLiving[UtilCollection.Random(1, inRangeLiving.Count) - 1]));
             }
             return false;
         }

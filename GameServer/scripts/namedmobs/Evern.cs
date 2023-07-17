@@ -133,7 +133,7 @@ namespace DOL.GS
                 CO.Constitution = 100;
                 CO.Quickness = 125;
                 CO.Empathy = 300;
-                CO.BodyType = (ushort) NpcTemplateMgr.eBodyType.Magical;
+                CO.BodyType = (ushort) NpcTemplateMgr.EBodyType.Magical;
                 CO.MeleeDamageType = EDamageType.Slash;
 
                 CO.X = 429840;
@@ -213,7 +213,7 @@ namespace DOL.AI.Brain
                     {
                         if (spawnfairy == false)
                         {
-                            new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(DoSpawn), Util.Random(10000, 20000));
+                            new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(DoSpawn), UtilCollection.Random(10000, 20000));
                             spawnfairy = true;
                         }
                     }
@@ -243,11 +243,11 @@ namespace DOL.AI.Brain
         }
         public void Spawn() // We define here adds
         {
-            for (int i = 0; i < Util.Random(2, 5); i++)
+            for (int i = 0; i < UtilCollection.Random(2, 5); i++)
             {
                 EvernFairy Add = new EvernFairy();
-                Add.X = 429764 + Util.Random(-100, 100);
-                Add.Y = 380398 + Util.Random(-100, 100);
+                Add.X = 429764 + UtilCollection.Random(-100, 100);
+                Add.Y = 380398 + UtilCollection.Random(-100, 100);
                 Add.Z = 2726;
                 Add.CurrentRegionID = 200;
                 Add.Heading = 3889;
@@ -308,7 +308,7 @@ namespace DOL.GS
             Flags = eFlags.FLYING;
             Faction = FactionMgr.GetFactionByID(81);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(81));
-            Level = (byte) Util.Random(50, 55);
+            Level = (byte) UtilCollection.Random(50, 55);
             Gender = EGender.Female;
             EvernFairyBrain adds = new EvernFairyBrain();
             SetOwnBrain(adds);
@@ -363,7 +363,7 @@ namespace DOL.AI.Brain
             if (Body.IsAlive)
             {
                 #region PickRandomLandSpot
-                switch (Util.Random(1, 10))
+                switch (UtilCollection.Random(1, 10))
                 {
                     case 1: if (!Body.IsMoving && !HasAggro) Body.WalkTo(point1, 80); break;
                     case 2: if (!Body.IsMoving && !HasAggro) Body.WalkTo(point2, 80); break;

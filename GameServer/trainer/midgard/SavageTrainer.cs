@@ -7,7 +7,7 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Savage Trainer
 	/// </summary>
-	[NPCGuildScript("Savage Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Savage Trainer" NPC's in Albion (multiple guilds are possible for one script)
+	[NpcGuild("Savage Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Savage Trainer" NPC's in Albion (multiple guilds are possible for one script)
 	public class SavageTrainer : GameTrainer
 	{
 		public override ECharacterClass TrainedClass

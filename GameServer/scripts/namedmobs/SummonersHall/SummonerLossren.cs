@@ -133,7 +133,7 @@ namespace DOL.GS
 				OF.Constitution = 100;
 				OF.Quickness = 125;
 				OF.Empathy = 300;
-				OF.BodyType = (ushort)NpcTemplateMgr.eBodyType.Humanoid;
+				OF.BodyType = (ushort)NpcTemplateMgr.EBodyType.Humanoid;
 				OF.MeleeDamageType = EDamageType.Crush;
 				OF.Faction = FactionMgr.GetFactionByID(206);
 				OF.Faction.AddFriendFaction(FactionMgr.GetFactionByID(187));
@@ -202,7 +202,7 @@ namespace DOL.AI.Brain
 				RemoveAdds = false;
 				if(IsCreatingSouls==false)
                 {
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(DoSpawn), Util.Random(5000, 8000));//every 5-8s it will spawn tortured souls
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(DoSpawn), UtilCollection.Random(5000, 8000));//every 5-8s it will spawn tortured souls
 					IsCreatingSouls =true;
                 }
 				foreach(GameNPC souls in Body.GetNPCsInRadius(4000))
@@ -240,37 +240,37 @@ namespace DOL.AI.Brain
 			Point3D point3 = new Point3D(39180, 40583, 16000);
 			Point3D point4 = new Point3D(39745, 41176, 16001);
 
-			for (int i = 0; i < Util.Random(18, 25); i++)//create 18-25 souls every time timer will launch
+			for (int i = 0; i < UtilCollection.Random(18, 25); i++)//create 18-25 souls every time timer will launch
 			{
 
 				TorturedSouls add = new TorturedSouls();
-				switch (Util.Random(1, 4))
+				switch (UtilCollection.Random(1, 4))
 				{
 					case 1:
 						{
-							add.X = point1.X + Util.Random(-100, 100);
-							add.Y = point1.Y + Util.Random(-100, 100);
+							add.X = point1.X + UtilCollection.Random(-100, 100);
+							add.Y = point1.Y + UtilCollection.Random(-100, 100);
 							add.Z = point1.Z;
 						}
 						break;
 					case 2:
 						{
-							add.X = point2.X + Util.Random(-100, 100);
-							add.Y = point2.Y + Util.Random(-100, 100);
+							add.X = point2.X + UtilCollection.Random(-100, 100);
+							add.Y = point2.Y + UtilCollection.Random(-100, 100);
 							add.Z = point2.Z;
 						}
 						break;
 					case 3:
 						{
-							add.X = point3.X + Util.Random(-100, 100);
-							add.Y = point3.Y + Util.Random(-100, 100);
+							add.X = point3.X + UtilCollection.Random(-100, 100);
+							add.Y = point3.Y + UtilCollection.Random(-100, 100);
 							add.Z = point3.Z;
 						}
 						break;
 					case 4:
 						{
-							add.X = point4.X + Util.Random(-100, 100);
-							add.Y = point4.Y + Util.Random(-100, 100);
+							add.X = point4.X + UtilCollection.Random(-100, 100);
+							add.Y = point4.Y + UtilCollection.Random(-100, 100);
 							add.Z = point4.Z;
 						}
 						break;
@@ -291,33 +291,33 @@ namespace DOL.AI.Brain
 			if (TorturedSouls.TorturedSoulKilled == 20 && ExplodeUndead.ExplodeZombieCount==0)//spawn explode zombie
 			{
 				ExplodeUndead add2 = new ExplodeUndead();
-				switch (Util.Random(1, 4))
+				switch (UtilCollection.Random(1, 4))
 				{
 					case 1:
 						{
-							add2.X = point1.X + Util.Random(-100, 100);
-							add2.Y = point1.Y + Util.Random(-100, 100);
+							add2.X = point1.X + UtilCollection.Random(-100, 100);
+							add2.Y = point1.Y + UtilCollection.Random(-100, 100);
 							add2.Z = point1.Z;
 						}
 						break;
 					case 2:
 						{
-							add2.X = point2.X + Util.Random(-100, 100);
-							add2.Y = point2.Y + Util.Random(-100, 100);
+							add2.X = point2.X + UtilCollection.Random(-100, 100);
+							add2.Y = point2.Y + UtilCollection.Random(-100, 100);
 							add2.Z = point2.Z;
 						}
 						break;
 					case 3:
 						{
-							add2.X = point3.X + Util.Random(-100, 100);
-							add2.Y = point3.Y + Util.Random(-100, 100);
+							add2.X = point3.X + UtilCollection.Random(-100, 100);
+							add2.Y = point3.Y + UtilCollection.Random(-100, 100);
 							add2.Z = point3.Z;
 						}
 						break;
 					case 4:
 						{
-							add2.X = point4.X + Util.Random(-100, 100);
-							add2.Y = point4.Y + Util.Random(-100, 100);
+							add2.X = point4.X + UtilCollection.Random(-100, 100);
+							add2.Y = point4.Y + UtilCollection.Random(-100, 100);
 							add2.Z = point4.Z;
 						}
 						break;
@@ -402,26 +402,26 @@ namespace DOL.GS
 		};
 		public override bool AddToWorld()
 		{
-			switch(Util.Random(1,2))
+			switch(UtilCollection.Random(1,2))
             {
 				case 1:
                     {
 						Model = 123;
-						Name = (string)soul_names[Util.Random(0, soul_names.Count - 1)];
+						Name = (string)soul_names[UtilCollection.Random(0, soul_names.Count - 1)];
 					}
 					break;
 				case 2:
                     {
 						Model = 659;
-						Name = (string)soul_names[Util.Random(0, soul_names.Count - 1)];
+						Name = (string)soul_names[UtilCollection.Random(0, soul_names.Count - 1)];
 					}
 					break;
 			}
 			RespawnInterval = -1;
 			MaxSpeedBase = 200;
 			RoamingRange = 150;
-			Size = (byte)Util.Random(45,55);
-			Level = (byte)Util.Random(48, 53);
+			Size = (byte)UtilCollection.Random(45,55);
+			Level = (byte)UtilCollection.Random(48, 53);
 			Faction = FactionMgr.GetFactionByID(187);
 			Faction.AddFriendFaction(FactionMgr.GetFactionByID(187));
 			TorturedSoulsBrain souls = new TorturedSoulsBrain();
@@ -585,7 +585,7 @@ namespace DOL.GS
 			RespawnInterval = -1;
 			MaxSpeedBase = 110;//slow so players can kite it
 			Size = 70;
-			Level = (byte)Util.Random(62, 65);
+			Level = (byte)UtilCollection.Random(62, 65);
 			Faction = FactionMgr.GetFactionByID(187);
 			Faction.AddFriendFaction(FactionMgr.GetFactionByID(187));
 			ExplodeUndeadBrain souls = new ExplodeUndeadBrain();
@@ -608,7 +608,7 @@ namespace DOL.GS
                 }
 				if(Zombie_Targets.Count>0)
                 {
-					GamePlayer Target = (GamePlayer)Zombie_Targets[Util.Random(0, Zombie_Targets.Count - 1)];
+					GamePlayer Target = (GamePlayer)Zombie_Targets[UtilCollection.Random(0, Zombie_Targets.Count - 1)];
 					RandomTarget = Target;						
 					BroadcastMessage(String.Format(this.Name+" crawls toward "+RandomTarget.Name+"!"));
 				}

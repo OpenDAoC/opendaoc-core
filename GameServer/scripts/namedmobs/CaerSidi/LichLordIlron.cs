@@ -160,8 +160,8 @@ namespace DOL.AI.Brain
             for (int i = 0; i < 4; i++) // Spawn 5 images
             {
                 IlronImages Add = new IlronImages();
-                Add.X = Body.X + Util.Random(-100, 100);
-                Add.Y = Body.Y + Util.Random(-100, 100);
+                Add.X = Body.X + UtilCollection.Random(-100, 100);
+                Add.Y = Body.Y + UtilCollection.Random(-100, 100);
                 Add.Z = Body.Z;
                 Add.CurrentRegion = Body.CurrentRegion;
                 Add.IsWorthReward = false;
@@ -295,7 +295,7 @@ namespace DOL.AI.Brain
 
         public override void Think()
         {
-            if (Util.Chance(3))
+            if (UtilCollection.Chance(3))
             {
                 Body.CastSpell(Mezz, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
             }

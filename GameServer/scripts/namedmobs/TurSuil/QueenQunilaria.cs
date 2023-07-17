@@ -122,11 +122,11 @@ namespace DOL.GS
         }
 		public void SpawnAdds()
 		{
-			for (int i = 0; i < Util.Random(15,22); i++)
+			for (int i = 0; i < UtilCollection.Random(15,22); i++)
 			{
 				QunilariaAdd2 Add1 = new QunilariaAdd2();
-				Add1.X = X + Util.Random(-100, 100);
-				Add1.Y = Y + Util.Random(-100, 100);
+				Add1.X = X + UtilCollection.Random(-100, 100);
+				Add1.Y = Y + UtilCollection.Random(-100, 100);
 				Add1.Z = Z;
 				Add1.CurrentRegion = CurrentRegion;
 				Add1.Heading = Heading;
@@ -154,8 +154,8 @@ namespace DOL.AI.Brain
 				if (QunilariaAdd.MinionCount < 4)
 				{
 					QunilariaAdd Add1 = new QunilariaAdd();
-					Add1.X = Body.X + Util.Random(-100, 100);
-					Add1.Y = Body.Y + Util.Random(-100, 100);
+					Add1.X = Body.X + UtilCollection.Random(-100, 100);
+					Add1.Y = Body.Y + UtilCollection.Random(-100, 100);
 					Add1.Z = Body.Z;
 					Add1.CurrentRegion = Body.CurrentRegion;
 					Add1.Heading = Body.Heading;
@@ -167,7 +167,7 @@ namespace DOL.AI.Brain
 		}
         public override void OnAttackedByEnemy(AttackData ad)
         {
-			if(Util.Chance(25))
+			if(UtilCollection.Chance(25))
             {
 				SpawnAdds();
             }
@@ -272,8 +272,8 @@ namespace DOL.GS
 			MaxSpeedBase = 225;
 
 			++MinionCount;
-			Size = (byte)Util.Random(80, 100);
-			Level = (byte)Util.Random(58, 64);
+			Size = (byte)UtilCollection.Random(80, 100);
+			Level = (byte)UtilCollection.Random(58, 64);
 			Faction = FactionMgr.GetFactionByID(93);
 			Faction.AddFriendFaction(FactionMgr.GetFactionByID(93));//minions of balor
 			QunilariaAddBrain add = new QunilariaAddBrain();
@@ -327,7 +327,7 @@ namespace DOL.GS
 			MaxSpeedBase = 200;
 
 			Size = 60;
-			Level = (byte)Util.Random(52, 55);
+			Level = (byte)UtilCollection.Random(52, 55);
 			Faction = FactionMgr.GetFactionByID(93);
 			Faction.AddFriendFaction(FactionMgr.GetFactionByID(93));//minions of balor
 			QunilariaAddBrain add = new QunilariaAddBrain();

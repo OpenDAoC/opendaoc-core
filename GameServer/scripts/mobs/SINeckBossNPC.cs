@@ -40,7 +40,7 @@ namespace DOL.GS {
              //   CastSpell(spell, sl, false);
             if(ad != null && ad.Target != null && ad.Target.IsAlive && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
             {
-				if(Util.Chance(20))
+				if(UtilCollection.Chance(20))
 					CastSpell(SINeckBossDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			}
             base.OnAttackEnemy(ad);

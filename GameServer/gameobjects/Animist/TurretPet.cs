@@ -47,7 +47,7 @@ namespace DOL.GS
                 attackComponent.RequestStartAttack(TargetObject);
         }
 
-        public override void StartInterruptTimer(int duration, AttackData.eAttackType attackType, GameLiving attacker)
+        public override void StartInterruptTimer(int duration, AttackData.EAttackType attackType, GameLiving attacker)
         {
             // Don't interrupt turrets (1.90 EU).
             return;

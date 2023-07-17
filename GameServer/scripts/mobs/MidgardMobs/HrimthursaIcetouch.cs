@@ -76,7 +76,7 @@ namespace DOL.AI.Brain
 				{
 					if (!LockNpc)
 					{
-						GameNPC mob = NpcToHeal[Util.Random(0, NpcToHeal.Count - 1)];//pick randomly mob that need to be healed
+						GameNPC mob = NpcToHeal[UtilCollection.Random(0, NpcToHeal.Count - 1)];//pick randomly mob that need to be healed
 						HealNpc = mob;
 						LockNpc = true;
 					}
@@ -123,9 +123,9 @@ namespace DOL.AI.Brain
 				if (HasAggro && Body.TargetObject != null)
                 {
 					ResetNoTarget = false;
-					if(!target.effectListComponent.ContainsEffectForEffectType(EEffect.Mez) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.MezImmunity) && !Body.IsCasting && Util.Chance(30))
+					if(!target.effectListComponent.ContainsEffectForEffectType(EEffect.Mez) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.MezImmunity) && !Body.IsCasting && UtilCollection.Chance(30))
 						Body.CastSpell(IcetouchMezz, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
-					if (!Body.IsCasting && Util.Chance(30))
+					if (!Body.IsCasting && UtilCollection.Chance(30))
 						Body.CastSpell(IcetouchRoot, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 				}
             }

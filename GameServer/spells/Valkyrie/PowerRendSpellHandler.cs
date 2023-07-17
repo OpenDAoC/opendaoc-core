@@ -78,7 +78,7 @@ namespace DOL.GS.spells
 
 			base.ApplyEffectOnTarget(target, effectiveness);
 
-			target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.eAttackType.Spell, Caster);
+			target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.EAttackType.Spell, Caster);
 
 			if (target is GameNPC)
 			{

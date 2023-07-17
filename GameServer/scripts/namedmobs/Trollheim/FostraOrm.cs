@@ -87,14 +87,14 @@ namespace DOL.AI.Brain
 			if (HasAggro && Body.TargetObject != null)
 			{
 				GameLiving target = Body.TargetObject as GameLiving;
-				if (Util.Chance(25) && target != null)
+				if (UtilCollection.Chance(25) && target != null)
 				{
 					if (!target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
 					{
 						Body.CastSpell(OrmDot, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 					}
 				}
-				if (Util.Chance(25) && target != null)
+				if (UtilCollection.Chance(25) && target != null)
 				{
 					if (!target.effectListComponent.ContainsEffectForEffectType(EEffect.Disease))
 					{

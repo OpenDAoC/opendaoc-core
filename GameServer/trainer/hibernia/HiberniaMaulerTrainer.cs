@@ -8,7 +8,7 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Mauler Trainer
 	/// </summary>
-	[NPCGuildScript("Mauler Trainer", ERealm.Hibernia)]
+	[NpcGuild("Mauler Trainer", ERealm.Hibernia)]
 	public class HiberniaMaulerTrainer : GameTrainer
 	{
 		public override ECharacterClass TrainedClass

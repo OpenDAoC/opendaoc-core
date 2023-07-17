@@ -128,11 +128,11 @@ namespace DOL.AI.Brain
 		}
 		private void SpawnRats()
 		{
-			for (int i = 0; i < Util.Random(2,4); i++)
+			for (int i = 0; i < UtilCollection.Random(2,4); i++)
 			{
 				GiantLemerAdd npc = new GiantLemerAdd();
-				npc.X = Body.X + Util.Random(-100, 100);
-				npc.Y = Body.Y + Util.Random(-100, 100);
+				npc.X = Body.X + UtilCollection.Random(-100, 100);
+				npc.Y = Body.Y + UtilCollection.Random(-100, 100);
 				npc.Z = Body.Z;
 				npc.Heading = Body.Heading;
 				npc.CurrentRegion = Body.CurrentRegion;
@@ -155,7 +155,7 @@ namespace DOL.GS
 		public override bool AddToWorld()
 		{
 			Name = "small rat";
-			Level = (byte)Util.Random(13, 16);
+			Level = (byte)UtilCollection.Random(13, 16);
 			Model = 567;
 			Size = 20;
 			GiantLemerAddBrain sbrain = new GiantLemerAddBrain();

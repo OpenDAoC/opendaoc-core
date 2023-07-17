@@ -178,12 +178,12 @@ namespace DOL.AI.Brain
         {
             for (int i = 0; i < 5; i++)
             {
-                switch (Util.Random(1, 3))
+                switch (UtilCollection.Random(1, 3))
                 {
                     case 1:
                         YarAdd add = new YarAdd();
-                        add.X = Body.X + Util.Random(-50, 80);
-                        add.Y = Body.Y + Util.Random(-50, 80);
+                        add.X = Body.X + UtilCollection.Random(-50, 80);
+                        add.Y = Body.Y + UtilCollection.Random(-50, 80);
                         add.Z = Body.Z;
                         add.CurrentRegion = Body.CurrentRegion;
                         add.Heading = Body.Heading;
@@ -191,8 +191,8 @@ namespace DOL.AI.Brain
                         break;
                     case 2:
                         YarAdd2 add2 = new YarAdd2();
-                        add2.X = Body.X + Util.Random(-50, 80);
-                        add2.Y = Body.Y + Util.Random(-50, 80);
+                        add2.X = Body.X + UtilCollection.Random(-50, 80);
+                        add2.Y = Body.Y + UtilCollection.Random(-50, 80);
                         add2.Z = Body.Z;
                         add2.CurrentRegion = Body.CurrentRegion;
                         add2.Heading = Body.Heading;
@@ -200,8 +200,8 @@ namespace DOL.AI.Brain
                         break;
                     case 3:
                         YarAdd3 add3 = new YarAdd3();
-                        add3.X = Body.X + Util.Random(-50, 80);
-                        add3.Y = Body.Y + Util.Random(-50, 80);
+                        add3.X = Body.X + UtilCollection.Random(-50, 80);
+                        add3.Y = Body.Y + UtilCollection.Random(-50, 80);
                         add3.Z = Body.Z;
                         add3.CurrentRegion = Body.CurrentRegion;
                         add3.Heading = Body.Heading;

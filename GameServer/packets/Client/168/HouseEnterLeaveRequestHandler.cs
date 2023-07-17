@@ -22,7 +22,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		/// <summary>
 		/// Handles house enter/leave events
 		/// </summary>
-		private class EnterLeaveHouseAction : RegionECSAction
+		private class EnterLeaveHouseAction : RegionAction
 		{
 			/// <summary>
 			/// The enter house flag

@@ -460,8 +460,8 @@ namespace DOL.GS.Commands
 				GameNPC mob = new GameNPC();
 
 				//Fill the object variables
-				int x = client.Player.X + Util.Random(-radius, radius);
-				int y = client.Player.Y + Util.Random(-radius, radius);
+				int x = client.Player.X + UtilCollection.Random(-radius, radius);
+				int y = client.Player.Y + UtilCollection.Random(-radius, radius);
 				mob.X = FastMath.Abs(x);
 				mob.Y = FastMath.Abs(y);
 				mob.Z = client.Player.Z;
@@ -520,17 +520,17 @@ namespace DOL.GS.Commands
 				GameNPC mob = new GameNPC();
 
 				//Fill the object variables
-				int x = client.Player.X + DOL.GS.Util.Random(-radius, radius);
-				int y = client.Player.Y + DOL.GS.Util.Random(-radius, radius);
+				int x = client.Player.X + DOL.GS.UtilCollection.Random(-radius, radius);
+				int y = client.Player.Y + DOL.GS.UtilCollection.Random(-radius, radius);
 				mob.X = FastMath.Abs(x);
 				mob.Y = FastMath.Abs(y);
 				mob.Z = client.Player.Z;
 				mob.CurrentRegion = client.Player.CurrentRegion;
 				mob.Heading = client.Player.Heading;
-				mob.Level = (byte)Util.Random(10, 50);
-				mob.Realm = (ERealm)Util.Random(1, 3);
+				mob.Level = (byte)UtilCollection.Random(10, 50);
+				mob.Realm = (ERealm)UtilCollection.Random(1, 3);
 				mob.Name = "rand_" + i;
-				mob.Model = (byte)Util.Random(568, 699);
+				mob.Model = (byte)UtilCollection.Random(568, 699);
 
 				//Fill the living variables
 				if (mob.Brain is IOldAggressiveBrain)

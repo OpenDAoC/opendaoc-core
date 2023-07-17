@@ -122,15 +122,15 @@ namespace DOL.GS
 			{
 				if (Caster is GamePlayer caster && caster == target)
 					// "{0} looks more agile!"
-					Message.SystemToArea(target, Util.MakeSentence(SpellHandler.Spell.Message2, target.GetName(0, upperCase)), eChatType.CT_Spell, target, Caster);
+					Message.SystemToArea(target, UtilCollection.MakeSentence(SpellHandler.Spell.Message2, target.GetName(0, upperCase)), eChatType.CT_Spell, target, Caster);
 				else if (Caster is GameSummonedPet || target is GameSummonedPet or GamePlayer)
 					// "{0} looks more agile!"
-					Message.SystemToArea(target, Util.MakeSentence(SpellHandler.Spell.Message2, target.GetName(0, upperCase)), eChatType.CT_Spell, target);
+					Message.SystemToArea(target, UtilCollection.MakeSentence(SpellHandler.Spell.Message2, target.GetName(0, upperCase)), eChatType.CT_Spell, target);
 			}
             // Sends a third-person message directly to the caster to indicate the spell has ended
             else if (msgSelf && Caster != target && Caster is GamePlayer)
                 // "{0} looks more agile!"
-				((SpellHandler)SpellHandler).MessageToCaster(Util.MakeSentence(SpellHandler.Spell.Message2, target.GetName(0, true)), eChatType.CT_Spell);
+				((SpellHandler)SpellHandler).MessageToCaster(UtilCollection.MakeSentence(SpellHandler.Spell.Message2, target.GetName(0, true)), eChatType.CT_Spell);
 	    }
         #endregion Effect Start Messages
         
@@ -159,17 +159,17 @@ namespace DOL.GS
 			// Sends a third-person message directly to the caster to indicate the spell has ended
 			if (msgSelf && Caster is GamePlayer selfCaster)
 				// "{0}'s enhanced agility fades."
-				((SpellHandler)SpellHandler).MessageToCaster(Util.MakeSentence(SpellHandler.Spell.Message4, target.GetName(0, true)), eChatType.CT_Spell);
+				((SpellHandler)SpellHandler).MessageToCaster(UtilCollection.MakeSentence(SpellHandler.Spell.Message4, target.GetName(0, true)), eChatType.CT_Spell);
 
 			// Sends a third-person message to all players surrounding the target
 			if (msgArea)
 			{
 				if (Caster is GamePlayer areaTarget && areaTarget == target)
 					// "{0}'s enhanced agility fades."
-					Message.SystemToArea(target, Util.MakeSentence(SpellHandler.Spell.Message4, target.GetName(0, upperCase)), eChatType.CT_Spell, target, Caster);
+					Message.SystemToArea(target, UtilCollection.MakeSentence(SpellHandler.Spell.Message4, target.GetName(0, upperCase)), eChatType.CT_Spell, target, Caster);
 				else if (Caster is GameSummonedPet || target is GameSummonedPet or GamePlayer)
 					// "{0}'s enhanced agility fades."
-					Message.SystemToArea(target, Util.MakeSentence(SpellHandler.Spell.Message4, target.GetName(0, upperCase)), eChatType.CT_Spell, target);
+					Message.SystemToArea(target, UtilCollection.MakeSentence(SpellHandler.Spell.Message4, target.GetName(0, upperCase)), eChatType.CT_Spell, target);
 			}
 		}
 		#endregion Effect End Messages

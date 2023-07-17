@@ -27,7 +27,7 @@ namespace DOL.GS.PlayerTitles
 
         public override bool IsSuitable(GamePlayer player)
         {
-            return AchievementUtils.CheckAccountCredit("LaunchQuest", player);;
+            return AchievementUtil.CheckAccountCredit("LaunchQuest", player);;
         }
     }
     

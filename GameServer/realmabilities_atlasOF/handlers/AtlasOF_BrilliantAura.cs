@@ -13,7 +13,7 @@ public class AtlasOF_BrilliantAura : TimedRealmAbility, ISpellCastingAbilityHand
     
     public Spell Spell { get { return m_spell; } }
     public SpellLine SpellLine { get { return m_spellline; } }
-    public Ability Ability { get { return this; } }
+    public AbilityUtil Ability { get { return this; } }
 
     public override int MaxLevel { get { return 1; } }
     public override int GetReUseDelay(int level) { return 1800; } // 30 min

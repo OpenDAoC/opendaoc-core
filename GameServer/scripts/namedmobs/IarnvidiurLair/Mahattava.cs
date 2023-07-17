@@ -176,7 +176,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 3;
-					spell.RecastDelay = Util.Random(10,15);
+					spell.RecastDelay = UtilCollection.Random(10,15);
 					spell.ClientEffect = 3494;
 					spell.Icon = 3494;
 					spell.Name = "Mahattava's Strike";

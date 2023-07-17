@@ -47,9 +47,9 @@ namespace DOL.AI.Brain
 		{
 			if(HasAggro && Body.TargetObject != null)
             {
-				if(!Body.IsCasting && Util.Chance(25))
+				if(!Body.IsCasting && UtilCollection.Chance(25))
 					Body.CastSpell(QuillanMuire_DD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
-				if (!Body.IsCasting && Util.Chance(25))
+				if (!Body.IsCasting && UtilCollection.Chance(25))
 					Body.CastSpell(QuillanMuire_DD2, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 
 				GameLiving target = Body.TargetObject as GameLiving;
@@ -80,7 +80,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 3.5;
-					spell.RecastDelay = Util.Random(10, 15);
+					spell.RecastDelay = UtilCollection.Random(10, 15);
 					spell.ClientEffect = 14353;
 					spell.Icon = 14353;
 					spell.TooltipId = 14353;
@@ -109,7 +109,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 3.5;
-					spell.RecastDelay = Util.Random(8, 12);
+					spell.RecastDelay = UtilCollection.Random(8, 12);
 					spell.ClientEffect = 4356;
 					spell.Icon = 4356;
 					spell.TooltipId = 4356;
@@ -147,7 +147,7 @@ namespace DOL.GS
 		public override bool AddToWorld()
 		{
 			Name = "Muire herbalist";
-			Level = (byte)Util.Random(18, 19);
+			Level = (byte)UtilCollection.Random(18, 19);
 			Model = 446;
 			Size = 52;
 			Faction = FactionMgr.GetFactionByID(782);

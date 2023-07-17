@@ -148,12 +148,12 @@ namespace DOL.AI.Brain
                     return;
                 }
             }
-            var amount = Util.Random(5, 10);
+            var amount = UtilCollection.Random(5, 10);
             for (int i = 0; i < amount; i++) // Spawn x minions
             {
                 NahemahMinion Add = new NahemahMinion();
-                Add.X = Body.X + Util.Random(100, 350);
-                Add.Y = Body.Y + Util.Random(100, 350);
+                Add.X = Body.X + UtilCollection.Random(100, 350);
+                Add.Y = Body.Y + UtilCollection.Random(100, 350);
                 Add.Z = Body.Z;
                 Add.CurrentRegion = Body.CurrentRegion;
                 Add.IsWorthReward = false;
@@ -205,7 +205,7 @@ namespace DOL.GS
         }
         public override void OnAttackEnemy(AttackData ad)
         {
-            if (Util.Chance(10))
+            if (UtilCollection.Chance(10))
             {
                 CastSpell(FireDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
             }

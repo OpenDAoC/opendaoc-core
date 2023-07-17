@@ -724,19 +724,19 @@ namespace DOL.GS
 			// legendary
 			if (player.GetCraftingSkillValue(m_eskill) >= 1000)
 			{
-				if (Util.Chance(2))
+				if (UtilCollection.Chance(2))
 				{
 					return 100;	// 2% chance for master piece
 				}
-				return 96 + Util.Random(3);
+				return 96 + UtilCollection.Random(3);
 			}
 
 			int delta = GetItemCon(player.GetCraftingSkillValue(m_eskill), recipeLevel);
 			if (delta < -2)
 			{
-				if (Util.Chance(2))
+				if (UtilCollection.Chance(2))
 					return 100; // grey items get 2% chance to be master piece
-				return 96 + Util.Random(3); // handle grey items like legendary
+				return 96 + UtilCollection.Random(3); // handle grey items like legendary
 			}
 
 			// this is a type of roulette selection, imagine a roulette wheel where all chances get different sized
@@ -761,7 +761,7 @@ namespace DOL.GS
 			}
 
 			// selection
-			int rand = Util.Random(sum);
+			int rand = UtilCollection.Random(sum);
 			for (int i = 3; i >= 0; i--)
 			{
 				if (rand < chancePart[i])

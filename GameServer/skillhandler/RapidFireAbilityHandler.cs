@@ -11,7 +11,7 @@ namespace DOL.GS.SkillHandler
 	[SkillHandlerAttribute(Abilities.RapidFire)]
 	public class RapidFireAbilityHandler : IAbilityActionHandler
 	{
-		public void Execute(Ability ab, GamePlayer player)
+		public void Execute(AbilityUtil ab, GamePlayer player)
 		{
 
 			RapidFireEcsEffect rapidFire = (RapidFireEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, EEffect.RapidFire);

@@ -165,7 +165,7 @@ namespace DOL.GS
 				ParthananFarmController1Brain.ParthansCanDie = false;
 				if (ParthananFarmController1Brain.MinParthAround.Count > 0)
 					ParthananFarmController1Brain.MinParthAround.Clear();
-				ParthananFarmController1Brain.MobsToKillLoughDerg = Util.Random(60, 120);
+				ParthananFarmController1Brain.MobsToKillLoughDerg = UtilCollection.Random(60, 120);
 			}
             #endregion
             #region Connacht
@@ -176,7 +176,7 @@ namespace DOL.GS
 				ParthananFarmController2Brain.ParthansCanDie2 = false;
 				if (ParthananFarmController2Brain.MinParthAround2.Count > 0)
 					ParthananFarmController2Brain.MinParthAround2.Clear();
-				ParthananFarmController2Brain.MobsToKillConnacht = Util.Random(60, 120);
+				ParthananFarmController2Brain.MobsToKillConnacht = UtilCollection.Random(60, 120);
 			}
 			//2nd farm
 			if (PackageID == "ParthananBossConnacht2")
@@ -186,7 +186,7 @@ namespace DOL.GS
 				ParthananFarmController2bBrain.ParthansCanDie2b = false;
 				if (ParthananFarmController2bBrain.MinParthAround2b.Count > 0)
 					ParthananFarmController2bBrain.MinParthAround2b.Clear();
-				ParthananFarmController2bBrain.MobsToKillConnacht2 = Util.Random(60, 80);
+				ParthananFarmController2bBrain.MobsToKillConnacht2 = UtilCollection.Random(60, 80);
 			}
             #endregion
             #region Lough Gur
@@ -197,7 +197,7 @@ namespace DOL.GS
 				ParthananFarmController3Brain.ParthansCanDie3 = false;
 				if (ParthananFarmController3Brain.MinParthAround3.Count > 0)
 					ParthananFarmController3Brain.MinParthAround3.Clear();
-				ParthananFarmController3Brain.MobsToKillLoughGur = Util.Random(60, 120);
+				ParthananFarmController3Brain.MobsToKillLoughGur = UtilCollection.Random(60, 120);
 			}
 			//2nd farm
 			if (PackageID == "ParthananBossLoughGur2")
@@ -207,7 +207,7 @@ namespace DOL.GS
 				ParthananFarmController3bBrain.ParthansCanDie3b = false;
 				if (ParthananFarmController3bBrain.MinParthAround3b.Count > 0)
 					ParthananFarmController3bBrain.MinParthAround3b.Clear();
-				ParthananFarmController3bBrain.MobsToKillLoughGur2 = Util.Random(60, 120);
+				ParthananFarmController3bBrain.MobsToKillLoughGur2 = UtilCollection.Random(60, 120);
 			}
             #endregion
             base.Die(killer);

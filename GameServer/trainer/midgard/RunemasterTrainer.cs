@@ -7,7 +7,7 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Runemaster Trainer
 	/// </summary>
-	[NPCGuildScript("Runemaster Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Runemaster Trainer" NPC's in Albion (multiple guilds are possible for one script)
+	[NpcGuild("Runemaster Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Runemaster Trainer" NPC's in Albion (multiple guilds are possible for one script)
 	public class RunemasterTrainer : GameTrainer
 	{
 		public override ECharacterClass TrainedClass

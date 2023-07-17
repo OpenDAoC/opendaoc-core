@@ -143,7 +143,7 @@ namespace DOL.GS
                 OF.RespawnInterval = ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
                 OF.Faction = FactionMgr.GetFactionByID(236);
                 OF.Faction.AddFriendFaction(FactionMgr.GetFactionByID(236));
-                OF.BodyType = (ushort) NpcTemplateMgr.eBodyType.Humanoid;
+                OF.BodyType = (ushort) NpcTemplateMgr.EBodyType.Humanoid;
                 OF.MaxSpeedBase = 400;
 
                 OF.X = 592990;
@@ -235,7 +235,7 @@ namespace DOL.GS
         public override void OnAttackEnemy(AttackData ad)
         {
             // 30% chance to proc heat dd
-            if (Util.Chance(30))
+            if (UtilCollection.Chance(30))
             {
                 //Here boss cast very X s aoe heat dmg, we can adjust it in spellrecast delay
                 CastSpell(GreenKnightHeatDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
@@ -344,7 +344,7 @@ namespace DOL.AI.Brain
                         }
                         if (healer.Count > 0)
                         {
-                            GamePlayer Target =(GamePlayer) healer[Util.Random(0, healer.Count - 1)]; //pick random target from list
+                            GamePlayer Target =(GamePlayer) healer[UtilCollection.Random(0, healer.Count - 1)]; //pick random target from list
                             RandomTarget = Target; //set random target to static RandomTarget
                             if (RandomTarget != null) //check if it's not null
                             {
@@ -405,7 +405,7 @@ namespace DOL.AI.Brain
                 {
                     if (PickPortPoint == false)
                     {
-                        string stg = PortPoints[Util.Random(0, PortPoints.Count - 1)];
+                        string stg = PortPoints[UtilCollection.Random(0, PortPoints.Count - 1)];
                         {
                             switch (stg)
                             {
@@ -476,7 +476,7 @@ namespace DOL.AI.Brain
                 {
                     new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(StartHeal), 4000);
                     Body.TargetObject = Body;
-                    if (Util.Chance(100))
+                    if (UtilCollection.Chance(100))
                         Body.CastSpell(GreenKnightHeal, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
                     if (PortPoints.Contains(string1))
                         PortPoints.Remove(string1);
@@ -491,7 +491,7 @@ namespace DOL.AI.Brain
                 {
                     new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(StartHeal), 4000);
                     Body.TargetObject = Body;
-                    if (Util.Chance(100))
+                    if (UtilCollection.Chance(100))
                         Body.CastSpell(GreenKnightHeal, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
                     if (PortPoints.Contains(string2))
                         PortPoints.Remove(string2);
@@ -505,7 +505,7 @@ namespace DOL.AI.Brain
                 {
                     new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(StartHeal), 4000);
                     Body.TargetObject = Body;
-                    if (Util.Chance(100))
+                    if (UtilCollection.Chance(100))
                         Body.CastSpell(GreenKnightHeal, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
                     if (PortPoints.Contains(string3))
                         PortPoints.Remove(string3);
@@ -519,7 +519,7 @@ namespace DOL.AI.Brain
                 {
                     new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(StartHeal), 4000);
                     Body.TargetObject = Body;
-                    if(Util.Chance(100))
+                    if(UtilCollection.Chance(100))
                         Body.CastSpell(GreenKnightHeal, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
                     if (PortPoints.Contains(string4))
                         PortPoints.Remove(string4);
@@ -577,12 +577,12 @@ namespace DOL.AI.Brain
                 #endregion
                 if (Pick_healer == false && HasAggro)
                 {
-                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickHeal), Util.Random(40000, 60000)); //40s-60s will try pick heal class
+                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickHeal), UtilCollection.Random(40000, 60000)); //40s-60s will try pick heal class
                     Pick_healer = true;
                 }
                 if (IsSpawningTrees == false && HasAggro)
                 {
-                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnTrees),Util.Random(25000, 35000)); //25s-35s will spawn trees
+                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnTrees),UtilCollection.Random(25000, 35000)); //25s-35s will spawn trees
                     IsSpawningTrees = true;
                 }
                 if (Body.TargetObject != null && HasAggro)
@@ -723,8 +723,8 @@ namespace DOL.GS
             Model = 97;
             RoamingRange = 250;
             RespawnInterval = -1;
-            Size = (byte) Util.Random(90, 135);
-            Level = (byte) Util.Random(47, 49); // Trees level
+            Size = (byte) UtilCollection.Random(90, 135);
+            Level = (byte) UtilCollection.Random(47, 49); // Trees level
             Name = "rotting downy felwood";
             Faction = FactionMgr.GetFactionByID(236); // fellwoods
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(236));

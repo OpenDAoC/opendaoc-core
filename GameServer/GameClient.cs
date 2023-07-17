@@ -844,7 +844,7 @@ namespace DOL.GS
 						GameServer.Database.SaveObject(Account);
 
 						// log disconnect
-						AuditMgr.AddAuditEntry(this, AuditType.Account, AuditSubtype.AccountLogout, "", Account.Name);
+						AuditMgr.AddAuditEntry(this, EAuditType.Account, EAuditSubtype.AccountLogout, "", Account.Name);
 					}
 				}
 				catch (Exception e)

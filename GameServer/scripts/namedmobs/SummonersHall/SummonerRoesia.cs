@@ -137,7 +137,7 @@ namespace DOL.GS
 				OF.Constitution = 100;
 				OF.Quickness = 125;
 				OF.Empathy = 300;
-				OF.BodyType = (ushort)NpcTemplateMgr.eBodyType.Humanoid;
+				OF.BodyType = (ushort)NpcTemplateMgr.EBodyType.Humanoid;
 				OF.MeleeDamageType = EDamageType.Crush;
 				OF.Faction = FactionMgr.GetFactionByID(187);
 				OF.Faction.AddFriendFaction(FactionMgr.GetFactionByID(206));
@@ -200,17 +200,17 @@ namespace DOL.AI.Brain
 			{
 				if (Body.TargetObject != null)
 				{
-					if (Util.Chance(25))
+					if (UtilCollection.Chance(25))
 					{
 						if (!Body.effectListComponent.ContainsEffectForEffectType(EEffect.DamageReturn) && !Body.IsCasting)
 							Body.CastSpell(RoesiaDS, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));//Cast DS
 					}
-					if(Util.Chance(35))
+					if(UtilCollection.Chance(35))
                     {
 						if (Body.HealthPercent < 25)
 							Body.CastSpell(RoesiaHOT, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));//cast HOT
 					}
-					if (Util.Chance(35))
+					if (UtilCollection.Chance(35))
 					{ 
 						foreach (Spell spells in Body.Spells)
 						{
@@ -265,7 +265,7 @@ namespace DOL.AI.Brain
             {
 				if (CanCast==false)
 				{
-					GamePlayer Target = Enemys_To_DD[Util.Random(0, Enemys_To_DD.Count - 1)];//pick random target from list
+					GamePlayer Target = Enemys_To_DD[UtilCollection.Random(0, Enemys_To_DD.Count - 1)];//pick random target from list
 					RandomTarget = Target;//set random target to static RandomTarget
 					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetDot), 3000);
 					CanCast = true;

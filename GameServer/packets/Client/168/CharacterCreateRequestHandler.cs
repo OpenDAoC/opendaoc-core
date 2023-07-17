@@ -464,7 +464,7 @@ namespace DOL.GS.PacketHandler.Client.v168
             }
 
             // Is class disabled ?
-            List<string> disabledClasses = Util.SplitCSV(Properties.DISABLED_CLASSES);
+            List<string> disabledClasses = UtilCollection.SplitCSV(Properties.DISABLED_CLASSES);
             var occurences =
                 (from j in disabledClasses
                     where j == ch.Class.ToString()
@@ -482,7 +482,7 @@ namespace DOL.GS.PacketHandler.Client.v168
             }
 
             // check if race disabled
-            List<string> disabledRaces = Util.SplitCSV(Properties.DISABLED_RACES);
+            List<string> disabledRaces = UtilCollection.SplitCSV(Properties.DISABLED_RACES);
             occurences =
                 (from j in disabledRaces
                     where j == ch.Race.ToString()
@@ -539,7 +539,7 @@ namespace DOL.GS.PacketHandler.Client.v168
             GameServer.Database.SaveObject(ch);
 
             // Log creation
-            AuditMgr.AddAuditEntry(client, AuditType.Account, AuditSubtype.CharacterCreate, string.Empty, pdata.CharName);
+            AuditMgr.AddAuditEntry(client, EAuditType.Account, EAuditSubtype.CharacterCreate, string.Empty, pdata.CharName);
 
             client.Account.Characters = null;
 
@@ -916,7 +916,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 						if (Properties.BACKUP_DELETED_CHARACTERS)
 						{
 							var backupCharacter = new DbCoreCharactersBackup(character);
-							Util.ForEach(backupCharacter.CustomParams, param => GameServer.Database.AddObject(param));
+							UtilCollection.ForEach(backupCharacter.CustomParams, param => GameServer.Database.AddObject(param));
 							GameServer.Database.AddObject(backupCharacter);
 
                             if (log.IsWarnEnabled)
@@ -990,7 +990,7 @@ namespace DOL.GS.PacketHandler.Client.v168
                         GameServer.Database.SaveObject(client.Account);
 
                         // Log deletion
-                        AuditMgr.AddAuditEntry(client, AuditType.Character, AuditSubtype.CharacterDelete, string.Empty, deletedChar);
+                        AuditMgr.AddAuditEntry(client, EAuditType.Character, EAuditSubtype.CharacterDelete, string.Empty, deletedChar);
 
                         return true;
                     }

@@ -33,7 +33,7 @@ namespace DOL.GS.SkillHandler
 		/// </summary>
 		/// <param name="ab">The used ability</param>
 		/// <param name="player">The player that used the ability</param>
-		public void Execute(Ability ab, GamePlayer player)
+		public void Execute(AbilityUtil ab, GamePlayer player)
 		{
 			if (player == null)
 			{

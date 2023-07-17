@@ -69,7 +69,7 @@ namespace DOL.GS.Spells
 		public override void ApplyEffectOnTarget(GameLiving target, double effectiveness)
 		{
 			base.ApplyEffectOnTarget(target, effectiveness);
-			target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.eAttackType.Spell, Caster);
+			target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.EAttackType.Spell, Caster);
 		}
 
 
@@ -99,7 +99,7 @@ namespace DOL.GS.Spells
 			// An acidic cloud surrounds you!
 			MessageToLiving(effect.Owner, Spell.Message1, eChatType.CT_Spell);
 			// {0} is surrounded by an acidic cloud!
-			Message.SystemToArea(effect.Owner, Util.MakeSentence(Spell.Message2, effect.Owner.GetName(0, false)), eChatType.CT_YouHit, effect.Owner);
+			Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message2, effect.Owner.GetName(0, false)), eChatType.CT_YouHit, effect.Owner);
 			OnDirectEffect(effect.Owner, effect.Effectiveness);
 		}
 
@@ -111,7 +111,7 @@ namespace DOL.GS.Spells
 				// The acidic mist around you dissipates.
 				MessageToLiving(effect.Owner, Spell.Message3, eChatType.CT_SpellExpires);
 				// The acidic mist around {0} dissipates.
-				Message.SystemToArea(effect.Owner, Util.MakeSentence(Spell.Message4, effect.Owner.GetName(0, false)), eChatType.CT_SpellExpires, effect.Owner);
+				Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, effect.Owner.GetName(0, false)), eChatType.CT_SpellExpires, effect.Owner);
 			}
 			return 0;
 		}

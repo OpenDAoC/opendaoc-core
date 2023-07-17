@@ -216,7 +216,7 @@ namespace DOL.GS {
 
                 }
                 
-                player.Achieve(AchievementUtils.AchievementNames.Orbs_Earned, totOrbs);
+                player.Achieve(AchievementUtil.AchievementNames.Orbs_Earned, totOrbs);
             }
         }
         
@@ -276,7 +276,7 @@ namespace DOL.GS {
                     }
 
                 }
-                player.Achieve(AchievementUtils.AchievementNames.Carapace_Farmed, amount);
+                player.Achieve(AchievementUtil.AchievementNames.Carapace_Farmed, amount);
             }
         }
 
@@ -285,9 +285,9 @@ namespace DOL.GS {
             GeneratedUniqueItem item = null;
             
             if(isFrontierKill)
-                item = new GeneratedUniqueItem(realm, charClass, level, level - Util.Random(-5,10));
+                item = new GeneratedUniqueItem(realm, charClass, level, level - UtilCollection.Random(-5,10));
             else
-                item = new GeneratedUniqueItem(realm, charClass, level, level - Util.Random(15,20));
+                item = new GeneratedUniqueItem(realm, charClass, level, level - UtilCollection.Random(15,20));
             
             item.AllowAdd = true;
             item.IsTradable = true;

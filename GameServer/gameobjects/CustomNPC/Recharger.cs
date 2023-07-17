@@ -7,7 +7,7 @@ using DOL.Language;
 
 namespace DOL.GS;
 
-[NPCGuildScript("Recharger")]
+[NpcGuild("Recharger")]
 public class Recharger : GameNPC
 {
     private const string RECHARGE_ITEM_WEAK = "recharged item";

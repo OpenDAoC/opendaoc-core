@@ -112,10 +112,10 @@ namespace DOL.AI.Brain
         {
             if (Body.IsWithinRadius(Body.TargetObject, Body.AttackRange + 250))
             {
-                switch (Util.Random(1, 2))
+                switch (UtilCollection.Random(1, 2))
                 {
                     case 1:
-                        if (Util.Chance(4))
+                        if (UtilCollection.Chance(4))
                         {
                             Body.TurnTo(Body.TargetObject);
                             Body.CastSpell(LifeTap, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
@@ -123,7 +123,7 @@ namespace DOL.AI.Brain
 
                         break;
                     case 2:
-                        if (Util.Chance(4))
+                        if (UtilCollection.Chance(4))
                         {
                             Body.TurnTo(Body.TargetObject);
                             Body.CastSpell(PBAoe, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
@@ -155,10 +155,10 @@ namespace DOL.AI.Brain
             GameObject source = (args as TakeDamageEventArgs)?.DamageSource;
             if (source == null) return;
             if (Body.IsWithinRadius(source, Body.AttackRange + 250)) return;
-            switch (Util.Random(1, 2))
+            switch (UtilCollection.Random(1, 2))
             {
                 case 1:
-                    if (Util.Chance(4))
+                    if (UtilCollection.Chance(4))
                     {
                         Body.TurnTo(Body.TargetObject);
                         Body.CastSpell(LifeTap, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
@@ -166,7 +166,7 @@ namespace DOL.AI.Brain
 
                     break;
                 case 2:
-                    if (Util.Chance(4))
+                    if (UtilCollection.Chance(4))
                     {
                         Body.TurnTo(Body.TargetObject);
                         Body.CastSpell(PBAoe, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));

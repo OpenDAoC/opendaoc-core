@@ -768,7 +768,7 @@ namespace DOL.GS
 
 			int minCount = (int)(((maxCount - 1) / 25f) * playerPercent) - ((3 * maxCount) - 4); //75% => min = 1; 100% => min = maxCount;
 
-			salvageYield.Count = Util.Random(minCount, maxCount);
+			salvageYield.Count = UtilCollection.Random(minCount, maxCount);
 			return salvageYield.Count;
 		}
 

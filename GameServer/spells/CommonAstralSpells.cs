@@ -173,7 +173,7 @@ namespace DOL.GS.Spells
             {
                 _trap = MakeTrap();
             }
-            if (Util.Chance(99))
+            if (UtilCollection.Chance(99))
             {
                 _trap.StartSpell(args.AttackData.Target);
             }

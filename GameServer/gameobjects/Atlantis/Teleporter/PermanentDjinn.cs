@@ -54,7 +54,7 @@ namespace DOL.GS
             };
 
             foreach (GamePlayer player in GetPlayersInRadius(WorldMgr.SAY_DISTANCE))
-                player.Out.SendMessage(String.Format(emotes[Util.Random(emotes.GetUpperBound(0))], this.Name),
+                player.Out.SendMessage(String.Format(emotes[UtilCollection.Random(emotes.GetUpperBound(0))], this.Name),
                     eChatType.CT_System, eChatLoc.CL_SystemWindow);
         }
 
@@ -85,7 +85,7 @@ namespace DOL.GS
         /// <summary>
         /// Provides a timer for djinn emotes.
         /// </summary>
-        private class EmoteTimer : RegionECSAction
+        private class EmoteTimer : RegionAction
         {
             private GameObject m_owner;
 

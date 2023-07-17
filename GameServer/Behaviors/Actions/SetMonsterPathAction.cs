@@ -10,7 +10,7 @@ using log4net;
 namespace DOL.GS.Behaviour.Actions
 {
     [ActionAttribute(ActionType = EActionType.SetMonsterPath,DefaultValueP=EDefaultValueConstants.NPC)]
-    public class SetMonsterPathAction : AbstractAction<PathPoint,GameNPC>
+    public class SetMonsterPathAction : AbstractAction<PathPointUtil,GameNPC>
     {
 
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
@@ -21,7 +21,7 @@ namespace DOL.GS.Behaviour.Actions
         }
 
 
-        public SetMonsterPathAction(GameNPC defaultNPC,  PathPoint firstPathPoint, GameNPC npc)
+        public SetMonsterPathAction(GameNPC defaultNPC,  PathPointUtil firstPathPoint, GameNPC npc)
             : this(defaultNPC,  (object)firstPathPoint, (object)npc) { }
         
 

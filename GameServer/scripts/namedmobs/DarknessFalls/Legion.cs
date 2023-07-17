@@ -291,7 +291,7 @@ namespace DOL.GS.Scripts
             foreach (GamePlayer player in GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE))
             {
                 player.KillsLegion++;
-                player.Achieve(AchievementUtils.AchievementNames.Legion_Kills);
+                player.Achieve(AchievementUtil.AchievementNames.Legion_Kills);
                 player.RaiseRealmLoyaltyFloor(1);
                 count++;
             }
@@ -551,7 +551,7 @@ namespace DOL.AI.Brain
                 #endregion
                 if (!CanThrow)
                 {
-                    ECSGameTimer throwPlayer = new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ThrowPlayer), Util.Random(40000, 65000));//throw players
+                    ECSGameTimer throwPlayer = new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ThrowPlayer), UtilCollection.Random(40000, 65000));//throw players
                     Body.TempProperties.setProperty("legion_throw", throwPlayer);
                     CanThrow = true;
                 }
@@ -565,7 +565,7 @@ namespace DOL.AI.Brain
             if (Body.TargetObject != null && HasAggro)
             {
                 GameLiving target = Body.TargetObject as GameLiving;
-                if (Util.Chance(100))
+                if (UtilCollection.Chance(100))
                 {
                     if (target.effectListComponent.ContainsEffectForEffectType(EEffect.Bladeturn) && target != null && target.IsAlive)
                     {
@@ -624,11 +624,11 @@ namespace DOL.AI.Brain
                 //log.Warn("PlayerCountInLegionLair = " + PlayerCountInLegionLair + " and spawnAmount = "+ spawnAmount);
                 for (int i = 0; i < spawnAmount; i++)
                 {
-                    var level = Util.Random(52, 58);
+                    var level = UtilCollection.Random(52, 58);
 
                     LegionAdd add = new LegionAdd();
-                    add.X = Body.X + Util.Random(-150, 150);
-                    add.Y = Body.Y + Util.Random(-150, 150);
+                    add.X = Body.X + UtilCollection.Random(-150, 150);
+                    add.Y = Body.Y + UtilCollection.Random(-150, 150);
                     add.Z = Body.Z;
                     add.CurrentRegionID = 249;
                     add.IsWorthReward = false;
@@ -673,7 +673,7 @@ namespace DOL.AI.Brain
 
                 if (Port_Enemys.Count > 0)
                 {
-                    randomlyPickedPlayers = GetRandomElements(Port_Enemys, Util.Random(8, 16));//pick 5-8players from list to new list
+                    randomlyPickedPlayers = GetRandomElements(Port_Enemys, UtilCollection.Random(8, 16));//pick 5-8players from list to new list
 
                     if (randomlyPickedPlayers.Count > 0)
                     {

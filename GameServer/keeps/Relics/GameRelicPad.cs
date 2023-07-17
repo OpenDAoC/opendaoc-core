@@ -233,7 +233,7 @@ namespace DOL.GS
 				{
 					target.CapturedRelics++;
 					target.RaiseRealmLoyaltyFloor(2);
-					target.Achieve(AchievementUtils.AchievementNames.Relic_Captures);
+					target.Achieve(AchievementUtil.AchievementNames.Relic_Captures);
 				}
 
 				relic.LastCaptureDate = DateTime.Now;

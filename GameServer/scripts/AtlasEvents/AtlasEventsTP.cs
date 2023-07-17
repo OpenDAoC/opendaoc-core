@@ -106,8 +106,8 @@ namespace DOL.GS.Scripts
 					if (t.Group == null)
 					{
 						log.Info("Solo player");
-						int randX = Util.Random(223000, 235000);
-						int randY = Util.Random(216000, 227000);
+						int randX = UtilCollection.Random(223000, 235000);
+						int randY = UtilCollection.Random(216000, 227000);
 						int z = 6000;
 
 						t.StartInvulnerabilityTimer(ServerProperties.Properties.TIMER_PVP_TELEPORT * 1000, null);

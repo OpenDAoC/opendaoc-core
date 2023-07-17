@@ -9,7 +9,7 @@ namespace DOL.GS.RealmAbilities
         // ISpellCastingAbilityHandler
         public Spell Spell { get { return m_spell; } }
         public SpellLine SpellLine { get { return m_spellline; } }
-        public Ability Ability { get { return this; } }
+        public AbilityUtil Ability { get { return this; } }
 
         private DBSpell m_dbspell;
         private Spell m_spell = null;

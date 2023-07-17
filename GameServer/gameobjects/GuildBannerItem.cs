@@ -26,7 +26,7 @@ namespace DOL.GS
 		}
 
 
-		private Guild m_ownerGuild = null;
+		private GuildUtil m_ownerGuild = null;
 		private GamePlayer m_summonPlayer = null;
 		private eStatus m_status = eStatus.Active;
 
@@ -50,7 +50,7 @@ namespace DOL.GS
 		/// <summary>
 		/// What guild owns this banner
 		/// </summary>
-		public Guild OwnerGuild
+		public GuildUtil OwnerGuild
 		{
 			get { return m_ownerGuild; }
 			set { m_ownerGuild = value; }

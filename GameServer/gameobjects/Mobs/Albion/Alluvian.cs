@@ -38,7 +38,7 @@ namespace DOL.GS
 			AlluvianGlobule globulespawn = new AlluvianGlobule();
 			globulespawn.Model = 928;
 			globulespawn.Size = 40;
-			globulespawn.Level = (byte)Util.Random(3, 4);
+			globulespawn.Level = (byte)UtilCollection.Random(3, 4);
 			globulespawn.Name = "alluvian globule";
 			globulespawn.CurrentRegionID = 51;
 			globulespawn.Heading = Heading;

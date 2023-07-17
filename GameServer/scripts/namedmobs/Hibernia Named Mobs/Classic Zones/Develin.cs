@@ -24,7 +24,7 @@ namespace DOL.GS
 			Piety = npcTemplate.Piety;
 			Intelligence = npcTemplate.Intelligence;
 			Empathy = npcTemplate.Empathy;
-			KillsRequireToSpawn = Util.Random(20, 40);
+			KillsRequireToSpawn = UtilCollection.Random(20, 40);
 			//log.Warn("KillsRequireToSpawn = " + KillsRequireToSpawn);
 
 			DevelinAdd.DevelinAddCount = 0;

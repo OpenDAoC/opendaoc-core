@@ -3,7 +3,7 @@ using DOL.Language;
 
 namespace DOL.GS
 {
-	[NPCGuildScript("Siegecrafting Master")]
+	[NpcGuild("Siegecrafting Master")]
 	public class SiegecraftingMaster : CraftNPC
 	{
 		private static readonly eCraftingSkill[] m_trainedSkills = 

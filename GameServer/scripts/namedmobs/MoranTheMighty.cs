@@ -150,7 +150,7 @@ namespace DOL.AI.Brain
                     else
                     {
                         // chance to teleport a random player to another mob camp 
-                        if (Util.Chance(5) && Body.HealthPercent <= 50)
+                        if (UtilCollection.Chance(5) && Body.HealthPercent <= 50)
                         {
                             new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(TeleportPlayerAway), 5000);
                         }
@@ -175,7 +175,7 @@ namespace DOL.AI.Brain
 
                 List<GamePlayer> portPlayer = new List<GamePlayer>();
                 portPlayer.Add(player);
-                int ranPlayer = Util.Random(0, portPlayer.Count - 1);
+                int ranPlayer = UtilCollection.Random(0, portPlayer.Count - 1);
                 
                 if (player.IsAlive && ranPlayer >= 0)
                 {
@@ -195,7 +195,7 @@ namespace DOL.AI.Brain
                             break;
                     }
                     
-                    switch (Util.Random(1, 3))
+                    switch (UtilCollection.Random(1, 3))
                     {
                         case 1:
                             BroadcastMessage(String.Format("{0} picked up {1} on gust of winds and tossed {2} away! ", Body.Name, portPlayer[ranPlayer].Name, gender));

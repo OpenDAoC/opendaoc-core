@@ -12,7 +12,7 @@ using DOL.Language;
 
 namespace DOL.GS
 {
-	[NPCGuildScript("Name Registrar")]
+	[NpcGuild("Name Registrar")]
 	public class NameRegistrar : GameNPC
 	{
 		public override IList GetExamineMessages(GamePlayer player)

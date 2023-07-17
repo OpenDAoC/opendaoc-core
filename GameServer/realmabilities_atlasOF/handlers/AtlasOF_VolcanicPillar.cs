@@ -9,7 +9,7 @@ namespace DOL.GS.RealmAbilities
         // ISpellCastingAbilityHandler
         public Spell Spell { get { return m_spell; } }
         public SpellLine SpellLine { get { return m_spellline; } }
-        public Ability Ability { get { return this; } }
+        public AbilityUtil Ability { get { return this; } }
 
         private const int m_dmgValue = 900; // Takii - Temp value. Unclear what the real OF value was.
         private const int m_range = 1875; // bolt range

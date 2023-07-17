@@ -236,14 +236,14 @@ namespace DOL.AI.Brain
 				GameLiving target = Body.TargetObject as GameLiving;
 				if (!Body.IsWithinRadius(Body.TargetObject, 300))
 				{
-					if (!Body.IsCasting && Util.Chance(100))
+					if (!Body.IsCasting && UtilCollection.Chance(100))
 						Body.CastSpell(OreyDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
 				}
 				else
 				{
 					if (target != null && target.IsAlive)
 					{
-						if (!target.effectListComponent.ContainsEffectForEffectType(EEffect.StrConDebuff) && !Body.IsCasting && Util.Chance(25))
+						if (!target.effectListComponent.ContainsEffectForEffectType(EEffect.StrConDebuff) && !Body.IsCasting && UtilCollection.Chance(25))
 							Body.CastSpell(Orey_SC_Debuff, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 					}
 				}
@@ -262,7 +262,7 @@ namespace DOL.AI.Brain
 					spell.AllowAdd = false;
 					spell.CastTime = 5;
 					spell.Power = 0;
-					spell.RecastDelay = Util.Random(20, 30);
+					spell.RecastDelay = UtilCollection.Random(20, 30);
 					spell.ClientEffect = 4369;
 					spell.Icon = 4369;
 					spell.Damage = 800;

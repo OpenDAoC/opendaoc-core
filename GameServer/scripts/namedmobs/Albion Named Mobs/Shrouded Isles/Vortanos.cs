@@ -97,9 +97,9 @@ namespace DOL.GS
 		{
 			if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 			{
-				if(Util.Chance(50) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.StrConDebuff))
+				if(UtilCollection.Chance(50) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.StrConDebuff))
 					CastSpell(VortanosSCDebuff, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
-				if (Util.Chance(50) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.DexQuiDebuff))
+				if (UtilCollection.Chance(50) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.DexQuiDebuff))
 					CastSpell(VortanosDebuffDQ, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			}
 			base.OnAttackEnemy(ad);
@@ -195,7 +195,7 @@ namespace DOL.AI.Brain
 		}
         public override void OnAttackedByEnemy(AttackData ad)
         {
-			if(ad != null && ad.Damage > 0 && !SpamMess1 && Util.Chance(25))
+			if(ad != null && ad.Damage > 0 && !SpamMess1 && UtilCollection.Chance(25))
             {
 				new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpamMessage), 1000);
 				SpamMess1=true;
@@ -207,7 +207,7 @@ namespace DOL.AI.Brain
 			if(HasAggro)
 				BroadcastMessage(Body.Name + " says, \"The living can never conquer the eternal darkness of death incarnate!\"");
 
-			new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetSpamMessage), Util.Random(25000,45000));
+			new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetSpamMessage), UtilCollection.Random(25000,45000));
 			return 0;
         }
 		private int ResetSpamMessage(ECSGameTimer timer)
@@ -284,9 +284,9 @@ namespace DOL.AI.Brain
 							brain.AddToAggroList(target, 10);
 					}
 				}
-				if (Util.Chance(35) && !Body.IsCasting)
+				if (UtilCollection.Chance(35) && !Body.IsCasting)
 					Body.CastSpell(Vortanos_DD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells),false);
-				if (Util.Chance(35) && !Body.IsCasting && !target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
+				if (UtilCollection.Chance(35) && !Body.IsCasting && !target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
 					Body.CastSpell(Vortanos_Dot, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
 				if(!CanSpawnAdds)
                 {
@@ -303,9 +303,9 @@ namespace DOL.AI.Brain
 				VortanosAdd add = new VortanosAdd();
 				add.Model = 1676;
 				add.Name = "fell geist";
-				add.Level = (byte)Util.Random(50, 56);
-				add.X = Body.SpawnPoint.X + Util.Random(-400, 400);
-				add.Y = Body.SpawnPoint.Y + Util.Random(-400, 400);
+				add.Level = (byte)UtilCollection.Random(50, 56);
+				add.X = Body.SpawnPoint.X + UtilCollection.Random(-400, 400);
+				add.Y = Body.SpawnPoint.Y + UtilCollection.Random(-400, 400);
 				add.Z = Body.SpawnPoint.Z;
 				add.Heading = Body.Heading;
 				add.CurrentRegion = Body.CurrentRegion;
@@ -316,9 +316,9 @@ namespace DOL.AI.Brain
 				VortanosAdd add = new VortanosAdd();
 				add.Model = 921;
 				add.Name = "ancient zombie";
-				add.Level = (byte)Util.Random(54, 61);
-				add.X = Body.SpawnPoint.X + Util.Random(-400, 400);
-				add.Y = Body.SpawnPoint.Y + Util.Random(-400, 400);
+				add.Level = (byte)UtilCollection.Random(54, 61);
+				add.X = Body.SpawnPoint.X + UtilCollection.Random(-400, 400);
+				add.Y = Body.SpawnPoint.Y + UtilCollection.Random(-400, 400);
 				add.Z = Body.SpawnPoint.Z;
 				add.Heading = Body.Heading;
 				add.CurrentRegion = Body.CurrentRegion;
@@ -329,9 +329,9 @@ namespace DOL.AI.Brain
 				VortanosAdd add = new VortanosAdd();
 				add.Model = 921;
 				add.Name = "ghoul desecrator ";
-				add.Level = (byte)Util.Random(49, 53);
-				add.X = Body.SpawnPoint.X + Util.Random(-400, 400);
-				add.Y = Body.SpawnPoint.Y + Util.Random(-400, 400);
+				add.Level = (byte)UtilCollection.Random(49, 53);
+				add.X = Body.SpawnPoint.X + UtilCollection.Random(-400, 400);
+				add.Y = Body.SpawnPoint.Y + UtilCollection.Random(-400, 400);
 				add.Z = Body.SpawnPoint.Z;
 				add.Heading = Body.Heading;
 				add.CurrentRegion = Body.CurrentRegion;
@@ -461,7 +461,7 @@ namespace DOL.GS
         #endregion
 		public override bool AddToWorld()
 		{
-			Size = (byte)Util.Random(50, 55);
+			Size = (byte)UtilCollection.Random(50, 55);
 			MaxSpeedBase = 225;
 			RespawnInterval = -1;
 

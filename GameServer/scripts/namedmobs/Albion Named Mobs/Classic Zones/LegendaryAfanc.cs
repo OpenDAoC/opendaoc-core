@@ -135,12 +135,12 @@ namespace DOL.AI.Brain
 				RemoveAdds = false;
 				if (BringAdds == false)
 				{
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(Minions), Util.Random(15000, 35000));
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(Minions), UtilCollection.Random(15000, 35000));
 					BringAdds = true;
 				}
 				if(CanPort == false)
                 {
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ThrowPlayer), Util.Random(25000, 45000));
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ThrowPlayer), UtilCollection.Random(25000, 45000));
 					CanPort = true;
                 }
 			}
@@ -168,7 +168,7 @@ namespace DOL.AI.Brain
                 }
 				if(Port_Enemys.Count > 0)
                 {
-					GamePlayer Target = Port_Enemys[Util.Random(0, Port_Enemys.Count - 1)];
+					GamePlayer Target = Port_Enemys[UtilCollection.Random(0, Port_Enemys.Count - 1)];
 					if (Target != null && Target.IsAlive)
                     {					
 						Target.MoveTo(Body.CurrentRegionID, 451486, 393503, 2754, 2390);
@@ -187,15 +187,15 @@ namespace DOL.AI.Brain
 		{
 			if (HasAggro)
 			{
-				for (int i = 0; i < Util.Random(2, 5); i++)
+				for (int i = 0; i < UtilCollection.Random(2, 5); i++)
 				{
 					GameNPC add = new GameNPC();
 					add.Name = Body.Name+"'s minion";
 					add.Model = 607;
-					add.Level = (byte)(Util.Random(38, 45));
-					add.Size = (byte)(Util.Random(8, 12));
-					add.X = Body.X + Util.Random(-100, 100);
-					add.Y = Body.Y + Util.Random(-100, 100);
+					add.Level = (byte)(UtilCollection.Random(38, 45));
+					add.Size = (byte)(UtilCollection.Random(8, 12));
+					add.X = Body.X + UtilCollection.Random(-100, 100);
+					add.Y = Body.Y + UtilCollection.Random(-100, 100);
 					add.Z = Body.Z;
 					add.CurrentRegion = Body.CurrentRegion;
 					add.Heading = Body.Heading;

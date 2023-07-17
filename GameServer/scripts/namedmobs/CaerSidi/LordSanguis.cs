@@ -120,11 +120,11 @@ namespace DOL.GS
 
         public void SpawnMages()
         {
-            for (int i = 0; i < Util.Random(2, 4); i++) // Spawn 2-4 mages
+            for (int i = 0; i < UtilCollection.Random(2, 4); i++) // Spawn 2-4 mages
             {
                 BloodMage Add = new BloodMage();
-                Add.X = X + Util.Random(-50, 80);
-                Add.Y = Y + Util.Random(-50, 80);
+                Add.X = X + UtilCollection.Random(-50, 80);
+                Add.Y = Y + UtilCollection.Random(-50, 80);
                 Add.Z = Z;
                 Add.CurrentRegion = CurrentRegion;
                 Add.Heading = Heading;
@@ -215,7 +215,7 @@ namespace DOL.AI.Brain
             if (Body.TargetObject != null && HasAggro)
             {
                 RemoveAdds = false;
-                if (Util.Chance(10))
+                if (UtilCollection.Chance(10))
                 {
                     if (BloodMage.MageCount < 2)
                         SpawnMages();
@@ -226,8 +226,8 @@ namespace DOL.AI.Brain
         public void SpawnMages()
         {
             BloodMage Add = new BloodMage();
-            Add.X = Body.X + Util.Random(-50, 80);
-            Add.Y = Body.Y + Util.Random(-50, 80);
+            Add.X = Body.X + UtilCollection.Random(-50, 80);
+            Add.Y = Body.Y + UtilCollection.Random(-50, 80);
             Add.Z = Body.Z;
             Add.CurrentRegion = Body.CurrentRegion;
             Add.Heading = Body.Heading;
@@ -438,7 +438,7 @@ namespace DOL.GS
             Inventory = template.CloseTemplate();
             SwitchWeapon(EActiveWeaponSlot.TwoHanded);
 
-            Model = (byte) Util.Random(61, 68);
+            Model = (byte) UtilCollection.Random(61, 68);
             IsCloakHoodUp = true;
             VisibleActiveWeaponSlots = 34;
             MeleeDamageType = EDamageType.Crush;

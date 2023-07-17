@@ -144,7 +144,7 @@ namespace DOL.AI.Brain
             {
                 if (Body.TargetObject != null && Body.InCombat && Body.Health != Body.MaxHealth && HasAggro)
                 {
-                    if (Util.Chance(3))
+                    if (UtilCollection.Chance(3))
                         new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastHeal), 1000);
                 }
             }

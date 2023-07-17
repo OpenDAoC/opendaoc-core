@@ -106,7 +106,7 @@ namespace DOL.GS
 					}
 
                     String destination = item.Name.Substring(LanguageMgr.GetTranslation(ServerProperties.Properties.DB_LANGUAGE, "GameStableMaster.ReceiveItem.TicketTo").Length);
-					PathPoint path = MovementMgr.LoadPath(item.Id_nb);
+					PathPointUtil path = MovementMgr.LoadPath(item.Id_nb);
 					//PathPoint path = MovementMgr.Instance.LoadPath(this.Name + "=>" + destination);
                     if ((path != null) && ((Math.Abs(path.X - this.X)) < 500) && ((Math.Abs(path.Y - this.Y)) < 500))
 					{
@@ -158,7 +158,7 @@ namespace DOL.GS
 		/// <summary>
 		/// Handles delayed player mount on horse
 		/// </summary>
-		protected class MountHorseAction : RegionECSAction
+		protected class MountHorseAction : RegionAction
 		{
 			/// <summary>
 			/// The target horse
@@ -192,7 +192,7 @@ namespace DOL.GS
 		/// <summary>
 		/// Handles delayed horse ride actions
 		/// </summary>
-		protected class HorseRideAction : RegionECSAction
+		protected class HorseRideAction : RegionAction
 		{
 			/// <summary>
 			/// Constructs a new HorseStartAction

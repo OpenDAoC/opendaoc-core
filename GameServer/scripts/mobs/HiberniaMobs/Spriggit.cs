@@ -67,9 +67,9 @@ namespace DOL.AI.Brain
 				GameLiving target = Body.TargetObject as GameLiving;
 				if(target != null && target.IsAlive)
                 {
-					if(!target.effectListComponent.ContainsEffectForEffectType(EEffect.MovementSpeedDebuff) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.SnareImmunity) && Util.Chance(25))
+					if(!target.effectListComponent.ContainsEffectForEffectType(EEffect.MovementSpeedDebuff) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.SnareImmunity) && UtilCollection.Chance(25))
 						Body.CastSpell(SpriggitRoot, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
-					if(Util.Chance(30))
+					if(UtilCollection.Chance(30))
 						Body.CastSpell(SpriggitDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 				}
 				foreach (GameNPC npc in Body.GetNPCsInRadius(2500))
@@ -92,7 +92,7 @@ namespace DOL.AI.Brain
 					spell.AllowAdd = false;
 					spell.CastTime = 3;
 					spell.Power = 0;
-					spell.RecastDelay = Util.Random(10,15);
+					spell.RecastDelay = UtilCollection.Random(10,15);
 					spell.ClientEffect = 161;
 					spell.Icon = 161;
 					spell.Damage = 90;
@@ -120,7 +120,7 @@ namespace DOL.AI.Brain
 					spell.AllowAdd = false;
 					spell.CastTime = 3;
 					spell.Power = 0;
-					spell.RecastDelay = Util.Random(25, 35);
+					spell.RecastDelay = UtilCollection.Random(25, 35);
 					spell.ClientEffect = 5204;
 					spell.Icon = 5204;
 					spell.TooltipId = 5204;

@@ -117,7 +117,7 @@ namespace DOL.GS
             {
                 if (set_realhost == false)
                 {
-                    GameNPC RealHost = ChooseHost[Util.Random(0, ChooseHost.Count - 1)];
+                    GameNPC RealHost = ChooseHost[UtilCollection.Random(0, ChooseHost.Count - 1)];
                     RealHost.PackageID = "HostReal";
                     RealHost.OrbsReward = Properties.EPICBOSS_ORBS;
                     set_realhost = true;

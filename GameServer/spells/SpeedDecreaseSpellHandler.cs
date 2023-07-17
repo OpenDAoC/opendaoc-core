@@ -31,7 +31,7 @@ namespace DOL.GS.Spells
 				//FindStaticEffectOnTarget(target, typeof(MezzRootImmunityEffect)) != null)
 			{
 				MessageToCaster("Your target is immune!", eChatType.CT_SpellResisted);
-				target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.eAttackType.Spell, Caster);
+				target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.EAttackType.Spell, Caster);
 				OnSpellResisted(target);
 				return;
 			}
@@ -57,7 +57,7 @@ namespace DOL.GS.Spells
 
 			if (criticalChance > 0)
 			{
-				int randNum = Util.CryptoNextInt(1, 100);
+				int randNum = UtilCollection.CryptoNextInt(1, 100);
 				int critCap = Math.Min(50, criticalChance);
 				GamePlayer playerCaster = Caster as GamePlayer;
 

@@ -148,7 +148,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		/// <summary>
 		/// Handles player region change requests
 		/// </summary>
-		protected class RegionChangeRequestHandler : RegionECSAction
+		protected class RegionChangeRequestHandler : RegionAction
 		{
 			/// <summary>
 			/// Checks whether player is allowed to jump

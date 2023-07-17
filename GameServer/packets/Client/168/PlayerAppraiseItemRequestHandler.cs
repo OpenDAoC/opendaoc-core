@@ -19,7 +19,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		/// <summary>
 		/// Handles item apprise actions
 		/// </summary>
-		protected class AppraiseActionHandler : RegionECSAction
+		protected class AppraiseActionHandler : RegionAction
 		{
 			/// <summary>
 			/// The item slot

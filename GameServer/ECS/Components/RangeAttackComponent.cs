@@ -190,7 +190,7 @@ namespace DOL.GS
         {
             int arrowRecoveryChance = m_owner.GetModified(EProperty.ArrowRecovery);
 
-            if (arrowRecoveryChance == 0 || Util.Chance(100 - arrowRecoveryChance))
+            if (arrowRecoveryChance == 0 || UtilCollection.Chance(100 - arrowRecoveryChance))
                 m_owner.Inventory.RemoveCountFromStack(Ammo, 1);
 
             if (RangedAttackType == ERangedAttackType.Critical)

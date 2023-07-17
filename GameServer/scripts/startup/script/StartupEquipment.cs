@@ -61,7 +61,7 @@ namespace DOL.GS.GameEvents
 			{
 				if (equipclass.Template != null)
 				{
-					foreach(var classID in Util.SplitCSV(equipclass.Class, true))
+					foreach(var classID in UtilCollection.SplitCSV(equipclass.Class, true))
 					{
 						int cId;
 						if (int.TryParse(classID, out cId))

@@ -69,7 +69,7 @@ namespace DOL.GS.Spells
             if (baseChance < 1)
                 baseChance = 1;
 
-            if (Util.Chance(baseChance))
+            if (UtilCollection.Chance(baseChance))
             {
                 ablativehp = 200;
                 GamePlayer player = sender as GamePlayer;
@@ -110,7 +110,7 @@ namespace DOL.GS.Spells
 
             if (ad == null || (ad.AttackResult != EAttackResult.HitStyle && ad.AttackResult != EAttackResult.HitUnstyled))
                 return false;
-            if (!ad.IsMeleeAttack && ad.AttackType != AttackData.eAttackType.Ranged)
+            if (!ad.IsMeleeAttack && ad.AttackType != AttackData.EAttackType.Ranged)
                 return false;
 
             return true;

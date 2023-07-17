@@ -244,8 +244,8 @@ namespace DOL.GS.Quests
 
 			m_portObjectQueue.Enqueue(target);
 
-			location.X += Util.Random(0 - fuzzyLocation, fuzzyLocation);
-			location.Y += Util.Random(0 - fuzzyLocation, fuzzyLocation);
+			location.X += UtilCollection.Random(0 - fuzzyLocation, fuzzyLocation);
+			location.Y += UtilCollection.Random(0 - fuzzyLocation, fuzzyLocation);
 
 			m_portDestinationQueue.Enqueue(location);
 			m_portTeleportTimerQueue.Enqueue(new ECSGameTimer(target, new ECSGameTimer.ECSTimerCallback(MakePortSequence), (int)delay + 3000));

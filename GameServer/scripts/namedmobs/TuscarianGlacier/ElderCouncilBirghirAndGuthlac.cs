@@ -69,7 +69,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(140);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(140));
             RespawnInterval = ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
-            BodyType = (ushort)NpcTemplateMgr.eBodyType.Giant;
+            BodyType = (ushort)NpcTemplateMgr.EBodyType.Giant;
 
             GameNpcInventoryTemplate template = new GameNpcInventoryTemplate();
             template.AddNPCEquipment(eInventorySlot.TwoHandWeapon, 19, 0);
@@ -156,14 +156,14 @@ namespace DOL.AI.Brain
                     }
                     if (damage_enemies.Count > 0)
                     {
-                        GamePlayer Target = (GamePlayer)damage_enemies[Util.Random(0, damage_enemies.Count - 1)];
+                        GamePlayer Target = (GamePlayer)damage_enemies[UtilCollection.Random(0, damage_enemies.Count - 1)];
                         RandomTarget = Target; //randomly picked target is now RandomTarget
                         if (RandomTarget.IsVisibleTo(Body) && Body.TargetInView && RandomTarget != null && RandomTarget.IsAlive)
                         {
                             GameLiving oldTarget = Body.TargetObject as GameLiving; //old target
                             Body.TargetObject = RandomTarget; //set target to randomly picked
                             Body.TurnTo(RandomTarget);
-                            switch (Util.Random(1, 2)) //pick one of 2 spells to cast
+                            switch (UtilCollection.Random(1, 2)) //pick one of 2 spells to cast
                             {
                                 case 1:
                                     {
@@ -243,18 +243,18 @@ namespace DOL.AI.Brain
                 }
                 if (IsTargetPicked == false)
                 {
-                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickPlayer), Util.Random(15000, 20000));
+                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickPlayer), UtilCollection.Random(15000, 20000));
                     IsTargetPicked = true;
                 }
                 if(!Body.IsCasting)
                 {
                     GameLiving target = Body.TargetObject as GameLiving;
-                    if (Util.Chance(20))
+                    if (UtilCollection.Chance(20))
                     {                    
                         if(target != null && target.IsAlive && !target.effectListComponent.ContainsEffectForEffectType(EEffect.StrConDebuff))
                             Body.CastSpell(Icelord_SC_Debuff, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
                     }
-                    if (Util.Chance(20))
+                    if (UtilCollection.Chance(20))
                     {
                         if (target != null && target.IsAlive && !target.effectListComponent.ContainsEffectForEffectType(EEffect.MeleeHasteDebuff))
                             Body.CastSpell(Icelord_Haste_Debuff, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
@@ -459,7 +459,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(140);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(140));
             RespawnInterval = ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
-            BodyType = (ushort)NpcTemplateMgr.eBodyType.Giant;
+            BodyType = (ushort)NpcTemplateMgr.EBodyType.Giant;
 
             GameNpcInventoryTemplate template = new GameNpcInventoryTemplate();
             template.AddNPCEquipment(eInventorySlot.TwoHandWeapon, 19, 0);
@@ -539,7 +539,7 @@ namespace DOL.AI.Brain
                 {
                     if (CanCast == false)
                     {
-                        GamePlayer Target = (GamePlayer)Enemys_To_Root[Util.Random(0, Enemys_To_Root.Count - 1)];//pick random target from list
+                        GamePlayer Target = (GamePlayer)Enemys_To_Root[UtilCollection.Random(0, Enemys_To_Root.Count - 1)];//pick random target from list
                         RandomTarget2 = Target;//set random target to static RandomTarget
                         new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastRoot), 1000);
                         CanCast = true;
@@ -637,7 +637,7 @@ namespace DOL.AI.Brain
                 RemoveAdds = false;
                 if(!StartCastRoot)
                 {
-                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickRandomTarget), Util.Random(35000, 45000));
+                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickRandomTarget), UtilCollection.Random(35000, 45000));
                     StartCastRoot = true;
                 }
                 foreach (GamePlayer player in Body.GetPlayersInRadius(4500))
@@ -653,10 +653,10 @@ namespace DOL.AI.Brain
                 {
                     if (PlayersToDD.Count > 0)
                     {
-                        GamePlayer ptarget = PlayersToDD[Util.Random(0, PlayersToDD.Count - 1)];
+                        GamePlayer ptarget = PlayersToDD[UtilCollection.Random(0, PlayersToDD.Count - 1)];
                         RandomTarget = ptarget;
                     }
-                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnBombTimer), Util.Random(35000, 60000)); //spawn frozen bomb every 35s-60s
+                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnBombTimer), UtilCollection.Random(35000, 60000)); //spawn frozen bomb every 35s-60s
                     IsBombUp = true;
                 }
                 if (message1 == false)
@@ -782,7 +782,7 @@ namespace DOL.AI.Brain
                     DBSpell spell = new DBSpell();
                     spell.AllowAdd = false;
                     spell.CastTime = 3;
-                    spell.RecastDelay = Util.Random(8,15);
+                    spell.RecastDelay = UtilCollection.Random(8,15);
                     spell.ClientEffect = 2709;
                     spell.Icon = 2709;
                     spell.TooltipId = 2709;
@@ -893,7 +893,7 @@ namespace DOL.GS
             MaxSpeedBase = 0;
             FrozenBombCount = 1;
             Name = "Ice Spike";
-            Level = (byte)Util.Random(62, 66);
+            Level = (byte)UtilCollection.Random(62, 66);
 
             Faction = FactionMgr.GetFactionByID(140);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(140));

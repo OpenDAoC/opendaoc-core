@@ -52,14 +52,14 @@ namespace DOL.GS.Spells
 			SendUpdates(effect.Owner);
 
 			MessageToLiving(effect.Owner, Spell.Message1, eChatType.CT_Spell);
-			Message.SystemToArea(effect.Owner, Util.MakeSentence(Spell.Message2, effect.Owner.GetName(0, true)), eChatType.CT_Spell, effect.Owner);
+			Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message2, effect.Owner.GetName(0, true)), eChatType.CT_Spell, effect.Owner);
 
 			RestoreSpeedTimer timer = new RestoreSpeedTimer(effect.Owner, effect);
 			effect.Owner.TempProperties.setProperty(effect, timer);
 			timer.Interval = 650;
 			timer.Start(1 + (effect.Duration >> 1));
 
-			effect.Owner.StartInterruptTimer(effect.Owner.SpellInterruptDuration, AttackData.eAttackType.Spell, Caster);
+			effect.Owner.StartInterruptTimer(effect.Owner.SpellInterruptDuration, AttackData.EAttackType.Spell, Caster);
 		}
 
 		/// <summary>
@@ -82,7 +82,7 @@ namespace DOL.GS.Spells
 			SendUpdates(effect.Owner);
 
 			MessageToLiving(effect.Owner, Spell.Message3, eChatType.CT_SpellExpires);
-			Message.SystemToArea(effect.Owner, Util.MakeSentence(Spell.Message4, effect.Owner.GetName(0, true)), eChatType.CT_SpellExpires, effect.Owner);
+			Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, effect.Owner.GetName(0, true)), eChatType.CT_SpellExpires, effect.Owner);
 
 			return 60000;
 		}
@@ -133,7 +133,7 @@ namespace DOL.GS.Spells
 		/// <summary>
 		/// Slowly restores the livings speed
 		/// </summary>
-		public sealed class RestoreSpeedTimer : RegionECSAction
+		public sealed class RestoreSpeedTimer : RegionAction
 		{
 			/// <summary>
 			/// The speed changing effect

@@ -194,10 +194,10 @@ namespace DOL.GS
                 var translation = LanguageMgr.GetTranslation(player, this) as DbLanguageAreas;
                 if (translation != null)
                 {
-                    if (!Util.IsEmpty(translation.Description))
+                    if (!UtilCollection.IsEmpty(translation.Description))
                         description = translation.Description;
 
-                    if (!Util.IsEmpty(translation.ScreenDescription))
+                    if (!UtilCollection.IsEmpty(translation.ScreenDescription))
                         screenDescription = translation.ScreenDescription;
                 }
 

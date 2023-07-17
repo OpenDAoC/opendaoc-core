@@ -70,7 +70,7 @@ namespace DOL.GS
 
 		public override void GainCraftingSkillPoints(GamePlayer player, RecipeMgr recipe)
         {
-            if (Util.Chance(CalculateChanceToGainPoint(player, recipe.Level)))
+            if (UtilCollection.Chance(CalculateChanceToGainPoint(player, recipe.Level)))
             {
                 player.GainCraftingSkill(eCraftingSkill.Tailoring, 1);
                 base.GainCraftingSkillPoints(player, recipe);

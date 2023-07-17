@@ -363,7 +363,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 								GameServer.Database.AddObject(playerAccount);
 
 								// Log account creation
-								AuditMgr.AddAuditEntry(client, AuditType.Account, AuditSubtype.AccountCreate, "", userName);
+								AuditMgr.AddAuditEntry(client, EAuditType.Account, EAuditSubtype.AccountCreate, "", userName);
 							}
 							else
 							{
@@ -394,7 +394,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 								client.Out.SendLoginDenied(eLoginError.WrongPassword);
 
 								// Log failure
-								AuditMgr.AddAuditEntry(client, AuditType.Account, AuditSubtype.AccountFailedLogin, "", userName);
+								AuditMgr.AddAuditEntry(client, EAuditType.Account, EAuditSubtype.AccountFailedLogin, "", userName);
 
 								GameServer.Instance.Disconnect(client);
 
@@ -475,7 +475,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 					// }
 
 					// Log entry
-					AuditMgr.AddAuditEntry(client, AuditType.Account, AuditSubtype.AccountSuccessfulLogin, "", userName);
+					AuditMgr.AddAuditEntry(client, EAuditType.Account, EAuditSubtype.AccountSuccessfulLogin, "", userName);
 				}
 			}
 			catch (DatabaseException e)

@@ -22,13 +22,13 @@ namespace DOL.Language
         {
             translation = "";
 
-            if (Util.IsEmpty(translationId))
+            if (UtilCollection.IsEmpty(translationId))
             {
                 translation = TRANSLATION_ID_EMPTY;
                 return false;
             }
 
-            if (Util.IsEmpty(language) || !m_translations.ContainsKey(language))
+            if (UtilCollection.IsEmpty(language) || !m_translations.ContainsKey(language))
             {
                 language = DefaultLanguage;
             }
@@ -41,7 +41,7 @@ namespace DOL.Language
             }
             else
             {
-                if (!Util.IsEmpty(((DBLanguageSystem)result).Text))
+                if (!UtilCollection.IsEmpty(((DBLanguageSystem)result).Text))
                 {
                     translation = ((DBLanguageSystem)result).Text;
                 }
@@ -329,10 +329,10 @@ namespace DOL.Language
                 log.Info("[Language-Manager] Loading object translations...");
 
             IList<LanguageDataObject> lngObjs = new List<LanguageDataObject>();
-			Util.AddRange(lngObjs, (IList<LanguageDataObject>)GameServer.Database.SelectAllObjects<DbLanguageAreas>());
-			Util.AddRange(lngObjs, (IList<LanguageDataObject>)GameServer.Database.SelectAllObjects<DbLanguageGameObjects>());
-			Util.AddRange(lngObjs, (IList<LanguageDataObject>)GameServer.Database.SelectAllObjects<DbLanguageNpcs>());
-			Util.AddRange(lngObjs, (IList<LanguageDataObject>)GameServer.Database.SelectAllObjects<DbLanguageZones>());
+			UtilCollection.AddRange(lngObjs, (IList<LanguageDataObject>)GameServer.Database.SelectAllObjects<DbLanguageAreas>());
+			UtilCollection.AddRange(lngObjs, (IList<LanguageDataObject>)GameServer.Database.SelectAllObjects<DbLanguageGameObjects>());
+			UtilCollection.AddRange(lngObjs, (IList<LanguageDataObject>)GameServer.Database.SelectAllObjects<DbLanguageNpcs>());
+			UtilCollection.AddRange(lngObjs, (IList<LanguageDataObject>)GameServer.Database.SelectAllObjects<DbLanguageZones>());
 
             foreach (LanguageDataObject lngObj in lngObjs)
                 RegisterLanguageDataObject(lngObj);
@@ -433,7 +433,7 @@ namespace DOL.Language
         #region GetLanguageDataObject
         public static LanguageDataObject GetLanguageDataObject(string language, string translationId, LanguageDataObject.ETranslationIdentifier translationIdentifier)
         {
-            if (Util.IsEmpty(language) || Util.IsEmpty(translationId))
+            if (UtilCollection.IsEmpty(language) || UtilCollection.IsEmpty(translationId))
                 return null;
 
             if (!m_translations.ContainsKey(language))
@@ -535,7 +535,7 @@ namespace DOL.Language
                 return false;
             }
 
-            if (Util.IsEmpty(language) || language == DefaultLanguage /*Use the objects base data (e.g. NPC.Name)*/)
+            if (UtilCollection.IsEmpty(language) || language == DefaultLanguage /*Use the objects base data (e.g. NPC.Name)*/)
             {
                 translation = null;
                 return false;

@@ -180,7 +180,7 @@ namespace DOL.AI.Brain
                 Body.CastSpell(BlueLady_DD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
                 if ((BlueLadySwordAdd.SwordCount < 10 || BlueLadyAxeAdd.AxeCount < 10) && CanSpawnAdds == false)
                 {
-                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnAdds), Util.Random(25000, 45000));
+                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnAdds), UtilCollection.Random(25000, 45000));
                     CanSpawnAdds = true;
                 }
             }
@@ -193,8 +193,8 @@ namespace DOL.AI.Brain
                 if (BlueLadySwordAdd.SwordCount < 10)
                 {
                     BlueLadySwordAdd add = new BlueLadySwordAdd();
-                    add.X = Body.X + Util.Random(-100, 100);
-                    add.Y = Body.Y + Util.Random(-100, 100);
+                    add.X = Body.X + UtilCollection.Random(-100, 100);
+                    add.Y = Body.Y + UtilCollection.Random(-100, 100);
                     add.Z = Body.Z;
                     add.CurrentRegion = Body.CurrentRegion;
                     add.Heading = Body.Heading;
@@ -206,8 +206,8 @@ namespace DOL.AI.Brain
                 if (BlueLadyAxeAdd.AxeCount < 10)
                 {
                     BlueLadyAxeAdd add2 = new BlueLadyAxeAdd();
-                    add2.X = Body.X + Util.Random(-100, 100);
-                    add2.Y = Body.Y + Util.Random(-100, 100);
+                    add2.X = Body.X + UtilCollection.Random(-100, 100);
+                    add2.Y = Body.Y + UtilCollection.Random(-100, 100);
                     add2.Z = Body.Z;
                     add2.CurrentRegion = Body.CurrentRegion;
                     add2.Heading = Body.Heading;
@@ -227,7 +227,7 @@ namespace DOL.AI.Brain
                     DBSpell spell = new DBSpell();
                     spell.AllowAdd = false;
                     spell.CastTime = 5;
-                    spell.RecastDelay = Util.Random(25, 35);
+                    spell.RecastDelay = UtilCollection.Random(25, 35);
                     spell.ClientEffect = 4369;
                     spell.Icon = 4369;
                     spell.TooltipId = 4369;
@@ -301,7 +301,7 @@ namespace DOL.GS
             Model = 665;
             Name = "summoned sword";
             Size = 60;
-            Level = (byte)Util.Random(50, 55);
+            Level = (byte)UtilCollection.Random(50, 55);
             Realm = 0;
 
             ++SwordCount;
@@ -375,7 +375,7 @@ namespace DOL.GS
             Model = 665;
             Name = "summoned axe";
             Size = 60;
-            Level = (byte)Util.Random(50, 55);
+            Level = (byte)UtilCollection.Random(50, 55);
             Realm = 0;
 
             GameNpcInventoryTemplate templateHib = new GameNpcInventoryTemplate();

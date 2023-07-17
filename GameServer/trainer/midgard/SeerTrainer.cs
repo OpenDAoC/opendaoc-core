@@ -8,7 +8,7 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Seer Trainer
 	/// </summary>
-	[NPCGuildScript("Seer Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Acolyte Trainer" NPC's in Albion (multiple guilds are possible for one script)
+	[NpcGuild("Seer Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Acolyte Trainer" NPC's in Albion (multiple guilds are possible for one script)
 	public class SeerTrainer : GameTrainer
 	{
 		public override ECharacterClass TrainedClass

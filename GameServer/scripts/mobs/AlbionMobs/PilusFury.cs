@@ -19,7 +19,7 @@ namespace DOL.GS
 		{
 			Name = "Pilus'Fury";
 			Model = 665;
-			Level = (byte)Util.Random(65, 70);
+			Level = (byte)UtilCollection.Random(65, 70);
 			Size = 50;
 			Flags = (GameNPC.eFlags)44;//notarget noname flying
 			MaxSpeedBase = 0;
@@ -231,7 +231,7 @@ namespace DOL.AI.Brain
 			ad.Target = target;
 			ad.DamageType = EDamageType.Heat;
 			ad.IsSpellResisted = false;
-			ad.Damage = Util.Random(100,250);
+			ad.Damage = UtilCollection.Random(100,250);
 			ad.CausesCombat = true;
 
 			foreach (GamePlayer p in target.GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE))

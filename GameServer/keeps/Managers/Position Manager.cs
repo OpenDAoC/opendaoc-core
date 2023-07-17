@@ -298,7 +298,7 @@ namespace DOL.GS.Keeps
 		/// <param name="pathID">The path ID, which is the Patrol ID</param>
 		/// <param name="component">The Component object</param>
 		/// <returns>The Patrol path</returns>
-		public static PathPoint LoadPatrolPath(string pathID, GameKeepComponent component)
+		public static PathPointUtil LoadPatrolPath(string pathID, GameKeepComponent component)
 		{
 			SortedList sorted = new SortedList();
 			pathID.Replace('\'', '/'); // we must replace the ', found no other way yet
@@ -319,12 +319,12 @@ namespace DOL.GS.Keeps
 			{
 				sorted.Add(point.Step, point);
 			}
-			PathPoint prev = null;
-			PathPoint first = null;
+			PathPointUtil prev = null;
+			PathPointUtil first = null;
 			for (int i = 0; i < sorted.Count; i++)
 			{
 				DbPathPoints pp = (DbPathPoints)sorted.GetByIndex(i);
-				PathPoint p = new PathPoint(pp.X, pp.Y, pp.Z, (short) pp.MaxSpeed, pathType);
+				PathPointUtil p = new PathPointUtil(pp.X, pp.Y, pp.Z, (short) pp.MaxSpeed, pathType);
 
 				int x, y;
 				LoadXY(component, pp.X, pp.Y, out x, out y);
@@ -354,14 +354,14 @@ namespace DOL.GS.Keeps
 		/// <param name="pathID"></param>
 		/// <param name="path"></param>
 		/// <param name="component"></param>
-		public static void SavePatrolPath(string pathID, PathPoint path, GameKeepComponent component)
+		public static void SavePatrolPath(string pathID, PathPointUtil path, GameKeepComponent component)
 		{
 			if (path == null)
 				return;
 
 			pathID.Replace('\'', '/'); // we must replace the ', found no other way yet
 			GameServer.Database.DeleteObject(CoreDb<DbPaths>.SelectObjects(DB.Column("PathID").IsEqualTo(pathID)));
-			PathPoint root = MovementMgr.FindFirstPathPoint(path);
+			PathPointUtil root = MovementMgr.FindFirstPathPoint(path);
 
 			//Set the current pathpoint to the rootpoint!
 			path = root;

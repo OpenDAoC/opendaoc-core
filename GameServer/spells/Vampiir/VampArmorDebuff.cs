@@ -26,10 +26,10 @@ namespace DOL.GS.Spells
 
 		public override void OnEffectStart(GameSpellEffect effect)
 		{
-			effect.Owner.StartInterruptTimer(effect.Owner.SpellInterruptDuration, AttackData.eAttackType.Spell, Caster);
+			effect.Owner.StartInterruptTimer(effect.Owner.SpellInterruptDuration, AttackData.EAttackType.Spell, Caster);
 			player = effect.Owner as GamePlayer;
 			if (player == null) return;
-			int slot=Util.Random(0, 2);
+			int slot=UtilCollection.Random(0, 2);
 			m_slot = slots[slot];
 			string msg = GlobalConstants.SlotToName((int)m_slot);
 			MessageToCaster("You debuff " + effect.Owner.Name + "'s " + msg+"", eChatType.CT_Spell);

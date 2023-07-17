@@ -85,7 +85,7 @@ namespace DOL.GS
 		#region Classic craft functions
 		public override void GainCraftingSkillPoints(GamePlayer player, RecipeMgr recipe)
 		{
-			if (Util.Chance(CalculateChanceToGainPoint(player, recipe.Level)))
+			if (UtilCollection.Chance(CalculateChanceToGainPoint(player, recipe.Level)))
 			{
 				player.GainCraftingSkill(eCraftingSkill.SpellCrafting, 1);
 
@@ -320,7 +320,7 @@ namespace DOL.GS
 
 			GamePlayer tradePartner = player.TradeWindow.Partner;
 
-			if (Util.Chance(sucessChances))
+			if (UtilCollection.Chance(sucessChances))
 			{
 				lock (player.TradeWindow.Sync)
 				{
@@ -359,7 +359,7 @@ namespace DOL.GS
 				}
 				player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "SpellCrafting.ApplySpellcraftGems.ImbuedItem", player.Name), eChatType.CT_Important, eChatLoc.CL_SystemWindow);
 			}
-			else if (Util.Chance(destroyChance))
+			else if (UtilCollection.Chance(destroyChance))
 			{
 				player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "SpellCrafting.ApplySpellcraftGems.PowerExplodes"), eChatType.CT_Important, eChatLoc.CL_SystemWindow);
 
@@ -386,7 +386,7 @@ namespace DOL.GS
 
 				if (tradePartner != null)
 				{
-					if (Util.Chance(40))
+					if (UtilCollection.Chance(40))
 					{
 						tradePartner.Emote(eEmote.SpellGoBoom);
 						tradePartner.Health = 0;

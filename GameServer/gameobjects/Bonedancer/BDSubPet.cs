@@ -80,7 +80,7 @@ namespace DOL.GS
             if (weapon != null)
             {
                 if (Inventory == null)
-                    Inventory = new GameNPCInventory(new GameNpcInventoryTemplate());
+                    Inventory = new GameNpcInventory(new GameNpcInventoryTemplate());
                 else
                     Inventory.RemoveItem(Inventory.GetItem((eInventorySlot)weapon.Item_Type));
 

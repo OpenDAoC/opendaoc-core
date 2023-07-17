@@ -44,8 +44,8 @@ namespace DOL.GS
 			for (int i = 0; i < 10; i++)
 			{
 				IckAdd npc = new IckAdd();
-				npc.X = X + Util.Random(-100, 100);
-				npc.Y = Y + Util.Random(-100, 100);
+				npc.X = X + UtilCollection.Random(-100, 100);
+				npc.Y = Y + UtilCollection.Random(-100, 100);
 				npc.Z = Z;
 				npc.Heading = Heading;
 				npc.CurrentRegion = CurrentRegion;
@@ -54,7 +54,7 @@ namespace DOL.GS
 		}
 		public override void DealDamage(AttackData ad)
 		{
-			if (ad != null && ad.AttackType == AttackData.eAttackType.Spell && ad.Damage > 0)
+			if (ad != null && ad.AttackType == AttackData.EAttackType.Spell && ad.Damage > 0)
 				Health += ad.Damage;
 			base.DealDamage(ad);
 		}
@@ -128,7 +128,7 @@ namespace DOL.AI.Brain
 					spell.AllowAdd = false;
 					spell.CastTime = 0;
 					spell.Power = 0;
-					spell.RecastDelay = Util.Random(5, 8);
+					spell.RecastDelay = UtilCollection.Random(5, 8);
 					spell.ClientEffect = 581;
 					spell.Icon = 581;
 					spell.Damage = 80;
@@ -158,7 +158,7 @@ namespace DOL.GS
 		public override bool AddToWorld()
 		{
 			Name = "Ick worm";
-			Level = (byte)Util.Random(17, 19);
+			Level = (byte)UtilCollection.Random(17, 19);
 			Model = 458;
 			Size = 17;
 			IckAddBrain sbrain = new IckAddBrain();

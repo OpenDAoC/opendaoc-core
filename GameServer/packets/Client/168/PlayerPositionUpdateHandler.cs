@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using Core.GS.GameUtils;
 using DOL.Database;
 using DOL.GS.Effects;
 using DOL.GS.Utils;
@@ -183,10 +184,10 @@ namespace DOL.GS.PacketHandler.Client.v168
                 var translation = LanguageMgr.GetTranslation(client, newZone) as DbLanguageZones;
                 if (translation != null)
                 {
-                    if (!Util.IsEmpty(translation.Description))
+                    if (!UtilCollection.IsEmpty(translation.Description))
                         description = translation.Description;
 
-                    if (!Util.IsEmpty(translation.ScreenDescription))
+                    if (!UtilCollection.IsEmpty(translation.ScreenDescription))
                         screenDescription = translation.ScreenDescription;
                 }
 
@@ -907,10 +908,10 @@ namespace DOL.GS.PacketHandler.Client.v168
 				var translation = LanguageMgr.GetTranslation(client, newZone) as DbLanguageZones;
 				if (translation != null)
 				{
-					if (!Util.IsEmpty(translation.Description))
+					if (!UtilCollection.IsEmpty(translation.Description))
 						description = translation.Description;
 
-					if (!Util.IsEmpty(translation.ScreenDescription))
+					if (!UtilCollection.IsEmpty(translation.ScreenDescription))
 						screenDescription = translation.ScreenDescription;
 				}
 

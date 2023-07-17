@@ -183,8 +183,8 @@ namespace DOL.AI.Brain
 				for (int i = 0; i < 4; i++)
 				{
 					AnurigundaAdds Add1 = new AnurigundaAdds();
-					Add1.X = Body.X + Util.Random(-100, 100);
-					Add1.Y = Body.Y + Util.Random(-100, 100);
+					Add1.X = Body.X + UtilCollection.Random(-100, 100);
+					Add1.Y = Body.Y + UtilCollection.Random(-100, 100);
 					Add1.Z = Body.Z;
 					Add1.CurrentRegion = Body.CurrentRegion;
 					Add1.Heading = Body.Heading;
@@ -198,8 +198,8 @@ namespace DOL.AI.Brain
 				for (int i = 0; i < 5; i++)
 				{
 					AnurigundaAdds Add1 = new AnurigundaAdds();
-					Add1.X = Body.X + Util.Random(-100, 100);
-					Add1.Y = Body.Y + Util.Random(-100, 100);
+					Add1.X = Body.X + UtilCollection.Random(-100, 100);
+					Add1.Y = Body.Y + UtilCollection.Random(-100, 100);
 					Add1.Z = Body.Z;
 					Add1.CurrentRegion = Body.CurrentRegion;
 					Add1.Heading = Body.Heading;
@@ -219,7 +219,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 0;
-					spell.RecastDelay = Util.Random(10,15);
+					spell.RecastDelay = UtilCollection.Random(10,15);
 					spell.ClientEffect = 77;
 					spell.Icon = 77;
 					spell.TooltipId = 77;
@@ -307,7 +307,7 @@ namespace DOL.GS
 
         public override bool AddToWorld()
 		{
-			int idtemplate = Id_npctemplates[Util.Random(0, Id_npctemplates.Count - 1)];
+			int idtemplate = Id_npctemplates[UtilCollection.Random(0, Id_npctemplates.Count - 1)];
 			INpcTemplate npcTemplate = NpcTemplateMgr.GetTemplate(idtemplate);
 			LoadTemplate(npcTemplate);
 			Strength = npcTemplate.Strength;

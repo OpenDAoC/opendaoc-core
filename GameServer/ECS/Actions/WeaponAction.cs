@@ -137,7 +137,7 @@ namespace DOL.GS
                     usingOH = true;
 
                 // One of two hands is used for attack if no style, treated as a main hand attack.
-                if (usingOH && style == null && Util.Chance(50))
+                if (usingOH && style == null && UtilCollection.Chance(50))
                 {
                     m_owner.attackComponent.UsedHandOnLastDualWieldAttack = 1;
                     mainWeapon = leftWeapon;
@@ -204,7 +204,7 @@ namespace DOL.GS
             // 1.89:
             // - Characters who are attacked by stealthed archers will now target the attacking archer if the attacked player does not already have a target.
             if (mainHandAD.Attacker.IsStealthed
-                && mainHandAD.AttackType == AttackData.eAttackType.Ranged
+                && mainHandAD.AttackType == AttackData.EAttackType.Ranged
                 && (mainHandAD.AttackResult == EAttackResult.HitUnstyled || mainHandAD.AttackResult == EAttackResult.HitStyle))
             {
                 if (mainHandAD.Target.TargetObject == null)
@@ -274,7 +274,7 @@ namespace DOL.GS
                 }
             }
 
-            if (mainHandAD.AttackType == AttackData.eAttackType.Ranged)
+            if (mainHandAD.AttackType == AttackData.EAttackType.Ranged)
             {
                 m_owner.CheckWeaponMagicalEffect(mainHandAD, mainWeapon);
                 HandleDamageAdd(m_owner, mainHandAD);

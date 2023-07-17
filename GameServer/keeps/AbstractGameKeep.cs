@@ -186,7 +186,7 @@ namespace DOL.GS.Keeps
 		/// <summary>
 		/// The guild which has claimed the keep
 		/// </summary>
-		public Guild Guild { get; set; } = null;
+		public GuildUtil Guild { get; set; } = null;
 
 		/// <summary>
 		/// Difficulty level of keep for each realm
@@ -245,7 +245,7 @@ namespace DOL.GS.Keeps
 					// In PvE & PvP servers, lords are really just mobs farmed for seals.
 					int iVariance = 1000 * Math.Abs(ServerProperties.Properties.GUARD_RESPAWN_VARIANCE);
 					int iRespawn = 60 * ((Math.Abs(ServerProperties.Properties.GUARD_RESPAWN) * 1000) +
-						(Util.Random(-iVariance, iVariance)));
+						(UtilCollection.Random(-iVariance, iVariance)));
 
 					return (iRespawn > 1000) ? iRespawn : 1000; // Make sure we don't end up with an impossibly low respawn interval.
 				}
@@ -535,7 +535,7 @@ namespace DOL.GS.Keeps
 			m_difficultyLevel[2] = DBKeep.HiberniaDifficultyLevel;
 			if (DBKeep.ClaimedGuildName != null && DBKeep.ClaimedGuildName != "")
 			{
-				Guild myguild = GuildMgr.GetGuildByName(DBKeep.ClaimedGuildName);
+				GuildUtil myguild = GuildMgr.GetGuildByName(DBKeep.ClaimedGuildName);
 				if (myguild != null)
 				{
 					Guild = myguild;
@@ -611,7 +611,7 @@ namespace DOL.GS.Keeps
 				player.Out.SendMessage("You must be in a guild to claim a keep.",eChatType.CT_System,eChatLoc.CL_SystemWindow);
 				return false;
 			}
-			if (!player.Guild.HasRank(player, Guild.eRank.Claim))
+			if (!player.Guild.HasRank(player, GuildUtil.EGuildRank.Claim))
 			{
 				player.Out.SendMessage("You do not have permission to claim for your guild.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
 				return false;

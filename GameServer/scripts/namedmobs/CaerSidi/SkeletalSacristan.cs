@@ -120,7 +120,7 @@ namespace DOL.AI.Brain
                     _lastRoamIndex = 0;
                     Body.ReturnToSpawnPoint();
                 }
-                else if(!Body.IsMoving) Body.WalkTo(_roamingPathPoints[_lastRoamIndex], (short)Util.Random(195, 250));
+                else if(!Body.IsMoving) Body.WalkTo(_roamingPathPoints[_lastRoamIndex], (short)UtilCollection.Random(195, 250));
                 
             }
             

@@ -140,7 +140,7 @@ namespace DOL.AI.Brain
 			// Pick a random NPC from the list and go for it.
 
 			IsGettingHelp = true;
-			m_helperNPC = (GameNPC) addList[Util.Random(1, addList.Count)-1];
+			m_helperNPC = (GameNPC) addList[UtilCollection.Random(1, addList.Count)-1];
 			Body.Follow(m_helperNPC, 90, ScoutRange);
 		}
 
@@ -157,7 +157,7 @@ namespace DOL.AI.Brain
 
 			StandardMobBrain brain = npc.Brain as StandardMobBrain;
 			foreach (GameLiving target in m_targetList)
-				brain.AddToAggroList(target, Util.Random(1, m_targetList.Count));
+				brain.AddToAggroList(target, UtilCollection.Random(1, m_targetList.Count));
 		}
 
 		/// <summary>

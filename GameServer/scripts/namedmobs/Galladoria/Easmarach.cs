@@ -210,7 +210,7 @@ namespace DOL.AI.Brain
                 if(Body.HealthPercent <= 30)
                     Body.Health += Body.MaxHealth / 8;
 
-                new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(EndWalk), Util.Random(50000,80000));
+                new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(EndWalk), UtilCollection.Random(50000,80000));
                 dontattack = false;
                 healBoss = true;
             }

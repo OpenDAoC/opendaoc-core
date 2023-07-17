@@ -81,7 +81,7 @@ namespace DOL.GS
 		{
 			if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 			{
-				if (Util.Chance(35) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.StunImmunity) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.Stun) && ad.Target.IsAlive)
+				if (UtilCollection.Chance(35) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.StunImmunity) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.Stun) && ad.Target.IsAlive)
 					CastSpell(Mortufoghus_stun, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			}
 			base.OnAttackEnemy(ad);
@@ -143,11 +143,11 @@ namespace DOL.AI.Brain
 			}
 			if(HasAggro && Body.TargetObject != null)
             {
-				if(!Body.IsCasting && Util.Chance(50))
+				if(!Body.IsCasting && UtilCollection.Chance(50))
 					Body.CastSpell(MortufoghusDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells),false);
 				if (IsTargetPicked == false)
 				{
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ThrowPlayer), Util.Random(25000, 35000));//timer to port and pick player
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ThrowPlayer), UtilCollection.Random(25000, 35000));//timer to port and pick player
 					IsTargetPicked = true;
 				}
 			}
@@ -179,11 +179,11 @@ namespace DOL.AI.Brain
 				}
 				if (Port_Enemys.Count > 0)
 				{
-					GamePlayer Target = Port_Enemys[Util.Random(0, Port_Enemys.Count - 1)];
+					GamePlayer Target = Port_Enemys[UtilCollection.Random(0, Port_Enemys.Count - 1)];
 					RandomTarget = Target;
 					if (RandomTarget.IsAlive && RandomTarget != null)
 					{
-						RandomTarget.MoveTo(Body.CurrentRegionID, Body.X+Util.Random(-1500,1500), Body.Y + Util.Random(-1500, 1500), Body.Z, Body.Heading);
+						RandomTarget.MoveTo(Body.CurrentRegionID, Body.X+UtilCollection.Random(-1500,1500), Body.Y + UtilCollection.Random(-1500, 1500), Body.Z, Body.Heading);
 						RandomTarget.TakeDamage(RandomTarget, EDamageType.Falling, RandomTarget.MaxHealth / 5, 0);
 						RandomTarget.Out.SendMessage("You take falling damage!", eChatType.CT_Important, eChatLoc.CL_ChatWindow);
 						Port_Enemys.Remove(RandomTarget);
@@ -206,7 +206,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 2;
-					spell.RecastDelay = Util.Random(15,25);
+					spell.RecastDelay = UtilCollection.Random(15,25);
 					spell.ClientEffect = 14315;
 					spell.Icon = 14315;
 					spell.Damage = 250;

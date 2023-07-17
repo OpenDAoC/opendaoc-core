@@ -80,7 +80,7 @@ namespace DOL.GS.Scripts
 			GameNPC mob = new GameNPC();
 			SetVariables(mob);
 			//Level Range of 50-55
-			int level = Util.Random(50, 55);
+			int level = UtilCollection.Random(50, 55);
 			mob.Level = (byte) level;
 			mob.Size = 50;
 			mob.AddToWorld();

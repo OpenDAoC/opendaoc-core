@@ -51,7 +51,7 @@ namespace DOL.GS.Quests
 				const ushort Scarto = 3; // Add/Remove % to the Result
 				
 				int ValueScarto = ((MoneyReward[m_taskPlayer.Level-1]/100)*Scarto);
-				return Util.Random(MoneyReward[m_taskPlayer.Level-1]-ValueScarto, MoneyReward[m_taskPlayer.Level-1]+ValueScarto);
+				return UtilCollection.Random(MoneyReward[m_taskPlayer.Level-1]-ValueScarto, MoneyReward[m_taskPlayer.Level-1]+ValueScarto);
 			}
 		}
 		/*
@@ -300,7 +300,7 @@ namespace DOL.GS.Quests
 				player.Task = new KillTask(player);
 				player.Task.TimeOut = DateTime.Now.AddHours(2);
 				((KillTask)player.Task).MobKilled = false;
-				((KillTask)player.Task).ItemIndex = Util.Random(0, TaskObjects.Length - 1);
+				((KillTask)player.Task).ItemIndex = UtilCollection.Random(0, TaskObjects.Length - 1);
 				((KillTask)player.Task).MobName = Mob.Name;
 				player.Task.ReceiverName = source.Name;
 				player.Out.SendMessage(source.Name + " says, *Very well " + player.Name + ", it's good to see adventurers willing to help out the realm in such times. Search to the " + GetDirectionFromHeading(Mob.Heading) + " and kill a " + Mob.Name + " and return to me for your reward. Good luck!*", eChatType.CT_System, eChatLoc.CL_SystemWindow);

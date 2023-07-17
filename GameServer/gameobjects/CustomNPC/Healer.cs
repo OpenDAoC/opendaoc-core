@@ -14,7 +14,7 @@ namespace DOL.GS
 	/// <summary>
 	/// Represents an in-game Healer NPC, which can remove resurrection illness and restore lost Constitution points.
 	/// </summary>
-	[NPCGuildScript("Healer")]
+	[NpcGuild("Healer")]
 	public class GameHealer : GameNPC
 	{
 		private const string CURED_SPELL_TYPE = "PveResurrectionIllness";

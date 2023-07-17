@@ -36,7 +36,7 @@ namespace DOL.GS.Spells
 		{			
 			SendEffectAnimation(effect.Owner, 0, false, 1);
 			//"{0} seems calm and healthy."
-			Message.SystemToArea(effect.Owner, Util.MakeSentence(Spell.Message2, effect.Owner.GetName(0, false)), eChatType.CT_Spell, effect.Owner);
+			Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message2, effect.Owner.GetName(0, false)), eChatType.CT_Spell, effect.Owner);
 		}
 
 		public override void OnEffectPulse(GameSpellEffect effect)
@@ -82,7 +82,7 @@ namespace DOL.GS.Spells
 				//"Your meditative state fades."
 				MessageToLiving(effect.Owner, Spell.Message3, eChatType.CT_SpellExpires);
 				//"{0}'s meditative state fades."
-				Message.SystemToArea(effect.Owner, Util.MakeSentence(Spell.Message4, effect.Owner.GetName(0, false)), eChatType.CT_SpellExpires, effect.Owner);
+				Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, effect.Owner.GetName(0, false)), eChatType.CT_SpellExpires, effect.Owner);
 			}
 			return 0;
 		}

@@ -329,7 +329,7 @@ namespace DOL.GS {
             Name = "Total: 0 DPS: 0";
             GuildName = "Atlas Dummy Union";
             Model = 34;
-            Inventory = new GameNPCInventory(GameNpcInventoryTemplate.EmptyTemplate);
+            Inventory = new GameNpcInventory(GameNpcInventoryTemplate.EmptyTemplate);
             return base.AddToWorld(); // Finish up and add him to the world.
         }
 
@@ -360,13 +360,13 @@ namespace DOL.GS {
                             case eInventorySlot.HeadArmor: model = 822; break;
                             case eInventorySlot.HandsArmor: model = 142; break;
                             case eInventorySlot.TorsoArmor:
-                                if (Util.Chance(60))
+                                if (UtilCollection.Chance(60))
                                 {
                                     model = 139;
                                 }
                                 else
                                 {
-                                    switch (Util.Random(2))
+                                    switch (UtilCollection.Random(2))
                                     {
                                         case 0: model = 58; break;
                                         case 1: model = 65; break;
@@ -413,7 +413,7 @@ namespace DOL.GS {
                             case eInventorySlot.FeetArmor: model = 50; break;
                             case eInventorySlot.HandsArmor: model = 49; break;
                             case eInventorySlot.HeadArmor:
-                                if (Util.Chance(25))
+                                if (UtilCollection.Chance(25))
                                 {
                                     model = 93;
                                 }

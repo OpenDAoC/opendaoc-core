@@ -35,7 +35,7 @@ namespace DOL.GS.Spells
                 player.Out.SendCharStatsUpdate();
                 player.UpdatePlayerStatus();
                 MessageToLiving(effect.Owner, Spell.Message1, eChatType.CT_Spell);
-                Message.SystemToArea(effect.Owner, Util.MakeSentence(Spell.Message2, effect.Owner.GetName(0, true)), eChatType.CT_Spell, effect.Owner);
+                Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message2, effect.Owner.GetName(0, true)), eChatType.CT_Spell, effect.Owner);
 
             }
 
@@ -55,7 +55,7 @@ namespace DOL.GS.Spells
                 player.Out.SendCharStatsUpdate();
                 player.UpdatePlayerStatus();
 				MessageToLiving(effect.Owner, Spell.Message3, eChatType.CT_Spell);
-				Message.SystemToArea(effect.Owner, Util.MakeSentence(Spell.Message4, effect.Owner.GetName(0, true)), eChatType.CT_Spell, effect.Owner);
+				Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, effect.Owner.GetName(0, true)), eChatType.CT_Spell, effect.Owner);
 			
 			}
 			return 0;

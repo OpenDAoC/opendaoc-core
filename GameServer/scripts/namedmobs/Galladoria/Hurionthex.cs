@@ -334,7 +334,7 @@ namespace DOL.AI.Brain
                 SwitchForm = false;
                 reset_checks = false;
 
-                int randomform = Util.Random(1, 4);
+                int randomform = UtilCollection.Random(1, 4);
                 switch (randomform)
                 {
                     case 1:
@@ -570,7 +570,7 @@ namespace DOL.AI.Brain
             {
                 if (Body.Model == 844) //cast disease as mokney form
                 {
-                    if (Util.Chance(100) && Body.TargetObject != null)
+                    if (UtilCollection.Chance(100) && Body.TargetObject != null)
                     {
                         if (LivingHasEffect(Body.TargetObject as GameLiving, BlackPlague) == false &&
                             Body.TargetObject.IsVisibleTo(Body))
@@ -586,7 +586,7 @@ namespace DOL.AI.Brain
 
                 if (Body.Model == 946) //cast damage add as tree
                 {
-                    if (Util.Chance(100) && Body.TargetObject != null)
+                    if (UtilCollection.Chance(100) && Body.TargetObject != null)
                     {
                         if (!Body.effectListComponent.ContainsEffectForEffectType(EEffect.DamageAdd))
                         {
@@ -601,7 +601,7 @@ namespace DOL.AI.Brain
 
                 if (Body.Model == 925) //cast damage shield as sanidon
                 {
-                    if (Util.Chance(100) && Body.TargetObject != null)
+                    if (UtilCollection.Chance(100) && Body.TargetObject != null)
                     {
                         if (!Body.effectListComponent.ContainsEffectForEffectType(EEffect.DamageReturn))
                         {

@@ -103,11 +103,11 @@ namespace DOL.GS
 
         public void SpawnSouls()
         {
-            for (int i = 0; i < Util.Random(4, 6); i++) // Spawn 4-6 souls
+            for (int i = 0; i < UtilCollection.Random(4, 6); i++) // Spawn 4-6 souls
             {
                 ReckonedSoul Add = new ReckonedSoul();
-                Add.X = X + Util.Random(-50, 80);
-                Add.Y = Y + Util.Random(-50, 80);
+                Add.X = X + UtilCollection.Random(-50, 80);
+                Add.Y = Y + UtilCollection.Random(-50, 80);
                 Add.Z = Z;
                 Add.CurrentRegion = CurrentRegion;
                 Add.Heading = Heading;
@@ -249,14 +249,14 @@ namespace DOL.AI.Brain
             if (HasAggro && Body.TargetObject != null)
             {
                 AwayFromRoom();
-                if (Util.Chance(50))
+                if (UtilCollection.Chance(50))
                 {
                     Body.TurnTo(Body.TargetObject);
                     Body.CastSpell(Reckoner_Lifetap, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
                 }
                 if(!Spawn_Souls)
                 {
-                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnSouls), Util.Random(10000, 15000));
+                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnSouls), UtilCollection.Random(10000, 15000));
                     Spawn_Souls = true;
                 }
                 if (BafMobs == false)
@@ -282,18 +282,18 @@ namespace DOL.AI.Brain
         {
             if (Body.IsAlive && HasAggro)
             {
-                for (int i = 0; i < Util.Random(1, 2); i++)
+                for (int i = 0; i < UtilCollection.Random(1, 2); i++)
                 {
                     ReckonedSoul Add = new ReckonedSoul();
-                    Add.X = Body.X + Util.Random(-50, 80);
-                    Add.Y = Body.Y + Util.Random(-50, 80);
+                    Add.X = Body.X + UtilCollection.Random(-50, 80);
+                    Add.Y = Body.Y + UtilCollection.Random(-50, 80);
                     Add.Z = Body.Z;
                     Add.CurrentRegion = Body.CurrentRegion;
                     Add.Heading = Body.Heading;
                     Add.AddToWorld();
                 }
             }
-            new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetRespawnSouls), Util.Random(60000, 70000));
+            new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetRespawnSouls), UtilCollection.Random(60000, 70000));
             return 0;
         }
         private int ResetRespawnSouls(ECSGameTimer timer)
@@ -314,7 +314,7 @@ namespace DOL.AI.Brain
                     DBSpell spell = new DBSpell();
                     spell.AllowAdd = false;
                     spell.CastTime = 3;
-                    spell.RecastDelay = Util.Random(8,12);
+                    spell.RecastDelay = UtilCollection.Random(8,12);
                     spell.ClientEffect = 9191;
                     spell.Icon = 710;
                     spell.Damage = 650;

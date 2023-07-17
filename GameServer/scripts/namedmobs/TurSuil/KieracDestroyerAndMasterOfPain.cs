@@ -364,7 +364,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 0;
-					spell.RecastDelay = Util.Random(25,45);
+					spell.RecastDelay = UtilCollection.Random(25,45);
 					spell.Duration = 60;
 					spell.Value = 75;
 					spell.ClientEffect = 4387;

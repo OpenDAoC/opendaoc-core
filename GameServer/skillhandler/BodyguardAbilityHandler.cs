@@ -23,7 +23,7 @@ namespace DOL.GS.SkillHandler
         /// </summary>
         public const int BODYGUARD_DISTANCE = 300;
 
-        public void Execute(Ability ab, GamePlayer player)
+        public void Execute(AbilityUtil ab, GamePlayer player)
         {
             if (!player.IsAlive)
             {

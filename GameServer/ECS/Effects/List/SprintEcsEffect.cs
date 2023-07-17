@@ -63,7 +63,7 @@ namespace DOL.GS
 			}
 			else
 			{
-				nextInterval = Util.Random(600, 1400);
+				nextInterval = UtilCollection.Random(600, 1400);
 				if (Owner.IsMoving)
 				{
 					int amount = 5;

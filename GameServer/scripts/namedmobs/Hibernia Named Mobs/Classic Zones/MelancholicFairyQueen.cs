@@ -70,7 +70,7 @@ namespace DOL.GS
 		{			
 			Name = "Melancholic Fairy Queen";
 			Model = 679;
-			Level = (byte)Util.Random(64,68);
+			Level = (byte)UtilCollection.Random(64,68);
 			Size = 50;
 			MaxDistance = 2500;
 			TetherRange = 2600;
@@ -171,7 +171,7 @@ namespace DOL.AI.Brain
 							brain.AddToAggroList(target, 10);
 					}
 				}
-				if (Util.Chance(50) && !Body.IsCasting)
+				if (UtilCollection.Chance(50) && !Body.IsCasting)
 					Body.CastSpell(MFQDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
 			}
 			base.Think();
@@ -181,8 +181,8 @@ namespace DOL.AI.Brain
 			for (int i = 0; i < 5; i++)
 			{
 				MFQGuards guards = new MFQGuards();
-				guards.X = Body.X + Util.Random(-500, 500);
-				guards.Y = Body.Y + Util.Random(-500, 500);
+				guards.X = Body.X + UtilCollection.Random(-500, 500);
+				guards.Y = Body.Y + UtilCollection.Random(-500, 500);
 				guards.Z = Body.Z;
 				guards.Heading = Body.Heading;
 				guards.CurrentRegion = Body.CurrentRegion;
@@ -264,8 +264,8 @@ namespace DOL.GS
 		{
 			Model = 679;
 			Name = "melancholic fairy guard";
-			Level = (byte)Util.Random(51, 55);
-			Size = (byte)Util.Random(50, 55);
+			Level = (byte)UtilCollection.Random(51, 55);
+			Size = (byte)UtilCollection.Random(50, 55);
 			RespawnInterval = -1;
 			RoamingRange = 200;
 			Flags = eFlags.FLYING;

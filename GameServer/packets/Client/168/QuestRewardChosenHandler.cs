@@ -35,7 +35,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		/// <summary>
 		/// Send dialog response via Notify().
 		/// </summary>
-		protected class QuestRewardChosenAction : RegionECSAction
+		protected class QuestRewardChosenAction : RegionAction
 		{
 			private readonly int m_countChosen;
 			private readonly int[] m_itemsChosen;

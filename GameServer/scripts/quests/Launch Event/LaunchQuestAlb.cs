@@ -426,7 +426,7 @@ namespace DOL.GS
 		public override void FinishQuest()
 		{
 			m_questPlayer.ForceGainExperience((m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel)/5);
-			m_questPlayer.AddMoney(Money.GetMoney(0,0,m_questPlayer.Level*2,32,Util.Random(50)), "You receive {0} as a reward.");
+			m_questPlayer.AddMoney(Money.GetMoney(0,0,m_questPlayer.Level*2,32,UtilCollection.Random(50)), "You receive {0} as a reward.");
 			AtlasROGManager.GenerateReward(m_questPlayer, 15000);
 			PlayersKilled = 0;
 			KeepsTaken = 0;

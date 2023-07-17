@@ -104,7 +104,7 @@ namespace DOL.GS.PacketHandler
 						}
 						else
 						{
-							if (!Util.IsEmpty(((DbLanguageGameObjects)translation).Name))
+							if (!UtilCollection.IsEmpty(((DbLanguageGameObjects)translation).Name))
 								name = ((DbLanguageGameObjects)translation).Name;
 						}
 					}
@@ -229,10 +229,10 @@ namespace DOL.GS.PacketHandler
 				LanguageDataObject translation = LanguageMgr.GetTranslation(m_gameClient, npc);
 				if (translation != null)
 				{
-					if (!Util.IsEmpty(((DbLanguageNpcs)translation).Name))
+					if (!UtilCollection.IsEmpty(((DbLanguageNpcs)translation).Name))
 						name = ((DbLanguageNpcs)translation).Name;
 
-					if (!Util.IsEmpty(((DbLanguageNpcs)translation).GuildName))
+					if (!UtilCollection.IsEmpty(((DbLanguageNpcs)translation).GuildName))
 						guildName = ((DbLanguageNpcs)translation).GuildName;
 				}
 

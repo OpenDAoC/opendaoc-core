@@ -67,7 +67,7 @@ namespace DOL.GS.Effects
 			}			
 
 
-			double m_amountPercent = (m_level + 0.5 + Util.RandomDouble()) / 10; //+-5% random
+			double m_amountPercent = (m_level + 0.5 + UtilCollection.RandomDouble()) / 10; //+-5% random
 			if (living is GamePlayer)
 				m_amount = (int)((living as GamePlayer).CalculateMaxHealth(living.Level, living.GetModified(EProperty.Constitution)) * m_amountPercent);
 			else m_amount = (int)(living.MaxHealth * m_amountPercent);

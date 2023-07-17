@@ -118,7 +118,7 @@ namespace DOL.AI.Brain
 
             if (HasAggro && Body.TargetObject != null)
             {
-                if (Util.Chance(10) && !Body.IsCasting && RandomTarget == null)
+                if (UtilCollection.Chance(10) && !Body.IsCasting && RandomTarget == null)
                    Body.CastSpell(IssoRoot, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 
                 if (BafMobs == false)
@@ -137,7 +137,7 @@ namespace DOL.AI.Brain
                 }
                 if(!PrepareBolt)
                 {
-                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickPlayer), Util.Random(25000,35000));
+                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickPlayer), UtilCollection.Random(25000,35000));
                     PrepareBolt = true;
                 }
             }
@@ -169,7 +169,7 @@ namespace DOL.AI.Brain
                 }
                 if (damage_enemies.Count > 0)
                 {
-                    GamePlayer Target = (GamePlayer)damage_enemies[Util.Random(0, damage_enemies.Count - 1)];
+                    GamePlayer Target = (GamePlayer)damage_enemies[UtilCollection.Random(0, damage_enemies.Count - 1)];
                     RandomTarget = Target; //randomly picked target is now RandomTarget
                     BroadcastMessage(Body.Name + " turns his frosty stare on " + RandomTarget.Name + "! " + Body.Name + "'s hands begin to glow while a blue mist crawls from small cracks in the ice at his feet.");
                     new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastBolt), 2000);

@@ -1608,7 +1608,7 @@ namespace DOL.GS.Quests
 
                             if (chance > 0)
                             {
-                                if (Util.Chance(chance) == false)
+                                if (UtilCollection.Chance(chance) == false)
                                 {
                                     // failed to drop, ignore step advance
                                     return false;

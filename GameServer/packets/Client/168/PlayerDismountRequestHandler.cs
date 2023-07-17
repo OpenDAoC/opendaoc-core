@@ -12,7 +12,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		/// <summary>
 		/// Handles player dismount requests
 		/// </summary>
-		protected class DismountRequestHandler : RegionECSAction
+		protected class DismountRequestHandler : RegionAction
 		{
 			/// <summary>
 			/// Constructs a new DismountRequestHandler

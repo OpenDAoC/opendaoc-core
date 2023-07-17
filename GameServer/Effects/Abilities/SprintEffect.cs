@@ -68,7 +68,7 @@ namespace DOL.GS.Effects
 			}
 			else
 			{
-				nextInterval = Util.Random(600, 1400);
+				nextInterval = UtilCollection.Random(600, 1400);
 				if (m_owner.IsMoving)
 				{
 					int amount = 5;

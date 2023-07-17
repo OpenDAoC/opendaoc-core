@@ -98,7 +98,7 @@ namespace DOL.GS
 				OF.Constitution = 100;
 				OF.Quickness = 125;
 				OF.Empathy = 300;
-				OF.BodyType = (ushort)NpcTemplateMgr.eBodyType.Magical;
+				OF.BodyType = (ushort)NpcTemplateMgr.EBodyType.Magical;
 				OF.MeleeDamageType = EDamageType.Slash;
 
 				OF.X = 651517;
@@ -151,7 +151,7 @@ namespace DOL.AI.Brain
 			{
 				if (Body.TargetObject != null)
 				{
-					if(Util.Chance(20) && Body.HealthPercent > 15)//dont port players if it's low on health
+					if(UtilCollection.Chance(20) && Body.HealthPercent > 15)//dont port players if it's low on health
 						TeleportPlayer();
 				}
 			}
@@ -185,18 +185,18 @@ namespace DOL.AI.Brain
 				return;
 			else
 			{
-				GamePlayer PortTarget = (GamePlayer)Enemys_To_Port[Util.Random(0, Enemys_To_Port.Count - 1)];
+				GamePlayer PortTarget = (GamePlayer)Enemys_To_Port[UtilCollection.Random(0, Enemys_To_Port.Count - 1)];
 				RandomTarget = PortTarget;
 				if (RandomTarget.IsAlive && RandomTarget != null && RandomTarget.IsWithinRadius(Body,2000) && !Teleported_Players.Contains(RandomTarget))
 				{
-					switch(Util.Random(1,6))
+					switch(UtilCollection.Random(1,6))
                     {
-						case 1: RandomTarget.MoveTo(Body.CurrentRegionID, 663537 + Util.Random(-2000,2000), 626415 + Util.Random(-2000, 2000), 7790 + Util.Random(300, 600), Body.Heading); break;
-						case 2: RandomTarget.MoveTo(Body.CurrentRegionID, 647342 + Util.Random(-2000, 2000), 617589 + Util.Random(-2000, 2000), 8533 + Util.Random(300, 600), Body.Heading); break;
-						case 3: RandomTarget.MoveTo(Body.CurrentRegionID, 645157 + Util.Random(-2000, 2000), 630671 + Util.Random(-2000, 2000), 11530 + Util.Random(300, 600), Body.Heading); break;
-						case 4: RandomTarget.MoveTo(Body.CurrentRegionID, 654502 + Util.Random(-2000, 2000), 630523 + Util.Random(-2000, 2000), 8762 + Util.Random(300, 600), Body.Heading); break;
-						case 5: RandomTarget.MoveTo(Body.CurrentRegionID, 670626 + Util.Random(-2000, 2000), 630046 + Util.Random(-2000, 2000), 7515 + Util.Random(300, 600), Body.Heading); break;
-						case 6: RandomTarget.MoveTo(Body.CurrentRegionID, 642185 + Util.Random(-2000, 2000), 620183 + Util.Random(-2000, 2000), 10014 + Util.Random(300, 600), Body.Heading); break;
+						case 1: RandomTarget.MoveTo(Body.CurrentRegionID, 663537 + UtilCollection.Random(-2000,2000), 626415 + UtilCollection.Random(-2000, 2000), 7790 + UtilCollection.Random(300, 600), Body.Heading); break;
+						case 2: RandomTarget.MoveTo(Body.CurrentRegionID, 647342 + UtilCollection.Random(-2000, 2000), 617589 + UtilCollection.Random(-2000, 2000), 8533 + UtilCollection.Random(300, 600), Body.Heading); break;
+						case 3: RandomTarget.MoveTo(Body.CurrentRegionID, 645157 + UtilCollection.Random(-2000, 2000), 630671 + UtilCollection.Random(-2000, 2000), 11530 + UtilCollection.Random(300, 600), Body.Heading); break;
+						case 4: RandomTarget.MoveTo(Body.CurrentRegionID, 654502 + UtilCollection.Random(-2000, 2000), 630523 + UtilCollection.Random(-2000, 2000), 8762 + UtilCollection.Random(300, 600), Body.Heading); break;
+						case 5: RandomTarget.MoveTo(Body.CurrentRegionID, 670626 + UtilCollection.Random(-2000, 2000), 630046 + UtilCollection.Random(-2000, 2000), 7515 + UtilCollection.Random(300, 600), Body.Heading); break;
+						case 6: RandomTarget.MoveTo(Body.CurrentRegionID, 642185 + UtilCollection.Random(-2000, 2000), 620183 + UtilCollection.Random(-2000, 2000), 10014 + UtilCollection.Random(300, 600), Body.Heading); break;
 					}
 					Enemys_To_Port.Remove(RandomTarget);
 					foreach (GamePlayer player in Body.GetPlayersInRadius(2000))

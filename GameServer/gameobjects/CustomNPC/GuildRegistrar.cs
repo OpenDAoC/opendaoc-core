@@ -4,7 +4,7 @@ namespace DOL.GS
 	/// <summary>
 	/// Guild Registrar
 	/// </summary>	
-	[NPCGuildScript("Guild Registrar")]
+	[NpcGuild("Guild Registrar")]
 	public class GuildRegistrar : GameNPC
 	{
 		protected const string FORM_A_GUILD = "form a guild";

@@ -258,7 +258,7 @@ namespace DOL.GS
                 validClasses.Add((ECharacterClass) player.CharacterClass.ID);
             }
 
-            return validClasses[Util.Random(validClasses.Count - 1)];
+            return validClasses[UtilCollection.Random(validClasses.Count - 1)];
         }
 
         public static bool IsMobInTOA(GameNPC mob)

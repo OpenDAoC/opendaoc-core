@@ -36,7 +36,7 @@ namespace DOL.GS.Spells
         {
             AttackData ad = base.CalculateDamageToTarget(target, effectiveness);
             ad.CriticalDamage = 0;
-            ad.AttackType = AttackData.eAttackType.Unknown;
+            ad.AttackType = AttackData.EAttackType.Unknown;
             return ad;
         }
 
@@ -125,7 +125,7 @@ namespace DOL.GS.Spells
 
             MessageToLiving(effect.Owner, Spell.Message1, eChatType.CT_Spell);
 
-            Message.SystemToArea(effect.Owner, Util.MakeSentence(Spell.Message2, effect.Owner.GetName(0, false)), eChatType.CT_YouHit, effect.Owner);
+            Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message2, effect.Owner.GetName(0, false)), eChatType.CT_YouHit, effect.Owner);
 
             OnDirectEffect(effect.Owner, effect.Effectiveness);
 
@@ -135,7 +135,7 @@ namespace DOL.GS.Spells
 				double powerPerTarget = (double)(effect.Spell.PulsePower / m_focusTargets.Count);
 
 				int powerUsed = (int)powerPerTarget;
-				if (Util.ChanceDouble(((double)powerPerTarget - (double)powerUsed)))
+				if (UtilCollection.ChanceDouble(((double)powerPerTarget - (double)powerUsed)))
 					powerUsed += 1;
 
 				if (powerUsed > 0)
@@ -155,7 +155,7 @@ namespace DOL.GS.Spells
             {
                 MessageToLiving(effect.Owner, Spell.Message3, eChatType.CT_SpellExpires);
 
-                Message.SystemToArea(effect.Owner, Util.MakeSentence(Spell.Message4, effect.Owner.GetName(0, false)), eChatType.CT_SpellExpires, effect.Owner);
+                Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, effect.Owner.GetName(0, false)), eChatType.CT_SpellExpires, effect.Owner);
             }
 
             return 0;
@@ -165,7 +165,7 @@ namespace DOL.GS.Spells
         {
             if (target == null) return;
             if (!target.IsAlive || target.ObjectState != GameLiving.eObjectState.Active) return;
-            if (Util.Chance(CalculateSpellResistChance(target)))
+            if (UtilCollection.Chance(CalculateSpellResistChance(target)))
             {
                 OnSpellResist(target);
                 return;
@@ -218,7 +218,7 @@ namespace DOL.GS.Spells
                 AttackData ad = new AttackData();
                 ad.Attacker = Caster;
                 ad.Target = target;
-                ad.AttackType = AttackData.eAttackType.Spell;
+                ad.AttackType = AttackData.EAttackType.Spell;
                 ad.AttackResult = EAttackResult.Missed;
 				ad.SpellHandler = this;
                 target.OnAttackedByEnemy(ad);
@@ -226,7 +226,7 @@ namespace DOL.GS.Spells
             }
             else if (Spell.CastTime > 0)
             {
-                target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.eAttackType.Spell, Caster);
+                target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.EAttackType.Spell, Caster);
             }
 
             if (target is GameNPC)

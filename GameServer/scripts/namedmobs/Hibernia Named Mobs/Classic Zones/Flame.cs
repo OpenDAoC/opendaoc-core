@@ -220,8 +220,8 @@ namespace DOL.GS
 					return;
 			}
 			FlameNormal boss = new FlameNormal();
-			boss.X = X + Util.Random(-500, 500);
-			boss.Y = Y + Util.Random(-500, 500);
+			boss.X = X + UtilCollection.Random(-500, 500);
+			boss.Y = Y + UtilCollection.Random(-500, 500);
 			boss.Z = Z;
 			boss.Heading = Heading;
 			boss.CurrentRegion = CurrentRegion;

@@ -95,11 +95,11 @@ namespace DOL.GS
         private bool canSpawnAdds = false;
 		private void SpawnAdds()
         {
-			for (int i = 0; i < Util.Random(2, 3); i++)
+			for (int i = 0; i < UtilCollection.Random(2, 3); i++)
 			{
 				ValnirMordethAdd add = new ValnirMordethAdd();
-				add.X = X + Util.Random(-200, 200);
-				add.Y = Y + Util.Random(-200, 200);
+				add.X = X + UtilCollection.Random(-200, 200);
+				add.Y = Y + UtilCollection.Random(-200, 200);
 				add.Z = Z;
 				add.Heading = Heading;
 				add.CurrentRegion = CurrentRegion;
@@ -109,7 +109,7 @@ namespace DOL.GS
 		}
 		public override void OnAttackEnemy(AttackData ad)
 		{
-			if (Util.Chance(30))
+			if (UtilCollection.Chance(30))
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 					CastSpell(ValnirLifeDrain, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
@@ -118,7 +118,7 @@ namespace DOL.GS
 		}
 		public override void DealDamage(AttackData ad)
 		{
-			if (ad != null && ad.AttackType == AttackData.eAttackType.Spell && ad.Damage > 0)
+			if (ad != null && ad.AttackType == AttackData.EAttackType.Spell && ad.Damage > 0)
 				Health += ad.Damage;
 			base.DealDamage(ad);
 		}
@@ -210,14 +210,14 @@ namespace DOL.AI.Brain
 							Body.StopFollowing();
 					}
 					Body.TurnTo(Body.TargetObject);
-					if (Util.Chance(25) && !Body.IsCasting && !target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
+					if (UtilCollection.Chance(25) && !Body.IsCasting && !target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
 						Body.CastSpell(Valnir_Dot, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
-					if (Util.Chance(25) && !Body.IsCasting && !target.effectListComponent.ContainsEffectForEffectType(EEffect.Disease))
+					if (UtilCollection.Chance(25) && !Body.IsCasting && !target.effectListComponent.ContainsEffectForEffectType(EEffect.Disease))
 						Body.CastSpell(ValnirDisease, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
 				}
 				if(CanSpawnMoreGhouls == false)
                 {
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnAdds), Util.Random(25000, 35000));
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnAdds), UtilCollection.Random(25000, 35000));
 					CanSpawnMoreGhouls = true;
                 }
 			}
@@ -228,8 +228,8 @@ namespace DOL.AI.Brain
 			if (Body.IsAlive && HasAggro && ValnirMordethAdd.EssenceGhoulCount == 0)
 			{
 				ValnirMordethAdd add = new ValnirMordethAdd();
-				add.X = Body.X + Util.Random(-100, 100);
-				add.Y = Body.Y + Util.Random(-100, 100);
+				add.X = Body.X + UtilCollection.Random(-100, 100);
+				add.Y = Body.Y + UtilCollection.Random(-100, 100);
 				add.Z = Body.Z;
 				add.Heading = Body.Heading;
 				add.CurrentRegion = Body.CurrentRegion;
@@ -243,11 +243,11 @@ namespace DOL.AI.Brain
         {
 			if (!HasAggro && ValnirMordethAdd.EssenceGhoulCount == 0)
 			{
-				for (int i = 0; i < Util.Random(2, 3); i++)
+				for (int i = 0; i < UtilCollection.Random(2, 3); i++)
 				{
 					ValnirMordethAdd add = new ValnirMordethAdd();
-					add.X = Body.SpawnPoint.X + Util.Random(-100, 100);
-					add.Y = Body.SpawnPoint.Y + Util.Random(-100, 100);
+					add.X = Body.SpawnPoint.X + UtilCollection.Random(-100, 100);
+					add.Y = Body.SpawnPoint.Y + UtilCollection.Random(-100, 100);
 					add.Z = Body.SpawnPoint.Z;
 					add.Heading = Body.Heading;
 					add.CurrentRegion = Body.CurrentRegion;
@@ -381,8 +381,8 @@ namespace DOL.GS
 		{
 			Model = 921;
 			Name = "Essence Ghoul";
-			Level = (byte)Util.Random(62, 66);
-			Size = (byte)Util.Random(55, 65);
+			Level = (byte)UtilCollection.Random(62, 66);
+			Size = (byte)UtilCollection.Random(55, 65);
 			MaxSpeedBase = 225;
 			RespawnInterval = -1;
 			++EssenceGhoulCount;
@@ -407,7 +407,7 @@ namespace DOL.GS
         }
         public override void DealDamage(AttackData ad)
 		{
-			if (ad != null && ad.AttackType == AttackData.eAttackType.Spell && ad.Damage > 0)
+			if (ad != null && ad.AttackType == AttackData.EAttackType.Spell && ad.Damage > 0)
 			{
 				foreach(GameNPC boss in GetNPCsInRadius(5000))
                 {

@@ -242,7 +242,7 @@ namespace DOL.GS
                 return;
 
             player?.StopCurrentSpellcast();
-            player?.StartInterruptTimer(player.SpellInterruptDuration, AttackData.eAttackType.Spell, caster);
+            player?.StartInterruptTimer(player.SpellInterruptDuration, AttackData.EAttackType.Spell, caster);
         }
     }
 }

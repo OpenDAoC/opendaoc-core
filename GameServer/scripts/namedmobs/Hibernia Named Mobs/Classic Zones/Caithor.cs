@@ -85,8 +85,8 @@ namespace DOL.GS
 				GameNPC npc = new GameNPC();
 				INpcTemplate npcTemplate = NpcTemplateMgr.GetTemplate(60160718);
 				npc.LoadTemplate(npcTemplate);
-				npc.X = X + Util.Random(-100, 100);
-				npc.Y = Y + Util.Random(-100, 100);
+				npc.X = X + UtilCollection.Random(-100, 100);
+				npc.Y = Y + UtilCollection.Random(-100, 100);
 				npc.Z = Z;
 				npc.Heading = Heading;
 				npc.CurrentRegion = CurrentRegion;
@@ -204,7 +204,7 @@ namespace DOL.GS
 					return false;
 			}
 			Name = "Giant Caithor";
-			Level = (byte)Util.Random(62, 65);
+			Level = (byte)UtilCollection.Random(62, 65);
 			Model = 339;
 			Size = 160;
 			MaxDistance = 3500;

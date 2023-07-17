@@ -805,7 +805,7 @@ namespace DOL.GS.Spells
 
             SendUpdates(effect.Owner);
             MessageToLiving(effect.Owner, Spell.Message3, eChatType.CT_SpellExpires);
-            Message.SystemToArea(effect.Owner, Util.MakeSentence(Spell.Message4, effect.Owner.GetName(0, true)), eChatType.CT_SpellExpires, effect.Owner);
+            Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, effect.Owner.GetName(0, true)), eChatType.CT_SpellExpires, effect.Owner);
 
             return 0;
         }

@@ -150,7 +150,7 @@ namespace DOL.GS.Quests.Hibernia
 				Caithor.Realm = ERealm.None;
 				Caithor.CurrentRegionID = 200;
 				Caithor.Size = 160;
-				Caithor.Level = (byte)Util.Random(62,64);
+				Caithor.Level = (byte)UtilCollection.Random(62,64);
 				Caithor.X = 470547;
 				Caithor.Y = 531497;
 				Caithor.Z = 4984;

@@ -7,7 +7,7 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Berserker Trainer
 	/// </summary>	
-	[NPCGuildScript("Berserker Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Berserker Trainer" NPC's in Albion (multiple guilds are possible for one script)
+	[NpcGuild("Berserker Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Berserker Trainer" NPC's in Albion (multiple guilds are possible for one script)
 	public class BerserkerTrainer : GameTrainer
 	{
 		public override ECharacterClass TrainedClass

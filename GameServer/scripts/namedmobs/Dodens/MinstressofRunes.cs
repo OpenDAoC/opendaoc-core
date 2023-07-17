@@ -103,12 +103,12 @@ namespace DOL.AI.Brain
             {
 				if(!CanCastSpear && !Body.IsCasting)
                 {
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastSpears), Util.Random(10000, 15000));
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastSpears), UtilCollection.Random(10000, 15000));
 					CanCastSpear=true;
                 }
 				if(!StartCastNS && !Body.IsCasting)
                 {
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickRandomTarget), Util.Random(20000, 25000));
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickRandomTarget), UtilCollection.Random(20000, 25000));
 					StartCastNS = true;
 				}
 				if(!Body.IsCasting && CanCast)
@@ -139,7 +139,7 @@ namespace DOL.AI.Brain
         {
 			if (HasAggro && !Body.IsCasting)
 			{
-				string message = mistress_text[Util.Random(0, mistress_text.Count - 1)];
+				string message = mistress_text[UtilCollection.Random(0, mistress_text.Count - 1)];
 				BroadcastMessage(message);
 				Body.CastSpell(AoESpear, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
 			}
@@ -183,7 +183,7 @@ namespace DOL.AI.Brain
 			{
 				if (CanCast == false)
 				{
-					GamePlayer Target = Enemys_To_NS[Util.Random(0, Enemys_To_NS.Count - 1)];//pick random target from list
+					GamePlayer Target = Enemys_To_NS[UtilCollection.Random(0, Enemys_To_NS.Count - 1)];//pick random target from list
 					RandomTarget = Target;//set random target to static RandomTarget
 					BroadcastMessage(RandomTarget.Name + " can no longer see properly in the vicinity!");
 					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetDot), 2000);

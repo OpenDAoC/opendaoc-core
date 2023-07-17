@@ -76,7 +76,7 @@ namespace DOL.GS {
         }
 
         public GeneratedUniqueItem()
-            : this((ERealm)Util.Random(1, 3), (ECharacterClass)Util.Random(1, 32), (byte)Util.Random(1, 50))
+            : this((ERealm)UtilCollection.Random(1, 3), (ECharacterClass)UtilCollection.Random(1, 32), (byte)UtilCollection.Random(1, 50))
         {
 
         }
@@ -108,7 +108,7 @@ namespace DOL.GS {
         }
 
         public GeneratedUniqueItem(bool toa)
-            : this(toa, (ERealm)Util.Random(1, 3), (ECharacterClass)Util.Random(1, 32), (byte)Util.Random(1, 50))
+            : this(toa, (ERealm)UtilCollection.Random(1, 3), (ECharacterClass)UtilCollection.Random(1, 32), (byte)UtilCollection.Random(1, 50))
         {
 
         }
@@ -150,7 +150,7 @@ namespace DOL.GS {
             this.GenerateItemNameModel();
 
             //set item quality (this can be called again by any script with real mob values)
-            this.GenerateItemQuality((double)Util.Random(0, 6) - 3);
+            this.GenerateItemQuality((double)UtilCollection.Random(0, 6) - 3);
 
             //item magical bonuses
             //if staff and magic..... focus
@@ -210,7 +210,7 @@ namespace DOL.GS {
 
             maxQuality = Math.Max(maxQuality, minQuality);
 
-            this.Quality = Util.Random(minQuality, maxQuality);
+            this.Quality = UtilCollection.Random(minQuality, maxQuality);
 
             this.Price = Money.SetAutoPrice(this.Level, this.Quality);
             this.Price /= 8;
@@ -231,7 +231,7 @@ namespace DOL.GS {
 
             //special property for instrument
             if (type == EObjectType.Instrument)
-                this.DPS_AF = Util.Random(0, 3);
+                this.DPS_AF = UtilCollection.Random(0, 3);
 
             //set hand
             switch (type)
@@ -338,7 +338,7 @@ namespace DOL.GS {
 
         private void GenerateProc()
         {
-            if (!Util.Chance(1)) return;
+            if (!UtilCollection.Chance(1)) return;
             if (this.Object_Type == (int)EObjectType.Magical)
                 return;
 
@@ -346,7 +346,7 @@ namespace DOL.GS {
 
             if(((this.Object_Type >= (int)EObjectType._FirstWeapon && this.Object_Type <= (int)EObjectType._LastWeapon) || this.Object_Type == (int)EObjectType.Shield))
             {
-                if (Util.Chance(50))
+                if (UtilCollection.Chance(50))
                 {
                     //LT procs
                     if (Level < 10)
@@ -437,7 +437,7 @@ namespace DOL.GS {
             }
             else if(this.Object_Type >= (int)EObjectType._FirstArmor && this.Object_Type <= (int)EObjectType._LastArmor && this.Item_Type == Slot.TORSO)
             {
-                if (Util.Chance(50))
+                if (UtilCollection.Chance(50))
                 {
                     //Heal procs
                     if (Level < 10)
@@ -667,7 +667,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validColors[Util.Random(validColors.Count - 1)];
+            return validColors[UtilCollection.Random(validColors.Count - 1)];
         }
 
         private void GenerateMagicalBonuses(bool toa)
@@ -678,28 +678,28 @@ namespace DOL.GS {
 
             // WHRIA
             //if (this.Level>60) number++;
-            if (this.Level > 60 && Util.Chance(10)) number++;
-            if (this.Level > 70 && Util.Chance(25)) number++;
-            if (this.Level > 70 && Util.Chance(25)) number++;
-            if (this.Level > 80 && Util.Chance(80)) number++;
+            if (this.Level > 60 && UtilCollection.Chance(10)) number++;
+            if (this.Level > 70 && UtilCollection.Chance(25)) number++;
+            if (this.Level > 70 && UtilCollection.Chance(25)) number++;
+            if (this.Level > 80 && UtilCollection.Chance(80)) number++;
             // END
 
-            if (Util.Chance(ROG_100_MAGICAL_OFFSET + this.Level * 2) || (EObjectType)Object_Type == EObjectType.Magical) // 100% magical starting at level 40
+            if (UtilCollection.Chance(ROG_100_MAGICAL_OFFSET + this.Level * 2) || (EObjectType)Object_Type == EObjectType.Magical) // 100% magical starting at level 40
             {
                 //1
                 number++;
 
-                if (Util.Chance(this.Level * 8 - 40)) // level 6 - 17 (100%)
+                if (UtilCollection.Chance(this.Level * 8 - 40)) // level 6 - 17 (100%)
                 {
                     //2
                     number++;
 
-                    if (Util.Chance(this.Level * 6 - 60)) // level 11 - 27 (100%)
+                    if (UtilCollection.Chance(this.Level * 6 - 60)) // level 11 - 27 (100%)
                     {
                         //3
                         number++;
 
-                        if (Util.Chance(this.Level * 4 - 80)) // level 21 - 45 (100%)
+                        if (UtilCollection.Chance(this.Level * 4 - 80)) // level 21 - 45 (100%)
                         {
                             //4
                             number++;
@@ -814,13 +814,13 @@ namespace DOL.GS {
 
             if (Level < 10)
             {
-                if (Util.Chance(65))
+                if (UtilCollection.Chance(65))
                     return eBonusType.Stat;
                 else
                     return eBonusType.Skill;
             }
 
-            int rand = Util.Random(100);
+            int rand = UtilCollection.Random(100);
             /*
             List<eBonusType> bonTypes = new List<eBonusType>();
             if (Util.Chance(ROG_ITEM_STAT_CHANCE)) { bonTypes.Add(eBonusType.Stat); }
@@ -874,7 +874,7 @@ namespace DOL.GS {
                     }
                 case eBonusType.Resist:
                     {
-                        return (EProperty)Util.Random((int)EProperty.Resist_First, (int)EProperty.Resist_Last);
+                        return (EProperty)UtilCollection.Random((int)EProperty.Resist_First, (int)EProperty.Resist_Last);
                     }
                 case eBonusType.Skill:
                     {
@@ -936,7 +936,7 @@ namespace DOL.GS {
                                 if (!fIndividualSkill)
                                 {
                                     // ok to add AllSkills, but reduce the chance
-                                    if (SkillIsValidForObjectType(EProperty.AllSkills) && Util.Chance(ROG_STAT_ALLSKILL_CHANCE))
+                                    if (SkillIsValidForObjectType(EProperty.AllSkills) && UtilCollection.Chance(ROG_STAT_ALLSKILL_CHANCE))
                                         validSkills.Add(EProperty.AllSkills);
                                 }
                             }
@@ -944,16 +944,16 @@ namespace DOL.GS {
                             // All type skills never combined with individual skills
                             if (!fIndividualSkill)
                             {
-                                if (!BonusExists(EProperty.AllMagicSkills) && SkillIsValidForObjectType(EProperty.AllMagicSkills) && Util.Chance(ROG_STAT_ALLSKILL_CHANCE))
+                                if (!BonusExists(EProperty.AllMagicSkills) && SkillIsValidForObjectType(EProperty.AllMagicSkills) && UtilCollection.Chance(ROG_STAT_ALLSKILL_CHANCE))
                                     validSkills.Add(EProperty.AllMagicSkills);
 
-                                if (!BonusExists(EProperty.AllMeleeWeaponSkills) && SkillIsValidForObjectType(EProperty.AllMeleeWeaponSkills) && Util.Chance(ROG_STAT_ALLSKILL_CHANCE))
+                                if (!BonusExists(EProperty.AllMeleeWeaponSkills) && SkillIsValidForObjectType(EProperty.AllMeleeWeaponSkills) && UtilCollection.Chance(ROG_STAT_ALLSKILL_CHANCE))
                                     validSkills.Add(EProperty.AllMeleeWeaponSkills);
 
-                                if (!BonusExists(EProperty.AllDualWieldingSkills) && SkillIsValidForObjectType(EProperty.AllDualWieldingSkills) && Util.Chance(ROG_STAT_ALLSKILL_CHANCE))
+                                if (!BonusExists(EProperty.AllDualWieldingSkills) && SkillIsValidForObjectType(EProperty.AllDualWieldingSkills) && UtilCollection.Chance(ROG_STAT_ALLSKILL_CHANCE))
                                     validSkills.Add(EProperty.AllDualWieldingSkills);
 
-                                if (!BonusExists(EProperty.AllArcherySkills) && SkillIsValidForObjectType(EProperty.AllArcherySkills) && Util.Chance(ROG_STAT_ALLSKILL_CHANCE))
+                                if (!BonusExists(EProperty.AllArcherySkills) && SkillIsValidForObjectType(EProperty.AllArcherySkills) && UtilCollection.Chance(ROG_STAT_ALLSKILL_CHANCE))
                                     validSkills.Add(EProperty.AllArcherySkills);
                             }
 
@@ -967,7 +967,7 @@ namespace DOL.GS {
 
                             type = eBonusType.Stat;
 
-                            switch (Util.Random(0, 4))
+                            switch (UtilCollection.Random(0, 4))
                             {
                                 case 0:
                                     return EProperty.MaxHealth;
@@ -982,7 +982,7 @@ namespace DOL.GS {
                             }
                         }
 
-                        return (EProperty)validSkills[Util.Random(0, index)];
+                        return (EProperty)validSkills[UtilCollection.Random(0, index)];
                     }
                 case eBonusType.Stat:
                     {
@@ -1009,7 +1009,7 @@ namespace DOL.GS {
                             if (!BonusExists(property) && StatIsValidForObjectType(property) && StatIsValidForRealm(property))
                                 validStats.Add(property);
                         }
-                        return (EProperty)validStats[Util.Random(0, validStats.Count - 1)];
+                        return (EProperty)validStats[UtilCollection.Random(0, validStats.Count - 1)];
                     }
             }
             return EProperty.MaxHealth;
@@ -1112,10 +1112,10 @@ namespace DOL.GS {
 
         private EProperty GetWeightedStatForClass(ECharacterClass charClass)
         {
-            if (Util.Chance(10))
+            if (UtilCollection.Chance(10))
                 return EProperty.MaxHealth;
 
-            int rand = Util.Random(100);
+            int rand = UtilCollection.Random(100);
             switch (charClass)
             {
                 case ECharacterClass.Armsman:
@@ -1150,7 +1150,7 @@ namespace DOL.GS {
                 case ECharacterClass.Enchanter:
                 case ECharacterClass.Mentalist:
                 case ECharacterClass.Animist:
-                    if (Util.Chance(20))
+                    if (UtilCollection.Chance(20))
                         return EProperty.MaxMana;
                     
                     //weight stats for casters towards dex, acu, con
@@ -1168,7 +1168,7 @@ namespace DOL.GS {
                 case ECharacterClass.Runemaster:
                 case ECharacterClass.Spiritmaster:
                 case ECharacterClass.Bonedancer:
-                    if (Util.Chance(20))
+                    if (UtilCollection.Chance(20))
                         return EProperty.MaxMana;
                     //weight stats for casters towards dex, acu, con
                     //keep some 10% chance of str or quick since useful for carrying/occasional melee
@@ -1195,7 +1195,7 @@ namespace DOL.GS {
                 
                 case ECharacterClass.Cleric:
                 case ECharacterClass.Shaman:
-                    if (Util.Chance(20))
+                    if (UtilCollection.Chance(20))
                         return EProperty.MaxMana;
                     if (rand <= 10)
                         return EProperty.Strength;
@@ -1209,7 +1209,7 @@ namespace DOL.GS {
                 
                 case ECharacterClass.Thane:
                 case ECharacterClass.Reaver:
-                    if (Util.Chance(20))
+                    if (UtilCollection.Chance(20))
                         return EProperty.MaxMana;
                     if (rand <= 20)
                         return EProperty.Strength;
@@ -1222,7 +1222,7 @@ namespace DOL.GS {
                     else return EProperty.Constitution;
 
                 case ECharacterClass.Friar:
-                    if (Util.Chance(20))
+                    if (UtilCollection.Chance(20))
                         return EProperty.MaxMana;
                     if (rand <= 25)
                         return EProperty.Piety;
@@ -1234,7 +1234,7 @@ namespace DOL.GS {
 
                 
                 case ECharacterClass.Druid:
-                    if (Util.Chance(20))
+                    if (UtilCollection.Chance(20))
                         return EProperty.MaxMana;
                     if (rand <= 10)
                         return EProperty.Strength;
@@ -1247,7 +1247,7 @@ namespace DOL.GS {
                     else return EProperty.Constitution;
 
                 case ECharacterClass.Warden:
-                    if (Util.Chance(10))
+                    if (UtilCollection.Chance(10))
                         return EProperty.MaxMana;
                     if (rand <= 20)
                         return EProperty.Strength;
@@ -1261,7 +1261,7 @@ namespace DOL.GS {
 
                 case ECharacterClass.Champion:
                 case ECharacterClass.Valewalker:
-                    if (Util.Chance(10))
+                    if (UtilCollection.Chance(10))
                         return EProperty.MaxMana;
                     if (rand <= 22)
                         return EProperty.Strength;
@@ -1276,7 +1276,7 @@ namespace DOL.GS {
                 case ECharacterClass.Bard:
                 case ECharacterClass.Skald:
                 case ECharacterClass.Minstrel:
-                    if (Util.Chance(20))
+                    if (UtilCollection.Chance(20))
                         return EProperty.MaxMana;
                     if (rand <= 22)
                         return EProperty.Strength;
@@ -1289,7 +1289,7 @@ namespace DOL.GS {
                     else return EProperty.Charisma;
 
                 case ECharacterClass.Healer:
-                    if (Util.Chance(15))
+                    if (UtilCollection.Chance(15))
                         return EProperty.MaxMana;
                     if (rand <= 30)
                         return EProperty.Dexterity;
@@ -4685,45 +4685,45 @@ namespace DOL.GS {
                 case eBonusType.Resist:
                     {
                         int max = (int)Math.Ceiling((((this.Level / 2.0) + 1) / 4));
-                        return Util.Random((int)Math.Ceiling((double)max / 2.0), max);
+                        return UtilCollection.Random((int)Math.Ceiling((double)max / 2.0), max);
                     }
                 case eBonusType.Skill:
                     {
-                        int max = (int)Util.Random(1, 4);
+                        int max = (int)UtilCollection.Random(1, 4);
                         if (property == EProperty.AllSkills ||
                             property == EProperty.AllMagicSkills ||
                             property == EProperty.AllDualWieldingSkills ||
                             property == EProperty.AllMeleeWeaponSkills ||
                             property == EProperty.AllArcherySkills)
                             max = (int)Math.Ceiling((double)max / 2.0);
-                        return Util.Random((int)Math.Ceiling((double)max / 2.0), max);
+                        return UtilCollection.Random((int)Math.Ceiling((double)max / 2.0), max);
                     }
                 case eBonusType.Stat:
                     {
                         if (property == EProperty.MaxHealth)
                         {
                             int max = (int)Math.Ceiling(((double)this.Level * 4.0) / 4);
-                            return Util.Random((int)Math.Ceiling((double)max / 2.0), max);
+                            return UtilCollection.Random((int)Math.Ceiling((double)max / 2.0), max);
                         }
                         else if (property == EProperty.MaxMana)
                         {
                             int max = (int)Math.Ceiling(((double)this.Level / 2.0 + 1) / 4);
-                            return Util.Random((int)Math.Ceiling((double)max / 2.0), max);
+                            return UtilCollection.Random((int)Math.Ceiling((double)max / 2.0), max);
                         }
                         else
                         {
                             int max = (int)Math.Ceiling(((double)this.Level * 1) / 3);
-                            return Util.Random((int)Math.Ceiling((double)max / 2.0), max);
+                            return UtilCollection.Random((int)Math.Ceiling((double)max / 2.0), max);
                         }
                     }
                 case eBonusType.AdvancedStat:
                     {
                         if (property == EProperty.MaxHealthCapBonus)
-                            return Util.Random(5, 25); // cap is 400
+                            return UtilCollection.Random(5, 25); // cap is 400
                         else if (property == EProperty.PowerPoolCapBonus)
-                            return Util.Random(1, 10); // cap is 50
+                            return UtilCollection.Random(1, 10); // cap is 50
                         else
-                            return Util.Random(1, 6); // cap is 26
+                            return UtilCollection.Random(1, 6); // cap is 26
                     }
             }
             return 1;
@@ -4738,10 +4738,10 @@ namespace DOL.GS {
             cap = mobLevel - 5;
             
             if (mobLevel > 70)
-                cap = mobLevel + (Util.Random(1, 5));
+                cap = mobLevel + (UtilCollection.Random(1, 5));
             
             if (mobLevel < 65)
-                cap -= (Util.Random(1, 5));
+                cap -= (UtilCollection.Random(1, 5));
             
             if (mobLevel > 70 && cap < 60)
                 cap = mobLevel-10;
@@ -4749,7 +4749,7 @@ namespace DOL.GS {
             if (cap > 80) cap = 80;
 
             //randomize cap to be 80-105% of normal value
-            double random = (80 + Util.Random(25)) / 100.0;
+            double random = (80 + UtilCollection.Random(25)) / 100.0;
             cap = (int)Math.Floor(cap * random);
 
             if (cap < 15)
@@ -5042,23 +5042,23 @@ namespace DOL.GS {
                 if (BonusType < 9 || BonusType == 156)
                 {
                     //reduce by 1-4, but not more than exists
-                    Bonus = Bonus - Util.Random(1, Math.Min(Bonus, 10)); //up to ~7 uti reduction
+                    Bonus = Bonus - UtilCollection.Random(1, Math.Min(Bonus, 10)); //up to ~7 uti reduction
                 }
                 else if (BonusType == 9)
                 {
-                    Bonus = Bonus - Util.Random(1, Math.Min(Bonus, 2)); //up to 4 uti reduction
+                    Bonus = Bonus - UtilCollection.Random(1, Math.Min(Bonus, 2)); //up to 4 uti reduction
                 }
                 else if (BonusType == 10)
                 {
-                    Bonus = Bonus - Util.Random(1, Math.Min(Bonus, 20)); //up to 5 uti reduction
+                    Bonus = Bonus - UtilCollection.Random(1, Math.Min(Bonus, 20)); //up to 5 uti reduction
                 }
                 else if (BonusType < 20)
                 {
-                    Bonus = Bonus - Util.Random(1, Math.Min(Bonus, 3)); //up to 6 uti reduction
+                    Bonus = Bonus - UtilCollection.Random(1, Math.Min(Bonus, 3)); //up to 6 uti reduction
                 }
                 else if (BonusType < 115)
                 {
-                    Bonus = Bonus - Util.Random(1, Math.Min(Bonus, 1)); //up to 5 uti reduction
+                    Bonus = Bonus - UtilCollection.Random(1, Math.Min(Bonus, 1)); //up to 5 uti reduction
                 }
                 else if (BonusType == 163
                   || BonusType == 164
@@ -5092,23 +5092,23 @@ namespace DOL.GS {
                 if (BonusType < 9 || BonusType == 156)
                 {
                     //reduce by 1-4, but not more than exists
-                    Bonus = Bonus + Util.Random(1, Math.Min(Bonus, 10)); //up to ~7 uti reduction
+                    Bonus = Bonus + UtilCollection.Random(1, Math.Min(Bonus, 10)); //up to ~7 uti reduction
                 }
                 else if (BonusType == 9)
                 {
-                    Bonus = Bonus + Util.Random(1, Math.Min(Bonus, 2)); //up to 4 uti reduction
+                    Bonus = Bonus + UtilCollection.Random(1, Math.Min(Bonus, 2)); //up to 4 uti reduction
                 }
                 else if (BonusType == 10)
                 {
-                    Bonus = Bonus + Util.Random(1, Math.Min(Bonus, 20)); //up to 5 uti reduction
+                    Bonus = Bonus + UtilCollection.Random(1, Math.Min(Bonus, 20)); //up to 5 uti reduction
                 }
                 else if (BonusType < 20)
                 {
-                    Bonus = Bonus + Util.Random(1, Math.Min(Bonus, 3)); //up to 6 uti reduction
+                    Bonus = Bonus + UtilCollection.Random(1, Math.Min(Bonus, 3)); //up to 6 uti reduction
                 }
                 else if (BonusType < 115)
                 {
-                    Bonus = Bonus + Util.Random(1, Math.Min(Bonus, 1)); //up to 5 uti reduction
+                    Bonus = Bonus + UtilCollection.Random(1, Math.Min(Bonus, 1)); //up to 5 uti reduction
                 }
                 else if (BonusType == 163
                          || BonusType == 164
@@ -5634,7 +5634,7 @@ namespace DOL.GS {
             //weighted so that early levels get many more weapons/armor
             if (level < 5)
             {
-                if (Util.Chance(45))
+                if (UtilCollection.Chance(45))
                     return eGenerateType.Weapon;
                 //else if (Util.Chance(15))
                   //  return eGenerateType.Magical;
@@ -5642,27 +5642,27 @@ namespace DOL.GS {
             }
             else if (level < 10)
             {
-                if (Util.Chance(ROG_ARMOR_CHANCE)) { genTypes.Add(eGenerateType.Armor); }
+                if (UtilCollection.Chance(ROG_ARMOR_CHANCE)) { genTypes.Add(eGenerateType.Armor); }
                 //if (Util.Chance(ROG_MAGICAL_CHANCE)) { genTypes.Add(eGenerateType.Magical); }
-                if (Util.Chance(ROG_WEAPON_CHANCE)) { genTypes.Add(eGenerateType.Weapon); }
+                if (UtilCollection.Chance(ROG_WEAPON_CHANCE)) { genTypes.Add(eGenerateType.Weapon); }
             }
             else
             {
-                if (Util.Chance(ROG_ARMOR_CHANCE + Util.Random(ROG_ARMOR_CHANCE))) { genTypes.Add(eGenerateType.Armor); }
-                if (Util.Chance(ROG_MAGICAL_CHANCE)) { genTypes.Add(eGenerateType.Magical); }
-                if (Util.Chance(ROG_WEAPON_CHANCE + Util.Random(ROG_WEAPON_CHANCE)/2) ) { genTypes.Add(eGenerateType.Weapon); }
+                if (UtilCollection.Chance(ROG_ARMOR_CHANCE + UtilCollection.Random(ROG_ARMOR_CHANCE))) { genTypes.Add(eGenerateType.Armor); }
+                if (UtilCollection.Chance(ROG_MAGICAL_CHANCE)) { genTypes.Add(eGenerateType.Magical); }
+                if (UtilCollection.Chance(ROG_WEAPON_CHANCE + UtilCollection.Random(ROG_WEAPON_CHANCE)/2) ) { genTypes.Add(eGenerateType.Weapon); }
             }
 
             //if none of the object types were added, default to armor
             if (genTypes.Count < 1)
             {
-                if(Util.Chance(50))
+                if(UtilCollection.Chance(50))
                     genTypes.Add(eGenerateType.Armor);
                 else
                     genTypes.Add(eGenerateType.Weapon);
             }
 
-            return genTypes[Util.Random(genTypes.Count - 1)];
+            return genTypes[UtilCollection.Random(genTypes.Count - 1)];
         }
 
         public static EObjectType GetAlbionWeapon(ECharacterClass charClass)
@@ -5794,7 +5794,7 @@ namespace DOL.GS {
             }
 
             //get our random value from the list
-            int randomGrab = Util.Random(0, outputList.Count - 1);
+            int randomGrab = UtilCollection.Random(0, outputList.Count - 1);
 
             //return a random type from our list of valid weapons
             return outputList[randomGrab];
@@ -6010,7 +6010,7 @@ namespace DOL.GS {
             }
 
             //get our random value from the list
-            int randomGrab = Util.Random(0, outputList.Count - 1);
+            int randomGrab = UtilCollection.Random(0, outputList.Count - 1);
 
 
             //return a random type from our list of valid weapons
@@ -6213,7 +6213,7 @@ namespace DOL.GS {
             }
 
             //get our random value from the list
-            int randomGrab = Util.Random(0, outputList.Count - 1);
+            int randomGrab = UtilCollection.Random(0, outputList.Count - 1);
 
 
             //return a random type from our list of valid weapons
@@ -6307,7 +6307,7 @@ namespace DOL.GS {
         public static eInventorySlot GenerateItemType(EObjectType type)
         {
             if ((int)type >= (int)EObjectType._FirstArmor && (int)type <= (int)EObjectType._LastArmor)
-                return (eInventorySlot)ArmorSlots[Util.Random(0, ArmorSlots.Length - 1)];
+                return (eInventorySlot)ArmorSlots[UtilCollection.Random(0, ArmorSlots.Length - 1)];
             switch (type)
             {
                 //left or right standard
@@ -6326,7 +6326,7 @@ namespace DOL.GS {
                 case EObjectType.Sword:
                 case EObjectType.Axe:
                 case EObjectType.Hammer:
-                    if (Util.Random(100) >= 50)
+                    if (UtilCollection.Random(100) >= 50)
                         return (eInventorySlot)Slot.RIGHTHAND;
                     else
                         return (eInventorySlot)Slot.TWOHAND;
@@ -6352,7 +6352,7 @@ namespace DOL.GS {
                 case EObjectType.Crossbow:
                     return (eInventorySlot)Slot.RANGED;
                 case EObjectType.Magical:
-                    return (eInventorySlot)MagicalSlots[Util.Random(0, MagicalSlots.Length - 1)];
+                    return (eInventorySlot)MagicalSlots[UtilCollection.Random(0, MagicalSlots.Length - 1)];
                 case EObjectType.Instrument:
                     return (eInventorySlot)Slot.RANGED;
             }
@@ -6367,7 +6367,7 @@ namespace DOL.GS {
                 case EObjectType.TwoHandedWeapon:
                 case EObjectType.PolearmWeapon:
                 case EObjectType.Instrument:
-                    return (EDamageType)Util.Random(1, 3);
+                    return (EDamageType)UtilCollection.Random(1, 3);
                 //slash
                 case EObjectType.Axe:
                 case EObjectType.Blades:
@@ -6397,13 +6397,13 @@ namespace DOL.GS {
                 //specifics
                 case EObjectType.HandToHand:
                 case EObjectType.Spear:
-                    return (EDamageType)Util.Random(2, 3);
+                    return (EDamageType)UtilCollection.Random(2, 3);
                 case EObjectType.LargeWeapons:
                 case EObjectType.Flexible:
-                    return (EDamageType)Util.Random(1, 2);
+                    return (EDamageType)UtilCollection.Random(1, 2);
                 //do shields return the shield size?
                 case EObjectType.Shield:
-                    return (EDamageType)Util.Random(1, GetMaxShieldSizeFromClass(charClass));
+                    return (EDamageType)UtilCollection.Random(1, GetMaxShieldSizeFromClass(charClass));
                     //return (eDamageType)Util.Random(1, 3);
             }
             return EDamageType.Natural;
@@ -6478,80 +6478,80 @@ namespace DOL.GS {
             {
                 case EObjectType.SlashingWeapon:
                     {
-                        this.SPD_ABS = Util.Random(26, 39);
+                        this.SPD_ABS = UtilCollection.Random(26, 39);
                         return;
                     }
                 case EObjectType.CrushingWeapon:
                     {
-                        this.SPD_ABS = Util.Random(30, 40);
+                        this.SPD_ABS = UtilCollection.Random(30, 40);
                         return;
                     }
                 case EObjectType.ThrustWeapon:
                     {
-                        this.SPD_ABS = Util.Random(25, 37);
+                        this.SPD_ABS = UtilCollection.Random(25, 37);
                         return;
                     }
                 case EObjectType.Fired:
                     {
-                        this.SPD_ABS = Util.Random(40, 46);
+                        this.SPD_ABS = UtilCollection.Random(40, 46);
                         return;
                     }
                 case EObjectType.TwoHandedWeapon:
                     {
-                        this.SPD_ABS = Util.Random(43, 51);
+                        this.SPD_ABS = UtilCollection.Random(43, 51);
                         return;
                     }
                 case EObjectType.PolearmWeapon:
                     {
-                        this.SPD_ABS = Util.Random(53, 56);
+                        this.SPD_ABS = UtilCollection.Random(53, 56);
                         return;
                     }
                 case EObjectType.Staff:
                     {
-                        this.SPD_ABS = Util.Random(30, 50);
+                        this.SPD_ABS = UtilCollection.Random(30, 50);
                         return;
                     }
                 case EObjectType.MaulerStaff: //Maulers
                     {
-                        this.SPD_ABS = Util.Random(34, 54);
+                        this.SPD_ABS = UtilCollection.Random(34, 54);
                         return;
                     }
                 case EObjectType.Longbow:
                     {
-                        this.SPD_ABS = Util.Random(40, 52);
+                        this.SPD_ABS = UtilCollection.Random(40, 52);
                         return;
                     }
                 case EObjectType.Crossbow:
                     {
-                        this.SPD_ABS = Util.Random(33, 54);
+                        this.SPD_ABS = UtilCollection.Random(33, 54);
                         return;
                     }
                 case EObjectType.Flexible:
                     {
-                        this.SPD_ABS = Util.Random(33, 39);
+                        this.SPD_ABS = UtilCollection.Random(33, 39);
                         return;
                     }
                 case EObjectType.Sword:
                     if (this.Hand == 1)
                     {
-                        this.SPD_ABS = Util.Random(46, 51);  // two handed
+                        this.SPD_ABS = UtilCollection.Random(46, 51);  // two handed
                         return;
                     }
                     else
                     {
-                        this.SPD_ABS = Util.Random(25, 38); // one handed
+                        this.SPD_ABS = UtilCollection.Random(25, 38); // one handed
                         return;
                     }
                 case EObjectType.Hammer:
                     {
                         if (this.Hand == 1)
                         {
-                            this.SPD_ABS = Util.Random(49, 52);  // two handed
+                            this.SPD_ABS = UtilCollection.Random(49, 52);  // two handed
                             return;
                         }
                         else
                         {
-                            this.SPD_ABS = Util.Random(31, 39); // one handed
+                            this.SPD_ABS = UtilCollection.Random(31, 39); // one handed
                             return;
                         }
                     }
@@ -6559,73 +6559,73 @@ namespace DOL.GS {
                     {
                         if (this.Hand == 1)
                         {
-                            this.SPD_ABS = Util.Random(49, 53);  // two handed
+                            this.SPD_ABS = UtilCollection.Random(49, 53);  // two handed
                             return;
                         }
                         else
                         {
-                            this.SPD_ABS = Util.Random(37, 40); // one handed
+                            this.SPD_ABS = UtilCollection.Random(37, 40); // one handed
                             return;
                         }
                     }
                 case EObjectType.Spear:
                     {
-                        this.SPD_ABS = Util.Random(43, 52);
+                        this.SPD_ABS = UtilCollection.Random(43, 52);
                         return;
                     }
                 case EObjectType.CompositeBow:
                     {
-                        this.SPD_ABS = Util.Random(40, 47);
+                        this.SPD_ABS = UtilCollection.Random(40, 47);
                         return;
                     }
                 case EObjectType.LeftAxe:
                     {
-                        this.SPD_ABS = Util.Random(27, 31);
+                        this.SPD_ABS = UtilCollection.Random(27, 31);
                         return;
                     }
                 case EObjectType.HandToHand:
                     {
-                        this.SPD_ABS = Util.Random(27, 37);
+                        this.SPD_ABS = UtilCollection.Random(27, 37);
                         return;
                     }
                 case EObjectType.FistWraps:
                     {
-                        this.SPD_ABS = Util.Random(28, 41);
+                        this.SPD_ABS = UtilCollection.Random(28, 41);
                         return;
                     }
                 case EObjectType.RecurvedBow:
                     {
-                        this.SPD_ABS = Util.Random(45, 52);
+                        this.SPD_ABS = UtilCollection.Random(45, 52);
                         return;
                     }
                 case EObjectType.Blades:
                     {
-                        this.SPD_ABS = Util.Random(27, 39);
+                        this.SPD_ABS = UtilCollection.Random(27, 39);
                         return;
                     }
                 case EObjectType.Blunt:
                     {
-                        this.SPD_ABS = Util.Random(30, 40);
+                        this.SPD_ABS = UtilCollection.Random(30, 40);
                         return;
                     }
                 case EObjectType.Piercing:
                     {
-                        this.SPD_ABS = Util.Random(25, 36);
+                        this.SPD_ABS = UtilCollection.Random(25, 36);
                         return;
                     }
                 case EObjectType.LargeWeapons:
                     {
-                        this.SPD_ABS = Util.Random(47, 53);
+                        this.SPD_ABS = UtilCollection.Random(47, 53);
                         return;
                     }
                 case EObjectType.CelticSpear:
                     {
-                        this.SPD_ABS = Util.Random(40, 56);
+                        this.SPD_ABS = UtilCollection.Random(40, 56);
                         return;
                     }
                 case EObjectType.Scythe:
                     {
-                        this.SPD_ABS = Util.Random(40, 53);
+                        this.SPD_ABS = UtilCollection.Random(40, 53);
                         return;
                     }
                 case EObjectType.Shield:
@@ -6854,14 +6854,14 @@ namespace DOL.GS {
                                     case eInventorySlot.LegsArmor: model = 140; break;
                                     case eInventorySlot.FeetArmor: model = 143; break;
                                     case eInventorySlot.HeadArmor:
-                                        if (Util.Chance(30))
+                                        if (UtilCollection.Chance(30))
                                             model = 1278; //30% chance of wizard hat
                                         else
                                             model = 822;
                                         break;
                                     case eInventorySlot.HandsArmor: model = 142; break;
                                     case eInventorySlot.TorsoArmor:
-                                        if (Util.Chance(60))
+                                        if (UtilCollection.Chance(60))
                                         {
                                             model = 139;
                                         }
@@ -6869,7 +6869,7 @@ namespace DOL.GS {
                                         {
                                             name = "Cloth Robe";
 
-                                            switch (Util.Random(2))
+                                            switch (UtilCollection.Random(2))
                                             {
                                                 case 0: model = 58; break;
                                                 case 1: model = 65; break;
@@ -6887,14 +6887,14 @@ namespace DOL.GS {
                                     case eInventorySlot.LegsArmor: model = 246; break;
                                     case eInventorySlot.FeetArmor: model = 249; break;
                                     case eInventorySlot.HeadArmor:
-                                        if (Util.Chance(30))
+                                        if (UtilCollection.Chance(30))
                                             model = 1280; //30% chance of wizard hat
                                         else
                                             model = 825;
                                         break;
                                     case eInventorySlot.HandsArmor: model = 248; break;
                                     case eInventorySlot.TorsoArmor:
-                                        if (Util.Chance(60))
+                                        if (UtilCollection.Chance(60))
                                         {
                                             model = 245;
                                         }
@@ -6902,7 +6902,7 @@ namespace DOL.GS {
                                         {
                                             name = "Cloth Robe";
 
-                                            switch (Util.Random(2))
+                                            switch (UtilCollection.Random(2))
                                             {
                                                 case 0: model = 58; break;
                                                 case 1: model = 65; break;
@@ -6920,14 +6920,14 @@ namespace DOL.GS {
                                     case eInventorySlot.LegsArmor: model = 379; break;
                                     case eInventorySlot.FeetArmor: model = 382; break;
                                     case eInventorySlot.HeadArmor:
-                                        if (Util.Chance(30))
+                                        if (UtilCollection.Chance(30))
                                             model = 1279; //30% chance of wizard hat
                                         else
                                             model = 826;
                                         break;
                                     case eInventorySlot.HandsArmor: model = 381; break;
                                     case eInventorySlot.TorsoArmor:
-                                        if (Util.Chance(60))
+                                        if (UtilCollection.Chance(60))
                                         {
                                             model = 378;
                                         }
@@ -6935,7 +6935,7 @@ namespace DOL.GS {
                                         {
                                             name = "Cloth Robe";
 
-                                            switch (Util.Random(2))
+                                            switch (UtilCollection.Random(2))
                                             {
                                                 case 0: model = 58; break;
                                                 case 1: model = 65; break;
@@ -7199,7 +7199,7 @@ namespace DOL.GS {
                             name = GetNameFromId(model);
                         }
 
-                        if (Util.Chance(1))
+                        if (UtilCollection.Chance(1))
                             model = 3458; //1% chance of being a rolling pin
                         break;
                     }
@@ -7457,14 +7457,14 @@ namespace DOL.GS {
                         {
                             case eInventorySlot.Cloak:
                                 {
-                                    if (Util.Chance(50))
+                                    if (UtilCollection.Chance(50))
                                         name = "Mantle";
                                     else
                                         name = "Cloak";
 
-                                    if (Util.Chance(50))
+                                    if (UtilCollection.Chance(50))
                                         model = 57;
-                                    else if (Util.Chance(50))
+                                    else if (UtilCollection.Chance(50))
                                         model = 559;
                                     else
                                         model = 560;
@@ -7473,7 +7473,7 @@ namespace DOL.GS {
                                 }
                             case eInventorySlot.Waist:
                                 {
-                                    if (Util.Chance(50))
+                                    if (UtilCollection.Chance(50))
                                         name = "Belt";
                                     else
                                         name = "Girdle";
@@ -7483,7 +7483,7 @@ namespace DOL.GS {
                                 }
                             case eInventorySlot.Neck:
                                 {
-                                    if (Util.Chance(50))
+                                    if (UtilCollection.Chance(50))
                                         name = "Choker";
                                     else
                                         name = "Pendant";
@@ -7493,18 +7493,18 @@ namespace DOL.GS {
                                 }
                             case eInventorySlot.Jewellery:
                                 {
-                                    if (Util.Chance(50))
+                                    if (UtilCollection.Chance(50))
                                         name = "Gem";
                                     else
                                         name = "Jewel";
 
-                                    model = Util.Random(110, 119);
+                                    model = UtilCollection.Random(110, 119);
                                     break;
                                 }
                             case eInventorySlot.LeftBracer:
                             case eInventorySlot.RightBracer:
                                 {
-                                    if (Util.Chance(50))
+                                    if (UtilCollection.Chance(50))
                                     {
                                         name = "Bracelet";
                                         model = 619;
@@ -7520,7 +7520,7 @@ namespace DOL.GS {
                             case eInventorySlot.LeftRing:
                             case eInventorySlot.RightRing:
                                 {
-                                    if (Util.Chance(50))
+                                    if (UtilCollection.Chance(50))
                                         name = "Ring";
                                     else
                                         name = "Wrap";
@@ -7684,7 +7684,7 @@ namespace DOL.GS {
                         {
                             case ERealm.Albion:
 
-                                if (Util.Chance(20))
+                                if (UtilCollection.Chance(20))
                                 {
                                     this.Description = "friar";
 
@@ -7791,7 +7791,7 @@ namespace DOL.GS {
                     {
                         string str = "Fist";
 
-                        if (Util.Chance(50))
+                        if (UtilCollection.Chance(50))
                             str = "Hand";
 
                         if (this.SPD_ABS < 31)
@@ -7827,27 +7827,27 @@ namespace DOL.GS {
                 switch (realm)
                 {
                     case ERealm.Albion:
-                        if (Util.Chance(1))
+                        if (UtilCollection.Chance(1))
                             model = 1284; //1% chance of tarboosh
-                        else if (Util.Chance(1))
+                        else if (UtilCollection.Chance(1))
                             model = 1281; //1% chance of robin hood hat
-                        else if (Util.Chance(1))
+                        else if (UtilCollection.Chance(1))
                             model = 1287; //1% chance of jester hat
                         break;
                     case ERealm.Hibernia:
-                        if (Util.Chance(1))
+                        if (UtilCollection.Chance(1))
                             model = 1282; //1% chance of robin hood hat
-                        else if (Util.Chance(1))
+                        else if (UtilCollection.Chance(1))
                             model = 1285; //1% chance of leaf hat
-                        else if (Util.Chance(1))
+                        else if (UtilCollection.Chance(1))
                             model = 1288; //1% chance of stag helm
                         break;
                     case ERealm.Midgard:
-                        if (Util.Chance(1))
+                        if (UtilCollection.Chance(1))
                             model = 1289; //1% chance of wolf hat
-                        else if (Util.Chance(1))
+                        else if (UtilCollection.Chance(1))
                             model = 1283; //1% chance of fur cap
-                        else if (Util.Chance(1))
+                        else if (UtilCollection.Chance(1))
                             model = 1286; //1% chance of wing hat
                         break;
                 }
@@ -7915,7 +7915,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetLeatherPantsForLevel(int Level, ERealm realm)
@@ -7960,7 +7960,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetLeatherSleevesForLevel(int Level, ERealm realm)
@@ -8005,7 +8005,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetLeatherHandsForLevel(int Level, ERealm realm)
@@ -8050,7 +8050,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetLeatherBootsForLevel(int Level, ERealm realm)
@@ -8095,7 +8095,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetLeatherHelmForLevel(int Level, ERealm realm)
@@ -8132,7 +8132,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
         #endregion
 
@@ -8169,7 +8169,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetStuddedPantsForLevel(int Level, ERealm realm)
@@ -8204,7 +8204,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetStuddedSleevesForLevel(int Level, ERealm realm)
@@ -8239,7 +8239,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetStuddedHandsForLevel(int Level, ERealm realm)
@@ -8274,7 +8274,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetStuddedBootsForLevel(int Level, ERealm realm)
@@ -8309,7 +8309,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetStuddedHelmForLevel(int Level, ERealm realm)
@@ -8340,7 +8340,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
         #endregion
 
@@ -8381,7 +8381,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetChainPantsForLevel(int Level, ERealm realm)
@@ -8418,7 +8418,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetChainSleevesForLevel(int Level, ERealm realm)
@@ -8453,7 +8453,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetChainHandsForLevel(int Level, ERealm realm)
@@ -8488,7 +8488,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetChainBootsForLevel(int Level, ERealm realm)
@@ -8523,7 +8523,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetChainHelmForLevel(int Level, ERealm realm)
@@ -8552,7 +8552,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
         #endregion
 
@@ -8581,7 +8581,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetPlatePantsForLevel(int Level, ERealm realm)
@@ -8608,7 +8608,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetPlateSleevesForLevel(int Level, ERealm realm)
@@ -8635,7 +8635,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetPlateHandsForLevel(int Level, ERealm realm)
@@ -8659,7 +8659,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetPlateBootsForLevel(int Level, ERealm realm)
@@ -8683,7 +8683,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetPlateHelmForLevel(int Level, ERealm realm)
@@ -8707,7 +8707,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
         #endregion
 
@@ -8735,7 +8735,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetReinforcedPantsForLevel(int Level, ERealm realm)
@@ -8761,7 +8761,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetReinforcedSleevesForLevel(int Level, ERealm realm)
@@ -8787,7 +8787,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetReinforcedHandsForLevel(int Level, ERealm realm)
@@ -8813,7 +8813,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetReinforcedBootsForLevel(int Level, ERealm realm)
@@ -8839,7 +8839,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetReinforcedHelmForLevel(int Level, ERealm realm)
@@ -8863,7 +8863,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
         #endregion
 
@@ -8891,7 +8891,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetScalePantsForLevel(int Level, ERealm realm)
@@ -8917,7 +8917,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetScaleSleevesForLevel(int Level, ERealm realm)
@@ -8943,7 +8943,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetScaleHandsForLevel(int Level, ERealm realm)
@@ -8969,7 +8969,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetScaleBootsForLevel(int Level, ERealm realm)
@@ -8995,7 +8995,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetScaleHelmForLevel(int Level, ERealm realm)
@@ -9019,7 +9019,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
         #endregion
 
@@ -9063,7 +9063,7 @@ namespace DOL.GS {
             }
 
             
-            if(Util.Chance(1) && Level > 40)
+            if(UtilCollection.Chance(1) && Level > 40)
             {
                 validModels.Clear();
                 validModels.Add(3662);
@@ -9075,7 +9075,7 @@ namespace DOL.GS {
                 validModels.Add(3705);
             }*/
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
         private static int GetAxeModelForLevel(int Level, ERealm realm)
         {
@@ -9119,13 +9119,13 @@ namespace DOL.GS {
                         validModels.Add(654);
                     }
 
-                    if (Util.Chance(1) && Level > 40)
+                    if (UtilCollection.Chance(1) && Level > 40)
                     {
                         validModels.Clear();
                         validModels.Add(3681);
                         validModels.Add(3680);
                     }
-                    if (Util.Chance(1) && Level > 50)
+                    if (UtilCollection.Chance(1) && Level > 50)
                     {
                         validModels.Clear();
                         validModels.Add(3723);
@@ -9138,7 +9138,7 @@ namespace DOL.GS {
                     break;
             }
 
-            if (Util.Chance(1) && Level > 40)
+            if (UtilCollection.Chance(1) && Level > 40)
             {
                 validModels.Clear();
                 validModels.Add(3662);
@@ -9150,7 +9150,7 @@ namespace DOL.GS {
                 validModels.Add(3705);
             }*/
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int Get2HSwordForLevel(int Level, ERealm realm)
@@ -9221,7 +9221,7 @@ namespace DOL.GS {
                     break;
             }
 
-            if (Util.Chance(1) && Level > 40)
+            if (UtilCollection.Chance(1) && Level > 40)
             {
                 validModels.Clear();
                 validModels.Add(3658);
@@ -9233,7 +9233,7 @@ namespace DOL.GS {
                 validModels.Add(3701);
             }*/
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetBladeModelForLevel(int Level, ERealm realm)
@@ -9315,7 +9315,7 @@ namespace DOL.GS {
                     break;
             }
 
-            if (Util.Chance(1) && Level > 40)
+            if (UtilCollection.Chance(1) && Level > 40)
             {
                 validModels.Clear();
                 validModels.Add(3675);
@@ -9329,7 +9329,7 @@ namespace DOL.GS {
                 validModels.Add(3718);
             }*/
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int Get2HHammerForLevel(int Level, ERealm realm)
@@ -9405,7 +9405,7 @@ namespace DOL.GS {
                     break;
             }
 
-            if (Util.Chance(1) && Level > 40)
+            if (UtilCollection.Chance(1) && Level > 40)
             {
                 validModels.Clear();
                 validModels.Add(3661);
@@ -9417,7 +9417,7 @@ namespace DOL.GS {
                 validModels.Add(3704);
             }*/
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetBluntModelForLevel(int Level, ERealm realm)
@@ -9502,7 +9502,7 @@ namespace DOL.GS {
                     break;
             }
 
-            if (Util.Chance(1) && Level > 40)
+            if (UtilCollection.Chance(1) && Level > 40)
             {
                 validModels.Clear();
                 validModels.Add(3676);
@@ -9516,7 +9516,7 @@ namespace DOL.GS {
                 validModels.Add(3720);
             }*/
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int Get2HThrustForLevel(int Level, ERealm realm)
@@ -9546,7 +9546,7 @@ namespace DOL.GS {
                     break;
             }
 
-            if (Util.Chance(1) && Level > 40)
+            if (UtilCollection.Chance(1) && Level > 40)
             {
                 validModels.Clear();
                 
@@ -9560,7 +9560,7 @@ namespace DOL.GS {
                 validModels.Add(3817);
             }*/
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetThrustModelForLevel(int Level, ERealm realm)
@@ -9641,7 +9641,7 @@ namespace DOL.GS {
                     break;
             }
 
-            if (Util.Chance(1) && Level > 40)
+            if (UtilCollection.Chance(1) && Level > 40)
             {
                 validModels.Clear();
                 validModels.Add(3721);
@@ -9655,7 +9655,7 @@ namespace DOL.GS {
                 validModels.Add(3722);
             }*/
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetPolearmModelForLevel(int Level, ERealm realm, EDamageType dtype)
@@ -9677,7 +9677,7 @@ namespace DOL.GS {
                             if (Level > 40)
                             {
                                 validModels.Add(873);
-                                if (Util.Chance(1))
+                                if (UtilCollection.Chance(1))
                                 {
                                     validModels.Clear();
                                     validModels.Add(3672);
@@ -9686,7 +9686,7 @@ namespace DOL.GS {
                             if (Level > 50)
                             {
                                 validModels.Add(874);
-                                if (Util.Chance(1))
+                                if (UtilCollection.Chance(1))
                                 {
                                     validModels.Clear();
                                     validModels.Add(3715);
@@ -9701,9 +9701,9 @@ namespace DOL.GS {
                                 validModels.Add(870);
                             if (Level > 30)
                                 validModels.Add(875);
-                            if (Level > 40 &&  Util.Chance(1))
+                            if (Level > 40 &&  UtilCollection.Chance(1))
                                 validModels.Add(3673);
-                            if (Level > 50 && Util.Chance(1))
+                            if (Level > 50 && UtilCollection.Chance(1))
                             {
 
                                 validModels.Add(3833);
@@ -9721,7 +9721,7 @@ namespace DOL.GS {
                             if (Level > 40)
                             {
                                 validModels.Add(871);
-                                if (Util.Chance(1))
+                                if (UtilCollection.Chance(1))
                                 {
                                     validModels.Clear();
                                     validModels.Add(3671);
@@ -9730,7 +9730,7 @@ namespace DOL.GS {
                             if (Level > 50)
                             {
                                 validModels.Add(872);
-                                if (Util.Chance(1))
+                                if (UtilCollection.Chance(1))
                                 {
                                     validModels.Clear();
                                     validModels.Add(3714);
@@ -9744,7 +9744,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetSpearModelForLevel(int Level, ERealm realm)
@@ -9808,7 +9808,7 @@ namespace DOL.GS {
                     break;
             }
 
-            if (Util.Chance(1) && Level > 40)
+            if (UtilCollection.Chance(1) && Level > 40)
             {
                 validModels.Clear();
                 validModels.Add(3660);
@@ -9820,7 +9820,7 @@ namespace DOL.GS {
                 validModels.Add(3703);
             }*/
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetBowModelForLevel(int Level, ERealm realm)
@@ -9877,7 +9877,7 @@ namespace DOL.GS {
                     break;
             }
 
-            if (Util.Chance(1) && Level > 40)
+            if (UtilCollection.Chance(1) && Level > 40)
             {
                 validModels.Clear();
                 validModels.Add(3824);
@@ -9891,7 +9891,7 @@ namespace DOL.GS {
                 validModels.Add(3823);
             }*/
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetFlexModelForLevel(int Level, ERealm realm, EDamageType dtype)
@@ -9913,10 +9913,10 @@ namespace DOL.GS {
                             if (Level > 40)
                             {
                                 validModels.Add(2669);
-                                if(Util.Chance(1))
+                                if(UtilCollection.Chance(1))
                                     validModels.Add(3653);
                             }
-                            if (Level > 50 && Util.Chance(1))
+                            if (Level > 50 && UtilCollection.Chance(1))
                             {
                                 validModels.Clear();
                                 validModels.Add(3696);
@@ -9937,10 +9937,10 @@ namespace DOL.GS {
                             if (Level > 40)
                             {
                                 validModels.Add(2670);
-                                if (Util.Chance(1))
+                                if (UtilCollection.Chance(1))
                                     validModels.Add(3654);
                             }
-                            if (Level > 50 && Util.Chance(1))
+                            if (Level > 50 && UtilCollection.Chance(1))
                             {
                                 validModels.Add(3697);
                                 validModels.Add(3814);
@@ -9954,7 +9954,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetH2HModelForLevel(int Level, ERealm realm, EDamageType dtype)
@@ -9980,7 +9980,7 @@ namespace DOL.GS {
                                 validModels.Add(972);
                                 validModels.Add(974);
                                 validModels.Add(976);
-                                if (Util.Chance(1))
+                                if (UtilCollection.Chance(1))
                                 {
                                     validModels.Add(3686);
                                     validModels.Add(3687);
@@ -9991,7 +9991,7 @@ namespace DOL.GS {
                                 validModels.Add(978);
                                 validModels.Add(980);
                                 validModels.Add(982);
-                                if (Util.Chance(1))
+                                if (UtilCollection.Chance(1))
                                 {
                                     validModels.Add(3729);
                                     validModels.Add(3730);
@@ -10013,7 +10013,7 @@ namespace DOL.GS {
                                 validModels.Add(971);
                                 validModels.Add(973);
                                 validModels.Add(975);
-                                if (Util.Chance(1))
+                                if (UtilCollection.Chance(1))
                                 {
                                     validModels.Add(3682);
                                     validModels.Add(3683);
@@ -10024,7 +10024,7 @@ namespace DOL.GS {
                                 validModels.Add(977);
                                 validModels.Add(979);
                                 validModels.Add(981);
-                                if (Util.Chance(1))
+                                if (UtilCollection.Chance(1))
                                 {
                                     validModels.Add(3725);
                                     validModels.Add(3726);
@@ -10038,7 +10038,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetCrossbowModelForLevel(int Level, ERealm realm)
@@ -10065,12 +10065,12 @@ namespace DOL.GS {
                     break;
             }
 
-            if (Util.Chance(1) && Level > 40)
+            if (UtilCollection.Chance(1) && Level > 40)
             {
                 validModels.Clear();
                 validModels.Add(3656);
             }
-            if (Util.Chance(1) && Level > 50)
+            if (UtilCollection.Chance(1) && Level > 50)
             {
                 validModels.Clear();
                 validModels.Add(3816);
@@ -10078,7 +10078,7 @@ namespace DOL.GS {
                 validModels.Add(3699);
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetScytheModelForLevel(int Level, ERealm realm)
@@ -10099,10 +10099,10 @@ namespace DOL.GS {
                         validModels.Add(932);
                         validModels.Add(926);
                         validModels.Add(927);
-                        if(Util.Chance(1))
+                        if(UtilCollection.Chance(1))
                             validModels.Add(3665);
                     }
-                    if (Level > 50 && Util.Chance(1))
+                    if (Level > 50 && UtilCollection.Chance(1))
                     {
                         validModels.Clear();
                         validModels.Add(3825);
@@ -10115,7 +10115,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetStaffModelForLevel(int Level, ERealm realm)
@@ -10189,18 +10189,18 @@ namespace DOL.GS {
                     break;
             }
 
-            if (Util.Chance(1) && Level > 40)
+            if (UtilCollection.Chance(1) && Level > 40)
             {
                 validModels.Clear();
                 validModels.Add(3667);
             }
-            if (Util.Chance(1) && Level > 50)
+            if (UtilCollection.Chance(1) && Level > 50)
             {
                 validModels.Clear();
                 validModels.Add(3710);
             }
             
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetShieldModelForLevel(int Level, ERealm realm, int size)
@@ -10233,7 +10233,7 @@ namespace DOL.GS {
                                 validModels.Add(1164);
                                 validModels.Add(1165);
                             }
-                            if (Level > 50 && Util.Chance(1))
+                            if (Level > 50 && UtilCollection.Chance(1))
                                 validModels.Add(3888);
                             break;
                         case 2:
@@ -10264,7 +10264,7 @@ namespace DOL.GS {
                                 validModels.Add(1161);
                                 validModels.Add(1162);
                             }
-                            if (Level > 50 && Util.Chance(1))
+                            if (Level > 50 && UtilCollection.Chance(1))
                                 validModels.Add(3889);
                             break;
                         case 3:
@@ -10295,7 +10295,7 @@ namespace DOL.GS {
                                 validModels.Add(1155);
                                 validModels.Add(1156);
                             }
-                            if (Level > 50 && Util.Chance(1))
+                            if (Level > 50 && UtilCollection.Chance(1))
                                 validModels.Add(3890);
                             break;
                     }
@@ -10319,7 +10319,7 @@ namespace DOL.GS {
                                 validModels.Add(1119);
                                 validModels.Add(1120);
                             }
-                            if (Level > 50 && Util.Chance(1))
+                            if (Level > 50 && UtilCollection.Chance(1))
                                 validModels.Add(3965);
                             break;
                         case 2:
@@ -10350,7 +10350,7 @@ namespace DOL.GS {
                                 validModels.Add(1116);
                                 validModels.Add(1117);
                             }
-                            if (Level > 50 && Util.Chance(1))
+                            if (Level > 50 && UtilCollection.Chance(1))
                                 validModels.Add(3966);
                             break;
                         case 3:
@@ -10381,7 +10381,7 @@ namespace DOL.GS {
                                 validModels.Add(1122);
                                 validModels.Add(1123);
                             }
-                            if (Level > 50 && Util.Chance(1))
+                            if (Level > 50 && UtilCollection.Chance(1))
                                 validModels.Add(3967);
                             break;
                     }
@@ -10411,7 +10411,7 @@ namespace DOL.GS {
                                 validModels.Add(1131);
                                 validModels.Add(1132);
                             }
-                            if (Level > 50 && Util.Chance(1))
+                            if (Level > 50 && UtilCollection.Chance(1))
                                 validModels.Add(3929);
                             break;
                         case 2:
@@ -10436,7 +10436,7 @@ namespace DOL.GS {
                                 validModels.Add(1128);
                                 validModels.Add(1129);
                             }
-                            if (Level > 50 && Util.Chance(1))
+                            if (Level > 50 && UtilCollection.Chance(1))
                                 validModels.Add(3930);
                             break;
                         case 3:
@@ -10467,7 +10467,7 @@ namespace DOL.GS {
                                 validModels.Add(1143);
                                 validModels.Add(1144);
                             }
-                            if (Level > 50 && Util.Chance(1))
+                            if (Level > 50 && UtilCollection.Chance(1))
                                 validModels.Add(3931);
                             break;
                     }
@@ -10477,7 +10477,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         private static int GetInstrumentModelForLevel(int Level, ERealm realm)
@@ -10520,19 +10520,19 @@ namespace DOL.GS {
                 validModels.Add(2116);
                 validModels.Add(2117);
             }
-            if (Level > 50 && Util.Chance(1))
+            if (Level > 50 && UtilCollection.Chance(1))
             {
                 validModels.Add(3688);
                 validModels.Add(3731);
                 validModels.Add(3848);
-                if (Util.Chance(50))
+                if (UtilCollection.Chance(50))
                 {
                     if (realm == ERealm.Albion)
                         validModels.Add(3985);
                     if (realm == ERealm.Hibernia)
                         validModels.Add(3908);
                 }
-                if (Util.Chance(5))
+                if (UtilCollection.Chance(5))
                 {
                     if (realm == ERealm.Albion)
                         validModels.Add(3280);
@@ -10540,7 +10540,7 @@ namespace DOL.GS {
                         validModels.Add(3239);
                 }
             }
-            return validModels[Util.Random(validModels.Count - 1)];
+            return validModels[UtilCollection.Random(validModels.Count - 1)];
         }
 
         #endregion
@@ -10959,7 +10959,7 @@ namespace DOL.GS {
                 possibleExtensions++;
             if (Level > 40)
                 possibleExtensions++;
-            appliedExtension = (byte)Util.Random(possibleExtensions);
+            appliedExtension = (byte)UtilCollection.Random(possibleExtensions);
             if (Level > 50)
                 appliedExtension++; //increment by 1 to unlock special extension for lvl 51+, as well as remove possibility of getting extension 0
             return appliedExtension;
@@ -10982,7 +10982,7 @@ namespace DOL.GS {
                 possibleExt.Add(4);
                 possibleExt.Remove(0);
             }
-            byte appliedExtension = possibleExt[Util.Random(possibleExt.Count - 1)];
+            byte appliedExtension = possibleExt[UtilCollection.Random(possibleExt.Count - 1)];
             return appliedExtension;
         }
 
@@ -11026,7 +11026,7 @@ namespace DOL.GS {
                         return "Hauberk";
                     else if (type == EObjectType.Plate)
                         return "Breastplate";
-                    else if ((type == EObjectType.Leather || type == EObjectType.Studded) && Util.Chance(50))
+                    else if ((type == EObjectType.Leather || type == EObjectType.Studded) && UtilCollection.Chance(50))
                         return "Jerkin";
                     else
                         return "Vest";
@@ -11038,7 +11038,7 @@ namespace DOL.GS {
         private int GetProcFromLevel(byte level)
         {
             int procID = 0;
-            if (Util.Chance(50))
+            if (UtilCollection.Chance(50))
                 procID = GetLifetapProcFromLevel(Level);
             else
                 procID = GetDDProcFromLevel(Level);

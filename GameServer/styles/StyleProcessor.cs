@@ -452,7 +452,7 @@ namespace DOL.GS.Styles
 								if (onlyExecuteClassSpecific && procToExecute.Item2 == 0)
 									continue;
 
-								if (Util.Chance(procToExecute.Item3))
+								if (UtilCollection.Chance(procToExecute.Item3))
 								{
 									effect = CreateMagicEffect(living, attackData.Target, procToExecute.Item1.ID);
 
@@ -471,7 +471,7 @@ namespace DOL.GS.Styles
 						else
 						{
 							// Add one proc randomly.
-							int random = Util.Random(attackData.Style.Procs.Count - 1);
+							int random = UtilCollection.Random(attackData.Style.Procs.Count - 1);
 							effect = CreateMagicEffect(living, attackData.Target, attackData.Style.Procs[random].Item1.ID);
 
 							// Effect could be null if the SpellID is bigger than ushort.
@@ -518,7 +518,7 @@ namespace DOL.GS.Styles
 
 			// Apply Valkyrie RA5L effect
 			ValhallasBlessingEffect ValhallasBlessing = living.EffectList.GetOfType<ValhallasBlessingEffect>();
-			if (ValhallasBlessing != null && Util.Chance(75)) return 0;
+			if (ValhallasBlessing != null && UtilCollection.Chance(75)) return 0;
 
             //Camelot Herald 1.90 : Battlemaster styles will now cost a flat amount of Endurance, regardless of weapon speed
             if (style.Spec == Specs.Battlemaster)
@@ -887,7 +887,7 @@ namespace DOL.GS.Styles
 								temp += spell.Name;
 								delveInfo.Add(temp);
 								delveInfo.Add(" ");//empty line
-								Util.AddRange(delveInfo, spellHandler.DelveInfo);
+								UtilCollection.AddRange(delveInfo, spellHandler.DelveInfo);
 							}
 						}
 					}

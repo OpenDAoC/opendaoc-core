@@ -101,11 +101,11 @@ namespace DOL.GS
 
         public void SpawnAfterDead()
         {
-            for (int i = 0; i < Util.Random(20, 25); i++) // Spawn 20-25 adds
+            for (int i = 0; i < UtilCollection.Random(20, 25); i++) // Spawn 20-25 adds
             {
                 SBDeadAdds Add = new SBDeadAdds();
-                Add.X = X + Util.Random(-50, 80);
-                Add.Y = Y + Util.Random(-50, 80);
+                Add.X = X + UtilCollection.Random(-50, 80);
+                Add.Y = Y + UtilCollection.Random(-50, 80);
                 Add.Z = Z;
                 Add.CurrentRegion = CurrentRegion;
                 Add.Heading = Heading;
@@ -226,14 +226,14 @@ namespace DOL.AI.Brain
                 }
                 if (StartCastMezz== false)
                 {
-                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickRandomTarget), Util.Random(20000, 30000));
+                    new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickRandomTarget), UtilCollection.Random(20000, 30000));
                     StartCastMezz = true;
                 }
-                if (Util.Chance(10))
+                if (UtilCollection.Chance(10))
                 {
                     if (IsTargetTeleported == false)
                     {
-                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickTeleportPlayer), Util.Random(25000, 45000));
+                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickTeleportPlayer), UtilCollection.Random(25000, 45000));
                         IsTargetTeleported = true;
                     }
                 }
@@ -244,17 +244,17 @@ namespace DOL.AI.Brain
         {
             if (HasAggro && Body.IsAlive)
             {
-                for (int i = 0; i < Util.Random(1, 2); i++)
+                for (int i = 0; i < UtilCollection.Random(1, 2); i++)
                 {
                     SBAdds Add = new SBAdds();
-                    Add.X = Body.X + Util.Random(-50, 80);
-                    Add.Y = Body.Y + Util.Random(-50, 80);
+                    Add.X = Body.X + UtilCollection.Random(-50, 80);
+                    Add.Y = Body.Y + UtilCollection.Random(-50, 80);
                     Add.Z = Body.Z;
                     Add.CurrentRegion = Body.CurrentRegion;
                     Add.Heading = Body.Heading;
                     Add.AddToWorld();
                 }
-                new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetSpawnSplinder), Util.Random(15000,25000));
+                new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetSpawnSplinder), UtilCollection.Random(15000,25000));
             }
             return 0;
         }
@@ -294,7 +294,7 @@ namespace DOL.AI.Brain
                 {
                     if (CanCast == false)
                     {
-                        GamePlayer Target = (GamePlayer)Enemys_To_Mezz[Util.Random(0, Enemys_To_Mezz.Count - 1)];//pick random target from list
+                        GamePlayer Target = (GamePlayer)Enemys_To_Mezz[UtilCollection.Random(0, Enemys_To_Mezz.Count - 1)];//pick random target from list
                         RandomTarget = Target;//set random target to static RandomTarget
                         new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastMezz), 3000);
                         CanCast = true;
@@ -365,7 +365,7 @@ namespace DOL.AI.Brain
                 {
                     if (Port_Enemys.Count > 0)
                     {
-                        GamePlayer Target = Port_Enemys[Util.Random(0, Port_Enemys.Count - 1)];
+                        GamePlayer Target = Port_Enemys[UtilCollection.Random(0, Port_Enemys.Count - 1)];
                         TeleportTarget = Target;
                         if (TeleportTarget.IsAlive && TeleportTarget != null)
                         {
@@ -466,8 +466,8 @@ namespace DOL.GS
             Name = "Newly-born spindler";
             MeleeDamageType = EDamageType.Slash;
             RespawnInterval = -1;
-            Size = (byte) Util.Random(50, 60);
-            Level = (byte) Util.Random(56, 59);
+            Size = (byte) UtilCollection.Random(50, 60);
+            Level = (byte) UtilCollection.Random(56, 59);
             Faction = FactionMgr.GetFactionByID(96);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(96));
             Realm = 0;
@@ -574,7 +574,7 @@ namespace DOL.GS
             RespawnInterval = -1;
             Strength = 100;
             IsWorthReward = false; //worth no reward
-            Size = (byte) Util.Random(30, 40);
+            Size = (byte) UtilCollection.Random(30, 40);
             Level = 50;
             Faction = FactionMgr.GetFactionByID(96);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(96));

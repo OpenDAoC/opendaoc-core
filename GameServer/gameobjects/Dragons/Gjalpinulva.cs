@@ -42,10 +42,10 @@ namespace DOL.GS
 
 			for (int dog = 1; dog <= 10; ++dog)
 			{
-				isRetriever = Util.Chance(25);
+				isRetriever = UtilCollection.Chance(25);
 				dogSpawn = SpawnTimedAdd((isRetriever) ? 610 : 611, 
-					(isRetriever) ? Util.Random(47, 53) : 37, 
-					X + Util.Random(300, 600), Y + Util.Random(300, 600), 60, isRetriever);
+					(isRetriever) ? UtilCollection.Random(47, 53) : 37, 
+					X + UtilCollection.Random(300, 600), Y + UtilCollection.Random(300, 600), 60, isRetriever);
 
 				// We got a retriever, tell it who its master is and which exit
 				// to run to.
@@ -57,7 +57,7 @@ namespace DOL.GS
 						dogSpawn.Faction = FactionMgr.GetFactionByID(154);
 						(dogSpawn.Brain as RetrieverMobBrain).Master = this;
 						m_retrieverList.Add(dogSpawn);
-						dogSpawn.WalkTo(GetExitCoordinates(Util.Random(1, 4)), 200);	// Pick 1 out of 4 possible exits.
+						dogSpawn.WalkTo(GetExitCoordinates(UtilCollection.Random(1, 4)), 200);	// Pick 1 out of 4 possible exits.
 					}
 				}
 			}
@@ -98,7 +98,7 @@ namespace DOL.GS
 			// Spawn nasty adds.
 
 			if (m_retrieverList.Contains(sender))
-                SpawnDrakulvs(Util.Random(7, 10), sender.X, sender.Y);
+                SpawnDrakulvs(UtilCollection.Random(7, 10), sender.X, sender.Y);
 		}
 
 		/// <summary>
@@ -115,8 +115,8 @@ namespace DOL.GS
 			bool isDisciple = false;
 			for (int add = 0; add < numAdds; ++add)
 			{
-				isDisciple = Util.Chance(25);
-				drakulv = SpawnTimedAdd((isDisciple) ? 613 : 612, Util.Random(62, 68), x + Util.Random(250), y + Util.Random(250), 120, false);
+				isDisciple = UtilCollection.Chance(25);
+				drakulv = SpawnTimedAdd((isDisciple) ? 613 : 612, UtilCollection.Random(62, 68), x + UtilCollection.Random(250), y + UtilCollection.Random(250), 120, false);
 
 				if (drakulv != null && drakulv.Brain is StandardMobBrain && this.Brain is DragonBrain)
 				{

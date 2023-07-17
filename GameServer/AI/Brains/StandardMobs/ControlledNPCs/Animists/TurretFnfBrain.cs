@@ -96,9 +96,9 @@ namespace DOL.AI.Brain
             // Prioritize targets that don't already have our effect and aren't immune to it.
             // If there's none, allow them to be attacked again but only if our spell does damage.
             if (livingsWithoutEffect.Any())
-                return livingsWithoutEffect[Util.Random(livingsWithoutEffect.Count - 1)];
+                return livingsWithoutEffect[UtilCollection.Random(livingsWithoutEffect.Count - 1)];
             else if (tempAggroList.Count > 0 && ((TurretPet)Body).TurretSpell.Damage > 0)
-                return tempAggroList.ElementAt(Util.Random(tempAggroList.Count - 1)).Key;
+                return tempAggroList.ElementAt(UtilCollection.Random(tempAggroList.Count - 1)).Key;
 
             return null;
 

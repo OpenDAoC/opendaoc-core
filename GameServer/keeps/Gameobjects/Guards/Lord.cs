@@ -383,7 +383,7 @@ namespace DOL.GS.Keeps
                     // In PvE & PvP servers, lords are really just mobs farmed for seals.
                     int iVariance = 1000 * Math.Abs(Properties.GUARD_RESPAWN_VARIANCE);
                     int iRespawn = 60 * ((Math.Abs(Properties.GUARD_RESPAWN) * 1000) +
-                        (Util.Random(-iVariance, iVariance)));
+                        (UtilCollection.Random(-iVariance, iVariance)));
 
                     RespawnInterval = (iRespawn > 1000) ? iRespawn : 1000; // Make sure we don't end up with an impossibly low respawn interval.
                 }

@@ -18,7 +18,7 @@ namespace DOL.GS.Commands
 				return;
 			}
 
-			if (!client.Player.Guild.HasRank(client.Player, Guild.eRank.GcSpeak))
+			if (!client.Player.Guild.HasRank(client.Player, GuildUtil.EGuildRank.GcSpeak))
 			{
 				DisplayMessage(client, "You don't have permission to speak on the on guild line.");
 				return;
@@ -51,7 +51,7 @@ namespace DOL.GS.Commands
 				return;
 			}
 
-			if (!client.Player.Guild.HasRank(client.Player, Guild.eRank.OcSpeak))
+			if (!client.Player.Guild.HasRank(client.Player, GuildUtil.EGuildRank.OcSpeak))
 			{
 				DisplayMessage(client, "You don't have permission to speak on the officer line.");
 				return;
@@ -66,7 +66,7 @@ namespace DOL.GS.Commands
 			string message = "[Officers] " + client.Player.Name + ": \"" + string.Join(" ", args, 1, args.Length - 1) + "\"";
 			foreach (GamePlayer ply in client.Player.Guild.GetListOfOnlineMembers())
 			{
-				if (!client.Player.Guild.HasRank(ply, Guild.eRank.OcHear))
+				if (!client.Player.Guild.HasRank(ply, GuildUtil.EGuildRank.OcHear))
 				{
 					continue;
 				}
@@ -97,7 +97,7 @@ namespace DOL.GS.Commands
 				return;
 			}
 
-			if (!client.Player.Guild.HasRank(client.Player, Guild.eRank.AcSpeak))
+			if (!client.Player.Guild.HasRank(client.Player, GuildUtil.EGuildRank.AcSpeak))
 			{
 				DisplayMessage(client, "You can not speak on alliance chan.");
 				return;
@@ -110,11 +110,11 @@ namespace DOL.GS.Commands
 			}
 
 			string message = "[Alliance] " + client.Player.Name + ": \"" + string.Join(" ", args, 1, args.Length - 1) + "\"";
-			foreach (Guild gui in client.Player.Guild.alliance.Guilds)
+			foreach (GuildUtil gui in client.Player.Guild.alliance.Guilds)
 			{
 				foreach (GamePlayer ply in gui.GetListOfOnlineMembers())
 				{
-					if (!gui.HasRank(ply, Guild.eRank.AcHear))
+					if (!gui.HasRank(ply, GuildUtil.EGuildRank.AcHear))
 					{
 						continue;
 					}

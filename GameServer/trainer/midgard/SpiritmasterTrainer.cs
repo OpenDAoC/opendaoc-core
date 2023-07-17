@@ -7,7 +7,7 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Spiritmaster Trainer
 	/// </summary>
-	[NPCGuildScript("Spiritmaster Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Spiritmaster Trainer" NPC's in Albion (multiple guilds are possible for one script)
+	[NpcGuild("Spiritmaster Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Spiritmaster Trainer" NPC's in Albion (multiple guilds are possible for one script)
 	public class SpiritmasterTrainer : GameTrainer
 	{
 		public override ECharacterClass TrainedClass

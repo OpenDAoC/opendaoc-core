@@ -62,7 +62,7 @@ namespace DOL.GS
         public override bool AddToWorld()
 		{
 			Model = 919;
-			Level = (byte)(Util.Random(72, 75));
+			Level = (byte)(UtilCollection.Random(72, 75));
 			Name = "Morgus Urgalorg";
 			Size = 120;
 
@@ -129,7 +129,7 @@ namespace DOL.AI.Brain
 			{
 				if (CanCast == false)
 				{
-					GamePlayer Target = Enemys_To_DD[Util.Random(0, Enemys_To_DD.Count - 1)];//pick random target from list
+					GamePlayer Target = Enemys_To_DD[UtilCollection.Random(0, Enemys_To_DD.Count - 1)];//pick random target from list
 					RandomTarget = Target;//set random target to static RandomTarget
 					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetTarget), 4500);
 					CanCast = true;
@@ -191,7 +191,7 @@ namespace DOL.AI.Brain
 								else
 									Body.Follow(Body.TargetObject, spells.Range - 50, 5000);
 							
-								if (Util.Chance(100))
+								if (UtilCollection.Chance(100))
 								{
 									PickRandomTarget();
 									if (CanCast)

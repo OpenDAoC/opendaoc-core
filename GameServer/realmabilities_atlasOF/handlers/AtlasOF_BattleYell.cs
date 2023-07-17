@@ -10,7 +10,7 @@ namespace DOL.GS.RealmAbilities
         // ISpellCastingAbilityHandler
         public Spell Spell { get { return m_spell; } }
         public SpellLine SpellLine { get { return m_spellline; } }
-        public Ability Ability { get { return this; } }
+        public AbilityUtil Ability { get { return this; } }
 
         private const int m_range = 0; // pbaoe
         private const int m_radius = 500; //

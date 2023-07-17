@@ -180,25 +180,25 @@ namespace DOL.GS
 					add.Flags = eFlags.GHOST;
                     #region Set mob model
                     if (player.Race == (short)ERace.Norseman && player.Gender == EGender.Male)//norse male
-						add.Model = (ushort)Util.Random(153, 160);
+						add.Model = (ushort)UtilCollection.Random(153, 160);
 					if (player.Race == (short)ERace.Norseman && player.Gender == EGender.Female)//norse female
-						add.Model = (ushort)Util.Random(161, 168);
+						add.Model = (ushort)UtilCollection.Random(161, 168);
 					if (player.Race == (short)ERace.Troll && player.Gender == EGender.Male)//troll male
-						add.Model = (ushort)Util.Random(137, 144);
+						add.Model = (ushort)UtilCollection.Random(137, 144);
 					if (player.Race == (short)ERace.Troll && player.Gender == EGender.Female)//troll female
-						add.Model = (ushort)Util.Random(145, 152);
+						add.Model = (ushort)UtilCollection.Random(145, 152);
 					if (player.Race == (short)ERace.Kobold && player.Gender == EGender.Male)//kobolt male
-						add.Model = (ushort)Util.Random(169, 176);
+						add.Model = (ushort)UtilCollection.Random(169, 176);
 					if (player.Race == (short)ERace.Kobold && player.Gender == EGender.Female)//kobolt female
-						add.Model = (ushort)Util.Random(177, 184);
+						add.Model = (ushort)UtilCollection.Random(177, 184);
 					if (player.Race == (short)ERace.Valkyn && player.Gender == EGender.Male)//valkyn male
-						add.Model = (ushort)Util.Random(773, 780);
+						add.Model = (ushort)UtilCollection.Random(773, 780);
 					if (player.Race == (short)ERace.Valkyn && player.Gender == EGender.Female)//valkyn female
-						add.Model = (ushort)Util.Random(781, 788);
+						add.Model = (ushort)UtilCollection.Random(781, 788);
 					if (player.Race == (short)ERace.Dwarf && player.Gender == EGender.Male)//dwarf male
-						add.Model = (ushort)Util.Random(185, 192);
+						add.Model = (ushort)UtilCollection.Random(185, 192);
 					if (player.Race == (short)ERace.Dwarf && player.Gender == EGender.Female)//dwarf female
-						add.Model = (ushort)Util.Random(193, 200);
+						add.Model = (ushort)UtilCollection.Random(193, 200);
                     #endregion
                     add.Heading = Heading;
 					add.CurrentRegionID = CurrentRegionID;
@@ -430,7 +430,7 @@ namespace DOL.AI.Brain
 				{
 					if (CanCast2 == false)
 					{
-						GamePlayer Target = (GamePlayer)Enemys_To_DOT[Util.Random(0, Enemys_To_DOT.Count - 1)];//pick random target from list
+						GamePlayer Target = (GamePlayer)Enemys_To_DOT[UtilCollection.Random(0, Enemys_To_DOT.Count - 1)];//pick random target from list
 						RandomTarget2 = Target;//set random target to static RandomTarget
 						new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastDOT), 2000);
 						CanCast2 = true;
@@ -495,7 +495,7 @@ namespace DOL.AI.Brain
 				{
 					if (CanCast == false)
 					{
-						GamePlayer Target = (GamePlayer)Enemys_To_DD[Util.Random(0, Enemys_To_DD.Count - 1)];//pick random target from list
+						GamePlayer Target = (GamePlayer)Enemys_To_DD[UtilCollection.Random(0, Enemys_To_DD.Count - 1)];//pick random target from list
 						RandomTarget = Target;//set random target to static RandomTarget
 						new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastDD), 5000);
 						BroadcastMessage(String.Format(Body.Name + " starts casting void magic at " + RandomTarget.Name + "."));
@@ -638,12 +638,12 @@ namespace DOL.AI.Brain
                 #endregion
                 if (StartCastDOT == false)
 				{
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickRandomTarget2), Util.Random(20000, 30000));
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickRandomTarget2), UtilCollection.Random(20000, 30000));
 					StartCastDOT = true;
 				}
 				if (StartCastDD == false)
 				{
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickRandomTarget), Util.Random(35000, 45000));
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickRandomTarget), UtilCollection.Random(35000, 45000));
 					StartCastDD = true;
 				}
 
@@ -685,11 +685,11 @@ namespace DOL.AI.Brain
 		}
 		private void SpawnEssences()
 		{
-			for (int i = 0; i < Util.Random(12, 18); i++)
+			for (int i = 0; i < UtilCollection.Random(12, 18); i++)
 			{
 				NosdodenSummonedAdds add = new NosdodenSummonedAdds();
-				add.X = Body.X + Util.Random(-200, 200);
-				add.Y = Body.Y + Util.Random(-200, 200);
+				add.X = Body.X + UtilCollection.Random(-200, 200);
+				add.Y = Body.Y + UtilCollection.Random(-200, 200);
 				add.Z = Body.Z;
 				add.Heading = Body.Heading;
 				add.CurrentRegion = Body.CurrentRegion;
@@ -982,7 +982,7 @@ namespace DOL.AI.Brain
 				{
 					if (Body.TargetObject != null)
 					{
-						if (Util.Chance(35))
+						if (UtilCollection.Chance(35))
 							Body.CastSpell(Savage_dps_Buff, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 
 						GameLiving target = Body.TargetObject as GameLiving;
@@ -1094,9 +1094,9 @@ namespace DOL.AI.Brain
 							Body.CastSpell(InstantThaneDD_casting, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells),false);
 						}
 
-						if(Util.Chance(15) && Body.IsWithinRadius(Body.TargetObject,Body.AttackRange))
+						if(UtilCollection.Chance(15) && Body.IsWithinRadius(Body.TargetObject,Body.AttackRange))
 							Body.CastSpell(InstantThaneDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
-						if (Util.Chance(15) && Body.IsWithinRadius(Body.TargetObject, Body.AttackRange))
+						if (UtilCollection.Chance(15) && Body.IsWithinRadius(Body.TargetObject, Body.AttackRange))
 							Body.CastSpell(InstantThaneDD_pbaoe, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 						
 						GameLiving target = Body.TargetObject as GameLiving;
@@ -1210,14 +1210,14 @@ namespace DOL.AI.Brain
 				{
 					if (Body.TargetObject != null)
 					{
-						if (Util.Chance(30))
+						if (UtilCollection.Chance(30))
 							Body.CastSpell(Skald_DA, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
-						if (Util.Chance(35) && Body.IsWithinRadius(Body.TargetObject, 700))
+						if (UtilCollection.Chance(35) && Body.IsWithinRadius(Body.TargetObject, 700))
 							Body.CastSpell(InstantSkaldDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
-						if (Util.Chance(35) && Body.IsWithinRadius(Body.TargetObject, 700))
+						if (UtilCollection.Chance(35) && Body.IsWithinRadius(Body.TargetObject, 700))
 							Body.CastSpell(InstantSkaldDD2, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 
-						if (Util.Chance(100))
+						if (UtilCollection.Chance(100))
 						{
 							Body.Quickness = 80;
 							Body.Strength = 220;
@@ -1448,7 +1448,7 @@ namespace DOL.AI.Brain
 										Body.Follow(Body.TargetObject,spells.Range - 50,5000);
 
 									Body.TurnTo(Body.TargetObject);
-									if (Util.Chance(100))
+									if (UtilCollection.Chance(100))
 									{
 										if (spells.HasRecastDelay && Body.GetSkillDisabledDuration(Rune_Bolt) == 0)
 											Body.CastSpell(Rune_Bolt, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells),false);
@@ -1512,7 +1512,7 @@ namespace DOL.AI.Brain
 										Body.Follow(Body.TargetObject, spells.Range - 50, 5000);
 
 									Body.TurnTo(Body.TargetObject);
-									if (Util.Chance(100))
+									if (UtilCollection.Chance(100))
 									{
 										if (spells.HasRecastDelay && Body.GetSkillDisabledDuration(Spirit_Mezz) == 0)
 											Body.CastSpell(Spirit_Mezz, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells),false);
@@ -1576,7 +1576,7 @@ namespace DOL.AI.Brain
 										Body.Follow(Body.TargetObject, spells.Range - 50, 5000);
 
 									Body.TurnTo(Body.TargetObject);
-									if (Util.Chance(100))
+									if (UtilCollection.Chance(100))
 									{
 										if (spells.HasRecastDelay && Body.GetSkillDisabledDuration(Bone_DD) == 0)
 											Body.CastSpell(Bone_DD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells),false);
@@ -1618,7 +1618,7 @@ namespace DOL.AI.Brain
 				{
 					if (Body.GetSkillDisabledDuration(Healer_Mezz) == 0)
 					{
-						GamePlayer Target = HealerEnemys_To_Mezz[Util.Random(0, HealerEnemys_To_Mezz.Count - 1)];//pick random target from list
+						GamePlayer Target = HealerEnemys_To_Mezz[UtilCollection.Random(0, HealerEnemys_To_Mezz.Count - 1)];//pick random target from list
 						RandomHealerTarget = Target;
 						if (RandomHealerTarget != null && RandomHealerTarget.IsAlive
 							&& (!RandomHealerTarget.effectListComponent.ContainsEffectForEffectType(EEffect.Mez) || !RandomHealerTarget.effectListComponent.ContainsEffectForEffectType(EEffect.MezImmunity)))
@@ -1682,7 +1682,7 @@ namespace DOL.AI.Brain
 									else
 										Body.Follow(Body.TargetObject, spells.Range - 50, 5000);
 
-									if (Util.Chance(100))
+									if (UtilCollection.Chance(100))
 									{
 										if (spells.HasRecastDelay && Body.GetSkillDisabledDuration(Healer_Mezz) == 0)
 											PickTargetToMezz();
@@ -1757,7 +1757,7 @@ namespace DOL.AI.Brain
 										Body.Follow(Body.TargetObject, spells.Range - 50, 5000);
 
 									Body.TurnTo(Body.TargetObject);
-									if (Util.Chance(100))
+									if (UtilCollection.Chance(100))
 									{
 										if (spells.HasRecastDelay && Body.GetSkillDisabledDuration(Shamy_Bolt) == 0)
 											Body.CastSpell(Shamy_Bolt, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
@@ -2657,7 +2657,7 @@ namespace DOL.GS
 		{
 			RespawnInterval = -1;
 			MaxSpeedBase = 225;
-			Level = (byte)Util.Random(62, 66);
+			Level = (byte)UtilCollection.Random(62, 66);
 			Faction = FactionMgr.GetFactionByID(150);
 			Faction.AddFriendFaction(FactionMgr.GetFactionByID(150));
 			NosdodenGhostAddBrain add = new NosdodenGhostAddBrain();
@@ -2729,7 +2729,7 @@ namespace DOL.GS
         {
 			if(ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
             {
-				if(Util.Chance(25) && (!ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.StunImmunity) || !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.Stun)) && ad.Target.IsAlive)
+				if(UtilCollection.Chance(25) && (!ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.StunImmunity) || !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.Stun)) && ad.Target.IsAlive)
 					CastSpell(SpiritChampion_stun, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			}				
             base.OnAttackEnemy(ad);
@@ -2758,7 +2758,7 @@ namespace DOL.GS
 		public override bool AddToWorld()
 		{
 			Name = "spirit champion";
-			Model = spirit_champion_models[Util.Random(0, spirit_champion_models.Count - 1)];
+			Model = spirit_champion_models[UtilCollection.Random(0, spirit_champion_models.Count - 1)];
 			GameNpcInventoryTemplate template = new GameNpcInventoryTemplate();
 			template.AddNPCEquipment(eInventorySlot.TorsoArmor, 295, 0, 0, 0); //Slot,model,color,effect,extension
 			template.AddNPCEquipment(eInventorySlot.ArmsArmor, 297, 0);
@@ -3101,7 +3101,7 @@ namespace DOL.AI.Brain
 												else
 													Body.Follow(commander, 100, 5000);
 
-												if (Util.Chance(100))
+												if (UtilCollection.Chance(100))
 												{
 													if (commander.HealthPercent < 100)
 													{
@@ -3201,7 +3201,7 @@ namespace DOL.GS
 			Model = 902;
 			Name = "essence of fallen";
 			Size = 50;
-			Level = (byte)Util.Random(60,62);
+			Level = (byte)UtilCollection.Random(60,62);
 			RespawnInterval = -1;
 			Realm = ERealm.None;
 			MaxSpeedBase = 250;

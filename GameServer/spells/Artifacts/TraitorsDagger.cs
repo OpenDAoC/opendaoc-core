@@ -87,7 +87,7 @@ namespace DOL.GS.Spells
             {
                 _trap = MakeTrap();
             }
-            if(Util.Chance(50))
+            if(UtilCollection.Chance(50))
             {
                 _trap.StartSpell(args.AttackData.Target);
             }

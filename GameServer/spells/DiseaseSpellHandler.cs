@@ -33,7 +33,7 @@ namespace DOL.GS.Spells
 		}
         public override void ApplyEffectOnTarget(GameLiving target, double effectiveness)
         {
-			target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.eAttackType.Spell, Caster);
+			target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.EAttackType.Spell, Caster);
 			base.ApplyEffectOnTarget(target, effectiveness);
         }
 

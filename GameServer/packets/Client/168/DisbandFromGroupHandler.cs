@@ -14,7 +14,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		/// <summary>
 		/// Handles players disband actions
 		/// </summary>
-		protected class PlayerDisbandAction : RegionECSAction
+		protected class PlayerDisbandAction : RegionAction
 		{
 			/// <summary>
 			/// Constructs a new PlayerDisbandAction

@@ -81,7 +81,7 @@ namespace DOL.GS
         {
 			if(ad != null && GrandSummonerGovannonBrain.Stage2==true)
             {
-				if(Util.Chance(35))//30% chance to make a bleed
+				if(UtilCollection.Chance(35))//30% chance to make a bleed
                 {
 					if (!ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.Bleed))
 						CastSpell(Bleed, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
@@ -162,7 +162,7 @@ namespace DOL.GS
 				OF.Constitution = 100;
 				OF.Quickness = 125;
 				OF.Empathy = 300;
-				OF.BodyType = (ushort)NpcTemplateMgr.eBodyType.Humanoid;
+				OF.BodyType = (ushort)NpcTemplateMgr.EBodyType.Humanoid;
 				OF.MeleeDamageType = EDamageType.Crush;
 				OF.Faction = FactionMgr.GetFactionByID(206);
 				OF.Faction.AddFriendFaction(FactionMgr.GetFactionByID(187));
@@ -373,7 +373,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 4;
-					spell.RecastDelay = Util.Random(20,35);
+					spell.RecastDelay = UtilCollection.Random(20,35);
 					spell.ClientEffect = 585;
 					spell.Icon = 585;
 					spell.TooltipId = 585;
@@ -444,7 +444,7 @@ namespace DOL.GS
 			SacrificeKilledCount = 0;
 			RespawnInterval = -1;
 			Size = 45;
-			Level = (byte)Util.Random(62, 68);
+			Level = (byte)UtilCollection.Random(62, 68);
 			Faction = FactionMgr.GetFactionByID(187);
 			Faction.AddFriendFaction(FactionMgr.GetFactionByID(187));
 			SummonedSacrificeBrain sacrifice = new SummonedSacrificeBrain();
@@ -530,7 +530,7 @@ namespace DOL.GS
 			SummonedDemonCount = 0;
 			RespawnInterval = -1;
 			Size = 30;
-			Level = (byte)Util.Random(62, 68);
+			Level = (byte)UtilCollection.Random(62, 68);
 			Faction = FactionMgr.GetFactionByID(187);
 			Faction.AddFriendFaction(FactionMgr.GetFactionByID(187));
 			SummonedDemonBrain sacrifice = new SummonedDemonBrain();
@@ -635,7 +635,7 @@ namespace DOL.GS
 		}
 		public override void OnAttackEnemy(AttackData ad)
 		{
-			if (Util.Chance(30))//30% chance to make a bleed
+			if (UtilCollection.Chance(30))//30% chance to make a bleed
 				CastSpell(AelfgarStun, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			base.OnAttackEnemy(ad);
 		}
@@ -649,7 +649,7 @@ namespace DOL.GS
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 0;
-					spell.RecastDelay = Util.Random(20, 35);
+					spell.RecastDelay = UtilCollection.Random(20, 35);
 					spell.ClientEffect = 3379;
 					spell.Icon = 3379;
 					spell.TooltipId = 3379;
@@ -710,10 +710,10 @@ namespace DOL.AI.Brain
 			{
 				if (CanPort == false)
 				{
-					GamePlayer Target = (GamePlayer)Enemys_To_Port[Util.Random(0, Enemys_To_Port.Count - 1)];//pick random target from list
+					GamePlayer Target = (GamePlayer)Enemys_To_Port[UtilCollection.Random(0, Enemys_To_Port.Count - 1)];//pick random target from list
 					RandomTarget = Target;//set random target to static RandomTarget
 					RandomTarget.MoveTo(Body.CurrentRegionID, 32091, 39684, 16302, 4094);
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetPort), Util.Random(10000,20000));//port every 10-20s
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetPort), UtilCollection.Random(10000,20000));//port every 10-20s
 					CanPort = true;
 				}
 			}
@@ -735,7 +735,7 @@ namespace DOL.AI.Brain
 			}
 			if(Body.IsAlive && Body.InCombat && HasAggro && Body.TargetObject != null)
             {
-				if(Util.Chance(5))
+				if(UtilCollection.Chance(5))
 					PickRandomTarget();
             }
 			base.Think();

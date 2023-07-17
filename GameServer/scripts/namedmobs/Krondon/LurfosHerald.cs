@@ -58,7 +58,7 @@ namespace DOL.GS
 		public override bool AddToWorld()
 		{
 			Model = 919;
-			Level = (byte)(Util.Random(75, 78));
+			Level = (byte)(UtilCollection.Random(75, 78));
 			Name = "Lurfos the Herald";
 			Size = 120;
 
@@ -191,7 +191,7 @@ namespace DOL.AI.Brain
 				template.AddNPCEquipment(eInventorySlot.TwoHandWeapon, 7, 0, 27);
 				Body.Inventory = template.CloseTemplate();
 				Body.BroadcastLivingEquipmentUpdate();
-				new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SwitchToHeat), Util.Random(30000, 50000));
+				new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SwitchToHeat), UtilCollection.Random(30000, 50000));
 			}
 			return 0;
         }
@@ -210,7 +210,7 @@ namespace DOL.AI.Brain
 				template.AddNPCEquipment(eInventorySlot.TwoHandWeapon, 7, 0, 21);
 				Body.Inventory = template.CloseTemplate();
 				Body.BroadcastLivingEquipmentUpdate();
-				new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SwitchToCold), Util.Random(30000, 50000));
+				new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SwitchToCold), UtilCollection.Random(30000, 50000));
 			}
 			return 0;
 		}
@@ -243,7 +243,7 @@ namespace DOL.AI.Brain
 				IsNormalWeapon = false;
 				if(StartSwitchWeapons==false)
                 {
-					switch(Util.Random(1,2))
+					switch(UtilCollection.Random(1,2))
                     {
 						case 1: new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SwitchToCold), 1000); break;
 						case 2: new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SwitchToHeat), 1000); break;

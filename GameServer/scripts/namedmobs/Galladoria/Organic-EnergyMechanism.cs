@@ -162,7 +162,7 @@ namespace DOL.AI.Brain
                 {
                     if (CanCast == false)
                     {
-                        GamePlayer Target = (GamePlayer)Enemys_To_DOT[Util.Random(0, Enemys_To_DOT.Count - 1)];//pick random target from list
+                        GamePlayer Target = (GamePlayer)Enemys_To_DOT[UtilCollection.Random(0, Enemys_To_DOT.Count - 1)];//pick random target from list
                         RandomTarget = Target;//set random target to static RandomTarget
                         BroadcastMessage(String.Format(Body.Name + "looks sickly... powerfull magic essense will errupt on " + RandomTarget.Name + "!"));
                         new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastDOT), 5000);
@@ -200,10 +200,10 @@ namespace DOL.AI.Brain
         {
             if(ad != null)
             {
-                if (Util.Chance(50) && !Body.IsCasting)
+                if (UtilCollection.Chance(50) && !Body.IsCasting)
                     Body.CastSpell(OEMDamageShield, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 
-                if (Util.Chance(50) && !Body.IsCasting)
+                if (UtilCollection.Chance(50) && !Body.IsCasting)
                     Body.CastSpell(OEMEffect, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
             }
             base.OnAttackedByEnemy(ad);
@@ -261,17 +261,17 @@ namespace DOL.AI.Brain
         {
             if (Body.IsAlive && HasAggro)
             {
-                for (int i = 0; i < Util.Random(3, 5); i++)
+                for (int i = 0; i < UtilCollection.Random(3, 5); i++)
                 {
                     OEMAdd Add = new OEMAdd();
-                    Add.X = Body.X + Util.Random(-50, 80);
-                    Add.Y = Body.Y + Util.Random(-50, 80);
+                    Add.X = Body.X + UtilCollection.Random(-50, 80);
+                    Add.Y = Body.Y + UtilCollection.Random(-50, 80);
                     Add.Z = Body.Z;
                     Add.CurrentRegion = Body.CurrentRegion;
                     Add.Heading = Body.Heading;
                     Add.AddToWorld();
                 }
-                new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetSpawnFeeders), Util.Random(15000,25000));
+                new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetSpawnFeeders), UtilCollection.Random(15000,25000));
             }
             return 0;
         }
@@ -436,7 +436,7 @@ namespace DOL.GS
             Model = 905;
             Name = "Summoned Bottom Feeder";
             Size = 32;
-            Level = (byte) Util.Random(51, 55);
+            Level = (byte) UtilCollection.Random(51, 55);
             Realm = 0;
             CurrentRegionID = 191; //galladoria
 
@@ -483,21 +483,21 @@ namespace DOL.AI.Brain
             if (Body.InCombat && HasAggro && Body.TargetObject != null)
             {
                 GameLiving target = Body.TargetObject as GameLiving;
-                if (Util.Chance(15) && Body.TargetObject != null)
+                if (UtilCollection.Chance(15) && Body.TargetObject != null)
                 {
                     if (!target.effectListComponent.ContainsEffectForEffectType(EEffect.StrConDebuff))
                     {
                         new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastSCDebuff), 3000);
                     }
                 }
-                if (Util.Chance(15) && Body.TargetObject != null)
+                if (UtilCollection.Chance(15) && Body.TargetObject != null)
                 {
                     if (!target.effectListComponent.ContainsEffectForEffectType(EEffect.MeleeHasteDebuff))
                     {
                         new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastHasteDebuff), 3000);
                     }
                 }
-                if (Util.Chance(15) && Body.TargetObject != null)
+                if (UtilCollection.Chance(15) && Body.TargetObject != null)
                 {                    
                     if(!target.effectListComponent.ContainsEffectForEffectType(EEffect.MovementSpeedDebuff) && !target.effectListComponent.ContainsEffectForEffectType(EEffect.SnareImmunity))
                     {

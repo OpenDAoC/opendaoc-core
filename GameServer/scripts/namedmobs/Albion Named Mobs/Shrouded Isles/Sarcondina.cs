@@ -97,7 +97,7 @@ namespace DOL.GS
 		}
 		public override void OnAttackEnemy(AttackData ad) //on enemy actions
 		{
-			if (Util.Chance(45))
+			if (UtilCollection.Chance(45))
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 				{
@@ -176,7 +176,7 @@ namespace DOL.AI.Brain
 			{
 				if (CanSpawnAdd == false)
 				{
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnAdd), Util.Random(25000, 40000));
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnAdd), UtilCollection.Random(25000, 40000));
 					CanSpawnAdd = true;
 				}
 			}
@@ -189,16 +189,16 @@ namespace DOL.AI.Brain
 				GameNPC add = new GameNPC();
 				add.Name = Body.Name + "'s servant";
 				add.Model = 933;
-				add.Size = (byte)Util.Random(45, 55);
-				add.Level = (byte)Util.Random(55, 59);
+				add.Size = (byte)UtilCollection.Random(45, 55);
+				add.Level = (byte)UtilCollection.Random(55, 59);
 				add.Strength = 120;
 				add.Quickness = 80;
 				add.MeleeDamageType = EDamageType.Crush;
 				add.MaxSpeedBase = 225;
 				add.PackageID = "SarcondinaAdd";
 				add.RespawnInterval = -1;
-				add.X = Body.X + Util.Random(-100, 100);
-				add.Y = Body.Y + Util.Random(-100, 100);
+				add.X = Body.X + UtilCollection.Random(-100, 100);
+				add.Y = Body.Y + UtilCollection.Random(-100, 100);
 				add.Z = Body.Z;
 				add.CurrentRegion = Body.CurrentRegion;
 				add.Heading = Body.Heading;

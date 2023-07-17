@@ -8,7 +8,7 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Mystic Trainer
 	/// </summary>
-	[NPCGuildScript("Mystic Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Mystic Trainer" NPC's in Albion (multiple guilds are possible for one script)
+	[NpcGuild("Mystic Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Mystic Trainer" NPC's in Albion (multiple guilds are possible for one script)
 	public class MysticTrainer : GameTrainer
 	{
 		public override ECharacterClass TrainedClass

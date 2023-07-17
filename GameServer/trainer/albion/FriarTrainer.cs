@@ -8,7 +8,7 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Friar Trainer
 	/// </summary>
-	[NPCGuildScript("Friar Trainer", ERealm.Albion)]		// this attribute instructs DOL to use this script for all "Friar Trainer" NPC's in Albion (multiple guilds are possible for one script)
+	[NpcGuild("Friar Trainer", ERealm.Albion)]		// this attribute instructs DOL to use this script for all "Friar Trainer" NPC's in Albion (multiple guilds are possible for one script)
 	public class FriarTrainer : GameTrainer
 	{
 		public override ECharacterClass TrainedClass

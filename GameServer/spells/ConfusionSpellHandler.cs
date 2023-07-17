@@ -37,7 +37,7 @@ namespace DOL.GS.Spells
 				return;
 			}
 			base.ApplyEffectOnTarget(target, effectiveness);
-			target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.eAttackType.Spell, Caster);
+			target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.EAttackType.Spell, Caster);
 		}
 
 		public override void OnEffectStart(GameSpellEffect effect)

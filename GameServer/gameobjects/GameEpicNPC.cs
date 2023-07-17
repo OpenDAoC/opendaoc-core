@@ -37,7 +37,7 @@ namespace DOL.GS
                     killer = pet.Owner;
 
                 GamePlayer playerKiller = killer as GamePlayer;
-                int amount = Util.Random(Level / 10, Level * 2 / 10);
+                int amount = UtilCollection.Random(Level / 10, Level * 2 / 10);
                 int baseChance = 80;
                 double carapaceChance = Properties.CARAPACE_DROPCHANCE;
                 int realmLoyalty = 0;
@@ -70,10 +70,10 @@ namespace DOL.GS
                                 if (bgPlayer.Level < 45)
                                     continue;
 
-                                if (Util.Chance(baseChance + realmLoyalty))
+                                if (UtilCollection.Chance(baseChance + realmLoyalty))
                                     AtlasROGManager.GenerateReward(bgPlayer, amount);
 
-                                if (Util.ChanceDouble(carapaceChance))
+                                if (UtilCollection.ChanceDouble(carapaceChance))
                                     AtlasROGManager.GenerateBeetleCarapace(bgPlayer);
 
                                 bgPlayer.Achieve($"{achievementMob}-Credit");
@@ -90,10 +90,10 @@ namespace DOL.GS
                             if (groupPlayer.Level < 45)
                                 continue;
 
-                            if (Util.Chance(baseChance + realmLoyalty))
+                            if (UtilCollection.Chance(baseChance + realmLoyalty))
                                 AtlasROGManager.GenerateReward(groupPlayer, amount);
 
-                            if (Util.ChanceDouble(carapaceChance))
+                            if (UtilCollection.ChanceDouble(carapaceChance))
                                 AtlasROGManager.GenerateBeetleCarapace(groupPlayer);
 
                             groupPlayer.Achieve($"{achievementMob}-Credit");
@@ -104,10 +104,10 @@ namespace DOL.GS
                 {
                     if (playerKiller.Level >= 45)
                     {
-                        if (Util.Chance(baseChance + realmLoyalty))
+                        if (UtilCollection.Chance(baseChance + realmLoyalty))
                             AtlasROGManager.GenerateReward(playerKiller, amount);
 
-                        if (Util.ChanceDouble(carapaceChance))
+                        if (UtilCollection.ChanceDouble(carapaceChance))
                             AtlasROGManager.GenerateBeetleCarapace(playerKiller);
 
                         playerKiller.Achieve($"{achievementMob}-Credit");

@@ -108,8 +108,8 @@ namespace DOL.GS.Effects
             spirits[spiritId].MaxSpeedBase = spiritSpeed;
             spirits[spiritId].GuildName = "";
             spirits[spiritId].Size = 50;
-            spirits[spiritId].X = EffectOwner.X + Util.Random(20, 40) - Util.Random(20, 40);
-            spirits[spiritId].Y = EffectOwner.Y + Util.Random(20, 40) - Util.Random(20, 40);
+            spirits[spiritId].X = EffectOwner.X + UtilCollection.Random(20, 40) - UtilCollection.Random(20, 40);
+            spirits[spiritId].Y = EffectOwner.Y + UtilCollection.Random(20, 40) - UtilCollection.Random(20, 40);
             spirits[spiritId].Z = EffectOwner.Z;
             spirits[spiritId].Flags |= GameNPC.eFlags.DONTSHOWNAME;
             spirits[spiritId].SetOwnBrain(new StandardMobBrain());

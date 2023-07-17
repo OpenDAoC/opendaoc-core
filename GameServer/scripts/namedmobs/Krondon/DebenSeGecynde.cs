@@ -143,7 +143,7 @@ namespace DOL.AI.Brain
                 }
 				if (spawnadds == false)
 				{
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnAdds), Util.Random(45000, 70000));
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(SpawnAdds), UtilCollection.Random(45000, 70000));
 					spawnadds = true;
 				}
 			}
@@ -153,22 +153,22 @@ namespace DOL.AI.Brain
         {
 			if (HasAggro)
 			{
-				for (int i = 0; i < Util.Random(1, 3); i++)
+				for (int i = 0; i < UtilCollection.Random(1, 3); i++)
 				{
 					DebenFighter npc = new DebenFighter();
-					npc.X = Body.X + Util.Random(-100, 100);
-					npc.Y = Body.Y + Util.Random(-100, 100);
+					npc.X = Body.X + UtilCollection.Random(-100, 100);
+					npc.Y = Body.Y + UtilCollection.Random(-100, 100);
 					npc.Z = Body.Z;
 					npc.Heading = Body.Heading;
 					npc.CurrentRegion = Body.CurrentRegion;
 					npc.RespawnInterval = -1;
 					npc.AddToWorld();
 				}
-				for (int i = 0; i < Util.Random(1, 3); i++)
+				for (int i = 0; i < UtilCollection.Random(1, 3); i++)
 				{
 					DebenMage npc = new DebenMage();
-					npc.X = Body.X + Util.Random(-100, 100);
-					npc.Y = Body.Y + Util.Random(-100, 100);
+					npc.X = Body.X + UtilCollection.Random(-100, 100);
+					npc.Y = Body.Y + UtilCollection.Random(-100, 100);
 					npc.Z = Body.Z;
 					npc.Heading = Body.Heading;
 					npc.CurrentRegion = Body.CurrentRegion;
@@ -226,9 +226,9 @@ namespace DOL.GS
 		public override bool AddToWorld()
 		{
 			Model = 919;
-			Level = (byte)(Util.Random(65, 68));
+			Level = (byte)(UtilCollection.Random(65, 68));
 			Name = "thrawn ogre sceotan";
-			Size = (byte)(Util.Random(100, 120));
+			Size = (byte)(UtilCollection.Random(100, 120));
 			MaxSpeedBase = 250;
 			RespawnInterval = ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			GameNpcInventoryTemplate template = new GameNpcInventoryTemplate();
@@ -316,9 +316,9 @@ namespace DOL.GS
 		public override bool AddToWorld()
 		{
 			Model = 919;
-			Level = (byte)(Util.Random(65, 68));
+			Level = (byte)(UtilCollection.Random(65, 68));
 			Name = "thrawn abrecan mage";
-			Size = (byte)(Util.Random(100, 120));
+			Size = (byte)(UtilCollection.Random(100, 120));
 			MaxSpeedBase = 250;
 			RespawnInterval = ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			GameNpcInventoryTemplate template = new GameNpcInventoryTemplate();
@@ -360,7 +360,7 @@ namespace DOL.AI.Brain
 					if (Body.IsMoving)
 						Body.StopFollowing();
 					Body.TurnTo(Body.TargetObject);
-					switch (Util.Random(1, 2))
+					switch (UtilCollection.Random(1, 2))
 					{
 						case 1: Body.CastSpell(Mage_DD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells)); break;
 						case 2: Body.CastSpell(Mage_DD2, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells)); break;

@@ -1,6 +1,6 @@
 ﻿
 using System.Collections.Generic;
-using DOL.GS.Appeal;
+using Core.GS.Events;
 using DOL.GS.PacketHandler;
 using DOL.Language;
 

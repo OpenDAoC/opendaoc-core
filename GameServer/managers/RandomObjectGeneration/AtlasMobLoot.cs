@@ -75,7 +75,7 @@ namespace DOL.GS {
                         if(bgMember.GetDistance(player) > WorldMgr.VISIBILITY_DISTANCE)
                             continue;
                         
-                        if (Util.Chance(chance) && numDrops < maxDropCap)
+                        if (UtilCollection.Chance(chance) && numDrops < maxDropCap)
                         {
                             classForLoot = GetRandomClassFromBattlegroup(bg);
                             var item = GenerateItemTemplate(player, classForLoot, (byte)(mob.Level + 1), killedcon);
@@ -114,7 +114,7 @@ namespace DOL.GS {
                         if(groupPlayer.GetDistance(player) > WorldMgr.VISIBILITY_DISTANCE)
                             continue;
                         
-                        if (Util.Chance(chance) && numDrops < MaxDropCap)
+                        if (UtilCollection.Chance(chance) && numDrops < MaxDropCap)
                         {
                             classForLoot = GetRandomClassFromGroup(player.Group);
                             var item = GenerateItemTemplate(player, classForLoot, (byte)(mob.Level + 1), killedcon);
@@ -142,7 +142,7 @@ namespace DOL.GS {
                 else
                 {
                     int tmpChance = player.OutOfClassROGPercent > 0 ? player.OutOfClassROGPercent : 0;
-                    if (player.Level == 50 && Util.Chance(tmpChance))
+                    if (player.Level == 50 && UtilCollection.Chance(tmpChance))
                     {
                         classForLoot = GetRandomClassFromRealm(player.Realm);
                     }
@@ -158,7 +158,7 @@ namespace DOL.GS {
                     else if (mob.Level < 10)
                         chance += (100 - mob.Level * 10);
 
-                    if (Util.Chance(chance))
+                    if (UtilCollection.Chance(chance))
                     {
                         GeneratedUniqueItem tmp = AtlasROGManager.GenerateMonsterLootROG(player.Realm, classForLoot, (byte)(mob.Level + 1), player.CurrentZone?.IsOF ?? false);
                         item = tmp;
@@ -224,7 +224,7 @@ namespace DOL.GS {
             {
                 validClasses.Add((ECharacterClass)player.CharacterClass.ID);
             }
-            ECharacterClass ranClass = validClasses[Util.Random(validClasses.Count - 1)];
+            ECharacterClass ranClass = validClasses[UtilCollection.Random(validClasses.Count - 1)];
 
             return ranClass;
         }
@@ -237,7 +237,7 @@ namespace DOL.GS {
             {
                 validClasses.Add((ECharacterClass)player.CharacterClass.ID);
             }
-            ECharacterClass ranClass = validClasses[Util.Random(validClasses.Count - 1)];
+            ECharacterClass ranClass = validClasses[UtilCollection.Random(validClasses.Count - 1)];
 
             return ranClass;
         }
@@ -292,7 +292,7 @@ namespace DOL.GS {
                     break;
             }
 
-            return classesForRealm[Util.Random(classesForRealm.Count - 1)];
+            return classesForRealm[UtilCollection.Random(classesForRealm.Count - 1)];
         }
     }
 }

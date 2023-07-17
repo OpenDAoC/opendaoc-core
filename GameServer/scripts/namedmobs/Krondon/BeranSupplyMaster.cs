@@ -132,12 +132,12 @@ namespace DOL.AI.Brain
 				RemoveAdds = false;
 				if(Ignite_Barrel == false)
                 {
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(IgniteBarrel), Util.Random(15000, 35000));
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(IgniteBarrel), UtilCollection.Random(15000, 35000));
 					Ignite_Barrel = true;
                 }
 				if (BringAdds == false)
 				{
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CallForHelp), Util.Random(35000, 65000));
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CallForHelp), UtilCollection.Random(35000, 65000));
 					BringAdds = true;
 				}
 			}
@@ -147,15 +147,15 @@ namespace DOL.AI.Brain
         {
 			if (HasAggro)
 			{
-				for (int i = 0; i < Util.Random(2, 4); i++)
+				for (int i = 0; i < UtilCollection.Random(2, 4); i++)
 				{
 					GameNPC add = new GameNPC();
 					add.Name = "Onstal Hyrde";
 					add.Model = 919;
-					add.Level = (byte)(Util.Random(64, 68));
-					add.Size = (byte)(Util.Random(100, 115));
-					add.X = Body.X + Util.Random(-100, 100);
-					add.Y = Body.Y + Util.Random(-100, 100);
+					add.Level = (byte)(UtilCollection.Random(64, 68));
+					add.Size = (byte)(UtilCollection.Random(100, 115));
+					add.X = Body.X + UtilCollection.Random(-100, 100);
+					add.Y = Body.Y + UtilCollection.Random(-100, 100);
 					add.Z = Body.Z;
 					add.CurrentRegion = Body.CurrentRegion;
 					add.Heading = Body.Heading;
@@ -186,7 +186,7 @@ namespace DOL.AI.Brain
 			if (HasAggro)
 			{
 				BarrelExplosive npc = new BarrelExplosive();
-				switch (Util.Random(1, 5))
+				switch (UtilCollection.Random(1, 5))
 				{
 					case 1:
 						npc.X = 49409;

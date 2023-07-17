@@ -133,7 +133,7 @@ namespace DOL.GS.Spells
 		/// <summary>
 		/// Since the focus spell isn't a pulsing spell we need our own mini-timer
 		/// </summary>
-		private class FSTimer : RegionECSAction
+		private class FSTimer : RegionAction
 		{
 			//The handler for this timer
 			FocusShellHandler m_handler;

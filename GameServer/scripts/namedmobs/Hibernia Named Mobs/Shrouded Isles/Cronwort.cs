@@ -87,8 +87,8 @@ namespace DOL.GS
 			for (int i = 0; i < 6; i++)
 			{
 				Breanwort add = new Breanwort();
-				add.X = X + Util.Random(-200, 200);
-				add.Y = Y + Util.Random(-200, 200);
+				add.X = X + UtilCollection.Random(-200, 200);
+				add.Y = Y + UtilCollection.Random(-200, 200);
 				add.Z = Z;
 				add.Heading = Heading;
 				add.CurrentRegion = CurrentRegion;
@@ -106,7 +106,7 @@ namespace DOL.GS
         }
 		public override void OnAttackEnemy(AttackData ad) //on enemy actions
 		{
-			if (Util.Chance(25))
+			if (UtilCollection.Chance(25))
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 					CastSpell(CronworttDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
@@ -220,8 +220,8 @@ namespace DOL.GS
 		{
 			Model = 903;
 			Name = "Breanwort";
-			Level = (byte)Util.Random(61, 62);
-			Size = (byte)Util.Random(25, 35);
+			Level = (byte)UtilCollection.Random(61, 62);
+			Size = (byte)UtilCollection.Random(25, 35);
 			RespawnInterval = -1;
 			RoamingRange = 200;
 

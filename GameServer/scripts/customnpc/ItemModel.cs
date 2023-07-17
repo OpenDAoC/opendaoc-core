@@ -6863,7 +6863,7 @@ namespace DOL.GS {
             var tempAd = new AttackData();
             tempAd.Attacker = display;
             tempAd.Target = display;
-            tempAd.AttackType = AttackData.eAttackType.MeleeOneHand;
+            tempAd.AttackType = AttackData.EAttackType.MeleeOneHand;
             tempAd.AttackResult = EAttackResult.HitUnstyled;
             display.AttackState = true;
             display.TargetObject = display;

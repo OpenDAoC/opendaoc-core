@@ -25,7 +25,7 @@ namespace DOL.GS
 		#region Classic Crafting Overrides
 		public override void GainCraftingSkillPoints(GamePlayer player, RecipeMgr recipe)
 		{
-			if (Util.Chance( CalculateChanceToGainPoint(player, recipe.Level)))
+			if (UtilCollection.Chance( CalculateChanceToGainPoint(player, recipe.Level)))
 			{
 				player.GainCraftingSkill(eCraftingSkill.Alchemy, 1);
 

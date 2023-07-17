@@ -136,7 +136,7 @@ namespace DOL.AI.Brain
         }
         public override void AttackMostWanted()
         {
-            if (Util.Chance(15) && Body.TargetObject != null)
+            if (UtilCollection.Chance(15) && Body.TargetObject != null)
                 Body.CastSpell(AgmundrDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells),false);
             base.AttackMostWanted();
         }
@@ -230,7 +230,7 @@ namespace DOL.AI.Brain
                 DBSpell spell = new DBSpell();
                 spell.AllowAdd = false;
                 spell.CastTime = 3;
-                spell.RecastDelay = Util.Random(10, 15);
+                spell.RecastDelay = UtilCollection.Random(10, 15);
                 spell.ClientEffect = 228;
                 spell.Icon = 208;
                 spell.TooltipId = 479;

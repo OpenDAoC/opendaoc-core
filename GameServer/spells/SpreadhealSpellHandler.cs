@@ -40,7 +40,7 @@ namespace DOL.GS.Spells
 			}
 			else
 			{
-				targetHealCap = Util.Random(minHealVariance, maxHealVariance);
+				targetHealCap = UtilCollection.Random(minHealVariance, maxHealVariance);
 			}
 
 			int groupHealCap = targetHealCap;

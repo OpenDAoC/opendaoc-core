@@ -139,7 +139,7 @@ namespace DOL.GS.Spells
 		/// <summary>
 		/// Checks effect owner distance and cancels the effect if too far
 		/// </summary>
-		private sealed class RangeCheckAction : RegionECSAction
+		private sealed class RangeCheckAction : RegionAction
 		{
 			/// <summary>
 			/// The list of effects

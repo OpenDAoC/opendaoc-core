@@ -748,7 +748,7 @@ namespace DOL.GS
                         if (player.rangeAttackComponent?.RangedAttackType == ERangedAttackType.Critical)
                             stayStealthed -= 20;
 
-                        if (!Util.Chance(stayStealthed))
+                        if (!UtilCollection.Chance(stayStealthed))
                             player.Stealth(false);
                     }
                 }
@@ -1068,7 +1068,7 @@ namespace DOL.GS
                                     {
                                         while (extraTargets.Count < numTargetsCanHit)
                                         {
-                                            index = Util.Random(listAvailableTargets.Count - 1);
+                                            index = UtilCollection.Random(listAvailableTargets.Count - 1);
                                             GameObject availableTarget = listAvailableTargets[index];
 
                                             if (target != availableTarget && !extraTargets.Contains(availableTarget))
@@ -1101,7 +1101,7 @@ namespace DOL.GS
                                     {
                                         while (extraTargets.Count < numTargetsCanHit)
                                         {
-                                            index = Util.Random(listAvailableTargets.Count - 1);
+                                            index = UtilCollection.Random(listAvailableTargets.Count - 1);
                                             GameObject availableTarget = listAvailableTargets[index];
 
                                             if (target != availableTarget && !extraTargets.Contains(availableTarget))
@@ -1162,16 +1162,16 @@ namespace DOL.GS
             int addRange = rangeProc?.Any() == true ? (int) (rangeProc.First().Item1.Value - AttackRange) : 0;
 
             if (dualWield && (ad.Attacker is GamePlayer gPlayer) && gPlayer.CharacterClass.ID != (int) ECharacterClass.Savage)
-                ad.AttackType = AttackData.eAttackType.MeleeDualWield;
+                ad.AttackType = AttackData.EAttackType.MeleeDualWield;
             else if (weapon == null)
-                ad.AttackType = AttackData.eAttackType.MeleeOneHand;
+                ad.AttackType = AttackData.EAttackType.MeleeOneHand;
             else
             {
                 ad.AttackType = weapon.SlotPosition switch
                 {
-                    Slot.TWOHAND => AttackData.eAttackType.MeleeTwoHand,
-                    Slot.RANGED => AttackData.eAttackType.Ranged,
-                    _ => AttackData.eAttackType.MeleeOneHand,
+                    Slot.TWOHAND => AttackData.EAttackType.MeleeTwoHand,
+                    Slot.RANGED => AttackData.EAttackType.Ranged,
+                    _ => AttackData.EAttackType.MeleeOneHand,
                 };
             }
 
@@ -1192,7 +1192,7 @@ namespace DOL.GS
             }
 
             // LoS / in front check.
-            if (!ignoreLOS && ad.AttackType != AttackData.eAttackType.Ranged && owner is GamePlayer &&
+            if (!ignoreLOS && ad.AttackType != AttackData.EAttackType.Ranged && owner is GamePlayer &&
                 !(ad.Target is GameKeepComponent) &&
                 !(owner.IsObjectInFront(ad.Target, 120) && owner.TargetInView))
             {
@@ -1210,7 +1210,7 @@ namespace DOL.GS
             }
 
             // Melee range check (ranged is already done at this point).
-            if (ad.AttackType != AttackData.eAttackType.Ranged)
+            if (ad.AttackType != AttackData.EAttackType.Ranged)
             {
                 if (!owner.IsWithinRadius(ad.Target, AttackRange + addRange))
                 {
@@ -1265,7 +1265,7 @@ namespace DOL.GS
             ad.AttackResult = ad.Target.attackComponent.CalculateEnemyAttackResult(action, ad, weapon);
 
             // Strafing miss.
-            if (owner is GamePlayer playerOwner && playerOwner.IsStrafing && ad.Target is GamePlayer && Util.Chance(30))
+            if (owner is GamePlayer playerOwner && playerOwner.IsStrafing && ad.Target is GamePlayer && UtilCollection.Chance(30))
             {
                 // Used to tell the difference between a normal miss and a strafing miss.
                 // Ugly, but we shouldn't add a new field to 'AttackData' just for that purpose.
@@ -1585,7 +1585,7 @@ namespace DOL.GS
             if (ad.Attacker is GamePlayer)
             {
                 GamePlayer attacker = ad.Attacker as GamePlayer;
-                if (attacker.HasAbilityType(typeof(AtlasOF_PreventFlight)) && Util.Chance(35))
+                if (attacker.HasAbilityType(typeof(AtlasOF_PreventFlight)) && UtilCollection.Chance(35))
                 {
                     if (owner.IsObjectInFront(ad.Target, 120) && ad.Target.IsMoving)
                     {
@@ -1713,7 +1713,7 @@ namespace DOL.GS
                                     eChatType.CT_Missed, eChatLoc.CL_SystemWindow);
                                 break;
                             case EAttackResult.Missed:
-                                if (ad.AttackType != AttackData.eAttackType.Spell)
+                                if (ad.AttackType != AttackData.EAttackType.Spell)
                                     owner.Out.SendMessage(
                                         string.Format(
                                             LanguageMgr.GetTranslation(owner.Client.Account.Language,
@@ -1763,7 +1763,7 @@ namespace DOL.GS
             ad.Target.StartInterruptTimer(interruptDuration, ad.AttackType, ad.Attacker);
 
             // If we're attacking via melee, start an interrupt timer on ourselves so we cannot swing + immediately cast.
-            if (ad.AttackType != AttackData.eAttackType.Spell && ad.AttackType != AttackData.eAttackType.Ranged && owner.StartInterruptTimerOnItselfOnMeleeAttack())
+            if (ad.AttackType != AttackData.EAttackType.Spell && ad.AttackType != AttackData.EAttackType.Ranged && owner.StartInterruptTimerOnItselfOnMeleeAttack())
                 owner.StartInterruptTimer(owner.SpellInterruptDuration, ad.AttackType, ad.Attacker);
 
             owner.OnAttackEnemy(ad);
@@ -1828,7 +1828,7 @@ namespace DOL.GS
 
                 double upperLimit = Math.Min(Math.Max(1.25 + (3.0 * (spec - 1) / (target.EffectiveLevel + 1) - 2) * 0.25, 1.25), 1.50);
                 int varianceRange = (int) (upperLimit * 100 - lowerLimit * 100);
-                specModifier = playerOwner.SpecLock > 0 ? playerOwner.SpecLock : lowerLimit + Util.Random(varianceRange) * 0.01;
+                specModifier = playerOwner.SpecLock > 0 ? playerOwner.SpecLock : lowerLimit + UtilCollection.Random(varianceRange) * 0.01;
             }
             else
             {
@@ -1846,7 +1846,7 @@ namespace DOL.GS
                     maximum = 125;
                 }
 
-                specModifier = (Util.Random(maximum - minimun) + minimun) * 0.01;
+                specModifier = (UtilCollection.Random(maximum - minimun) + minimun) * 0.01;
             }
 
             return specModifier;
@@ -1901,7 +1901,7 @@ namespace DOL.GS
         {
             double blockChance = owner.TryBlock(ad, attackerConLevel, m_attackers.Count);
             ad.BlockChance = blockChance;
-            double ranBlockNum = Util.CryptoNextDouble() * 10000;
+            double ranBlockNum = UtilCollection.CryptoNextDouble() * 10000;
             ranBlockNum = Math.Floor(ranBlockNum);
             ranBlockNum /= 100;
             blockChance *= 100;
@@ -1931,7 +1931,7 @@ namespace DOL.GS
                 }
             }
 
-            if (ad.AttackType is AttackData.eAttackType.Ranged or AttackData.eAttackType.Spell)
+            if (ad.AttackType is AttackData.EAttackType.Ranged or AttackData.EAttackType.Spell)
             {
                 // Nature's shield, 100% block chance, 120° frontal angle.
                 if (owner.IsObjectInFront(ad.Attacker, 120) && (owner.styleComponent.NextCombatStyle?.ID == 394 || owner.styleComponent.NextCombatBackupStyle?.ID == 394))
@@ -2005,10 +2005,10 @@ namespace DOL.GS
             else if (shieldSize == 3 && guardchance > 0.99)
                 guardchance = 0.99;
 
-            if (ad.AttackType == AttackData.eAttackType.MeleeDualWield)
+            if (ad.AttackType == AttackData.EAttackType.MeleeDualWield)
                 guardchance /= 2;
 
-            double ranBlockNum = Util.CryptoNextDouble() * 10000;
+            double ranBlockNum = UtilCollection.CryptoNextDouble() * 10000;
             ranBlockNum = Math.Floor(ranBlockNum);
             ranBlockNum /= 100;
             guardchance *= 100;
@@ -2084,7 +2084,7 @@ namespace DOL.GS
                 if (m_attackers.Count > shieldSize)
                     guardchance *= shieldSize / (double) m_attackers.Count;
 
-                if (ad.AttackType == AttackData.eAttackType.MeleeDualWield)
+                if (ad.AttackType == AttackData.EAttackType.MeleeDualWield)
                     guardchance /= 2;
 
                 double parrychance = dashing.GuardSource.GetModified(EProperty.ParryChance);
@@ -2103,13 +2103,13 @@ namespace DOL.GS
                         parrychance /= m_attackers.Count / 2;
                 }
 
-                if (Util.ChanceDouble(guardchance))
+                if (UtilCollection.ChanceDouble(guardchance))
                 {
                     ad.Target = dashing.GuardSource;
                     result = EAttackResult.Blocked;
                     return true;
                 }
-                else if (Util.ChanceDouble(parrychance))
+                else if (UtilCollection.ChanceDouble(parrychance))
                 {
                     ad.Target = dashing.GuardSource;
                     result = EAttackResult.Parried;
@@ -2134,7 +2134,7 @@ namespace DOL.GS
                         parrychance /= m_attackers.Count / 2;
                 }
 
-                if (Util.ChanceDouble(parrychance))
+                if (UtilCollection.ChanceDouble(parrychance))
                 {
                     ad.Target = dashing.GuardSource;
                     result = EAttackResult.Parried;
@@ -2194,7 +2194,7 @@ namespace DOL.GS
                     && !inter.InterceptSource.IsSitting && inter.InterceptSource.ObjectState == GameObject.eObjectState.Active && inter.InterceptSource.IsAlive
                     && owner.IsWithinRadius(inter.InterceptSource, InterceptAbilityHandler.INTERCEPT_DISTANCE)) // && Util.Chance(inter.InterceptChance))
                 {
-                    int chance = (owner is GamePlayer own) ? own.RandomNumberDeck.GetInt() : Util.Random(100);
+                    int chance = (owner is GamePlayer own) ? own.RandomNumberDeck.GetInt() : UtilCollection.Random(100);
 
                     if (chance < inter.InterceptChance)
                         intercept = inter;
@@ -2268,7 +2268,7 @@ namespace DOL.GS
 
                 double evadeChance = owner.TryEvade(ad, lastAD, attackerConLevel, m_attackers.Count);
                 ad.EvadeChance = evadeChance;
-                double randomEvadeNum = Util.CryptoNextDouble() * 10000;
+                double randomEvadeNum = UtilCollection.CryptoNextDouble() * 10000;
                 randomEvadeNum = Math.Floor(randomEvadeNum);
                 randomEvadeNum /= 100;
                 evadeChance *= 100;
@@ -2302,7 +2302,7 @@ namespace DOL.GS
                 {
                     double parryChance = owner.TryParry(ad, lastAD, attackerConLevel, m_attackers.Count);
                     ad.ParryChance = parryChance;
-                    double ranParryNum = Util.CryptoNextDouble() * 10000;
+                    double ranParryNum = UtilCollection.CryptoNextDouble() * 10000;
                     ranParryNum = Math.Floor(ranParryNum);
                     ranParryNum /= 100;
                     parryChance *= 100;
@@ -2357,7 +2357,7 @@ namespace DOL.GS
 
             if (missChance > 0)
             {
-                double rand = !Properties.OVERRIDE_DECK_RNG && playerAttacker != null ? playerAttacker.RandomNumberDeck.GetPseudoDouble() : Util.CryptoNextDouble();
+                double rand = !Properties.OVERRIDE_DECK_RNG && playerAttacker != null ? playerAttacker.RandomNumberDeck.GetPseudoDouble() : UtilCollection.CryptoNextDouble();
 
                 if (ad.Attacker is GamePlayer misser && misser.UseDetailedCombatLog)
                 {
@@ -2399,10 +2399,10 @@ namespace DOL.GS
                     return EAttackResult.HitUnstyled; // Exit early for stealth to prevent breaking bubble but still register a hit.
 
                 if (action.RangedAttackType == ERangedAttackType.Long ||
-                    (ad.AttackType == AttackData.eAttackType.Ranged && ad.Target != bladeturn.SpellHandler.Caster && playerAttacker?.HasAbility(Abilities.PenetratingArrow) == true))
+                    (ad.AttackType == AttackData.EAttackType.Ranged && ad.Target != bladeturn.SpellHandler.Caster && playerAttacker?.HasAbility(Abilities.PenetratingArrow) == true))
                     penetrate = true;
 
-                if (ad.IsMeleeAttack && !Util.ChanceDouble(bladeturn.SpellHandler.Caster.Level / ad.Attacker.Level))
+                if (ad.IsMeleeAttack && !UtilCollection.ChanceDouble(bladeturn.SpellHandler.Caster.Level / ad.Attacker.Level))
                     penetrate = true;
 
                 if (penetrate)
@@ -2731,7 +2731,7 @@ namespace DOL.GS
         /// <returns>The amount of critical damage</returns>
         public int GetMeleeCriticalDamage(AttackData ad, WeaponAction action, InventoryItem weapon)
         {
-            if (!Util.Chance(AttackCriticalChance(action, weapon)))
+            if (!UtilCollection.Chance(AttackCriticalChance(action, weapon)))
                 return 0;
 
             if (owner is GamePlayer)
@@ -2769,7 +2769,7 @@ namespace DOL.GS
 
                 critMin = Math.Max(critMin, 0);
                 critMax = Math.Max(critMin, critMax);
-                return Util.Random(critMin, critMax);
+                return UtilCollection.Random(critMin, critMax);
             }
             else
             {
@@ -2779,7 +2779,7 @@ namespace DOL.GS
                 if (minCriticalDamage > maxCriticalDamage)
                     minCriticalDamage = maxCriticalDamage;
 
-                return Util.Random(minCriticalDamage, maxCriticalDamage);
+                return UtilCollection.Random(minCriticalDamage, maxCriticalDamage);
             }
         }
 
@@ -3084,7 +3084,7 @@ namespace DOL.GS
                 
                 if (specLevel > 0)
                 {
-                    return Util.Chance((int) tmpOffhandChance) ? 1 : 0;
+                    return UtilCollection.Chance((int) tmpOffhandChance) ? 1 : 0;
                 }
 
                 // HtH chance
@@ -3097,7 +3097,7 @@ namespace DOL.GS
                     leftWeapon != null && leftWeapon.Object_Type == (int) EObjectType.HandToHand)
                 {
                     specLevel--;
-                    int randomChance = Util.Random(99);
+                    int randomChance = UtilCollection.Random(99);
                     int doubleHitChance = (specLevel >> 1) + owner.GetModified(EProperty.OffhandChance) + owner.GetModified(EProperty.OffhandDamageAndChance);
                     int tripleHitChance = doubleHitChance + (specLevel >> 2) + ((owner.GetModified(EProperty.OffhandChance) + owner.GetModified(EProperty.OffhandDamageAndChance)) >> 1);
                     int quadHitChance = tripleHitChance + (specLevel >> 4) + ((owner.GetModified(EProperty.OffhandChance) + owner.GetModified(EProperty.OffhandDamageAndChance)) >> 2);

@@ -300,7 +300,7 @@ namespace DOL.GS.ServerRules
 		public abstract bool IsSameRealm(GameLiving source, GameLiving target, bool quiet);
 		public abstract bool IsAllowedCharsInAllRealms(GameClient client);
 		public abstract bool IsAllowedToGroup(GamePlayer source, GamePlayer target, bool quiet);
-		public abstract bool IsAllowedToJoinGuild(GamePlayer source, Guild guild);
+		public abstract bool IsAllowedToJoinGuild(GamePlayer source, GuildUtil guild);
 		public abstract bool IsAllowedToTrade(GameLiving source, GameLiving target, bool quiet);
 		public abstract bool IsAllowedToUnderstand(GameLiving source, GamePlayer target);
 		public abstract string RulesDescription();
@@ -716,9 +716,9 @@ namespace DOL.GS.ServerRules
 			}
 
 			// classes restriction. 0 means every class
-			if (player != null && !Util.IsEmpty(item.AllowedClasses, true))
+			if (player != null && !UtilCollection.IsEmpty(item.AllowedClasses, true))
 			{
-				if (!Util.SplitCSV(item.AllowedClasses, true).Contains(player.CharacterClass.ID.ToString()))
+				if (!UtilCollection.SplitCSV(item.AllowedClasses, true).Contains(player.CharacterClass.ID.ToString()))
 					return false;
 			}
 
@@ -1218,7 +1218,7 @@ namespace DOL.GS.ServerRules
 						max *= 5;
 					}
 					//Console.WriteLine($"min {min} max {max}");
-					AtlasROGManager.GenerateReward(living as GameLiving, Util.Random(min, max));
+					AtlasROGManager.GenerateReward(living as GameLiving, UtilCollection.Random(min, max));
 				}
 					
 			});
@@ -2099,33 +2099,33 @@ namespace DOL.GS.ServerRules
 						{
 							case ERealm.Albion:
 								expGainPlayer.KillsAlbionPlayers++;
-								expGainPlayer.Achieve(AchievementUtils.AchievementNames.Alb_Players_Killed);
+								expGainPlayer.Achieve(AchievementUtil.AchievementNames.Alb_Players_Killed);
 								if (expGainPlayer == killerCheck )
 								{
 									expGainPlayer.KillsAlbionDeathBlows++;
-									expGainPlayer.Achieve(AchievementUtils.AchievementNames.Alb_Deathblows);
+									expGainPlayer.Achieve(AchievementUtil.AchievementNames.Alb_Deathblows);
 									CheckSoloKills(ERealm.Albion, XPGainerList, expGainPlayer, totalDamage);
 								}
 								break;
 
 							case ERealm.Hibernia:
 								expGainPlayer.KillsHiberniaPlayers++;
-								expGainPlayer.Achieve(AchievementUtils.AchievementNames.Hib_Players_Killed);
+								expGainPlayer.Achieve(AchievementUtil.AchievementNames.Hib_Players_Killed);
 								if (expGainPlayer == killerCheck)
 								{
 									expGainPlayer.KillsHiberniaDeathBlows++;
-									expGainPlayer.Achieve(AchievementUtils.AchievementNames.Hib_Deathblows);
+									expGainPlayer.Achieve(AchievementUtil.AchievementNames.Hib_Deathblows);
 									CheckSoloKills(ERealm.Hibernia, XPGainerList, expGainPlayer, totalDamage);
 								}
 								break;
 
 							case ERealm.Midgard:
 								expGainPlayer.KillsMidgardPlayers++;
-								expGainPlayer.Achieve(AchievementUtils.AchievementNames.Mid_Players_Killed);
+								expGainPlayer.Achieve(AchievementUtil.AchievementNames.Mid_Players_Killed);
 								if (expGainPlayer == killerCheck)
 								{
 									expGainPlayer.KillsMidgardDeathBlows++;
-									expGainPlayer.Achieve(AchievementUtils.AchievementNames.Mid_Deathblows);
+									expGainPlayer.Achieve(AchievementUtil.AchievementNames.Mid_Deathblows);
 									CheckSoloKills(ERealm.Midgard, XPGainerList, expGainPlayer, totalDamage);
 								}
 								break;
@@ -2161,7 +2161,7 @@ namespace DOL.GS.ServerRules
                 
                 if (GameServer.Instance.Configuration.ServerType != EGameServerType.GST_PvP)
                 {
-	                AtlasROGManager.GenerateOrbAmount(player, Util.Random(50, 150));
+	                AtlasROGManager.GenerateOrbAmount(player, UtilCollection.Random(50, 150));
                 }
 
                 int bonusRegion = 0;
@@ -2178,13 +2178,13 @@ namespace DOL.GS.ServerRules
 		                break;
                 }
                 
-                if (player.CurrentZone.ZoneRegion.ID == bonusRegion && Util.Chance(10))
+                if (player.CurrentZone.ZoneRegion.ID == bonusRegion && UtilCollection.Chance(10))
                 {
 	                var RRMod = (int)Math.Floor(killedPlayer.RealmLevel / 10d) * 3;
 	                AtlasROGManager.GenerateROG(player, (byte)(player.Level + RRMod));
                 }
 
-                if (player.CurrentZone.ZoneRegion.ID == bonusRegion && Util.Chance(1))
+                if (player.CurrentZone.ZoneRegion.ID == bonusRegion && UtilCollection.Chance(1))
                 {
 	                AtlasROGManager.GenerateBeetleCarapace(player);
                 }
@@ -2255,15 +2255,15 @@ namespace DOL.GS.ServerRules
 				{
 					case ERealm.Albion:
 						playerToCheck.KillsAlbionSolo++;
-						playerToCheck.Achieve(AchievementUtils.AchievementNames.Alb_Solo_Kills);
+						playerToCheck.Achieve(AchievementUtil.AchievementNames.Alb_Solo_Kills);
 						break;
 					case ERealm.Midgard:
 						playerToCheck.KillsMidgardSolo++;
-						playerToCheck.Achieve(AchievementUtils.AchievementNames.Mid_Solo_Kills);
+						playerToCheck.Achieve(AchievementUtil.AchievementNames.Mid_Solo_Kills);
 						break;
 					case ERealm.Hibernia:
 						playerToCheck.KillsHiberniaSolo++;
-						playerToCheck.Achieve(AchievementUtils.AchievementNames.Hib_Solo_Kills);
+						playerToCheck.Achieve(AchievementUtil.AchievementNames.Hib_Solo_Kills);
 						break;
 				}
 			}
@@ -2851,15 +2851,15 @@ namespace DOL.GS.ServerRules
 					// defaults if templates are missing
 					if (house.Realm == ERealm.Albion)
 					{
-						npc.Model = (ushort)Util.Random(7, 8);
+						npc.Model = (ushort)UtilCollection.Random(7, 8);
 					}
 					else if (house.Realm == ERealm.Midgard)
 					{
-						npc.Model = (ushort)Util.Random(160, 161);
+						npc.Model = (ushort)UtilCollection.Random(160, 161);
 					}
 					else
 					{
-						npc.Model = (ushort)Util.Random(309, 310);
+						npc.Model = (ushort)UtilCollection.Random(309, 310);
 					}
 				}
 

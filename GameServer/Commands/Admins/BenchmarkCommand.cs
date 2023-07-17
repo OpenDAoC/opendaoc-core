@@ -80,7 +80,7 @@ namespace DOL.GS.Commands
 					}
 					
 					// For each usable skill, execute the ActionSkill method until the max range is hit
-					Util.ForEach(Enumerable.Range(min, max).AsParallel(), ActionSkill);
+					UtilCollection.ForEach(Enumerable.Range(min, max).AsParallel(), ActionSkill);
 					
 					// Final duration to list full range of spells/skills
 					spent = GameLoop.GetCurrentTime() - start;
@@ -105,7 +105,7 @@ namespace DOL.GS.Commands
 						var tmp = client.Player.GetAllUsableListSpells(true);
 					}
 					
-					Util.ForEach(Enumerable.Range(min, max).AsParallel(), ActionSpell);
+					UtilCollection.ForEach(Enumerable.Range(min, max).AsParallel(), ActionSpell);
 					
 					spent = GameLoop.GetCurrentTime() - start;
 					

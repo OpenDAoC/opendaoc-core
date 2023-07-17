@@ -80,7 +80,7 @@ namespace DOL.GS.Commands
                         if (args.Length == 2)
                             return;
 
-                        Guild targetGuild = GuildMgr.GetGuildByName(args[2]);
+                        GuildUtil targetGuild = GuildMgr.GetGuildByName(args[2]);
                         if (targetGuild == null)
                         {
                             client.Out.SendMessage("A guild with that name was not found. Don't forget to put longer names in quotes eg: \"My Guild\".", eChatType.CT_System, eChatLoc.CL_SystemWindow);

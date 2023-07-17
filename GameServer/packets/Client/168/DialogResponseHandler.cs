@@ -24,7 +24,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		/// <summary>
 		/// Handles dialog responses from players
 		/// </summary>
-		protected class DialogBoxResponseAction : AuxRegionECSAction
+		protected class DialogBoxResponseAction : AuxRegionAction
 		{
 			/// <summary>
 			/// The general data field

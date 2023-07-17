@@ -88,8 +88,8 @@ namespace DOL.GS
 				GameNPC add = new GameNPC();
 				add.Name = "Apparition of " + enemy.Name;
 				add.Model = 902;
-				add.Size = (byte)Util.Random(45, 55);
-				add.Level = (byte)Util.Random(55, 59);
+				add.Size = (byte)UtilCollection.Random(45, 55);
+				add.Level = (byte)UtilCollection.Random(55, 59);
 				add.Strength = 150;
 				add.Quickness = 80;
 				add.MeleeDamageType = EDamageType.Crush;
@@ -165,12 +165,12 @@ namespace DOL.AI.Brain
 				NotInCombat = false;
 				if (Body.Flags != 0)
 					Body.Flags = 0;
-				if (!Body.IsCasting && Util.Chance(30))
+				if (!Body.IsCasting && UtilCollection.Chance(30))
 				{
 					Body.SetGroundTarget(Body.X, Body.Y, Body.Z);
 					Body.CastSpell(Boss_PBAOE, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
 				}
-				if (!Body.IsCasting && Util.Chance(20))
+				if (!Body.IsCasting && UtilCollection.Chance(20))
 				{
 					Body.CastSpell(Boss_Mezz, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
 				}
@@ -200,7 +200,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 3;
-					spell.RecastDelay = Util.Random(20, 25);
+					spell.RecastDelay = UtilCollection.Random(20, 25);
 					spell.ClientEffect = 1695;
 					spell.Icon = 1695;
 					spell.TooltipId = 1695;

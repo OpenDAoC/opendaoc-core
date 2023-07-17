@@ -151,11 +151,11 @@ namespace DOL.AI.Brain
 		}
 		public void SpawnAdds()
 		{
-			for (int i = 0; i < Util.Random(4, 5); i++)
+			for (int i = 0; i < UtilCollection.Random(4, 5); i++)
 			{
 				FulafeallanAdd npc = new FulafeallanAdd();
-				npc.X = Body.X + Util.Random(-100, 100);
-				npc.Y = Body.Y + Util.Random(-100, 100);
+				npc.X = Body.X + UtilCollection.Random(-100, 100);
+				npc.Y = Body.Y + UtilCollection.Random(-100, 100);
 				npc.Z = Body.Z;
 				npc.Heading = Body.Heading;
 				npc.CurrentRegion = Body.CurrentRegion;
@@ -215,9 +215,9 @@ namespace DOL.GS
 		public override bool AddToWorld()
 		{
 			Model = 933;
-			Level = (byte)(Util.Random(65, 68));
+			Level = (byte)(UtilCollection.Random(65, 68));
 			Name = "Part of Fulafeallan";
-			Size = (byte)(Util.Random(50, 70));
+			Size = (byte)(UtilCollection.Random(50, 70));
 			++PartsCount2;
 			MaxSpeedBase = 250;
 			RespawnInterval = ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds

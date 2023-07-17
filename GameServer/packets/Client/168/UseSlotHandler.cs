@@ -27,7 +27,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		/// <summary>
 		/// Handles player use slot actions
 		/// </summary>
-		protected class UseSlotAction : RegionECSAction
+		protected class UseSlotAction : RegionAction
 		{
 			/// <summary>
 			/// The speed and flags data

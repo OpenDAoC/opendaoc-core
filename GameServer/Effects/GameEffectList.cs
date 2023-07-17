@@ -136,7 +136,7 @@ namespace DOL.GS.Effects
 			}
 			
 			BeginChanges();
-			Util.ForEach(fx, effect => effect.Cancel(false));
+			UtilCollection.ForEach(fx, effect => effect.Cancel(false));
 			CommitChanges();
 		}
 
@@ -170,7 +170,7 @@ namespace DOL.GS.Effects
 
 				SpellLine line = null;
 
-				if (!Util.IsEmpty(eff.SpellLine))
+				if (!UtilCollection.IsEmpty(eff.SpellLine))
 				{
 					line = SkillBase.GetSpellLine(eff.SpellLine, false);
 					if (line == null)

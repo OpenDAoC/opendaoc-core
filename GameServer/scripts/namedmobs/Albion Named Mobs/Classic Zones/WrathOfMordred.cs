@@ -115,7 +115,7 @@ namespace DOL.GS
 				styleComponent.NextCombatBackupStyle = Taunt2h;
 				styleComponent.NextCombatStyle = ParryFollowUP;
 			}
-			if (Util.Chance(15))//cast nasty heat proc
+			if (UtilCollection.Chance(15))//cast nasty heat proc
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 				{
@@ -223,7 +223,7 @@ namespace DOL.AI.Brain
 					Body.Heading = 1250;
 				}
 			}
-			new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetWalkSide), Util.Random(15000,25000));
+			new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ResetWalkSide), UtilCollection.Random(15000,25000));
 			return 0;
 		}
 		private int ResetWalkSide(ECSGameTimer timer)

@@ -29,7 +29,7 @@ namespace DOL.GS
 		}
         public override void Die(GameObject killer)
         {
-			switch (Util.Random(1, 2))
+			switch (UtilCollection.Random(1, 2))
 			{
 				case 1:
 					SpawnPoint.X = 490767;

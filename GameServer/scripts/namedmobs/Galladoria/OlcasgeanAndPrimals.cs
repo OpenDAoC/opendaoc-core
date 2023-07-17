@@ -409,7 +409,7 @@ namespace DOL.GS
             foreach (GamePlayer player in GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE))
             {
                 player.KillsEpicBoss++;
-                player.Achieve(AchievementUtils.AchievementNames.Epic_Boss_Kills);
+                player.Achieve(AchievementUtil.AchievementNames.Epic_Boss_Kills);
                 count++;
             }
             return count;
@@ -509,11 +509,11 @@ namespace DOL.GS
             {
                 if (HealthPercent <= 50)
                 {
-                    if (Util.Chance(50))
+                    if (UtilCollection.Chance(50))
                         CastSpell(OlcasgeanDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
                 }
                 if (HealthPercent > 50)
-                    if (Util.Chance(25))
+                    if (UtilCollection.Chance(25))
                         CastSpell(OlcasgeanDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
             }
             base.OnAttackedByEnemy(ad);
@@ -597,11 +597,11 @@ namespace DOL.AI.Brain
             if (HasAggro && Body.IsAlive)
             {
                 Point3D spot = new Point3D(39526, 62755, 11690);
-                for (int i = 0; i < Util.Random(8, 15); i++)
+                for (int i = 0; i < UtilCollection.Random(8, 15); i++)
                 {
                     OlcasgeanEffect Add = new OlcasgeanEffect();
-                    Add.X = spot.X + Util.Random(-900, 900);
-                    Add.Y = spot.Y + Util.Random(-900, 900);
+                    Add.X = spot.X + UtilCollection.Random(-900, 900);
+                    Add.Y = spot.Y + UtilCollection.Random(-900, 900);
                     Add.Z = spot.Z;
                     Add.CurrentRegion = Body.CurrentRegion;
                     Add.Heading = Body.Heading;
@@ -746,12 +746,12 @@ namespace DOL.AI.Brain
 
                     if (ported_player.Count > 0)
                     {
-                        GamePlayer port = ((GamePlayer)(player_to_port[Util.Random(0, player_to_port.Count) - 1]));
+                        GamePlayer port = ((GamePlayer)(player_to_port[UtilCollection.Random(0, player_to_port.Count) - 1]));
                         TeleportTarget = port;
 
                         if (TeleportTarget != null && TeleportTarget.IsAlive && !teleport_player && Body.HealthPercent <= 50)
                         {
-                            new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(DoPort), Util.Random(12000,20000));//do teleport every 12-20s
+                            new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(DoPort), UtilCollection.Random(12000,20000));//do teleport every 12-20s
                             teleport_player = true;
                         }
                     }
@@ -780,7 +780,7 @@ namespace DOL.AI.Brain
         {
             if (player_to_port.Count > 0)
             {
-                int random = Util.Random(1, 3);
+                int random = UtilCollection.Random(1, 3);
                 if (Body.HealthPercent <= 50)
                 {
                     switch (random)
@@ -954,7 +954,7 @@ namespace DOL.GS
             foreach (GamePlayer player in GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE))
             {
                 player.KillsEpicBoss++;
-                player.Achieve(AchievementUtils.AchievementNames.Epic_Boss_Kills);
+                player.Achieve(AchievementUtil.AchievementNames.Epic_Boss_Kills);
                 count++;
             }
             return count;
@@ -1034,11 +1034,11 @@ namespace DOL.GS
             {
                 if (HealthPercent <= 50)
                 {
-                    if (Util.Chance(50))
+                    if (UtilCollection.Chance(50))
                         CastSpell(OlcasgeanDD2, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
                 }
                 if (HealthPercent > 50)
-                    if (Util.Chance(25))
+                    if (UtilCollection.Chance(25))
                         CastSpell(OlcasgeanDD2, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
             }
             base.OnAttackedByEnemy(ad);
@@ -1297,11 +1297,11 @@ namespace DOL.AI.Brain
 
                 if (damage_enemies.Count > 0)
                 {
-                    RandomTarget = damage_enemies[Util.Random(0, damage_enemies.Count - 1)];
+                    RandomTarget = damage_enemies[UtilCollection.Random(0, damage_enemies.Count - 1)];
                     if (RandomTarget.IsVisibleTo(Body) && Body.TargetInView)
                     {
                         PrepareToDD();
-                        if (Util.Chance(15) && RandomTarget != null)
+                        if (UtilCollection.Chance(15) && RandomTarget != null)
                         {
                             Body.TargetObject = RandomTarget;
                             if (!RandomTarget.effectListComponent.ContainsEffectForEffectType(EEffect.Mez))
@@ -1785,11 +1785,11 @@ namespace DOL.AI.Brain
         {
             if (HasAggro && Body.TargetObject != null)
             {
-                if (Util.Chance(10))
+                if (UtilCollection.Chance(10))
                 {
                     if (IsTargetTeleported == false)
                     {
-                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickTeleportPlayer), Util.Random(25000, 45000));
+                        new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickTeleportPlayer), UtilCollection.Random(25000, 45000));
                         IsTargetTeleported = true;
                     }
                 }
@@ -1845,7 +1845,7 @@ namespace DOL.AI.Brain
                 {
                     if (Port_Enemys.Count > 0)
                     {
-                        GamePlayer Target = Port_Enemys[Util.Random(0, Port_Enemys.Count - 1)];
+                        GamePlayer Target = Port_Enemys[UtilCollection.Random(0, Port_Enemys.Count - 1)];
                         TeleportTarget = Target;
                         if (TeleportTarget.IsAlive && TeleportTarget != null)
                         {
@@ -1860,7 +1860,7 @@ namespace DOL.AI.Brain
         {
             if (TeleportTarget.IsAlive && TeleportTarget != null && HasAggro)
             {
-                switch (Util.Random(1, 2))
+                switch (UtilCollection.Random(1, 2))
                 {
                     case 1: TeleportTarget.MoveTo(Body.CurrentRegionID, 38626, 60891, 11771, 2881); break;
                     case 2: TeleportTarget.MoveTo(Body.CurrentRegionID, 40606, 60868, 11721, 1095); break;
@@ -2441,7 +2441,7 @@ namespace DOL.AI.Brain
             }
             if (Body.InCombat && HasAggro)
             {
-                if (Util.Chance(15))
+                if (UtilCollection.Chance(15))
                     Body.CastSpell(EarthRoot, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
             }
             if (Body.IsOutOfTetherRange && HasAggro && Body.TargetObject != null)
@@ -2481,7 +2481,7 @@ namespace DOL.AI.Brain
                     DBSpell spell = new DBSpell();
                     spell.AllowAdd = false;
                     spell.CastTime = 0;
-                    spell.RecastDelay = Util.Random(15, 25);
+                    spell.RecastDelay = UtilCollection.Random(15, 25);
                     spell.ClientEffect = 277;
                     spell.Icon = 277;
                     spell.TooltipId = 277;

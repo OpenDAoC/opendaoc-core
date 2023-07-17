@@ -93,8 +93,8 @@ namespace DOL.GS
             for (int i = 0; i < 7; i++)
             {
                 GSCAdds Add = new GSCAdds();
-                Add.X = X + Util.Random(-50, 80);
-                Add.Y = Y + Util.Random(-50, 80);
+                Add.X = X + UtilCollection.Random(-50, 80);
+                Add.Y = Y + UtilCollection.Random(-50, 80);
                 Add.Z = Z;
                 Add.CurrentRegion = CurrentRegion;
                 Add.Heading = Heading;
@@ -148,7 +148,7 @@ public class GiantSporiteClusterBrain : StandardMobBrain
         }
         if (HasAggro && Body.TargetObject != null)
         {
-            if (Util.Chance(5) && Body.TargetObject != null)
+            if (UtilCollection.Chance(5) && Body.TargetObject != null)
             {
                 new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastAOEDD), 3000);
             }
@@ -299,7 +299,7 @@ namespace DOL.GS
             RespawnInterval = -1;
             MaxDistance = 0;
             TetherRange = 0;
-            Size = (byte)Util.Random(45, 55);
+            Size = (byte)UtilCollection.Random(45, 55);
             Level = 79;
             Faction = FactionMgr.GetFactionByID(96);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(96));

@@ -146,9 +146,9 @@ namespace DOL.GS
         {
 			if(ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
             {
-				if(Util.Chance(25))
+				if(UtilCollection.Chance(25))
                 {
-					switch(Util.Random(1,2))
+					switch(UtilCollection.Random(1,2))
                     {
 						case 1: CastSpell(HydraDisease, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells)); break;
 						case 2: CastSpell(Hydra_Haste_Debuff, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells)); break;
@@ -253,7 +253,7 @@ namespace DOL.GS
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 0;
-					spell.RecastDelay = Util.Random(25, 35);
+					spell.RecastDelay = UtilCollection.Random(25, 35);
 					spell.ClientEffect = 4375;
 					spell.Icon = 4375;
 					spell.Name = "Disease";
@@ -365,7 +365,7 @@ namespace DOL.AI.Brain
 				{
 					if (CanCast2 == false)
 					{
-						GamePlayer Target = (GamePlayer)Enemys_To_DOT[Util.Random(0, Enemys_To_DOT.Count - 1)];//pick random target from list
+						GamePlayer Target = (GamePlayer)Enemys_To_DOT[UtilCollection.Random(0, Enemys_To_DOT.Count - 1)];//pick random target from list
 						RandomTarget2 = Target;//set random target to static RandomTarget
 						new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastDOT), 2000);
 						CanCast2 = true;
@@ -425,7 +425,7 @@ namespace DOL.AI.Brain
 				{
 					if (CanCast == false)
 					{
-						GamePlayer Target = (GamePlayer)Enemys_To_DD[Util.Random(0, Enemys_To_DD.Count - 1)];//pick random target from list
+						GamePlayer Target = (GamePlayer)Enemys_To_DD[UtilCollection.Random(0, Enemys_To_DD.Count - 1)];//pick random target from list
 						RandomTarget = Target;//set random target to static RandomTarget
 						new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(CastDD), 5000);
 						BroadcastMessage(String.Format(Body.Name + " taking a big flame breath at " + RandomTarget.Name + "."));
@@ -563,12 +563,12 @@ namespace DOL.AI.Brain
 				RemoveAdds = false;
 				if(StartCastDD==false)
                 {
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickRandomTarget), Util.Random(35000, 45000));
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickRandomTarget), UtilCollection.Random(35000, 45000));
 					StartCastDD = true;
 				}
 				if (StartCastDOT == false)
 				{
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickRandomTarget2), Util.Random(35000, 45000));
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(PickRandomTarget2), UtilCollection.Random(35000, 45000));
 					StartCastDOT = true;
 				}
 				if (IsPulled == false)
@@ -1021,7 +1021,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 0;
-					spell.RecastDelay = Util.Random(5,8);
+					spell.RecastDelay = UtilCollection.Random(5,8);
 					spell.ClientEffect = 4159;
 					spell.Icon = 4159;
 					spell.TooltipId = 4159;
@@ -1238,7 +1238,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 0;
-					spell.RecastDelay = Util.Random(5,8);
+					spell.RecastDelay = UtilCollection.Random(5,8);
 					spell.ClientEffect = 360;
 					spell.Icon = 360;
 					spell.TooltipId = 360;
@@ -1455,7 +1455,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 0;
-					spell.RecastDelay = Util.Random(5, 8);
+					spell.RecastDelay = UtilCollection.Random(5, 8);
 					spell.ClientEffect = 759;
 					spell.Icon = 759;
 					spell.TooltipId = 759;
@@ -1671,7 +1671,7 @@ namespace DOL.AI.Brain
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 0;
-					spell.RecastDelay = Util.Random(5, 8);
+					spell.RecastDelay = UtilCollection.Random(5, 8);
 					spell.ClientEffect = 219;
 					spell.Icon = 219;
 					spell.TooltipId = 219;

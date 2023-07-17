@@ -40,12 +40,12 @@ namespace DOL.GS
         }
         public override void OnAttackEnemy(AttackData ad) //on enemy actions
         {
-            if (Util.Chance(10) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
+            if (UtilCollection.Chance(10) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
             {
                 if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
                     CastSpell(NjessiPoison, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
             }
-            if (Util.Chance(30))
+            if (UtilCollection.Chance(30))
             {
                 if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
                     CastSpell(NjessiDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));

@@ -77,12 +77,12 @@ namespace DOL.GS
 		}
 		public override void OnAttackEnemy(AttackData ad) //on enemy actions
 		{
-			if (Util.Chance(70))
+			if (UtilCollection.Chance(70))
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 					CastSpell(CronkDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			}
-			if (Util.Chance(35) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.DexQuiDebuff))
+			if (UtilCollection.Chance(35) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.DexQuiDebuff))
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 					CastSpell(DebuffDQ, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
@@ -126,7 +126,7 @@ namespace DOL.GS
 					DBSpell spell = new DBSpell();
 					spell.AllowAdd = false;
 					spell.CastTime = 0;
-					spell.RecastDelay = Util.Random(25, 45);
+					spell.RecastDelay = UtilCollection.Random(25, 45);
 					spell.Duration = 60;
 					spell.Value = 78;
 					spell.ClientEffect = 2627;

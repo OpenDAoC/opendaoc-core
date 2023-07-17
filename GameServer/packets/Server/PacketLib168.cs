@@ -696,7 +696,7 @@ namespace DOL.GS.PacketHandler
 			//used for nearest friendly/enemy object buttons and name colors on PvP server
 		}
 
-		public virtual void SendObjectGuildID(GameObject obj, Guild guild)
+		public virtual void SendObjectGuildID(GameObject obj, GuildUtil guild)
 		{
 			using (var pak = new GSTCPPacketOut(GetPacketCode(eServerPackets.ObjectGuildID)))
 			{
@@ -932,7 +932,7 @@ namespace DOL.GS.PacketHandler
                         }
                         else
                         {
-                            if (!Util.IsEmpty(((DbLanguageGameObjects)translation).Name))
+                            if (!UtilCollection.IsEmpty(((DbLanguageGameObjects)translation).Name))
                                 name = ((DbLanguageGameObjects)translation).Name;
                         }
                     }
@@ -1060,10 +1060,10 @@ namespace DOL.GS.PacketHandler
                 LanguageDataObject translation = LanguageMgr.GetTranslation(m_gameClient, npc);
                 if (translation != null)
                 {
-                    if(!Util.IsEmpty(((DbLanguageNpcs)translation).Name))
+                    if(!UtilCollection.IsEmpty(((DbLanguageNpcs)translation).Name))
                         name = ((DbLanguageNpcs)translation).Name;
 
-                    if (!Util.IsEmpty(((DbLanguageNpcs)translation).GuildName))
+                    if (!UtilCollection.IsEmpty(((DbLanguageNpcs)translation).GuildName))
                         guildName = ((DbLanguageNpcs)translation).GuildName;
                 }
 
@@ -2256,9 +2256,9 @@ namespace DOL.GS.PacketHandler
 							pak.WriteShort((ushort)spec.Icon);
 							pak.WritePascalString(spec.Name);
 						}
-						else if (skill is Ability)
+						else if (skill is AbilityUtil)
 						{
-							Ability ab = (Ability)skill;
+							AbilityUtil ab = (AbilityUtil)skill;
 							pak.WriteByte((byte)0);
 							pak.WriteByte((byte)ab.SkillType);
 							pak.WriteShort(0);
@@ -2282,7 +2282,7 @@ namespace DOL.GS.PacketHandler
 							else
 							{
 								// find this line Specialization index !
-								if (skillrelated is SpellLine && !Util.IsEmpty(((SpellLine)skillrelated).Spec))
+								if (skillrelated is SpellLine && !UtilCollection.IsEmpty(((SpellLine)skillrelated).Spec))
 								{
 									spin = usableSkills.FindIndex(sk => (sk.Item1 is Specialization) && ((Specialization)sk.Item1).KeyName == ((SpellLine)skillrelated).Spec);
 
@@ -2401,8 +2401,8 @@ namespace DOL.GS.PacketHandler
 						int reqLevel = 1;
 						if (sp is Style)
 							reqLevel = ((Style)sp).SpecLevelRequirement;
-						else if (sp is Ability)
-							reqLevel = ((Ability)sp).SpecLevelRequirement;
+						else if (sp is AbilityUtil)
+							reqLevel = ((AbilityUtil)sp).SpecLevelRequirement;
 						else
 							reqLevel = sp.Level;
 
@@ -3496,7 +3496,7 @@ namespace DOL.GS.PacketHandler
 				LanguageDataObject translation = LanguageMgr.GetTranslation(m_gameClient, obj);
 				if (translation != null)
 				{
-					if (!Util.IsEmpty(((DbLanguageNpcs)translation).Name))
+					if (!UtilCollection.IsEmpty(((DbLanguageNpcs)translation).Name))
 						name = ((DbLanguageNpcs)translation).Name;
 				}
 
@@ -3530,7 +3530,7 @@ namespace DOL.GS.PacketHandler
                 LanguageDataObject translation = LanguageMgr.GetTranslation(m_gameClient, siegeWeapon);
                 if (translation != null)
                 {
-                    if (!Util.IsEmpty(((DbLanguageNpcs)translation).Name))
+                    if (!UtilCollection.IsEmpty(((DbLanguageNpcs)translation).Name))
                         name = ((DbLanguageNpcs)translation).Name;
                 }
 

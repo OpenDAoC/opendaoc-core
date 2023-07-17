@@ -313,7 +313,7 @@ namespace DOL.GS.Quests.Hibernia
 			Feairna_Athar.GuildName = "";
 			Feairna_Athar.Realm = ERealm.None;
 			Feairna_Athar.Race = 2007;
-			Feairna_Athar.BodyType = (ushort) NpcTemplateMgr.eBodyType.Plant;
+			Feairna_Athar.BodyType = (ushort) NpcTemplateMgr.EBodyType.Plant;
 			Feairna_Athar.CurrentRegionID = 181;
 			Feairna_Athar.Size = 100;
 			Feairna_Athar.Level = 65;
@@ -908,7 +908,7 @@ namespace DOL.GS.Quests.Hibernia
 						(m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel) / 2, false);
 				RemoveItem(m_questPlayer, glowing_red_jewel);
 				GiveItem(m_questPlayer, paidrean_necklace);
-				m_questPlayer.AddMoney(Money.GetMoney(0, 0, 121, 41, Util.Random(50)), "You receive {0} as a reward.");
+				m_questPlayer.AddMoney(Money.GetMoney(0, 0, 121, 41, UtilCollection.Random(50)), "You receive {0} as a reward.");
 
 
 				base.FinishQuest(); //Defined in Quest, changes the state, stores in DB etc ...

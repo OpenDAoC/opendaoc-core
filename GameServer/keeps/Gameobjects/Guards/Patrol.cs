@@ -65,7 +65,7 @@ namespace DOL.GS.Keeps
 		/// <summary>
 		/// The Patrol Path
 		/// </summary>
-		public PathPoint PatrolPath = null;
+		public PathPointUtil PatrolPath = null;
 
 		/// <summary>
 		/// Method to Initialise the Guards
@@ -192,8 +192,8 @@ namespace DOL.GS.Keeps
 					}
 					else
 					{
-						x += Util.Random(250, 350);
-						y += Util.Random(250, 350);
+						x += UtilCollection.Random(250, 350);
+						y += UtilCollection.Random(250, 350);
 					}
 
 					if (guard.IsAlive)

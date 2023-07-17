@@ -20,12 +20,12 @@ namespace DOL.GS
                     *Q: What does the confusion spell do against players?
                     *A: According to the magic man, “Confusion against a player interrupts their current action, whether it's a bow shot or spellcast.
                     */
-                if (SpellHandler.Spell.Value < 0 || Util.Chance(Convert.ToInt32(Math.Abs(SpellHandler.Spell.Value))))
+                if (SpellHandler.Spell.Value < 0 || UtilCollection.Chance(Convert.ToInt32(Math.Abs(SpellHandler.Spell.Value))))
                 {
                     //Spell value below 0 means it's 100% chance to confuse.
                     GamePlayer gPlayer = Owner as GamePlayer;
 
-                    gPlayer.StartInterruptTimer(gPlayer.SpellInterruptDuration, AttackData.eAttackType.Spell, SpellHandler.Caster);
+                    gPlayer.StartInterruptTimer(gPlayer.SpellInterruptDuration, AttackData.EAttackType.Spell, SpellHandler.Caster);
                     
                     // "You can't focus your knight viking badger helmet... meow!"
                     // "{0} is confused!"
@@ -38,12 +38,12 @@ namespace DOL.GS
             {
                 //check if we should do anything at all.
 
-                bool doConfuse = (SpellHandler.Spell.Value < 0 || Util.Chance(Convert.ToInt32(SpellHandler.Spell.Value)));
+                bool doConfuse = (SpellHandler.Spell.Value < 0 || UtilCollection.Chance(Convert.ToInt32(SpellHandler.Spell.Value)));
 
                 if (!doConfuse)
                     return;
 
-                bool doAttackFriend = SpellHandler.Spell.Value < 0 && Util.Chance(Convert.ToInt32(Math.Abs(SpellHandler.Spell.Value)));
+                bool doAttackFriend = SpellHandler.Spell.Value < 0 && UtilCollection.Chance(Convert.ToInt32(Math.Abs(SpellHandler.Spell.Value)));
 
                 GameNPC npc = Owner as GameNPC;
 
@@ -105,7 +105,7 @@ namespace DOL.GS
                     npc.StopAttack();
                     npc.StopCurrentSpellcast();
 
-                    GameLiving target = (SpellHandler as ConfusionSpellHandler).targetList[Util.Random((SpellHandler as ConfusionSpellHandler).targetList.Count - 1)] as GameLiving;
+                    GameLiving target = (SpellHandler as ConfusionSpellHandler).targetList[UtilCollection.Random((SpellHandler as ConfusionSpellHandler).targetList.Count - 1)] as GameLiving;
                     npc.StartAttack(target);
                 }
             }
@@ -128,7 +128,7 @@ namespace DOL.GS
                 npc.StopAttack();
                 npc.StopCurrentSpellcast();
 
-                GameLiving target = (SpellHandler as ConfusionSpellHandler).targetList[Util.Random((SpellHandler as ConfusionSpellHandler).targetList.Count - 1)] as GameLiving;
+                GameLiving target = (SpellHandler as ConfusionSpellHandler).targetList[UtilCollection.Random((SpellHandler as ConfusionSpellHandler).targetList.Count - 1)] as GameLiving;
 
                 npc.StartAttack(target);
             }

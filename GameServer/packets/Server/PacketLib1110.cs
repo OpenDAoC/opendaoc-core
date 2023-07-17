@@ -183,7 +183,7 @@ namespace DOL.GS.PacketHandler
 					if (m_gameClient.CanSendTooltip(27, t.InternalID))
 						SendDelveInfo(DetailDisplayHandler.DelveRealmAbility(m_gameClient, t.InternalID));
 				}
-				else if (t is Ability)
+				else if (t is AbilityUtil)
 				{
 					if (m_gameClient.CanSendTooltip(28, t.InternalID))
 						SendDelveInfo(DetailDisplayHandler.DelveAbility(m_gameClient, t.InternalID));

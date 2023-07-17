@@ -5,7 +5,7 @@ namespace DOL.GS
 	/// <summary>
 	/// the master for armorcrafting
 	/// </summary>
-	[NPCGuildScript("Fletchers Master")]
+	[NpcGuild("Fletchers Master")]
 	public class FletchingMaster : CraftNPC
 	{
 		private static readonly eCraftingSkill[] m_trainedSkills = 

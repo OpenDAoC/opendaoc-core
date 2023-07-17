@@ -252,7 +252,7 @@ namespace DOL.GS
             }
         }
 
-        private class CloseDoorAction : AuxRegionECSAction
+        private class CloseDoorAction : AuxRegionAction
         {
             public CloseDoorAction(GameDoor door) : base(door) { }
 

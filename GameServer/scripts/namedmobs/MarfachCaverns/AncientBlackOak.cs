@@ -15,7 +15,7 @@ namespace DOL.GS
         }
         public override void OnAttackEnemy(AttackData ad) //on enemy actions
         {
-            if (Util.Chance(50))
+            if (UtilCollection.Chance(50))
             {
                 if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
                 {
@@ -112,7 +112,7 @@ namespace DOL.GS
             Empathy = npcTemplate.Empathy;
             Faction = FactionMgr.GetFactionByID(187);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(187));
-            BodyType = (ushort)NpcTemplateMgr.eBodyType.Plant;
+            BodyType = (ushort)NpcTemplateMgr.EBodyType.Plant;
             AncientBlackOakBrain.IsPulled = false;
             OakCount =1;
             MeleeDamageType = EDamageType.Matter;

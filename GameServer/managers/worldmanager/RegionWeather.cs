@@ -96,10 +96,10 @@ namespace DOL.GS
 		public void CreateWeather(long StartTime)
 		{
 			CreateWeather(
-				(uint)Util.Random(25000, 90000),
-				(ushort)Util.Random(100, 700),
-				(ushort)Util.Random(30, 110),
-				(ushort)Util.Random(16000, 32000),
+				(uint)UtilCollection.Random(25000, 90000),
+				(ushort)UtilCollection.Random(100, 700),
+				(ushort)UtilCollection.Random(30, 110),
+				(ushort)UtilCollection.Random(16000, 32000),
 				StartTime
 			);
 		}

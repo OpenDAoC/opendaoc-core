@@ -77,14 +77,14 @@ namespace DOL.GS
 		}
 		public override void OnAttackEnemy(AttackData ad) //on enemy actions
 		{
-			if (Util.Chance(35) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.Bleed))
+			if (UtilCollection.Chance(35) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.Bleed))
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 					CastSpell(BasiliusBleed, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			}
 			if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 			{
-				if (Util.Chance(35) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.StunImmunity) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.Stun) && ad.Target.IsAlive)
+				if (UtilCollection.Chance(35) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.StunImmunity) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.Stun) && ad.Target.IsAlive)
 					CastSpell(Basilius_stun, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			}
 			base.OnAttackEnemy(ad);

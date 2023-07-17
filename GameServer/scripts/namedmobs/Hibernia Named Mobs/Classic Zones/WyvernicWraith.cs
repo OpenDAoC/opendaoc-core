@@ -77,7 +77,7 @@ namespace DOL.GS
 		}
 		public override void OnAttackEnemy(AttackData ad) //on enemy actions
 		{
-			if (Util.Chance(25))
+			if (UtilCollection.Chance(25))
 			{
 				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 					CastSpell(WyvernicWraithDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));

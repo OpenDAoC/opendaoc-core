@@ -315,7 +315,7 @@ public class LostStoneofArawn : BaseQuest
         Nyaegha.GuildName = "";
         Nyaegha.Realm = ERealm.None;
         Nyaegha.Race = 2001;
-        Nyaegha.BodyType = (ushort) NpcTemplateMgr.eBodyType.Demon;
+        Nyaegha.BodyType = (ushort) NpcTemplateMgr.EBodyType.Demon;
         Nyaegha.CurrentRegionID = 51;
         Nyaegha.Size = 150;
         Nyaegha.Level = 65;
@@ -788,7 +788,7 @@ public class LostStoneofArawn : BaseQuest
                     (m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel) / 2, false);
             RemoveItem(m_questPlayer, scroll_wearyall_loststone);
             GiveItem(m_questPlayer, ancient_copper_necklace);
-            m_questPlayer.AddMoney(Money.GetMoney(0, 0, 121, 41, Util.Random(50)), "You receive {0} as a reward.");
+            m_questPlayer.AddMoney(Money.GetMoney(0, 0, 121, 41, UtilCollection.Random(50)), "You receive {0} as a reward.");
 
             base.FinishQuest(); //Defined in Quest, changes the state, stores in DB etc ...
         }

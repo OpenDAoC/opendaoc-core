@@ -45,7 +45,7 @@ namespace DOL.GS.Scripts
 
             if (!IsRevealed)
             {
-                switch (Util.Random(8))
+                switch (UtilCollection.Random(8))
                 {
                     case 0:
                         Model = 138; // troll male

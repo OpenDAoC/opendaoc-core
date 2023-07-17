@@ -270,7 +270,7 @@ namespace DOL.AI.Brain
 				}
 				if (Port_Enemys.Count > 0)
 				{
-					GamePlayer Target = (GamePlayer)Port_Enemys[Util.Random(0, Port_Enemys.Count - 1)];
+					GamePlayer Target = (GamePlayer)Port_Enemys[UtilCollection.Random(0, Port_Enemys.Count - 1)];
 					RandomTarget = Target;
 					if (RandomTarget.IsAlive && RandomTarget != null)
 					{
@@ -298,7 +298,7 @@ namespace DOL.AI.Brain
 			{
 				if (IsTargetPicked == false)
                 {
-					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ThrowPlayer), Util.Random(10000, 15000));//timer to port and pick player
+					new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(ThrowPlayer), UtilCollection.Random(10000, 15000));//timer to port and pick player
 					IsTargetPicked = true;
                 }
 				if (IsPulled == false)
@@ -385,7 +385,7 @@ namespace DOL.GS
 			Model = 823;
 			Name = "Sys'sro's Pit Monster";
 			Size = 37;
-			Level = (byte)Util.Random(60, 65);
+			Level = (byte)UtilCollection.Random(60, 65);
 			Strength = 80;
 			Dexterity = 200;
 			Constitution = 100;

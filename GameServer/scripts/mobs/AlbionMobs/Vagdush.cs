@@ -34,7 +34,7 @@ namespace DOL.GS
 		}
 		public override void Die(GameObject killer)
 		{
-			switch (Util.Random(1, 2))
+			switch (UtilCollection.Random(1, 2))
 			{
 				case 1:
 					SpawnPoint.X = 421759;
@@ -98,7 +98,7 @@ namespace DOL.AI.Brain
 				if(!target.IsWithinRadius(Body,Body.AttackRange) && target.IsAlive && target != null)
                 {
 					Body.MaxSpeedBase = 0;
-					if (!Body.IsCasting && Util.Chance(100))
+					if (!Body.IsCasting && UtilCollection.Chance(100))
 					{
 						if (!target.effectListComponent.ContainsEffectForEffectType(EEffect.Disease))
 							Body.CastSpell(VagdushDisease, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));

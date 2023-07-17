@@ -228,7 +228,7 @@ namespace DOL.GS.Spells
 			// }
 
 			base.ApplyEffectOnTarget(target, effectiveness);
-			target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.eAttackType.Spell, Caster);
+			target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.EAttackType.Spell, Caster);
 		}
 
 		protected override GameSpellEffect CreateSpellEffect(GameLiving target, double effectiveness)
@@ -251,7 +251,7 @@ namespace DOL.GS.Spells
 				// An acidic cloud surrounds you!
 				MessageToLiving(effect.Owner, Spell.Message1, eChatType.CT_Spell);
 				// {0} is surrounded by an acidic cloud!
-				Message.SystemToArea(effect.Owner, Util.MakeSentence(Spell.Message2, effect.Owner.GetName(0, false)), eChatType.CT_YouHit, effect.Owner);
+				Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message2, effect.Owner.GetName(0, false)), eChatType.CT_YouHit, effect.Owner);
 				OnDirectEffect(effect.Owner, effect.Effectiveness);
 			}
 		}
@@ -271,7 +271,7 @@ namespace DOL.GS.Spells
 				// The acidic mist around you dissipates.
 				MessageToLiving(effect.Owner, Spell.Message3, eChatType.CT_SpellExpires);
 				// The acidic mist around {0} dissipates.
-				Message.SystemToArea(effect.Owner, Util.MakeSentence(Spell.Message4, effect.Owner.GetName(0, false)), eChatType.CT_SpellExpires, effect.Owner);
+				Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, effect.Owner.GetName(0, false)), eChatType.CT_SpellExpires, effect.Owner);
 			}
 			return 0;
 		}
@@ -354,7 +354,7 @@ namespace DOL.GS.Spells
 			if (criticalChance < 0)
 				return 0;
 
-			int randNum = Util.CryptoNextInt(1, 100);
+			int randNum = UtilCollection.CryptoNextInt(1, 100);
 			int critCap = Math.Min(50, criticalChance);
 
 			if (Caster is GamePlayer spellCaster && spellCaster.UseDetailedCombatLog && critCap > 0)
@@ -363,7 +363,7 @@ namespace DOL.GS.Spells
 			if (critCap > randNum && (ad.Damage >= 1))
 			{
 				int critmax = (ad.Target is GamePlayer) ? ad.Damage / 2 : ad.Damage;
-				CriticalDamage = Util.Random(ad.Damage / 10, critmax); //tThink min crit is 10% of damage
+				CriticalDamage = UtilCollection.Random(ad.Damage / 10, critmax); //tThink min crit is 10% of damage
 			}
 
 			return CriticalDamage;

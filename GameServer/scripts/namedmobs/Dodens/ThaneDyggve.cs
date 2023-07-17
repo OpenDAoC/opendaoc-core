@@ -133,7 +133,7 @@ namespace DOL.GS.Scripts
 						{
 							if (castsMjollnir)
 							{
-								int messageNo = Util.Random(1, m_MjollnirAnnounce.Length) - 1;
+								int messageNo = UtilCollection.Random(1, m_MjollnirAnnounce.Length) - 1;
 								BroadcastMessage(String.Format(m_MjollnirAnnounce[messageNo], Body.Name));
 							}
 							castsMjollnir = false;

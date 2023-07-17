@@ -129,7 +129,7 @@ namespace DOL.GS.Commands
         public void OnCommand(GameClient client, string[] args)
         {
             bool getcloak;
-            if (Util.Random(1) == 0) getcloak = false;
+            if (UtilCollection.Random(1) == 0) getcloak = false;
             else getcloak = true;
 
             if (args.Length < 2)
@@ -250,74 +250,74 @@ namespace DOL.GS.Commands
                                 {
                                     if (args.Length == 3)
                                     {
-                                        switch (Util.Random(5))
+                                        switch (UtilCollection.Random(5))
                                         {
                                             case 0:
-                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[0][i][Util.Random(armor[0][i].Length - 1)], color, 0);
+                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[0][i][UtilCollection.Random(armor[0][i].Length - 1)], color, 0);
                                                 break;
                                             case 1:
-                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[1][i][Util.Random(armor[1][i].Length - 1)], color, 0);
+                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[1][i][UtilCollection.Random(armor[1][i].Length - 1)], color, 0);
                                                 break;
                                             case 2:
-                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[2][i][Util.Random(armor[2][i].Length - 1)], color, 0);
+                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[2][i][UtilCollection.Random(armor[2][i].Length - 1)], color, 0);
                                                 break;
                                             case 3:
-                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[3][i][Util.Random(armor[3][i].Length - 1)], color, 0);
+                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[3][i][UtilCollection.Random(armor[3][i].Length - 1)], color, 0);
                                                 break;
                                             case 4:
-                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[4][i][Util.Random(armor[4][i].Length - 1)], color, 0);
+                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[4][i][UtilCollection.Random(armor[4][i].Length - 1)], color, 0);
                                                 break;
                                             case 5:
-                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[5][i][Util.Random(armor[5][i].Length - 1)], color, 0);
+                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[5][i][UtilCollection.Random(armor[5][i].Length - 1)], color, 0);
                                                 break;
                                         }
                                     }
                                     else
                                     {
-                                        switch (Util.Random(5))
+                                        switch (UtilCollection.Random(5))
                                         {
                                             case 0:
-                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[0][i][Util.Random(armor[0][i].Length - 1)], colorArray[i], 0);
+                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[0][i][UtilCollection.Random(armor[0][i].Length - 1)], colorArray[i], 0);
                                                 break;
                                             case 1:
-                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[1][i][Util.Random(armor[1][i].Length - 1)], colorArray[i], 0);
+                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[1][i][UtilCollection.Random(armor[1][i].Length - 1)], colorArray[i], 0);
                                                 break;
                                             case 2:
-                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[2][i][Util.Random(armor[2][i].Length - 1)], colorArray[i], 0);
+                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[2][i][UtilCollection.Random(armor[2][i].Length - 1)], colorArray[i], 0);
                                                 break;
                                             case 3:
-                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[3][i][Util.Random(armor[3][i].Length - 1)], colorArray[i], 0);
+                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[3][i][UtilCollection.Random(armor[3][i].Length - 1)], colorArray[i], 0);
                                                 break;
                                             case 4:
-                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[4][i][Util.Random(armor[4][i].Length - 1)], colorArray[i], 0);
+                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[4][i][UtilCollection.Random(armor[4][i].Length - 1)], colorArray[i], 0);
                                                 break;
                                             case 5:
-                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[5][i][Util.Random(armor[5][i].Length - 1)], colorArray[i], 0);
+                                                template.AddNPCEquipment((eInventorySlot)slots[i], armor[5][i][UtilCollection.Random(armor[5][i].Length - 1)], colorArray[i], 0);
                                                 break;
                                         }
                                     }
                                 }
                                 else
                                 {
-                                    switch (Util.Random(5))
+                                    switch (UtilCollection.Random(5))
                                     {
                                         case 0:
-                                            template.AddNPCEquipment((eInventorySlot)slots[i], armor[0][i][Util.Random(armor[0][i].Length - 1)], Util.Random(86), 0);
+                                            template.AddNPCEquipment((eInventorySlot)slots[i], armor[0][i][UtilCollection.Random(armor[0][i].Length - 1)], UtilCollection.Random(86), 0);
                                             break;
                                         case 1:
-                                            template.AddNPCEquipment((eInventorySlot)slots[i], armor[1][i][Util.Random(armor[1][i].Length - 1)], Util.Random(86), 0);
+                                            template.AddNPCEquipment((eInventorySlot)slots[i], armor[1][i][UtilCollection.Random(armor[1][i].Length - 1)], UtilCollection.Random(86), 0);
                                             break;
                                         case 2:
-                                            template.AddNPCEquipment((eInventorySlot)slots[i], armor[2][i][Util.Random(armor[2][i].Length - 1)], Util.Random(86), 0);
+                                            template.AddNPCEquipment((eInventorySlot)slots[i], armor[2][i][UtilCollection.Random(armor[2][i].Length - 1)], UtilCollection.Random(86), 0);
                                             break;
                                         case 3:
-                                            template.AddNPCEquipment((eInventorySlot)slots[i], armor[3][i][Util.Random(armor[3][i].Length - 1)], Util.Random(86), 0);
+                                            template.AddNPCEquipment((eInventorySlot)slots[i], armor[3][i][UtilCollection.Random(armor[3][i].Length - 1)], UtilCollection.Random(86), 0);
                                             break;
                                         case 4:
-                                            template.AddNPCEquipment((eInventorySlot)slots[i], armor[4][i][Util.Random(armor[4][i].Length - 1)], Util.Random(86), 0);
+                                            template.AddNPCEquipment((eInventorySlot)slots[i], armor[4][i][UtilCollection.Random(armor[4][i].Length - 1)], UtilCollection.Random(86), 0);
                                             break;
                                         case 5:
-                                            template.AddNPCEquipment((eInventorySlot)slots[i], armor[5][i][Util.Random(armor[5][i].Length - 1)], Util.Random(86), 0);
+                                            template.AddNPCEquipment((eInventorySlot)slots[i], armor[5][i][UtilCollection.Random(armor[5][i].Length - 1)], UtilCollection.Random(86), 0);
                                             break;
                                     }
                                 }
@@ -335,31 +335,31 @@ namespace DOL.GS.Commands
                             {
                                 if (args.Length == 3)
                                 {
-                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[0][0][Util.Random(armor[0][0].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[0][1][Util.Random(armor[0][1].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[0][2][Util.Random(armor[0][2].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[0][3][Util.Random(armor[0][3].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[0][4][Util.Random(armor[0][4].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[0][5][Util.Random(armor[0][5].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[0][0][UtilCollection.Random(armor[0][0].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[0][1][UtilCollection.Random(armor[0][1].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[0][2][UtilCollection.Random(armor[0][2].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[0][3][UtilCollection.Random(armor[0][3].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[0][4][UtilCollection.Random(armor[0][4].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[0][5][UtilCollection.Random(armor[0][5].Length - 1)], color, 0);
                                 }
                                 else
                                 {
-                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[0][0][Util.Random(armor[0][0].Length - 1)], color1, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[0][1][Util.Random(armor[0][1].Length - 1)], color2, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[0][2][Util.Random(armor[0][2].Length - 1)], color3, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[0][3][Util.Random(armor[0][3].Length - 1)], color4, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[0][4][Util.Random(armor[0][4].Length - 1)], color5, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[0][5][Util.Random(armor[0][5].Length - 1)], color6, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[0][0][UtilCollection.Random(armor[0][0].Length - 1)], color1, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[0][1][UtilCollection.Random(armor[0][1].Length - 1)], color2, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[0][2][UtilCollection.Random(armor[0][2].Length - 1)], color3, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[0][3][UtilCollection.Random(armor[0][3].Length - 1)], color4, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[0][4][UtilCollection.Random(armor[0][4].Length - 1)], color5, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[0][5][UtilCollection.Random(armor[0][5].Length - 1)], color6, 0);
                                 }
                             }
                             else
                             {
-                                template.AddNPCEquipment((eInventorySlot)slots[0], armor[0][0][Util.Random(armor[0][0].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[1], armor[0][1][Util.Random(armor[0][1].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[2], armor[0][2][Util.Random(armor[0][2].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[3], armor[0][3][Util.Random(armor[0][3].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[4], armor[0][4][Util.Random(armor[0][4].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[5], armor[0][5][Util.Random(armor[0][5].Length - 1)], Util.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[0], armor[0][0][UtilCollection.Random(armor[0][0].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[1], armor[0][1][UtilCollection.Random(armor[0][1].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[2], armor[0][2][UtilCollection.Random(armor[0][2].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[3], armor[0][3][UtilCollection.Random(armor[0][3].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[4], armor[0][4][UtilCollection.Random(armor[0][4].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[5], armor[0][5][UtilCollection.Random(armor[0][5].Length - 1)], UtilCollection.Random(86), 0);
                             }
                             if (getcloak)
                                 goto case "cloak";
@@ -374,31 +374,31 @@ namespace DOL.GS.Commands
                             {
                                 if (args.Length == 3)
                                 {
-                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[1][0][Util.Random(armor[1][0].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[1][1][Util.Random(armor[1][1].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[1][2][Util.Random(armor[1][2].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[1][3][Util.Random(armor[1][3].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[1][4][Util.Random(armor[1][4].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[1][5][Util.Random(armor[1][5].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[1][0][UtilCollection.Random(armor[1][0].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[1][1][UtilCollection.Random(armor[1][1].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[1][2][UtilCollection.Random(armor[1][2].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[1][3][UtilCollection.Random(armor[1][3].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[1][4][UtilCollection.Random(armor[1][4].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[1][5][UtilCollection.Random(armor[1][5].Length - 1)], color, 0);
                                 }
                                 else
                                 {
-                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[1][0][Util.Random(armor[1][0].Length - 1)], color1, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[1][1][Util.Random(armor[1][1].Length - 1)], color2, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[1][2][Util.Random(armor[1][2].Length - 1)], color3, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[1][3][Util.Random(armor[1][3].Length - 1)], color4, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[1][4][Util.Random(armor[1][4].Length - 1)], color5, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[1][5][Util.Random(armor[1][5].Length - 1)], color6, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[1][0][UtilCollection.Random(armor[1][0].Length - 1)], color1, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[1][1][UtilCollection.Random(armor[1][1].Length - 1)], color2, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[1][2][UtilCollection.Random(armor[1][2].Length - 1)], color3, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[1][3][UtilCollection.Random(armor[1][3].Length - 1)], color4, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[1][4][UtilCollection.Random(armor[1][4].Length - 1)], color5, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[1][5][UtilCollection.Random(armor[1][5].Length - 1)], color6, 0);
                                 }
                             }
                             else
                             {
-                                template.AddNPCEquipment((eInventorySlot)slots[0], armor[1][0][Util.Random(armor[1][0].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[1], armor[1][1][Util.Random(armor[1][1].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[2], armor[1][2][Util.Random(armor[1][2].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[3], armor[1][3][Util.Random(armor[1][3].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[4], armor[1][4][Util.Random(armor[1][4].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[5], armor[1][5][Util.Random(armor[1][5].Length - 1)], Util.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[0], armor[1][0][UtilCollection.Random(armor[1][0].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[1], armor[1][1][UtilCollection.Random(armor[1][1].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[2], armor[1][2][UtilCollection.Random(armor[1][2].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[3], armor[1][3][UtilCollection.Random(armor[1][3].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[4], armor[1][4][UtilCollection.Random(armor[1][4].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[5], armor[1][5][UtilCollection.Random(armor[1][5].Length - 1)], UtilCollection.Random(86), 0);
                             }
                             if (getcloak)
                                 goto case "cloak";
@@ -413,31 +413,31 @@ namespace DOL.GS.Commands
                             {
                                 if (args.Length == 3)
                                 {
-                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[2][0][Util.Random(armor[2][0].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[2][1][Util.Random(armor[2][1].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[2][2][Util.Random(armor[2][2].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[2][3][Util.Random(armor[2][3].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[2][4][Util.Random(armor[2][4].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[2][5][Util.Random(armor[2][5].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[2][0][UtilCollection.Random(armor[2][0].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[2][1][UtilCollection.Random(armor[2][1].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[2][2][UtilCollection.Random(armor[2][2].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[2][3][UtilCollection.Random(armor[2][3].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[2][4][UtilCollection.Random(armor[2][4].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[2][5][UtilCollection.Random(armor[2][5].Length - 1)], color, 0);
                                 }
                                 else
                                 {
-                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[2][0][Util.Random(armor[2][0].Length - 1)], color1, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[2][1][Util.Random(armor[2][1].Length - 1)], color2, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[2][2][Util.Random(armor[2][2].Length - 1)], color3, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[2][3][Util.Random(armor[2][3].Length - 1)], color4, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[2][4][Util.Random(armor[2][4].Length - 1)], color5, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[2][5][Util.Random(armor[2][5].Length - 1)], color6, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[2][0][UtilCollection.Random(armor[2][0].Length - 1)], color1, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[2][1][UtilCollection.Random(armor[2][1].Length - 1)], color2, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[2][2][UtilCollection.Random(armor[2][2].Length - 1)], color3, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[2][3][UtilCollection.Random(armor[2][3].Length - 1)], color4, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[2][4][UtilCollection.Random(armor[2][4].Length - 1)], color5, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[2][5][UtilCollection.Random(armor[2][5].Length - 1)], color6, 0);
                                 }
                             }
                             else
                             {
-                                template.AddNPCEquipment((eInventorySlot)slots[0], armor[2][0][Util.Random(armor[2][0].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[1], armor[2][1][Util.Random(armor[2][1].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[2], armor[2][2][Util.Random(armor[2][2].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[3], armor[2][3][Util.Random(armor[2][3].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[4], armor[2][4][Util.Random(armor[2][4].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[5], armor[2][5][Util.Random(armor[2][5].Length - 1)], Util.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[0], armor[2][0][UtilCollection.Random(armor[2][0].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[1], armor[2][1][UtilCollection.Random(armor[2][1].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[2], armor[2][2][UtilCollection.Random(armor[2][2].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[3], armor[2][3][UtilCollection.Random(armor[2][3].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[4], armor[2][4][UtilCollection.Random(armor[2][4].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[5], armor[2][5][UtilCollection.Random(armor[2][5].Length - 1)], UtilCollection.Random(86), 0);
                             }
                             if (getcloak)
                                 goto case "cloak";
@@ -452,31 +452,31 @@ namespace DOL.GS.Commands
                             {
                                 if (args.Length == 3)
                                 {
-                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[3][0][Util.Random(armor[3][0].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[3][1][Util.Random(armor[3][1].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[3][2][Util.Random(armor[3][2].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[3][3][Util.Random(armor[3][3].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[3][4][Util.Random(armor[3][4].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[3][5][Util.Random(armor[3][5].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[3][0][UtilCollection.Random(armor[3][0].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[3][1][UtilCollection.Random(armor[3][1].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[3][2][UtilCollection.Random(armor[3][2].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[3][3][UtilCollection.Random(armor[3][3].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[3][4][UtilCollection.Random(armor[3][4].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[3][5][UtilCollection.Random(armor[3][5].Length - 1)], color, 0);
                                 }
                                 else
                                 {
-                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[3][0][Util.Random(armor[3][0].Length - 1)], color1, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[3][1][Util.Random(armor[3][1].Length - 1)], color2, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[3][2][Util.Random(armor[3][2].Length - 1)], color3, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[3][3][Util.Random(armor[3][3].Length - 1)], color4, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[3][4][Util.Random(armor[3][4].Length - 1)], color5, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[3][5][Util.Random(armor[3][5].Length - 1)], color6, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[3][0][UtilCollection.Random(armor[3][0].Length - 1)], color1, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[3][1][UtilCollection.Random(armor[3][1].Length - 1)], color2, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[3][2][UtilCollection.Random(armor[3][2].Length - 1)], color3, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[3][3][UtilCollection.Random(armor[3][3].Length - 1)], color4, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[3][4][UtilCollection.Random(armor[3][4].Length - 1)], color5, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[3][5][UtilCollection.Random(armor[3][5].Length - 1)], color6, 0);
                                 }
                             }
                             else
                             {
-                                template.AddNPCEquipment((eInventorySlot)slots[0], armor[3][0][Util.Random(armor[3][0].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[1], armor[3][1][Util.Random(armor[3][1].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[2], armor[3][2][Util.Random(armor[3][2].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[3], armor[3][3][Util.Random(armor[3][3].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[4], armor[3][4][Util.Random(armor[3][4].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[5], armor[3][5][Util.Random(armor[3][5].Length - 1)], Util.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[0], armor[3][0][UtilCollection.Random(armor[3][0].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[1], armor[3][1][UtilCollection.Random(armor[3][1].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[2], armor[3][2][UtilCollection.Random(armor[3][2].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[3], armor[3][3][UtilCollection.Random(armor[3][3].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[4], armor[3][4][UtilCollection.Random(armor[3][4].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[5], armor[3][5][UtilCollection.Random(armor[3][5].Length - 1)], UtilCollection.Random(86), 0);
                             }
                             if (getcloak)
                                 goto case "cloak";
@@ -491,31 +491,31 @@ namespace DOL.GS.Commands
                             {
                                 if (args.Length == 3)
                                 {
-                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[4][0][Util.Random(armor[4][0].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[4][1][Util.Random(armor[4][1].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[4][2][Util.Random(armor[4][2].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[4][3][Util.Random(armor[4][3].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[4][4][Util.Random(armor[4][4].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[4][5][Util.Random(armor[4][5].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[4][0][UtilCollection.Random(armor[4][0].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[4][1][UtilCollection.Random(armor[4][1].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[4][2][UtilCollection.Random(armor[4][2].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[4][3][UtilCollection.Random(armor[4][3].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[4][4][UtilCollection.Random(armor[4][4].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[4][5][UtilCollection.Random(armor[4][5].Length - 1)], color, 0);
                                 }
                                 else
                                 {
-                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[4][0][Util.Random(armor[4][0].Length - 1)], color1, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[4][1][Util.Random(armor[4][1].Length - 1)], color2, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[4][2][Util.Random(armor[4][2].Length - 1)], color3, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[4][3][Util.Random(armor[4][3].Length - 1)], color4, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[4][4][Util.Random(armor[4][4].Length - 1)], color5, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[4][5][Util.Random(armor[4][5].Length - 1)], color6, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[4][0][UtilCollection.Random(armor[4][0].Length - 1)], color1, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[4][1][UtilCollection.Random(armor[4][1].Length - 1)], color2, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[4][2][UtilCollection.Random(armor[4][2].Length - 1)], color3, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[4][3][UtilCollection.Random(armor[4][3].Length - 1)], color4, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[4][4][UtilCollection.Random(armor[4][4].Length - 1)], color5, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[4][5][UtilCollection.Random(armor[4][5].Length - 1)], color6, 0);
                                 }
                             }
                             else
                             {
-                                template.AddNPCEquipment((eInventorySlot)slots[0], armor[4][0][Util.Random(armor[4][0].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[1], armor[4][1][Util.Random(armor[4][1].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[2], armor[4][2][Util.Random(armor[4][2].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[3], armor[4][3][Util.Random(armor[4][3].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[4], armor[4][4][Util.Random(armor[4][4].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[5], armor[4][5][Util.Random(armor[4][5].Length - 1)], Util.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[0], armor[4][0][UtilCollection.Random(armor[4][0].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[1], armor[4][1][UtilCollection.Random(armor[4][1].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[2], armor[4][2][UtilCollection.Random(armor[4][2].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[3], armor[4][3][UtilCollection.Random(armor[4][3].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[4], armor[4][4][UtilCollection.Random(armor[4][4].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[5], armor[4][5][UtilCollection.Random(armor[4][5].Length - 1)], UtilCollection.Random(86), 0);
                             }
                             if (getcloak)
                                 goto case "cloak";
@@ -530,31 +530,31 @@ namespace DOL.GS.Commands
                             {
                                 if (args.Length == 3)
                                 {
-                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[5][0][Util.Random(armor[5][0].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[5][1][Util.Random(armor[5][1].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[5][2][Util.Random(armor[5][2].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[5][3][Util.Random(armor[5][3].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[5][4][Util.Random(armor[5][4].Length - 1)], color, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[5][5][Util.Random(armor[5][5].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[5][0][UtilCollection.Random(armor[5][0].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[5][1][UtilCollection.Random(armor[5][1].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[5][2][UtilCollection.Random(armor[5][2].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[5][3][UtilCollection.Random(armor[5][3].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[5][4][UtilCollection.Random(armor[5][4].Length - 1)], color, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[5][5][UtilCollection.Random(armor[5][5].Length - 1)], color, 0);
                                 }
                                 else
                                 {
-                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[5][0][Util.Random(armor[5][0].Length - 1)], color1, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[5][1][Util.Random(armor[5][1].Length - 1)], color2, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[5][2][Util.Random(armor[5][2].Length - 1)], color3, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[5][3][Util.Random(armor[5][3].Length - 1)], color4, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[5][4][Util.Random(armor[5][4].Length - 1)], color5, 0);
-                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[5][5][Util.Random(armor[5][5].Length - 1)], color6, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[0], armor[5][0][UtilCollection.Random(armor[5][0].Length - 1)], color1, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[1], armor[5][1][UtilCollection.Random(armor[5][1].Length - 1)], color2, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[2], armor[5][2][UtilCollection.Random(armor[5][2].Length - 1)], color3, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[3], armor[5][3][UtilCollection.Random(armor[5][3].Length - 1)], color4, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[4], armor[5][4][UtilCollection.Random(armor[5][4].Length - 1)], color5, 0);
+                                    template.AddNPCEquipment((eInventorySlot)slots[5], armor[5][5][UtilCollection.Random(armor[5][5].Length - 1)], color6, 0);
                                 }
                             }
                             else
                             {
-                                template.AddNPCEquipment((eInventorySlot)slots[0], armor[5][0][Util.Random(armor[5][0].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[1], armor[5][1][Util.Random(armor[5][1].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[2], armor[5][2][Util.Random(armor[5][2].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[3], armor[5][3][Util.Random(armor[5][3].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[4], armor[5][4][Util.Random(armor[5][4].Length - 1)], Util.Random(86), 0);
-                                template.AddNPCEquipment((eInventorySlot)slots[5], armor[5][5][Util.Random(armor[5][5].Length - 1)], Util.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[0], armor[5][0][UtilCollection.Random(armor[5][0].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[1], armor[5][1][UtilCollection.Random(armor[5][1].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[2], armor[5][2][UtilCollection.Random(armor[5][2].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[3], armor[5][3][UtilCollection.Random(armor[5][3].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[4], armor[5][4][UtilCollection.Random(armor[5][4].Length - 1)], UtilCollection.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[5], armor[5][5][UtilCollection.Random(armor[5][5].Length - 1)], UtilCollection.Random(86), 0);
                             }
                             if (getcloak)
                                 goto case "cloak";
@@ -566,12 +566,12 @@ namespace DOL.GS.Commands
                             if (args.Length > 2)
                             {
                                 template.RemoveNPCEquipment((eInventorySlot)slots[6]);
-                                template.AddNPCEquipment((eInventorySlot)slots[6], cloak[Util.Random(cloak.Length - 1)], color, 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[6], cloak[UtilCollection.Random(cloak.Length - 1)], color, 0);
                             }
                             else
                             {
                                 template.RemoveNPCEquipment((eInventorySlot)slots[6]);
-                                template.AddNPCEquipment((eInventorySlot)slots[6], cloak[Util.Random(cloak.Length - 1)], Util.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[6], cloak[UtilCollection.Random(cloak.Length - 1)], UtilCollection.Random(86), 0);
                             }
                             break;
                         }
@@ -580,12 +580,12 @@ namespace DOL.GS.Commands
                             if (args.Length > 3)
                             {
                                 template.RemoveNPCEquipment((eInventorySlot)slots[sloti]);
-                                template.AddNPCEquipment((eInventorySlot)slots[sloti], equip[sloti][Util.Random(equip[sloti].Length - 1)], color, 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[sloti], equip[sloti][UtilCollection.Random(equip[sloti].Length - 1)], color, 0);
                             }
                             else
                             {
                                 template.RemoveNPCEquipment((eInventorySlot)slots[sloti]);
-                                template.AddNPCEquipment((eInventorySlot)slots[sloti], equip[sloti][Util.Random(equip[sloti].Length - 1)], Util.Random(86), 0);
+                                template.AddNPCEquipment((eInventorySlot)slots[sloti], equip[sloti][UtilCollection.Random(equip[sloti].Length - 1)], UtilCollection.Random(86), 0);
                             }
                             if (sloti == 7 || sloti == 8)
                             {
@@ -654,22 +654,22 @@ namespace DOL.GS.Commands
                 }
                 else
                 {
-                    template.AddNPCEquipment((eInventorySlot)slots[0], Convert.ToUInt16(tgeneric0.Model), Util.Random(86), 0);
-                    template.AddNPCEquipment((eInventorySlot)slots[1], Convert.ToUInt16(tgeneric1.Model), Util.Random(86), 0);
-                    template.AddNPCEquipment((eInventorySlot)slots[2], Convert.ToUInt16(tgeneric2.Model), Util.Random(86), 0);
-                    template.AddNPCEquipment((eInventorySlot)slots[3], Convert.ToUInt16(tgeneric3.Model), Util.Random(86), 0);
-                    template.AddNPCEquipment((eInventorySlot)slots[4], Convert.ToUInt16(tgeneric4.Model), Util.Random(86), 0);
-                    template.AddNPCEquipment((eInventorySlot)slots[5], Convert.ToUInt16(tgeneric5.Model), Util.Random(86), 0);
+                    template.AddNPCEquipment((eInventorySlot)slots[0], Convert.ToUInt16(tgeneric0.Model), UtilCollection.Random(86), 0);
+                    template.AddNPCEquipment((eInventorySlot)slots[1], Convert.ToUInt16(tgeneric1.Model), UtilCollection.Random(86), 0);
+                    template.AddNPCEquipment((eInventorySlot)slots[2], Convert.ToUInt16(tgeneric2.Model), UtilCollection.Random(86), 0);
+                    template.AddNPCEquipment((eInventorySlot)slots[3], Convert.ToUInt16(tgeneric3.Model), UtilCollection.Random(86), 0);
+                    template.AddNPCEquipment((eInventorySlot)slots[4], Convert.ToUInt16(tgeneric4.Model), UtilCollection.Random(86), 0);
+                    template.AddNPCEquipment((eInventorySlot)slots[5], Convert.ToUInt16(tgeneric5.Model), UtilCollection.Random(86), 0);
                 }
                 if (args.Length > 3)
                 {
                     template.RemoveNPCEquipment((eInventorySlot)slots[6]);
-                    template.AddNPCEquipment((eInventorySlot)slots[6], cloak[Util.Random(cloak.Length - 1)], color, 0);
+                    template.AddNPCEquipment((eInventorySlot)slots[6], cloak[UtilCollection.Random(cloak.Length - 1)], color, 0);
                 }
                 else
                 {
                     template.RemoveNPCEquipment((eInventorySlot)slots[6]);
-                    template.AddNPCEquipment((eInventorySlot)slots[6], cloak[Util.Random(cloak.Length - 1)], Util.Random(86), 0);
+                    template.AddNPCEquipment((eInventorySlot)slots[6], cloak[UtilCollection.Random(cloak.Length - 1)], UtilCollection.Random(86), 0);
                 }
             }
             npc.Inventory = template;
