@@ -16,12 +16,12 @@ namespace DOL.Events
         /// <summary>
         /// The player
         /// </summary>
-        private GameRelic m_relic;
+        private GameStaticRelic m_relic;
 
         /// <summary>
         /// Constructs a new KeepEventArgs
         /// </summary>
-        public RelicPadEventArgs(GamePlayer player, GameRelic relic)
+        public RelicPadEventArgs(GamePlayer player, GameStaticRelic relic)
         {
             this.m_player = player;
             this.m_relic = relic;
@@ -38,7 +38,7 @@ namespace DOL.Events
         /// <summary>
         /// Gets the player
         /// </summary>
-        public GameRelic Relic
+        public GameStaticRelic Relic
         {
             get { return m_relic; }
         }

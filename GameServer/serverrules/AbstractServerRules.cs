@@ -599,7 +599,7 @@ namespace DOL.GS.ServerRules
 			if (player.IsStealthed) return "GamePlayer.UseSlot.CantMountStealthed";
 
 			// You are carrying a relic ? You can't use a mount !
-			if (GameRelic.IsPlayerCarryingRelic(player))
+			if (GameStaticRelic.IsPlayerCarryingRelic(player))
 				return "GamePlayer.UseSlot.CantMountRelicCarrier";
 
 			// zones checks:
@@ -1273,7 +1273,7 @@ namespace DOL.GS.ServerRules
 			int realmPoints = 0;
 
 			// Keep and Tower captures reward full RP and BP value to each player
-			if (killedNPC is GuardLord)
+			if (killedNPC is KeepLord)
 			{
 				realmPoints = npcRPValue;
 			}
@@ -1304,7 +1304,7 @@ namespace DOL.GS.ServerRules
 			int bountyPoints = 0;
 
 			// Keep and Tower captures reward full RP and BP value to each player
-			if (killedNPC is GuardLord)
+			if (killedNPC is KeepLord)
 			{
 				bountyPoints = npcBPValue;
 			}
@@ -1487,9 +1487,9 @@ namespace DOL.GS.ServerRules
 
 				//FIXME: [WARN] this is a guess, I do not know the real way this is applied
 				//apply the keep bonus for experience
-				if (Keeps.KeepBonusMgr.RealmHasBonus(eKeepBonusType.Experience_5, living.Realm))
+				if (Keeps.KeepBonusMgr.RealmHasBonus(EKeepBonusType.Experience_5, living.Realm))
 					outpostXP += (xpReward / 100) * 5;
-				else if (Keeps.KeepBonusMgr.RealmHasBonus(eKeepBonusType.Experience_3, living.Realm))
+				else if (Keeps.KeepBonusMgr.RealmHasBonus(EKeepBonusType.Experience_3, living.Realm))
 					outpostXP += (xpReward / 100) * 3;
 			}
 
@@ -1985,9 +1985,9 @@ namespace DOL.GS.ServerRules
 				//apply the keep bonus for bounty points
 				if (killer != null)
 				{
-					if (Keeps.KeepBonusMgr.RealmHasBonus(eKeepBonusType.Bounty_Points_5, (ERealm)killer.Realm))
+					if (Keeps.KeepBonusMgr.RealmHasBonus(EKeepBonusType.Bounty_Points_5, (ERealm)killer.Realm))
 						bountyPoints += (bountyPoints / 100) * 5;
-					else if (Keeps.KeepBonusMgr.RealmHasBonus(eKeepBonusType.Bounty_Points_3, (ERealm)killer.Realm))
+					else if (Keeps.KeepBonusMgr.RealmHasBonus(EKeepBonusType.Bounty_Points_3, (ERealm)killer.Realm))
 						bountyPoints += (bountyPoints / 100) * 3;
 				}
 
@@ -2535,9 +2535,9 @@ namespace DOL.GS.ServerRules
 		/// </summary>
 		/// <param name="lord">The lord that was killed</param>
 		/// <param name="killer">The lord's killer</param>
-		public virtual void ResetKeep(GuardLord lord, GameObject killer)
+		public virtual void ResetKeep(KeepLord lord, GameObject killer)
 		{
-			PlayerMgr.UpdateStats(lord);
+			KeepPlayerMgr.UpdateStats(lord);
 		}
 
 		/// <summary>

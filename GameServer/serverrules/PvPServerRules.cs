@@ -522,7 +522,7 @@ namespace DOL.GS.ServerRules
 		/// </summary>
 		/// <param name="lord">The lord that was killed</param>
 		/// <param name="killer">The lord's killer</param>
-		public override void ResetKeep(GuardLord lord, GameObject killer)
+		public override void ResetKeep(KeepLord lord, GameObject killer)
 		{
 			base.ResetKeep(lord, killer);
 			ERealm realm = ERealm.None;

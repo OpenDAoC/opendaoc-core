@@ -36,7 +36,7 @@ namespace DOL.AI.Brain
 
 		public override bool CheckProximityAggro()
 		{
-			if (Body is GuardArcher or GuardStaticArcher or GuardLord)
+			if (Body is GuardArcher or GuardArcherStatic or KeepLord)
 			{
 				GameObject target = Body.TargetObject;
 

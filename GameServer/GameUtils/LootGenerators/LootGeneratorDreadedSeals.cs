@@ -39,7 +39,7 @@ namespace DOL.GS
                 switch (mob)
                 {
                     // Certain mobs have a 100% drop chance of multiple seals at once
-                    case GuardLord lord:
+                    case KeepLord lord:
                         if (lord.IsTowerGuard || lord.Component.Keep.BaseLevel < 50)
                             loot.AddFixed(m_SanguineDreadedSeal, 1);  // Guaranteed drop, but towers and BGs only merit 1 seal.
                         else

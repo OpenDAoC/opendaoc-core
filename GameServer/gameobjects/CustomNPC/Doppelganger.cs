@@ -138,24 +138,24 @@ namespace DOL.GS
                     switch (UtilCollection.Random(4))
                     {
                         case 0: // Archer
-                            Inventory = ClothingMgr.Albion_Archer.CloneTemplate();
+                            Inventory = KeepGuardInventoryMgr.Albion_Archer.CloneTemplate();
                             SwitchWeapon(EActiveWeaponSlot.Distance);
                             characterClass = new ClassScout();
                             break;
                         case 1: // Caster
-                            Inventory = ClothingMgr.Albion_Caster.CloneTemplate();
+                            Inventory = KeepGuardInventoryMgr.Albion_Caster.CloneTemplate();
                             characterClass = new ClassTheurgist();
                             break;
                         case 2: // Fighter
-                            Inventory = ClothingMgr.Albion_Fighter.CloneTemplate();
+                            Inventory = KeepGuardInventoryMgr.Albion_Fighter.CloneTemplate();
                             characterClass = new ClassArmsman();
                             break;
                         case 3: // GuardHealer
-                            Inventory = ClothingMgr.Albion_Healer.CloneTemplate();
+                            Inventory = KeepGuardInventoryMgr.Albion_Healer.CloneTemplate();
                             characterClass = new ClassCleric();
                             break;
                         case 4: // Stealther
-                            Inventory = ClothingMgr.Albion_Stealther.CloneTemplate();
+                            Inventory = KeepGuardInventoryMgr.Albion_Stealther.CloneTemplate();
                             characterClass = new ClassInfiltrator();
                             break;
                     }
@@ -166,24 +166,24 @@ namespace DOL.GS
                     switch (UtilCollection.Random(4))
                     {
                         case 0: // Archer
-                            Inventory = ClothingMgr.Hibernia_Archer.CloneTemplate();
+                            Inventory = KeepGuardInventoryMgr.Hibernia_Archer.CloneTemplate();
                             SwitchWeapon(EActiveWeaponSlot.Distance);
                             characterClass = new ClassRanger();
                             break;
                         case 1: // Caster
-                            Inventory = ClothingMgr.Hibernia_Caster.CloneTemplate();
+                            Inventory = KeepGuardInventoryMgr.Hibernia_Caster.CloneTemplate();
                             characterClass = new ClassEldritch();
                             break;
                         case 2: // Fighter
-                            Inventory = ClothingMgr.Hibernia_Fighter.CloneTemplate();
+                            Inventory = KeepGuardInventoryMgr.Hibernia_Fighter.CloneTemplate();
                             characterClass = new ClassArmsman();
                             break;
                         case 3: // GuardHealer
-                            Inventory = ClothingMgr.Hibernia_Healer.CloneTemplate();
+                            Inventory = KeepGuardInventoryMgr.Hibernia_Healer.CloneTemplate();
                             characterClass = new ClassDruid();
                             break;
                         case 4: // Stealther
-                            Inventory = ClothingMgr.Hibernia_Stealther.CloneTemplate();
+                            Inventory = KeepGuardInventoryMgr.Hibernia_Stealther.CloneTemplate();
                             characterClass = new ClassNightshade();
                             break;
                     }
@@ -194,24 +194,24 @@ namespace DOL.GS
                     switch (UtilCollection.Random(4))
                     {
                         case 0: // Archer
-                            Inventory = ClothingMgr.Midgard_Archer.CloneTemplate();
+                            Inventory = KeepGuardInventoryMgr.Midgard_Archer.CloneTemplate();
                             SwitchWeapon(EActiveWeaponSlot.Distance);
                             characterClass = new ClassHunter();
                             break;
                         case 1: // Caster
-                            Inventory = ClothingMgr.Midgard_Caster.CloneTemplate();
+                            Inventory = KeepGuardInventoryMgr.Midgard_Caster.CloneTemplate();
                             characterClass = new ClassRunemaster();
                             break;
                         case 2: // Fighter
-                            Inventory = ClothingMgr.Midgard_Fighter.CloneTemplate();
+                            Inventory = KeepGuardInventoryMgr.Midgard_Fighter.CloneTemplate();
                             characterClass = new ClassWarrior();
                             break;
                         case 3: // GuardHealer
-                            Inventory = ClothingMgr.Midgard_Healer.CloneTemplate();
+                            Inventory = KeepGuardInventoryMgr.Midgard_Healer.CloneTemplate();
                             characterClass = new ClassHealer();
                             break;
                         case 4: // Stealther
-                            Inventory = ClothingMgr.Midgard_Stealther.CloneTemplate();
+                            Inventory = KeepGuardInventoryMgr.Midgard_Stealther.CloneTemplate();
                             characterClass = new ClassShadowblade();
                             break;
                     }

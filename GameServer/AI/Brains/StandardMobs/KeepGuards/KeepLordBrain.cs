@@ -41,7 +41,7 @@ namespace DOL.AI.Brain
 		{
 			if (GameServer.Instance.Configuration.ServerType == EGameServerType.GST_PvE)
 			{
-				GuardLord lord = Body as GuardLord;
+				KeepLord lord = Body as KeepLord;
 				long currenttime = DateTime.UtcNow.Ticks;
 
 				if (lord != null && m_nextCallForHelpTime < currenttime)

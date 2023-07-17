@@ -37,7 +37,7 @@ namespace DOL.GS.Commands
 			if (client.Player.TargetObject != null)
 			{
 
-				if (client.Player.TargetObject is GuardLord gl)
+				if (client.Player.TargetObject is KeepLord gl)
 				{
 					info.Add("--KEEP LORD--");
 					info.Add(" ");

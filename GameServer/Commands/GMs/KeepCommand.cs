@@ -2400,9 +2400,9 @@ namespace DOL.GS.Commands
 						GameKeepComponent component = client.Player.TargetObject as GameKeepComponent;
 						if (component != null)
 						{
-							DbKeepPositions pos = PositionMgr.CreatePosition(typeof(FrontiersPortalStone), 0, client.Player, Guid.NewGuid().ToString(), component);
-							PositionMgr.AddPosition(pos);
-							PositionMgr.FillPositions();
+							DbKeepPositions pos = KeepGuardPositionMgr.CreatePosition(typeof(FrontiersPortalStone), 0, client.Player, Guid.NewGuid().ToString(), component);
+							KeepGuardPositionMgr.AddPosition(pos);
+							KeepGuardPositionMgr.FillPositions();
 						}
 						else
 						{
@@ -2436,11 +2436,11 @@ namespace DOL.GS.Commands
 						GameKeepComponent component = client.Player.TargetObject as GameKeepComponent;
 						if (component != null)
 						{
-							DbKeepPositions pos = PositionMgr.CreatePosition(typeof(GameKeepBanner), 0, client.Player, Guid.NewGuid().ToString(), component);
+							DbKeepPositions pos = KeepGuardPositionMgr.CreatePosition(typeof(GameKeepBanner), 0, client.Player, Guid.NewGuid().ToString(), component);
 							pos.TemplateType = (int)bannerType;
 							GameServer.Database.SaveObject(pos);
-							PositionMgr.AddPosition(pos);
-							PositionMgr.FillPositions();
+							KeepGuardPositionMgr.AddPosition(pos);
+							KeepGuardPositionMgr.FillPositions();
 						}
 						else
 						{

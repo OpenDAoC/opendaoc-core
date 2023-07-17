@@ -50,7 +50,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 						WarMapMgr.SendFightInfo(client);
 
 						if (client.Account.PrivLevel == (int)EPrivLevel.Player &&
-							(client.Player.InCombat || client.Player.CurrentRegionID != 163 || GameRelic.IsPlayerCarryingRelic(client.Player)))
+							(client.Player.InCombat || client.Player.CurrentRegionID != 163 || GameStaticRelic.IsPlayerCarryingRelic(client.Player)))
 						{
 							return;
 						}

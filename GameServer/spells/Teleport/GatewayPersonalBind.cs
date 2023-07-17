@@ -40,7 +40,7 @@ namespace DOL.GS.Spells
 				return false;
 			}
 
-			if (player.InCombat || GameRelic.IsPlayerCarryingRelic(player))
+			if (player.InCombat || GameStaticRelic.IsPlayerCarryingRelic(player))
 			{
 				player.Out.SendMessage("You have been in combat recently and cannot use this item!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
 				return false;
@@ -71,7 +71,7 @@ namespace DOL.GS.Spells
 			if (Caster is not GamePlayer player)
 				return;
 
-			if (player.InCombat || GameRelic.IsPlayerCarryingRelic(player) || player.IsMoving)
+			if (player.InCombat || GameStaticRelic.IsPlayerCarryingRelic(player) || player.IsMoving)
 				return;
 
 			SendEffectAnimation(player, 0, false, 1);

@@ -18,7 +18,7 @@ namespace DOL.GS
 		/// <returns></returns>
 		public override bool Interact(GamePlayer player)
 		{
-			if (!base.Interact(player) || GameRelic.IsPlayerCarryingRelic(player)) return false;
+			if (!base.Interact(player) || GameStaticRelic.IsPlayerCarryingRelic(player)) return false;
 
 			TurnTo(player, 10000);
 			

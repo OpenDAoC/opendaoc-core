@@ -31,7 +31,7 @@ namespace DOL.GS
 		/// <param name="destination"></param>
 		protected void OnTeleport(GamePlayer player, DbTeleports destination)
 		{
-			if (player.InCombat == false && GameRelic.IsPlayerCarryingRelic(player) == false)
+			if (player.InCombat == false && GameStaticRelic.IsPlayerCarryingRelic(player) == false)
 			{
 				player.LeaveHouse();
 				GameLocation currentLocation = new GameLocation("TeleportStart", player.CurrentRegionID, player.X, player.Y, player.Z);

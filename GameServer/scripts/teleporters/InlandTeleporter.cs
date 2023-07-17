@@ -100,7 +100,7 @@ namespace DOL.GS.Scripts
 
         public override bool Interact(GamePlayer player) // What to do when a player clicks on me
         {
-            if (!base.Interact(player) || GameRelic.IsPlayerCarryingRelic(player)) return false;
+            if (!base.Interact(player) || GameStaticRelic.IsPlayerCarryingRelic(player)) return false;
 
             if (player.Realm != this.Realm && player.Client.Account.PrivLevel == 1) return false;
 
@@ -168,7 +168,7 @@ namespace DOL.GS.Scripts
             if (player == null)
                 return false;
 
-            if (GameRelic.IsPlayerCarryingRelic(player))
+            if (GameStaticRelic.IsPlayerCarryingRelic(player))
                 return false;
 
             return GetTeleportLocation(player, str);
@@ -517,7 +517,7 @@ namespace DOL.GS.Scripts
         /// <param name="destination"></param>
         protected virtual void OnTeleport(GamePlayer player, DbTeleports destination)
         {
-            if (player.InCombat == false && GameRelic.IsPlayerCarryingRelic(player) == false)
+            if (player.InCombat == false && GameStaticRelic.IsPlayerCarryingRelic(player) == false)
             {
                 player.LeaveHouse();
                 GameLocation currentLocation =

@@ -93,7 +93,7 @@ namespace DOL.GS.PropertyCalc
                         speed *= 2;
                 }
 
-                if (GameRelic.IsPlayerCarryingRelic(player))
+                if (GameStaticRelic.IsPlayerCarryingRelic(player))
                 {
                     if (speed > 1.0)
                         speed = 1.0;

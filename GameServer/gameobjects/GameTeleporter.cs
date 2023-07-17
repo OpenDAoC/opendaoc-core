@@ -42,7 +42,7 @@ namespace DOL.GS
 		/// <returns></returns>
 		public override bool Interact(GamePlayer player)
 		{
-			if (!base.Interact(player) || GameRelic.IsPlayerCarryingRelic(player))
+			if (!base.Interact(player) || GameStaticRelic.IsPlayerCarryingRelic(player))
 				return false;
 
 			TurnTo(player, 10000);
@@ -64,7 +64,7 @@ namespace DOL.GS
 			if (player == null)
 				return false;
 
-			if (GameRelic.IsPlayerCarryingRelic(player))
+			if (GameStaticRelic.IsPlayerCarryingRelic(player))
 				return false;
 
 			return GetTeleportLocation(player, text);
@@ -305,7 +305,7 @@ namespace DOL.GS
 		/// <param name="destination"></param>
 		protected virtual void OnTeleport(GamePlayer player, DbTeleports destination)
 		{
-			if (player.InCombat == false && GameRelic.IsPlayerCarryingRelic(player) == false)
+			if (player.InCombat == false && GameStaticRelic.IsPlayerCarryingRelic(player) == false)
 			{
 				player.LeaveHouse();
 				GameLocation currentLocation = new GameLocation("TeleportStart", player.CurrentRegionID, player.X, player.Y, player.Z);

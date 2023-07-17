@@ -99,7 +99,7 @@ namespace DOL.Tests.Unit.Gameserver
         [Test]
         public void GetArmorAbsorb_AnySlot_L30GuardLord_32Percent()
         {
-            var guard = new GuardLord();
+            var guard = new KeepLord();
             guard.Level = 30;
             guard.Constitution = 60;
 

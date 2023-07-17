@@ -1109,7 +1109,7 @@ namespace DOL.GS
 
 			if (m_keepManager == null)
 			{
-				m_keepManager = new DefaultKeepManager();
+				m_keepManager = new KeepMgr();
 
 				if (m_keepManager != null)
 				{

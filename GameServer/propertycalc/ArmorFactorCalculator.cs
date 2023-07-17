@@ -115,7 +115,7 @@ namespace DOL.GS.PropertyCalc
 				- Math.Abs(living.DebuffCategory[(int)property])/6
 				+ living.BuffBonusCategory4[(int)property] / 6;
 
-				if (living is GuardLord)
+				if (living is KeepLord)
 					baseVal += 20 * living.Level / 50;
 				
 				return baseVal;

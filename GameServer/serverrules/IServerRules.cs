@@ -324,7 +324,7 @@ namespace DOL.GS.ServerRules
 		/// </summary>
 		/// <param name="lord">The lord that was killed</param>
 		/// <param name="killer">The lord's killer</param>
-		void ResetKeep(GuardLord lord, GameObject killer);
+		void ResetKeep(KeepLord lord, GameObject killer);
 
 		/// <summary>
 		/// Experience a keep is worth when captured
