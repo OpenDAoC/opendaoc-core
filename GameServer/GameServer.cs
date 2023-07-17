@@ -296,7 +296,7 @@ namespace DOL.GS
 			var logConfig = new FileInfo(config.LogConfigFile);
 			if (!logConfig.Exists)
 			{
-				ResourceUtil.ExtractResource("logconfig.xml", logConfig.FullName);
+				ResourceUtil.ExtractResource("logConfig.xml", logConfig.FullName);
 			}
 
 			//Configure and watch the config file

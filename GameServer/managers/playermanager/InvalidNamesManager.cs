@@ -96,7 +96,7 @@ namespace DOL.GS
 				
 				try
 				{
-					ResourceUtil.ExtractResource("invalidnames.txt", InvalidNamesFile);
+					ResourceUtil.ExtractResource("invalidNames.txt", InvalidNamesFile);
 				}
 				catch (Exception ex)
 				{

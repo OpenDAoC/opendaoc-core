@@ -94,7 +94,7 @@ namespace DOL.GS.Commands
 				return;
 			}
 
-			/* Check if lastname is legal and is not contained in invalidnames.txt */
+			/* Check if lastname is legal and is not contained in invalidNames.txt */
 			if (GameServer.Instance.PlayerManager.InvalidNames[NewLastname])
 			{
 				client.Out.SendMessage(NewLastname + " is not a legal last name! Choose another.", eChatType.CT_System, eChatLoc.CL_SystemWindow);

@@ -333,7 +333,7 @@ namespace DOL.GS
 			else
 				m_rootDirectory = new FileInfo(Assembly.GetAssembly(typeof(GameServer)).Location).DirectoryName;
 
-			m_logConfigFile = Path.Combine(Path.Combine(".", "config"), "logconfig.xml");
+			m_logConfigFile = Path.Combine(Path.Combine(".", "Config"), "logConfig.xml");
 
 			m_scriptCompilationTarget = Path.Combine(Path.Combine(".", "lib"), "GameServerScripts.dll");
 			m_scriptAssemblies = " ";
@@ -345,7 +345,7 @@ namespace DOL.GS
 			m_dualIPLoggerName = "dualip";
 			m_gmActionsLoggerName = "gmactions";
 		    InventoryLoggerName = "inventories";
-		    m_invalidNamesFile = Path.Combine(Path.Combine(".", "config"), "invalidnames.txt");
+		    m_invalidNamesFile = Path.Combine(Path.Combine(".", "Config"), "invalidNames.txt");
 
 			m_dbType = EConnectionType.DATABASE_SQLITE;
 			m_dbConnectionString = string.Format("Data Source={0};Version=3;Pooling=False;Cache Size=1073741824;Journal Mode=Off;Synchronous=Off;Foreign Keys=True;Default Timeout=60",
