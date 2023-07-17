@@ -11,7 +11,7 @@ using DOL.GS;
 
 namespace DOLConfig
 {
-	public partial class DolConfig : Form
+	public partial class CoreConfig : Form
 	{
 		/// <summary>
 		/// Current GameServerconfiguration holder

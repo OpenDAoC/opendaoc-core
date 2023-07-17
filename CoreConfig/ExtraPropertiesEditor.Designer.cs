@@ -45,7 +45,7 @@
         	// 
         	this.save_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
         	this.save_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        	this.save_button.Image = global::DOLConfig.Resources.edit_property_button_Image;
+        	this.save_button.Image = global::CoreConfig.Resources.edit_property_button_Image;
         	this.save_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
         	this.save_button.Location = new System.Drawing.Point(342, 187);
         	this.save_button.Name = "save_button";
@@ -61,7 +61,7 @@
         	this.cancel_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
         	this.cancel_button.DialogResult = System.Windows.Forms.DialogResult.Cancel;
         	this.cancel_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        	this.cancel_button.Image = global::DOLConfig.Resources.delete_property_button_Image;
+        	this.cancel_button.Image = global::CoreConfig.Resources.delete_property_button_Image;
         	this.cancel_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
         	this.cancel_button.Location = new System.Drawing.Point(12, 187);
         	this.cancel_button.Name = "cancel_button";

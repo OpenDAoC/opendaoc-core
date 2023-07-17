@@ -760,7 +760,7 @@
 			// xml_database_path_button
 			// 
 			this.xml_database_path_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.xml_database_path_button.Image = global::DOLConfig.Resources.xml_database_path_button_Image;
+			this.xml_database_path_button.Image = global::CoreConfig.Resources.xml_database_path_button_Image;
 			this.xml_database_path_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.xml_database_path_button.Location = new System.Drawing.Point(281, 25);
 			this.xml_database_path_button.Name = "xml_database_path_button";
@@ -917,7 +917,7 @@
 			// 
 			// mysql_test_button
 			// 
-			this.mysql_test_button.Image = global::DOLConfig.Resources.mysql_test_button_Image;
+			this.mysql_test_button.Image = global::CoreConfig.Resources.mysql_test_button_Image;
 			this.mysql_test_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.mysql_test_button.Location = new System.Drawing.Point(99, 154);
 			this.mysql_test_button.Name = "mysql_test_button";
@@ -991,7 +991,7 @@
 			// edit_property_button
 			// 
 			this.edit_property_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.edit_property_button.Image = global::DOLConfig.Resources.edit_property_button_Image;
+			this.edit_property_button.Image = global::CoreConfig.Resources.edit_property_button_Image;
 			this.edit_property_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.edit_property_button.Location = new System.Drawing.Point(210, 394);
 			this.edit_property_button.Name = "edit_property_button";
@@ -1007,7 +1007,7 @@
 			// delete_property_button
 			// 
 			this.delete_property_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.delete_property_button.Image = global::DOLConfig.Resources.delete_property_button_Image;
+			this.delete_property_button.Image = global::CoreConfig.Resources.delete_property_button_Image;
 			this.delete_property_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.delete_property_button.Location = new System.Drawing.Point(3, 394);
 			this.delete_property_button.Name = "delete_property_button";
@@ -1023,7 +1023,7 @@
 			// add_property_button
 			// 
 			this.add_property_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.add_property_button.Image = global::DOLConfig.Resources.add_property_button_Image;
+			this.add_property_button.Image = global::CoreConfig.Resources.add_property_button_Image;
 			this.add_property_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.add_property_button.Location = new System.Drawing.Point(307, 394);
 			this.add_property_button.Name = "add_property_button";
@@ -1120,7 +1120,7 @@
 			// pictureBox1
 			// 
 			this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.pictureBox1.BackgroundImage = global::DOLConfig.Resources.search_48;
+			this.pictureBox1.BackgroundImage = global::CoreConfig.Resources.search_48;
 			this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.pictureBox1.Location = new System.Drawing.Point(378, 255);
 			this.pictureBox1.Name = "pictureBox1";
@@ -1186,7 +1186,7 @@
 			// bu_spChange
 			// 
 			this.bu_spChange.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.bu_spChange.Image = global::DOLConfig.Resources.edit_property_button_Image;
+			this.bu_spChange.Image = global::CoreConfig.Resources.edit_property_button_Image;
 			this.bu_spChange.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.bu_spChange.Location = new System.Drawing.Point(288, 394);
 			this.bu_spChange.Name = "bu_spChange";
@@ -1275,7 +1275,7 @@
 			// save_config_button
 			// 
 			this.save_config_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.save_config_button.Image = global::DOLConfig.Resources.save_config_button_Image;
+			this.save_config_button.Image = global::CoreConfig.Resources.save_config_button_Image;
 			this.save_config_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.save_config_button.Location = new System.Drawing.Point(301, 464);
 			this.save_config_button.Name = "save_config_button";
@@ -1291,7 +1291,7 @@
 			// set_default_values_button
 			// 
 			this.set_default_values_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.set_default_values_button.Image = global::DOLConfig.Resources.set_default_values_button_Image;
+			this.set_default_values_button.Image = global::CoreConfig.Resources.set_default_values_button_Image;
 			this.set_default_values_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.set_default_values_button.Location = new System.Drawing.Point(12, 464);
 			this.set_default_values_button.Name = "set_default_values_button";
@@ -1739,7 +1739,7 @@
 			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Dawn of Light Configuration Service";
-			this.Load += new System.EventHandler(this.DOLConfig_Load);
+			this.Load += new System.EventHandler(this.CoreConfig);
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.groupBox2.ResumeLayout(false);
