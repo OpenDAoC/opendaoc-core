@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
+using Core.GS.Players.Loyalty;
 using DOL.Events;
 using DOL.GS.PacketHandler;
 using DOL.GS.ServerProperties;
@@ -124,7 +125,7 @@ public class BountyMgr
             var reward = totalReward / playersToAwardCount * 10000; // *10000 as DOL is expecting the value in copper
             foreach (GamePlayer player in playersToAward)
             {
-                var playerLoyalty = LoyaltyManager.GetPlayerRealmLoyalty(player);
+                var playerLoyalty = LoyaltyMgr.GetPlayerRealmLoyalty(player);
 
                 if (playerLoyalty.Days >= 30)
                 {
@@ -135,7 +136,7 @@ public class BountyMgr
                 
                 reward = (int)(reward * bountyRate);
                 
-                LoyaltyManager.LoyaltyUpdateAddHours(player, loyaltyHoursReward);
+                LoyaltyMgr.LoyaltyUpdateAddHours(player, loyaltyHoursReward);
                 player.AddMoney(reward , "You have been rewarded {0} extra for killing a bounty target!");
             }
 
@@ -163,7 +164,7 @@ public class BountyMgr
 
         foreach (BountyPoster activeBounty in activeBounties.ToList())
         {
-            var playerLoyalty = LoyaltyManager.GetPlayerRealmLoyalty(player);
+            var playerLoyalty = LoyaltyMgr.GetPlayerRealmLoyalty(player);
             
             if (playerLoyalty.Days >= 30)
             {
@@ -263,7 +264,7 @@ public class BountyMgr
                 
                     GamePlayer playerToReimburse = bP.Ganked;
                 
-                    var posterLoyalty = LoyaltyManager.GetPlayerRealmLoyalty(playerToReimburse);
+                    var posterLoyalty = LoyaltyMgr.GetPlayerRealmLoyalty(playerToReimburse);
 
                     if (posterLoyalty.Days >= 30)
                     {

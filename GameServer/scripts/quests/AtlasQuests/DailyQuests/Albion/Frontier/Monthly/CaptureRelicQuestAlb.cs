@@ -361,9 +361,9 @@ namespace DOL.GS.MonthlyQuest.Albion
 			{
 				m_questPlayer.ForceGainExperience((m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel));
 				m_questPlayer.AddMoney(Money.GetMoney(0,0,m_questPlayer.Level*8,0,UtilCollection.Random(50)), "You receive {0} as a reward.");
-				AtlasROGManager.GenerateReward(m_questPlayer, 5000);
-				AtlasROGManager.GenerateBeetleCarapace(m_questPlayer, 2);
-				AtlasROGManager.GenerateJewel(m_questPlayer, 51);
+				RogMgr.GenerateReward(m_questPlayer, 5000);
+				RogMgr.GenerateBeetleCarapace(m_questPlayer, 2);
+				RogMgr.GenerateJewel(m_questPlayer, 51);
 				_isCaptured = 0;
 				
 				if (reward > 0)

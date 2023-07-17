@@ -130,7 +130,7 @@ namespace DOL.GS.Scripts
 			{
 				foreach (GamePlayer groupPlayer in playerKiller.Group.GetPlayersInTheGroup())
 				{
-					AtlasROGManager.GenerateReward(groupPlayer,OrbsReward);
+					RogMgr.GenerateReward(groupPlayer,OrbsReward);
 				}
 			}
 			base.Die(killer);

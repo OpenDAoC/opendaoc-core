@@ -1218,7 +1218,7 @@ namespace DOL.GS.ServerRules
 						max *= 5;
 					}
 					//Console.WriteLine($"min {min} max {max}");
-					AtlasROGManager.GenerateReward(living as GameLiving, UtilCollection.Random(min, max));
+					RogMgr.GenerateReward(living as GameLiving, UtilCollection.Random(min, max));
 				}
 					
 			});
@@ -2161,7 +2161,7 @@ namespace DOL.GS.ServerRules
                 
                 if (GameServer.Instance.Configuration.ServerType != EGameServerType.GST_PvP)
                 {
-	                AtlasROGManager.GenerateOrbAmount(player, UtilCollection.Random(50, 150));
+	                RogMgr.GenerateOrbAmount(player, UtilCollection.Random(50, 150));
                 }
 
                 int bonusRegion = 0;
@@ -2181,12 +2181,12 @@ namespace DOL.GS.ServerRules
                 if (player.CurrentZone.ZoneRegion.ID == bonusRegion && UtilCollection.Chance(10))
                 {
 	                var RRMod = (int)Math.Floor(killedPlayer.RealmLevel / 10d) * 3;
-	                AtlasROGManager.GenerateROG(player, (byte)(player.Level + RRMod));
+	                RogMgr.GenerateROG(player, (byte)(player.Level + RRMod));
                 }
 
                 if (player.CurrentZone.ZoneRegion.ID == bonusRegion && UtilCollection.Chance(1))
                 {
-	                AtlasROGManager.GenerateBeetleCarapace(player);
+	                RogMgr.GenerateBeetleCarapace(player);
                 }
             }
 

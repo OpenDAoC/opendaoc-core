@@ -353,7 +353,7 @@ namespace DOL.GS.DailyQuest.Hibernia
 				m_questPlayer.ForceGainExperience((m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel) / 3);
 				m_questPlayer.AddMoney(Money.GetMoney(0, 0, m_questPlayer.Level * 2, 32, UtilCollection.Random(50)),
 					"You receive {0} as a reward.");
-				AtlasROGManager.GenerateBattlegroundToken(m_questPlayer, 1);
+				RogMgr.GenerateBattlegroundToken(m_questPlayer, 1);
 				PlayersKilled = 0;
 				base.FinishQuest(); //Defined in Quest, changes the state, stores in DB etc ...
 			}

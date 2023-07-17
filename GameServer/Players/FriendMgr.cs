@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Reflection;
 using System.Linq;
-
+using System.Reflection;
+using DOL.Database;
 using DOL.Events;
 using DOL.GS.PacketHandler;
-using DOL.Database;
-
 using log4net;
 
 namespace DOL.GS.Friends
@@ -13,7 +11,7 @@ namespace DOL.GS.Friends
 	/// <summary>
 	/// Game Player Friends List Manager
 	/// </summary>
-	public sealed class FriendsManager
+	public sealed class FriendMgr
 	{
 		/// <summary>
 		/// Defines a logger for this class.
@@ -51,9 +49,9 @@ namespace DOL.GS.Friends
 		}
 
 		/// <summary>
-		/// Create a new Instance of <see cref="FriendsManager"/>
+		/// Create a new Instance of <see cref="FriendMgr"/>
 		/// </summary>
-		public FriendsManager(IObjectDatabase Database)
+		public FriendMgr(IObjectDatabase Database)
 		{
 			this.Database = Database;
 			PlayersFriendsListsCache = new ReaderWriterDictionary<GamePlayer, string[]>();

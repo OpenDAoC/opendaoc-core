@@ -160,7 +160,7 @@ namespace DOL.GS {
                                            eChatType.CT_System, eChatLoc.CL_SystemWindow);
                     deadPlayer.Notify(GamePlayerEvent.Revive, deadPlayer);
 
-                    AtlasROGManager.GenerateROG(deadPlayer, true);
+                    RogMgr.GenerateROG(deadPlayer, true);
 
                     playersToRez.Remove(deadPlayer);
                 }

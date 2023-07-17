@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using Core.GS.GameUtils;
+using Core.GS.Players.Loyalty;
 using DOL.AI;
 using DOL.AI.Brain;
 using DOL.Database;
@@ -5252,7 +5253,7 @@ namespace DOL.GS
 
             if (xpSource == EXpSource.Player && !this.CurrentZone.IsBG)
             {
-               LoyaltyManager.HandlePVPKill(this);
+               LoyaltyMgr.HandlePVPKill(this);
             }
 
             long RealmLoyaltyBonus = 0;
@@ -5629,7 +5630,7 @@ namespace DOL.GS
                     HCFlag = false;
                     HCCompleted = true;
                     Out.SendMessage("You have reached Level 50! Your Hardcore flag has been disabled.", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
-                    AtlasROGManager.GenerateReward(this, 5000);
+                    RogMgr.GenerateReward(this, 5000);
                 }
 
                 // Creates a TimeXLevel to track the levelling time to 50
@@ -8429,7 +8430,7 @@ namespace DOL.GS
                     return;
                 }
 
-                if (LoyaltyManager.GetPlayerRealmLoyalty(this).Days > 30 && SelfBuffChargeIDs.Contains(spell.ID))
+                if (LoyaltyMgr.GetPlayerRealmLoyalty(this).Days > 30 && SelfBuffChargeIDs.Contains(spell.ID))
                 {
                     spell.Duration = 0;
                     spell.Concentration = 1;
@@ -11777,7 +11778,7 @@ namespace DOL.GS
                 return;
             m_dbCharacter = (DOLCharacters)obj;
 
-            LoyaltyManager.CachePlayer(this);
+            LoyaltyMgr.CachePlayer(this);
             List<AccountXRealmLoyalty> realmLoyaltyList = CoreDb<AccountXRealmLoyalty>.SelectObjects(DB.Column("AccountID").IsEqualTo(this.Client.Account.ObjectId)) as List<AccountXRealmLoyalty>;
             DateTime lastRealmLoyaltyUpdateTime = DateTime.UnixEpoch;
             int loyaltyDays = 0;

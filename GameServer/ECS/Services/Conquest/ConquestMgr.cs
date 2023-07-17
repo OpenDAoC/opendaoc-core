@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
+using Core.GS.Players.Loyalty;
 using DOL.Database;
 using DOL.GS.Keeps;
 using DOL.GS.PacketHandler;
@@ -243,7 +244,7 @@ public class ConquestMgr
             if (!primaryObjective) awardBase = (int)(awardBase * 0.75);
             int numFlags = ActiveObjective.GetNumFlagsOwnedByRealm(player.Realm);
             player.GainRealmPoints((long)(awardBase + (numFlags * 200)), false);
-            AtlasROGManager.GenerateReward(player, (int)(awardBase + (numFlags * 200)));
+            RogMgr.GenerateReward(player, (int)(awardBase + (numFlags * 200)));
         }
     }
     
@@ -254,7 +255,7 @@ public class ConquestMgr
         {
             if (player == source) continue; //don't double award the killer
             
-            var loyalDays = LoyaltyManager.GetPlayerRealmLoyalty(player).Days;
+            var loyalDays = LoyaltyMgr.GetPlayerRealmLoyalty(player).Days;
             if (loyalDays > 30) loyalDays = 30;
             
             double RPFraction = 0.05 * (loyalDays / 30.0);

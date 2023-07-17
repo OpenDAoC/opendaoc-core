@@ -1,15 +1,11 @@
-﻿using DOL.Database;
-using DOL.GS;
+﻿using System;
+using Core.GS.Players.Loyalty;
+using DOL.Database;
 using DOL.GS.PacketHandler;
 using DOL.Language;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DOL.GS {
-    public static class AtlasROGManager {
+    public static class RogMgr {
 
         private static DbItemTemplates beadTemplate = null;
         
@@ -142,7 +138,7 @@ namespace DOL.GS {
                 var player = living as GamePlayer;
                 
 
-                double numCurrentLoyalDays = LoyaltyManager.GetPlayerRealmLoyalty(player) != null ? LoyaltyManager.GetPlayerRealmLoyalty(player).Days : 0;
+                double numCurrentLoyalDays = LoyaltyMgr.GetPlayerRealmLoyalty(player) != null ? LoyaltyMgr.GetPlayerRealmLoyalty(player).Days : 0;
 
                 if(numCurrentLoyalDays >= 30)
                 {
@@ -183,7 +179,7 @@ namespace DOL.GS {
 
                 InventoryItem item = GameInventoryItem.Create(orbs);
 
-                double numCurrentLoyalDays = LoyaltyManager.GetPlayerRealmLoyalty(player) != null ? LoyaltyManager.GetPlayerRealmLoyalty(player).Days : 0;
+                double numCurrentLoyalDays = LoyaltyMgr.GetPlayerRealmLoyalty(player) != null ? LoyaltyMgr.GetPlayerRealmLoyalty(player).Days : 0;
 
                 if(numCurrentLoyalDays >= 30)
                 {

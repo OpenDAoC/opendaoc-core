@@ -200,8 +200,8 @@ namespace DOL.GS
                             if (bgPlayer.IsWithinRadius(this, WorldMgr.MAX_EXPFORKILL_DISTANCE))
                             {
                                 if (bgPlayer.Level < 45) continue;
-                                AtlasROGManager.GenerateReward(bgPlayer, Reward);
-                                AtlasROGManager.GenerateBeetleCarapace(bgPlayer);
+                                RogMgr.GenerateReward(bgPlayer, Reward);
+                                RogMgr.GenerateBeetleCarapace(bgPlayer);
                                 bgPlayer.Achieve($"{achievementMob}-Credit");
                             }
                         }
@@ -214,8 +214,8 @@ namespace DOL.GS
                         if (groupPlayer.IsWithinRadius(this, WorldMgr.MAX_EXPFORKILL_DISTANCE))
                         {
                             if (groupPlayer.Level < 45) continue;
-                            AtlasROGManager.GenerateReward(groupPlayer, Reward);
-                            AtlasROGManager.GenerateBeetleCarapace(groupPlayer);
+                            RogMgr.GenerateReward(groupPlayer, Reward);
+                            RogMgr.GenerateBeetleCarapace(groupPlayer);
                             groupPlayer.Achieve($"{achievementMob}-Credit");
                         }
                     }
@@ -224,8 +224,8 @@ namespace DOL.GS
                 {
                     if (playerKiller.Level >= 45)
                     {
-                        AtlasROGManager.GenerateReward(playerKiller, Reward);
-                        AtlasROGManager.GenerateBeetleCarapace(playerKiller);
+                        RogMgr.GenerateReward(playerKiller, Reward);
+                        RogMgr.GenerateBeetleCarapace(playerKiller);
                         playerKiller.Achieve($"{achievementMob}-Credit"); ;
                     }
                 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using Core.GS.Players.Loyalty;
 using DOL.Database;
 using DOL.Language;
 using DOL.GS.ServerProperties;
@@ -647,7 +648,7 @@ namespace DOL.GS
 			}
 
 			var divisorMod = 4;
-			var loyalDays = LoyaltyManager.GetPlayerRealmLoyalty(player).Days;
+			var loyalDays = LoyaltyMgr.GetPlayerRealmLoyalty(player).Days;
 			if ( loyalDays > 30) divisorMod++;
 			if ( loyalDays > 20) divisorMod++;
 			if ( loyalDays > 10) divisorMod++;

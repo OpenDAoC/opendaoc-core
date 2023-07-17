@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Reflection;
-using System.Linq;
 using System.Collections.Generic;
-
+using System.Linq;
+using System.Reflection;
 using DOL.Events;
 using DOL.GS.PacketHandler;
 using DOL.GS.Scheduler;
-
 using log4net;
 
 namespace DOL.GS
@@ -14,7 +12,7 @@ namespace DOL.GS
 	/// <summary>
 	/// WeatherManager class handle current weather in compatible Regions.
 	/// </summary>
-	public sealed class WeatherManager
+	public sealed class WeatherMgr
 	{
 		/// <summary>
 		/// Defines a logger for this class.
@@ -72,9 +70,9 @@ namespace DOL.GS
 		}
 		
 		/// <summary>
-		/// Create a new Instance of <see cref="WeatherManager"/>
+		/// Create a new Instance of <see cref="WeatherMgr"/>
 		/// </summary>
-		public WeatherManager(SimpleScheduler Scheduler)
+		public WeatherMgr(SimpleScheduler Scheduler)
 		{
 			this.Scheduler = Scheduler;
 			RegionsWeather = new Dictionary<ushort, RegionWeather>();

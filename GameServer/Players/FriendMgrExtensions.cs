@@ -1,13 +1,9 @@
-﻿using System;
-
-using DOL.GS;
-
-namespace DOL.GS.Friends
+﻿namespace DOL.GS.Friends
 {
 	/// <summary>
 	/// Game Player Friends List Manager Extensions
 	/// </summary>
-	public static class FriendsManagerExtensions
+	public static class FriendMgrExtensions
 	{
 		/// <summary>
 		/// Get This Player Friends List

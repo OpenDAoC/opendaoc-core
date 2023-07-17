@@ -1,4 +1,5 @@
-﻿using DOL.GS.Commands;
+﻿using Core.GS.Players.Loyalty;
+using DOL.GS.Commands;
 using DOL.GS.PacketHandler;
 using DOL.GS.ServerProperties;
 
@@ -57,7 +58,7 @@ namespace DOL.GS.Scripts
                     return;
                 }
 
-                var playerLoyalty = LoyaltyManager.GetPlayerRealmLoyalty(client.Player).Days;
+                var playerLoyalty = LoyaltyMgr.GetPlayerRealmLoyalty(client.Player).Days;
 
                 if (playerLoyalty < minLoyalty)
                 {

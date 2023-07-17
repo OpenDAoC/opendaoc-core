@@ -1,7 +1,6 @@
-﻿using DOL.AI.Brain;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using DOL.AI.Brain;
 using DOL.Database;
 
 namespace DOL.GS {
@@ -10,7 +9,7 @@ namespace DOL.GS {
     /// ROGMobGenerator
     /// At the moment this generator only adds ROGs to the loot
     /// </summary>
-    public class ROGMobGenerator : LootGeneratorBase {
+    public class RogMobGenerator : LootGeneratorBase {
 
         //base chance in %
         public static ushort BASE_ROG_CHANCE = 14;
@@ -133,7 +132,7 @@ namespace DOL.GS {
 
                     if(player.Level < 50 || mob.Level < 50)
                     {
-                        var item = AtlasROGManager.GenerateBeadOfRegeneration();
+                        var item = RogMgr.GenerateBeadOfRegeneration();
                         loot.AddRandom(2, item, 1);
                     }
                     //classForLoot = GetRandomClassFromGroup(player.Group);
@@ -160,7 +159,7 @@ namespace DOL.GS {
 
                     if (UtilCollection.Chance(chance))
                     {
-                        GeneratedUniqueItem tmp = AtlasROGManager.GenerateMonsterLootROG(player.Realm, classForLoot, (byte)(mob.Level + 1), player.CurrentZone?.IsOF ?? false);
+                        GeneratedUniqueItem tmp = RogMgr.GenerateMonsterLootROG(player.Realm, classForLoot, (byte)(mob.Level + 1), player.CurrentZone?.IsOF ?? false);
                         item = tmp;
                         item.MaxCount = 1;
                         loot.AddFixed(item, 1);
@@ -183,7 +182,7 @@ namespace DOL.GS {
 
                     if(player.Level < 50 || mob.Level < 50)
                     {
-                        item = AtlasROGManager.GenerateBeadOfRegeneration();
+                        item = RogMgr.GenerateBeadOfRegeneration();
                         loot.AddRandom(2, item, 1);
                     }
                 }
@@ -207,7 +206,7 @@ namespace DOL.GS {
             DbItemTemplates item = null;
                 
                 
-            GeneratedUniqueItem tmp = AtlasROGManager.GenerateMonsterLootROG(player.Realm, classForLoot, lootLevel, player.CurrentZone?.IsOF ?? false);
+            GeneratedUniqueItem tmp = RogMgr.GenerateMonsterLootROG(player.Realm, classForLoot, lootLevel, player.CurrentZone?.IsOF ?? false);
             tmp.GenerateItemQuality(killedcon);
             //tmp.CapUtility(mob.Level + 1);
             item = tmp;

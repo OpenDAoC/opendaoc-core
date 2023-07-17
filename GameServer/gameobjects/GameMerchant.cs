@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Threading;
+using Core.GS.Players.Loyalty;
 using DOL.AI.Brain;
 using DOL.Database;
 using DOL.Events;
@@ -879,7 +880,7 @@ namespace DOL.GS
 				}
 			}
 
-			var loyalty = LoyaltyManager.GetPlayerRealmLoyalty(player);
+			var loyalty = LoyaltyMgr.GetPlayerRealmLoyalty(player);
 			if (loyalty.Days > 0)
 			{
 				var discountAmount = (.25 * (loyalty.Days > 30 ? 30 : loyalty.Days) / 30);
@@ -978,7 +979,7 @@ namespace DOL.GS
 				}
 			}
 
-			var loyalty = LoyaltyManager.GetPlayerRealmLoyalty(player);
+			var loyalty = LoyaltyMgr.GetPlayerRealmLoyalty(player);
 			if (loyalty.Days > 0)
 			{
 				var discountAmount = (.25 * (loyalty.Days > 30 ? 30 : loyalty.Days) / 30);

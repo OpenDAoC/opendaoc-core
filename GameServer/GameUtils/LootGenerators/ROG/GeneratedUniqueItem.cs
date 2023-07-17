@@ -20,9 +20,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-
-using DOL.Events;
 using DOL.Database;
+using DOL.Events;
 
 namespace DOL.GS {
     /// <summary>

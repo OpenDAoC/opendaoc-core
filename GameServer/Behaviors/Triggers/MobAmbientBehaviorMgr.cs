@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using DOL.Database;
 
 namespace DOL.GS
@@ -8,7 +8,7 @@ namespace DOL.GS
     /// <summary>
     /// MobAmbientBehaviourManager handles Mob Ambient Behaviour Lazy Loading
     /// </summary>
-    public sealed class MobAmbientBehaviourManager
+    public sealed class MobAmbientBehaviorMgr
     {
         /// <summary>
         /// Mob X Ambient Behaviour Cache indexed by Mob Name
@@ -35,9 +35,9 @@ namespace DOL.GS
         }
 
         /// <summary>
-        /// Create a new Instance of <see cref="MobAmbientBehaviourManager"/>
+        /// Create a new Instance of <see cref="MobAmbientBehaviorMgr"/>
         /// </summary>
-        public MobAmbientBehaviourManager(IObjectDatabase database)
+        public MobAmbientBehaviorMgr(IObjectDatabase database)
         {
             if (database == null)
             {

@@ -15,7 +15,7 @@ namespace DOL.GS
 		/// <summary>
 		/// Reference to the World Weather Manager
 		/// </summary>
-		public WeatherManager WeatherManager { get; private set; }
+		public WeatherMgr WeatherManager { get; private set; }
 		
 		/// <summary>
 		/// Create a new instance of <see cref="WorldManager"/>
@@ -27,7 +27,7 @@ namespace DOL.GS
 
 			this.GameServerInstance = GameServerInstance;
 			
-			WeatherManager = new WeatherManager(this.GameServerInstance.Scheduler);
+			WeatherManager = new WeatherMgr(this.GameServerInstance.Scheduler);
 		}
 	}
 }

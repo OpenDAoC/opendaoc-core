@@ -1,5 +1,6 @@
 
 using System;
+using Core.GS.Players.Loyalty;
 
 namespace DOL.GS.Commands
 {
@@ -13,7 +14,7 @@ namespace DOL.GS.Commands
         public void OnCommand(GameClient client, string[] args)
         {
 
-            var playerLoyalty = LoyaltyManager.GetPlayerLoyalty(client.Player);
+            var playerLoyalty = LoyaltyMgr.GetPlayerLoyalty(client.Player);
             var midLoyalty = playerLoyalty.MidLoyaltyDays;
             var hibLoyalty = playerLoyalty.HibLoyaltyDays;
             var albLoyalty = playerLoyalty.AlbLoyaltyDays;
@@ -21,8 +22,8 @@ namespace DOL.GS.Commands
             var midPercent = playerLoyalty.MidPercent;
             var hibPercent = playerLoyalty.HibPercent;
             
-            LoyaltyManager.LoyaltyUpdateAddDays(client.Player, 1);
-            var lastUpdatedTime = LoyaltyManager.GetLastLoyaltyUpdate(client.Player);
+            LoyaltyMgr.LoyaltyUpdateAddDays(client.Player, 1);
+            var lastUpdatedTime = LoyaltyMgr.GetLastLoyaltyUpdate(client.Player);
             
             var timeMilli = (long)(lastUpdatedTime - new DateTime(1970, 1, 1)).TotalMilliseconds;
             

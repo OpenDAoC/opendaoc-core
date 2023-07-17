@@ -370,7 +370,7 @@ namespace DOL.GS.DailyQuest.Midgard
         {
             m_questPlayer.ForceGainExperience((m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel)/5);
             m_questPlayer.AddMoney(Money.GetMoney(0, 0, m_questPlayer.Level, 0, UtilCollection.Random(50)), "You receive {0} as a reward.");
-            AtlasROGManager.GenerateReward(m_questPlayer, 100);
+            RogMgr.GenerateReward(m_questPlayer, 100);
             _deadTuscaMob = 0;
             base.FinishQuest(); //Defined in Quest, changes the state, stores in DB etc ...
         }

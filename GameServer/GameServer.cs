@@ -172,12 +172,12 @@ namespace DOL.GS
 		/// <summary>
 		/// Gets the server PlayerManager
 		/// </summary>
-		public PlayerManager PlayerManager { get; protected set; }
+		public PlayerMgr PlayerManager { get; protected set; }
 
 		/// <summary>
 		/// Gets the server NpcManager
 		/// </summary>
-		public NpcManager NpcManager { get; protected set; }
+		public NpcMgr NpcManager { get; protected set; }
 
 		protected virtual IServerRules ServerRulesImpl
 		{
@@ -642,12 +642,12 @@ namespace DOL.GS
 
 				//---------------------------------------------------------------
 				//Try to initialize the PlayerManager
-				if (!InitComponent(() => PlayerManager = new PlayerManager(this), "Player Manager Initialization"))
+				if (!InitComponent(() => PlayerManager = new PlayerMgr(this), "Player Manager Initialization"))
 					return false;
 
 				//---------------------------------------------------------------
 				//Try to initialize the NpcManager
-				if (!InitComponent(() => NpcManager = new NpcManager(this), "NPC Manager Initialization"))
+				if (!InitComponent(() => NpcManager = new NpcMgr(this), "NPC Manager Initialization"))
 					return false;
 
 				//---------------------------------------------------------------

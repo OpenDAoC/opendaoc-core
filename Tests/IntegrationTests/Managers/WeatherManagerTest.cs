@@ -42,7 +42,7 @@ namespace DOL.Tests.Integration.Managers
 		[Test]
 		public void WeatherManager_GetNonExistentRegion_ReturnNull()
 		{
-			var weatherMgr = new WeatherManager(new SimpleScheduler());
+			var weatherMgr = new WeatherMgr(new SimpleScheduler());
 			
 			Assert.IsNull(weatherMgr[1]);
 		}
@@ -50,7 +50,7 @@ namespace DOL.Tests.Integration.Managers
 		[Test]
 		public void WeatherManager_ChangeWeatherNonExistentRegion_ReturnFalse()
 		{
-			var weatherMgr = new WeatherManager(new SimpleScheduler());
+			var weatherMgr = new WeatherMgr(new SimpleScheduler());
 			
 			Assert.IsFalse(weatherMgr.ChangeWeather(1, weather => weather.Clear()));
 		}
@@ -58,7 +58,7 @@ namespace DOL.Tests.Integration.Managers
 		[Test]
 		public void WeatherManager_RegisterRegion_ReturnRegion()
 		{
-			var weatherMgr = new WeatherManager(new SimpleScheduler());
+			var weatherMgr = new WeatherMgr(new SimpleScheduler());
 			
 			var region = FakeRegion();
 			weatherMgr.RegisterRegion(region);
@@ -69,7 +69,7 @@ namespace DOL.Tests.Integration.Managers
 		[Test]
 		public void WeatherManager_UnRegisterRegion_ReturnNull()
 		{
-			var weatherMgr = new WeatherManager(new SimpleScheduler());
+			var weatherMgr = new WeatherMgr(new SimpleScheduler());
 			
 			var region = FakeRegion();
 			weatherMgr.RegisterRegion(region);
@@ -81,7 +81,7 @@ namespace DOL.Tests.Integration.Managers
 		[Test]
 		public void WeatherManager_StartWeatherRegion_ReturnTrue()
 		{
-			var weatherMgr = new WeatherManager(new SimpleScheduler());
+			var weatherMgr = new WeatherMgr(new SimpleScheduler());
 			
 			var region = FakeRegion();
 			weatherMgr.RegisterRegion(region);
@@ -92,7 +92,7 @@ namespace DOL.Tests.Integration.Managers
 		[Test]
 		public void WeatherManager_StopWeatherRegion_ReturnTrue()
 		{
-			var weatherMgr = new WeatherManager(new SimpleScheduler());
+			var weatherMgr = new WeatherMgr(new SimpleScheduler());
 			
 			var region = FakeRegion();
 			weatherMgr.RegisterRegion(region);
@@ -104,7 +104,7 @@ namespace DOL.Tests.Integration.Managers
 		[Test]
 		public void WeatherManager_StartWeatherRegion_StartTime()
 		{
-			var weatherMgr = new WeatherManager(new SimpleScheduler());
+			var weatherMgr = new WeatherMgr(new SimpleScheduler());
 			
 			var region = FakeRegion();
 			weatherMgr.RegisterRegion(region);
@@ -116,7 +116,7 @@ namespace DOL.Tests.Integration.Managers
 		[Test]
 		public void WeatherManager_StopWeatherRegion_StartTime()
 		{
-			var weatherMgr = new WeatherManager(new SimpleScheduler());
+			var weatherMgr = new WeatherMgr(new SimpleScheduler());
 			
 			var region = FakeRegion();
 			weatherMgr.RegisterRegion(region);
@@ -129,7 +129,7 @@ namespace DOL.Tests.Integration.Managers
 		[Test]
 		public void WeatherManager_ChangeWeatherRegion_WeatherEqual()
 		{
-			var weatherMgr = new WeatherManager(new SimpleScheduler());
+			var weatherMgr = new WeatherMgr(new SimpleScheduler());
 			
 			var region = FakeRegion();
 			weatherMgr.RegisterRegion(region);
@@ -143,7 +143,7 @@ namespace DOL.Tests.Integration.Managers
 		[Test]
 		public void WeatherManager_ChangeWeatherRegionException_WeatherEqual()
 		{
-			var weatherMgr = new WeatherManager(new SimpleScheduler());
+			var weatherMgr = new WeatherMgr(new SimpleScheduler());
 			
 			var region = FakeRegion();
 			weatherMgr.RegisterRegion(region);

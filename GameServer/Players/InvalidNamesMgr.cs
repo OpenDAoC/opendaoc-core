@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Reflection;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
 using System.IO;
-
+using System.Linq;
+using System.Reflection;
+using System.Text.RegularExpressions;
 using DOL.Config;
-
 using log4net;
 
 namespace DOL.GS
@@ -14,7 +12,7 @@ namespace DOL.GS
 	/// <summary>
 	/// InvalidNamesManager Check for In-Game Player Names/LastNames/GuildName/AllianceName restriction Policy.
 	/// </summary>
-	public sealed class InvalidNamesManager
+	public sealed class InvalidNamesMgr
 	{
 		/// <summary>
 		/// Defines a logger for this class.
@@ -37,9 +35,9 @@ namespace DOL.GS
 		private Regex[] BadNamesRegex { get; set; }
 		
 		/// <summary>
-		/// Create a new Instance of <see cref="InvalidNamesManager"/>
+		/// Create a new Instance of <see cref="InvalidNamesMgr"/>
 		/// </summary>
-		public InvalidNamesManager(string InvalidNamesFile)
+		public InvalidNamesMgr(string InvalidNamesFile)
 		{
 			this.InvalidNamesFile = InvalidNamesFile;
 			
@@ -59,7 +57,7 @@ namespace DOL.GS
 				if (string.IsNullOrEmpty(match))
 					return true;
 				
-				return BadNamesContains.Any(pattern => match.IndexOf(pattern, StringComparison.OrdinalIgnoreCase) >= 0)
+				return BadNamesContains.Any(pattern => match.IndexOf((string)pattern, StringComparison.OrdinalIgnoreCase) >= 0)
 					|| BadNamesRegex.Any(pattern => pattern.IsMatch(match));
 			}
 		}

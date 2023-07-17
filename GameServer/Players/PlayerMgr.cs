@@ -1,5 +1,4 @@
 ﻿using System;
-
 using DOL.GS.Friends;
 
 namespace DOL.GS
@@ -7,7 +6,7 @@ namespace DOL.GS
 	/// <summary>
 	/// GameServer Manager to Handle Player Data and restriction for this GameServer.
 	/// </summary>
-	public sealed class PlayerManager
+	public sealed class PlayerMgr
 	{
 		/// <summary>
 		/// Reference to the Instanced GameServer
@@ -17,25 +16,25 @@ namespace DOL.GS
 		/// <summary>
 		/// Reference to the Invalid Names Manager
 		/// </summary>
-		public InvalidNamesManager InvalidNames { get; private set; }
+		public InvalidNamesMgr InvalidNames { get; private set; }
 		
 		/// <summary>
 		/// Reference to the Friends List Manager
 		/// </summary>
-		public FriendsManager Friends { get; private set; }
+		public FriendMgr Friends { get; private set; }
 
 		/// <summary>
-		/// Create a new Instance of <see cref="PlayerManager"/>
+		/// Create a new Instance of <see cref="PlayerMgr"/>
 		/// </summary>
-		public PlayerManager(GameServer GameServerInstance)
+		public PlayerMgr(GameServer GameServerInstance)
 		{
 			if (GameServerInstance == null)
 				throw new ArgumentNullException("GameServerInstance");
 			
 			this.GameServerInstance = GameServerInstance;
 			
-			InvalidNames = new InvalidNamesManager(this.GameServerInstance.Configuration.InvalidNamesFile);
-			Friends = new FriendsManager(GameServerInstance.IDatabase);
+			InvalidNames = new InvalidNamesMgr(this.GameServerInstance.Configuration.InvalidNamesFile);
+			Friends = new FriendMgr(GameServerInstance.IDatabase);
 		}
 	}
 }

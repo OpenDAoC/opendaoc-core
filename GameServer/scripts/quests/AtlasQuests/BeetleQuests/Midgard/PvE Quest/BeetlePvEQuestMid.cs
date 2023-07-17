@@ -607,7 +607,7 @@ namespace DOL.GS.AtlasQuest.Midgard
 		{
 			m_questPlayer.AddMoney(Money.GetMoney(0, 0, m_questPlayer.Level * 8, 32, UtilCollection.Random(50)),
 				"You receive {0} as a reward.");
-			AtlasROGManager.GenerateReward(m_questPlayer, 5000);
+			RogMgr.GenerateReward(m_questPlayer, 5000);
 			_grandSummonerKilled = 0;
 			_legionKilled = 0;
 			_dragonKilled = 0;
