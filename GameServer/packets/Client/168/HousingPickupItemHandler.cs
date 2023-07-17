@@ -35,7 +35,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 			{
 				case 1: //garden item
 					// no permission to remove items from the garden, return
-					if (!house.CanChangeGarden(client.Player, DecorationPermissions.Remove))
+					if (!house.CanChangeGarden(client.Player, EDecorationPermissions.Remove))
 						return;
 
 					foreach (var entry in house.OutdoorItems)
@@ -69,7 +69,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 				case 2:
 				case 3: //wall/floor mode
 					// no permission to remove items from the interior, return
-					if (!house.CanChangeInterior(client.Player, DecorationPermissions.Remove))
+					if (!house.CanChangeInterior(client.Player, EDecorationPermissions.Remove))
 						return;
 
 					if (house.IndoorItems.ContainsKey(position) == false)

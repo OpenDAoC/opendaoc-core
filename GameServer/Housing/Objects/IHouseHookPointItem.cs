@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using DOL.Database;
 
 namespace DOL.GS.Housing
@@ -8,8 +6,7 @@ namespace DOL.GS.Housing
 	/// <summary>
 	/// House item interface.
 	/// </summary>
-	/// <author>Aredhel</author>
-	public interface IHouseHookpointItem
+	public interface IHouseHookPointItem
 	{
 		bool Attach(House house, uint hookpointID, ushort heading);
 		bool Attach(House house, DbHouseHookPointItems hookedItem);

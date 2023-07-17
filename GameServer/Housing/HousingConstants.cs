@@ -1,9 +1,8 @@
-
 using System;
 
 namespace DOL.GS.Housing
 {
-	public enum PermissionType
+	public enum EPermissionType
 	{
 		Player = 1,
 		Guild = 2,
@@ -15,7 +14,7 @@ namespace DOL.GS.Housing
 	}
 
 	[Flags]
-	public enum VaultPermissions : byte
+	public enum EVaultPermissions : byte
 	{
 		None = 0x00,
 		Add = 0x01,
@@ -24,7 +23,7 @@ namespace DOL.GS.Housing
 	}
 
 	[Flags]
-	public enum DecorationPermissions : byte
+	public enum EDecorationPermissions : byte
 	{
 		None = 0x00,
 		Add = 0x01,
@@ -32,7 +31,7 @@ namespace DOL.GS.Housing
 	}
 
 	[Flags]
-	public enum ConsignmentPermissions : byte
+	public enum EConsignmentPermissions : byte
 	{
 		AddRemove = 0x03,
 		Withdraw = 0x10,

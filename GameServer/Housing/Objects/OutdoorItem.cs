@@ -1,10 +1,4 @@
-/* Created by Schaf
- * Last modified by Schaf on 10.12.2004 20:09
- */
-
 using DOL.Database;
-
-//yeah for the DBOutdoorItem class!
 
 namespace DOL.GS.Housing
 {

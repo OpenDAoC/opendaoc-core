@@ -692,7 +692,7 @@ namespace DOL.GS
             if (house == null)
                 return false;
 
-            if (house.CanUseConsignmentMerchant(player, ConsignmentPermissions.Any))
+            if (house.CanUseConsignmentMerchant(player, EConsignmentPermissions.Any))
             {
 				player.Out.SendInventoryItemsUpdate(GetClientInventory(player), eInventoryWindowType.ConsignmentOwner);
 

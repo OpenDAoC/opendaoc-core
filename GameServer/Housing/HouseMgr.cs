@@ -1,4 +1,3 @@
-
 using System;
 using System.Linq;
 using System.Collections;
@@ -24,7 +23,7 @@ namespace DOL.GS.Housing
 		private static Dictionary<ushort, int> _idList;
 		private static int TimerInterval = Properties.RENT_CHECK_INTERVAL * 60 * 1000;
 
-		protected enum eLotSpawnType
+		protected enum ELotSpawnType
 		{
 			Marker,
 			House
@@ -75,7 +74,7 @@ namespace DOL.GS.Housing
 				if (housesForRegion.ContainsKey(house.HouseNumber))
 					continue;
 
-				if (SpawnLot(house, housesForRegion) == eLotSpawnType.House)
+				if (SpawnLot(house, housesForRegion) == ELotSpawnType.House)
 				{
 					houses++;
 				}
@@ -152,7 +151,7 @@ namespace DOL.GS.Housing
 				if (housesForRegion.ContainsKey(house.HouseNumber))
 					continue;
 
-				if (SpawnLot(house, housesForRegion) == eLotSpawnType.House)
+				if (SpawnLot(house, housesForRegion) == ELotSpawnType.House)
 				{
 					houses++;
 				}
@@ -174,9 +173,9 @@ namespace DOL.GS.Housing
 		/// Spawn house or lotmarker on this lot
 		/// </summary>
 		/// <param name="house"></param>
-		private static eLotSpawnType SpawnLot(DbHouses house, Dictionary<int, House> housesForRegion)
+		private static ELotSpawnType SpawnLot(DbHouses house, Dictionary<int, House> housesForRegion)
 		{
-			eLotSpawnType spawnType = eLotSpawnType.Marker;
+			ELotSpawnType spawnType = ELotSpawnType.Marker;
 
 			if (string.IsNullOrEmpty(house.OwnerID) == false)
 			{
@@ -189,11 +188,11 @@ namespace DOL.GS.Housing
 
 				if (newHouse.Model > 0)
 				{
-					spawnType = eLotSpawnType.House;
+					spawnType = ELotSpawnType.House;
 				}
 			}
 
-			if (spawnType == eLotSpawnType.Marker)
+			if (spawnType == ELotSpawnType.Marker)
 			{
 				// this is either an available lot or a purchased lot without a house
 				GameLotMarker.SpawnLotMarker(house);

@@ -1,6 +1,3 @@
-
-// See SQL at end of this file for inserting required housing menu items - Tolakram
-
 using System;
 using System.Collections.Generic;
 using System.Linq;

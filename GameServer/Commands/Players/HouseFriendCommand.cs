@@ -46,7 +46,7 @@ namespace DOL.GS.Commands
 							return;
 						}
 
-						if (client.Player.CurrentHouse.AddPermission(targetClient.Player, PermissionType.Player, HousingConstants.MinPermissionLevel))
+						if (client.Player.CurrentHouse.AddPermission(targetClient.Player, EPermissionType.Player, HousingConstants.MinPermissionLevel))
 						{
 							client.Out.SendMessage("You added " + targetClient.Player.Name + ".", eChatType.CT_System, eChatLoc.CL_SystemWindow);
 						}
@@ -68,7 +68,7 @@ namespace DOL.GS.Commands
                             return;
                         }
 
-						if (client.Player.CurrentHouse.AddPermission(targetClient.Player, PermissionType.Account, HousingConstants.MinPermissionLevel))
+						if (client.Player.CurrentHouse.AddPermission(targetClient.Player, EPermissionType.Account, HousingConstants.MinPermissionLevel))
 						{
 							client.Out.SendMessage("You added " + targetClient.Player.Name + "'s account.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
 						}
@@ -87,7 +87,7 @@ namespace DOL.GS.Commands
                             return;
                         }
 
-						if (client.Player.CurrentHouse.AddPermission(targetGuild.Name, PermissionType.Guild, HousingConstants.MinPermissionLevel))
+						if (client.Player.CurrentHouse.AddPermission(targetGuild.Name, EPermissionType.Guild, HousingConstants.MinPermissionLevel))
 						{
 							client.Out.SendMessage("You added " + targetGuild.Name + ".", eChatType.CT_System, eChatLoc.CL_SystemWindow);
 						}
@@ -96,7 +96,7 @@ namespace DOL.GS.Commands
                     }
 				case "all":
 					{
-						if (client.Player.CurrentHouse.AddPermission("All", PermissionType.All, HousingConstants.MinPermissionLevel))
+						if (client.Player.CurrentHouse.AddPermission("All", EPermissionType.All, HousingConstants.MinPermissionLevel))
 						{
 							client.Out.SendMessage("You added everybody!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
 						}

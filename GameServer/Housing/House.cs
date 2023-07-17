@@ -967,7 +967,7 @@ namespace DOL.GS.Housing
 			}
 			else
 			{
-				if (!CanChangeInterior(player, DecorationPermissions.Add))
+				if (!CanChangeInterior(player, EDecorationPermissions.Add))
 					return;
 			}
 
@@ -1071,14 +1071,14 @@ namespace DOL.GS.Housing
 
 		#region Add/Remove/Edit
 
-		public bool AddPermission(GamePlayer player, PermissionType permType, int permLevel)
+		public bool AddPermission(GamePlayer player, EPermissionType permType, int permLevel)
 		{
 			// make sure player is not null
 			if (player == null)
 				return false;
 
 			// get the proper target name (acct name or player name)
-			string targetName = permType == PermissionType.Account ? player.Client.Account.Name : player.Name;
+			string targetName = permType == EPermissionType.Account ? player.Client.Account.Name : player.Name;
 
 			//  check to make sure an existing mapping doesn't exist.
 			foreach (DbHouseCharsXPerms perm in _housePermissions.Values)
@@ -1102,7 +1102,7 @@ namespace DOL.GS.Housing
 			return true;
 		}
 
-		public bool AddPermission(string targetName, PermissionType permType, int permLevel)
+		public bool AddPermission(string targetName, EPermissionType permType, int permLevel)
 		{
 			//  check to make sure an existing mapping doesn't exist.
 			foreach (DbHouseCharsXPerms perm in _housePermissions.Values)
@@ -1188,7 +1188,7 @@ namespace DOL.GS.Housing
 			IEnumerable<DbHouseCharsXPerms> charPermissions = from cp in _housePermissions.Values
 				where
 				cp.TargetName == player.Name &&
-				cp.PermissionType == (int) PermissionType.Player
+				cp.PermissionType == (int) EPermissionType.Player
 				select cp;
 
 			if (charPermissions.Count() > 0)
@@ -1198,7 +1198,7 @@ namespace DOL.GS.Housing
 			IEnumerable<DbHouseCharsXPerms> acctPermissions = from cp in _housePermissions.Values
 				where
 				cp.TargetName == player.Client.Account.Name &&
-				cp.PermissionType == (int) PermissionType.Account
+				cp.PermissionType == (int) EPermissionType.Account
 				select cp;
 
 			if (acctPermissions.Count() > 0)
@@ -1210,7 +1210,7 @@ namespace DOL.GS.Housing
 				IEnumerable<DbHouseCharsXPerms> guildPermissions = from cp in _housePermissions.Values
 					where
 					player.Guild.Name == cp.TargetName &&
-					cp.PermissionType == (int) PermissionType.Guild
+					cp.PermissionType == (int) EPermissionType.Guild
 					select cp;
 
 				if (guildPermissions.Count() > 0)
@@ -1330,7 +1330,7 @@ namespace DOL.GS.Housing
 			return HasAccess(player, cp => cp.CanEnterHouse);
 		}
 
-		public bool CanUseVault(GamePlayer player, GameHouseVault vault, VaultPermissions vaultPerms)
+		public bool CanUseVault(GamePlayer player, GameHouseVault vault, EVaultPermissions vaultPerms)
 		{
 			// make sure player isn't null
 			if (player == null || player.CurrentHouse != this)
@@ -1346,21 +1346,21 @@ namespace DOL.GS.Housing
 				return false;
 
 			// get the vault permissions for the given vault
-			VaultPermissions activeVaultPermissions = VaultPermissions.None;
+			EVaultPermissions activeVaultPermissions = EVaultPermissions.None;
 
 			switch (vault.Index)
 			{
 				case 0:
-					activeVaultPermissions = (VaultPermissions) housePermissions.Vault1;
+					activeVaultPermissions = (EVaultPermissions) housePermissions.Vault1;
 					break;
 				case 1:
-					activeVaultPermissions = (VaultPermissions) housePermissions.Vault2;
+					activeVaultPermissions = (EVaultPermissions) housePermissions.Vault2;
 					break;
 				case 2:
-					activeVaultPermissions = (VaultPermissions) housePermissions.Vault3;
+					activeVaultPermissions = (EVaultPermissions) housePermissions.Vault3;
 					break;
 				case 3:
-					activeVaultPermissions = (VaultPermissions) housePermissions.Vault4;
+					activeVaultPermissions = (EVaultPermissions) housePermissions.Vault4;
 					break;
 			}
 
@@ -1369,7 +1369,7 @@ namespace DOL.GS.Housing
 			return (activeVaultPermissions & vaultPerms) > 0;
 		}
 
-		public bool CanUseConsignmentMerchant(GamePlayer player, ConsignmentPermissions consignPerms)
+		public bool CanUseConsignmentMerchant(GamePlayer player, EConsignmentPermissions consignPerms)
 		{
 			// make sure player isn't null
 			if (player == null)
@@ -1385,10 +1385,10 @@ namespace DOL.GS.Housing
 			if (housePermissions == null)
 				return false;
 
-			return ((ConsignmentPermissions) housePermissions.ConsignmentMerchant & consignPerms) > 0;
+			return ((EConsignmentPermissions) housePermissions.ConsignmentMerchant & consignPerms) > 0;
 		}
 
-		public bool CanChangeInterior(GamePlayer player, DecorationPermissions interiorPerms)
+		public bool CanChangeInterior(GamePlayer player, EDecorationPermissions interiorPerms)
 		{
 			// make sure player isn't null
 			if (player == null)
@@ -1404,10 +1404,10 @@ namespace DOL.GS.Housing
 			if (housePermissions == null)
 				return false;
 
-			return ((DecorationPermissions) housePermissions.ChangeInterior & interiorPerms) > 0;
+			return ((EDecorationPermissions) housePermissions.ChangeInterior & interiorPerms) > 0;
 		}
 
-		public bool CanChangeGarden(GamePlayer player, DecorationPermissions gardenPerms)
+		public bool CanChangeGarden(GamePlayer player, EDecorationPermissions gardenPerms)
 		{
 			// make sure player isn't null
 			if (player == null)
@@ -1423,7 +1423,7 @@ namespace DOL.GS.Housing
 			if (housePermissions == null)
 				return false;
 
-			return ((DecorationPermissions) housePermissions.ChangeGarden & gardenPerms) > 0;
+			return ((EDecorationPermissions) housePermissions.ChangeGarden & gardenPerms) > 0;
 		}
 
 		public bool CanChangeExternalAppearance(GamePlayer player)

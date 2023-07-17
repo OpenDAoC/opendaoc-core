@@ -176,7 +176,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 					return;
 				}
 
-				if (house.CanChangeInterior(client.Player, DecorationPermissions.Remove))
+				if (house.CanChangeInterior(client.Player, EDecorationPermissions.Remove))
 				{
 					if (orgitem.Name == "interior banner removal")
 					{
@@ -267,7 +267,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 							}
 
 							// no permissions to add to the garden, return
-							if (!house.CanChangeGarden(client.Player, DecorationPermissions.Add))
+							if (!house.CanChangeGarden(client.Player, EDecorationPermissions.Add))
 							{
 								client.Out.SendInventorySlotsUpdate(new[] { slot });
 								return;
@@ -330,7 +330,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 							}
 
 							// no permission to add to the interior, return
-							if (!house.CanChangeInterior(client.Player, DecorationPermissions.Add))
+							if (!house.CanChangeInterior(client.Player, EDecorationPermissions.Add))
 							{
 								client.Out.SendInventorySlotsUpdate(new[] { slot });
 								return;
@@ -438,7 +438,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 					case 4: // PORCH
 						{
 							// no permission to add to the garden, return
-							if (!house.CanChangeGarden(client.Player, DecorationPermissions.Add))
+							if (!house.CanChangeGarden(client.Player, EDecorationPermissions.Add))
 							{
 								client.Out.SendInventorySlotsUpdate(new[] { slot });
 								return;
@@ -520,7 +520,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 							}
 
 							// no permission to add to the interior, return
-							if (!house.CanChangeInterior(client.Player, DecorationPermissions.Add))
+							if (!house.CanChangeInterior(client.Player, EDecorationPermissions.Add))
 							{
 								client.Out.SendInventorySlotsUpdate(new[] { slot });
 								return;
