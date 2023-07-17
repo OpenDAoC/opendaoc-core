@@ -759,7 +759,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
 				if (client.Player.MinotaurRelic != null)
 				{
-					MinotaurRelic relic = client.Player.MinotaurRelic;
+					MinotaurRelicItem relic = client.Player.MinotaurRelic;
 					if (!relic.Playerlist.Contains(player) && player != client.Player)
 					{
 						relic.Playerlist.Add(player);

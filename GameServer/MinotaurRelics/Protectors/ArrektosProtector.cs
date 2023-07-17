@@ -63,7 +63,7 @@ namespace DOL.GS
             Size = 65;
 
             //get the relic by its ID, and lock it!
-            Relic = MinotaurRelicManager.GetRelic(1);
+            Relic = MinotaurRelicMgr.GetRelic(1);
             LockRelic();
 
 

@@ -11,14 +11,14 @@ using DOL.GS.Spells;
 
 namespace DOL.GS
 {
-	public class MinotaurRelic : GameStaticItem
+	public class MinotaurRelicItem : GameStaticItem
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
 		#region constructor
-		public MinotaurRelic() : base() { m_saveInDB = true; }
+		public MinotaurRelicItem() : base() { m_saveInDB = true; }
 
-		public MinotaurRelic(DbMinotaurRelics obj)
+		public MinotaurRelicItem(DbMinotaurRelics obj)
 			: this()
 		{
 			LoadFromDatabase(obj);
@@ -176,7 +176,7 @@ namespace DOL.GS
 			Name = m_dbRelic.Name;
 			Model = m_dbRelic.Model;
 
-			XP = MinotaurRelicManager.MAX_RELIC_EXP;
+			XP = MinotaurRelicMgr.MAX_RELIC_EXP;
 
             ProtectorClassType = m_dbRelic.ProtectorClassType;
             SpawnLocked = m_dbRelic.SpawnLocked;
@@ -436,10 +436,10 @@ namespace DOL.GS
 		{
 			ApplyRelicEffect();
 			
-			if (XP - MinotaurRelicManager.XP_LOSS_PER_TICK < 0)
+			if (XP - MinotaurRelicMgr.XP_LOSS_PER_TICK < 0)
 				XP = 0;
 			else
-				XP -= MinotaurRelicManager.XP_LOSS_PER_TICK;
+				XP -= MinotaurRelicMgr.XP_LOSS_PER_TICK;
 
 			if (Owner != null)
 			{
@@ -477,7 +477,7 @@ namespace DOL.GS
 				respawntimer = null;
 			}
 			respawntimer = new AuxECSGameTimer(this, new AuxECSGameTimer.AuxECSTimerCallback(RespawnTimerCallback),
-			                               UtilCollection.Random(MinotaurRelicManager.MIN_RESPAWN_TIMER, MinotaurRelicManager.MAX_RESPAWN_TIMER));
+			                               UtilCollection.Random(MinotaurRelicMgr.MIN_RESPAWN_TIMER, MinotaurRelicMgr.MAX_RESPAWN_TIMER));
 		}
 
 		/// <summary>
@@ -499,7 +499,7 @@ namespace DOL.GS
 			Z = SpawnZ;
 			Heading = (ushort)SpawnHeading;
 			CurrentRegionID = (ushort)SpawnRegion;
-			XP = MinotaurRelicManager.MAX_RELIC_EXP;
+			XP = MinotaurRelicMgr.MAX_RELIC_EXP;
 			AddToWorld();
 			return 0;
 		}
@@ -517,7 +517,7 @@ namespace DOL.GS
 			Z = SpawnZ;
 			Heading = (ushort)SpawnHeading;
 			CurrentRegionID = (ushort)SpawnRegion;
-			XP = MinotaurRelicManager.MAX_RELIC_EXP;
+			XP = MinotaurRelicMgr.MAX_RELIC_EXP;
 			AddToWorld();
 		}
 
@@ -585,7 +585,7 @@ namespace DOL.GS
 
 				if (player.MinotaurRelic == null || arg == null) return;
 
-				if (player.MinotaurRelic.XP < MinotaurRelicManager.MAX_RELIC_EXP)
+				if (player.MinotaurRelic.XP < MinotaurRelicMgr.MAX_RELIC_EXP)
 					player.MinotaurRelic.XP += (int)arg.RealmPoints / 6;
 			}
 		}

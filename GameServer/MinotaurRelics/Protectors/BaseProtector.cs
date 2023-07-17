@@ -34,10 +34,10 @@ namespace DOL.GS
 {
     public class BaseProtector : GameNPC
     {
-        private static MinotaurRelic m_relic;
+        private static MinotaurRelicItem m_relic;
         private static GameNPC m_lockedEffect;
 
-        public static MinotaurRelic Relic
+        public static MinotaurRelicItem Relic
         {
             get { return m_relic; }
             set { m_relic = value; }

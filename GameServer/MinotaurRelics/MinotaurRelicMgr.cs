@@ -13,14 +13,14 @@ using log4net;
 
 namespace DOL.GS
 {
-    public sealed class MinotaurRelicManager
+    public sealed class MinotaurRelicMgr
     {
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         /// <summary>
         /// table of all relics, InternalID as key
         /// </summary>
-        public static readonly Dictionary<string, MinotaurRelic> m_minotaurrelics = new Dictionary<string, MinotaurRelic>();
+        public static readonly Dictionary<string, MinotaurRelicItem> m_minotaurrelics = new Dictionary<string, MinotaurRelicItem>();
 
         /// <summary>
         /// Holds the maximum XP of Minotaur Relics
@@ -56,7 +56,7 @@ namespace DOL.GS
         /// </summary>
         public static bool Init()
         {
-            foreach (MinotaurRelic relic in m_minotaurrelics.Values)
+            foreach (MinotaurRelicItem relic in m_minotaurrelics.Values)
             {
                 relic.SaveIntoDatabase();
                 relic.RemoveFromWorld();
@@ -75,7 +75,7 @@ namespace DOL.GS
                         continue;
                     }
 
-                    MinotaurRelic relic = new MinotaurRelic(dbrelic);
+                    MinotaurRelicItem relic = new MinotaurRelicItem(dbrelic);
 
                     m_minotaurrelics.Add(relic.InternalID, relic);
 
@@ -104,12 +104,12 @@ namespace DOL.GS
         }
         private static void MapUpdate(object nullValue)
         {
-            Dictionary<ushort, IList<MinotaurRelic>> relics = new Dictionary<ushort, IList<MinotaurRelic>>();
-            foreach (MinotaurRelic relic in MinotaurRelicManager.GetAllRelics())
+            Dictionary<ushort, IList<MinotaurRelicItem>> relics = new Dictionary<ushort, IList<MinotaurRelicItem>>();
+            foreach (MinotaurRelicItem relic in MinotaurRelicMgr.GetAllRelics())
             {
                 if (!relics.ContainsKey(relic.CurrentRegionID))
                 {
-                    relics.Add(relic.CurrentRegionID, new List<MinotaurRelic>());
+                    relics.Add(relic.CurrentRegionID, new List<MinotaurRelicItem>());
                 }
                 relics[relic.CurrentRegionID].Add(relic);
             }
@@ -120,7 +120,7 @@ namespace DOL.GS
 
                 if(relics.ContainsKey(clt.Player.CurrentRegionID))
                 {
-                    foreach(MinotaurRelic relic in relics[clt.Player.CurrentRegionID])
+                    foreach(MinotaurRelicItem relic in relics[clt.Player.CurrentRegionID])
                     {
                         clt.Player.Out.SendMinotaurRelicMapUpdate((byte)relic.RelicID, relic.CurrentRegionID, relic.X, relic.Y, relic.Z);
                     }
@@ -133,7 +133,7 @@ namespace DOL.GS
         /// Adds a Relic to the Hashtable
         /// </summary>
         /// <param name="relic">The Relic you want to add</param>
-        public static bool AddRelic(MinotaurRelic relic)
+        public static bool AddRelic(MinotaurRelicItem relic)
         {
             if (m_minotaurrelics.ContainsValue(relic)) return false;
 
@@ -150,7 +150,7 @@ namespace DOL.GS
         /// Removes a Relic from the Hashtable
         /// </summary>
         /// <param name="relic">The Relic you want to remove</param>
-        public static bool RemoveRelic(MinotaurRelic relic)
+        public static bool RemoveRelic(MinotaurRelicItem relic)
         {
             if (!m_minotaurrelics.ContainsValue(relic)) return false;
 
@@ -167,9 +167,9 @@ namespace DOL.GS
             return m_minotaurrelics.Count;
         }
 
-        public static IList<MinotaurRelic> GetAllRelics()
+        public static IList<MinotaurRelicItem> GetAllRelics()
         {
-            IList<MinotaurRelic> relics = new List<MinotaurRelic>();
+            IList<MinotaurRelicItem> relics = new List<MinotaurRelicItem>();
 
             lock (m_minotaurrelics)
             {
@@ -184,22 +184,22 @@ namespace DOL.GS
         /// Returns the Relic with the given ID
         /// </summary>
         /// <param name="ID">The Internal ID of the Relic</param>
-        public static MinotaurRelic GetRelic(string ID)
+        public static MinotaurRelicItem GetRelic(string ID)
         {
             lock (m_minotaurrelics)
             {
                 if (!m_minotaurrelics.ContainsKey(ID))
                     return null;
 
-                return m_minotaurrelics[ID] as MinotaurRelic;
+                return m_minotaurrelics[ID] as MinotaurRelicItem;
             }
         }
 
-        public static MinotaurRelic GetRelic(int ID)
+        public static MinotaurRelicItem GetRelic(int ID)
         {
             lock (m_minotaurrelics)
             {
-                foreach (MinotaurRelic relic in m_minotaurrelics.Values)
+                foreach (MinotaurRelicItem relic in m_minotaurrelics.Values)
                 {
                     if (relic.RelicID == ID)
                         return relic;

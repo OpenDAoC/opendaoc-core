@@ -70,13 +70,13 @@ namespace DOL.GS.Commands
                             return;
                         }
 
-                        relic.RelicID = MinotaurRelicManager.GetRelicCount() + 1;
+                        relic.RelicID = MinotaurRelicMgr.GetRelicCount() + 1;
                         GameServer.Database.AddObject(relic);
 
-                        MinotaurRelic rrelic = new MinotaurRelic(relic);
+                        MinotaurRelicItem rrelic = new MinotaurRelicItem(relic);
                         rrelic.AddToWorld();
 
-                        MinotaurRelicManager.AddRelic(rrelic);
+                        MinotaurRelicMgr.AddRelic(rrelic);
 
 						break;
 					}
@@ -84,13 +84,13 @@ namespace DOL.GS.Commands
 				#region MoveHere
 				case "movehere":
                     {
-                        if (!(client.Player.TargetObject is MinotaurRelic))
+                        if (!(client.Player.TargetObject is MinotaurRelicItem))
                         {
                             DisplaySyntax(client);
                             return;
                         }
 
-                        MinotaurRelic relic = client.Player.TargetObject as MinotaurRelic;
+                        MinotaurRelicItem relic = client.Player.TargetObject as MinotaurRelicItem;
 
                         relic.Heading = client.Player.Heading;
                         relic.X = client.Player.X;
@@ -112,13 +112,13 @@ namespace DOL.GS.Commands
 				#region Model
 				case "model":
                     {
-                        if (args.Length != 3 || !(client.Player.TargetObject is MinotaurRelic))
+                        if (args.Length != 3 || !(client.Player.TargetObject is MinotaurRelicItem))
                         {
                             DisplaySyntax(client);
                             return;
                         }
 
-                        MinotaurRelic relic = client.Player.TargetObject as MinotaurRelic;
+                        MinotaurRelicItem relic = client.Player.TargetObject as MinotaurRelicItem;
 
                         try
                         {
@@ -138,13 +138,13 @@ namespace DOL.GS.Commands
 				#region Name
 				case "name":
                     {
-                        if (args.Length != 3 || !(client.Player.TargetObject is MinotaurRelic))
+                        if (args.Length != 3 || !(client.Player.TargetObject is MinotaurRelicItem))
                         {
                             DisplaySyntax(client);
                             return;
                         }
 
-                        MinotaurRelic relic = client.Player.TargetObject as MinotaurRelic;
+                        MinotaurRelicItem relic = client.Player.TargetObject as MinotaurRelicItem;
 
                         relic.Name = args[2];
 
@@ -156,13 +156,13 @@ namespace DOL.GS.Commands
 				#region Spell
 				case "spell":
                     {
-                        if (args.Length != 3 || !(client.Player.TargetObject is MinotaurRelic))
+                        if (args.Length != 3 || !(client.Player.TargetObject is MinotaurRelicItem))
                         {
                             DisplaySyntax(client);
                             return;
                         }
 
-                        MinotaurRelic relic = client.Player.TargetObject as MinotaurRelic;
+                        MinotaurRelicItem relic = client.Player.TargetObject as MinotaurRelicItem;
 
                         try
                         {
@@ -182,13 +182,13 @@ namespace DOL.GS.Commands
 				#region Effect
 				case "effect":
                     {
-                        if (args.Length != 3 || !(client.Player.TargetObject is MinotaurRelic))
+                        if (args.Length != 3 || !(client.Player.TargetObject is MinotaurRelicItem))
                         {
                             DisplaySyntax(client);
                             return;
                         }
 
-                        MinotaurRelic relic = client.Player.TargetObject as MinotaurRelic;
+                        MinotaurRelicItem relic = client.Player.TargetObject as MinotaurRelicItem;
 
                         try
                         {
@@ -208,13 +208,13 @@ namespace DOL.GS.Commands
 				#region Info
 				case "info":
 					{
-                        if (!(client.Player.TargetObject is MinotaurRelic))
+                        if (!(client.Player.TargetObject is MinotaurRelicItem))
                         {
                             DisplaySyntax(client);
                             return;
                         }
 
-                        MinotaurRelic relic = client.Player.TargetObject as MinotaurRelic;
+                        MinotaurRelicItem relic = client.Player.TargetObject as MinotaurRelicItem;
 
 						var info = new List<string>();
                         info.Add("===========================");
@@ -254,13 +254,13 @@ namespace DOL.GS.Commands
 				#region DeSpawn
 				case "despawn":
                     {
-                        if (!(client.Player.TargetObject is MinotaurRelic))
+                        if (!(client.Player.TargetObject is MinotaurRelicItem))
                         {
                             DisplaySyntax(client);
                             return;
                         }
 
-                        MinotaurRelic relic = client.Player.TargetObject as MinotaurRelic;
+                        MinotaurRelicItem relic = client.Player.TargetObject as MinotaurRelicItem;
 
                         relic.XP = 0;
                         relic.RemoveFromWorld();
@@ -292,7 +292,7 @@ namespace DOL.GS.Commands
                             else
                             {
 
-                                foreach (MinotaurRelic relic in MinotaurRelicManager.m_minotaurrelics.Values)
+                                foreach (MinotaurRelicItem relic in MinotaurRelicMgr.m_minotaurrelics.Values)
                                 {
                                     if (relic != null)
                                     {
@@ -304,7 +304,7 @@ namespace DOL.GS.Commands
                                             client.Player.Out.SendMessage("Relic " + relic.RelicID + " has been removed from the world", eChatType.CT_System, eChatLoc.CL_SystemWindow);
                                             
                                             //remove it from the hashtable
-                                            MinotaurRelicManager.RemoveRelic(relic);
+                                            MinotaurRelicMgr.RemoveRelic(relic);
                                             client.Player.Out.SendMessage("Relic " + relic.RelicID + " has been removed from the Minorelic Hash Table", eChatType.CT_System, eChatLoc.CL_SystemWindow);
                                             
                                             DataObject obj = GameServer.Database.FindObjectByKey<DbMinotaurRelics>(relic.RelicID);
@@ -326,19 +326,19 @@ namespace DOL.GS.Commands
                         }
                         else
                         {
-                            if (!(client.Player.TargetObject is MinotaurRelic))
+                            if (!(client.Player.TargetObject is MinotaurRelicItem))
                             {
                                 DisplaySyntax(client);
                                 return;
                             }
 
-                            MinotaurRelic relic = client.Player.TargetObject as MinotaurRelic;
+                            MinotaurRelicItem relic = client.Player.TargetObject as MinotaurRelicItem;
 
                             relic.RemoveFromWorld();
                             client.Player.Out.SendMessage("Relic " + relic.RelicID + " has been removed from the world", eChatType.CT_System, eChatLoc.CL_SystemWindow);
                                             
                             //remove it from the hashtable
-                            MinotaurRelicManager.RemoveRelic(relic);
+                            MinotaurRelicMgr.RemoveRelic(relic);
                             client.Player.Out.SendMessage("Relic " + relic.RelicID + " has been removed from the Minorelic Hash Table", eChatType.CT_System, eChatLoc.CL_SystemWindow);
                                             
 
@@ -356,13 +356,13 @@ namespace DOL.GS.Commands
 				#region XP
 				case "xp":
                     {
-                        if (args.Length != 3 || !(client.Player.TargetObject is MinotaurRelic))
+                        if (args.Length != 3 || !(client.Player.TargetObject is MinotaurRelicItem))
                         {
                             DisplaySyntax(client);
                             return;
                         }
 
-                        MinotaurRelic relic = client.Player.TargetObject as MinotaurRelic;
+                        MinotaurRelicItem relic = client.Player.TargetObject as MinotaurRelicItem;
 
                         try
                         {
@@ -396,7 +396,7 @@ namespace DOL.GS.Commands
                                 return;
                             }
 
-                            foreach (MinotaurRelic relic in MinotaurRelicManager.m_minotaurrelics.Values)
+                            foreach (MinotaurRelicItem relic in MinotaurRelicMgr.m_minotaurrelics.Values)
                             {
                                 if (relic != null && relic.CurrentRegionID == region)
                                 {
@@ -412,7 +412,7 @@ namespace DOL.GS.Commands
                             return;
                         }
 
-                        foreach (MinotaurRelic relic in MinotaurRelicManager.m_minotaurrelics.Values)
+                        foreach (MinotaurRelicItem relic in MinotaurRelicMgr.m_minotaurrelics.Values)
                         {
                             if (relic != null)
                             {
@@ -421,7 +421,7 @@ namespace DOL.GS.Commands
                             }
                         }
 
-                        info.Add(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.MinoRelic.ShowAll.Count", MinotaurRelicManager.m_minotaurrelics.Count));
+                        info.Add(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.MinoRelic.ShowAll.Count", MinotaurRelicMgr.m_minotaurrelics.Count));
 
 						client.Out.SendCustomTextWindow(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.MinoRelic.ShowAll.Infos"), info);
 
@@ -437,7 +437,7 @@ namespace DOL.GS.Commands
                             return;
                         }
 
-                        MinotaurRelic relic = MinotaurRelicManager.GetRelic(Convert.ToInt32(args[2]));
+                        MinotaurRelicItem relic = MinotaurRelicMgr.GetRelic(Convert.ToInt32(args[2]));
                         
                         if (relic == null)
                         {
