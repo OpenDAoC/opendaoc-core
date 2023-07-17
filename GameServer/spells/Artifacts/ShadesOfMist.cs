@@ -37,7 +37,7 @@ namespace DOL.GS.Spells
                 }
                 player.Model = player.ShadeModel;
                 player.Out.SendUpdatePlayer();
-                GameEventMgr.AddHandler(effect.Owner, GameLivingEvent.AttackedByEnemy, new DOLEventHandler(EventHandler));
+                GameEventMgr.AddHandler(effect.Owner, GameLivingEvent.AttackedByEnemy, new CoreEventHandler(EventHandler));
             }
         }
 
@@ -49,12 +49,12 @@ namespace DOL.GS.Spells
                 player.Model = player.CreationModel;
                 player.Out.SendUpdatePlayer();
             }
-            GameEventMgr.RemoveHandler(effect.Owner, GameLivingEvent.AttackedByEnemy, new DOLEventHandler(EventHandler));
+            GameEventMgr.RemoveHandler(effect.Owner, GameLivingEvent.AttackedByEnemy, new CoreEventHandler(EventHandler));
             return base.OnEffectExpires(effect, noMessages);
             
         }
 
-        public void EventHandler(DOLEvent e, object sender, EventArgs arguments)
+        public void EventHandler(CoreEvent e, object sender, EventArgs arguments)
         {
             AttackedByEnemyEventArgs args = arguments as AttackedByEnemyEventArgs;
             if (args == null) return;

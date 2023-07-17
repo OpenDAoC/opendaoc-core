@@ -26,7 +26,7 @@ namespace DOL.GS.Behaviour.Triggers
         /// <param name="notifyHandler"></param>
         /// <param name="k">keyword (K), meaning depends on triggertype</param>
         /// <param name="i">variable (I), meaning depends on triggertype</param>
-        public EnterAreaTrigger(GameNPC defaultNPC, DOLEventHandler notifyHandler,  Object k, Object i)
+        public EnterAreaTrigger(GameNPC defaultNPC, CoreEventHandler notifyHandler,  Object k, Object i)
             : base(defaultNPC, notifyHandler, ETriggerType.EnterArea, k, i)
         { }
 
@@ -36,7 +36,7 @@ namespace DOL.GS.Behaviour.Triggers
         /// <param name="defaultNPC"></param>
         /// <param name="notifyHandler"></param>
         /// <param name="i">variable (I), meaning depends on triggertype</param>
-        public EnterAreaTrigger(GameNPC defaultNPC, DOLEventHandler notifyHandler, IArea i)
+        public EnterAreaTrigger(GameNPC defaultNPC, CoreEventHandler notifyHandler, IArea i)
             : this(defaultNPC,notifyHandler,  (object)null,(object) i)
         { }
 
@@ -48,7 +48,7 @@ namespace DOL.GS.Behaviour.Triggers
         /// <param name="sender"></param>
         /// <param name="args">EventArgs of notify call</param>
         /// <returns>true if QuestPart should be executes, else false</returns>
-        public override bool Check(DOLEvent e, object sender, EventArgs args)
+        public override bool Check(CoreEvent e, object sender, EventArgs args)
         {
             bool result = false;
 

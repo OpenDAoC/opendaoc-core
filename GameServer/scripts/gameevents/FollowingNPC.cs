@@ -148,7 +148,7 @@ namespace DOL.GS.GameEvents
 		//interface and is called on serverstart when the
 		//events need to be started
 		[ScriptLoadedEvent]
-		public static void OnScriptCompiled(DOLEvent e, object sender, EventArgs args)
+		public static void OnScriptCompiled(CoreEvent e, object sender, EventArgs args)
 		{
 			if (!ServerProperties.Properties.LOAD_EXAMPLES)
 				return;
@@ -171,7 +171,7 @@ namespace DOL.GS.GameEvents
 		//interface and is called on when we want to stop 
 		//an event
 		[ScriptUnloadedEvent]
-		public static void OnScriptUnload(DOLEvent e, object sender, EventArgs args)
+		public static void OnScriptUnload(CoreEvent e, object sender, EventArgs args)
 		{
 			if (!ServerProperties.Properties.LOAD_EXAMPLES)
 				return;

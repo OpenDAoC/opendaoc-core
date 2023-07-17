@@ -57,12 +57,12 @@ public class PredatorMgr
     private static string TimeoutTickKey = "TimeoutStartTick";
 
     [ScriptLoadedEvent]
-    public static void OnScriptLoaded(DOLEvent e, object sender, EventArgs args)
+    public static void OnScriptLoaded(CoreEvent e, object sender, EventArgs args)
     {
         //GameEventMgr.AddHandler(GameLivingEvent.Dying, GreyPlayerKilled);
         //GameEventMgr.AddHandler(GameLivingEvent.Dying, BountyKilled);
         GameEventMgr.AddHandler(GameLivingEvent.Dying, PreyKilled);
-        GameEventMgr.AddHandler(GroupEvent.MemberJoined, JoinedGroup);
+        GameEventMgr.AddHandler(PlayerGroupEvent.MemberJoined, JoinedGroup);
         GameEventMgr.AddHandler(GamePlayerEvent.Quit, StartCooldownOnQuit);
         //GameEventMgr.AddHandler(GameLivingEvent.Moving, PreyKilled);
 
@@ -529,7 +529,7 @@ public class PredatorMgr
         return temp;
     }
 
-    private static void PreyKilled(DOLEvent e, object sender, EventArgs args)
+    private static void PreyKilled(CoreEvent e, object sender, EventArgs args)
     {
         GamePlayer killedPlayer = sender as GamePlayer;
 
@@ -582,7 +582,7 @@ public class PredatorMgr
         });
     }
 
-    private static void JoinedGroup(DOLEvent dolEvent, object sender, EventArgs arguments)
+    private static void JoinedGroup(CoreEvent coreEvent, object sender, EventArgs arguments)
     {
         if (sender is Group g)
         {
@@ -594,7 +594,7 @@ public class PredatorMgr
         }
     }
     
-    private static void StartCooldownOnQuit(DOLEvent e, object sender, EventArgs arguments)
+    private static void StartCooldownOnQuit(CoreEvent e, object sender, EventArgs arguments)
     {
         if(sender is GamePlayer p && PlayerIsActive(p))
             DisqualifyPlayer(p);

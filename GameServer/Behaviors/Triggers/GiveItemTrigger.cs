@@ -26,7 +26,7 @@ namespace DOL.GS.Behaviour.Triggers
 		/// <param name="notifyHandler"></param>
 		/// <param name="k"></param>
 		/// <param name="i"></param>
-        public GiveItemTrigger(GameNPC defaultNPC, DOLEventHandler notifyHandler,  Object k, Object i)
+        public GiveItemTrigger(GameNPC defaultNPC, CoreEventHandler notifyHandler,  Object k, Object i)
             : base(defaultNPC,notifyHandler, ETriggerType.GiveItem, k, i)
         { }
 
@@ -37,7 +37,7 @@ namespace DOL.GS.Behaviour.Triggers
         /// <param name="notifyHandler"></param>
         /// <param name="k"></param>
         /// <param name="i"></param>
-        public GiveItemTrigger(GameNPC defaultNPC, DOLEventHandler notifyHandler, GameNPC k, DbItemTemplates i)
+        public GiveItemTrigger(GameNPC defaultNPC, CoreEventHandler notifyHandler, GameNPC k, DbItemTemplates i)
             : this(defaultNPC,notifyHandler,  (object)k,(object) i)
         { }
 
@@ -49,7 +49,7 @@ namespace DOL.GS.Behaviour.Triggers
         /// <param name="sender">Sender of notify call</param>
         /// <param name="args">EventArgs of notify call</param>
         /// <returns>true if QuestPart should be executes, else false</returns>
-        public override bool Check(DOLEvent e, object sender, EventArgs args)
+        public override bool Check(CoreEvent e, object sender, EventArgs args)
         {
             bool result = false;
             GamePlayer player = BehaviorUtils.GuessGamePlayerFromNotify(e, sender, args);

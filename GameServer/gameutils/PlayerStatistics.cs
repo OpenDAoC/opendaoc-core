@@ -380,14 +380,14 @@ namespace DOL.GS.GameEvents
             if (m_handlersLoaded == false)
             {
                 m_handlersLoaded = true;
-                GameEventMgr.AddHandler(GameLivingEvent.GainedRealmPoints, new DOLEventHandler(GainedRealmPointsCallback));
-                GameEventMgr.AddHandler(GameLivingEvent.Dying, new DOLEventHandler(DyingCallback));
-                GameEventMgr.AddHandler(GameLivingEvent.CastFinished, new DOLEventHandler(FinishCastSpellCallback));
-                GameEventMgr.AddHandler(GameLivingEvent.HealthChanged, new DOLEventHandler(HealthChangedCallback));
+                GameEventMgr.AddHandler(GameLivingEvent.GainedRealmPoints, new CoreEventHandler(GainedRealmPointsCallback));
+                GameEventMgr.AddHandler(GameLivingEvent.Dying, new CoreEventHandler(DyingCallback));
+                GameEventMgr.AddHandler(GameLivingEvent.CastFinished, new CoreEventHandler(FinishCastSpellCallback));
+                GameEventMgr.AddHandler(GameLivingEvent.HealthChanged, new CoreEventHandler(HealthChangedCallback));
             }
         }
 
-		public static void GainedRealmPointsCallback(DOLEvent e, object sender, EventArgs args)
+		public static void GainedRealmPointsCallback(CoreEvent e, object sender, EventArgs args)
 		{
 			GamePlayer player = sender as GamePlayer;
 			GainedRealmPointsEventArgs gargs = args as GainedRealmPointsEventArgs;
@@ -403,7 +403,7 @@ namespace DOL.GS.GameEvents
 			stats.TotalRP += (uint)gargs.RealmPoints;
 		}
 
-		public static void DyingCallback(DOLEvent e, object sender, EventArgs args)
+		public static void DyingCallback(CoreEvent e, object sender, EventArgs args)
 		{
 			GamePlayer dyingPlayer = sender as GamePlayer;
 			DyingEventArgs dargs = args as DyingEventArgs;
@@ -447,7 +447,7 @@ namespace DOL.GS.GameEvents
 			dyingPlayerStats.Deaths++;
 		}
 
-		public static void FinishCastSpellCallback(DOLEvent e, object sender, EventArgs args)
+		public static void FinishCastSpellCallback(CoreEvent e, object sender, EventArgs args)
 		{
 			GamePlayer caster = sender as GamePlayer;
 			CastingEventArgs fargs = args as CastingEventArgs;
@@ -465,7 +465,7 @@ namespace DOL.GS.GameEvents
 			}
 		}
 
-		public static void HealthChangedCallback(DOLEvent e, object sender, EventArgs args)
+		public static void HealthChangedCallback(CoreEvent e, object sender, EventArgs args)
 		{
 			HealthChangedEventArgs hargs = args as HealthChangedEventArgs;
 			if (hargs.ChangeType == EHealthChangeType.Spell)

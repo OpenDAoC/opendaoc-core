@@ -111,12 +111,12 @@ namespace DOL.GS.Scripts
 		/// </summary>
 		/// <param name="e">The event that occured.</param>
 		/// <param name="sender">The sender of the event.</param>
-		public override void Notify(DOLEvent e, object sender)
+		public override void Notify(CoreEvent e, object sender)
 		{
 			base.Notify(e, sender);
 			
 			// When Jarl Ormarr arrives at its spawn point, make it vulnerable again.
-			if (e == GameNPCEvent.ArriveAtTarget)
+			if (e == GameNpcEvent.ArriveAtTarget)
 				EvadeChance = 0;
 		}	
 		public override void Die(GameObject killer)
@@ -136,7 +136,7 @@ namespace DOL.GS.Scripts
 			base.Die(killer);
 		}
 		[ScriptLoadedEvent]
-		public static void ScriptLoaded(DOLEvent e, object sender, EventArgs args)
+		public static void ScriptLoaded(CoreEvent e, object sender, EventArgs args)
 		{
 			if (log.IsInfoEnabled)
 				log.Info("Jarl Ormarr NPC Initializing...");
@@ -179,7 +179,7 @@ namespace DOL.GS.Scripts
 			/// <param name="e">The event that occured.</param>
 			/// <param name="sender">The source of the event.</param>
 			/// <param name="args">The event details.</param>
-			public override void Notify(DOLEvent e, object sender, EventArgs args)
+			public override void Notify(CoreEvent e, object sender, EventArgs args)
 			{
 				base.Notify(e, sender, args);
 				if (e == GameObjectEvent.TakeDamage)

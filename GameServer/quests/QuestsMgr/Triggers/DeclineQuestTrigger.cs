@@ -26,14 +26,14 @@ namespace DOL.GS.Quests.Triggers
 		/// <param name="notifyHandler"></param>
 		/// <param name="k"></param>
 		/// <param name="i"></param>
-        public DeclineQuestTrigger(GameNPC defaultNPC, DOLEventHandler notifyHandler, Object k, Object i)
+        public DeclineQuestTrigger(GameNPC defaultNPC, CoreEventHandler notifyHandler, Object k, Object i)
             : base(defaultNPC, notifyHandler, ETriggerType.DeclineQuest, k, i)
         { }
 
         /// <summary>
         /// Creates a new questtrigger and does some simple triggertype parameter compatibility checking
         /// </summary>        
-        public DeclineQuestTrigger(GameNPC defaultNPC, DOLEventHandler notifyHandler, Type questType)
+        public DeclineQuestTrigger(GameNPC defaultNPC, CoreEventHandler notifyHandler, Type questType)
             : this(defaultNPC,notifyHandler, (object)null,(object) questType)
         { }
 
@@ -45,7 +45,7 @@ namespace DOL.GS.Quests.Triggers
         /// <param name="sender"></param>
         /// <param name="args"></param>
         /// <returns></returns>
-        public override bool Check(DOLEvent e, object sender, EventArgs args)
+        public override bool Check(CoreEvent e, object sender, EventArgs args)
         {
             bool result = false;
 

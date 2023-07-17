@@ -166,10 +166,10 @@ namespace DOL.AI.Brain
 		/// <param name="e">The event that occured.</param>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="args">The event details.</param>
-		public override void Notify(DOLEvent e, object sender, EventArgs args)
+		public override void Notify(CoreEvent e, object sender, EventArgs args)
 		{
 			base.Notify(e, sender, args);
-			if (e == GameNPCEvent.ArriveAtTarget && IsGettingHelp && m_targetList.Count > 0)
+			if (e == GameNpcEvent.ArriveAtTarget && IsGettingHelp && m_targetList.Count > 0)
 			{
 				// We arrived at our target mob, let's have a look around
 				// and see if we can get multiple adds.
@@ -185,7 +185,7 @@ namespace DOL.AI.Brain
 				IsGettingHelp = false;
 				AttackMostWanted();
 			}
-			else if (e == GameNPCEvent.TakeDamage)
+			else if (e == GameNpcEvent.TakeDamage)
 			{
 				// If we are attacked at any point we'll stop scouting or
 				// running for help.

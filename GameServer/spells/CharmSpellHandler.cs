@@ -504,7 +504,7 @@ namespace DOL.GS.Spells
         /// <param name="e"></param>
         /// <param name="sender"></param>
         /// <param name="arguments"></param>
-        public void ReleaseEventHandler(DOLEvent e, object sender, EventArgs arguments)
+        public void ReleaseEventHandler(CoreEvent e, object sender, EventArgs arguments)
         {
             IControlledBrain npc = null;
             

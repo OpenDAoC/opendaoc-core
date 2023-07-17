@@ -36,14 +36,14 @@ namespace DOL.GS.Effects
                     p.Out.SendSpellEffectAnimation(EffectOwner, EffectOwner, 7086, 0, false, 1);
                 }
                 SummonCauldron();
-                GameEventMgr.AddHandler(EffectOwner, GamePlayerEvent.Quit, new DOLEventHandler(PlayerLeftWorld));
+                GameEventMgr.AddHandler(EffectOwner, GamePlayerEvent.Quit, new CoreEventHandler(PlayerLeftWorld));
             }
         }
         public override void Stop()
         {
             if (Cauldron != null) { Cauldron.Delete(); Cauldron = null; }
             if (EffectOwner != null)
-                GameEventMgr.RemoveHandler(EffectOwner, GamePlayerEvent.Quit, new DOLEventHandler(PlayerLeftWorld));
+                GameEventMgr.RemoveHandler(EffectOwner, GamePlayerEvent.Quit, new CoreEventHandler(PlayerLeftWorld));
 
             base.Stop();
         }
@@ -87,7 +87,7 @@ namespace DOL.GS.Effects
         /// <param name="e">The event which was raised</param>
         /// <param name="sender">Sender of the event</param>
         /// <param name="args">EventArgs associated with the event</param>
-        protected void PlayerLeftWorld(DOLEvent e, object sender, EventArgs args)
+        protected void PlayerLeftWorld(CoreEvent e, object sender, EventArgs args)
         {	
         	Cancel(false);
         }

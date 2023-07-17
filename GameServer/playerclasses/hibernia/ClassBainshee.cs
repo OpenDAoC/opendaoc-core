@@ -34,7 +34,7 @@ namespace DOL.GS.PlayerClass
 		/// <summary>
 		/// Event Trigger When Player Zoning Out to Force Reset Form
 		/// </summary>
-		protected DOLEventHandler m_wraithTriggerEvent;
+		protected CoreEventHandler m_wraithTriggerEvent;
 		
 		/// <summary>
 		/// Bainshee Transform While Casting.
@@ -52,8 +52,8 @@ namespace DOL.GS.PlayerClass
 				return 0;
 			}));
 
-			m_wraithTriggerEvent = new DOLEventHandler(TriggerUnWraithForm);
-			GameEventMgr.AddHandler(Player, GameLivingEvent.CastFinished, new DOLEventHandler(TriggerWraithForm));
+			m_wraithTriggerEvent = new CoreEventHandler(TriggerUnWraithForm);
+			GameEventMgr.AddHandler(Player, GameLivingEvent.CastFinished, new CoreEventHandler(TriggerWraithForm));
 		}
 
 		/// <summary>
@@ -62,7 +62,7 @@ namespace DOL.GS.PlayerClass
 		/// <param name="e"></param>
 		/// <param name="sender"></param>
 		/// <param name="arguments"></param>
-		protected virtual void TriggerWraithForm(DOLEvent e, object sender, EventArgs arguments)
+		protected virtual void TriggerWraithForm(CoreEvent e, object sender, EventArgs arguments)
 		{
 			var player = sender as GamePlayer;
 			
@@ -84,7 +84,7 @@ namespace DOL.GS.PlayerClass
 		/// <param name="e"></param>
 		/// <param name="sender"></param>
 		/// <param name="arguments"></param>
-		protected virtual void TriggerUnWraithForm(DOLEvent e, object sender, EventArgs arguments)
+		protected virtual void TriggerUnWraithForm(CoreEvent e, object sender, EventArgs arguments)
 		{
 			GamePlayer player = sender as GamePlayer;
 			

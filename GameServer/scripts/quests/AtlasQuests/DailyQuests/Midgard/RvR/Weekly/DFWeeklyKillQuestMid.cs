@@ -60,7 +60,7 @@ namespace DOL.GS.WeeklyQuest.Midgard
 		}
 		
 		[ScriptLoadedEvent]
-		public static void ScriptLoaded(DOLEvent e, object sender, EventArgs args)
+		public static void ScriptLoaded(CoreEvent e, object sender, EventArgs args)
 		{
 			if (!ServerProperties.Properties.LOAD_QUESTS)
 				return;
@@ -119,11 +119,11 @@ namespace DOL.GS.WeeklyQuest.Midgard
 			#region defineObject
 			#endregion
 
-			GameEventMgr.AddHandler(GamePlayerEvent.AcceptQuest, new DOLEventHandler(SubscribeQuest));
-			GameEventMgr.AddHandler(GamePlayerEvent.DeclineQuest, new DOLEventHandler(SubscribeQuest));
+			GameEventMgr.AddHandler(GamePlayerEvent.AcceptQuest, new CoreEventHandler(SubscribeQuest));
+			GameEventMgr.AddHandler(GamePlayerEvent.DeclineQuest, new CoreEventHandler(SubscribeQuest));
 
-			GameEventMgr.AddHandler(Patrick, GameObjectEvent.Interact, new DOLEventHandler(TalkToPatrick));
-			GameEventMgr.AddHandler(Patrick, GameLivingEvent.WhisperReceive, new DOLEventHandler(TalkToPatrick));
+			GameEventMgr.AddHandler(Patrick, GameObjectEvent.Interact, new CoreEventHandler(TalkToPatrick));
+			GameEventMgr.AddHandler(Patrick, GameLivingEvent.WhisperReceive, new CoreEventHandler(TalkToPatrick));
 
 			Patrick.AddQuestToGive(typeof (DFWeeklyKillQuestMid));
 
@@ -132,22 +132,22 @@ namespace DOL.GS.WeeklyQuest.Midgard
 		}
 
 		[ScriptUnloadedEvent]
-		public static void ScriptUnloaded(DOLEvent e, object sender, EventArgs args)
+		public static void ScriptUnloaded(CoreEvent e, object sender, EventArgs args)
 		{
 			//if not loaded, don't worry
 			if (Patrick == null)
 				return;
 			// remove handlers
-			GameEventMgr.RemoveHandler(GamePlayerEvent.AcceptQuest, new DOLEventHandler(SubscribeQuest));
-			GameEventMgr.RemoveHandler(GamePlayerEvent.DeclineQuest, new DOLEventHandler(SubscribeQuest));
+			GameEventMgr.RemoveHandler(GamePlayerEvent.AcceptQuest, new CoreEventHandler(SubscribeQuest));
+			GameEventMgr.RemoveHandler(GamePlayerEvent.DeclineQuest, new CoreEventHandler(SubscribeQuest));
 
-			GameEventMgr.RemoveHandler(Patrick, GameObjectEvent.Interact, new DOLEventHandler(TalkToPatrick));
-			GameEventMgr.RemoveHandler(Patrick, GameLivingEvent.WhisperReceive, new DOLEventHandler(TalkToPatrick));
+			GameEventMgr.RemoveHandler(Patrick, GameObjectEvent.Interact, new CoreEventHandler(TalkToPatrick));
+			GameEventMgr.RemoveHandler(Patrick, GameLivingEvent.WhisperReceive, new CoreEventHandler(TalkToPatrick));
 
 			Patrick.RemoveQuestToGive(typeof (DFWeeklyKillQuestMid));
 		}
 
-		private static void TalkToPatrick(DOLEvent e, object sender, EventArgs args)
+		private static void TalkToPatrick(CoreEvent e, object sender, EventArgs args)
 		{
 			//We get the player from the event arguments and check if he qualifies		
 			GamePlayer player = ((SourceEventArgs) args).Source as GamePlayer;
@@ -249,7 +249,7 @@ namespace DOL.GS.WeeklyQuest.Midgard
 			}
 		}
 
-		private static void SubscribeQuest(DOLEvent e, object sender, EventArgs args)
+		private static void SubscribeQuest(CoreEvent e, object sender, EventArgs args)
 		{
 			QuestEventArgs qargs = args as QuestEventArgs;
 			if (qargs == null)
@@ -309,7 +309,7 @@ namespace DOL.GS.WeeklyQuest.Midgard
 			}
 		}
 
-		public override void Notify(DOLEvent e, object sender, EventArgs args)
+		public override void Notify(CoreEvent e, object sender, EventArgs args)
 		{
 			GamePlayer player = sender as GamePlayer;
 

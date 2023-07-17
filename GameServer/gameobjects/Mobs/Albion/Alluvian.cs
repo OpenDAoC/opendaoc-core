@@ -60,7 +60,7 @@ namespace DOL.GS
 			globulespawn.AddToWorld();
 			GlobuleNumber++;
 			brain.WalkFromSpawn();
-			GameEventMgr.AddHandler(globulespawn, GameNPCEvent.Dying, new DOLEventHandler(GlobuleHasDied));
+			GameEventMgr.AddHandler(globulespawn, GameNpcEvent.Dying, new CoreEventHandler(GlobuleHasDied));
 			return 0;
 		}
 
@@ -70,10 +70,10 @@ namespace DOL.GS
 		/// <param name="e"></param>
 		/// <param name="sender"></param>
 		/// <param name="args"></param>
-		public static void GlobuleHasDied(DOLEvent e, object sender, EventArgs args)
+		public static void GlobuleHasDied(CoreEvent e, object sender, EventArgs args)
 		{
 			GlobuleNumber--;
-			GameEventMgr.RemoveHandler(sender, GameNPCEvent.Dying, new DOLEventHandler(GlobuleHasDied));
+			GameEventMgr.RemoveHandler(sender, GameNpcEvent.Dying, new CoreEventHandler(GlobuleHasDied));
 			return;
 		}
 	}

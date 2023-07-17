@@ -89,8 +89,8 @@ namespace DOL.GS.RealmAbilities
             caster.TempProperties.setProperty(IS_CASTING, true);
             caster.TempProperties.setProperty(NM_CAST_SUCCESS, true);
             // GameEventMgr.AddHandler(caster, GamePlayerEvent.Moving, new DOLEventHandler(CastInterrupted));
-            GameEventMgr.AddHandler(caster, GamePlayerEvent.AttackFinished, new DOLEventHandler(CastInterrupted));
-            GameEventMgr.AddHandler(caster, GamePlayerEvent.Dying, new DOLEventHandler(CastInterrupted));
+            GameEventMgr.AddHandler(caster, GamePlayerEvent.AttackFinished, new CoreEventHandler(CastInterrupted));
+            GameEventMgr.AddHandler(caster, GamePlayerEvent.Dying, new CoreEventHandler(CastInterrupted));
             if (caster != null)
             {
                 new ECSGameTimer(caster, new ECSGameTimer.ECSTimerCallback(EndCast), 2000);
@@ -101,8 +101,8 @@ namespace DOL.GS.RealmAbilities
             bool castWasSuccess = player.TempProperties.getProperty(NM_CAST_SUCCESS, false);
             player.TempProperties.removeProperty(IS_CASTING);
             // GameEventMgr.RemoveHandler(player, GamePlayerEvent.Moving, new DOLEventHandler(CastInterrupted));
-            GameEventMgr.RemoveHandler(player, GamePlayerEvent.AttackFinished, new DOLEventHandler(CastInterrupted));
-            GameEventMgr.RemoveHandler(player, GamePlayerEvent.Dying, new DOLEventHandler(CastInterrupted));
+            GameEventMgr.RemoveHandler(player, GamePlayerEvent.AttackFinished, new CoreEventHandler(CastInterrupted));
+            GameEventMgr.RemoveHandler(player, GamePlayerEvent.Dying, new CoreEventHandler(CastInterrupted));
             if (player.IsMezzed || player.IsStunned || player.IsSitting)
                 return 0;
             if (!castWasSuccess)
@@ -114,7 +114,7 @@ namespace DOL.GS.RealmAbilities
 			timer = null;
 			return 0;
 		}
-        private void CastInterrupted(DOLEvent e, object sender, EventArgs arguments) 
+        private void CastInterrupted(CoreEvent e, object sender, EventArgs arguments) 
         {
             AttackFinishedEventArgs attackFinished = arguments as AttackFinishedEventArgs;
             if (attackFinished != null && attackFinished.AttackData.Attacker != sender)

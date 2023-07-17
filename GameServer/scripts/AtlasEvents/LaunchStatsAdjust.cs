@@ -22,18 +22,18 @@ namespace DOL.GS.GameEvents
         private static string StatsKey = "StatsAdjust";
         
         [GameServerStartedEvent]
-        public static void OnServerStart(DOLEvent e, object sender, EventArgs arguments)
+        public static void OnServerStart(CoreEvent e, object sender, EventArgs arguments)
         {
-            GameEventMgr.AddHandler(GamePlayerEvent.GameEntered, new DOLEventHandler(PlayerEntered));
+            GameEventMgr.AddHandler(GamePlayerEvent.GameEntered, new CoreEventHandler(PlayerEntered));
         }
 
         /// <summary>
         /// Event handler fired when server is stopped
         /// </summary>
         [GameServerStoppedEvent]
-        public static void OnServerStop(DOLEvent e, object sender, EventArgs arguments)
+        public static void OnServerStop(CoreEvent e, object sender, EventArgs arguments)
         {
-            GameEventMgr.RemoveHandler(GamePlayerEvent.GameEntered, new DOLEventHandler(PlayerEntered));
+            GameEventMgr.RemoveHandler(GamePlayerEvent.GameEntered, new CoreEventHandler(PlayerEntered));
         }
         
         /// <summary>
@@ -42,7 +42,7 @@ namespace DOL.GS.GameEvents
         /// <param name="e"></param>
         /// <param name="sender"></param>
         /// <param name="arguments"></param>
-        private static void PlayerEntered(DOLEvent e, object sender, EventArgs arguments)
+        private static void PlayerEntered(CoreEvent e, object sender, EventArgs arguments)
         {
             if (sender is not GamePlayer player) return;
             

@@ -75,7 +75,7 @@ namespace DOL.GS.Quests.Midgard
 		}
 
 		[ScriptLoadedEvent]
-		public static void ScriptLoaded(DOLEvent e, object sender, EventArgs args)
+		public static void ScriptLoaded(CoreEvent e, object sender, EventArgs args)
 		{
 			if (!ServerProperties.Properties.LOAD_QUESTS)
 				return;
@@ -763,13 +763,13 @@ namespace DOL.GS.Quests.Midgard
 
 			#endregion
 
-			GameEventMgr.AddHandler(GamePlayerEvent.AcceptQuest, new DOLEventHandler(SubscribeQuest));
-			GameEventMgr.AddHandler(GamePlayerEvent.DeclineQuest, new DOLEventHandler(SubscribeQuest));
+			GameEventMgr.AddHandler(GamePlayerEvent.AcceptQuest, new CoreEventHandler(SubscribeQuest));
+			GameEventMgr.AddHandler(GamePlayerEvent.DeclineQuest, new CoreEventHandler(SubscribeQuest));
 
-			GameEventMgr.AddHandler(Inaksha, GameObjectEvent.Interact, new DOLEventHandler(TalkToInaksha));
-			GameEventMgr.AddHandler(Inaksha, GameLivingEvent.WhisperReceive, new DOLEventHandler(TalkToInaksha));
-			GameEventMgr.AddHandler(Miri, GameObjectEvent.Interact, new DOLEventHandler(TalkToMiri));
-			GameEventMgr.AddHandler(Miri, GameLivingEvent.WhisperReceive, new DOLEventHandler(TalkToMiri));
+			GameEventMgr.AddHandler(Inaksha, GameObjectEvent.Interact, new CoreEventHandler(TalkToInaksha));
+			GameEventMgr.AddHandler(Inaksha, GameLivingEvent.WhisperReceive, new CoreEventHandler(TalkToInaksha));
+			GameEventMgr.AddHandler(Miri, GameObjectEvent.Interact, new CoreEventHandler(TalkToMiri));
+			GameEventMgr.AddHandler(Miri, GameLivingEvent.WhisperReceive, new CoreEventHandler(TalkToMiri));
 
 			/* Now we bring to Inaksha the possibility to give this quest to players */
 			Inaksha.AddQuestToGive(typeof (Seer_50));
@@ -779,25 +779,25 @@ namespace DOL.GS.Quests.Midgard
 		}
 
 		[ScriptUnloadedEvent]
-		public static void ScriptUnloaded(DOLEvent e, object sender, EventArgs args)
+		public static void ScriptUnloaded(CoreEvent e, object sender, EventArgs args)
 		{
 			//if not loaded, don't worry
 			if (Inaksha == null || Miri == null)
 				return;
 			// remove handlers
-			GameEventMgr.RemoveHandler(GamePlayerEvent.AcceptQuest, new DOLEventHandler(SubscribeQuest));
-			GameEventMgr.RemoveHandler(GamePlayerEvent.DeclineQuest, new DOLEventHandler(SubscribeQuest));
+			GameEventMgr.RemoveHandler(GamePlayerEvent.AcceptQuest, new CoreEventHandler(SubscribeQuest));
+			GameEventMgr.RemoveHandler(GamePlayerEvent.DeclineQuest, new CoreEventHandler(SubscribeQuest));
 
-			GameEventMgr.RemoveHandler(Inaksha, GameObjectEvent.Interact, new DOLEventHandler(TalkToInaksha));
-			GameEventMgr.RemoveHandler(Inaksha, GameLivingEvent.WhisperReceive, new DOLEventHandler(TalkToInaksha));
-			GameEventMgr.RemoveHandler(Miri, GameObjectEvent.Interact, new DOLEventHandler(TalkToMiri));
-			GameEventMgr.RemoveHandler(Miri, GameLivingEvent.WhisperReceive, new DOLEventHandler(TalkToMiri));
+			GameEventMgr.RemoveHandler(Inaksha, GameObjectEvent.Interact, new CoreEventHandler(TalkToInaksha));
+			GameEventMgr.RemoveHandler(Inaksha, GameLivingEvent.WhisperReceive, new CoreEventHandler(TalkToInaksha));
+			GameEventMgr.RemoveHandler(Miri, GameObjectEvent.Interact, new CoreEventHandler(TalkToMiri));
+			GameEventMgr.RemoveHandler(Miri, GameLivingEvent.WhisperReceive, new CoreEventHandler(TalkToMiri));
 
 			/* Now we remove to Inaksha the possibility to give this quest to players */
 			Inaksha.RemoveQuestToGive(typeof (Seer_50));
 		}
 
-		protected static void TalkToInaksha(DOLEvent e, object sender, EventArgs args)
+		protected static void TalkToInaksha(CoreEvent e, object sender, EventArgs args)
 		{
 			//We get the player from the event arguments and check if he qualifies		
 			GamePlayer player = ((SourceEventArgs) args).Source as GamePlayer;
@@ -891,7 +891,7 @@ namespace DOL.GS.Quests.Midgard
 
 		}
 
-		protected static void TalkToMiri(DOLEvent e, object sender, EventArgs args)
+		protected static void TalkToMiri(CoreEvent e, object sender, EventArgs args)
 		{
 			//We get the player from the event arguments and check if he qualifies		
 			GamePlayer player = ((SourceEventArgs) args).Source as GamePlayer;
@@ -1011,7 +1011,7 @@ namespace DOL.GS.Quests.Midgard
 			}
 		}
 
-		protected static void SubscribeQuest(DOLEvent e, object sender, EventArgs args)
+		protected static void SubscribeQuest(CoreEvent e, object sender, EventArgs args)
 		{
 			QuestEventArgs qargs = args as QuestEventArgs;
 			if (qargs == null)
@@ -1074,7 +1074,7 @@ namespace DOL.GS.Quests.Midgard
 			}
 		}
 
-		public override void Notify(DOLEvent e, object sender, EventArgs args)
+		public override void Notify(CoreEvent e, object sender, EventArgs args)
 		{
 			GamePlayer player = sender as GamePlayer;
 

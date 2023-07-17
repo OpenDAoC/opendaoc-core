@@ -127,7 +127,7 @@ namespace DOL.GS.Scripts
 			}
 		
 		[ScriptLoadedEvent]
-        public static void OnScriptCompiled(DOLEvent e, object sender, EventArgs args)
+        public static void OnScriptCompiled(CoreEvent e, object sender, EventArgs args)
         {
             log.Info("Atlas Basic Event Teleporter initialized");
         }	

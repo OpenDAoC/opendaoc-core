@@ -92,7 +92,7 @@ namespace DOL.GS.Quests
         /// <param name="e">DolEvent of notify call</param>        
         /// <param name="sender">Sender of notify call</param>
         /// <param name="args">EventArgs of notify call</param>        
-        public override void Notify(DOLEvent e, object sender, EventArgs args)
+        public override void Notify(CoreEvent e, object sender, EventArgs args)
         {            
             GamePlayer player = BehaviorUtils.GuessGamePlayerFromNotify(e, sender, args);
 

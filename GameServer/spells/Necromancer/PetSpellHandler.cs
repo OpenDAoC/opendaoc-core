@@ -73,7 +73,7 @@ namespace DOL.GS.Spells
                 if (spell != null && spell.SubSpellID == 0)
                 {
                     spell.Level = Spell.Level;
-                    petBrain.Notify(GameNPCEvent.PetSpell, this,
+                    petBrain.Notify(GameNpcEvent.PetSpell, this,
                         new PetSpellEventArgs(spell, SpellLine, target, Spell));
                 }
 			}

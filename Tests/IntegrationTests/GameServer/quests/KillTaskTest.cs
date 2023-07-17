@@ -63,7 +63,7 @@ namespace DOL.Tests.Integration.Server
 					// First we kill mob
 					mob.XPGainers.Add(player, 1.0F);
 				}
-				task.Notify(GameNPCEvent.EnemyKilled,player,new EnemyKilledEventArgs(mob));
+				task.Notify(GameNpcEvent.EnemyKilled,player,new EnemyKilledEventArgs(mob));
 
 				// arificial pickup Item
 				player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, item);

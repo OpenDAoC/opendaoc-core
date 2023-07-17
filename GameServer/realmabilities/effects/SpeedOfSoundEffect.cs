@@ -19,7 +19,7 @@ namespace DOL.GS.Effects
 			: base(duration)
 		{ }
 
-		DOLEventHandler m_attackFinished = new DOLEventHandler(AttackFinished);
+		CoreEventHandler m_attackFinished = new CoreEventHandler(AttackFinished);
 
 
 		/// <summary>
@@ -45,7 +45,7 @@ namespace DOL.GS.Effects
 		/// <param name="e">The event which was raised</param>
 		/// <param name="sender">Sender of the event</param>
 		/// <param name="args">EventArgs associated with the event</param>
-		private static void AttackFinished(DOLEvent e, object sender, EventArgs args)
+		private static void AttackFinished(CoreEvent e, object sender, EventArgs args)
 		{
 			GamePlayer player = (GamePlayer)sender;
 			if (e == GameLivingEvent.CastFinished)

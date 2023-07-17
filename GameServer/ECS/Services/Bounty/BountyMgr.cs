@@ -25,7 +25,7 @@ public class BountyMgr
     private static double bountyRate = Properties.BOUNTY_PAYOUT_RATE;
 
     [ScriptLoadedEvent]
-    public static void OnScriptLoaded(DOLEvent e, object sender, EventArgs args)
+    public static void OnScriptLoaded(CoreEvent e, object sender, EventArgs args)
     {
         GameEventMgr.AddHandler(GameLivingEvent.Dying, GreyPlayerKilled);
         GameEventMgr.AddHandler(GameLivingEvent.Dying, BountyKilled);
@@ -54,7 +54,7 @@ public class BountyMgr
         set { }
     }
 
-    private static void GreyPlayerKilled(DOLEvent e, object sender, EventArgs args)
+    private static void GreyPlayerKilled(CoreEvent e, object sender, EventArgs args)
     {
         GamePlayer player = sender as GamePlayer;
 
@@ -77,7 +77,7 @@ public class BountyMgr
             eChatType.CT_Important, eChatLoc.CL_SystemWindow);
     }
 
-    private static void BountyKilled(DOLEvent e, object sender, EventArgs args)
+    private static void BountyKilled(CoreEvent e, object sender, EventArgs args)
     {
         GamePlayer killedPlayer = sender as GamePlayer;
 
@@ -144,7 +144,7 @@ public class BountyMgr
         }
     }
 
-    private static void PlayerKilled(DOLEvent e, object sender, EventArgs args)
+    private static void PlayerKilled(CoreEvent e, object sender, EventArgs args)
     {
         GamePlayer player = sender as GamePlayer;
 

@@ -188,7 +188,7 @@ namespace DOL.GS.Spells
 			GameEventMgr.AddHandler(Caster, GamePlayerEvent.Quit, OnPlayerLeft);
 		}
 
-		private static void OnPlayerLeft(DOLEvent e, object sender, EventArgs arguments)
+		private static void OnPlayerLeft(CoreEvent e, object sender, EventArgs arguments)
 		{
 			if (!(sender is GamePlayer))
 				return;

@@ -196,7 +196,7 @@ namespace DOL.GS
 				player.Out.SendGroupMembersUpdate(true, true);
 
 			SendMessageToGroupMembers(string.Format("{0} has joined the group.", living.Name), eChatType.CT_System, eChatLoc.CL_SystemWindow);
-			GameEventMgr.Notify(GroupEvent.MemberJoined, this, new MemberJoinedEventArgs(living));
+			GameEventMgr.Notify(PlayerGroupEvent.MemberJoined, this, new PlayerJoinedEventArgs(living));
 
 
 			//use this to track completely solo characters
@@ -359,7 +359,7 @@ namespace DOL.GS
 			}
 
 			UpdateGroupIndexes();
-			GameEventMgr.Notify(GroupEvent.MemberDisbanded, this, new MemberDisbandedEventArgs(living));
+			GameEventMgr.Notify(PlayerGroupEvent.MemberDisbanded, this, new PlayerDisbandedEventArgs(living));
 			return true;
 		}
 

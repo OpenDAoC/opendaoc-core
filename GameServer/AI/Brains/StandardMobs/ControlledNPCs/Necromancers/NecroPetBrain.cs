@@ -44,11 +44,11 @@ namespace DOL.AI.Brain
         /// <summary>
         /// Process events.
         /// </summary>
-        public override void Notify(DOLEvent e, object sender, EventArgs args)
+        public override void Notify(CoreEvent e, object sender, EventArgs args)
         {
             base.Notify(e, sender, args);
 
-            if (e == GameNPCEvent.PetSpell)
+            if (e == GameNpcEvent.PetSpell)
             {
                 PetSpellEventArgs petSpell = (PetSpellEventArgs)args;
                 bool hadQueuedSpells = false;
@@ -154,7 +154,7 @@ namespace DOL.AI.Brain
                     MessageToOwner(LanguageMgr.GetTranslation((Owner as GamePlayer).Client.Account.Language, "AI.Brain.Necromancer.PetCastingSpell", Body.Name), eChatType.CT_System, Owner as GamePlayer);
                 }
             }
-            else if (e == GameNPCEvent.SwitchedTarget && sender == Body.TargetObject && sender is GameNPC && !(sender as GameNPC).IsCrowdControlled)
+            else if (e == GameNpcEvent.SwitchedTarget && sender == Body.TargetObject && sender is GameNPC && !(sender as GameNPC).IsCrowdControlled)
             {
                 // Target has started attacking someone else.
                 if (Body.EffectList.GetOfType<TauntEffect>() != null)
@@ -466,7 +466,7 @@ namespace DOL.AI.Brain
 
                 if (m_seconds > 0)
                 {
-                    m_pet.Brain.Notify(GameNPCEvent.OutOfTetherRange, this, 
+                    m_pet.Brain.Notify(GameNpcEvent.OutOfTetherRange, this, 
                         new TetherEventArgs(m_seconds));
                     m_seconds -= 1;
                 }

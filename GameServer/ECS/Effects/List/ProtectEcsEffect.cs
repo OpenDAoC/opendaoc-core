@@ -70,7 +70,7 @@ namespace DOL.GS
 				return;
 
 			if(m_playerGroup != null)
-				GameEventMgr.AddHandler(m_playerGroup, GroupEvent.MemberDisbanded, new DOLEventHandler(GroupDisbandCallback));
+				GameEventMgr.AddHandler(m_playerGroup, PlayerGroupEvent.MemberDisbanded, new CoreEventHandler(GroupDisbandCallback));
 
 			
 			if (Owner == ProtectSource)
@@ -95,7 +95,7 @@ namespace DOL.GS
 		public void Cancel(bool playerCancel)
 		{
 			if(m_playerGroup != null)
-				GameEventMgr.RemoveHandler(m_playerGroup, GroupEvent.MemberDisbanded, new DOLEventHandler(GroupDisbandCallback));
+				GameEventMgr.RemoveHandler(m_playerGroup, PlayerGroupEvent.MemberDisbanded, new CoreEventHandler(GroupDisbandCallback));
 
 			var protectSourceEffect = EffectListService.GetEffectOnTarget(m_protectSource, EEffect.Protect);
 			if (protectSourceEffect != null)
@@ -116,9 +116,9 @@ namespace DOL.GS
 		/// <param name="e"></param>
 		/// <param name="sender">The group</param>
 		/// <param name="args"></param>
-		protected void GroupDisbandCallback(DOLEvent e, object sender, EventArgs args)
+		protected void GroupDisbandCallback(CoreEvent e, object sender, EventArgs args)
 		{
-			MemberDisbandedEventArgs eArgs = args as MemberDisbandedEventArgs;
+			PlayerDisbandedEventArgs eArgs = args as PlayerDisbandedEventArgs;
 			if (eArgs == null) return;
 			if (eArgs.Member == ProtectTarget || eArgs.Member == ProtectSource)
 			{

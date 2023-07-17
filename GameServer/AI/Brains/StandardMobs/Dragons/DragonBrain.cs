@@ -141,7 +141,7 @@ namespace DOL.AI.Brain
 		/// <param name="e">The event that occured.</param>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="args">The event details.</param>
-		public override void Notify(DOLEvent e, object sender, EventArgs args)
+		public override void Notify(CoreEvent e, object sender, EventArgs args)
 		{
 			base.Notify(e, sender, args);
 			if (sender == Body)
@@ -197,7 +197,7 @@ namespace DOL.AI.Brain
 					}
 				}
 			}
-			else if (e == GameNPCEvent.ArriveAtTarget && sender != null)
+			else if (e == GameNpcEvent.ArriveAtTarget && sender != null)
 			{
 				// Message from another NPC, such as a retriever,
 				// for example.

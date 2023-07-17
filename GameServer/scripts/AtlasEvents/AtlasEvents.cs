@@ -33,12 +33,12 @@ namespace DOL.GS.GameEvents
 		/// <param name="sender"></param>
 		/// <param name="args"></param>
 		[ScriptLoadedEvent]
-		public static void OnScriptLoaded(DOLEvent e, object sender, EventArgs args)
+		public static void OnScriptLoaded(CoreEvent e, object sender, EventArgs args)
 		{
-			GameEventMgr.AddHandler(DatabaseEvent.CharacterCreated, new DOLEventHandler(OnCharacterCreation));
-			GameEventMgr.AddHandler(GameLivingEvent.GainedRealmPoints, new DOLEventHandler(OnRPGain));
-			GameEventMgr.AddHandler(GamePlayerEvent.GameEntered,new DOLEventHandler(OnPlayerLogin));
-			GameEventMgr.AddHandler(GamePlayerEvent.Released, new DOLEventHandler(OnPlayerReleased));
+			GameEventMgr.AddHandler(DatabaseEvent.CharacterCreated, new CoreEventHandler(OnCharacterCreation));
+			GameEventMgr.AddHandler(GameLivingEvent.GainedRealmPoints, new CoreEventHandler(OnRPGain));
+			GameEventMgr.AddHandler(GamePlayerEvent.GameEntered,new CoreEventHandler(OnPlayerLogin));
+			GameEventMgr.AddHandler(GamePlayerEvent.Released, new CoreEventHandler(OnPlayerReleased));
 			if (log.IsInfoEnabled)
 				log.Info("Atlas Event initialized");
 		}
@@ -54,12 +54,12 @@ namespace DOL.GS.GameEvents
 		/// <param name="sender"></param>
 		/// <param name="args"></param>
 		[ScriptUnloadedEvent]
-		public static void OnScriptUnloaded(DOLEvent e, object sender, EventArgs args)
+		public static void OnScriptUnloaded(CoreEvent e, object sender, EventArgs args)
 		{
-			GameEventMgr.RemoveHandler(DatabaseEvent.CharacterCreated, new DOLEventHandler(OnCharacterCreation));
-			GameEventMgr.RemoveHandler(GameLivingEvent.GainedRealmPoints, new DOLEventHandler(OnRPGain));
-			GameEventMgr.RemoveHandler(GamePlayerEvent.GameEntered, new DOLEventHandler(OnPlayerLogin));
-			GameEventMgr.RemoveHandler(GamePlayerEvent.Released, new DOLEventHandler(OnPlayerReleased));
+			GameEventMgr.RemoveHandler(DatabaseEvent.CharacterCreated, new CoreEventHandler(OnCharacterCreation));
+			GameEventMgr.RemoveHandler(GameLivingEvent.GainedRealmPoints, new CoreEventHandler(OnRPGain));
+			GameEventMgr.RemoveHandler(GamePlayerEvent.GameEntered, new CoreEventHandler(OnPlayerLogin));
+			GameEventMgr.RemoveHandler(GamePlayerEvent.Released, new CoreEventHandler(OnPlayerReleased));
 		}
 		
 		/// <summary>
@@ -68,7 +68,7 @@ namespace DOL.GS.GameEvents
 		/// <param name="e"></param>
 		/// <param name="sender"></param>
 		/// <param name="args"></param>
-		public static void OnCharacterCreation(DOLEvent e, object sender, EventArgs args)
+		public static void OnCharacterCreation(CoreEvent e, object sender, EventArgs args)
 		{
 			// Check Args
 			var chArgs = args as CharacterEventArgs;
@@ -126,7 +126,7 @@ namespace DOL.GS.GameEvents
 			
 		}
 
-		private static void OnPlayerReleased(DOLEvent e, object sender, EventArgs arguments)
+		private static void OnPlayerReleased(CoreEvent e, object sender, EventArgs arguments)
 		{
 			GamePlayer p = sender as GamePlayer;
 
@@ -146,7 +146,7 @@ namespace DOL.GS.GameEvents
 				}
 			}
 		}
-		public static void OnRPGain(DOLEvent e, object sender, EventArgs args)
+		public static void OnRPGain(CoreEvent e, object sender, EventArgs args)
 		{
 			GamePlayer p = sender as GamePlayer;
 			
@@ -180,7 +180,7 @@ namespace DOL.GS.GameEvents
 			}
 		}
 		
-		public static void OnPlayerLogin(DOLEvent e, object sender, EventArgs args)
+		public static void OnPlayerLogin(CoreEvent e, object sender, EventArgs args)
 		{
 			
 			// trying to catch, move and bind existing characters

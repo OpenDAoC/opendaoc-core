@@ -220,7 +220,7 @@ namespace DOL.GS.Spells
             npc.SetOwnBrain(brain);
             npc.AddToWorld();
             npc.TempProperties.setProperty("target", target);
-            GameEventMgr.AddHandler(npc, GameNPCEvent.ArriveAtTarget, new DOLEventHandler(ArriveAtTarget));
+            GameEventMgr.AddHandler(npc, GameNpcEvent.ArriveAtTarget, new CoreEventHandler(ArriveAtTarget));
             npc.Follow(target, 10, 1500);
 
             m_target = target;
@@ -240,7 +240,7 @@ namespace DOL.GS.Spells
             m_target.IsStunned = false;
 			m_target.DismountSteed(true);
             m_target.DebuffCategory[(int)EProperty.SpellFumbleChance]-=100;
-            GameEventMgr.RemoveHandler(m_target, GamePlayerEvent.AttackedByEnemy, new DOLEventHandler(OnAttack));
+            GameEventMgr.RemoveHandler(m_target, GamePlayerEvent.AttackedByEnemy, new CoreEventHandler(OnAttack));
             m_npc.StopMoving();
             m_npc.RemoveFromWorld();
 			//sometimes player can't move after zephyr :
@@ -259,7 +259,7 @@ namespace DOL.GS.Spells
 
         }
 
-        private void OnAttack(DOLEvent e, object sender, EventArgs arguments)
+        private void OnAttack(CoreEvent e, object sender, EventArgs arguments)
         {
             GameLiving living = sender as GameLiving;
             if (living == null) return;
@@ -279,7 +279,7 @@ namespace DOL.GS.Spells
             MessageToLiving(ad.Attacker, string.Format("Your target is in a Zephyr and can't be attacked!"), eChatType.CT_Spell);
         }
 
-        private void ArriveAtTarget(DOLEvent e, object obj, EventArgs args)
+        private void ArriveAtTarget(CoreEvent e, object obj, EventArgs args)
         {
             GameNPC npc = obj as GameNPC;
 
@@ -288,7 +288,7 @@ namespace DOL.GS.Spells
             GamePlayer target = npc.TempProperties.getProperty<object>("target", null) as GamePlayer;
 
             if (target == null || !target.IsAlive) return;
-            GameEventMgr.RemoveHandler(npc, GameNPCEvent.ArriveAtTarget, new DOLEventHandler(ArriveAtTarget));
+            GameEventMgr.RemoveHandler(npc, GameNpcEvent.ArriveAtTarget, new CoreEventHandler(ArriveAtTarget));
 
             GamePlayer player = target as GamePlayer;
             if (player == null) return;
@@ -300,7 +300,7 @@ namespace DOL.GS.Spells
             player.attackComponent.StopAttack();
             player.StopCurrentSpellcast();
             player.MountSteed(npc, true);
-            GameEventMgr.AddHandler(player, GamePlayerEvent.AttackedByEnemy, new DOLEventHandler(OnAttack));
+            GameEventMgr.AddHandler(player, GamePlayerEvent.AttackedByEnemy, new CoreEventHandler(OnAttack));
 
             player.Out.SendMessage("You are picked up by a forceful zephyr!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
             npc.StopFollowing();
@@ -358,11 +358,11 @@ namespace DOL.GS.Spells
         public override void OnEffectStart(GameSpellEffect effect)
         {
             base.OnEffectStart(effect);
-            GameEventMgr.AddHandler(Caster, GamePlayerEvent.AttackedByEnemy, new DOLEventHandler(OnAttack));
+            GameEventMgr.AddHandler(Caster, GamePlayerEvent.AttackedByEnemy, new CoreEventHandler(OnAttack));
             Caster.Endurance -= endurance;
         }
 
-        private void OnAttack(DOLEvent e, object sender, EventArgs arguments)
+        private void OnAttack(CoreEvent e, object sender, EventArgs arguments)
         {
             GameLiving living = sender as GameLiving;
             if (living == null) return;
@@ -382,7 +382,7 @@ namespace DOL.GS.Spells
 
         public override int OnEffectExpires(GameSpellEffect effect, bool noMessages)
         {
-            GameEventMgr.RemoveHandler(Caster, GamePlayerEvent.AttackedByEnemy, new DOLEventHandler(OnAttack));
+            GameEventMgr.RemoveHandler(Caster, GamePlayerEvent.AttackedByEnemy, new CoreEventHandler(OnAttack));
             return base.OnEffectExpires(effect, noMessages);
         }
 

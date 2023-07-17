@@ -32,7 +32,7 @@ namespace DOL.GS.GameEvents
 		private static volatile Timer m_timer = null;
 		
 		[GameServerStartedEvent]
-		public static void OnScriptCompiled(DOLEvent e, object sender, EventArgs args)
+		public static void OnScriptCompiled(CoreEvent e, object sender, EventArgs args)
 		{
 			// Desactivated
 			if (ServerProperties.Properties.STATSAVE_INTERVAL == -1)
@@ -69,7 +69,7 @@ namespace DOL.GS.GameEvents
 		}
 
 		[ScriptUnloadedEvent]
-		public static void OnScriptUnloaded(DOLEvent e, object sender, EventArgs args)
+		public static void OnScriptUnloaded(CoreEvent e, object sender, EventArgs args)
 		{
 			lock (typeof(StatPrint))
 			{

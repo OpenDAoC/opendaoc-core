@@ -290,7 +290,7 @@ namespace DOL.GS
 		/// <summary>
 		/// When Region Start, Register to WeatherManager
 		/// </summary>
-		private void OnRegionStart(DOLEvent e, object sender, EventArgs arguments)
+		private void OnRegionStart(CoreEvent e, object sender, EventArgs arguments)
 		{
 			var region = sender as Region;
 			
@@ -301,7 +301,7 @@ namespace DOL.GS
 		/// <summary>
 		/// When Region Stop, unRegister to WeatherManager
 		/// </summary>
-		private void OnRegionStop(DOLEvent e, object sender, EventArgs arguments)
+		private void OnRegionStop(CoreEvent e, object sender, EventArgs arguments)
 		{
 			var region = sender as Region;
 			
@@ -312,7 +312,7 @@ namespace DOL.GS
 		/// <summary>
 		/// When Player Enter Region, Refresh Current Weather
 		/// </summary>
-		private void OnPlayerEnter(DOLEvent e, object sender, EventArgs arguments)
+		private void OnPlayerEnter(CoreEvent e, object sender, EventArgs arguments)
 		{
 			var region = sender as Region;
 			var args = arguments as RegionPlayerEventArgs;

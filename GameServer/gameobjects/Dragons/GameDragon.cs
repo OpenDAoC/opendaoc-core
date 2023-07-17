@@ -320,13 +320,13 @@ namespace DOL.GS
         /// </summary>
         /// <param name="e">The event that occured.</param>
         /// <param name="sender">The sender of the event.</param>
-        public override void Notify(DOLEvent e, object sender)
+        public override void Notify(CoreEvent e, object sender)
         {
             base.Notify(e, sender);
 
             // When dragon arrives at its spawn point, make it vulnerable again.
 
-            if (e == GameNPCEvent.ArriveAtTarget)
+            if (e == GameNpcEvent.ArriveAtTarget)
                 EvadeChance = 0;
         }
 

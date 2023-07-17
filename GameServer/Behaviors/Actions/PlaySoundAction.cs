@@ -24,7 +24,7 @@ namespace DOL.GS.Behaviour.Actions
 			: this(defaultNPC, (object)id, (object)eSoundType.Divers) { }
 
 
-		public override void Perform(DOLEvent e, object sender, EventArgs args)
+		public override void Perform(CoreEvent e, object sender, EventArgs args)
 		{
 			GamePlayer player = BehaviorUtils.GuessGamePlayerFromNotify(e, sender, args);
 			ushort message = P;

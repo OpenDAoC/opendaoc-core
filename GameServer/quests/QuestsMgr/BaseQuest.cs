@@ -106,7 +106,7 @@ namespace DOL.GS.Quests
 
 
 		[ScriptUnloadedEvent]
-		public static void ScriptUnloadedBase(DOLEvent e, object sender, EventArgs args)
+		public static void ScriptUnloadedBase(CoreEvent e, object sender, EventArgs args)
 		{
 			if (questParts != null)
 			{
@@ -170,7 +170,7 @@ namespace DOL.GS.Quests
 		/// <param name="e"></param>
 		/// <param name="sender"></param>
 		/// <param name="args"></param>
-		public override void Notify(DOLEvent e, object sender, EventArgs args)
+		public override void Notify(CoreEvent e, object sender, EventArgs args)
 		{
 			if (sender is GamePlayer && e == GameObjectEvent.InteractWith)
 			{

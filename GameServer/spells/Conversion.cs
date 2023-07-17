@@ -22,7 +22,7 @@ namespace DOL.GS.Spells
 		public override void OnEffectStart(GameSpellEffect effect)
 		{
 			effect.Owner.TempProperties.setProperty(ConvertDamage, 100000);
-			GameEventMgr.AddHandler(effect.Owner, GameLivingEvent.AttackedByEnemy, new DOLEventHandler(OnAttack));
+			GameEventMgr.AddHandler(effect.Owner, GameLivingEvent.AttackedByEnemy, new CoreEventHandler(OnAttack));
 
 			eChatType toLiving = (Spell.Pulse == 0) ? eChatType.CT_Spell : eChatType.CT_SpellPulse;
 			eChatType toOther = (Spell.Pulse == 0) ? eChatType.CT_System : eChatType.CT_Spell;
@@ -32,7 +32,7 @@ namespace DOL.GS.Spells
 
 		public override int OnEffectExpires(GameSpellEffect effect, bool noMessages)
 		{
-			GameEventMgr.RemoveHandler(effect.Owner, GameLivingEvent.AttackedByEnemy, new DOLEventHandler(OnAttack));
+			GameEventMgr.RemoveHandler(effect.Owner, GameLivingEvent.AttackedByEnemy, new CoreEventHandler(OnAttack));
 			effect.Owner.TempProperties.removeProperty(ConvertDamage);
 			return 1;
 		}
@@ -41,7 +41,7 @@ namespace DOL.GS.Spells
 		{
 		}
 
-		private void OnAttack(DOLEvent e, object sender, EventArgs arguments)
+		private void OnAttack(CoreEvent e, object sender, EventArgs arguments)
 		{
 			GameLiving living = sender as GameLiving;
 			if (living == null) return;
@@ -142,7 +142,7 @@ namespace DOL.GS.Spells
 	{
 		//public const string ConvertDamage = "Conversion";
 
-		private void OnAttack(DOLEvent e, object sender, EventArgs arguments)
+		private void OnAttack(CoreEvent e, object sender, EventArgs arguments)
 		{
 			GameLiving living = sender as GameLiving;
 			if (living == null) return;

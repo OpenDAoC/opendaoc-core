@@ -26,7 +26,7 @@ namespace DOL.GS.Behaviour.Triggers
 		/// <param name="notifyHandler"></param>
 		/// <param name="k"></param>
 		/// <param name="i"></param>
-        public EnemyDyingTrigger(GameNPC defaultNPC, DOLEventHandler notifyHandler,  Object k, Object i)
+        public EnemyDyingTrigger(GameNPC defaultNPC, CoreEventHandler notifyHandler,  Object k, Object i)
             : base(defaultNPC, notifyHandler, ETriggerType.EnemyDying, k, i)
         { }
 
@@ -37,7 +37,7 @@ namespace DOL.GS.Behaviour.Triggers
         /// <param name="notifyHandler"></param>
         /// <param name="k"></param>
         /// <param name="i"></param>
-        public EnemyDyingTrigger(GameNPC defaultNPC, DOLEventHandler notifyHandler, string k, GameLiving i)
+        public EnemyDyingTrigger(GameNPC defaultNPC, CoreEventHandler notifyHandler, string k, GameLiving i)
             : this(defaultNPC,notifyHandler, (object)k,(object) i)
         { }
 
@@ -49,7 +49,7 @@ namespace DOL.GS.Behaviour.Triggers
         /// <param name="sender"></param>
         /// <param name="args"></param>
         /// <returns></returns>
-        public override bool Check(DOLEvent e, object sender, EventArgs args)
+        public override bool Check(CoreEvent e, object sender, EventArgs args)
         {            
             bool result = false;
             

@@ -38,7 +38,7 @@ namespace DOL.AI.Brain
 			if(living == null) return;
 			if(Body.IsWithinRadius( living, 150 ))
 			{
-				Body.Notify(GameNPCEvent.ArriveAtTarget, Body);
+				Body.Notify(GameNpcEvent.ArriveAtTarget, Body);
 			}
 		}
 		

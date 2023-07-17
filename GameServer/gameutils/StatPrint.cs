@@ -30,7 +30,7 @@ namespace DOL.GS.GameEvents
 		private static PerformanceCounter m_physycalDisk;
 
 		[GameServerStartedEvent]
-		public static void OnScriptCompiled(DOLEvent e, object sender, EventArgs args)
+		public static void OnScriptCompiled(CoreEvent e, object sender, EventArgs args)
 		{
 			lock (typeof(StatPrint))
 			{
@@ -67,7 +67,7 @@ namespace DOL.GS.GameEvents
 		}
 
 		[ScriptUnloadedEvent]
-		public static void OnScriptUnloaded(DOLEvent e, object sender, EventArgs args)
+		public static void OnScriptUnloaded(CoreEvent e, object sender, EventArgs args)
 		{
 			lock (typeof(StatPrint))
 			{

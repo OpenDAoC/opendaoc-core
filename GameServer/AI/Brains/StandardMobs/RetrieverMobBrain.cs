@@ -51,7 +51,7 @@ namespace DOL.AI.Brain
         /// <param name="e">The event that occured.</param>
         /// <param name="sender">The source of the event.</param>
         /// <param name="args">The event details.</param>
-        public override void Notify(DOL.Events.DOLEvent e, object sender, EventArgs args)
+        public override void Notify(DOL.Events.CoreEvent e, object sender, EventArgs args)
         {
             // When we get the WalkTo event we start running towards the target
             // location; once we've arrived we'll tell our master. If someone
@@ -59,15 +59,15 @@ namespace DOL.AI.Brain
             // any other mob would do.
 
             base.Notify(e, sender, args);
-            if (e == GameNPCEvent.WalkTo && m_state == State.Passive)
+            if (e == GameNpcEvent.WalkTo && m_state == State.Passive)
                 m_state = State.GettingHelp;
-            else if (e == GameNPCEvent.ArriveAtTarget && m_state == State.GettingHelp)
+            else if (e == GameNpcEvent.ArriveAtTarget && m_state == State.GettingHelp)
             {
 				if (Master != null && Master.Brain != null)
-					Master.Brain.Notify(GameNPCEvent.ArriveAtTarget, this.Body, new EventArgs());
+					Master.Brain.Notify(GameNpcEvent.ArriveAtTarget, this.Body, new EventArgs());
                 m_state = State.Aggressive;
             }
-            else if (e == GameNPCEvent.TakeDamage)
+            else if (e == GameNpcEvent.TakeDamage)
                 m_state = State.Aggressive;
         }
     }

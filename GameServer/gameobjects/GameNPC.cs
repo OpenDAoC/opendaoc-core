@@ -1836,7 +1836,7 @@ namespace DOL.GS
 
 			rider.MoveTo(CurrentRegionID, X, Y, Z, Heading);
 
-			Notify(GameNPCEvent.RiderMount, this, new RiderMountEventArgs(rider, this));
+			Notify(GameNpcEvent.RiderMount, this, new RiderMountEventArgs(rider, this));
 			int slot = GetFreeArrayLocation();
 			if(slot == -1) return false; //full
 			Riders[slot] = rider;
@@ -1865,7 +1865,7 @@ namespace DOL.GS
 
 			//rider.MoveTo(CurrentRegionID, X, Y, Z, Heading);
 
-			Notify(GameNPCEvent.RiderMount, this, new RiderMountEventArgs(rider, this));
+			Notify(GameNpcEvent.RiderMount, this, new RiderMountEventArgs(rider, this));
 			Riders[slot] = rider;
 			rider.Steed = this;
 			return true;
@@ -1892,7 +1892,7 @@ namespace DOL.GS
 			}
 			Riders[slot] = null;
 
-			Notify(GameNPCEvent.RiderDismount, this, new RiderDismountEventArgs(player, this));
+			Notify(GameNpcEvent.RiderDismount, this, new RiderDismountEventArgs(player, this));
 			player.Steed = null;
 
 			return true;
@@ -4250,7 +4250,7 @@ namespace DOL.GS
 		/// <param name="e">The event</param>
 		/// <param name="sender">The sender</param>
 		/// <param name="args">The arguements</param>
-		public override void Notify(DOLEvent e, object sender, EventArgs args)
+		public override void Notify(CoreEvent e, object sender, EventArgs args)
 		{
 			base.Notify(e, sender, args);
 

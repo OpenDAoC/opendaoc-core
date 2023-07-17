@@ -296,7 +296,7 @@ namespace DOL.GS.Quests
 		/// <param name="e">The event type</param>
 		/// <param name="sender">The sender of the event</param>
 		/// <param name="args">The event arguments</param>
-		public abstract void Notify(DOLEvent e, object sender, EventArgs args);
+		public abstract void Notify(CoreEvent e, object sender, EventArgs args);
 
 		/// <summary>
 		/// Called when this player has acquired the quest.
@@ -410,9 +410,9 @@ namespace DOL.GS.Quests
 			if (player != null)
 			{
 				// GameEventMgr.AddHandler(player, GamePlayerEvent.Moving, new DOLEventHandler(InterruptAction));
-				GameEventMgr.AddHandler(player, GamePlayerEvent.AttackedByEnemy, new DOLEventHandler(InterruptAction));
-				GameEventMgr.AddHandler(player, GamePlayerEvent.Dying, new DOLEventHandler(InterruptAction));
-				GameEventMgr.AddHandler(player, GamePlayerEvent.AttackFinished, new DOLEventHandler(InterruptAction));
+				GameEventMgr.AddHandler(player, GamePlayerEvent.AttackedByEnemy, new CoreEventHandler(InterruptAction));
+				GameEventMgr.AddHandler(player, GamePlayerEvent.Dying, new CoreEventHandler(InterruptAction));
+				GameEventMgr.AddHandler(player, GamePlayerEvent.AttackFinished, new CoreEventHandler(InterruptAction));
 			}
 		}
 
@@ -421,14 +421,14 @@ namespace DOL.GS.Quests
 			if (player != null)
 			{
 				// GameEventMgr.RemoveHandler(player, GamePlayerEvent.Moving, new DOLEventHandler(InterruptAction));
-				GameEventMgr.RemoveHandler(player, GamePlayerEvent.AttackedByEnemy, new DOLEventHandler(InterruptAction));
-				GameEventMgr.RemoveHandler(player, GamePlayerEvent.Dying, new DOLEventHandler(InterruptAction));
-				GameEventMgr.RemoveHandler(player, GamePlayerEvent.AttackFinished, new DOLEventHandler(InterruptAction));
+				GameEventMgr.RemoveHandler(player, GamePlayerEvent.AttackedByEnemy, new CoreEventHandler(InterruptAction));
+				GameEventMgr.RemoveHandler(player, GamePlayerEvent.Dying, new CoreEventHandler(InterruptAction));
+				GameEventMgr.RemoveHandler(player, GamePlayerEvent.AttackFinished, new CoreEventHandler(InterruptAction));
 			}
 		}
 
 
-		protected void InterruptAction(DOLEvent e, object sender, EventArgs args)
+		protected void InterruptAction(CoreEvent e, object sender, EventArgs args)
 		{
 			GamePlayer player = sender as GamePlayer;
 

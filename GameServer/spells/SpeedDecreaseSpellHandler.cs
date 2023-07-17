@@ -88,7 +88,7 @@ namespace DOL.GS.Spells
 				return;
 			}
 			base.OnEffectStart(effect);
-			GameEventMgr.AddHandler(effect.Owner, GameLivingEvent.AttackedByEnemy, new DOLEventHandler(OnAttacked));
+			GameEventMgr.AddHandler(effect.Owner, GameLivingEvent.AttackedByEnemy, new CoreEventHandler(OnAttacked));
 			// Cancels mezz on the effect owner, if applied
 			//GameSpellEffect mezz = SpellHandler.FindEffectOnTarget(effect.Owner, "Mesmerize");
 			ECSGameEffect mezz = EffectListService.GetEffectOnTarget(effect.Owner, EEffect.Mez);
@@ -106,7 +106,7 @@ namespace DOL.GS.Spells
 		/// <returns>immunity duration in milliseconds</returns>
 		public override int OnEffectExpires(GameSpellEffect effect, bool noMessages)
 		{
-			GameEventMgr.RemoveHandler(effect.Owner, GameLivingEvent.AttackedByEnemy, new DOLEventHandler(OnAttacked));
+			GameEventMgr.RemoveHandler(effect.Owner, GameLivingEvent.AttackedByEnemy, new CoreEventHandler(OnAttacked));
 			return base.OnEffectExpires(effect, noMessages);
 		}
 
@@ -116,7 +116,7 @@ namespace DOL.GS.Spells
 		/// <param name="e"></param>
 		/// <param name="sender"></param>
 		/// <param name="arguments"></param>
-		protected virtual void OnAttacked(DOLEvent e, object sender, EventArgs arguments)
+		protected virtual void OnAttacked(CoreEvent e, object sender, EventArgs arguments)
 		{
 			AttackedByEnemyEventArgs attackArgs = arguments as AttackedByEnemyEventArgs;
 			GameLiving living = sender as GameLiving;

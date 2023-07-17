@@ -29,11 +29,11 @@ namespace DOL.GS.Effects
 					}
 				}
 
-				GameEventMgr.AddHandler(m_owner, GameLivingEvent.AttackFinished, new DOLEventHandler(OnAttack));
+				GameEventMgr.AddHandler(m_owner, GameLivingEvent.AttackFinished, new CoreEventHandler(OnAttack));
 			}
 		}
 
-		private void OnAttack(DOLEvent e, object sender, EventArgs arguments)
+		private void OnAttack(CoreEvent e, object sender, EventArgs arguments)
 		{
 			GameLiving living = sender as GameLiving;
 			if (living == null) return;
@@ -162,7 +162,7 @@ namespace DOL.GS.Effects
 
 		public override void Stop()
 		{
-			GameEventMgr.RemoveHandler(m_owner, GameLivingEvent.AttackFinished, new DOLEventHandler(OnAttack));
+			GameEventMgr.RemoveHandler(m_owner, GameLivingEvent.AttackFinished, new CoreEventHandler(OnAttack));
 			base.Stop();
 		}
 

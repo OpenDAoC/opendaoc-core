@@ -1716,9 +1716,9 @@ namespace DOL.AI.Brain
         public static bool dontattack = false;
         public static bool lowhealth1 = false;
         public static bool message = false;
-        public override void Notify(DOLEvent e, object sender, EventArgs args)
+        public override void Notify(CoreEvent e, object sender, EventArgs args)
         {
-            if (e == GameNPCEvent.AddToWorld)
+            if (e == GameNpcEvent.AddToWorld)
             {
                 Point3D point1 = new Point3D();
                 point1.X = 39652; point1.Y = 60831; point1.Z = 11893;

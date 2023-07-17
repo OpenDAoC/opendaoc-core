@@ -50,12 +50,12 @@ namespace DOL.GS.Spells
 
         protected override void AddHandlers()
         {
-            GameEventMgr.AddHandler(m_pet, GameNPCEvent.ArriveAtTarget, BomberArriveAtTarget);
+            GameEventMgr.AddHandler(m_pet, GameNpcEvent.ArriveAtTarget, BomberArriveAtTarget);
         }
 
         protected override void RemoveHandlers()
         {
-            GameEventMgr.RemoveHandler(m_pet, GameNPCEvent.ArriveAtTarget, BomberArriveAtTarget);
+            GameEventMgr.RemoveHandler(m_pet, GameNpcEvent.ArriveAtTarget, BomberArriveAtTarget);
         }
 
         protected override IControlledBrain GetPetBrain(GameLiving owner)
@@ -65,9 +65,9 @@ namespace DOL.GS.Spells
 
         protected override void SetBrainToOwner(IControlledBrain brain) { }
 
-        protected override void OnNpcReleaseCommand(DOLEvent e, object sender, EventArgs arguments) { }
+        protected override void OnNpcReleaseCommand(CoreEvent e, object sender, EventArgs arguments) { }
 
-        private void BomberArriveAtTarget(DOLEvent e, object sender, EventArgs args)
+        private void BomberArriveAtTarget(CoreEvent e, object sender, EventArgs args)
         {
             GameNPC bomber = sender as GameNPC;
 

@@ -40,7 +40,7 @@ namespace DOL.GS.RealmAbilities.Statics
 		public override bool AddToWorld() 
         {
 			new ECSGameTimer(this, new ECSGameTimer.ECSTimerCallback(PulseTimer),1000);
-			GameEventMgr.AddHandler(m_caster, GamePlayerEvent.RemoveFromWorld, new DOLEventHandler(PlayerLeftWorld));
+			GameEventMgr.AddHandler(m_caster, GamePlayerEvent.RemoveFromWorld, new CoreEventHandler(PlayerLeftWorld));
 			return base.AddToWorld();
 		}
 		protected virtual int PulseTimer(ECSGameTimer timer)
@@ -67,7 +67,7 @@ namespace DOL.GS.RealmAbilities.Statics
 			currentTick++;
 			return 1000;
 		}
-		protected virtual void PlayerLeftWorld(DOLEvent e, object sender, EventArgs args)
+		protected virtual void PlayerLeftWorld(CoreEvent e, object sender, EventArgs args)
 		{
 			GamePlayer player = (GamePlayer)sender;
 			if (this.m_caster == player)

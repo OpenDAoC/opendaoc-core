@@ -25,7 +25,7 @@ namespace DOL.GS.Behaviour.Actions
         
 
 
-        public override void Perform(DOLEvent e, object sender, EventArgs args)
+        public override void Perform(CoreEvent e, object sender, EventArgs args)
         {
             GamePlayer player = BehaviorUtils.GuessGamePlayerFromNotify(e, sender, args);
 			InventoryItem inventoryItem = GameInventoryItem.Create(P as DbItemTemplates);

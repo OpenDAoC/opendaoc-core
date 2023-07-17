@@ -23,7 +23,7 @@ namespace DOL.GS.Spells
 	  public override void OnEffectStart(GameSpellEffect effect)
 	  {
 			effect.Owner.TempProperties.setProperty(Damage_Reduction, 100000);         
-		 GameEventMgr.AddHandler(effect.Owner, GameLivingEvent.AttackedByEnemy, new DOLEventHandler(OnAttack));
+		 GameEventMgr.AddHandler(effect.Owner, GameLivingEvent.AttackedByEnemy, new CoreEventHandler(OnAttack));
 
 		 eChatType toLiving = (Spell.Pulse == 0) ? eChatType.CT_Spell : eChatType.CT_SpellPulse;
 			eChatType toOther = (Spell.Pulse == 0) ? eChatType.CT_System : eChatType.CT_Spell;///Pulse;
@@ -40,7 +40,7 @@ namespace DOL.GS.Spells
 	  /// <returns>immunity duration in milliseconds</returns>
 	  public override int OnEffectExpires(GameSpellEffect effect, bool noMessages)
 	  {
-		 GameEventMgr.RemoveHandler(effect.Owner, GameLivingEvent.AttackedByEnemy, new DOLEventHandler(OnAttack));
+		 GameEventMgr.RemoveHandler(effect.Owner, GameLivingEvent.AttackedByEnemy, new CoreEventHandler(OnAttack));
 			effect.Owner.TempProperties.removeProperty(Damage_Reduction);         
 		 if (!noMessages && Spell.Pulse == 0)
 		 {
@@ -55,7 +55,7 @@ namespace DOL.GS.Spells
 		 base.FinishSpellCast(target);
 	  }
 
-	  private void OnAttack(DOLEvent e, object sender, EventArgs arguments)
+	  private void OnAttack(CoreEvent e, object sender, EventArgs arguments)
 	  {         
 		 GameLiving living = sender as GameLiving;
 		 if (living == null) return;
@@ -120,12 +120,12 @@ namespace DOL.GS.Spells
 	  public override void OnEffectRestored(GameSpellEffect effect, int[] vars)
 	  {
 			effect.Owner.TempProperties.setProperty(Damage_Reduction, (int)vars[1]);
-		 GameEventMgr.AddHandler(effect.Owner, GameLivingEvent.AttackedByEnemy, new DOLEventHandler(OnAttack));
+		 GameEventMgr.AddHandler(effect.Owner, GameLivingEvent.AttackedByEnemy, new CoreEventHandler(OnAttack));
 	  }
 
 	  public override int OnRestoredEffectExpires(GameSpellEffect effect, int[] vars, bool noMessages)
 	  {
-		 GameEventMgr.RemoveHandler(effect.Owner, GameLivingEvent.AttackedByEnemy, new DOLEventHandler(OnAttack));
+		 GameEventMgr.RemoveHandler(effect.Owner, GameLivingEvent.AttackedByEnemy, new CoreEventHandler(OnAttack));
 			effect.Owner.TempProperties.removeProperty(Damage_Reduction);
 		 if (!noMessages && Spell.Pulse == 0)
 		 {

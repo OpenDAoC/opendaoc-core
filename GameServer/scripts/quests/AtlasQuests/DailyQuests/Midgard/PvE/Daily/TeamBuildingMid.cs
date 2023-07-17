@@ -64,7 +64,7 @@ namespace DOL.GS.DailyQuest.Midgard
 		}
 
 		[ScriptLoadedEvent]
-		public static void ScriptLoaded(DOLEvent e, object sender, EventArgs args)
+		public static void ScriptLoaded(CoreEvent e, object sender, EventArgs args)
 		{
 			if (!ServerProperties.Properties.LOAD_QUESTS)
 				return;
@@ -114,11 +114,11 @@ namespace DOL.GS.DailyQuest.Midgard
 			#region defineObject
 			#endregion
 
-			GameEventMgr.AddHandler(GamePlayerEvent.AcceptQuest, new DOLEventHandler(SubscribeQuest));
-			GameEventMgr.AddHandler(GamePlayerEvent.DeclineQuest, new DOLEventHandler(SubscribeQuest));
+			GameEventMgr.AddHandler(GamePlayerEvent.AcceptQuest, new CoreEventHandler(SubscribeQuest));
+			GameEventMgr.AddHandler(GamePlayerEvent.DeclineQuest, new CoreEventHandler(SubscribeQuest));
 
-			GameEventMgr.AddHandler(Isaac, GameObjectEvent.Interact, new DOLEventHandler(TalkToIsaac));
-			GameEventMgr.AddHandler(Isaac, GameLivingEvent.WhisperReceive, new DOLEventHandler(TalkToIsaac));
+			GameEventMgr.AddHandler(Isaac, GameObjectEvent.Interact, new CoreEventHandler(TalkToIsaac));
+			GameEventMgr.AddHandler(Isaac, GameLivingEvent.WhisperReceive, new CoreEventHandler(TalkToIsaac));
 
 			/* Now we bring to Dean the possibility to give this quest to players */
 			Isaac.AddQuestToGive(typeof (TeamBuildingMid));
@@ -128,23 +128,23 @@ namespace DOL.GS.DailyQuest.Midgard
 		}
 
 		[ScriptUnloadedEvent]
-		public static void ScriptUnloaded(DOLEvent e, object sender, EventArgs args)
+		public static void ScriptUnloaded(CoreEvent e, object sender, EventArgs args)
 		{
 			//if not loaded, don't worry
 			if (Isaac == null)
 				return;
 			// remove handlers
-			GameEventMgr.RemoveHandler(GamePlayerEvent.AcceptQuest, new DOLEventHandler(SubscribeQuest));
-			GameEventMgr.RemoveHandler(GamePlayerEvent.DeclineQuest, new DOLEventHandler(SubscribeQuest));
+			GameEventMgr.RemoveHandler(GamePlayerEvent.AcceptQuest, new CoreEventHandler(SubscribeQuest));
+			GameEventMgr.RemoveHandler(GamePlayerEvent.DeclineQuest, new CoreEventHandler(SubscribeQuest));
 
-			GameEventMgr.RemoveHandler(Isaac, GameObjectEvent.Interact, new DOLEventHandler(TalkToIsaac));
-			GameEventMgr.RemoveHandler(Isaac, GameLivingEvent.WhisperReceive, new DOLEventHandler(TalkToIsaac));
+			GameEventMgr.RemoveHandler(Isaac, GameObjectEvent.Interact, new CoreEventHandler(TalkToIsaac));
+			GameEventMgr.RemoveHandler(Isaac, GameLivingEvent.WhisperReceive, new CoreEventHandler(TalkToIsaac));
 
 			/* Now we remove to Dean the possibility to give this quest to players */
 			Isaac.RemoveQuestToGive(typeof (TeamBuildingMid));
 		}
 
-		private static void TalkToIsaac(DOLEvent e, object sender, EventArgs args)
+		private static void TalkToIsaac(CoreEvent e, object sender, EventArgs args)
 		{
 			//We get the player from the event arguments and check if he qualifies		
 			GamePlayer player = ((SourceEventArgs) args).Source as GamePlayer;
@@ -258,7 +258,7 @@ namespace DOL.GS.DailyQuest.Midgard
 			}
 		}
 
-		private static void SubscribeQuest(DOLEvent e, object sender, EventArgs args)
+		private static void SubscribeQuest(CoreEvent e, object sender, EventArgs args)
 		{
 			QuestEventArgs qargs = args as QuestEventArgs;
 			if (qargs == null)
@@ -337,7 +337,7 @@ namespace DOL.GS.DailyQuest.Midgard
 			}
 		}
 
-		public override void Notify(DOLEvent e, object sender, EventArgs args)
+		public override void Notify(CoreEvent e, object sender, EventArgs args)
 		{
 			GamePlayer player = sender as GamePlayer;
 

@@ -26,7 +26,7 @@ namespace DOL.GS.Behaviour.Triggers
 		/// <param name="notifyHandler"></param>
 		/// <param name="k"></param>
 		/// <param name="i"></param>
-        public InteractTrigger(GameNPC defaultNPC, DOLEventHandler notifyHandler,  Object k, Object i)
+        public InteractTrigger(GameNPC defaultNPC, CoreEventHandler notifyHandler,  Object k, Object i)
             : base(defaultNPC, notifyHandler, ETriggerType.Interact, k, i)
         { }
 
@@ -36,7 +36,7 @@ namespace DOL.GS.Behaviour.Triggers
         /// <param name="defaultNPC"></param>
         /// <param name="notifyHandler"></param>
         /// <param name="i"></param>
-        public InteractTrigger(GameNPC defaultNPC, DOLEventHandler notifyHandler, GameNPC i)
+        public InteractTrigger(GameNPC defaultNPC, CoreEventHandler notifyHandler, GameNPC i)
             : this(defaultNPC,notifyHandler,  (object)null,(object) i)
         { }
 
@@ -48,7 +48,7 @@ namespace DOL.GS.Behaviour.Triggers
         /// <param name="sender">Sender of notify call</param>
         /// <param name="args">EventArgs of notify call</param>        
         /// <returns>true if QuestPart should be executes, else false</returns>
-        public override bool Check(DOLEvent e, object sender, EventArgs args)
+        public override bool Check(CoreEvent e, object sender, EventArgs args)
         {
             bool result = false;            
             

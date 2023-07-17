@@ -172,7 +172,7 @@ namespace DOL.GS.Scripts
 
         #endregion
 
-        public override void Notify(DOLEvent e, object sender, EventArgs args)
+        public override void Notify(CoreEvent e, object sender, EventArgs args)
         {
             base.Notify(e, sender, args);
 
@@ -181,7 +181,7 @@ namespace DOL.GS.Scripts
                 if (CheckHealth()) return;
             }
 
-            if (e == GameNPCEvent.ArriveAtTarget)
+            if (e == GameNpcEvent.ArriveAtTarget)
                 EvadeChance = 0;
         }
 

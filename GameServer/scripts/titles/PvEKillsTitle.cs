@@ -11,7 +11,7 @@ namespace GameServerScripts.Titles
 	/// </summary>
 	public class DemonSlayerTitle : TranslatedNoGenderGenericEventPlayerTitle
 	{
-		public override DOLEvent Event { get { return GamePlayerEvent.KillsLegionChanged; }}
+		public override CoreEvent Event { get { return GamePlayerEvent.KillsLegionChanged; }}
 		protected override Tuple<string, string> DescriptionValue { get { return new Tuple<string, string>("Titles.Kills.Demon.DemonSlayer", "Titles.Kills.Demon.DemonSlayer"); }}
 		protected override Func<DOL.GS.GamePlayer, bool> SuitableMethod { get { return player => player.KillsLegion >= 10 && player.KillsLegion < 25; }}
 	}
@@ -20,7 +20,7 @@ namespace GameServerScripts.Titles
 	/// </summary>
 	public class DemonBaneTitle : TranslatedNoGenderGenericEventPlayerTitle
 	{
-		public override DOLEvent Event { get { return GamePlayerEvent.KillsLegionChanged; }}
+		public override CoreEvent Event { get { return GamePlayerEvent.KillsLegionChanged; }}
 		protected override Tuple<string, string> DescriptionValue { get { return new Tuple<string, string>("Titles.Kills.Demon.DemonBane", "Titles.Kills.Demon.DemonBane"); }}
 		protected override Func<DOL.GS.GamePlayer, bool> SuitableMethod { get { return player => player.KillsLegion >= 25 && player.KillsLegion < 250; }}
 	}
@@ -29,7 +29,7 @@ namespace GameServerScripts.Titles
 	/// </summary>
 	public class DemonScourgeTitle : TranslatedNoGenderGenericEventPlayerTitle
 	{
-		public override DOLEvent Event { get { return GamePlayerEvent.KillsLegionChanged; }}
+		public override CoreEvent Event { get { return GamePlayerEvent.KillsLegionChanged; }}
 		protected override Tuple<string, string> DescriptionValue { get { return new Tuple<string, string>("Titles.Kills.Demon.DemonScourge", "Titles.Kills.Demon.DemonScourge"); }}
 		protected override Func<DOL.GS.GamePlayer, bool> SuitableMethod { get { return player => player.KillsLegion >= 250 && player.KillsLegion < 1000; }}
 	}
@@ -38,7 +38,7 @@ namespace GameServerScripts.Titles
 	/// </summary>
 	public class DreadVanquisherTitle : TranslatedNoGenderGenericEventPlayerTitle
 	{
-		public override DOLEvent Event { get { return GamePlayerEvent.KillsLegionChanged; }}
+		public override CoreEvent Event { get { return GamePlayerEvent.KillsLegionChanged; }}
 		protected override Tuple<string, string> DescriptionValue { get { return new Tuple<string, string>("Titles.Kills.Demon.DreadVanquisher", "Titles.Kills.Demon.DreadVanquisher"); }}
 		protected override Func<DOL.GS.GamePlayer, bool> SuitableMethod { get { return player => player.KillsLegion >= 1000; }}
 	}
@@ -50,7 +50,7 @@ namespace GameServerScripts.Titles
 	/// </summary>
 	public class DragonFoeTitle : TranslatedNoGenderGenericEventPlayerTitle
 	{
-		public override DOLEvent Event { get { return GamePlayerEvent.KillsDragonChanged; }}
+		public override CoreEvent Event { get { return GamePlayerEvent.KillsDragonChanged; }}
 		protected override Tuple<string, string> DescriptionValue { get { return new Tuple<string, string>("Titles.Kills.Dragon.DragonFoe", "Titles.Kills.Dragon.DragonFoe"); }}
 		protected override Func<DOL.GS.GamePlayer, bool> SuitableMethod { get { return player => player.KillsDragon >= 10 && player.KillsDragon < 50; }}
 	}
@@ -59,7 +59,7 @@ namespace GameServerScripts.Titles
 	/// </summary>
 	public class DragonScourgeTitle : TranslatedNoGenderGenericEventPlayerTitle
 	{
-		public override DOLEvent Event { get { return GamePlayerEvent.KillsDragonChanged; }}
+		public override CoreEvent Event { get { return GamePlayerEvent.KillsDragonChanged; }}
 		protected override Tuple<string, string> DescriptionValue { get { return new Tuple<string, string>("Titles.Kills.Dragon.DragonScourge", "Titles.Kills.Dragon.DragonScourge"); }}
 		protected override Func<DOL.GS.GamePlayer, bool> SuitableMethod { get { return player => player.KillsDragon >= 50 && player.KillsDragon < 100; }}
 	}
@@ -68,7 +68,7 @@ namespace GameServerScripts.Titles
 	/// </summary>
 	public class DragonSlayerTitle : TranslatedNoGenderGenericEventPlayerTitle
 	{
-		public override DOLEvent Event { get { return GamePlayerEvent.KillsDragonChanged; }}
+		public override CoreEvent Event { get { return GamePlayerEvent.KillsDragonChanged; }}
 		protected override Tuple<string, string> DescriptionValue { get { return new Tuple<string, string>("Titles.Kills.Dragon.DragonSlayer", "Titles.Kills.Dragon.DragonSlayer"); }}
 		protected override Func<DOL.GS.GamePlayer, bool> SuitableMethod { get { return player => player.KillsDragon >= 100 && player.KillsDragon < 500; }}
 	}
@@ -77,7 +77,7 @@ namespace GameServerScripts.Titles
 	/// </summary>
 	public class DragonBaneTitle : NoGenderGenericEventPlayerTitle
 	{
-		public override DOLEvent Event { get { return GamePlayerEvent.KillsDragonChanged; }}
+		public override CoreEvent Event { get { return GamePlayerEvent.KillsDragonChanged; }}
 		protected override Tuple<string, string> DescriptionValue { get { return new Tuple<string, string>("Dragon Bane", "Dragon Bane"); }}
 		protected override Func<DOL.GS.GamePlayer, bool> SuitableMethod { get { return player => player.KillsDragon >= 500; }}
 	}
@@ -88,7 +88,7 @@ namespace GameServerScripts.Titles
 	/// </summary>
 	public class EpicChallengerTitle : TranslatedNoGenderGenericEventPlayerTitle
 	{
-		public override DOLEvent Event { get { return GamePlayerEvent.KillsEpicBossChanged; }}
+		public override CoreEvent Event { get { return GamePlayerEvent.KillsEpicBossChanged; }}
 		protected override Tuple<string, string> DescriptionValue { get { return new Tuple<string, string>("Titles.Kills.Epic.EpicChallenger", "Titles.Kills.Epic.EpicChallenger"); }}
 		protected override Func<DOL.GS.GamePlayer, bool> SuitableMethod { get { return player => player.KillsEpicBoss >= 10 && player.KillsEpicBoss < 50; }}
 	}
@@ -97,7 +97,7 @@ namespace GameServerScripts.Titles
 	/// </summary>
 	public class EpicVictorTitle : TranslatedNoGenderGenericEventPlayerTitle
 	{
-		public override DOLEvent Event { get { return GamePlayerEvent.KillsEpicBossChanged; }}
+		public override CoreEvent Event { get { return GamePlayerEvent.KillsEpicBossChanged; }}
 		protected override Tuple<string, string> DescriptionValue { get { return new Tuple<string, string>("Titles.Kills.Epic.EpicVictor", "Titles.Kills.Epic.EpicVictor"); }}
 		protected override Func<DOL.GS.GamePlayer, bool> SuitableMethod { get { return player => player.KillsEpicBoss >= 50; }}
 	}
