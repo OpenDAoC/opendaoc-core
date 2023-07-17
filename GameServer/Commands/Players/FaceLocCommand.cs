@@ -32,8 +32,8 @@ namespace DOL.GS.Commands
 				client.Out.SendMessage
 					(
 					"Please enter X and Y coordinates.",
-					eChatType.CT_System,
-					eChatLoc.CL_SystemWindow
+					EChatType.CT_System,
+					EChatLoc.CL_SystemWindow
 					);
 				return;
 			}
@@ -46,7 +46,7 @@ namespace DOL.GS.Commands
 			}
 			catch
 			{
-				client.Out.SendMessage("Please enter a valid X and Y location.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				client.Out.SendMessage("Please enter a valid X and Y location.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				return;
 			}
 			int Xoffset = client.Player.CurrentZone.XOffset;

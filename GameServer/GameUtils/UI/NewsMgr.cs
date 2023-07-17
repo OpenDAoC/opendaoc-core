@@ -26,7 +26,7 @@ namespace DOL.GS
 						continue;
 					if ((client.Account.PrivLevel != 1 || realm == ERealm.None) || client.Player.Realm == realm)
 					{
-						client.Out.SendMessage(message, eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						client.Out.SendMessage(message, EChatType.CT_System, EChatLoc.CL_SystemWindow);
 					}
 				}
 			}
@@ -64,7 +64,7 @@ namespace DOL.GS
 				{
 					n--;
 					DbNews news = newsList[n];
-					client.Out.SendMessage(string.Format("N,{0},{1},{2},\"{3}\"", news.Type, index++, RetElapsedTime(news.CreationDate), news.Text), eChatType.CT_SocialInterface, eChatLoc.CL_SystemWindow);
+					client.Out.SendMessage(string.Format("N,{0},{1},{2},\"{3}\"", news.Type, index++, RetElapsedTime(news.CreationDate), news.Text), EChatType.CT_SocialInterface, EChatLoc.CL_SystemWindow);
 				}
 			}
 		}

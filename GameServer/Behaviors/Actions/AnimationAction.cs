@@ -8,14 +8,14 @@ using DOL.GS.Behaviour.Attributes;using DOL.GS.Behaviour;
 namespace DOL.GS.Behaviour.Actions
 {
     [ActionAttribute(ActionType = EActionType.Animation, IsNullableQ = true)]
-    public class AnimationAction : AbstractAction<eEmote,GameLiving>
+    public class AnimationAction : AbstractAction<EEmote,GameLiving>
     {               
 
         public AnimationAction(GameNPC defaultNPC, Object p, Object q)
             : base(defaultNPC, EActionType.Animation, p, q) { }
         
 
-        public AnimationAction(GameNPC defaultNPC, eEmote emote, GameLiving actor)
+        public AnimationAction(GameNPC defaultNPC, EEmote emote, GameLiving actor)
             : this(defaultNPC, (object) emote, (object)actor) { }
         
 

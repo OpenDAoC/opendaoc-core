@@ -57,20 +57,20 @@ namespace DOL.GS.Scripts
                 {
                     if (player.Level < 50)
                     {
-                        player.Out.SendMessage($"For your efforts, the realm of {RealmName(Realm)} has decided to award you with {ORBS_REWARD} Atlas Orbs, congratulations!", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                        player.Out.SendMessage($"For your efforts, the realm of {RealmName(Realm)} has decided to award you with {ORBS_REWARD} Atlas Orbs, congratulations!", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
                         player.Out.SendMessage("Unfortunately though, the Orbs are too powerful for you at this time. Come back when you reach level 50.\n\n" +
-                                               "My dear friend Cruella de Ville has something you can have immediately, go find here! She is around here.", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                                               "My dear friend Cruella de Ville has something you can have immediately, go find here! She is around here.", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
                         return false;
                     }
 
-                    player.Out.SendMessage($"For your efforts, the realm of {RealmName(Realm)} has decided to award you with {ORBS_REWARD} Atlas Orbs, congratulations!", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
-                    player.Out.SendMessage($"Would you like to [receive them] now? \n\n I suggest you storing them in your Account Vault to avoid losing them, I won't be able to give you more.", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                    player.Out.SendMessage($"For your efforts, the realm of {RealmName(Realm)} has decided to award you with {ORBS_REWARD} Atlas Orbs, congratulations!", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
+                    player.Out.SendMessage($"Would you like to [receive them] now? \n\n I suggest you storing them in your Account Vault to avoid losing them, I won't be able to give you more.", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
 
                     return true;
                 }
                 
                 player.Out.SendMessage($"The whole realm of {RealmName(Realm)} thanks you for your help and wish you luck with your adventures! \n \n" +
-                                       "I don't have additional rewards for you but don't forget to visit my friend Cruella de Ville.. she can be found around here.", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                                       "I don't have additional rewards for you but don't forget to visit my friend Cruella de Ville.. she can be found around here.", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
                 return true;
 
             }
@@ -79,11 +79,11 @@ namespace DOL.GS.Scripts
             {
                 player.Out.SendMessage($"As you haven't fought for {RealmName(Realm)}, I don't have any reward for you. \n\n" +
                                        "My friend Cruella de Ville on the other hand is not as loyal as me and might have something for you. \n" +
-                                       "She can be found around here.", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                                       "She can be found around here.", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
                 return true;
             }
             
-            player.Out.SendMessage($"You are not eligible for any reward on {RealmName(Realm)} at the moment.", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+            player.Out.SendMessage($"You are not eligible for any reward on {RealmName(Realm)} at the moment.", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
 
             
             return true;
@@ -107,7 +107,7 @@ namespace DOL.GS.Scripts
                     
                     player.Out.SendMessage($"Here, take {ORBS_REWARD} Atlas Orbs! \n\n" +
                                            $"The whole realm of {RealmName(Realm)} thanks you for your help and wish you luck with your adventures! \n \n" +
-                                           "Now, don't forget to visit my friend Cruella de Ville, I'm sure she will have more rewards for you.", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                                           "Now, don't forget to visit my friend Cruella de Ville, I'm sure she will have more rewards for you.", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
                     
                     RogMgr.GenerateReward(player, ORBS_REWARD);
                     SetCustomParam(player);

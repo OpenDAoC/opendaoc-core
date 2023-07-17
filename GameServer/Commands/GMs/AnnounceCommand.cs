@@ -35,7 +35,7 @@ namespace DOL.GS.Commands
 					{
 						foreach (GameClient clients in WorldMgr.GetAllPlayingClients())
                             if(clients != null)
-							    clients.Out.SendMessage(LanguageMgr.GetTranslation(clients, "GMCommands.Announce.LogAnnounce", message), eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+							    clients.Out.SendMessage(LanguageMgr.GetTranslation(clients, "GMCommands.Announce.LogAnnounce", message), EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 						break;
 					}
 				#endregion Log
@@ -56,7 +56,7 @@ namespace DOL.GS.Commands
 					{
 						foreach (GameClient clients in WorldMgr.GetAllPlayingClients())
                             if(clients != null)
-							    clients.Out.SendMessage(LanguageMgr.GetTranslation(clients, "GMCommands.Announce.SendAnnounce", message), eChatType.CT_Send, eChatLoc.CL_ChatWindow);
+							    clients.Out.SendMessage(LanguageMgr.GetTranslation(clients, "GMCommands.Announce.SendAnnounce", message), EChatType.CT_Send, EChatLoc.CL_ChatWindow);
 						break;
 					}
 				#endregion Send
@@ -65,7 +65,7 @@ namespace DOL.GS.Commands
 					{
                         foreach (GameClient clients in WorldMgr.GetAllPlayingClients())
                             if (clients != null)
-							    clients.Out.SendMessage(message, eChatType.CT_ScreenCenter, eChatLoc.CL_SystemWindow);
+							    clients.Out.SendMessage(message, EChatType.CT_ScreenCenter, EChatLoc.CL_SystemWindow);
 						break;
 					}
 				#endregion Center
@@ -74,7 +74,7 @@ namespace DOL.GS.Commands
 					{
 						foreach (GameClient clients in WorldMgr.GetAllPlayingClients())
                             if(clients != null)
-							    clients.Out.SendDialogBox(eDialogCode.SimpleWarning, 0, 0, 0, 0, eDialogType.Ok, true, LanguageMgr.GetTranslation(clients, "GMCommands.Announce.ConfirmAnnounce", client.Player.Name, message));
+							    clients.Out.SendDialogBox(EDialogCode.SimpleWarning, 0, 0, 0, 0, EDialogType.Ok, true, LanguageMgr.GetTranslation(clients, "GMCommands.Announce.ConfirmAnnounce", client.Player.Name, message));
 						break;
 					}
 				#endregion Confirm

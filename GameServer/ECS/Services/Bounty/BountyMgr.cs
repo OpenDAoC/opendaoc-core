@@ -75,7 +75,7 @@ public class BountyMgr
 
         player.TempProperties.setProperty(KILLEDBY, killer);
         player.Out.SendMessage($"Use /bounty add <amount> if you want to call a bounty for {killer.Name}'s head!",
-            eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+            EChatType.CT_Important, EChatLoc.CL_SystemWindow);
     }
 
     private static void BountyKilled(CoreEvent e, object sender, EventArgs args)
@@ -202,8 +202,8 @@ public class BountyMgr
                     if (bp.Ganked != killed) continue;
                     if (bp.Target != killer)
                     {
-                        killed.Out.SendMessage("You can only post one Bounty at the time!", eChatType.CT_Important,
-                            eChatLoc.CL_SystemWindow);
+                        killed.Out.SendMessage("You can only post one Bounty at the time!", EChatType.CT_Important,
+                            EChatLoc.CL_SystemWindow);
                         return;
                     }
 
@@ -361,10 +361,10 @@ public class BountyMgr
             var message =
                 $"{poster.Ganked.Name} is offering {poster.Reward} gold for the head of {poster.Target.Name} in {poster.Target.CurrentZone.Description}";
 
-            client.Player.Out.SendMessage(message, eChatType.CT_ScreenCenterSmaller,
-                eChatLoc.CL_SystemWindow);
-            client.Player.Out.SendMessage(message, eChatType.CT_Broadcast,
-                eChatLoc.CL_SystemWindow);
+            client.Player.Out.SendMessage(message, EChatType.CT_ScreenCenterSmaller,
+                EChatLoc.CL_SystemWindow);
+            client.Player.Out.SendMessage(message, EChatType.CT_Broadcast,
+                EChatLoc.CL_SystemWindow);
         }
 
         var killerClient = WorldMgr.GetClientByPlayerName(poster.Target.Name, false, true);
@@ -374,10 +374,10 @@ public class BountyMgr
         var messageToKiller =
             $"{poster.Ganked.Name} is offering {poster.Reward} gold for your head!";
 
-        killerClient.Player.Out.SendMessage(messageToKiller, eChatType.CT_ScreenCenter,
-            eChatLoc.CL_SystemWindow);
-        killerClient.Player.Out.SendMessage($"ATTENTION!\n{messageToKiller}", eChatType.CT_Important,
-            eChatLoc.CL_SystemWindow);
+        killerClient.Player.Out.SendMessage(messageToKiller, EChatType.CT_ScreenCenter,
+            EChatLoc.CL_SystemWindow);
+        killerClient.Player.Out.SendMessage($"ATTENTION!\n{messageToKiller}", EChatType.CT_Important,
+            EChatLoc.CL_SystemWindow);
     }
 
     private static void BroadcastBountyKill(BountyPoster poster)
@@ -390,8 +390,8 @@ public class BountyMgr
             var message =
                 $"{poster.Target.Name} has been killed and the bounty has been paid out!";
 
-            client.Player.Out.SendMessage(message, eChatType.CT_Broadcast,
-                eChatLoc.CL_SystemWindow);
+            client.Player.Out.SendMessage(message, EChatType.CT_Broadcast,
+                EChatLoc.CL_SystemWindow);
         }
     }
 
@@ -405,8 +405,8 @@ public class BountyMgr
             var message =
                 $"{poster.Ganked.Name}'s Bounty Hunt for {poster.Target.Name}'s head has expired.";
 
-            client.Player.Out.SendMessage(message, eChatType.CT_ScreenCenter_And_CT_System,
-                eChatLoc.CL_SystemWindow);
+            client.Player.Out.SendMessage(message, EChatType.CT_ScreenCenter_And_CT_System,
+                EChatLoc.CL_SystemWindow);
         }
 
         var killerClient = WorldMgr.GetClientByPlayerName(poster.Target.Name, false, true);
@@ -416,8 +416,8 @@ public class BountyMgr
         var messageToKiller =
             $"{poster.Ganked.Name}'s Bounty Hunt for your head has expired!";
 
-        killerClient.Player.Out.SendMessage(messageToKiller, eChatType.CT_ScreenCenter_And_CT_System,
-            eChatLoc.CL_SystemWindow);
+        killerClient.Player.Out.SendMessage(messageToKiller, EChatType.CT_ScreenCenter_And_CT_System,
+            EChatLoc.CL_SystemWindow);
     }
 
     public static IList<string> GetTextList(GamePlayer player)

@@ -89,7 +89,7 @@ namespace DOL.GS.GameEvents
             
             player.Achieve($"{RestartKey}-Credit");
             
-            player.Out.SendMessage("Thanks for playing Atlas! Your level has been reset to 1, we wish you good luck with your adventure.", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+            player.Out.SendMessage("Thanks for playing Atlas! Your level has been reset to 1, we wish you good luck with your adventure.", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
         }
         
     }

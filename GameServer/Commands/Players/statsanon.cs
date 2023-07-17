@@ -31,7 +31,7 @@ namespace DOL.GS.Commands
 			else
 				msg = "Your stats are now visible to other players.";
 
-			client.Player.Out.SendMessage(msg, eChatType.CT_System, eChatLoc.CL_ChatWindow);
+			client.Player.Out.SendMessage(msg, EChatType.CT_System, EChatLoc.CL_ChatWindow);
 		}
 	}
 }

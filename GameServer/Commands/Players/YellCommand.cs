@@ -27,7 +27,7 @@ namespace DOL.GS.Commands
 			}
             if (client.Player.IsMuted)
             {
-                client.Player.Out.SendMessage("You have been muted. You cannot yell.", eChatType.CT_Staff, eChatLoc.CL_SystemWindow);
+                client.Player.Out.SendMessage("You have been muted. You cannot yell.", EChatType.CT_Staff, EChatLoc.CL_SystemWindow);
                 return;
             }
 
@@ -58,10 +58,10 @@ namespace DOL.GS.Commands
 							direction = "East";
 						else if (headingtotarget > 3328 && headingtotarget < 3840)
 							direction = "South East";
-						player.Out.SendMessage(client.Player.Name + " yells for help from the " + direction + "!", eChatType.CT_Help, eChatLoc.CL_SystemWindow);
+						player.Out.SendMessage(client.Player.Name + " yells for help from the " + direction + "!", EChatType.CT_Help, EChatLoc.CL_SystemWindow);
 					}
 					else
-						client.Out.SendMessage("You yell for help!", eChatType.CT_Help, eChatLoc.CL_SystemWindow);
+						client.Out.SendMessage("You yell for help!", EChatType.CT_Help, EChatLoc.CL_SystemWindow);
 				}
 				client.Player.TempProperties.setProperty(YELL_TICK, client.Player.CurrentRegion.Time);
 				return;

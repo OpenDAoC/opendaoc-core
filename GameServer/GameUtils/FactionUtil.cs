@@ -263,7 +263,7 @@ namespace DOL.GS
 			{
 				msg += "increased.";
 			}
-			player.Out.SendMessage(msg, eChatType.CT_System, eChatLoc.CL_SystemWindow);
+			player.Out.SendMessage(msg, EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 
 		/// <summary>

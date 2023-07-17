@@ -25,7 +25,7 @@ namespace DOL.GS.Spells
                 if (selectedTarget == null)
                 {
                     if (Caster is GamePlayer)
-                        MessageToCaster(LanguageMgr.GetTranslation((Caster as GamePlayer).Client, "TurretsRelease.CheckBeginCast.NoSelectedTarget"), eChatType.CT_SpellResisted);
+                        MessageToCaster(LanguageMgr.GetTranslation((Caster as GamePlayer).Client, "TurretsRelease.CheckBeginCast.NoSelectedTarget"), EChatType.CT_SpellResisted);
 
                     return false;
                 }
@@ -33,7 +33,7 @@ namespace DOL.GS.Spells
                 if (selectedTarget is not TurretPet target || target.Owner != Caster)
                 {
                     if (Caster is GamePlayer)
-                        MessageToCaster(LanguageMgr.GetTranslation((Caster as GamePlayer).Client, "TurretsRelease.CheckBeginCast.NoSelectedTarget"), eChatType.CT_SpellResisted);
+                        MessageToCaster(LanguageMgr.GetTranslation((Caster as GamePlayer).Client, "TurretsRelease.CheckBeginCast.NoSelectedTarget"), EChatType.CT_SpellResisted);
 
                     return false;
                 }

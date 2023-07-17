@@ -35,7 +35,7 @@ namespace DOL.GS.Commands
 
 			if (client.Player.IsMuted)
 			{
-				client.Player.Out.SendMessage("You have been muted and are not allowed to submit bug reports.", eChatType.CT_Staff, eChatLoc.CL_SystemWindow);
+				client.Player.Out.SendMessage("You have been muted and are not allowed to submit bug reports.", EChatType.CT_Staff, EChatLoc.CL_SystemWindow);
 				return;
 			}
 
@@ -55,7 +55,7 @@ namespace DOL.GS.Commands
 				}
 				if (found)
 				{
-					client.Player.Out.SendMessage("There are too many reports, please contact a GM or wait until they are cleaned.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					client.Player.Out.SendMessage("There are too many reports, please contact a GM or wait until they are cleaned.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 					return;
 				}
 
@@ -70,12 +70,12 @@ namespace DOL.GS.Commands
 			report.Message = message;
 			report.Submitter = client.Player.Name + " [" + client.Account.Name + "]";
 			GameServer.Database.AddObject(report);
-			client.Player.Out.SendMessage("Report submitted, if this is not a bug report it will be ignored!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+			client.Player.Out.SendMessage("Report submitted, if this is not a bug report it will be ignored!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 
 			if (ServerProperties.Properties.BUG_REPORT_EMAIL_ADDRESSES.Trim() != "")
 			{
 				if (client.Account.Mail == "")
-					client.Player.Out.SendMessage("If you enter your email address for your account with /email command, your bug reports will send an email to the staff!", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+					client.Player.Out.SendMessage("If you enter your email address for your account with /email command, your bug reports will send an email to the staff!", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 				else
 				{
 					Mail.MailMgr.SendMail(ServerProperties.Properties.BUG_REPORT_EMAIL_ADDRESSES, GameServer.Instance.Configuration.ServerName + " bug report " + report.ID, report.Message, report.Submitter, client.Account.Mail);

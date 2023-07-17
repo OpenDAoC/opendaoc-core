@@ -291,7 +291,7 @@ namespace DOL.GS.Spells
         {
             SendEffectAnimation(effect.Owner, 0, false, 1);
             //"{0} seems calm and healthy."
-            Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message2, effect.Owner.GetName(0, false)), eChatType.CT_Spell, effect.Owner);
+            Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message2, effect.Owner.GetName(0, false)), EChatType.CT_Spell, effect.Owner);
         }
 
         public override void OnEffectPulse(GameSpellEffect effect)
@@ -320,7 +320,7 @@ namespace DOL.GS.Spells
             if (heal < 0) target.Mana += (int)(-heal * target.MaxMana / 100);
             else target.Mana += (int)heal;
             //"You feel calm and healthy."
-            MessageToLiving(target, Spell.Message1, eChatType.CT_Spell);
+            MessageToLiving(target, Spell.Message1, EChatType.CT_Spell);
         }
 
         /// <summary>
@@ -336,9 +336,9 @@ namespace DOL.GS.Spells
             if (!noMessages)
             {
                 //"Your meditative state fades."
-                MessageToLiving(effect.Owner, Spell.Message3, eChatType.CT_SpellExpires);
+                MessageToLiving(effect.Owner, Spell.Message3, EChatType.CT_SpellExpires);
                 //"{0}'s meditative state fades."
-                Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, effect.Owner.GetName(0, false)), eChatType.CT_SpellExpires, effect.Owner);
+                Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, effect.Owner.GetName(0, false)), EChatType.CT_SpellExpires, effect.Owner);
             }
             return 0;
         }

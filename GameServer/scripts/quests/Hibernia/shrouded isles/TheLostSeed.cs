@@ -367,7 +367,7 @@ namespace DOL.GS.Quests.Hibernia
 			if (!player.Inventory.IsSlotsFree(1, eInventorySlot.FirstBackpack, eInventorySlot.LastBackpack))
 				player.Out.SendMessage(
 					"You dont have enough room for " + glowing_red_jewel.Name + " and drops on the ground.",
-					eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+					EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 			GiveItem(player, glowing_red_jewel);
 			quest.Step = 6;
 		}
@@ -395,7 +395,7 @@ namespace DOL.GS.Quests.Hibernia
 					// player near demon           
 					SendSystemMessage(player,
 					"You feel a quiet rustling in the leaves overhead.");
-					player.Out.SendMessage("Feairna-Athar ambushes you!", eChatType.CT_ScreenCenter, eChatLoc.CL_SystemWindow);
+					player.Out.SendMessage("Feairna-Athar ambushes you!", EChatType.CT_ScreenCenter, EChatLoc.CL_SystemWindow);
 					quest.CreateFeairnaAthar(player);
 				}
 				finally
@@ -750,7 +750,7 @@ namespace DOL.GS.Quests.Hibernia
 							Jandros.SayTo(player, "I think Kredril has already told you about the farmers that found some cursed magical seeds. Many [died] because of them.");
 							break;
 						case "died":
-							Jandros.Emote(eEmote.Cry);
+							Jandros.Emote(EEmote.Cry);
 							Jandros.SayTo(player, "Some rangers went near the location where the farmers died and reported that something strange " +
 							                      "is happening at this location. They saw a treant and named it [Feairna-Athar]. " +
 							                      "I think it has to do with the Lost Seed!");
@@ -784,7 +784,7 @@ namespace DOL.GS.Quests.Hibernia
 						{
 							Jandros.SayTo(player,
 								"Thanks " + player.Name + ", please go back to Droighaid and tell Terod about it!");
-							Jandros.Emote(eEmote.Smile);
+							Jandros.Emote(EEmote.Smile);
 							quest.Step = 7;
 						}
 					}
@@ -916,7 +916,7 @@ namespace DOL.GS.Quests.Hibernia
 			else
 			{
 				m_questPlayer.Out.SendMessage("You do not have enough free space in your inventory!",
-					eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+					EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 			}
 		}
 	}

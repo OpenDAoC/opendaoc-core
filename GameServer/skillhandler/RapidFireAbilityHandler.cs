@@ -23,7 +23,7 @@ namespace DOL.GS.SkillHandler
 
 			if(!player.IsAlive)
 			{
-                player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Skill.Ability.RapidFire.CannotUseDead"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Skill.Ability.RapidFire.CannotUseDead"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
                 return;
 			}
 
@@ -38,7 +38,7 @@ namespace DOL.GS.SkillHandler
 			ECSGameEffect volley = EffectListService.GetEffectOnTarget(player, EEffect.Volley);
 			if (volley != null)
 			{
-				player.Out.SendMessage("You can't use "+ab.Name+" while Volley is active!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				player.Out.SendMessage("You can't use "+ab.Name+" while Volley is active!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				return;
 			}
 

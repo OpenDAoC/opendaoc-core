@@ -47,8 +47,8 @@ namespace DOL.GS.Scripts
 			if (!base.Interact(player)) return false;
 			TurnTo(player.X, player.Y);
 			
-			player.Out.SendMessage("Hello " + player.Name + "!\n\n" + "Are you ready to [fight]?", eChatType.CT_Say,eChatLoc.CL_PopupWindow);
-			player.Out.SendMessage("If you need so, I can port you back to your Realm's [testing lobby] or to the [battleground]", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+			player.Out.SendMessage("Hello " + player.Name + "!\n\n" + "Are you ready to [fight]?", EChatType.CT_Say,EChatLoc.CL_PopupWindow);
+			player.Out.SendMessage("If you need so, I can port you back to your Realm's [testing lobby] or to the [battleground]", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
 			return true;
 		}
 		public override bool WhisperReceive(GameLiving source, string str)
@@ -62,14 +62,14 @@ namespace DOL.GS.Scripts
 				case "fight":
 					if (t.Level != ServerProperties.Properties.EVENT_LVCAP)
 					{
-						t.Out.SendMessage("You must be level " + ServerProperties.Properties.EVENT_LVCAP + " to enter the event, speak with my colleague!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						t.Out.SendMessage("You must be level " + ServerProperties.Properties.EVENT_LVCAP + " to enter the event, speak with my colleague!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						return false;
 					}
 					
 					//case recently in combat
 					if (t.InCombatInLast(TeleportDelay))
 					{
-	                    t.Out.SendMessage("You need to wait a little longer before porting again.", eChatType.CT_Say,eChatLoc.CL_PopupWindow);
+	                    t.Out.SendMessage("You need to wait a little longer before porting again.", EChatType.CT_Say,EChatLoc.CL_PopupWindow);
                         return false;
 					}
 					
@@ -150,7 +150,7 @@ namespace DOL.GS.Scripts
 			{
 				target.Client.Out.SendMessage(
 					msg,
-					eChatType.CT_Say,eChatLoc.CL_PopupWindow);
+					EChatType.CT_Say,EChatLoc.CL_PopupWindow);
 			}
 		
 		[ScriptLoadedEvent]

@@ -200,7 +200,7 @@ namespace DOL.GS.MonthlyQuest.Albion
 						case "slay the creatures":
 							if (quest.Step == 2)
 							{
-								player.Out.SendMessage("Thank you for your contribution!", eChatType.CT_Chat, eChatLoc.CL_PopupWindow);
+								player.Out.SendMessage("Thank you for your contribution!", EChatType.CT_Chat, EChatLoc.CL_PopupWindow);
 								quest.FinishQuest();
 							}
 							break;
@@ -274,7 +274,7 @@ namespace DOL.GS.MonthlyQuest.Albion
 
 			if (response == 0x00)
 			{
-				player.Out.SendMessage("Thank you for helping Atlas.", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+				player.Out.SendMessage("Thank you for helping Atlas.", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
 			}
 			else
 			{
@@ -327,13 +327,13 @@ namespace DOL.GS.MonthlyQuest.Albion
 			if (gArgs.Target.Name.ToLower() == Orylle_NAME.ToLower() && gArgs.Target is GameNPC && _orylleKilled < MAX_KILLED)
 			{
 				_orylleKilled = 1;
-				player.Out.SendMessage("[Monthly] You killed " + Orylle_NAME + ": (" + _orylleKilled + " | " + MAX_KILLED + ")", eChatType.CT_ScreenCenter, eChatLoc.CL_SystemWindow);
+				player.Out.SendMessage("[Monthly] You killed " + Orylle_NAME + ": (" + _orylleKilled + " | " + MAX_KILLED + ")", EChatType.CT_ScreenCenter, EChatLoc.CL_SystemWindow);
 				player.Out.SendQuestUpdate(this);
 			}
 			else if (gArgs.Target.Name.ToLower() == Xanxicar_NAME.ToLower() && gArgs.Target is GameNPC && _xanxicarKilled < MAX_KILLED)
 			{
 				_xanxicarKilled = 1;
-				player.Out.SendMessage("[Monthly] You killed " + Xanxicar_NAME + ": (" + _xanxicarKilled + " | " + MAX_KILLED + ")", eChatType.CT_ScreenCenter, eChatLoc.CL_SystemWindow);
+				player.Out.SendMessage("[Monthly] You killed " + Xanxicar_NAME + ": (" + _xanxicarKilled + " | " + MAX_KILLED + ")", EChatType.CT_ScreenCenter, EChatLoc.CL_SystemWindow);
 				player.Out.SendQuestUpdate(this);
 			}
 
@@ -377,7 +377,7 @@ namespace DOL.GS.MonthlyQuest.Albion
 			}
 			else
 			{
-				m_questPlayer.Out.SendMessage("Clear three slots of your inventory for your reward", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				m_questPlayer.Out.SendMessage("Clear three slots of your inventory for your reward", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 			}
 		}
 	}

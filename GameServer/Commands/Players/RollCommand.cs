@@ -90,7 +90,7 @@ namespace DOL.GS.Commands
 		// these are to make code look better
 		private void SystemMessage(GameClient client, string str)
 		{
-			client.Out.SendMessage(str, eChatType.CT_System, eChatLoc.CL_SystemWindow);
+			client.Out.SendMessage(str, EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 
 		private void EmoteMessage(GamePlayer player, string str)
@@ -100,7 +100,7 @@ namespace DOL.GS.Commands
 
 		private void EmoteMessage(GameClient client, string str)
 		{
-			client.Out.SendMessage(str, eChatType.CT_Emote, eChatLoc.CL_SystemWindow);
+			client.Out.SendMessage(str, EChatType.CT_Emote, EChatLoc.CL_SystemWindow);
 		}
 	}
 }

@@ -65,7 +65,7 @@ namespace DOL.GS
 
         private void SendReply(GamePlayer target, string msg)
         {
-            target.Out.SendMessage(msg, eChatType.CT_System, eChatLoc.CL_ChatWindow);
+            target.Out.SendMessage(msg, EChatType.CT_System, EChatLoc.CL_ChatWindow);
         }
 
         public override bool Interact(GamePlayer player)
@@ -85,7 +85,7 @@ namespace DOL.GS
                 response = "Hand me Dreaded Seals and I'll give you Realm points!";
             else
                 response = "Sorry, no dreaded seal types are defined so I cannot accept seals at this time.";
-            player.Out.SendMessage(response, eChatType.CT_Say, eChatLoc.CL_ChatWindow);
+            player.Out.SendMessage(response, EChatType.CT_Say, EChatLoc.CL_ChatWindow);
 
             return true;
         }
@@ -97,14 +97,14 @@ namespace DOL.GS
                 if (GetDistanceTo(player) > WorldMgr.INTERACT_DISTANCE)
                 {
                     ((GamePlayer)source).Out.SendMessage("You are too far away to give anything to me "
-                    + player.Name + ". Come a little closer.", eChatType.CT_Say, eChatLoc.CL_ChatWindow);
+                    + player.Name + ". Come a little closer.", EChatType.CT_Say, EChatLoc.CL_ChatWindow);
                     return false;
                 }
 
                 if (m_levelMultipliers.Count < 1)
                 {
                     ((GamePlayer)source).Out.SendMessage("Sorry, no level multipliers are defined so I cannot accept seals at this time.",
-                        eChatType.CT_Say, eChatLoc.CL_ChatWindow);
+                        EChatType.CT_Say, EChatLoc.CL_ChatWindow);
                     return false;
                 }
 
@@ -119,7 +119,7 @@ namespace DOL.GS
                 if (bpMultiplier < 1 && rpMultiplier < 1)
                 {
                     ((GamePlayer)source).Out.SendMessage("Sorry, I cannot accept items of that type.",
-                        eChatType.CT_Say, eChatLoc.CL_ChatWindow);
+                        EChatType.CT_Say, EChatLoc.CL_ChatWindow);
                     return false;
                 }
                 else
@@ -141,7 +141,7 @@ namespace DOL.GS
                     if (levelMultiplier <= 0)
                     {
                         ((GamePlayer)source).Out.SendMessage("You are too young yet to make use of these items "
-                        + player.Name + ". Come back in " + (nextLevel - player.Level) + " levels.", eChatType.CT_Say, eChatLoc.CL_ChatWindow);
+                        + player.Name + ". Come back in " + (nextLevel - player.Level) + " levels.", EChatType.CT_Say, EChatLoc.CL_ChatWindow);
 
                         return false;
                     }

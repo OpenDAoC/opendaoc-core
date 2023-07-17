@@ -261,7 +261,7 @@ public class ConquestMgr
             double RPFraction = 0.05 * (loyalDays / 30.0);
             if (RPFraction < 0.01) RPFraction = 0.01;
             
-            player.Out.SendMessage($"You have been awarded for helping to defend your keep!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+            player.Out.SendMessage($"You have been awarded for helping to defend your keep!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
             player.GainRealmPoints((long)(playerRpValue * RPFraction), false);
         }
     }
@@ -418,8 +418,8 @@ public class ConquestMgr
         foreach (var client in WorldMgr.GetAllPlayingClients())
         {
             if ((client.Player.CurrentZone.IsRvR || client.Player.Level >= 40 ) && !client.Player.CurrentZone.IsBG)
-                client.Player.Out.SendMessage(message, eChatType.CT_ScreenCenterSmaller_And_CT_System,
-                    eChatLoc.CL_SystemWindow);
+                client.Player.Out.SendMessage(message, EChatType.CT_ScreenCenterSmaller_And_CT_System,
+                    EChatLoc.CL_SystemWindow);
         }
     }
 

@@ -44,7 +44,7 @@ namespace DOL.GS
             Owner.IsEngaging = true;
 
             if (OwnerPlayer != null)
-                OwnerPlayer.Out.SendMessage(LanguageMgr.GetTranslation(OwnerPlayer.Client, "Effects.EngageEffect.ConcOnBlockingX", m_engageTarget.GetName(0, false)), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                OwnerPlayer.Out.SendMessage(LanguageMgr.GetTranslation(OwnerPlayer.Client, "Effects.EngageEffect.ConcOnBlockingX", m_engageTarget.GetName(0, false)), EChatType.CT_System, EChatLoc.CL_SystemWindow);
             
 			// only emulate attack mode so it works more like on live servers
 			// entering real attack mode while engaging someone stops engage
@@ -72,9 +72,9 @@ namespace DOL.GS
             if (OwnerPlayer != null)
             {
                 if (playerCancel)
-                    OwnerPlayer.Out.SendMessage(LanguageMgr.GetTranslation(OwnerPlayer.Client, "Effects.EngageEffect.YouNoConcOnBlock"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                    OwnerPlayer.Out.SendMessage(LanguageMgr.GetTranslation(OwnerPlayer.Client, "Effects.EngageEffect.YouNoConcOnBlock"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
                 else
-                    OwnerPlayer.Out.SendMessage(LanguageMgr.GetTranslation(OwnerPlayer.Client, "Effects.EngageEffect.YouNoAttemptToEngageT"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                    OwnerPlayer.Out.SendMessage(LanguageMgr.GetTranslation(OwnerPlayer.Client, "Effects.EngageEffect.YouNoAttemptToEngageT"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
             }
         }
     }

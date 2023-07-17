@@ -6062,7 +6062,7 @@ namespace DOL.GS {
             if (t == null || item == null|| item.Id_nb == _currencyID) return false;
             if (GetDistanceTo(t) > WorldMgr.INTERACT_DISTANCE)
             {
-                t.Out.SendMessage("You are too far away to give anything to " + GetName(0, false) + ".", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                t.Out.SendMessage("You are too far away to give anything to " + GetName(0, false) + ".", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                 return false;
             }
             
@@ -6715,7 +6715,7 @@ namespace DOL.GS {
 
         public void SendReply(GamePlayer player, string msg)
         {
-            player.Out.SendMessage(msg, eChatType.CT_System, eChatLoc.CL_PopupWindow);
+            player.Out.SendMessage(msg, EChatType.CT_System, EChatLoc.CL_PopupWindow);
         }
 
         public bool SetModel(GamePlayer player, int number, int price)

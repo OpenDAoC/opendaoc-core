@@ -192,7 +192,7 @@ namespace DOL.GS.Quests
                 //k109: Handle the player not choosing a reward.
                 if (Rewards.ChoiceOf > 0 && rewardArgs.CountChosen <= 0)
                 {
-                    QuestPlayer.Out.SendMessage(LanguageMgr.GetTranslation(QuestPlayer.Client, "RewardQuest.Notify"), eChatType.CT_System, eChatLoc.CL_ChatWindow);
+                    QuestPlayer.Out.SendMessage(LanguageMgr.GetTranslation(QuestPlayer.Client, "RewardQuest.Notify"), EChatType.CT_System, EChatLoc.CL_ChatWindow);
                     return;
                 }
 
@@ -206,7 +206,7 @@ namespace DOL.GS.Quests
 		/// <param name="player"></param>
 		public override void OnQuestAssigned(GamePlayer player)
 		{
-            player.Out.SendMessage(String.Format(LanguageMgr.GetTranslation(player.Client.Account.Language, "RewardQuest.OnQuestAssigned", Name)), eChatType.CT_ScreenCenter, eChatLoc.CL_SystemWindow);
+            player.Out.SendMessage(String.Format(LanguageMgr.GetTranslation(player.Client.Account.Language, "RewardQuest.OnQuestAssigned", Name)), EChatType.CT_ScreenCenter, EChatLoc.CL_SystemWindow);
             player.Out.SendSoundEffect(7, 0, 0, 0, 0, 0);
 		}
 
@@ -243,7 +243,7 @@ namespace DOL.GS.Quests
 			}
 			else
 			{
-				QuestPlayer.Out.SendMessage(string.Format("Your inventory is full, you need {0} free slot(s) to complete this quest.", inventorySpaceRequired), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				QuestPlayer.Out.SendMessage(string.Format("Your inventory is full, you need {0} free slot(s) to complete this quest.", inventorySpaceRequired), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				Rewards.ChosenItems.Clear();
 			}
 		}
@@ -399,8 +399,8 @@ namespace DOL.GS.Quests
 				if (Current < Target)
 				{
 					Current++;
-					m_quest.QuestPlayer.Out.SendMessage(Description, eChatType.CT_ScreenCenter, 
-						eChatLoc.CL_SystemWindow);
+					m_quest.QuestPlayer.Out.SendMessage(Description, EChatType.CT_ScreenCenter, 
+						EChatLoc.CL_SystemWindow);
 					m_quest.QuestPlayer.Out.SendQuestUpdate(m_quest);
 					
 					// Check for updates

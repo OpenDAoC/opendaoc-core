@@ -97,9 +97,9 @@ namespace DOL.GS.Spells
 			base.OnEffectPulse(effect);
 			SendEffectAnimation(effect.Owner, 0, false, 1);
 			// An acidic cloud surrounds you!
-			MessageToLiving(effect.Owner, Spell.Message1, eChatType.CT_Spell);
+			MessageToLiving(effect.Owner, Spell.Message1, EChatType.CT_Spell);
 			// {0} is surrounded by an acidic cloud!
-			Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message2, effect.Owner.GetName(0, false)), eChatType.CT_YouHit, effect.Owner);
+			Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message2, effect.Owner.GetName(0, false)), EChatType.CT_YouHit, effect.Owner);
 			OnDirectEffect(effect.Owner, effect.Effectiveness);
 		}
 
@@ -109,9 +109,9 @@ namespace DOL.GS.Spells
 			base.OnEffectExpires(effect, noMessages);
 			if (!noMessages) {
 				// The acidic mist around you dissipates.
-				MessageToLiving(effect.Owner, Spell.Message3, eChatType.CT_SpellExpires);
+				MessageToLiving(effect.Owner, Spell.Message3, EChatType.CT_SpellExpires);
 				// The acidic mist around {0} dissipates.
-				Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, effect.Owner.GetName(0, false)), eChatType.CT_SpellExpires, effect.Owner);
+				Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, effect.Owner.GetName(0, false)), EChatType.CT_SpellExpires, effect.Owner);
 			}
 			return 0;
 		}

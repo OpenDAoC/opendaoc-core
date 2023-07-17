@@ -64,7 +64,7 @@ namespace DOL.GS.ServerRules
 			if (objs.Count > 0)
 			{
 				client.IsConnected = false;
-				client.Out.SendLoginDenied(eLoginError.AccountIsBannedFromThisServerType);
+				client.Out.SendLoginDenied(ELoginError.AccountIsBannedFromThisServerType);
 				log.Debug("IsAllowedToConnect deny access to username " + username);
 				return false;
 			}
@@ -75,7 +75,7 @@ namespace DOL.GS.ServerRules
 			if (objs.Count > 0)
 			{
 				client.IsConnected = false;
-				client.Out.SendLoginDenied(eLoginError.AccountIsBannedFromThisServerType);
+				client.Out.SendLoginDenied(ELoginError.AccountIsBannedFromThisServerType);
 				log.Debug("IsAllowedToConnect deny access to IP " + accip);
 				return false;
 			}
@@ -84,7 +84,7 @@ namespace DOL.GS.ServerRules
 			if (min != GameClient.eClientVersion.VersionNotChecked && client.Version < min)
 			{
 				client.IsConnected = false;
-				client.Out.SendLoginDenied(eLoginError.ClientVersionTooLow);
+				client.Out.SendLoginDenied(ELoginError.ClientVersionTooLow);
 				log.Debug("IsAllowedToConnect deny access to client version (too low) " + client.Version);
 				return false;
 			}
@@ -93,7 +93,7 @@ namespace DOL.GS.ServerRules
 			if (max != GameClient.eClientVersion.VersionNotChecked && client.Version > max)
 			{
 				client.IsConnected = false;
-				client.Out.SendLoginDenied(eLoginError.NotAuthorizedToUseExpansionVersion);
+				client.Out.SendLoginDenied(ELoginError.NotAuthorizedToUseExpansionVersion);
 				log.Debug("IsAllowedToConnect deny access to client version (too high) " + client.Version);
 				return false;
 			}
@@ -104,7 +104,7 @@ namespace DOL.GS.ServerRules
 				if ((int)client.ClientType > (int)type)
 				{
 					client.IsConnected = false;
-					client.Out.SendLoginDenied(eLoginError.ExpansionPacketNotAllowed);
+					client.Out.SendLoginDenied(ELoginError.ExpansionPacketNotAllowed);
 					log.Debug("IsAllowedToConnect deny access to expansion pack.");
 					return false;
 				}
@@ -146,7 +146,7 @@ namespace DOL.GS.ServerRules
 					{
 						// Normal Players will not be allowed over the max
 						client.IsConnected = false;
-						client.Out.SendLoginDenied(eLoginError.TooManyPlayersLoggedIn);
+						client.Out.SendLoginDenied(ELoginError.TooManyPlayersLoggedIn);
 						log.Debug("IsAllowedToConnect deny access due to too many players.");
 						return false;
 					}
@@ -161,7 +161,7 @@ namespace DOL.GS.ServerRules
 					// GMs are still allowed to enter server
 					// Normal Players will not be allowed to Log in
 					client.IsConnected = false;
-					client.Out.SendLoginDenied(eLoginError.GameCurrentlyClosed);
+					client.Out.SendLoginDenied(ELoginError.GameCurrentlyClosed);
 					log.Debug("IsAllowedToConnect deny access; staff only login");
 					return false;
 				}
@@ -174,7 +174,7 @@ namespace DOL.GS.ServerRules
 					// Admins and Testers are still allowed to enter server
 					// Normal Players will not be allowed to Log in
 					client.IsConnected = false;
-					client.Out.SendLoginDenied(eLoginError.GameCurrentlyClosed);
+					client.Out.SendLoginDenied(ELoginError.GameCurrentlyClosed);
 					log.Debug("IsAllowedToConnect deny access; tester and staff only login");
 					return false;
 				}
@@ -187,7 +187,7 @@ namespace DOL.GS.ServerRules
 					// GMs are still allowed to enter server
 					// Normal Players will not be allowed to Log in unless they have linked their Discord
 					client.IsConnected = false;
-					client.Out.SendLoginDenied(eLoginError.AccountNoAccessThisGame);
+					client.Out.SendLoginDenied(ELoginError.AccountNoAccessThisGame);
 					log.Debug("Denied access, account is not linked to Discord");
 					return false;
 				}
@@ -207,7 +207,7 @@ namespace DOL.GS.ServerRules
 								break;
 							}
 							client.IsConnected = false;
-							client.Out.SendLoginDenied(eLoginError.AccountAlreadyLoggedIntoOtherServer);
+							client.Out.SendLoginDenied(ELoginError.AccountAlreadyLoggedIntoOtherServer);
 							log.Debug("IsAllowedToConnect deny access; dual login not allowed");
 							return false;
 						}
@@ -291,7 +291,7 @@ namespace DOL.GS.ServerRules
 			if (player.ObjectState != GameObject.eObjectState.Active) return;
 			if (player.Client.IsPlaying == false) return;
 
-			player.Out.SendMessage("Your temporary invulnerability timer has expired.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+			player.Out.SendMessage("Your temporary invulnerability timer has expired.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 
 			return;
 		}
@@ -515,7 +515,7 @@ namespace DOL.GS.ServerRules
 				}
 
 				if (!isAllowed && caster is GamePlayer)
-					(caster as GamePlayer).Client.Out.SendMessage("You can't cast this spell on the " + target.Name, eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					(caster as GamePlayer).Client.Out.SendMessage("You can't cast this spell on the " + target.Name, EChatType.CT_System, EChatLoc.CL_SystemWindow);
 
 				return isAllowed;
 			}
@@ -1107,7 +1107,7 @@ namespace DOL.GS.ServerRules
 				{
 					GamePlayer player = de.Key as GamePlayer;
 					if (player != null)
-						player.Out.SendMessage(message, eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						player.Out.SendMessage(message, EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				}
 
 				return;
@@ -1187,7 +1187,7 @@ namespace DOL.GS.ServerRules
 									livingsToAward.Add(living);
 								else if(player != null)
 								{
-									player.Out.SendMessage($"Your group did not deal enough damage to claim this kill.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+									player.Out.SendMessage($"Your group did not deal enough damage to claim this kill.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 								}
 							}
 							else
@@ -1402,12 +1402,12 @@ namespace DOL.GS.ServerRules
 			{
 				player.Out.SendMessage(
 					$"XP Award: {xpReward.ToString("N0", format)} | Group XP Cap: {expCap.ToString("N0", format)}",
-					eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				double expPercent = ((double) (xpReward) / (double) (expCap)) * 100;
-				player.Out.SendMessage($"% of Cap: {expPercent.ToString(".##")}%", eChatType.CT_System,
-					eChatLoc.CL_SystemWindow);
+				player.Out.SendMessage($"% of Cap: {expPercent.ToString(".##")}%", EChatType.CT_System,
+					EChatLoc.CL_SystemWindow);
 				player.Out.SendMessage($"---------------------------------------------------",
-					eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					EChatType.CT_System, EChatLoc.CL_SystemWindow);
 			}
 
 			#region Camp Bonus
@@ -1503,7 +1503,7 @@ namespace DOL.GS.ServerRules
 					{
 						player.Out.SendMessage(
 							$"% of Camp remaining: {(campBonusPerc * 100 / fullCampBonus).ToString("0.##")}%",
-							eChatType.CT_System, eChatLoc.CL_SystemWindow);
+							EChatType.CT_System, EChatLoc.CL_SystemWindow);
 					}
 
 					if (player.Group != null && plrGrpExp.ContainsKey(player.Group))
@@ -1544,7 +1544,7 @@ namespace DOL.GS.ServerRules
 						ServerProperties.Properties.XP_CAP_PERCENT / 100);
 					player.Out.SendMessage(
 						$"Base XP: {baseXP.ToString("N0", format)} | Solo Cap : {softXPCap.ToString("N0", format)} | %Cap: {((double) ((baseXP) / (softXPCap)) * 100).ToString("0.##")}%",
-						eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						EChatType.CT_System, EChatLoc.CL_SystemWindow);
 
 					if (player.XPLogState == EXpLogState.Verbose)
 					{
@@ -1560,35 +1560,35 @@ namespace DOL.GS.ServerRules
 
 						player.Out.SendMessage(
 							$"XP needed: {player.ExperienceForNextLevel.ToString("N0", format)} | {levelPercent.ToString("0.##")}% done with current level",
-							eChatType.CT_System, eChatLoc.CL_SystemWindow);
+							EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						player.Out.SendMessage(
 							$"# of kills needed to level at this rate: {(player.ExperienceForNextLevel - player.Experience) / xpReward}",
-							eChatType.CT_System, eChatLoc.CL_SystemWindow);
+							EChatType.CT_System, EChatLoc.CL_SystemWindow);
 
 						if (atlasBonus > 0)
 							player.Out.SendMessage(
 								$"Atlas: {atlasBonus.ToString("N0", format)} | {soloPercent.ToString("0.##")}% bonus",
-								eChatType.CT_System, eChatLoc.CL_SystemWindow);
+								EChatType.CT_System, EChatLoc.CL_SystemWindow);
 
 						if (campBonus > 0)
 							player.Out.SendMessage(
 								$"Camp: {campBonus.ToString("N0", format)} | {campPercent.ToString("0.##")}% bonus",
-								eChatType.CT_System, eChatLoc.CL_SystemWindow);
+								EChatType.CT_System, EChatLoc.CL_SystemWindow);
 
 						if (player.Group != null)
 							player.Out.SendMessage(
 								$"Group: {groupExp.ToString("N0", format)} | {groupPercent.ToString("0.##")}% bonus",
-								eChatType.CT_System, eChatLoc.CL_SystemWindow);
+								EChatType.CT_System, EChatLoc.CL_SystemWindow);
 
 						if (outpostXP > 0)
 							player.Out.SendMessage(
 								$"Outpost: {outpostXP.ToString("N0", format)} | {outpostPercent.ToString("0.##")}% bonus",
-								eChatType.CT_System, eChatLoc.CL_SystemWindow);
+								EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						
 						if (relicXp > 0)
 							player.Out.SendMessage(
 								$"Relic: {relicXp.ToString("N0", format)} | {relicPercent.ToString("0.##")}% bonus",
-								eChatType.CT_System, eChatLoc.CL_SystemWindow);
+								EChatType.CT_System, EChatLoc.CL_SystemWindow);
 
 						//player.Out.SendMessage($"Total Bonus: {((double)((atlasBonus + campBonus + groupExp + outpostXP) / xpReward) * 100).ToString("0.##")}%", eChatType.CT_System, eChatLoc.CL_SystemWindow);
 					}
@@ -1773,8 +1773,8 @@ namespace DOL.GS.ServerRules
 				{
 					if (gainer.Key is GamePlayer player)
 					{
-						player.Out.SendMessage(killedPlayer.Name + " has been killed recently and is worth no realm points!", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
-						player.Out.SendMessage(killedPlayer.Name + " has been killed recently and is worth no experience!", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+						player.Out.SendMessage(killedPlayer.Name + " has been killed recently and is worth no realm points!", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
+						player.Out.SendMessage(killedPlayer.Name + " has been killed recently and is worth no experience!", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 					}
 				}
 				return;
@@ -1806,7 +1806,7 @@ namespace DOL.GS.ServerRules
 				{
 					GamePlayer player = de.Key as GamePlayer;
 					if (player != null)
-						player.Out.SendMessage("You gain no experience from this kill!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						player.Out.SendMessage("You gain no experience from this kill!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				}
 				return;
 			}
@@ -1876,7 +1876,7 @@ namespace DOL.GS.ServerRules
 					var reward = PredatorMgr.CheckForPredatorEffort(killedPlayer, expGainPlayer);
 					if (reward > 0)
 					{
-						killedPlayer.Out.SendMessage($"Your hunt fails, but your prey did not escape unharmed.", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+						killedPlayer.Out.SendMessage($"Your hunt fails, but your prey did not escape unharmed.", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 						killedPlayer.GainRealmPoints(reward);
 					}
 				}
@@ -1886,7 +1886,7 @@ namespace DOL.GS.ServerRules
 				if (expGainPlayer?.GetConLevel(killedPlayer) > -3)
 				{
 					expGainPlayer.KillStreak++;
-					expGainPlayer.Out.SendMessage($"Kill Streak: {expGainPlayer.KillStreak}", eChatType.CT_ScreenCenterSmaller, eChatLoc.CL_SystemWindow);
+					expGainPlayer.Out.SendMessage($"Kill Streak: {expGainPlayer.KillStreak}", EChatType.CT_ScreenCenterSmaller, EChatLoc.CL_SystemWindow);
 				}
 
 				// realm points
@@ -1897,7 +1897,7 @@ namespace DOL.GS.ServerRules
                 {
 					case <= -3:
 						rpCap = 0;
-						expGainPlayer.Out.SendMessage("You shamefully killed a defenseless opponent and gain no realm points from this kill!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						expGainPlayer.Out.SendMessage("You shamefully killed a defenseless opponent and gain no realm points from this kill!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						break;
 					case -2:
 						rpCap /= 4;
@@ -1964,7 +1964,7 @@ namespace DOL.GS.ServerRules
 				{
 					case <= -3:
 						bpCap = 0;
-						expGainPlayer.Out.SendMessage("You killed a defenseless opponent and gain no bps from this kill, you animal!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						expGainPlayer.Out.SendMessage("You killed a defenseless opponent and gain no bps from this kill, you animal!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						break;
 					case -2:
 						bpCap /= 4;
@@ -2006,7 +2006,7 @@ namespace DOL.GS.ServerRules
 				{
 					case <= -3:
 						expCap = 0;
-						expGainPlayer.Out.SendMessage("No experience points awarded for killing greys, you degenerate.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						expGainPlayer.Out.SendMessage("No experience points awarded for killing greys, you degenerate.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						break;
 					case -2:
 						expCap /= 4;
@@ -2663,19 +2663,19 @@ namespace DOL.GS.ServerRules
 		/// </summary>
 		/// <param name="player"></param>
 		/// <param name="merchantType"></param>
-		public virtual void SendHousingMerchantWindow(GamePlayer player, DOL.GS.PacketHandler.eMerchantWindowType merchantType)
+		public virtual void SendHousingMerchantWindow(GamePlayer player, DOL.GS.PacketHandler.EMerchantWindowType merchantType)
 		{
 			switch (merchantType)
 			{
-				case eMerchantWindowType.HousingInsideShop:
-				case eMerchantWindowType.HousingInsideMenu:
+				case EMerchantWindowType.HousingInsideShop:
+				case EMerchantWindowType.HousingInsideMenu:
 					player.Out.SendMerchantWindow(HouseTemplateMgr.IndoorShopItems, merchantType);
 					break;
-				case eMerchantWindowType.HousingOutsideShop:
-				case eMerchantWindowType.HousingOutsideMenu:
+				case EMerchantWindowType.HousingOutsideShop:
+				case EMerchantWindowType.HousingOutsideMenu:
 					player.Out.SendMerchantWindow(HouseTemplateMgr.OutdoorShopItems, merchantType);
 					break;
-				case eMerchantWindowType.HousingBindstoneHookpoint:
+				case EMerchantWindowType.HousingBindstoneHookpoint:
 					switch (player.Realm)
 					{
 						case ERealm.Albion:
@@ -2692,13 +2692,13 @@ namespace DOL.GS.ServerRules
 							break;
 					}
 					break;
-				case eMerchantWindowType.HousingCraftingHookpoint:
+				case EMerchantWindowType.HousingCraftingHookpoint:
 					player.Out.SendMerchantWindow(HouseTemplateMgr.IndoorCraftShopItems, merchantType);
 					break;
-				case eMerchantWindowType.HousingNPCHookpoint:
+				case EMerchantWindowType.HousingNPCHookpoint:
 					player.Out.SendMerchantWindow(HouseTemplateMgr.GetNpcShopItems(player), merchantType);
 					break;
-				case eMerchantWindowType.HousingVaultHookpoint:
+				case EMerchantWindowType.HousingVaultHookpoint:
 					switch (player.Realm)
 					{
 						case ERealm.Albion:
@@ -2715,11 +2715,11 @@ namespace DOL.GS.ServerRules
 							break;
 					}
 					break;
-				case eMerchantWindowType.HousingDeedMenu:
-					player.Out.SendMerchantWindow(/* TODO */HouseTemplateMgr.OutdoorMenuItems, eMerchantWindowType.HousingDeedMenu);
+				case EMerchantWindowType.HousingDeedMenu:
+					player.Out.SendMerchantWindow(/* TODO */HouseTemplateMgr.OutdoorMenuItems, EMerchantWindowType.HousingDeedMenu);
 					break;
 				default:
-					player.Out.SendMessage("Unknown merchant type!", eChatType.CT_Staff, eChatLoc.CL_SystemWindow);
+					player.Out.SendMessage("Unknown merchant type!", EChatType.CT_Staff, EChatLoc.CL_SystemWindow);
 					log.ErrorFormat("Unknown merchant type {0}", merchantType);
 					break;
 			}
@@ -2734,19 +2734,19 @@ namespace DOL.GS.ServerRules
 		/// <param name="slot"></param>
 		/// <param name="count"></param>
 		/// <param name="merchantType"></param>
-		public virtual void BuyHousingItem(GamePlayer player, ushort slot, byte count, DOL.GS.PacketHandler.eMerchantWindowType merchantType)
+		public virtual void BuyHousingItem(GamePlayer player, ushort slot, byte count, DOL.GS.PacketHandler.EMerchantWindowType merchantType)
 		{
 			MerchantTradeItems items = null;
 
 			switch (merchantType)
 			{
-				case eMerchantWindowType.HousingInsideShop:
+				case EMerchantWindowType.HousingInsideShop:
 					items = HouseTemplateMgr.IndoorShopItems;
 					break;
-				case eMerchantWindowType.HousingOutsideShop:
+				case EMerchantWindowType.HousingOutsideShop:
 					items = HouseTemplateMgr.OutdoorShopItems;
 					break;
-				case eMerchantWindowType.HousingBindstoneHookpoint:
+				case EMerchantWindowType.HousingBindstoneHookpoint:
 					switch (player.Realm)
 					{
 						case ERealm.Albion:
@@ -2763,13 +2763,13 @@ namespace DOL.GS.ServerRules
 							break;
 					}
 					break;
-				case eMerchantWindowType.HousingCraftingHookpoint:
+				case EMerchantWindowType.HousingCraftingHookpoint:
 					items = HouseTemplateMgr.IndoorCraftShopItems;
 					break;
-				case eMerchantWindowType.HousingNPCHookpoint:
+				case EMerchantWindowType.HousingNPCHookpoint:
 					items = HouseTemplateMgr.GetNpcShopItems(player);
 					break;
-				case eMerchantWindowType.HousingVaultHookpoint:
+				case EMerchantWindowType.HousingVaultHookpoint:
 					switch (player.Realm)
 					{
 						case ERealm.Albion:
@@ -2937,7 +2937,7 @@ namespace DOL.GS.ServerRules
 		/// <param name="message"></param>
 		public virtual void MessageToLiving(GameLiving living, string message)
 		{
-			MessageToLiving(living, message, eChatType.CT_System, eChatLoc.CL_SystemWindow);
+			MessageToLiving(living, message, EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 		/// <summary>
 		/// Send custom text message to system window
@@ -2945,9 +2945,9 @@ namespace DOL.GS.ServerRules
 		/// <param name="living"></param>
 		/// <param name="message"></param>
 		/// <param name="type"></param>
-		public virtual void MessageToLiving(GameLiving living, string message, eChatType type)
+		public virtual void MessageToLiving(GameLiving living, string message, EChatType type)
 		{
-			MessageToLiving(living, message, type, eChatLoc.CL_SystemWindow);
+			MessageToLiving(living, message, type, EChatLoc.CL_SystemWindow);
 		}
 		/// <summary>
 		/// Send custom text message to GameLiving
@@ -2956,7 +2956,7 @@ namespace DOL.GS.ServerRules
 		/// <param name="message"></param>
 		/// <param name="type"></param>
 		/// <param name="loc"></param>
-		public virtual void MessageToLiving(GameLiving living, string message, eChatType type, eChatLoc loc)
+		public virtual void MessageToLiving(GameLiving living, string message, EChatType type, EChatLoc loc)
 		{
 			if (living is GamePlayer)
 				((GamePlayer)living).Out.SendMessage(message, type, loc);

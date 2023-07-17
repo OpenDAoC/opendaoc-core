@@ -38,25 +38,25 @@ namespace DOL.GS.Scripts
 			
 			if (base.CurrentRegionID == 252 || base.CurrentRegionID == 165)
 			{
-				player.Out.SendMessage("Hello " + player.Name + "!\n\n" + "If you need so, I can port you back to your Realm's [event zone]", eChatType.CT_Say,eChatLoc.CL_PopupWindow);
+				player.Out.SendMessage("Hello " + player.Name + "!\n\n" + "If you need so, I can port you back to your Realm's [event zone]", EChatType.CT_Say,EChatLoc.CL_PopupWindow);
 
 				if (WorldMgr.GetAllClientsCount() >= SoloPop && player.Group == null)
 				{
-					player.Out.SendMessage("\nAdditionally, I can port you to the [solo zone]", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+					player.Out.SendMessage("\nAdditionally, I can port you to the [solo zone]", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
 				}
 
 				return true;
 			}
 			if (player.Level != EventLVCap)
 			{
-				player.Out.SendMessage("Hello " + player.Name + "!\n\n" + "Speak to my Event Level colleague to attain enough experience before joining the Battleground!", eChatType.CT_Say,eChatLoc.CL_PopupWindow);
+				player.Out.SendMessage("Hello " + player.Name + "!\n\n" + "Speak to my Event Level colleague to attain enough experience before joining the Battleground!", EChatType.CT_Say,EChatLoc.CL_PopupWindow);
 				return true;
 			}
-			player.Out.SendMessage("Hello " + player.Name + "!\n\n" + "Are you ready to [fight] in Thidranki?", eChatType.CT_Say,eChatLoc.CL_PopupWindow);
+			player.Out.SendMessage("Hello " + player.Name + "!\n\n" + "Are you ready to [fight] in Thidranki?", EChatType.CT_Say,EChatLoc.CL_PopupWindow);
 
 			if(WorldMgr.GetAllClientsCount() >= SoloPop && player.Group == null)
             {
-				player.Out.SendMessage("Additionally, I can port you to the [solo zone]", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+				player.Out.SendMessage("Additionally, I can port you to the [solo zone]", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
 			}
 
 			return true;
@@ -123,7 +123,7 @@ namespace DOL.GS.Scripts
 			{
 				target.Client.Out.SendMessage(
 					msg,
-					eChatType.CT_Say,eChatLoc.CL_PopupWindow);
+					EChatType.CT_Say,EChatLoc.CL_PopupWindow);
 			}
 		
 		[ScriptLoadedEvent]

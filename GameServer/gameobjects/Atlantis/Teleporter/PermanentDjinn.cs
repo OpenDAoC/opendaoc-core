@@ -55,7 +55,7 @@ namespace DOL.GS
 
             foreach (GamePlayer player in GetPlayersInRadius(WorldMgr.SAY_DISTANCE))
                 player.Out.SendMessage(String.Format(emotes[UtilCollection.Random(emotes.GetUpperBound(0))], this.Name),
-                    eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                    EChatType.CT_System, EChatLoc.CL_SystemWindow);
         }
 
         /// <summary>

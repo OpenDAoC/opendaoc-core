@@ -2148,7 +2148,7 @@ namespace DOL.GS.Quests.Hibernia
 									quest.FinishQuest();
 								}
 								else
-									player.Out.SendMessage("You do not have enough free space in your inventory!", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+									player.Out.SendMessage("You do not have enough free space in your inventory!", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 							}
 							break;
 						case "abort":
@@ -2170,7 +2170,7 @@ namespace DOL.GS.Quests.Hibernia
 							quest.FinishQuest();
 						}
 						else
-							player.Out.SendMessage("You do not have enough free space in your inventory!", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+							player.Out.SendMessage("You do not have enough free space in your inventory!", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 					}
 			}
 		}
@@ -2251,14 +2251,14 @@ namespace DOL.GS.Quests.Hibernia
 
 			if (response == 0x00)
 			{
-				player.Out.SendMessage("Our God forgives your laziness, just look out for stray lightning bolts.", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+				player.Out.SendMessage("Our God forgives your laziness, just look out for stray lightning bolts.", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
 			}
 			else
 			{
 				// Check to see if we can add quest
 				if (!Revelin.GiveQuest(typeof(Harmony_50), player, 1))
 					return;
-				player.Out.SendMessage("Please kill Cailean in Cursed Forest.", eChatType.CT_System, eChatLoc.CL_PopupWindow);
+				player.Out.SendMessage("Please kill Cailean in Cursed Forest.", EChatType.CT_System, EChatLoc.CL_PopupWindow);
 			}
 		}
 
@@ -2300,7 +2300,7 @@ namespace DOL.GS.Quests.Hibernia
 
 				if (gArgs.Target.Name == Cailean.Name && player.Inventory.IsSlotsFree(1, eInventorySlot.FirstBackpack, eInventorySlot.LastBackpack))
 				{
-					m_questPlayer.Out.SendMessage("You collect the Horn from Cailean", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					m_questPlayer.Out.SendMessage("You collect the Horn from Cailean", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 					GiveItem(player, Horn);
 					Step = 2;
 				}
@@ -2317,7 +2317,7 @@ namespace DOL.GS.Quests.Hibernia
 						FinishQuest();
 					}
 					else
-						player.Out.SendMessage("You do not have enough free space in your inventory!", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+						player.Out.SendMessage("You do not have enough free space in your inventory!", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 
 				}
 			}

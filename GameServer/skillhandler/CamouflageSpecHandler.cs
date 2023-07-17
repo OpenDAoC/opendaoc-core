@@ -22,7 +22,7 @@ namespace DOL.GS.SkillHandler
 		{
 			if (!player.IsStealthed)
 			{
-                player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Skill.Ability.CannotUse.Camouflage.NotStealthed"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Skill.Ability.CannotUse.Camouflage.NotStealthed"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
                 return;
 			}
 			 
@@ -30,12 +30,12 @@ namespace DOL.GS.SkillHandler
 			
 			if (camouflage != null)
 			{				
-				player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Skill.Ability.Camouflage.UseCamo"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Skill.Ability.Camouflage.UseCamo"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				return;
 			}
 			
 			new CamouflageEcsEffect(new ECSGameEffectInitParams(player, 0, 1));
-			player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Skill.Ability.Camouflage.UseCamo"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+			player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Skill.Ability.Camouflage.UseCamo"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 	}
 }

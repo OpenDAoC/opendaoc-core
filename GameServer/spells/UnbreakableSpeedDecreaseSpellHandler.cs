@@ -26,13 +26,13 @@ namespace DOL.GS.Spells
 				&& !Spell.Name.Equals("Prevent Flight"))
 			{
 				//EffectService.RequestCancelEffect(effect);
-				MessageToCaster(target.Name + " is immune to this effect!", eChatType.CT_SpellResisted);
+				MessageToCaster(target.Name + " is immune to this effect!", EChatType.CT_SpellResisted);
 				OnSpellResisted(target);
 				return;
 			}
 			if (target.EffectList.GetOfType<ChargeEffect>() != null)
 			{
-				MessageToCaster(target.Name + " is moving to fast for this spell to have any effect!", eChatType.CT_SpellResisted);
+				MessageToCaster(target.Name + " is moving to fast for this spell to have any effect!", EChatType.CT_SpellResisted);
 				return;
 			}
 
@@ -51,8 +51,8 @@ namespace DOL.GS.Spells
 
 			SendUpdates(effect.Owner);
 
-			MessageToLiving(effect.Owner, Spell.Message1, eChatType.CT_Spell);
-			Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message2, effect.Owner.GetName(0, true)), eChatType.CT_Spell, effect.Owner);
+			MessageToLiving(effect.Owner, Spell.Message1, EChatType.CT_Spell);
+			Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message2, effect.Owner.GetName(0, true)), EChatType.CT_Spell, effect.Owner);
 
 			RestoreSpeedTimer timer = new RestoreSpeedTimer(effect.Owner, effect);
 			effect.Owner.TempProperties.setProperty(effect, timer);
@@ -81,8 +81,8 @@ namespace DOL.GS.Spells
 
 			SendUpdates(effect.Owner);
 
-			MessageToLiving(effect.Owner, Spell.Message3, eChatType.CT_SpellExpires);
-			Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, effect.Owner.GetName(0, true)), eChatType.CT_SpellExpires, effect.Owner);
+			MessageToLiving(effect.Owner, Spell.Message3, EChatType.CT_SpellExpires);
+			Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, effect.Owner.GetName(0, true)), EChatType.CT_SpellExpires, effect.Owner);
 
 			return 60000;
 		}

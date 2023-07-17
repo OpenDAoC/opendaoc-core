@@ -156,9 +156,9 @@ namespace DOL.GS.Scripts
             foreach (GameClient client in WorldMgr.GetAllPlayingClients())
             {
                 client.Player.TempProperties.removeProperty(PLY_TEMP_PROP_KEY);
-                client.Out.SendMessage(msg1, eChatType.CT_ScreenCenter, eChatLoc.CL_SystemWindow);
-                client.Out.SendMessage(msg2, eChatType.CT_Staff, eChatLoc.CL_SystemWindow);
-                client.Out.SendPlaySound(eSoundType.Craft, 0x04);
+                client.Out.SendMessage(msg1, EChatType.CT_ScreenCenter, EChatLoc.CL_SystemWindow);
+                client.Out.SendMessage(msg2, EChatType.CT_Staff, EChatLoc.CL_SystemWindow);
+                client.Out.SendPlaySound(ESoundType.Craft, 0x04);
             }
             //NewsMgr.CreateNews(aGM.Name+" starts a new voting!", (byte)eRealm.None, eNewsType.RvRGlobal, false);
             if (m_Timer != null)
@@ -177,9 +177,9 @@ namespace DOL.GS.Scripts
             foreach (GameClient client in WorldMgr.GetAllPlayingClients())
             {
                 client.Player.TempProperties.removeProperty(PLY_TEMP_PROP_KEY);
-                client.Out.SendMessage(msg, eChatType.CT_ScreenCenter, eChatLoc.CL_SystemWindow);
-                client.Out.SendMessage(msg, eChatType.CT_Staff, eChatLoc.CL_SystemWindow);
-                client.Out.SendPlaySound(eSoundType.Craft, 0x02);
+                client.Out.SendMessage(msg, EChatType.CT_ScreenCenter, EChatLoc.CL_SystemWindow);
+                client.Out.SendMessage(msg, EChatType.CT_Staff, EChatLoc.CL_SystemWindow);
+                client.Out.SendPlaySound(ESoundType.Craft, 0x02);
             }
             //NewsMgr.CreateNews(msg, (byte)eRealm.None, eNewsType.RvRGlobal, false);
         }
@@ -199,8 +199,8 @@ namespace DOL.GS.Scripts
                 string msg = "Voting ends in " + m_Dura + "sec...";
                 foreach (GameClient client in WorldMgr.GetAllPlayingClients())
                 {
-                    client.Out.SendMessage(msg, eChatType.CT_ScreenCenter, eChatLoc.CL_SystemWindow);
-                    client.Out.SendMessage(msg, eChatType.CT_Staff, eChatLoc.CL_SystemWindow);
+                    client.Out.SendMessage(msg, EChatType.CT_ScreenCenter, EChatLoc.CL_SystemWindow);
+                    client.Out.SendMessage(msg, EChatType.CT_Staff, EChatLoc.CL_SystemWindow);
                 }
             }
         }
@@ -231,9 +231,9 @@ namespace DOL.GS.Scripts
 
                 foreach (GameClient client in clients)
                 {
-                    client.Out.SendMessage(msg, eChatType.CT_ScreenCenter, eChatLoc.CL_SystemWindow);
-                    client.Out.SendMessage(msg, eChatType.CT_Staff, eChatLoc.CL_SystemWindow);
-                    client.Out.SendPlaySound(eSoundType.Craft, 0x04);
+                    client.Out.SendMessage(msg, EChatType.CT_ScreenCenter, EChatLoc.CL_SystemWindow);
+                    client.Out.SendMessage(msg, EChatType.CT_Staff, EChatLoc.CL_SystemWindow);
+                    client.Out.SendPlaySound(ESoundType.Craft, 0x04);
 
                     int vote = client.Player.TempProperties.getProperty(PLY_TEMP_PROP_KEY, -1);
                     client.Player.TempProperties.removeProperty(PLY_TEMP_PROP_KEY);
@@ -281,12 +281,12 @@ namespace DOL.GS.Scripts
                     if (client.Account.PrivLevel <= (uint)EPrivLevel.GM)
                     {
                         client.Out.SendCustomTextWindow("Voting", array1);
-                        client.Out.SendMessage(str1, eChatType.CT_Staff, eChatLoc.CL_SystemWindow);
+                        client.Out.SendMessage(str1, EChatType.CT_Staff, EChatLoc.CL_SystemWindow);
                     }
                     else
                     {
                         client.Out.SendCustomTextWindow("Voting", array2);
-                        client.Out.SendMessage(str2, eChatType.CT_Staff, eChatLoc.CL_SystemWindow);
+                        client.Out.SendMessage(str2, EChatType.CT_Staff, EChatLoc.CL_SystemWindow);
                     }
                 }
                 m_Result = str2;
@@ -435,7 +435,7 @@ namespace DOL.GS.Commands
             if (!VotingMgr.IsVotingInProgress)
             {
                 DisplaySyntax(client);
-                player.Out.SendMessage("There is no voting in progress.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                player.Out.SendMessage("There is no voting in progress.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                 return;
             }
             if (args.Length > 1)
@@ -443,13 +443,13 @@ namespace DOL.GS.Commands
                 {
 
                     int vote = int.Parse(args[1]) - 1;
-                    player.Out.SendMessage("You vote for '" + VotingMgr.CurrentVotingInProgress.Options[vote] + "'.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                    player.Out.SendMessage("You vote for '" + VotingMgr.CurrentVotingInProgress.Options[vote] + "'.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                     player.TempProperties.setProperty(VotingMgr.PLY_TEMP_PROP_KEY, vote);
                 }
                 catch (Exception)
                 {
                     DisplaySyntax(client);
-                    player.Out.SendMessage("Choose a valid option!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                    player.Out.SendMessage("Choose a valid option!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                     return;
                 }
             VotingMgr.ShowVoting(player, VotingMgr.CurrentVotingInProgress);
@@ -496,7 +496,7 @@ namespace DOL.GS.Commands
 
             if (VotingMgr.IsVotingInProgress && command != "cancel")
             {
-                player.Out.SendMessage("A voting is in progress. You cannot use any commands except /gmvote cancel!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                player.Out.SendMessage("A voting is in progress. You cannot use any commands except /gmvote cancel!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                 return;
             }
 
@@ -506,7 +506,7 @@ namespace DOL.GS.Commands
                 case "create":
                     {
                         player.TempProperties.setProperty(VotingMgr.GM_TEMP_PROP_KEY, new DBVoting());
-                        player.Out.SendMessage("You created an empty voting. Please customize it.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                        player.Out.SendMessage("You created an empty voting. Please customize it.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                     }
                     break;
                 #endregion
@@ -516,11 +516,11 @@ namespace DOL.GS.Commands
                         DBVoting voting = (DBVoting)player.TempProperties.getProperty<object>(VotingMgr.GM_TEMP_PROP_KEY, null);
                         if (voting == null)
                         {
-                            player.Out.SendMessage("You didnt created an empty voting. Please use /gmvote create before!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            player.Out.SendMessage("You didnt created an empty voting. Please use /gmvote create before!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                             return;
                         }
                         voting.AddOption(param);
-                        player.Out.SendMessage("You added the choice: '" + param + "'.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                        player.Out.SendMessage("You added the choice: '" + param + "'.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                     }
                     break;
                 #endregion
@@ -530,11 +530,11 @@ namespace DOL.GS.Commands
                         DBVoting voting = (DBVoting)player.TempProperties.getProperty<object>(VotingMgr.GM_TEMP_PROP_KEY, null);
                         if (voting == null)
                         {
-                            player.Out.SendMessage("You didnt created an empty voting. Please use /gmvote create before!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            player.Out.SendMessage("You didnt created an empty voting. Please use /gmvote create before!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                             return;
                         }
                         voting.AddDescription(param);
-                        player.Out.SendMessage("You added to the description: '" + param + "'.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                        player.Out.SendMessage("You added to the description: '" + param + "'.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                     }
                     break;
                 #endregion
@@ -550,11 +550,11 @@ namespace DOL.GS.Commands
 
                         if (voting == null)
                         {
-                            player.Out.SendMessage("You didnt specify any voting. Please create one first or give me a name!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            player.Out.SendMessage("You didnt specify any voting. Please create one first or give me a name!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                             return;
                         }
                         VotingMgr.BeginVoting(player, voting);
-                        player.Out.SendMessage("You started the voting: '" + param + "'.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                        player.Out.SendMessage("You started the voting: '" + param + "'.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                     }
                     break;
                 #endregion
@@ -563,11 +563,11 @@ namespace DOL.GS.Commands
                     {
                         if (!VotingMgr.IsVotingInProgress)
                         {
-                            player.Out.SendMessage("There is no voting in progress. What you want to cancel?!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            player.Out.SendMessage("There is no voting in progress. What you want to cancel?!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                             return;
                         }
                         VotingMgr.CancelVoting(player);
-                        player.Out.SendMessage("You canceled the voting!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                        player.Out.SendMessage("You canceled the voting!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                     }
                     break;
                 #endregion
@@ -594,13 +594,13 @@ namespace DOL.GS.Commands
 
                         if (votings == null || votings.Length == 0)
                         {
-                            player.Out.SendMessage("No saved votings found.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            player.Out.SendMessage("No saved votings found.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                             return;
                         }
                         else
-                            player.Out.SendMessage("Found " + votings.Length + " votings.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            player.Out.SendMessage("Found " + votings.Length + " votings.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                         foreach (DBVoting voting in votings)
-                            player.Out.SendMessage("Voting: '" + voting.VoteID + "'.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            player.Out.SendMessage("Voting: '" + voting.VoteID + "'.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                     }
                     break;
                 #endregion
@@ -615,11 +615,11 @@ namespace DOL.GS.Commands
 
                         if (voting == null)
                         {
-                            player.Out.SendMessage("You didnt specify any voting. Please create one first or give me a name!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            player.Out.SendMessage("You didnt specify any voting. Please create one first or give me a name!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                             return;
                         }
                         VotingMgr.ShowVoting(player, voting);
-                        player.Out.SendMessage("You looks into the details of the voting: '" + param + "'.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                        player.Out.SendMessage("You looks into the details of the voting: '" + param + "'.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                     }
                     break;
                 #endregion

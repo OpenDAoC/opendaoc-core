@@ -24,7 +24,7 @@ namespace DOL.GS.Effects
             base.OnStartEffect();
             // Send spell message to player if applicable
             if (Owner is GamePlayer gpMessage)
-                gpMessage.Out.SendMessage("Constricting bonds surround your body!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
+                gpMessage.Out.SendMessage("Constricting bonds surround your body!", EChatType.CT_Spell, EChatLoc.CL_SystemWindow);
 
             // Apply the snare
             Owner.BuffBonusMultCategory1.Set((int)EProperty.MaxSpeed, this, 1.0 - 99 * 0.01);
@@ -38,7 +38,7 @@ namespace DOL.GS.Effects
                 player.Out.SendSpellEffectAnimation(Owner, Owner, 7029, 0, false, 1);
 
                 if (player.IsWithinRadius(Owner, WorldMgr.INFO_DISTANCE) && player != Owner)
-                    player.Out.SendMessage(Owner.GetName(0, false) + " is surrounded by constricting bonds!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
+                    player.Out.SendMessage(Owner.GetName(0, false) + " is surrounded by constricting bonds!", EChatType.CT_Spell, EChatLoc.CL_SystemWindow);
             }
         }
 

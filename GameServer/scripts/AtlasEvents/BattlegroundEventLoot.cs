@@ -32,7 +32,7 @@ namespace DOL.GS.Scripts
 		public override bool Interact(GamePlayer player)
 		{
 			if (!base.Interact(player)) return false;
-			if(player.Level < 50){player.Out.SendMessage("Come back when you're older, kid.", eChatType.CT_Say, eChatLoc.CL_PopupWindow);}
+			if(player.Level < 50){player.Out.SendMessage("Come back when you're older, kid.", EChatType.CT_Say, EChatLoc.CL_PopupWindow);}
 			string realmName = player.Realm.ToString();
 			if (realmName.Equals("_FirstPlayerRealm")) {
 				realmName = "Albion";
@@ -52,7 +52,7 @@ namespace DOL.GS.Scripts
 				"For your efforts, " + realmName + " has procured a [full suit] of equipment and some [gems] to adorn them with. " +
 				"Additionally, I can provide you with some [weapons], starting [coin], and an allotment of [Atlas Orbs].\n\n" +
                 "This is the best gear we could provide on short notice. If you want something better, you'll have to take it from your enemies on the battlefield. " + 
-				"Go forth, and do battle!", eChatType.CT_Say,eChatLoc.CL_PopupWindow);
+				"Go forth, and do battle!", EChatType.CT_Say,EChatLoc.CL_PopupWindow);
 			return true;
 		}
 		public override bool WhisperReceive(GameLiving source, string str) {
@@ -84,7 +84,7 @@ namespace DOL.GS.Scripts
 
 				if (hasFreeArmor != null)
 				{
-					player.Out.SendMessage("Sorry " + player.Name + ", I don't have enough items left to give you another set.\n\n Go fight for your Realm to get more equipment!", eChatType.CT_Say,eChatLoc.CL_PopupWindow);
+					player.Out.SendMessage("Sorry " + player.Name + ", I don't have enough items left to give you another set.\n\n Go fight for your Realm to get more equipment!", EChatType.CT_Say,EChatLoc.CL_PopupWindow);
 					return false;
 				}
 
@@ -103,7 +103,7 @@ namespace DOL.GS.Scripts
 
 				if (hasFreeWeapons != null)
 				{
-					player.Out.SendMessage("Sorry " + player.Name + ", I don't have enough weapons left to give you another set.\n\n Go fight for your Realm to get more equipment!", eChatType.CT_Say,eChatLoc.CL_PopupWindow);
+					player.Out.SendMessage("Sorry " + player.Name + ", I don't have enough weapons left to give you another set.\n\n Go fight for your Realm to get more equipment!", EChatType.CT_Say,EChatLoc.CL_PopupWindow);
 					return false;
 				}
 				
@@ -121,7 +121,7 @@ namespace DOL.GS.Scripts
 
 				if (hasFreeArmor != null)
 				{
-					player.Out.SendMessage("Sorry " + player.Name + ", I don't have enough items left to give you another set.\n\n Go fight for your Realm to get more equipment!", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+					player.Out.SendMessage("Sorry " + player.Name + ", I don't have enough items left to give you another set.\n\n Go fight for your Realm to get more equipment!", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
 					return false;
 				}
 
@@ -186,7 +186,7 @@ namespace DOL.GS.Scripts
 			
 				if (hasAccountMoney != null)
 				{
-					player.Out.SendMessage("Sorry " + player.Name + ", I don't have enough money left to give you more.\n\n Go fight for your Realm to get some!", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+					player.Out.SendMessage("Sorry " + player.Name + ", I don't have enough money left to give you more.\n\n Go fight for your Realm to get some!", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
 					return false;
 				}
 			
@@ -207,7 +207,7 @@ namespace DOL.GS.Scripts
 
 				if (hasFreeOrbs != null)
 				{
-					player.Out.SendMessage("Sorry " + player.Name + ", I don't have enough Atlas Orbs left to give you more.\n\n Go fight for your Realm to get some!", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+					player.Out.SendMessage("Sorry " + player.Name + ", I don't have enough Atlas Orbs left to give you more.\n\n Go fight for your Realm to get some!", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
 					return false;
 				}
 
@@ -221,7 +221,7 @@ namespace DOL.GS.Scripts
 				
 				if (orbs == null)
 				{
-					player.Out.SendMessage("Error: Currency ID not found!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					player.Out.SendMessage("Error: Currency ID not found!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 					return false;
 				}
 
@@ -250,7 +250,7 @@ namespace DOL.GS.Scripts
 			{
 				target.Client.Out.SendMessage(
 					msg,
-					eChatType.CT_Say,eChatLoc.CL_PopupWindow);
+					EChatType.CT_Say,EChatLoc.CL_PopupWindow);
 			}
 		[ScriptLoadedEvent]
         public static void OnScriptCompiled(CoreEvent e, object sender, EventArgs args)

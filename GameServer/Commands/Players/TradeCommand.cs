@@ -25,7 +25,7 @@ namespace DOL.GS.Commands
 			}
 			if (client.Player.IsMuted)
 			{
-				client.Player.Out.SendMessage("You have been muted. You cannot broadcast.", eChatType.CT_Staff, eChatLoc.CL_SystemWindow);
+				client.Player.Out.SendMessage("You have been muted. You cannot broadcast.", EChatType.CT_Staff, EChatLoc.CL_SystemWindow);
 				return;
 			}
 			
@@ -51,11 +51,11 @@ namespace DOL.GS.Commands
 			{
 				if (c.Player.Realm == player.Realm || player.Client.Account.PrivLevel > 1)
 				{
-					c.Out.SendMessage($"[Trade] {player.Name}: {message}", eChatType.CT_Trade, eChatLoc.CL_ChatWindow);
+					c.Out.SendMessage($"[Trade] {player.Name}: {message}", EChatType.CT_Trade, EChatLoc.CL_ChatWindow);
 				}
 			}
 			
-			if (Properties.DISCORD_ACTIVE) WebhookMessage.LogChatMessage(player, eChatType.CT_Trade, message);
+			if (Properties.DISCORD_ACTIVE) WebhookMessage.LogChatMessage(player, EChatType.CT_Trade, message);
 			
 			if (player.Client.Account.PrivLevel == 1)
 			{

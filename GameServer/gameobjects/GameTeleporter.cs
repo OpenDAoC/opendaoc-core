@@ -100,7 +100,7 @@ namespace DOL.GS
 					{
 						if (player.Client.Account.PrivLevel > (uint)EPrivLevel.Player)
 						{
-							player.Out.SendMessage("No portal keep found.", eChatType.CT_Skill, eChatLoc.CL_SystemWindow);
+							player.Out.SendMessage("No portal keep found.", EChatType.CT_Skill, EChatLoc.CL_SystemWindow);
 						}
 						return true;
 					}
@@ -253,7 +253,7 @@ namespace DOL.GS
 
 			if (region == null || region.IsDisabled)
 			{
-				player.Out.SendMessage("This destination is not available.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				player.Out.SendMessage("This destination is not available.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				return;
 			}
 
@@ -293,7 +293,7 @@ namespace DOL.GS
 
 			if (player.Client.Account.PrivLevel > 1)
 				player.Out.SendMessage("Uni-Portal spell not found.",
-					eChatType.CT_Skill, eChatLoc.CL_SystemWindow);
+					EChatType.CT_Skill, EChatLoc.CL_SystemWindow);
 			
 			this.OnTeleport(player, destination);
 		}

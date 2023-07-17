@@ -48,7 +48,7 @@ namespace DOL.GS.Spells
 
                 if (healTarget.IsDiseased)
                 {
-                    MessageToCaster("Your target is diseased!", eChatType.CT_SpellResisted);
+                    MessageToCaster("Your target is diseased!", EChatType.CT_SpellResisted);
                     heal >>= 1;
                 }
 
@@ -114,7 +114,7 @@ namespace DOL.GS.Spells
 			if (!target.IsAlive)
             {
                 //"You cannot heal the dead!" sshot550.tga
-                MessageToCaster(target.GetName(0, true) + " is dead!", eChatType.CT_SpellResisted);
+                MessageToCaster(target.GetName(0, true) + " is dead!", EChatType.CT_SpellResisted);
                 return false;
             }
 
@@ -126,7 +126,7 @@ namespace DOL.GS.Spells
                     (Caster as GamePlayer).Group == null ||
                     (Caster as GamePlayer).Group != (target as GamePlayer).Group)
                 {
-                    MessageToCaster("That player does not want assistance", eChatType.CT_SpellResisted);
+                    MessageToCaster("That player does not want assistance", EChatType.CT_SpellResisted);
                     return false;
                 }
             }
@@ -160,8 +160,8 @@ namespace DOL.GS.Spells
 
             if (this.Caster is GamePlayer spellCaster && spellCaster.UseDetailedCombatLog)
             {
-                spellCaster.Out.SendMessage($"heal crit chance: {criticalchance} random: {randNum}", eChatType.CT_DamageAdd, eChatLoc.CL_SystemWindow);
-                spellCaster.Out.SendMessage($"heal effectiveness: {Caster.GetModified(EProperty.HealingEffectiveness)}%", eChatType.CT_DamageAdd, eChatLoc.CL_SystemWindow);
+                spellCaster.Out.SendMessage($"heal crit chance: {criticalchance} random: {randNum}", EChatType.CT_DamageAdd, EChatLoc.CL_SystemWindow);
+                spellCaster.Out.SendMessage($"heal effectiveness: {Caster.GetModified(EProperty.HealingEffectiveness)}%", EChatType.CT_DamageAdd, EChatLoc.CL_SystemWindow);
             }
 
             if (criticalchance > randNum)
@@ -248,9 +248,9 @@ namespace DOL.GS.Spells
                 if (Spell.Pulse == 0)
                 {
                     if (target == m_caster) 
-                        MessageToCaster("You are fully healed.", eChatType.CT_SpellResisted);
+                        MessageToCaster("You are fully healed.", EChatType.CT_SpellResisted);
                     else 
-                        MessageToCaster(target.GetName(0, true) + " is fully healed.", eChatType.CT_SpellResisted);
+                        MessageToCaster(target.GetName(0, true) + " is fully healed.", EChatType.CT_SpellResisted);
                 }
                 return false;
             }
@@ -300,7 +300,7 @@ namespace DOL.GS.Spells
 
             if (m_caster == target)
             {
-                MessageToCaster("You heal yourself for " + heal + " hit points.", eChatType.CT_Spell);
+                MessageToCaster("You heal yourself for " + heal + " hit points.", EChatType.CT_Spell);
                 if (heal < amount)
                 {
                     #region PVP DAMAGE
@@ -314,13 +314,13 @@ namespace DOL.GS.Spells
 
                     #endregion PVP DAMAGE
 
-                    MessageToCaster("You are fully healed.", eChatType.CT_Spell);
+                    MessageToCaster("You are fully healed.", EChatType.CT_Spell);
                 }
             }
             else
             {
-                MessageToCaster("You heal " + target.GetName(0, false) + " for " + heal + " hit points!", eChatType.CT_Spell);
-                MessageToLiving(target, "You are healed by " + m_caster.GetName(0, false) + " for " + heal + " hit points.", eChatType.CT_Spell);
+                MessageToCaster("You heal " + target.GetName(0, false) + " for " + heal + " hit points!", EChatType.CT_Spell);
+                MessageToLiving(target, "You are healed by " + m_caster.GetName(0, false) + " for " + heal + " hit points.", EChatType.CT_Spell);
                 if (heal < amount)
                 {
 
@@ -335,10 +335,10 @@ namespace DOL.GS.Spells
 
                     #endregion PVP DAMAGE
 
-                    MessageToCaster(target.GetName(0, true) + " is fully healed.", eChatType.CT_Spell);
+                    MessageToCaster(target.GetName(0, true) + " is fully healed.", EChatType.CT_Spell);
                 }
                 if (heal > 0 && criticalvalue > 0)
-                    MessageToCaster("Your heal criticals for an extra " + criticalvalue + " hit points!", eChatType.CT_Spell);
+                    MessageToCaster("Your heal criticals for an extra " + criticalvalue + " hit points!", EChatType.CT_Spell);
             }
             
             //check for conquest activity
@@ -413,11 +413,11 @@ namespace DOL.GS.Spells
 
 			if (m_caster == target && heal > 0)
 			{
-				MessageToCaster("You heal yourself for " + heal + " hit points.", eChatType.CT_Spell);
+				MessageToCaster("You heal yourself for " + heal + " hit points.", EChatType.CT_Spell);
 
 				if (heal < amount)
 				{
-					MessageToCaster("You are fully healed.", eChatType.CT_Spell);
+					MessageToCaster("You are fully healed.", EChatType.CT_Spell);
                     #region PVP DAMAGE
 
                     if (target is NecromancerPet &&
@@ -432,8 +432,8 @@ namespace DOL.GS.Spells
 			}
 			else if (heal > 0)
 			{
-				MessageToCaster("You heal " + target.GetName(0, false) + " for " + heal + " hit points!", eChatType.CT_Spell);
-				MessageToLiving(target, "You are healed by " + m_caster.GetName(0, false) + " for " + heal + " hit points.", eChatType.CT_Spell);
+				MessageToCaster("You heal " + target.GetName(0, false) + " for " + heal + " hit points!", EChatType.CT_Spell);
+				MessageToLiving(target, "You are healed by " + m_caster.GetName(0, false) + " for " + heal + " hit points.", EChatType.CT_Spell);
                 
                 #region PVP DAMAGE
 

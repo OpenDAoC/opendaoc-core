@@ -37,7 +37,7 @@ namespace DOL.GS.Scripts
 
         public void SendReply(GamePlayer player, string msg)
         {
-            player.Out.SendMessage(msg, eChatType.CT_System, eChatLoc.CL_PopupWindow);
+            player.Out.SendMessage(msg, EChatType.CT_System, EChatLoc.CL_PopupWindow);
         }
 
         public override bool Interact(GamePlayer player)
@@ -52,12 +52,12 @@ namespace DOL.GS.Scripts
                                    $"You are a wonderful {player.CharacterClass.Name} specimen, I was just looking for one!\n" +
                                    $"Would you mind if I added your {player.RaceName} to my collection?\n\n" +
                                    "I will [reward] you greatly.",
-                eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                EChatType.CT_Say, EChatLoc.CL_PopupWindow);
 
             if (player.Level == 50)
             {
-                player.Out.SendMessage("Let me know when you are ready to [trade]", eChatType.CT_Say,
-                    eChatLoc.CL_PopupWindow);
+                player.Out.SendMessage("Let me know when you are ready to [trade]", EChatType.CT_Say,
+                    EChatLoc.CL_PopupWindow);
             }
 
             return true;
@@ -88,13 +88,13 @@ namespace DOL.GS.Scripts
 
                     player.Out.SendMessage(
                         "For every character that you trade, I will deposit some Atlas Orbs in your Account Vault.",
-                        eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                        EChatType.CT_Say, EChatLoc.CL_PopupWindow);
                     player.Out.SendMessage($"I think your character is a worthy addition to my collection.\n I'll pay {orbAmount} Atlas Orbs for your character.",
-                        eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                        EChatType.CT_Say, EChatLoc.CL_PopupWindow);
 
                     player.Out.SendMessage(
                         "I will also reward your account some rare [titles], if you help me complete my collection.",
-                        eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                        EChatType.CT_Say, EChatLoc.CL_PopupWindow);
 
                     return false;
 
@@ -102,21 +102,21 @@ namespace DOL.GS.Scripts
 
                     player.Out.SendMessage(
                         "I am missing just a few characters to complete my collection and I am willing to trade my rare titles if you help me!",
-                        eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                        EChatType.CT_Say, EChatLoc.CL_PopupWindow);
 
                     player.Out.SendMessage("ANY CHARACTER\n\n" +
                                            "1. Trade 5 characters => 'Herculean Beetle'\n" +
                                            "2. Trade 10 characters => 'Sisyphean Beetle'\n"
-                        , eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                        , EChatType.CT_Say, EChatLoc.CL_PopupWindow);
 
                     player.Out.SendMessage("SOLO CHARACTERS\n\n" +
                                            "1. Trade 5 SOLO characters => 'The Punished'\n" +
                                            "2. Trade 10 SOLO characters => 'The Deranged'\n"
-                        , eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                        , EChatType.CT_Say, EChatLoc.CL_PopupWindow);
 
                     player.Out.SendMessage(
                         $"You have traded with me {player.Client.Account.CharactersTraded} times ({player.Client.Account.SoloCharactersTraded}  solo).",
-                        eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                        EChatType.CT_Say, EChatLoc.CL_PopupWindow);
 
                     return false;
 
@@ -127,22 +127,22 @@ namespace DOL.GS.Scripts
 
                     player.Out.SendMessage(
                         $"This is fantastic! I was just missing a {player.RaceName} {player.CharacterClass.Name}!",
-                        eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                        EChatType.CT_Say, EChatLoc.CL_PopupWindow);
 
                     player.Out.SendMessage(
                         "Once added to my collection, this character will be reset and moved to my taxidermy laboratory.\n\n" +
                         "You'll be able to hand your possessions to my assistant before bidding farewell to your character.",
-                        eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                        EChatType.CT_Say, EChatLoc.CL_PopupWindow);
 
-                    player.Out.SendMessage("Are you ready to [trade this character]?", eChatType.CT_Say,
-                        eChatLoc.CL_PopupWindow);
+                    player.Out.SendMessage("Are you ready to [trade this character]?", EChatType.CT_Say,
+                        EChatLoc.CL_PopupWindow);
 
                     return false;
 
                 case "trade this character":
                     
                     if (player.Boosted){
-                        player.Out.SendMessage("At the moment I'm only interested in characters that started from Level 1, sorry.", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                        player.Out.SendMessage("At the moment I'm only interested in characters that started from Level 1, sorry.", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
                         return false;
                     }
 
@@ -189,7 +189,7 @@ namespace DOL.GS.Scripts
             }
             else
             {
-                player.Out.SendMessage("Come back if you change your mind!", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                player.Out.SendMessage("Come back if you change your mind!", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
             }
         }
     }
@@ -213,7 +213,7 @@ namespace DOL.GS.PlayerTitles
         
         public override void OnTitleGained(GamePlayer player)
         {
-            player.Out.SendMessage("You have gained the Herculean Beetle title!", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+            player.Out.SendMessage("You have gained the Herculean Beetle title!", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
         }
 
         public override bool IsSuitable(GamePlayer player)
@@ -237,7 +237,7 @@ namespace DOL.GS.PlayerTitles
         
         public override void OnTitleGained(GamePlayer player)
         {
-            player.Out.SendMessage("You have gained the Sisyphean Beetle title!", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+            player.Out.SendMessage("You have gained the Sisyphean Beetle title!", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
         }
 
         public override bool IsSuitable(GamePlayer player)
@@ -261,7 +261,7 @@ namespace DOL.GS.PlayerTitles
         
         public override void OnTitleGained(GamePlayer player)
         {
-            player.Out.SendMessage("You have gained the The Punished title!", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+            player.Out.SendMessage("You have gained the The Punished title!", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
         }
 
         public override bool IsSuitable(GamePlayer player)
@@ -285,7 +285,7 @@ namespace DOL.GS.PlayerTitles
         
         public override void OnTitleGained(GamePlayer player)
         {
-            player.Out.SendMessage("You have gained the The Deranged title!", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+            player.Out.SendMessage("You have gained the The Deranged title!", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
         }
 
         public override bool IsSuitable(GamePlayer player)

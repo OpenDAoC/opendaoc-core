@@ -132,13 +132,13 @@ namespace DOL.GS.GameEvents
             GameServer.Database.AddObject(adjusted);
             
             var message = "Your base stats have been adjusted and you have been granted a free stats respec.\n";
-            player.Out.SendDialogBox(eDialogCode.SimpleWarning, 0, 0, 0, 0, eDialogType.Ok, true, message);
+            player.Out.SendDialogBox(EDialogCode.SimpleWarning, 0, 0, 0, 0, EDialogType.Ok, true, message);
             message += "Logout and click on CUSTOMIZE to redistribute your 30 starting points.\n\n";
             
             player.Out.SendCharStatsUpdate();
             
-            player.Out.SendMessage(message, eChatType.CT_Important, eChatLoc.CL_SystemWindow);
-            player.Out.SendMessage(message, eChatType.CT_Staff, eChatLoc.CL_ChatWindow);
+            player.Out.SendMessage(message, EChatType.CT_Important, EChatLoc.CL_SystemWindow);
+            player.Out.SendMessage(message, EChatType.CT_Staff, EChatLoc.CL_ChatWindow);
             
             message += "Your new base stats are:\n\n";
             message += $"STR: {player.GetBaseStat(EStat.STR)}\n" +
@@ -152,7 +152,7 @@ namespace DOL.GS.GameEvents
             
             message += "REMEMBER TO LOGOUT AND CLICK ON CUSTOMIZE TO DISTRIBUTE YOUR 30 STARTING POINTS.";
 
-            player.Out.SendMessage(message, eChatType.CT_Important, eChatLoc.CL_PopupWindow);
+            player.Out.SendMessage(message, EChatType.CT_Important, EChatLoc.CL_PopupWindow);
 
         }
     }

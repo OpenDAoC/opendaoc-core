@@ -26,7 +26,7 @@ namespace DOL.GS.Commands
             }
             if (client.Player.IsMuted)
             {
-                client.Player.Out.SendMessage("You have been muted. You cannot broadcast.", eChatType.CT_Staff, eChatLoc.CL_SystemWindow);
+                client.Player.Out.SendMessage("You have been muted. You cannot broadcast.", EChatType.CT_Staff, EChatLoc.CL_SystemWindow);
                 return;
             }
             string message = string.Join(" ", args, 1, args.Length - 1);
@@ -51,11 +51,11 @@ namespace DOL.GS.Commands
                 if (player.Realm == c.Player.Realm || c.Account.PrivLevel > 1)
                 {
                     if (c.Player.SerializedIgnoreList.Contains(player.Name)) continue;
-                    c.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Scripts.Players.LFG.Message", player.Name + " (" + player.Level + ", " + player.CharacterClass.Name + ")", message), eChatType.CT_LFG, eChatLoc.CL_ChatWindow);
+                    c.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Scripts.Players.LFG.Message", player.Name + " (" + player.Level + ", " + player.CharacterClass.Name + ")", message), EChatType.CT_LFG, EChatLoc.CL_ChatWindow);
                 }
             }
 
-            if (Properties.DISCORD_ACTIVE) WebhookMessage.LogChatMessage(player, eChatType.CT_LFG, message);
+            if (Properties.DISCORD_ACTIVE) WebhookMessage.LogChatMessage(player, EChatType.CT_LFG, message);
             
             if (player.Client.Account.PrivLevel == 1)
             {

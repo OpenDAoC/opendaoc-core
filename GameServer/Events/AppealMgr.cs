@@ -105,21 +105,21 @@ namespace Core.GS.Events
 			//There are some Appeals to handle, let's send out an update to staff.
 			if (Appeals.Count >= 2)
 			{
-				MessageToAllStaff("There are " + Appeals.Count + " Appeals in the queue.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
-				MessageToAllStaff("There are " + Appeals.Count + " Appeals in the queue.", eChatType.CT_Say, eChatLoc.CL_ChatWindow);
+				MessageToAllStaff("There are " + Appeals.Count + " Appeals in the queue.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
+				MessageToAllStaff("There are " + Appeals.Count + " Appeals in the queue.", EChatType.CT_Say, EChatLoc.CL_ChatWindow);
 			}
 			if (Appeals.Count == 1)
 			{
-				MessageToAllStaff("There is " + Appeals.Count + " appeal in the queue.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
-				MessageToAllStaff("There is " + Appeals.Count + " appeal in the queue.", eChatType.CT_Say, eChatLoc.CL_ChatWindow);
+				MessageToAllStaff("There is " + Appeals.Count + " appeal in the queue.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
+				MessageToAllStaff("There is " + Appeals.Count + " appeal in the queue.", EChatType.CT_Say, EChatLoc.CL_ChatWindow);
 			}
 
-			MessageToAllStaff("Crit:" + crit + ", High:" + high + ", Med:" + med + ", Low:" + low + ".  [use /gmappeal]", eChatType.CT_System, eChatLoc.CL_SystemWindow);
-			MessageToAllStaff("Crit:" + crit + ", High:" + high + ", Med:" + med + ", Low:" + low + ".  [use /gmappeal]", eChatType.CT_Say, eChatLoc.CL_ChatWindow);
+			MessageToAllStaff("Crit:" + crit + ", High:" + high + ", Med:" + med + ", Low:" + low + ".  [use /gmappeal]", EChatType.CT_System, EChatLoc.CL_SystemWindow);
+			MessageToAllStaff("Crit:" + crit + ", High:" + high + ", Med:" + med + ", Low:" + low + ".  [use /gmappeal]", EChatType.CT_Say, EChatLoc.CL_ChatWindow);
 
 			if (crit >= 1)
 			{
-				MessageToAllStaff("Critical Appeals may need urgent attention!", eChatType.CT_YouDied, eChatLoc.CL_SystemWindow);
+				MessageToAllStaff("Critical Appeals may need urgent attention!", EChatType.CT_YouDied, EChatLoc.CL_SystemWindow);
 				log.Warn("There is a critical appeal which may need urgent attention!");
 			}
 
@@ -148,11 +148,11 @@ namespace Core.GS.Events
 		{
 			if (msg == null) return;
 			if (client == null || client.Player == null) return;
-			client.Player.Out.SendMessage("[Appeals]: " + msg, eChatType.CT_Important, eChatLoc.CL_ChatWindow);
+			client.Player.Out.SendMessage("[Appeals]: " + msg, EChatType.CT_Important, EChatLoc.CL_ChatWindow);
 			return;
 		}
 
-		public static void MessageToAllStaff(string msg, eChatType chattype, eChatLoc chatloc)
+		public static void MessageToAllStaff(string msg, EChatType chattype, EChatLoc chatloc)
 		{
 			if (msg == null) { return; }
 
@@ -228,13 +228,13 @@ namespace Core.GS.Events
 		{
 			if (Player.IsMuted)
 			{
-				Player.Out.SendMessage("[Appeals]: " + LanguageMgr.GetTranslation(Player.Client.Account.Language, "Scripts.Players.Appeal.YouAreMuted"), eChatType.CT_Important, eChatLoc.CL_ChatWindow);
+				Player.Out.SendMessage("[Appeals]: " + LanguageMgr.GetTranslation(Player.Client.Account.Language, "Scripts.Players.Appeal.YouAreMuted"), EChatType.CT_Important, EChatLoc.CL_ChatWindow);
 				return;
 			}
 			bool HasPendingAppeal = Player.TempProperties.getProperty<bool>("HasPendingAppeal");
 			if (HasPendingAppeal)
 			{
-				Player.Out.SendMessage("[Appeals]: " + LanguageMgr.GetTranslation(Player.Client.Account.Language, "Scripts.Players.Appeal.AlreadyActiveAppeal"), eChatType.CT_Important, eChatLoc.CL_ChatWindow);
+				Player.Out.SendMessage("[Appeals]: " + LanguageMgr.GetTranslation(Player.Client.Account.Language, "Scripts.Players.Appeal.AlreadyActiveAppeal"), EChatType.CT_Important, EChatLoc.CL_ChatWindow);
 				return;
 			}
 			string eText = GameServer.Database.Escape(Text); //prevent SQL injection
@@ -242,9 +242,9 @@ namespace Core.GS.Events
 			DbAppeals appeal = new DbAppeals(Player.Name, Player.Client.Account.Name, Severity, Status, TimeStamp, eText);
 			GameServer.Database.AddObject(appeal);
 			Player.TempProperties.setProperty("HasPendingAppeal", true);
-			Player.Out.SendMessage("[Appeals]: " + LanguageMgr.GetTranslation(Player.Client.Account.Language, "Scripts.Players.Appeal.AppealSubmitted"), eChatType.CT_Important, eChatLoc.CL_ChatWindow);
-			Player.Out.SendMessage("[Appeals]: " + LanguageMgr.GetTranslation(Player.Client.Account.Language, "Scripts.Players.Appeal.IfYouLogOut"), eChatType.CT_Important, eChatLoc.CL_ChatWindow);
-			Player.Out.SendPlaySound(eSoundType.Craft, 0x04);
+			Player.Out.SendMessage("[Appeals]: " + LanguageMgr.GetTranslation(Player.Client.Account.Language, "Scripts.Players.Appeal.AppealSubmitted"), EChatType.CT_Important, EChatLoc.CL_ChatWindow);
+			Player.Out.SendMessage("[Appeals]: " + LanguageMgr.GetTranslation(Player.Client.Account.Language, "Scripts.Players.Appeal.IfYouLogOut"), EChatType.CT_Important, EChatLoc.CL_ChatWindow);
+			Player.Out.SendPlaySound(ESoundType.Craft, 0x04);
 			NotifyStaff();
 			return;
 		}
@@ -261,7 +261,7 @@ namespace Core.GS.Events
 			appeal.Dirty = true;
 			GameServer.Database.SaveObject(appeal);
 			MessageToAllStaff("Staffmember " + staffname + " has changed the status of " + target.Name + "'s appeal to " + status + ".");
-			target.Out.SendMessage("[Appeals]: " + LanguageMgr.GetTranslation(target.Client, "Scripts.Players.Appeal.StaffChangedStatus", staffname, status), eChatType.CT_Important, eChatLoc.CL_ChatWindow);
+			target.Out.SendMessage("[Appeals]: " + LanguageMgr.GetTranslation(target.Client, "Scripts.Players.Appeal.StaffChangedStatus", staffname, status), EChatType.CT_Important, EChatLoc.CL_ChatWindow);
 			return;
 		}
 
@@ -274,8 +274,8 @@ namespace Core.GS.Events
 		public static void CloseAppeal(string staffname, GamePlayer Player, DbAppeals appeal)
 		{
 			MessageToAllStaff("[Appeals]: " + "Staffmember " + staffname + " has just closed " + Player.Name + "'s appeal.");
-			Player.Out.SendMessage("[Appeals]: " + LanguageMgr.GetTranslation(Player.Client.Account.Language, "Scripts.Players.Appeal.StaffClosedYourAppeal", staffname), eChatType.CT_Important, eChatLoc.CL_ChatWindow);
-			Player.Out.SendPlaySound(eSoundType.Craft, 0x02);
+			Player.Out.SendMessage("[Appeals]: " + LanguageMgr.GetTranslation(Player.Client.Account.Language, "Scripts.Players.Appeal.StaffClosedYourAppeal", staffname), EChatType.CT_Important, EChatLoc.CL_ChatWindow);
+			Player.Out.SendPlaySound(ESoundType.Craft, 0x02);
 			GameServer.Database.DeleteObject(appeal);
 			Player.TempProperties.setProperty("HasPendingAppeal", false);
 			return;
@@ -295,8 +295,8 @@ namespace Core.GS.Events
 		public static void CancelAppeal(GamePlayer Player, DbAppeals appeal)
 		{
 			MessageToAllStaff("[Appeals]: " + Player.Name + " has canceled their appeal.");
-			Player.Out.SendMessage("[Appeals]: " + LanguageMgr.GetTranslation(Player.Client.Account.Language, "Scripts.Players.Appeal.CanceledYourAppeal"), eChatType.CT_Important, eChatLoc.CL_ChatWindow);
-			Player.Out.SendPlaySound(eSoundType.Craft, 0x02);
+			Player.Out.SendMessage("[Appeals]: " + LanguageMgr.GetTranslation(Player.Client.Account.Language, "Scripts.Players.Appeal.CanceledYourAppeal"), EChatType.CT_Important, EChatLoc.CL_ChatWindow);
+			Player.Out.SendPlaySound(ESoundType.Craft, 0x02);
 			GameServer.Database.DeleteObject(appeal);
 			Player.TempProperties.setProperty("HasPendingAppeal", false);
 			return;
@@ -318,7 +318,7 @@ namespace Core.GS.Events
 				IList<DbAppeals> Appeals = GetAllAppeals();
 				if (Appeals.Count > 0)
 				{
-					player.Out.SendMessage("[Appeals]: " + "There are " + Appeals.Count + " appeals in the queue!  Use /gmappeal to work the appeals queue.", eChatType.CT_Important, eChatLoc.CL_ChatWindow);
+					player.Out.SendMessage("[Appeals]: " + "There are " + Appeals.Count + " appeals in the queue!  Use /gmappeal to work the appeals queue.", EChatType.CT_Important, EChatLoc.CL_ChatWindow);
 				}
 			}
 
@@ -327,7 +327,7 @@ namespace Core.GS.Events
 
 			if (appeal == null)
 			{
-				player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Scripts.Players.Appeal.LoginMessage"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Scripts.Players.Appeal.LoginMessage"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				return;
 			}
 			if (appeal.Name != player.Name)
@@ -337,7 +337,7 @@ namespace Core.GS.Events
 				appeal.Dirty = true;
 				GameServer.Database.SaveObject(appeal);
 			}
-			player.Out.SendMessage("[Appeals]: " + LanguageMgr.GetTranslation(player.Client.Account.Language, "Scripts.Players.Appeal.YouHavePendingAppeal"), eChatType.CT_Important, eChatLoc.CL_ChatWindow);
+			player.Out.SendMessage("[Appeals]: " + LanguageMgr.GetTranslation(player.Client.Account.Language, "Scripts.Players.Appeal.YouHavePendingAppeal"), EChatType.CT_Important, EChatLoc.CL_ChatWindow);
 			player.TempProperties.setProperty("HasPendingAppeal", true);
 			NotifyStaff();
 		}

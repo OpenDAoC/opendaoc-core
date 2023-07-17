@@ -222,7 +222,7 @@ namespace DOL.GS
                     if (notify)
                     {
                         Style style = st;
-                        p.Out.SendMessage(LanguageMgr.GetTranslation(p.Client.Account.Language, "GamePlayer.RefreshSpec.YouLearn", style.Name), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                        p.Out.SendMessage(LanguageMgr.GetTranslation(p.Client.Account.Language, "GamePlayer.RefreshSpec.YouLearn", style.Name), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 
                         string message = null;
 
@@ -287,7 +287,7 @@ namespace DOL.GS
                         }
 
                         if (!UtilCollection.IsEmpty(message))
-                            p.Out.SendMessage(message, eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            p.Out.SendMessage(message, EChatType.CT_System, EChatLoc.CL_SystemWindow);
                     }
                 }
             }

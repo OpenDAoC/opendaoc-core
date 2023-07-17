@@ -107,9 +107,9 @@ namespace DOL.GS
                             if (SpellHandler.Spell.InstrumentRequirement != 0)
                             {
                                 if (startCastSpellRequest.Spell.InstrumentRequirement != 0)
-                                    player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "GamePlayer.CastSpell.AlreadyPlaySong"), eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
+                                    player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "GamePlayer.CastSpell.AlreadyPlaySong"), EChatType.CT_SpellResisted, EChatLoc.CL_SystemWindow);
                                 else
-                                    player.Out.SendMessage("You must wait " + ((SpellHandler.CastStartTick + SpellHandler.Spell.CastTime - GameLoop.GameLoopTime) / 1000 + 1).ToString() + " seconds to cast a spell!", eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
+                                    player.Out.SendMessage("You must wait " + ((SpellHandler.CastStartTick + SpellHandler.Spell.CastTime - GameLoop.GameLoopTime) / 1000 + 1).ToString() + " seconds to cast a spell!", EChatType.CT_SpellResisted, EChatLoc.CL_SystemWindow);
 
                                 return;
                             }
@@ -117,11 +117,11 @@ namespace DOL.GS
 
                         if (player.SpellQueue)
                         {
-                            player.Out.SendMessage("You are already casting a spell! You prepare this spell as a follow up!", eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
+                            player.Out.SendMessage("You are already casting a spell! You prepare this spell as a follow up!", EChatType.CT_SpellResisted, EChatLoc.CL_SystemWindow);
                             QueuedSpellHandler = newSpellHandler;
                         }
                         else
-                            player.Out.SendMessage("You are already casting a spell!", eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
+                            player.Out.SendMessage("You are already casting a spell!", EChatType.CT_SpellResisted, EChatLoc.CL_SystemWindow);
                     }
                     else if (Owner is GameNPC npcOwner && npcOwner.Brain is IControlledBrain)
                         QueuedSpellHandler = newSpellHandler;
@@ -214,13 +214,13 @@ namespace DOL.GS
 
             if (player.effectListComponent.ContainsEffectForEffectType(EEffect.Volley))
             {
-                player.Out.SendMessage("You can't cast spells while Volley is active!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                player.Out.SendMessage("You can't cast spells while Volley is active!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                 return false;
             }
 
             if (player != null && player.IsCrafting)
             {
-                player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "GamePlayer.Attack.InterruptedCrafting"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "GamePlayer.Attack.InterruptedCrafting"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
                 player.craftComponent.StopCraft();
                 player.CraftTimer = null;
                 player.Out.SendCloseTimerWindow();
@@ -228,7 +228,7 @@ namespace DOL.GS
 
             if (player != null && player.IsSalvagingOrRepairing)
             {
-                player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "GamePlayer.Attack.InterruptedCrafting"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "GamePlayer.Attack.InterruptedCrafting"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
                 player.CraftTimer.Stop();
                 player.CraftTimer = null;
                 player.Out.SendCloseTimerWindow();
@@ -238,19 +238,19 @@ namespace DOL.GS
             {
                 if (living.IsStunned)
                 {
-                    player?.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "GamePlayer.CastSpell.CantCastStunned"), eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
+                    player?.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "GamePlayer.CastSpell.CantCastStunned"), EChatType.CT_SpellResisted, EChatLoc.CL_SystemWindow);
                     return false;
                 }
 
                 if (living.IsMezzed)
                 {
-                    player?.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "GamePlayer.CastSpell.CantCastMezzed"), eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
+                    player?.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "GamePlayer.CastSpell.CantCastMezzed"), EChatType.CT_SpellResisted, EChatLoc.CL_SystemWindow);
                     return false;
                 }
 
                 if (living.IsSilenced)
                 {
-                    player?.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "GamePlayer.CastSpell.CantCastFumblingWords"), eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
+                    player?.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "GamePlayer.CastSpell.CantCastFumblingWords"), EChatType.CT_Spell, EChatLoc.CL_SystemWindow);
                     return false;
                 }
             }

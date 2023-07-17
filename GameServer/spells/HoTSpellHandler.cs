@@ -78,13 +78,13 @@ namespace DOL.GS.Spells
             {
 				target.Health += (int)heal;
 				if (target is NecromancerPet && Caster.Equals(target))
-					MessageToLiving((target as NecromancerPet).Owner, "Your " + target.GetName(0, false) + " is healed for " + heal + " hit points!", eChatType.CT_Spell);
+					MessageToLiving((target as NecromancerPet).Owner, "Your " + target.GetName(0, false) + " is healed for " + heal + " hit points!", EChatType.CT_Spell);
 				else
-					MessageToLiving(target, "You are healed by " + m_caster.GetName(0, false) + " for " + heal + " hit points.", eChatType.CT_Spell);
+					MessageToLiving(target, "You are healed by " + m_caster.GetName(0, false) + " for " + heal + " hit points.", EChatType.CT_Spell);
 			}
             else
             {
-				MessageToLiving(target, "You are full health.", eChatType.CT_SpellResisted);
+				MessageToLiving(target, "You are full health.", EChatType.CT_SpellResisted);
             }
 			
 
@@ -102,7 +102,7 @@ namespace DOL.GS.Spells
             #endregion PVP DAMAGE
 
 			//"You feel calm and healthy."
-			MessageToLiving(target, Spell.Message1, eChatType.CT_Spell);
+			MessageToLiving(target, Spell.Message1, EChatType.CT_Spell);
 		}
 
 		/// <summary>
@@ -117,9 +117,9 @@ namespace DOL.GS.Spells
 			base.OnEffectExpires(effect, noMessages);
 			if (!noMessages) {
 				//"Your meditative state fades."
-				MessageToLiving(effect.Owner, Spell.Message3, eChatType.CT_SpellExpires);
+				MessageToLiving(effect.Owner, Spell.Message3, EChatType.CT_SpellExpires);
 				//"{0}'s meditative state fades."
-				Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, effect.Owner.GetName(0, false)), eChatType.CT_SpellExpires, effect.Owner);
+				Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, effect.Owner.GetName(0, false)), EChatType.CT_SpellExpires, effect.Owner);
 			}
 			return 0;
 		}

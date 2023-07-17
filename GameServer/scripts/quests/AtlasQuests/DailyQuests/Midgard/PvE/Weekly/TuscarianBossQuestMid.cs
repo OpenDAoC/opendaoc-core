@@ -203,8 +203,8 @@ namespace DOL.GS.WeeklyQuest.Midgard
                         case "succeed":
                             if (quest.Step == 2)
                             {
-                                player.Out.SendMessage("Thank you for your contribution!", eChatType.CT_Chat,
-                                    eChatLoc.CL_PopupWindow);
+                                player.Out.SendMessage("Thank you for your contribution!", EChatType.CT_Chat,
+                                    EChatLoc.CL_PopupWindow);
                                 quest.FinishQuest();
                             }
 
@@ -281,7 +281,7 @@ namespace DOL.GS.WeeklyQuest.Midgard
 
             if (response == 0x00)
             {
-                player.Out.SendMessage("Thank you for helping Midgard.", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                player.Out.SendMessage("Thank you for helping Midgard.", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
             }
             else
             {
@@ -336,7 +336,7 @@ namespace DOL.GS.WeeklyQuest.Midgard
                 _deadTuscaBossMob++;
                 player.Out.SendMessage(
                     "[Weekly] Bosses killed in Tuscaran Glacier: (" + _deadTuscaBossMob + " | " + MAX_KILLGOAL + ")",
-                    eChatType.CT_ScreenCenter, eChatLoc.CL_SystemWindow);
+                    EChatType.CT_ScreenCenter, EChatLoc.CL_SystemWindow);
                 player.Out.SendQuestUpdate(this);
 
                 if (_deadTuscaBossMob >= MAX_KILLGOAL)

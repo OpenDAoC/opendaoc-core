@@ -31,7 +31,7 @@ namespace DOL.GS.Behaviour.Actions
 			InventoryItem inventoryItem = GameInventoryItem.Create(P as DbItemTemplates);
 
             player.CreateItemOnTheGround(inventoryItem);
-            player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Behaviour.DropItemAction.DropsFrontYou", inventoryItem.Name), eChatType.CT_Loot, eChatLoc.CL_SystemWindow);
+            player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Behaviour.DropItemAction.DropsFrontYou", inventoryItem.Name), EChatType.CT_Loot, EChatLoc.CL_SystemWindow);
         }
     }
 }

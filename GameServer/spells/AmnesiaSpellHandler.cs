@@ -64,7 +64,7 @@ namespace DOL.GS.Spells
 				//target.TargetObject = null;
 
             if (target is GamePlayer)
-                MessageToLiving(target, LanguageMgr.GetTranslation((target as GamePlayer).Client, "Amnesia.MessageToTarget"), eChatType.CT_Spell);
+                MessageToLiving(target, LanguageMgr.GetTranslation((target as GamePlayer).Client, "Amnesia.MessageToTarget"), EChatType.CT_Spell);
 
             /*
             GameSpellEffect effect;

@@ -30,7 +30,7 @@ namespace DOL.GS.Spells
 			if (Spell.Value == 99 && (target.effectListComponent.Effects.ContainsKey(EEffect.SnareImmunity) || target.effectListComponent.Effects.ContainsKey(EEffect.SpeedOfSound)))
 				//FindStaticEffectOnTarget(target, typeof(MezzRootImmunityEffect)) != null)
 			{
-				MessageToCaster("Your target is immune!", eChatType.CT_SpellResisted);
+				MessageToCaster("Your target is immune!", EChatType.CT_SpellResisted);
 				target.StartInterruptTimer(target.SpellInterruptDuration, AttackData.EAttackType.Spell, Caster);
 				OnSpellResisted(target);
 				return;
@@ -62,12 +62,12 @@ namespace DOL.GS.Spells
 				GamePlayer playerCaster = Caster as GamePlayer;
 
 				if (playerCaster?.UseDetailedCombatLog == true && critCap > 0)
-					playerCaster.Out.SendMessage($"Debuff crit chance: {critCap} random: {randNum}", eChatType.CT_DamageAdd, eChatLoc.CL_SystemWindow);
+					playerCaster.Out.SendMessage($"Debuff crit chance: {critCap} random: {randNum}", EChatType.CT_DamageAdd, EChatLoc.CL_SystemWindow);
 
 				if (critCap > randNum)
 				{
 					crit = true;
-					playerCaster?.Out.SendMessage($"Your snare is doubly effective!", eChatType.CT_YouHit, eChatLoc.CL_SystemWindow);
+					playerCaster?.Out.SendMessage($"Your snare is doubly effective!", EChatType.CT_YouHit, EChatLoc.CL_SystemWindow);
 				}
 			}
 			
@@ -84,7 +84,7 @@ namespace DOL.GS.Spells
 			// Cannot apply if the effect owner has a charging effect
 			if (effect.Owner.EffectList.GetOfType<ChargeEffect>() != null || effect.Owner.effectListComponent.Effects.ContainsKey(EEffect.SpeedOfSound) || effect.Owner.TempProperties.getProperty("Charging", false))
 			{
-				MessageToCaster(effect.Owner.Name + " is moving too fast for this spell to have any effect!", eChatType.CT_SpellResisted);
+				MessageToCaster(effect.Owner.Name + " is moving too fast for this spell to have any effect!", EChatType.CT_SpellResisted);
 				return;
 			}
 			base.OnEffectStart(effect);

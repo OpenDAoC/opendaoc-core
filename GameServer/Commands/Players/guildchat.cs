@@ -31,7 +31,7 @@ namespace DOL.GS.Commands
 			}
 
 			string message = "[Guild] " + client.Player.Name + ": \"" + string.Join(" ", args, 1, args.Length - 1) + "\"";
-			client.Player.Guild.SendMessageToGuildMembers(message, eChatType.CT_Guild, eChatLoc.CL_ChatWindow);
+			client.Player.Guild.SendMessageToGuildMembers(message, EChatType.CT_Guild, EChatLoc.CL_ChatWindow);
 		}
 	}
 
@@ -70,7 +70,7 @@ namespace DOL.GS.Commands
 				{
 					continue;
 				}
-				ply.Out.SendMessage(message, eChatType.CT_Officer, eChatLoc.CL_ChatWindow);
+				ply.Out.SendMessage(message, EChatType.CT_Officer, EChatLoc.CL_ChatWindow);
 			}
 		}
 	}
@@ -105,7 +105,7 @@ namespace DOL.GS.Commands
 
 			if (client.Player.IsMuted)
 			{
-				client.Player.Out.SendMessage("You have been muted and are not allowed to speak in this channel.", eChatType.CT_Staff, eChatLoc.CL_SystemWindow);
+				client.Player.Out.SendMessage("You have been muted and are not allowed to speak in this channel.", EChatType.CT_Staff, EChatLoc.CL_SystemWindow);
 				return;
 			}
 
@@ -118,7 +118,7 @@ namespace DOL.GS.Commands
 					{
 						continue;
 					}
-					ply.Out.SendMessage(message, eChatType.CT_Alliance, eChatLoc.CL_ChatWindow);
+					ply.Out.SendMessage(message, EChatType.CT_Alliance, EChatLoc.CL_ChatWindow);
 				}
 			}
 		}

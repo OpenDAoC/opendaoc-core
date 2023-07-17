@@ -132,7 +132,7 @@ namespace DOL.GS.ServerRules
 					continue;
 				if ((client.Account.PrivLevel != 1 || realm == ERealm.None) || client.Player.Realm == realm)
 				{
-					client.Out.SendMessage(message, eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+					client.Out.SendMessage(message, EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 				}
 			}
 			
@@ -189,10 +189,10 @@ namespace DOL.GS.ServerRules
 
 				}
 
-				p.Out.SendMessage(string.Format("New DF Owner set to {0}", GlobalConstants.RealmToName(NewDFOwner)), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				p.Out.SendMessage(string.Format("New DF Owner set to {0}", GlobalConstants.RealmToName(NewDFOwner)), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 			}
 			else
-				p.Out.SendMessage(string.Format("DF Owner is already set to {0}", GlobalConstants.RealmToName(NewDFOwner)), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				p.Out.SendMessage(string.Format("DF Owner is already set to {0}", GlobalConstants.RealmToName(NewDFOwner)), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 	}
 }

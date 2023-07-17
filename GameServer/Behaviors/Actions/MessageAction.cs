@@ -34,25 +34,25 @@ namespace DOL.GS.Behaviour.Actions
                     player.Out.SendCustomDialog(message, null);
                     break;
                 case ETextType.Emote:
-                    player.Out.SendMessage(message, eChatType.CT_Emote, eChatLoc.CL_ChatWindow);
+                    player.Out.SendMessage(message, EChatType.CT_Emote, EChatLoc.CL_ChatWindow);
                     break;
 				case ETextType.Say:
-					player.Out.SendMessage(message, eChatType.CT_Say, eChatLoc.CL_ChatWindow);
+					player.Out.SendMessage(message, EChatType.CT_Say, EChatLoc.CL_ChatWindow);
 					break;
 				case ETextType.SayTo:
-					player.Out.SendMessage(message, eChatType.CT_System, eChatLoc.CL_PopupWindow);
+					player.Out.SendMessage(message, EChatType.CT_System, EChatLoc.CL_PopupWindow);
 					break;
 				case ETextType.Yell:
-					player.Out.SendMessage(message, eChatType.CT_Help, eChatLoc.CL_ChatWindow);
+					player.Out.SendMessage(message, EChatType.CT_Help, EChatLoc.CL_ChatWindow);
 					break;
                 case ETextType.Broadcast:
                     foreach (GameClient clientz in WorldMgr.GetAllPlayingClients())
                     {
-                        clientz.Player.Out.SendMessage(message, eChatType.CT_Broadcast, eChatLoc.CL_ChatWindow);
+                        clientz.Player.Out.SendMessage(message, EChatType.CT_Broadcast, EChatLoc.CL_ChatWindow);
                     }
                     break;
                 case ETextType.Read:
-                    player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Behaviour.MessageAction.ReadMessage", message), eChatType.CT_Emote, eChatLoc.CL_PopupWindow);
+                    player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Behaviour.MessageAction.ReadMessage", message), EChatType.CT_Emote, EChatLoc.CL_PopupWindow);
                     break;  
                 case ETextType.None:
                     //nohting

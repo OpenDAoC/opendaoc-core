@@ -45,13 +45,13 @@ namespace DOL.GS.Scripts
                 {
                     if (PredatorMgr.QueuedPlayers.Contains(client.Player))
                     {
-                        client.Out.SendMessage("You are queued to join the hunt soon!", eChatType.CT_Important,
-                            eChatLoc.CL_SystemWindow);   
+                        client.Out.SendMessage("You are queued to join the hunt soon!", EChatType.CT_Important,
+                            EChatLoc.CL_SystemWindow);   
                     }
                     else
                     {
-                        client.Out.SendMessage("You are not a part of the hunt!", eChatType.CT_Important,
-                            eChatLoc.CL_SystemWindow);
+                        client.Out.SendMessage("You are not a part of the hunt!", EChatType.CT_Important,
+                            EChatLoc.CL_SystemWindow);
                     }
 
                     return;
@@ -63,15 +63,15 @@ namespace DOL.GS.Scripts
             {
                 if (client.Player.Level < 50)
                 {
-                    client.Out.SendMessage("You must be level 50 to join the hunt!", eChatType.CT_Important,
-                        eChatLoc.CL_SystemWindow);
+                    client.Out.SendMessage("You must be level 50 to join the hunt!", EChatType.CT_Important,
+                        EChatLoc.CL_SystemWindow);
                     return;
                 }
                 
                 if (client.Player.Group != null && client.Player.Group.GetPlayersInTheGroup().Count > 0)
                 {
-                    client.Out.SendMessage("The mightiest predators hunt alone! Leave your group to join the hunt.", eChatType.CT_Important,
-                        eChatLoc.CL_SystemWindow);
+                    client.Out.SendMessage("The mightiest predators hunt alone! Leave your group to join the hunt.", EChatType.CT_Important,
+                        EChatLoc.CL_SystemWindow);
                     return;
                 }
 
@@ -83,8 +83,8 @@ namespace DOL.GS.Scripts
                      && ( area == null || (area != null && !area.Description.Equals("Druim Ligen")))) 
                     || client.Player.CurrentZone.ID == 249)
                 {
-                    client.Out.SendMessage("You must be in an Old Frontiers zone to join the hunt.", eChatType.CT_Important,
-                        eChatLoc.CL_SystemWindow);
+                    client.Out.SendMessage("You must be in an Old Frontiers zone to join the hunt.", EChatType.CT_Important,
+                        EChatLoc.CL_SystemWindow);
                     return;
                 }
                 
@@ -107,8 +107,8 @@ namespace DOL.GS.Scripts
             {
                 if (!PredatorMgr.PlayerIsActive(client.Player))
                 {
-                    client.Out.SendMessage("You are not a part of the hunt.", eChatType.CT_Important,
-                        eChatLoc.CL_SystemWindow);
+                    client.Out.SendMessage("You are not a part of the hunt.", EChatType.CT_Important,
+                        EChatLoc.CL_SystemWindow);
                     return;
                 }
                 PredatorMgr.DisqualifyPlayer(client.Player);

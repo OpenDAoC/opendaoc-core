@@ -25,8 +25,8 @@ namespace DOL.GS.Spells
 			effect.Owner.TempProperties.setProperty(Damage_Reduction, 100000);         
 		 GameEventMgr.AddHandler(effect.Owner, GameLivingEvent.AttackedByEnemy, new CoreEventHandler(OnAttack));
 
-		 eChatType toLiving = (Spell.Pulse == 0) ? eChatType.CT_Spell : eChatType.CT_SpellPulse;
-			eChatType toOther = (Spell.Pulse == 0) ? eChatType.CT_System : eChatType.CT_Spell;///Pulse;
+		 EChatType toLiving = (Spell.Pulse == 0) ? EChatType.CT_Spell : EChatType.CT_SpellPulse;
+			EChatType toOther = (Spell.Pulse == 0) ? EChatType.CT_System : EChatType.CT_Spell;///Pulse;
 		 MessageToLiving(effect.Owner, Spell.Message1, toLiving);
 		 Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message2, effect.Owner.GetName(0, false)), toOther, effect.Owner);
 	  }
@@ -44,8 +44,8 @@ namespace DOL.GS.Spells
 			effect.Owner.TempProperties.removeProperty(Damage_Reduction);         
 		 if (!noMessages && Spell.Pulse == 0)
 		 {
-			MessageToLiving(effect.Owner, Spell.Message3, eChatType.CT_SpellExpires);
-			Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, effect.Owner.GetName(0, false)), eChatType.CT_SpellExpires, effect.Owner);
+			MessageToLiving(effect.Owner, Spell.Message3, EChatType.CT_SpellExpires);
+			Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, effect.Owner.GetName(0, false)), EChatType.CT_SpellExpires, effect.Owner);
 		 }
 		 return 0;
 	  }
@@ -77,13 +77,13 @@ namespace DOL.GS.Spells
 
 		 //TODO correct messages
 			if (ad.Damage > 0)
-			MessageToLiving(ad.Target, string.Format("The damage reduction absorbs {0} damage!", damageAbsorbed), eChatType.CT_Spell);
-			MessageToLiving(ad.Attacker, string.Format("A damage reduction absorbs {0} damage of your attack!", damageAbsorbed), eChatType.CT_Spell);
+			MessageToLiving(ad.Target, string.Format("The damage reduction absorbs {0} damage!", damageAbsorbed), EChatType.CT_Spell);
+			MessageToLiving(ad.Attacker, string.Format("A damage reduction absorbs {0} damage of your attack!", damageAbsorbed), EChatType.CT_Spell);
 			if (damageAbsorbed > 0)
-			MessageToCaster("The barrier returns " + damageAbsorbed + " power back to you.", eChatType.CT_Spell);
+			MessageToCaster("The barrier returns " + damageAbsorbed + " power back to you.", EChatType.CT_Spell);
 			Caster.Mana = Caster.Mana + damageAbsorbed;
 			if (Caster.Mana == Caster.MaxMana)
-				MessageToCaster("You cannot absorb any more power.", eChatType.CT_SpellResisted);
+				MessageToCaster("You cannot absorb any more power.", EChatType.CT_SpellResisted);
 
 			if (damagereduction <= 0)
 		 {
@@ -129,8 +129,8 @@ namespace DOL.GS.Spells
 			effect.Owner.TempProperties.removeProperty(Damage_Reduction);
 		 if (!noMessages && Spell.Pulse == 0)
 		 {
-			MessageToLiving(effect.Owner, Spell.Message3, eChatType.CT_SpellExpires);
-			Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, effect.Owner.GetName(0, false)), eChatType.CT_SpellExpires, effect.Owner);
+			MessageToLiving(effect.Owner, Spell.Message3, EChatType.CT_SpellExpires);
+			Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, effect.Owner.GetName(0, false)), EChatType.CT_SpellExpires, effect.Owner);
 		 }
 		 return 0;
 	  }

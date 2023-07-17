@@ -201,8 +201,8 @@ namespace DOL.GS.DailyQuest.Hibernia
                         case "succeed":
                             if (quest.Step == 2)
                             {
-                                player.Out.SendMessage("Thank you for your contribution!", eChatType.CT_Chat,
-                                    eChatLoc.CL_PopupWindow);
+                                player.Out.SendMessage("Thank you for your contribution!", EChatType.CT_Chat,
+                                    EChatLoc.CL_PopupWindow);
                                 quest.FinishQuest();
                             }
 
@@ -279,7 +279,7 @@ namespace DOL.GS.DailyQuest.Hibernia
 
             if (response == 0x00)
             {
-                player.Out.SendMessage("Thank you for helping Atlas.", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                player.Out.SendMessage("Thank you for helping Atlas.", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
             }
             else
             {
@@ -337,7 +337,7 @@ namespace DOL.GS.DailyQuest.Hibernia
             _deadGallaMob++;
             player.Out.SendMessage(
                 "[Daily] Monsters killed in Galladoria: (" + _deadGallaMob + " | " + MAX_KILLGOAL + ")",
-                eChatType.CT_ScreenCenter, eChatLoc.CL_SystemWindow);
+                EChatType.CT_ScreenCenter, EChatLoc.CL_SystemWindow);
             player.Out.SendQuestUpdate(this);
 
             if (_deadGallaMob >= MAX_KILLGOAL)

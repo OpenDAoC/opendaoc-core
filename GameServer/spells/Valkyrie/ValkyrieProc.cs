@@ -19,10 +19,10 @@ namespace DOL.GS.Spells
             base.OnEffectStart(effect);
             // "Your weapon is blessed by the gods!"
             // "{0}'s weapon glows with the power of the gods!"
-            eChatType chatType = eChatType.CT_SpellPulse;
+            EChatType chatType = EChatType.CT_SpellPulse;
             if (Spell.Pulse == 0)
             {
-                chatType = eChatType.CT_Spell;
+                chatType = EChatType.CT_Spell;
             }
             MessageToLiving(effect.Owner, Spell.Message1, chatType);
             Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message2, effect.Owner.GetName(0, true)), chatType, effect.Owner);
@@ -33,8 +33,8 @@ namespace DOL.GS.Spells
         {
             if (!noMessages)
             {
-                MessageToLiving(effect.Owner, Spell.Message3, eChatType.CT_SpellExpires);
-                Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, effect.Owner.GetName(0, true)), eChatType.CT_SpellExpires, effect.Owner);
+                MessageToLiving(effect.Owner, Spell.Message3, EChatType.CT_SpellExpires);
+                Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message4, effect.Owner.GetName(0, true)), EChatType.CT_SpellExpires, effect.Owner);
             }
             GameEventMgr.RemoveHandler(effect.Owner, GameLivingEvent.AttackFinished, new CoreEventHandler(EventHandler));
             return 0;

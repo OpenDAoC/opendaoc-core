@@ -43,7 +43,7 @@ namespace DOL.GS.Spells
 			int heal = (ad.Damage + ad.CriticalDamage)* Spell.LifeDrainReturn / 100; // % factor on all drains
 			if (m_caster.IsDiseased)
 			{
-				MessageToCaster("You are diseased!", eChatType.CT_SpellResisted);
+				MessageToCaster("You are diseased!", EChatType.CT_SpellResisted);
 				heal >>= 1;
 			}
 
@@ -51,7 +51,7 @@ namespace DOL.GS.Spells
 
 			if (heal > 0)
 			{
-				MessageToCaster("You steal " + heal + " hit point" + (heal == 1 ? "." : "s."), eChatType.CT_Spell);
+				MessageToCaster("You steal " + heal + " hit point" + (heal == 1 ? "." : "s."), EChatType.CT_Spell);
 
 
                 #region PVP DAMAGE
@@ -67,7 +67,7 @@ namespace DOL.GS.Spells
 			}
 			else
 			{
-				MessageToCaster("You cannot absorb any more life.", eChatType.CT_SpellResisted);
+				MessageToCaster("You cannot absorb any more life.", EChatType.CT_SpellResisted);
 
                 #region PVP DAMAGE
 
@@ -91,11 +91,11 @@ namespace DOL.GS.Spells
             renew = m_caster.ChangeEndurance(m_caster, EEnduranceChangeType.Spell, renew);
 			if (renew > 0)
 			{
-				MessageToCaster("You steal " + renew + " endurance.", eChatType.CT_Spell);
+				MessageToCaster("You steal " + renew + " endurance.", EChatType.CT_Spell);
 			}
 			else
 			{
-				MessageToCaster("You cannot steal any more endurance.", eChatType.CT_SpellResisted);
+				MessageToCaster("You cannot steal any more endurance.", EChatType.CT_SpellResisted);
 			}
 		}
 		/// <summary>
@@ -110,11 +110,11 @@ namespace DOL.GS.Spells
             replenish = m_caster.ChangeMana(m_caster, EPowerChangeType.Spell, replenish);
 			if (replenish > 0)
 			{
-				MessageToCaster("You steal " + replenish + " power.", eChatType.CT_Spell);
+				MessageToCaster("You steal " + replenish + " power.", EChatType.CT_Spell);
 			}
 			else
 			{
-				MessageToCaster("Your power is already full.", eChatType.CT_SpellResisted);
+				MessageToCaster("Your power is already full.", EChatType.CT_SpellResisted);
 			}
 		}
 

@@ -67,9 +67,9 @@ public class Blacksmith : GameNPC
         // if (triggers == null || triggers.Length == 0)
 
         // Message: {0} says, "I can repair weapons or armor for you. Just hand me the item you want repaired and I'll see what I can do, for a small fee."
-        SayTo(player, eChatLoc.CL_PopupWindow,
+        SayTo(player, EChatLoc.CL_PopupWindow,
             "I can repair weapons or armor for you. Just hand me the item you want repaired and I'll see what I can do, for a small fee.");
-        SayTo(player, eChatLoc.CL_PopupWindow,
+        SayTo(player, EChatLoc.CL_PopupWindow,
             $"If you're in a hurry, I can also [repair all] your items for an additional {REPAIR_ALL_TAX * 100}% fee.");
 
         return true;
@@ -246,7 +246,7 @@ public class Blacksmith : GameNPC
             player.Client.Out.SendCustomDialog(
                 $"It will cost {Money.GetString(TotalCost)} to repair everything. Do you accept?", RepairAll);
         else
-            SayTo(player, eChatLoc.CL_PopupWindow,
+            SayTo(player, EChatLoc.CL_PopupWindow,
                 "All items are fully repaired already.");
     }
 
@@ -277,8 +277,8 @@ public class Blacksmith : GameNPC
         {
             player.Out.SendMessage(
                 LanguageMgr.GetTranslation(player.Client.Account.Language,
-                    "GameNPC.Blacksmith.AbortRepair", "inventory"), eChatType.CT_System,
-                eChatLoc.CL_SystemWindow);
+                    "GameNPC.Blacksmith.AbortRepair", "inventory"), EChatType.CT_System,
+                EChatLoc.CL_SystemWindow);
             return;
         }
 
@@ -291,7 +291,7 @@ public class Blacksmith : GameNPC
 
         if (!player.RemoveMoney(cost))
         {
-            SayTo(player, eChatLoc.CL_PopupWindow,
+            SayTo(player, EChatLoc.CL_PopupWindow,
                 LanguageMgr.GetTranslation(player.Client.Account.Language,
                     "GameNPC.Blacksmith.NotEnoughMoney", Money.GetString(cost), "everything"));
             return;
@@ -310,7 +310,7 @@ public class Blacksmith : GameNPC
             player.Out.SendInventoryItemsUpdate(new[] {inventoryItem});
         }
 
-        SayTo(player, eChatLoc.CL_PopupWindow,
+        SayTo(player, EChatLoc.CL_PopupWindow,
             LanguageMgr.GetTranslation(player.Client.Account.Language,
                 "Scripts.Recharger.RechargerDialogResponse.FullyCharged"));
     }

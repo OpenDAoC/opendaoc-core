@@ -23,7 +23,7 @@ namespace DOL.GS
 			TurnTo(player, 5000);
 			if (!player.Champion && player.Level == 50)
 			{
-				player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "KingNPC.WhisperReceive.AskForChampion"), eChatType.CT_System, eChatLoc.CL_PopupWindow);
+				player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "KingNPC.WhisperReceive.AskForChampion"), EChatType.CT_System, EChatLoc.CL_PopupWindow);
 			}
 
 			if (player.Champion)
@@ -38,12 +38,12 @@ namespace DOL.GS
 
 				if ( cllevel )
 				{
-					player.Out.SendMessage( "You reached champion level " + player.ChampionLevel + "!", eChatType.CT_System, eChatLoc.CL_PopupWindow );
+					player.Out.SendMessage( "You reached champion level " + player.ChampionLevel + "!", EChatType.CT_System, EChatLoc.CL_PopupWindow );
 				}
 
 				if (player.ChampionLevel >= 5)
 				{
-					player.Out.SendMessage("I can [respecialize] your champion skills if you so desire.", eChatType.CT_System, eChatLoc.CL_PopupWindow);
+					player.Out.SendMessage("I can [respecialize] your champion skills if you so desire.", EChatType.CT_System, EChatLoc.CL_PopupWindow);
 				}
 
 			}
@@ -63,7 +63,7 @@ namespace DOL.GS
 			{
 				if (player.Champion == true)
 				{
-					player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "KingNPC.WhisperReceive.AlreadyChampion"), eChatType.CT_System, eChatLoc.CL_PopupWindow);
+					player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "KingNPC.WhisperReceive.AlreadyChampion"), EChatType.CT_System, EChatLoc.CL_PopupWindow);
 					return false;
 				}
 
@@ -71,7 +71,7 @@ namespace DOL.GS
 				player.Champion = true;
 				player.Out.SendUpdatePlayer();
 				player.SaveIntoDatabase();
-				player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "KingNPC.WhisperReceive.IsNowChampion"), eChatType.CT_System, eChatLoc.CL_PopupWindow);
+				player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "KingNPC.WhisperReceive.IsNowChampion"), EChatType.CT_System, EChatLoc.CL_PopupWindow);
 				return true;
 			}
 
@@ -79,7 +79,7 @@ namespace DOL.GS
 			{
 				player.RespecChampionSkills();
 				player.SaveIntoDatabase();
-				player.Out.SendMessage("I have reset your champion skills!", eChatType.CT_Important, eChatLoc.CL_PopupWindow);
+				player.Out.SendMessage("I have reset your champion skills!", EChatType.CT_Important, EChatLoc.CL_PopupWindow);
 			}
 
 			return true;
@@ -112,7 +112,7 @@ namespace DOL.GS
 					if (player.Champion && player.ChampionLevel >= 5)
 					{
 						player.RespecChampionSkills();
-						player.Out.SendMessage("I have reset your Champion skills!", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+						player.Out.SendMessage("I have reset your Champion skills!", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 
 					}
 					break;
@@ -143,7 +143,7 @@ namespace DOL.GS
 							player.Inventory.RemoveCountFromStack(item, 1);
                             InventoryLogging.LogInventoryAction(player, this, eInventoryActionType.Other, item.Template);
 							player.RespecAmountChampionSkill++;
-							player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "CLWeaponNPC.ReceiveItem.RespecCL"), eChatType.CT_System, eChatLoc.CL_PopupWindow);
+							player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "CLWeaponNPC.ReceiveItem.RespecCL"), EChatType.CT_System, EChatLoc.CL_PopupWindow);
 							return true;
 						}
 				}

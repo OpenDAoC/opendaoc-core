@@ -138,7 +138,7 @@ namespace DOL.GS.Keeps
 					continue;
 				if ((client.Account.PrivLevel != 1 || realm == ERealm.None) || client.Player.Realm == realm)
 				{
-					client.Out.SendMessage(message, eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+					client.Out.SendMessage(message, EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 				}
 			}
 		}
@@ -156,8 +156,8 @@ namespace DOL.GS.Keeps
 				if (client.Player == null)
 					continue;
 				
-				client.Out.SendMessage(message, eChatType.CT_Important, eChatLoc.CL_SystemWindow);
-				client.Out.SendMessage(message, eChatType.CT_ScreenCenter,  eChatLoc.CL_SystemWindow);
+				client.Out.SendMessage(message, EChatType.CT_Important, EChatLoc.CL_SystemWindow);
+				client.Out.SendMessage(message, EChatType.CT_ScreenCenter,  EChatLoc.CL_SystemWindow);
 				
 				switch (capturingrealm)
 				{
@@ -230,8 +230,8 @@ namespace DOL.GS.Keeps
 			/*
 			 * Blood of the Realm has claimed this outpost.
 			 */
-			player.Out.SendMessage(message + ".", eChatType.CT_System, eChatLoc.CL_SystemWindow);
-			player.Out.SendMessage(message, eChatType.CT_ScreenCenterSmaller, eChatLoc.CL_SystemWindow);
+			player.Out.SendMessage(message + ".", EChatType.CT_System, EChatLoc.CL_SystemWindow);
+			player.Out.SendMessage(message, EChatType.CT_ScreenCenterSmaller, EChatLoc.CL_SystemWindow);
 		}
 
 		/// <summary>

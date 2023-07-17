@@ -32,7 +32,7 @@ namespace DOL.GS.Spells
             if (target.HasAbility(Abilities.VampiirStrength)
         	   || target.HasAbility(Abilities.VampiirConstitution))
             {
-                MessageToCaster("Your target already has an effect of that type!", eChatType.CT_Spell);
+                MessageToCaster("Your target already has an effect of that type!", EChatType.CT_Spell);
                 return;
             }
             base.ApplyEffectOnTarget(target, effectiveness);
@@ -55,7 +55,7 @@ namespace DOL.GS.Spells
             if (target.HasAbility(Abilities.VampiirDexterity)
         	   || target.HasAbility(Abilities.VampiirQuickness))
             {
-                MessageToCaster("Your target already has an effect of that type!", eChatType.CT_Spell);
+                MessageToCaster("Your target already has an effect of that type!", EChatType.CT_Spell);
                 return;
             }
             base.ApplyEffectOnTarget(target, effectiveness);

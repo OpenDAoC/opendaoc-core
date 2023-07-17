@@ -28,7 +28,7 @@ namespace DOL.GS.Scripts
 			player.Out.SendMessage("Hello " + player.Name + "! I can teleport you to:\n\n" +
 				"[AbermenaiAlb], [ThidrankiAlb], [MurdaigeanAlb], [CaledoniaAlb]\n\n" +
 				"[AbermenaiMid], [ThidrankiMid], [MurdaigeanMid], [CaledoniaMid]\n\n" +
-				"[AbermenaiHib], [ThidrankiHib], [MurdaigeanHib], [CaledoniaHib]", eChatType.CT_Say,eChatLoc.CL_PopupWindow);
+				"[AbermenaiHib], [ThidrankiHib], [MurdaigeanHib], [CaledoniaHib]", EChatType.CT_Say,EChatLoc.CL_PopupWindow);
 			return true;
 		}
 		public override bool WhisperReceive(GameLiving source, string str)
@@ -45,7 +45,7 @@ namespace DOL.GS.Scripts
                     {
 	                    t.MoveTo(253, 38113, 53507, 4160, 3268);
                     }
-                    else { t.Client.Out.SendMessage("You can't port while in combat.", eChatType.CT_Say, eChatLoc.CL_PopupWindow); }
+                    else { t.Client.Out.SendMessage("You can't port while in combat.", EChatType.CT_Say, EChatLoc.CL_PopupWindow); }
                     break;
                 
                 case "ThidrankiAlb":    
@@ -53,7 +53,7 @@ namespace DOL.GS.Scripts
 	                {
 		                t.MoveTo(252, 38113, 53507, 4160, 3268);
 	                }
-	                else { t.Client.Out.SendMessage("You can't port while in combat.", eChatType.CT_Say, eChatLoc.CL_PopupWindow); }
+	                else { t.Client.Out.SendMessage("You can't port while in combat.", EChatType.CT_Say, EChatLoc.CL_PopupWindow); }
 	                break;
                 
                 case "MurdaigeanAlb":    
@@ -61,7 +61,7 @@ namespace DOL.GS.Scripts
 	                {
 		                t.MoveTo(251, 38113, 53507, 4160, 3268);
 	                }
-	                else { t.Client.Out.SendMessage("You can't port while in combat.", eChatType.CT_Say, eChatLoc.CL_PopupWindow); }
+	                else { t.Client.Out.SendMessage("You can't port while in combat.", EChatType.CT_Say, EChatLoc.CL_PopupWindow); }
 	                break;
                 
                 case "CaledoniaAlb":    
@@ -69,7 +69,7 @@ namespace DOL.GS.Scripts
 	                {
 		                t.MoveTo(250, 38113, 53507, 4160, 3268);
 	                }
-	                else { t.Client.Out.SendMessage("You can't port while in combat.", eChatType.CT_Say, eChatLoc.CL_PopupWindow); }
+	                else { t.Client.Out.SendMessage("You can't port while in combat.", EChatType.CT_Say, EChatLoc.CL_PopupWindow); }
 	                break;
                 //mid
                 case "AbermenaiMid":    
@@ -77,7 +77,7 @@ namespace DOL.GS.Scripts
 	                {
 		                t.MoveTo(253, 53568, 23643, 4530, 3268);
 	                }
-	                else { t.Client.Out.SendMessage("You can't port while in combat.", eChatType.CT_Say, eChatLoc.CL_PopupWindow); }
+	                else { t.Client.Out.SendMessage("You can't port while in combat.", EChatType.CT_Say, EChatLoc.CL_PopupWindow); }
 	                break;
                 
                 case "ThidrankiMid":    
@@ -85,7 +85,7 @@ namespace DOL.GS.Scripts
 	                {
 		                t.MoveTo(252, 53568, 23643, 4530, 3268);
 	                }
-	                else { t.Client.Out.SendMessage("You can't port while in combat.", eChatType.CT_Say, eChatLoc.CL_PopupWindow); }
+	                else { t.Client.Out.SendMessage("You can't port while in combat.", EChatType.CT_Say, EChatLoc.CL_PopupWindow); }
 	                break;
                 
                 case "MurdaigeanMid":    
@@ -93,7 +93,7 @@ namespace DOL.GS.Scripts
 	                {
 		                t.MoveTo(251, 53568, 23643, 4530, 3268);
 	                }
-	                else { t.Client.Out.SendMessage("You can't port while in combat.", eChatType.CT_Say, eChatLoc.CL_PopupWindow); }
+	                else { t.Client.Out.SendMessage("You can't port while in combat.", EChatType.CT_Say, EChatLoc.CL_PopupWindow); }
 	                break;
                 
                 case "CaledoniaMid":    
@@ -101,7 +101,7 @@ namespace DOL.GS.Scripts
 	                {
 		                t.MoveTo(250, 53568, 23643, 4530, 3268);
 	                }
-	                else { t.Client.Out.SendMessage("You can't port while in combat.", eChatType.CT_Say, eChatLoc.CL_PopupWindow); }
+	                else { t.Client.Out.SendMessage("You can't port while in combat.", EChatType.CT_Say, EChatLoc.CL_PopupWindow); }
 	                break;
                 //hib
 				case "AbermenaiHib":    
@@ -109,7 +109,7 @@ namespace DOL.GS.Scripts
 					{
 						t.MoveTo(253, 17367, 18248, 4320, 3268);
 					}
-					else { t.Client.Out.SendMessage("You can't port while in combat.", eChatType.CT_Say, eChatLoc.CL_PopupWindow); }
+					else { t.Client.Out.SendMessage("You can't port while in combat.", EChatType.CT_Say, EChatLoc.CL_PopupWindow); }
 					break;
                 
 				case "ThidrankiHib":    
@@ -117,7 +117,7 @@ namespace DOL.GS.Scripts
 					{
 						t.MoveTo(252, 17367, 18248, 4320, 3268);
 					}
-					else { t.Client.Out.SendMessage("You can't port while in combat.", eChatType.CT_Say, eChatLoc.CL_PopupWindow); }
+					else { t.Client.Out.SendMessage("You can't port while in combat.", EChatType.CT_Say, EChatLoc.CL_PopupWindow); }
 					break;
                 
 				case "MurdaigeanHib":    
@@ -125,7 +125,7 @@ namespace DOL.GS.Scripts
 					{
 						t.MoveTo(251, 17367, 18248, 4320, 3268);
 					}
-					else { t.Client.Out.SendMessage("You can't port while in combat.", eChatType.CT_Say, eChatLoc.CL_PopupWindow); }
+					else { t.Client.Out.SendMessage("You can't port while in combat.", EChatType.CT_Say, EChatLoc.CL_PopupWindow); }
 					break;
                 
 				case "CaledoniaHib":    
@@ -133,7 +133,7 @@ namespace DOL.GS.Scripts
 					{
 						t.MoveTo(250, 17367, 18248, 4320, 3268);
 					}
-					else { t.Client.Out.SendMessage("You can't port while in combat.", eChatType.CT_Say, eChatLoc.CL_PopupWindow); }
+					else { t.Client.Out.SendMessage("You can't port while in combat.", EChatType.CT_Say, EChatLoc.CL_PopupWindow); }
 					break;
 
                 default: break;
@@ -144,7 +144,7 @@ namespace DOL.GS.Scripts
 			{
 				target.Client.Out.SendMessage(
 					msg,
-					eChatType.CT_Say,eChatLoc.CL_PopupWindow);
+					EChatType.CT_Say,EChatLoc.CL_PopupWindow);
 			}
 		[ScriptLoadedEvent]
         public static void OnScriptCompiled(CoreEvent e, object sender, EventArgs args)

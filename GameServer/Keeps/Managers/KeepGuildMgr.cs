@@ -32,7 +32,7 @@ namespace DOL.GS.Keeps
 				return;
 
 			message = "[Guild] [" + message +"]";
-			guild.SendMessageToGuildMembers(message, eChatType.CT_Guild, eChatLoc.CL_ChatWindow);
+			guild.SendMessageToGuildMembers(message, EChatType.CT_Guild, EChatLoc.CL_ChatWindow);
 		}
 
 		public static void SendLevelChangeMessage(AbstractGameKeep keep)

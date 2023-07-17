@@ -272,7 +272,7 @@ namespace DOL.GS
             if (playerCanceled && ((!effect.HasPositiveEffect) || effect is ECSImmunityEffect))
             {
                 if (effect.Owner is GamePlayer player)
-                    player.Out.SendMessage(LanguageMgr.GetTranslation((effect.Owner as GamePlayer).Client, "Effects.GameSpellEffect.CantRemoveEffect"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                    player.Out.SendMessage(LanguageMgr.GetTranslation((effect.Owner as GamePlayer).Client, "Effects.GameSpellEffect.CantRemoveEffect"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 
                 return;
             }
@@ -308,7 +308,7 @@ namespace DOL.GS
             if (playerCanceled && ((!effect.HasPositiveEffect) || effect is ECSImmunityEffect))
             {
                 if (effect.Owner is GamePlayer player)
-                    player.Out.SendMessage(LanguageMgr.GetTranslation((effect.Owner as GamePlayer).Client, "Effects.GameSpellEffect.CantRemoveEffect"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                    player.Out.SendMessage(LanguageMgr.GetTranslation((effect.Owner as GamePlayer).Client, "Effects.GameSpellEffect.CantRemoveEffect"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 
                 return;
             }

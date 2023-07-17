@@ -45,7 +45,7 @@ namespace DOL.GS.Scripts
         }
         public void SendReply(GamePlayer player, string msg)
         {
-            player.Out.SendMessage(msg, eChatType.CT_System, eChatLoc.CL_PopupWindow);
+            player.Out.SendMessage(msg, EChatType.CT_System, EChatLoc.CL_PopupWindow);
         }
         public override bool Interact(GamePlayer player)
         {
@@ -61,7 +61,7 @@ namespace DOL.GS.Scripts
             if (usedi30 != null || usedi40 != null || player.HCFlag|| player.NoHelp) return false;
 
             player.Out.SendMessage("Hello " + player.Name + ", good to see you again.\n\nI can grant you [level 30] for this testing event.\n\n",
-                eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                EChatType.CT_Say, EChatLoc.CL_PopupWindow);
             return true;
         }
 
@@ -88,7 +88,7 @@ namespace DOL.GS.Scripts
                 case "level 30":
                     if (player.Level < 30)
                     {
-                        player.Out.SendMessage("I have given you enough experience to particpate, now go get grinding!", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                        player.Out.SendMessage("I have given you enough experience to particpate, now go get grinding!", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
                         player.Level = (byte)30;
                         player.Health = player.MaxHealth;
 
@@ -102,7 +102,7 @@ namespace DOL.GS.Scripts
                         }
                         return true;
                     }
-                    player.Out.SendMessage("You are a veteran already, go fight for your Realm!", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                    player.Out.SendMessage("You are a veteran already, go fight for your Realm!", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
                     return false;
 
                 /*

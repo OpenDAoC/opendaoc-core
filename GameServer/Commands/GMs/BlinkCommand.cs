@@ -24,10 +24,10 @@ namespace DOL.GS.Commands
                 if (byte.TryParse(args[1].ToLower(), out value))
                 {
 					// Try to find the value in ePanel Enumerator
-                    if (Enum.IsDefined(typeof(ePanel), value))
+                    if (Enum.IsDefined(typeof(EPanel), value))
                     {
 						// Give the user some information
-                        client.Out.SendMessage("Start blinking UI part: " + Enum.GetName(typeof(ePanel), value), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                        client.Out.SendMessage("Start blinking UI part: " + Enum.GetName(typeof(EPanel), value), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 
 						// If we have a target, send the blink panel to him or make our own UI blink otherwise
                         if (player.TargetObject != null && player.TargetObject is GamePlayer && (player.TargetObject as GamePlayer).Client.IsPlaying)
@@ -62,14 +62,14 @@ namespace DOL.GS.Commands
 			int count = 0;
 
 			// For each Item in ePanel, write the current ID and the Name to our string
-			foreach (string panelID in Enum.GetNames(typeof(ePanel)))
+			foreach (string panelID in Enum.GetNames(typeof(EPanel)))
 			{
 				visualEffectList += count + ": " + panelID + "\n";
 				count++;
 			}
 
 			// Give the user some usefull output
-			client.Out.SendMessage(visualEffectList, eChatType.CT_System, eChatLoc.CL_SystemWindow);
+			client.Out.SendMessage(visualEffectList, EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 	}
 }

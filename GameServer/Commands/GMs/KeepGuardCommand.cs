@@ -367,7 +367,7 @@ namespace DOL.GS.Commands
 									PathPointUtil startpoint = new PathPointUtil(client.Player.X, client.Player.Y, client.Player.Z, short.MaxValue, ePathType.Once);
 									client.Player.TempProperties.setProperty(TEMP_PATH_FIRST, startpoint);
 									client.Player.TempProperties.setProperty(TEMP_PATH_LAST, startpoint);
-									client.Player.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.KeepGuard.Path.CreationStarted"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+									client.Player.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.KeepGuard.Path.CreationStarted"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 									CreateTempPathObject(client, startpoint, "TMP PP 1");
 									break;
 								}

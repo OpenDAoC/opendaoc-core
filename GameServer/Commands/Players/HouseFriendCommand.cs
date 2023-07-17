@@ -25,7 +25,7 @@ namespace DOL.GS.Commands
 
             if (!client.Player.InHouse)
             {
-                client.Out.SendMessage("You need to be in your House to use this command", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                client.Out.SendMessage("You need to be in your House to use this command", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                 return;
             }
 
@@ -42,13 +42,13 @@ namespace DOL.GS.Commands
 						GameClient targetClient = WorldMgr.GetClientByPlayerNameAndRealm(args[2], 0, true).FirstOrDefault();
 						if (targetClient == null)
 						{
-							client.Out.SendMessage("No players online with that name.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+							client.Out.SendMessage("No players online with that name.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 							return;
 						}
 
 						if (client.Player.CurrentHouse.AddPermission(targetClient.Player, EPermissionType.Player, HousingConstants.MinPermissionLevel))
 						{
-							client.Out.SendMessage("You added " + targetClient.Player.Name + ".", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+							client.Out.SendMessage("You added " + targetClient.Player.Name + ".", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						}
 						break;
 					}
@@ -64,13 +64,13 @@ namespace DOL.GS.Commands
                         GameClient targetClient = WorldMgr.GetClientByPlayerNameAndRealm(args[2], 0, true).FirstOrDefault();
                         if (targetClient == null)
                         {
-                            client.Out.SendMessage("No players online with that name.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            client.Out.SendMessage("No players online with that name.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                             return;
                         }
 
 						if (client.Player.CurrentHouse.AddPermission(targetClient.Player, EPermissionType.Account, HousingConstants.MinPermissionLevel))
 						{
-							client.Out.SendMessage("You added " + targetClient.Player.Name + "'s account.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+							client.Out.SendMessage("You added " + targetClient.Player.Name + "'s account.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						}
                         break;
                     }
@@ -83,13 +83,13 @@ namespace DOL.GS.Commands
                         GuildUtil targetGuild = GuildMgr.GetGuildByName(args[2]);
                         if (targetGuild == null)
                         {
-                            client.Out.SendMessage("A guild with that name was not found. Don't forget to put longer names in quotes eg: \"My Guild\".", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            client.Out.SendMessage("A guild with that name was not found. Don't forget to put longer names in quotes eg: \"My Guild\".", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                             return;
                         }
 
 						if (client.Player.CurrentHouse.AddPermission(targetGuild.Name, EPermissionType.Guild, HousingConstants.MinPermissionLevel))
 						{
-							client.Out.SendMessage("You added " + targetGuild.Name + ".", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+							client.Out.SendMessage("You added " + targetGuild.Name + ".", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						}
                         break;
                     
@@ -98,7 +98,7 @@ namespace DOL.GS.Commands
 					{
 						if (client.Player.CurrentHouse.AddPermission("All", EPermissionType.All, HousingConstants.MinPermissionLevel))
 						{
-							client.Out.SendMessage("You added everybody!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+							client.Out.SendMessage("You added everybody!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						}
 						break;
 					}

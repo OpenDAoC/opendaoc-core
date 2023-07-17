@@ -29,7 +29,7 @@ namespace DOL.GS {
 			TurnTo(player.X, player.Y);
 
 			
-				player.Out.SendMessage("Greetings, " + player.CharacterClass.Name + ".\n\n" + "If you desire, I can port you back to your realm's [event zone]", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+				player.Out.SendMessage("Greetings, " + player.CharacterClass.Name + ".\n\n" + "If you desire, I can port you back to your realm's [event zone]", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
 
             if (player.effectListComponent.ContainsEffectForEffectType(EEffect.ResurrectionIllness))
             {
@@ -91,7 +91,7 @@ namespace DOL.GS {
 		{
 			target.Client.Out.SendMessage(
 				msg,
-				eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+				EChatType.CT_Say, EChatLoc.CL_PopupWindow);
 		}
 
 	}
@@ -157,7 +157,7 @@ namespace DOL.GS {
                     deadPlayer.Out.SendPlayerRevive(deadPlayer);
                     deadPlayer.Out.SendStatusUpdate();
                     deadPlayer.Out.SendMessage("Mordred has found your soul worthy of resurrection!",
-                                           eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                                           EChatType.CT_System, EChatLoc.CL_SystemWindow);
                     deadPlayer.Notify(GamePlayerEvent.Revive, deadPlayer);
 
                     RogMgr.GenerateROG(deadPlayer, true);
@@ -171,7 +171,7 @@ namespace DOL.GS {
                 player.MoveTo(Body.CurrentRegionID, Body.X + 100, Body.Y, Body.Z,
                                   Body.Heading);
                 player.Client.Out.SendMessage("Cowardice is not appreciated in this arena.",
-                                           eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+                                           EChatType.CT_Important, EChatLoc.CL_SystemWindow);
             }
 
             playersToKill.Clear();

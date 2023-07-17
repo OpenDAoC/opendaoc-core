@@ -47,14 +47,14 @@ namespace DOL.GS.Commands
 				if (client.Player.TempProperties.getProperty(DoorMgr.WANT_TO_ADD_DOORS, false))
 				{
 					client.Player.TempProperties.removeProperty(DoorMgr.WANT_TO_ADD_DOORS);
-					client.Out.SendMessage("You will no longer be shown the add door dialog.", eChatType.CT_System,
-					                       eChatLoc.CL_SystemWindow);
+					client.Out.SendMessage("You will no longer be shown the add door dialog.", EChatType.CT_System,
+					                       EChatLoc.CL_SystemWindow);
 				}
 				else
 				{
 					client.Player.TempProperties.setProperty(DoorMgr.WANT_TO_ADD_DOORS, true);
 					client.Out.SendMessage("You will now be shown the add door dialog if door is not found in the DB.",
-					                       eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					                       EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				}
 
 				return;
@@ -62,20 +62,20 @@ namespace DOL.GS.Commands
 
 			if (client.Player.CurrentRegion.IsInstance)
 			{
-				client.Out.SendMessage("You can't add doors inside an instance.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				client.Out.SendMessage("You can't add doors inside an instance.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				return;
 			}
 
 			if (client.Player.TargetObject == null)
 			{
-				client.Out.SendMessage("You must target a door", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				client.Out.SendMessage("You must target a door", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				return;
 			}
 
 			if (client.Player.TargetObject != null &&
 			    (client.Player.TargetObject is GameNPC || client.Player.TargetObject is GamePlayer))
 			{
-				client.Out.SendMessage("You must target a door", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				client.Out.SendMessage("You must target a door", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				return;
 			}
 
@@ -148,7 +148,7 @@ namespace DOL.GS.Commands
 
 			if (DOOR != null)
 			{
-				client.Out.SendMessage("The door is already in the database", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				client.Out.SendMessage("The door is already in the database", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				return;
 			}
 			if (DOOR == null)
@@ -169,8 +169,8 @@ namespace DOL.GS.Commands
 					door.Health = 2545;
 					GameServer.Database.AddObject(door);
 					(targetDoor).AddToWorld();
-					client.Player.Out.SendMessage("Added door ID:" + DoorID + "to the database", eChatType.CT_Important,
-					                              eChatLoc.CL_SystemWindow);
+					client.Player.Out.SendMessage("Added door ID:" + DoorID + "to the database", EChatType.CT_Important,
+					                              EChatLoc.CL_SystemWindow);
 					//DoorMgr.Init( );
 					return;
 				}
@@ -200,8 +200,8 @@ namespace DOL.GS.Commands
 					door.Heading = client.Player.Heading;
 					GameServer.Database.AddObject(door);
 					(targetDoor).AddToWorld();
-					client.Player.Out.SendMessage("Added door " + DoorID + " to the database", eChatType.CT_Important,
-					                              eChatLoc.CL_SystemWindow);
+					client.Player.Out.SendMessage("Added door " + DoorID + " to the database", EChatType.CT_Important,
+					                              EChatLoc.CL_SystemWindow);
 					return;
 				}
 			}
@@ -214,12 +214,12 @@ namespace DOL.GS.Commands
 			if (DOOR != null)
 			{
 				GameServer.Database.DeleteObject(DOOR);
-				client.Out.SendMessage("Door removed", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				client.Out.SendMessage("Door removed", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				return;
 			}
 			if (DOOR == null)
 			{
-				client.Out.SendMessage("This door doesn't exist in the database", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				client.Out.SendMessage("This door doesn't exist in the database", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				return;
 			}
 		}
@@ -236,8 +236,8 @@ namespace DOL.GS.Commands
 			{
 				targetDoor.Name = CheckName(doorName, client);
 				targetDoor.SaveIntoDatabase();
-				client.Out.SendMessage("You changed the door name to " + targetDoor.Name, eChatType.CT_System,
-				                       eChatLoc.CL_SystemWindow);
+				client.Out.SendMessage("You changed the door name to " + targetDoor.Name, EChatType.CT_System,
+				                       EChatLoc.CL_SystemWindow);
 			}
 			else
 			{
@@ -256,7 +256,7 @@ namespace DOL.GS.Commands
 					doorSound = Convert.ToUInt16(args[2]);
 					targetDoor.Flag = doorSound;
 					targetDoor.SaveIntoDatabase();
-					client.Out.SendMessage("You set the door sound to " + doorSound, eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					client.Out.SendMessage("You set the door sound to " + doorSound, EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				}
 				else
 				{
@@ -280,8 +280,8 @@ namespace DOL.GS.Commands
 			{
 				targetDoor.GuildName = CheckGuildName(guildName, client);
 				targetDoor.SaveIntoDatabase();
-				client.Out.SendMessage("You changed the door guild to " + targetDoor.GuildName, eChatType.CT_System,
-				                       eChatLoc.CL_SystemWindow);
+				client.Out.SendMessage("You changed the door guild to " + targetDoor.GuildName, EChatType.CT_System,
+				                       EChatLoc.CL_SystemWindow);
 			}
 			else
 			{
@@ -289,7 +289,7 @@ namespace DOL.GS.Commands
 				{
 					targetDoor.GuildName = "";
 					targetDoor.SaveIntoDatabase();
-					client.Out.SendMessage("Door guild removed", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					client.Out.SendMessage("Door guild removed", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				}
 				else
 					DisplaySyntax(client, args[1]);
@@ -306,8 +306,8 @@ namespace DOL.GS.Commands
 				targetDoor.Level = level;
 				targetDoor.Health = targetDoor.MaxHealth;
 				targetDoor.SaveIntoDatabase();
-				client.Out.SendMessage("You changed the door level to " + targetDoor.Level, eChatType.CT_System,
-				                       eChatLoc.CL_SystemWindow);
+				client.Out.SendMessage("You changed the door level to " + targetDoor.Level, EChatType.CT_System,
+				                       EChatLoc.CL_SystemWindow);
 			}
 			catch (Exception)
 			{
@@ -324,8 +324,8 @@ namespace DOL.GS.Commands
 				realm = Convert.ToByte(args[2]);
 				targetDoor.Realm = (ERealm) realm;
 				targetDoor.SaveIntoDatabase();
-				client.Out.SendMessage("You changed the door realm to " + targetDoor.Realm, eChatType.CT_System,
-				                       eChatLoc.CL_SystemWindow);
+				client.Out.SendMessage("You changed the door realm to " + targetDoor.Realm, EChatType.CT_System,
+				                       EChatLoc.CL_SystemWindow);
 			}
 			catch (Exception)
 			{
@@ -382,22 +382,22 @@ namespace DOL.GS.Commands
 		{
 			targetDoor.Health = targetDoor.MaxHealth;
 			targetDoor.SaveIntoDatabase();
-			client.Out.SendMessage("You change the door health to " + targetDoor.Health, eChatType.CT_System,
-			                       eChatLoc.CL_SystemWindow);
+			client.Out.SendMessage("You change the door health to " + targetDoor.Health, EChatType.CT_System,
+			                       EChatLoc.CL_SystemWindow);
 		}
 
 		private void locked(GameClient client, GameDoor targetDoor)
 		{
 			targetDoor.Locked = 1;
 			targetDoor.SaveIntoDatabase();
-			client.Out.SendMessage("Door " + targetDoor.Name + " is locked", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+			client.Out.SendMessage("Door " + targetDoor.Name + " is locked", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 
 		private void unlocked(GameClient client, GameDoor targetDoor)
 		{
 			targetDoor.Locked = 0;
 			targetDoor.SaveIntoDatabase();
-			client.Out.SendMessage("Door " + targetDoor.Name + " is unlocked", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+			client.Out.SendMessage("Door " + targetDoor.Name + " is unlocked", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 
 
@@ -411,21 +411,21 @@ namespace DOL.GS.Commands
 					targetDoor.AddXPGainer(client.Player, targetDoor.Health);
 					targetDoor.Die(client.Player);
 					targetDoor.XPGainers.Clear();
-					client.Out.SendMessage("Door " + targetDoor.Name + " health reaches 0", eChatType.CT_System,
-										   eChatLoc.CL_SystemWindow);
+					client.Out.SendMessage("Door " + targetDoor.Name + " health reaches 0", EChatType.CT_System,
+										   EChatLoc.CL_SystemWindow);
 				}
 			}
 			catch (Exception e)
 			{
-				client.Out.SendMessage(e.ToString(), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				client.Out.SendMessage(e.ToString(), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 			}
 		}
 
 		private string CheckName(string name, GameClient client)
 		{
 			if (name.Length > 47)
-				client.Out.SendMessage("The door name must not be longer than 47 bytes", eChatType.CT_System,
-				                       eChatLoc.CL_SystemWindow);
+				client.Out.SendMessage("The door name must not be longer than 47 bytes", EChatType.CT_System,
+				                       EChatLoc.CL_SystemWindow);
 			return name;
 		}
 
@@ -433,7 +433,7 @@ namespace DOL.GS.Commands
 		{
 			if (name.Length > 47)
 				client.Out.SendMessage("The guild name is " + name.Length + ", but only 47 bytes 'll be displayed",
-				                       eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				                       EChatType.CT_System, EChatLoc.CL_SystemWindow);
 			return name;
 		}
 	}

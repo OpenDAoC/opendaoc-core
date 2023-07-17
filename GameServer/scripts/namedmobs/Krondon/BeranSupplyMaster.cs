@@ -178,7 +178,7 @@ namespace DOL.AI.Brain
 		{
 			foreach (GamePlayer player in Body.GetPlayersInRadius(WorldMgr.OBJ_UPDATE_DISTANCE))
 			{
-				player.Out.SendMessage(message, eChatType.CT_Broadcast, eChatLoc.CL_SystemWindow);
+				player.Out.SendMessage(message, EChatType.CT_Broadcast, EChatLoc.CL_SystemWindow);
 			}
 		}
 		public int IgniteBarrel(ECSGameTimer timer)
@@ -221,7 +221,7 @@ namespace DOL.AI.Brain
 				BroadcastMessage(String.Format(Body.Name + " ignites barrel."));
 				Ignite_Barrel = false;
 				Body.TurnTo(npc);
-				Body.Emote(eEmote.LetsGo);
+				Body.Emote(EEmote.LetsGo);
 			}
 			return 0;
 		}

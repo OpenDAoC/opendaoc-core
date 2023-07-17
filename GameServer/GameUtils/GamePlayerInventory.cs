@@ -307,7 +307,7 @@ namespace DOL.GS
 				{
 					if (GameServer.Database.AddObject(item) == false)
 					{
-						m_player.Out.SendMessage("Error adding item to the database, item may be lost!", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+						m_player.Out.SendMessage("Error adding item to the database, item may be lost!", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 						Log.ErrorFormat("Error adding item {0}:{1} for player {2} into the database during AddItem!", item.Id_nb, item.Name, m_player.Name);
 						m_items.Remove(slot);
 						item.SlotPosition = savePosition;
@@ -319,7 +319,7 @@ namespace DOL.GS
 				{
 					if (GameServer.Database.SaveObject(item) == false)
 					{
-						m_player.Out.SendMessage("Error saving item to the database, this item may be lost!", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+						m_player.Out.SendMessage("Error saving item to the database, this item may be lost!", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 						Log.ErrorFormat("Error saving item {0}:{1} for player {2} into the database during AddItem!", item.Id_nb, item.Name, m_player.Name);
 						m_items.Remove(slot);
 						item.SlotPosition = savePosition;
@@ -390,7 +390,7 @@ namespace DOL.GS
 				{
 					if (GameServer.Database.DeleteObject(item) == false)
 					{
-						m_player.Out.SendMessage("Error deleting item from the database, operation aborted!", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+						m_player.Out.SendMessage("Error deleting item from the database, operation aborted!", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 						Log.ErrorFormat("Error deleting item {0}:{1} for player {2} from the database during RemoveItem!", item.Id_nb, item.Name, m_player.Name);
 						m_items.Add(oldSlot, item);
 						item.SlotPosition = savePosition;
@@ -402,7 +402,7 @@ namespace DOL.GS
 				{
 					if (GameServer.Database.SaveObject(item) == false)
 					{
-						m_player.Out.SendMessage("Error saving item to the database, operation aborted!", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+						m_player.Out.SendMessage("Error saving item to the database, operation aborted!", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 						Log.ErrorFormat("Error saving item {0}:{1} for player {2} to the database during RemoveItem!", item.Id_nb, item.Name, m_player.Name);
 						m_items.Add(oldSlot, item);
 						item.SlotPosition = savePosition;
@@ -554,7 +554,7 @@ namespace DOL.GS
 		{
 			if (!m_player.IsAlive)
 			{
-				m_player.Out.SendMessage("You can't change your inventory when dead!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				m_player.Out.SendMessage("You can't change your inventory when dead!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				m_player.Out.SendInventorySlotsUpdate(null);
 
 				return false;
@@ -611,7 +611,7 @@ namespace DOL.GS
 					if (fromSlot == eInventorySlot.Horse)
 					{
 						// don't let player move active horse to a horse bag, which will disable all bags!
-						m_player.Out.SendMessage("You can't move your active horse into a saddlebag!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						m_player.Out.SendMessage("You can't move your active horse into a saddlebag!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						valid = false;
 					}
 
@@ -670,7 +670,7 @@ namespace DOL.GS
 
                         if (!valid)
                         {
-                            m_player.Out.SendMessage("Your class cannot use this item!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            m_player.Out.SendMessage("Your class cannot use this item!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                         }
                     }
                 }
@@ -696,7 +696,7 @@ namespace DOL.GS
 
                         if (!valid)
                         {
-                            m_player.Out.SendMessage("Your class cannot use this item!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            m_player.Out.SendMessage("Your class cannot use this item!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                         }
                     }
                 }
@@ -710,8 +710,8 @@ namespace DOL.GS
 							if (fromItem.Item_Type != (int) eInventorySlot.Mythical)
 							{
 								valid = false;
-								m_player.Out.SendMessage(fromItem.GetName(0, true) + " can't go there!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage(fromItem.GetName(0, true) + " can't go there!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 
 							if (valid && fromItem.Type_Damage > m_player.ChampionLevel)
@@ -719,7 +719,7 @@ namespace DOL.GS
 								valid = false;
 								m_player.Out.SendMessage(
 									"You can't use " + fromItem.GetName(0, true) + " , you should increase your champion level.",
-									eChatType.CT_System, eChatLoc.CL_SystemWindow);
+									EChatType.CT_System, EChatLoc.CL_SystemWindow);
 							}
 							break;
 							//horse slots
@@ -728,7 +728,7 @@ namespace DOL.GS
 							{
 								valid = false;
 								m_player.Out.SendMessage("You can't put " + fromItem.GetName(0, true) + " in your active barding slot!",
-								                         eChatType.CT_System, eChatLoc.CL_SystemWindow);
+								                         EChatType.CT_System, EChatLoc.CL_SystemWindow);
 							}
 							break;
 						case eInventorySlot.HorseArmor:
@@ -736,7 +736,7 @@ namespace DOL.GS
 							{
 								valid = false;
 								m_player.Out.SendMessage("You can't put " + fromItem.GetName(0, true) + " in your active horse armor slot!",
-								                         eChatType.CT_System, eChatLoc.CL_SystemWindow);
+								                         EChatType.CT_System, EChatLoc.CL_SystemWindow);
 							}
 							break;
 						case eInventorySlot.Horse:
@@ -744,7 +744,7 @@ namespace DOL.GS
 							{
 								valid = false;
 								m_player.Out.SendMessage("You can't put " + fromItem.GetName(0, true) + " in your active mount slot!",
-								                         eChatType.CT_System, eChatLoc.CL_SystemWindow);
+								                         EChatType.CT_System, EChatLoc.CL_SystemWindow);
 							}
 							break;
 							//weapon slots
@@ -757,14 +757,14 @@ namespace DOL.GS
 								//left hand weapons can be used in right hand slot
 							{
 								valid = false;
-								m_player.Out.SendMessage(fromItem.GetName(0, true) + " can't go there!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage(fromItem.GetName(0, true) + " can't go there!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							else if (!m_player.HasAbilityToUseItem(fromItem.Template))
 							{
 								valid = false;
-								m_player.Out.SendMessage("You have no skill in using this weapon type!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage("You have no skill in using this weapon type!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							break;
 						case eInventorySlot.TwoHandWeapon:
@@ -775,14 +775,14 @@ namespace DOL.GS
 							        && fromItem.Object_Type != (int) EObjectType.Instrument)) //instruments can be used in 2h slot
 							{
 								valid = false;
-								m_player.Out.SendMessage(fromItem.GetName(0, true) + " can't go there!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage(fromItem.GetName(0, true) + " can't go there!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							else if (!m_player.HasAbilityToUseItem(fromItem.Template))
 							{
 								valid = false;
-								m_player.Out.SendMessage("You have no skill in using this weapon type!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage("You have no skill in using this weapon type!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							break;
 						case eInventorySlot.LeftHandWeapon:
@@ -791,14 +791,14 @@ namespace DOL.GS
 								//shield can be used only in left hand slot
 							{
 								valid = false;
-								m_player.Out.SendMessage(fromItem.GetName(0, true) + " can't go there!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage(fromItem.GetName(0, true) + " can't go there!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							else if (!m_player.HasAbilityToUseItem(fromItem.Template))
 							{
 								valid = false;
-								m_player.Out.SendMessage("You have no skill in using this weapon type!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage("You have no skill in using this weapon type!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							break;
 						case eInventorySlot.DistanceWeapon:
@@ -807,14 +807,14 @@ namespace DOL.GS
 								//instruments can be used in ranged slot
 							{
 								valid = false;
-								m_player.Out.SendMessage(fromItem.GetName(0, true) + " can't go there!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage(fromItem.GetName(0, true) + " can't go there!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							else if (!m_player.HasAbilityToUseItem(fromItem.Template))
 							{
 								valid = false;
-								m_player.Out.SendMessage("You have no skill in using this weapon type!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage("You have no skill in using this weapon type!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							break;
 
@@ -828,14 +828,14 @@ namespace DOL.GS
 							if (fromItem.Item_Type != (int) toSlot)
 							{
 								valid = false;
-								m_player.Out.SendMessage(fromItem.GetName(0, true) + " can't go there!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage(fromItem.GetName(0, true) + " can't go there!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							else if (!m_player.HasAbilityToUseItem(fromItem.Template ))
 							{
 								valid = false;
-								m_player.Out.SendMessage("You have no skill in wearing this armor type!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage("You have no skill in wearing this armor type!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							break;
 
@@ -846,8 +846,8 @@ namespace DOL.GS
 							if (fromItem.Item_Type != (int) toSlot)
 							{
 								valid = false;
-								m_player.Out.SendMessage(fromItem.GetName(0, true) + " can't go there!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage(fromItem.GetName(0, true) + " can't go there!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							break;
 						case eInventorySlot.LeftBracer:
@@ -855,8 +855,8 @@ namespace DOL.GS
 							if (fromItem.Item_Type != Slot.RIGHTWRIST && fromItem.Item_Type != Slot.LEFTWRIST)
 							{
 								valid = false;
-								m_player.Out.SendMessage(fromItem.GetName(0, true) + " can't go there!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage(fromItem.GetName(0, true) + " can't go there!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							break;
 						case eInventorySlot.LeftRing:
@@ -864,8 +864,8 @@ namespace DOL.GS
 							if (fromItem.Item_Type != Slot.LEFTRING && fromItem.Item_Type != Slot.RIGHTRING)
 							{
 								valid = false;
-								m_player.Out.SendMessage(fromItem.GetName(0, true) + " can't go there!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage(fromItem.GetName(0, true) + " can't go there!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							break;
 						case eInventorySlot.FirstQuiver:
@@ -875,8 +875,8 @@ namespace DOL.GS
 							if (fromItem.Object_Type != (int) EObjectType.Arrow && fromItem.Object_Type != (int) EObjectType.Bolt)
 							{
 								valid = false;
-								m_player.Out.SendMessage("You can't put your " + fromItem.Name + " in your quiver!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage("You can't put your " + fromItem.Name + " in your quiver!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							break;
 					}
@@ -891,7 +891,7 @@ namespace DOL.GS
 						valid = false;
 					}
 
-					m_player.Out.SendMessage("You cannot put an item from this realm!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					m_player.Out.SendMessage("You cannot put an item from this realm!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				}
 
 				if (valid && toItem != null)
@@ -903,16 +903,16 @@ namespace DOL.GS
 							if (toItem.Item_Type != (int) eInventorySlot.Mythical)
 							{
 								valid = false;
-								m_player.Out.SendMessage(toItem.GetName(0, true) + " can't go there!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage(toItem.GetName(0, true) + " can't go there!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 
 							if (valid && toItem.Type_Damage > m_player.ChampionLevel)
 							{
 								valid = false;
 								m_player.Out.SendMessage(
-									"You can't use " + toItem.GetName(0, true) + " , you should increase your champion level.", eChatType.CT_System,
-									eChatLoc.CL_SystemWindow);
+									"You can't use " + toItem.GetName(0, true) + " , you should increase your champion level.", EChatType.CT_System,
+									EChatLoc.CL_SystemWindow);
 							}
 							break;
 							//horse slots
@@ -921,7 +921,7 @@ namespace DOL.GS
 							{
 								valid = false;
 								m_player.Out.SendMessage("You can't put " + toItem.GetName(0, true) + " in your active barding slot!",
-								                         eChatType.CT_System, eChatLoc.CL_SystemWindow);
+								                         EChatType.CT_System, EChatLoc.CL_SystemWindow);
 							}
 							break;
 						case eInventorySlot.HorseArmor:
@@ -929,7 +929,7 @@ namespace DOL.GS
 							{
 								valid = false;
 								m_player.Out.SendMessage("You can't put " + toItem.GetName(0, true) + " in your active horse armor slot!",
-								                         eChatType.CT_System, eChatLoc.CL_SystemWindow);
+								                         EChatType.CT_System, EChatLoc.CL_SystemWindow);
 							}
 							break;
 						case eInventorySlot.Horse:
@@ -937,7 +937,7 @@ namespace DOL.GS
 							{
 								valid = false;
 								m_player.Out.SendMessage("You can't put " + toItem.GetName(0, true) + " in your active mount slot!",
-								                         eChatType.CT_System, eChatLoc.CL_SystemWindow);
+								                         EChatType.CT_System, EChatLoc.CL_SystemWindow);
 							}
 							break;
 							//weapon slots
@@ -949,14 +949,14 @@ namespace DOL.GS
 								//left hand weapons can be used in right hand slot
 							{
 								valid = false;
-								m_player.Out.SendMessage(toItem.GetName(0, true) + " can't go there!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage(toItem.GetName(0, true) + " can't go there!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							else if (!m_player.HasAbilityToUseItem(toItem.Template))
 							{
 								valid = false;
-								m_player.Out.SendMessage("You have no skill in using this weapon type!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage("You have no skill in using this weapon type!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							break;
 						case eInventorySlot.TwoHandWeapon:
@@ -967,14 +967,14 @@ namespace DOL.GS
 							        && toItem.Object_Type != (int) EObjectType.Instrument)) //instruments can be used in 2h slot
 							{
 								valid = false;
-								m_player.Out.SendMessage(toItem.GetName(0, true) + " can't go there!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage(toItem.GetName(0, true) + " can't go there!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							else if (!m_player.HasAbilityToUseItem(toItem.Template))
 							{
 								valid = false;
-								m_player.Out.SendMessage("You have no skill in using this weapon type!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage("You have no skill in using this weapon type!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							break;
 						case eInventorySlot.LeftHandWeapon:
@@ -983,28 +983,28 @@ namespace DOL.GS
 								//shield can be used only in left hand slot
 							{
 								valid = false;
-								m_player.Out.SendMessage(toItem.GetName(0, true) + " can't go there!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage(toItem.GetName(0, true) + " can't go there!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							else if (!m_player.HasAbilityToUseItem(toItem.Template))
 							{
 								valid = false;
-								m_player.Out.SendMessage("You have no skill in using this weapon type!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage("You have no skill in using this weapon type!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							break;
 						case eInventorySlot.DistanceWeapon:
 							if (toItem.Item_Type != (int) fromSlot && toItem.Object_Type != (int) EObjectType.Instrument)
 							{
 								valid = false;
-								m_player.Out.SendMessage(toItem.GetName(0, true) + " can't go there!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage(toItem.GetName(0, true) + " can't go there!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							else if (!m_player.HasAbilityToUseItem(toItem.Template))
 							{
 								valid = false;
-								m_player.Out.SendMessage("You have no skill in using this weapon type!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage("You have no skill in using this weapon type!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							break;
 
@@ -1018,14 +1018,14 @@ namespace DOL.GS
 							if (toItem.Item_Type != (int) fromSlot)
 							{
 								valid = false;
-								m_player.Out.SendMessage(toItem.GetName(0, true) + " can't go there!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage(toItem.GetName(0, true) + " can't go there!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							else if (!m_player.HasAbilityToUseItem(toItem.Template))
 							{
 								valid = false;
-								m_player.Out.SendMessage("You have no skill in wearing this armor type!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage("You have no skill in wearing this armor type!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							break;
 
@@ -1036,8 +1036,8 @@ namespace DOL.GS
 							if (toItem.Item_Type != (int) fromSlot)
 							{
 								valid = false;
-								m_player.Out.SendMessage(toItem.GetName(0, true) + " can't go there!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage(toItem.GetName(0, true) + " can't go there!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							break;
 						case eInventorySlot.LeftBracer:
@@ -1045,8 +1045,8 @@ namespace DOL.GS
 							if (toItem.Item_Type != Slot.RIGHTWRIST && toItem.Item_Type != Slot.LEFTWRIST)
 							{
 								valid = false;
-								m_player.Out.SendMessage(toItem.GetName(0, true) + " can't go there!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage(toItem.GetName(0, true) + " can't go there!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							break;
 						case eInventorySlot.LeftRing:
@@ -1054,8 +1054,8 @@ namespace DOL.GS
 							if (toItem.Item_Type != Slot.LEFTRING && toItem.Item_Type != Slot.RIGHTRING)
 							{
 								valid = false;
-								m_player.Out.SendMessage(toItem.GetName(0, true) + " can't go there!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage(toItem.GetName(0, true) + " can't go there!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							break;
 						case eInventorySlot.FirstQuiver:
@@ -1065,8 +1065,8 @@ namespace DOL.GS
 							if (toItem.Object_Type != (int) EObjectType.Arrow && toItem.Object_Type != (int) EObjectType.Bolt)
 							{
 								valid = false;
-								m_player.Out.SendMessage("You can't put your " + toItem.Name + " in your quiver!", eChatType.CT_System,
-								                         eChatLoc.CL_SystemWindow);
+								m_player.Out.SendMessage("You can't put your " + toItem.Name + " in your quiver!", EChatType.CT_System,
+								                         EChatLoc.CL_SystemWindow);
 							}
 							break;
 					}

@@ -104,7 +104,7 @@ namespace DOL.GS.Commands
 				}
 
 			}
-			if (Properties.DISCORD_ACTIVE) WebhookMessage.LogChatMessage(client.Player, eChatType.CT_Advise, msg);
+			if (Properties.DISCORD_ACTIVE) WebhookMessage.LogChatMessage(client.Player, EChatType.CT_Advise, msg);
 
 			if (client.Account.PrivLevel == 1)
 			{

@@ -408,7 +408,7 @@ namespace DOL.GS.ServerRules
 		/// </summary>
 		/// <param name="player"></param>
 		/// <param name="merchantType"></param>
-		void SendHousingMerchantWindow(GamePlayer player, DOL.GS.PacketHandler.eMerchantWindowType merchantType);
+		void SendHousingMerchantWindow(GamePlayer player, DOL.GS.PacketHandler.EMerchantWindowType merchantType);
 
 
 		/// <summary>
@@ -419,7 +419,7 @@ namespace DOL.GS.ServerRules
 		/// <param name="slot"></param>
 		/// <param name="count"></param>
 		/// <param name="merchantType"></param>
-		void BuyHousingItem(GamePlayer player, ushort slot, byte count, DOL.GS.PacketHandler.eMerchantWindowType merchantType);
+		void BuyHousingItem(GamePlayer player, ushort slot, byte count, DOL.GS.PacketHandler.EMerchantWindowType merchantType);
 
 		/// <summary>
 		/// Get a housing hookpoint NPC

@@ -31,14 +31,14 @@ namespace DOL.GS.Commands
 			
 				if (today < endSoftLaunch && client.Account.PrivLevel == 1)
 				{
-					client.Player.Out.SendMessage($"This command will be available after {endSoftLaunch} UTC+1", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					client.Player.Out.SendMessage($"This command will be available after {endSoftLaunch} UTC+1", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 					return;
 				}
 				var alreadyUsed = CoreDb<AccountXCustomParam>.SelectObject(DB.Column("Name").IsEqualTo(client.Account.Name).And(DB.Column("KeyName").IsEqualTo(SoftLaunchLevelKey)));
 				
 				if (alreadyUsed != null)
 				{
-					client.Player.Out.SendMessage("You have already used your /level credit.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					client.Player.Out.SendMessage("You have already used your /level credit.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 					return;
 				}
 
@@ -47,7 +47,7 @@ namespace DOL.GS.Commands
 					var hasCredit = AchievementUtil.CheckPlayerCredit("SoftLaunch39", client.Player, (int)client.Player.Realm);
 					if (!hasCredit)
 					{
-						client.Player.Out.SendMessage($"You are not eligible to use /level on {client.Player.Realm.ToString()}.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						client.Player.Out.SendMessage($"You are not eligible to use /level on {client.Player.Realm.ToString()}.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						return;
 					}
 				}
@@ -57,7 +57,7 @@ namespace DOL.GS.Commands
 			
 					if (!hasCredit)
 					{
-						client.Player.Out.SendMessage("You are not eligible to use /level.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						client.Player.Out.SendMessage("You are not eligible to use /level.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						return;
 					}
 				}
@@ -65,13 +65,13 @@ namespace DOL.GS.Commands
 				
 				if (client.Player.TargetObject is not (GameTrainer or AtlasTrainer))
 				{
-					client.Player.Out.SendMessage("You need to be at your trainer to use this command.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					client.Player.Out.SendMessage("You need to be at your trainer to use this command.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 					return;
 				}
 				
 				if (client.Player.Level != 1)
 				{
-					client.Player.Out.SendMessage("/level can only be used at level 1.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					client.Player.Out.SendMessage("/level can only be used at level 1.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 					return;
 				}
 			
@@ -83,13 +83,13 @@ namespace DOL.GS.Commands
 				{
 					if (!client.Player.UsedLevelCommand)
 					{
-						client.Player.Out.SendMessage("This command can only be used by /level characters.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						client.Player.Out.SendMessage("This command can only be used by /level characters.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						return;
 					}
 					
 					if(client.Player.Level != targetLevel)
 					{
-						client.Player.Out.SendMessage($"This command can only be used at level {targetLevel}.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						client.Player.Out.SendMessage($"This command can only be used at level {targetLevel}.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						return;
 					}
 					
@@ -97,7 +97,7 @@ namespace DOL.GS.Commands
 					
 					if (alreadyUsed != null)
 					{
-						client.Player.Out.SendMessage("You have already received your /level complementary gear.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						client.Player.Out.SendMessage("You have already received your /level complementary gear.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						return;
 					}
 					
@@ -111,7 +111,7 @@ namespace DOL.GS.Commands
 					slashlevelgear.Value = "1";
 					GameServer.Database.AddObject(slashlevelgear);
 					
-					client.Player.Out.SendMessage($"You have been given gear for your level {targetLevel}.", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+					client.Player.Out.SendMessage($"You have been given gear for your level {targetLevel}.", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 					
 				}
 				else
@@ -140,8 +140,8 @@ namespace DOL.GS.Commands
 
 				player.GainExperience(EXpSource.Other, newXP);
 				player.UsedLevelCommand = true;
-				player.Out.SendMessage($"You have been rewarded enough Experience to reach level {targetLevel}, right click on your trainer to gain levels!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
-				player.Out.SendMessage($"Use '/level gear' when you have reached {targetLevel} to receive a set of complementary ROGs.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				player.Out.SendMessage($"You have been rewarded enough Experience to reach level {targetLevel}, right click on your trainer to gain levels!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
+				player.Out.SendMessage($"Use '/level gear' when you have reached {targetLevel} to receive a set of complementary ROGs.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 
 				player.SaveIntoDatabase();
 				
@@ -154,7 +154,7 @@ namespace DOL.GS.Commands
 			}
 			else
 			{
-				player.Out.SendMessage("Use the command again if you change your mind.", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+				player.Out.SendMessage("Use the command again if you change your mind.", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 			}
 		}
 	}

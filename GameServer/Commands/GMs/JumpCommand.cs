@@ -68,7 +68,7 @@ namespace DOL.GS.Commands
 					}
 					else
 					{
-						client.Out.SendMessage("This house number is not owned by anyone!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						client.Out.SendMessage("This house number is not owned by anyone!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 					}
 					return;
 				}
@@ -118,7 +118,7 @@ namespace DOL.GS.Commands
 								}
 							}
 
-							client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.JumpToX", npcs[0].CurrentRegion.Description), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+							client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.JumpToX", npcs[0].CurrentRegion.Description), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 							if (jumpTarget.InHouse && jumpTarget.CurrentHouse != null)
 							{
 								jumpTarget.CurrentHouse.Enter(client.Player);
@@ -130,13 +130,13 @@ namespace DOL.GS.Commands
 							return;
 						}
 
-						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.CannotBeFound", args[2]), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.CannotBeFound", args[2]), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						return;
 					}
 
 					if (CheckExpansion(client, clientc, clientc.Player.CurrentRegionID))
 					{
-						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.JumpToX", clientc.Player.CurrentRegion.Description), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.JumpToX", clientc.Player.CurrentRegion.Description), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						if (clientc.Player.CurrentHouse != null && clientc.Player.InHouse)
 							clientc.Player.CurrentHouse.Enter(client.Player);
 						else
@@ -144,7 +144,7 @@ namespace DOL.GS.Commands
 						return;
 					}
 
-					client.Out.SendMessage("You don't have an expansion needed to jump to this location.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					client.Out.SendMessage("You don't have an expansion needed to jump to this location.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 
 					return;
 				}
@@ -175,22 +175,22 @@ namespace DOL.GS.Commands
 								}
 							}
 
-							client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.JumpToX", npcs[0].CurrentRegion.Description), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+							client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.JumpToX", npcs[0].CurrentRegion.Description), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 							client.Player.MoveTo(jumpTarget.CurrentRegionID, jumpTarget.X, jumpTarget.Y, jumpTarget.Z, jumpTarget.Heading);
 							return;
 						}
 
-						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.CannotBeFoundInRealm", args[2], realm), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.CannotBeFoundInRealm", args[2], realm), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						return;
 					}
 					if (CheckExpansion(client, clientc, clientc.Player.CurrentRegionID))
 					{
 						if (clientc.Player.InHouse)
 						{
-							client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.CannotJumpToInsideHouse"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+							client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.CannotJumpToInsideHouse"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 							return;
 						}
-						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.JumpToX", clientc.Player.CurrentRegion.Description), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.JumpToX", clientc.Player.CurrentRegion.Description), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						if (clientc.Player.CurrentHouse != null && clientc.Player.InHouse)
 							clientc.Player.CurrentHouse.Enter(client.Player);
 						else
@@ -209,20 +209,20 @@ namespace DOL.GS.Commands
 					
 					if (clientc == null)
 					{
-						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.CannotBeFound", args[2]), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.CannotBeFound", args[2]), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						return;
 					}
 
 					if (CheckExpansion(client, clientc, clientc.Player.CurrentRegionID))
 					{
-						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.JumpToX", clientc.Player.CurrentRegion.Description), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.JumpToX", clientc.Player.CurrentRegion.Description), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						if (clientc.Player.CurrentRegion.IsDungeon)
-							client.Out.SendMessage("Player is currently in a dungeon and it's not safe to port above them.", eChatType.CT_Staff, eChatLoc.CL_SystemWindow);
+							client.Out.SendMessage("Player is currently in a dungeon and it's not safe to port above them.", EChatType.CT_Staff, EChatLoc.CL_SystemWindow);
 						else
 							client.Player.MoveTo(clientc.Player.CurrentRegionID, clientc.Player.X, clientc.Player.Y, clientc.Player.Z + 10000, client.Player.Heading);
 						return;
 					}
-					client.Out.SendMessage("You don't have an expansion needed to jump to this location.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					client.Out.SendMessage("You don't have an expansion needed to jump to this location.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 					return;
 				}
 				#endregion
@@ -233,7 +233,7 @@ namespace DOL.GS.Commands
 					clientc = WorldMgr.GetClientByPlayerName(args[1], false, true);
 					if (clientc == null)
 					{
-						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.PlayerIsNotInGame", args[1]), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.PlayerIsNotInGame", args[1]), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						return;
 					}
 					if (CheckExpansion(clientc, clientc, 249))
@@ -280,7 +280,7 @@ namespace DOL.GS.Commands
 					clientc = WorldMgr.GetClientByPlayerName(args[1], false, true);
 					if (clientc == null)
 					{
-						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.PlayerIsNotInGame", args[1]), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.PlayerIsNotInGame", args[1]), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						return;
 					}
 					clientc.Player.MoveTo(clientc.Player.CurrentRegionID, Convert.ToInt32(args[3]), Convert.ToInt32(args[4]), Convert.ToInt32(args[5]), clientc.Player.Heading);
@@ -294,7 +294,7 @@ namespace DOL.GS.Commands
 					clientc = WorldMgr.GetClientByPlayerName(args[1], false, true);
 					if (clientc == null)
 					{
-						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.PlayerIsNotInGame", args[1]), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.PlayerIsNotInGame", args[1]), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						return;
 					}
 					if (CheckExpansion(clientc, clientc, (ushort)Convert.ToUInt16(args[6])))
@@ -313,7 +313,7 @@ namespace DOL.GS.Commands
 					clientc = WorldMgr.GetClientByPlayerName(args[1], false, true);
 					if (clientc == null)
 					{
-						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.PlayerIsNotInGame", args[1]), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.PlayerIsNotInGame", args[1]), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						return;
 					}
 					if (args[3] == "me")
@@ -327,7 +327,7 @@ namespace DOL.GS.Commands
 
 					if (clientto == null)
 					{
-						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.PlayerIsNotInGame", args[3]), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.PlayerIsNotInGame", args[3]), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						return;
 					}
 					else
@@ -366,7 +366,7 @@ namespace DOL.GS.Commands
 
 					message += " - " + LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.PopInstructions");
 
-					client.Out.SendMessage(message, eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					client.Out.SendMessage(message, EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				}
 				else if (args.Length > 1 && args[1] == "pop")
 				{
@@ -376,7 +376,7 @@ namespace DOL.GS.Commands
 
 					if (locations == null || locations.Count < 1)
 					{
-						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.NothingPushed"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+						client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Jump.NothingPushed"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						return;
 					}
 
@@ -409,9 +409,9 @@ namespace DOL.GS.Commands
 			Region reg = WorldMgr.GetRegion(RegionID);
 			if (reg != null && reg.Expansion > (int)clientJumpee.ClientType)
 			{
-				clientJumper.Out.SendMessage(LanguageMgr.GetTranslation(clientJumper, "GMCommands.Jump.CheckExpansion.CannotJump", clientJumpee.Player.Name, reg.Description), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				clientJumper.Out.SendMessage(LanguageMgr.GetTranslation(clientJumper, "GMCommands.Jump.CheckExpansion.CannotJump", clientJumpee.Player.Name, reg.Description), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				if (clientJumper != clientJumpee)
-					clientJumpee.Out.SendMessage(LanguageMgr.GetTranslation(clientJumpee, "GMCommands.Jump.CheckExpansion.ClientNoSup", clientJumper.Player.Name, reg.Description), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					clientJumpee.Out.SendMessage(LanguageMgr.GetTranslation(clientJumpee, "GMCommands.Jump.CheckExpansion.ClientNoSup", clientJumper.Player.Name, reg.Description), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				return false;
 			}
 			return true;

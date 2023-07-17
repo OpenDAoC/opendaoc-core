@@ -38,13 +38,13 @@ namespace DOL.GS.Commands
 								{
 
 									groupedplayers.ResetDisabledSkills();
-									groupedplayers.Out.SendMessage(client.Player.Name +" has reset your ability and spell timers!", eChatType.CT_Spell, eChatLoc.CL_ChatWindow);
+									groupedplayers.Out.SendMessage(client.Player.Name +" has reset your ability and spell timers!", EChatType.CT_Spell, EChatLoc.CL_ChatWindow);
 								}
 							}
 						}
 						else
 							client.Player.ResetDisabledSkills();
-						client.Player.Out.SendMessage("Target does not have a group so, ability and spell timers have been reset for you!", eChatType.CT_Spell, eChatLoc.CL_ChatWindow);
+						client.Player.Out.SendMessage("Target does not have a group so, ability and spell timers have been reset for you!", EChatType.CT_Spell, EChatLoc.CL_ChatWindow);
 						break;
 					}
 					#endregion
@@ -57,12 +57,12 @@ namespace DOL.GS.Commands
 							foreach (GamePlayer cgplayers in cg.Members.Keys)
 							{
 								cgplayers.ResetDisabledSkills();
-								cgplayers.Out.SendMessage(client.Player.Name + " has reset your ability and spell timers!", eChatType.CT_Spell, eChatLoc.CL_ChatWindow);
+								cgplayers.Out.SendMessage(client.Player.Name + " has reset your ability and spell timers!", EChatType.CT_Spell, EChatLoc.CL_ChatWindow);
 							}
 						}
 						else
 							client.Player.ResetDisabledSkills();
-						client.Player.Out.SendMessage("Target does not have a chatgroup so, ability and spell timers have been reset for you!", eChatType.CT_Spell, eChatLoc.CL_ChatWindow);
+						client.Player.Out.SendMessage("Target does not have a chatgroup so, ability and spell timers have been reset for you!", EChatType.CT_Spell, EChatLoc.CL_ChatWindow);
 						break;
 					}
 					#endregion
@@ -73,7 +73,7 @@ namespace DOL.GS.Commands
 						if (target == null)
 							target = (GamePlayer)client.Player;
 						target.ResetDisabledSkills();
-						target.Out.SendMessage("Your ability and spell timers have been reset!", eChatType.CT_Spell, eChatLoc.CL_ChatWindow);
+						target.Out.SendMessage("Your ability and spell timers have been reset!", EChatType.CT_Spell, EChatLoc.CL_ChatWindow);
 					}
 					break;
 					#endregion
@@ -82,7 +82,7 @@ namespace DOL.GS.Commands
 				case "self":
 					{
 						client.Player.ResetDisabledSkills();
-						client.Player.Out.SendMessage("Your ability and spell timers have been reset!", eChatType.CT_Spell, eChatLoc.CL_ChatWindow);
+						client.Player.Out.SendMessage("Your ability and spell timers have been reset!", EChatType.CT_Spell, EChatLoc.CL_ChatWindow);
 					}
 					break;
 					#endregion
@@ -97,19 +97,19 @@ namespace DOL.GS.Commands
 								foreach (GamePlayer bgplayers in bg.Members.Keys)
 								{
 									bgplayers.ResetDisabledSkills();
-									bgplayers.Out.SendMessage(client.Player.Name + " has reset your ability and spell timers!", eChatType.CT_Spell, eChatLoc.CL_ChatWindow);
+									bgplayers.Out.SendMessage(client.Player.Name + " has reset your ability and spell timers!", EChatType.CT_Spell, EChatLoc.CL_ChatWindow);
 								}
 							}
 						}
 						else
 							client.Player.ResetDisabledSkills();
-						client.Player.Out.SendMessage("Target does not have a battlegroup so, ability and spell timers have been reset for you!", eChatType.CT_Spell, eChatLoc.CL_ChatWindow);
+						client.Player.Out.SendMessage("Target does not have a battlegroup so, ability and spell timers have been reset for you!", EChatType.CT_Spell, EChatLoc.CL_ChatWindow);
 						break;
 					}
 					#endregion
 				default:
 					{
-						client.Out.SendMessage("'" + args[1] + "' is not a valid arguement.", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+						client.Out.SendMessage("'" + args[1] + "' is not a valid arguement.", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 					}
 					break;
 			}

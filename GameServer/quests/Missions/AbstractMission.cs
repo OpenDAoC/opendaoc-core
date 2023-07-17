@@ -199,7 +199,7 @@ namespace DOL.GS.Quests
 			    if (RewardRealmPoints > 0)
 					player.GainRealmPoints(RewardRealmPoints);
 
-				player.Out.SendMessage("You finish the " + Name + "!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				player.Out.SendMessage("You finish the " + Name + "!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 			}
 
 			switch (MissionType)
@@ -244,7 +244,7 @@ namespace DOL.GS.Quests
 		{
 			foreach (GamePlayer player in Targets)
 			{
-				player.Out.SendMessage("Your " + Name + " has expired!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				player.Out.SendMessage("Your " + Name + " has expired!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 			}
 
 			switch (MissionType)

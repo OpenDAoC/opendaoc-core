@@ -320,8 +320,8 @@ namespace DOL.GS.Keeps
 			Parallel.ForEach(WorldMgr.GetClientsOfRealm(Realm), cl =>
 			{
 				if (cl.Player.ObjectState != eObjectState.Active) return;
-				cl.Out.SendMessage(message, eChatType.CT_ScreenCenterSmaller, eChatLoc.CL_SystemWindow);
-				cl.Out.SendMessage(message, eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+				cl.Out.SendMessage(message, EChatType.CT_ScreenCenterSmaller, EChatLoc.CL_SystemWindow);
+				cl.Out.SendMessage(message, EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 			});
 			
 			/*
@@ -420,13 +420,13 @@ namespace DOL.GS.Keeps
 
 			if (player.IsMezzed)
 			{
-				player.Out.SendMessage("You are mesmerized!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				player.Out.SendMessage("You are mesmerized!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				return false;
 			}
 
 			if (player.IsStunned)
 			{
-				player.Out.SendMessage("You are stunned!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				player.Out.SendMessage("You are stunned!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				return false;
 			}
 
@@ -789,7 +789,7 @@ namespace DOL.GS.Keeps
 			base.Die(killer);
 
 			foreach (GamePlayer player in GetPlayersInRadius(WorldMgr.INFO_DISTANCE))
-				player.Out.SendMessage($"The {Name} is broken!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				player.Out.SendMessage($"The {Name} is broken!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 
 			m_state = eDoorState.Open;
 			BroadcastDoorStatus();

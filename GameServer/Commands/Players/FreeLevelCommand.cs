@@ -32,7 +32,7 @@ namespace DOL.GS.Commands
 					// NOT SURE FOR THIS MESSAGE
 					message = LanguageMgr.GetTranslation(client.Account.Language, "PLCommands.FreeLevel.NoFreeLevel");
 				}
-				client.Out.SendMessage(message, eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				client.Out.SendMessage(message, EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				return;
 			}
 
@@ -73,7 +73,7 @@ namespace DOL.GS.Commands
 					break;
 
 			}
-			client.Out.SendMessage(message, eChatType.CT_System, eChatLoc.CL_SystemWindow);
+			client.Out.SendMessage(message, EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 	}
 }

@@ -66,12 +66,12 @@ namespace DOL.GS.GameEvents
 					message = realm + message;
 				}
 
-				eChatType chatType = eChatType.CT_System;
+				EChatType chatType = EChatType.CT_System;
 
-				if (Enum.IsDefined(typeof(eChatType), ServerProperties.Properties.SHOW_LOGINS_CHANNEL))
-					chatType = (eChatType)ServerProperties.Properties.SHOW_LOGINS_CHANNEL;
+				if (Enum.IsDefined(typeof(EChatType), ServerProperties.Properties.SHOW_LOGINS_CHANNEL))
+					chatType = (EChatType)ServerProperties.Properties.SHOW_LOGINS_CHANNEL;
 
-				pclient.Out.SendMessage(message, chatType, eChatLoc.CL_SystemWindow);
+				pclient.Out.SendMessage(message, chatType, EChatLoc.CL_SystemWindow);
 			}
 		}
 
@@ -111,12 +111,12 @@ namespace DOL.GS.GameEvents
 					message = realm + message;
 				}
 
-				eChatType chatType = eChatType.CT_System;
+				EChatType chatType = EChatType.CT_System;
 
-				if (Enum.IsDefined(typeof(eChatType), ServerProperties.Properties.SHOW_LOGINS_CHANNEL))
-					chatType = (eChatType)ServerProperties.Properties.SHOW_LOGINS_CHANNEL;
+				if (Enum.IsDefined(typeof(EChatType), ServerProperties.Properties.SHOW_LOGINS_CHANNEL))
+					chatType = (EChatType)ServerProperties.Properties.SHOW_LOGINS_CHANNEL;
 
-				pclient.Out.SendMessage(message, chatType, eChatLoc.CL_SystemWindow);
+				pclient.Out.SendMessage(message, chatType, EChatLoc.CL_SystemWindow);
 			}
 		}
 	}

@@ -21,7 +21,7 @@ namespace DOL.GS.Effects
 			//Send messages
 			if (m_living is GamePlayer)
 			{
-				((GamePlayer)m_living).Out.SendMessage("You begin to charge wildly!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
+				((GamePlayer)m_living).Out.SendMessage("You begin to charge wildly!", EChatType.CT_Spell, EChatLoc.CL_SystemWindow);
 			}
 			else if (m_living is GameNPC)
 			{
@@ -32,7 +32,7 @@ namespace DOL.GS.Effects
 
 					if (playerowner != null)
 					{
-						playerowner.Out.SendMessage("The " + icb.Body.Name + " charges its prey!", eChatType.CT_Say, eChatLoc.CL_SystemWindow);
+						playerowner.Out.SendMessage("The " + icb.Body.Name + " charges its prey!", EChatType.CT_Say, EChatLoc.CL_SystemWindow);
 					}
 				}
 			}
@@ -77,7 +77,7 @@ namespace DOL.GS.Effects
 			{
 				GamePlayer player = m_living as GamePlayer;
 				player.Out.SendUpdateMaxSpeed();
-				player.Out.SendMessage("You no longer seem so crazy!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				player.Out.SendMessage("You no longer seem so crazy!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 			}
 			else if (m_living is GameNPC)
 			{
@@ -88,7 +88,7 @@ namespace DOL.GS.Effects
 
 					if (playerowner != null)
 					{
-						playerowner.Out.SendMessage("The " + icb.Body.Name + " ceases its charge!", eChatType.CT_Say, eChatLoc.CL_SystemWindow);
+						playerowner.Out.SendMessage("The " + icb.Body.Name + " ceases its charge!", EChatType.CT_Say, EChatLoc.CL_SystemWindow);
 					}
 				}
 			}

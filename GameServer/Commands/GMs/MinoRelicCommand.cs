@@ -301,17 +301,17 @@ namespace DOL.GS.Commands
                                             //there is a match!
                                             //remove it from the world
                                             relic.RemoveFromWorld();
-                                            client.Player.Out.SendMessage("Relic " + relic.RelicID + " has been removed from the world", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                                            client.Player.Out.SendMessage("Relic " + relic.RelicID + " has been removed from the world", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                                             
                                             //remove it from the hashtable
                                             MinotaurRelicMgr.RemoveRelic(relic);
-                                            client.Player.Out.SendMessage("Relic " + relic.RelicID + " has been removed from the Minorelic Hash Table", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                                            client.Player.Out.SendMessage("Relic " + relic.RelicID + " has been removed from the Minorelic Hash Table", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                                             
                                             DataObject obj = GameServer.Database.FindObjectByKey<DbMinotaurRelics>(relic.RelicID);
                                             if (obj != null)
                                             {
                                                 GameServer.Database.DeleteObject(obj);
-                                                client.Player.Out.SendMessage("Relic " + relic.RelicID + " has been removed from the database!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                                                client.Player.Out.SendMessage("Relic " + relic.RelicID + " has been removed from the database!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                                             
                                             }
                                             
@@ -335,18 +335,18 @@ namespace DOL.GS.Commands
                             MinotaurRelicItem relic = client.Player.TargetObject as MinotaurRelicItem;
 
                             relic.RemoveFromWorld();
-                            client.Player.Out.SendMessage("Relic " + relic.RelicID + " has been removed from the world", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            client.Player.Out.SendMessage("Relic " + relic.RelicID + " has been removed from the world", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                                             
                             //remove it from the hashtable
                             MinotaurRelicMgr.RemoveRelic(relic);
-                            client.Player.Out.SendMessage("Relic " + relic.RelicID + " has been removed from the Minorelic Hash Table", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            client.Player.Out.SendMessage("Relic " + relic.RelicID + " has been removed from the Minorelic Hash Table", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                                             
 
                             DataObject obj = GameServer.Database.FindObjectByKey<DbMinotaurRelics>(relic.RelicID);
                             if (obj != null)
                             {
                                 GameServer.Database.DeleteObject(obj);
-                                client.Player.Out.SendMessage("Relic " + relic.RelicID + " has been removed from the database!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                                client.Player.Out.SendMessage("Relic " + relic.RelicID + " has been removed from the database!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                                             
                             }
                         }

@@ -129,7 +129,7 @@ namespace DOL.AI.Brain
         {
             foreach (GameClient client in WorldMgr.GetClientsOfRegion(Body.CurrentRegionID))
             {
-                client.Player.Out.SendMessage(message, eChatType.CT_Broadcast, eChatLoc.CL_SystemWindow);
+                client.Player.Out.SendMessage(message, EChatType.CT_Broadcast, EChatLoc.CL_SystemWindow);
             }
         }
     }

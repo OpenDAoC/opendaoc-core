@@ -60,9 +60,9 @@ namespace DOL.GS
 
         protected void SendMessages()
         {
-            ((SpellHandler)SpellHandler).MessageToLiving(Owner, SpellHandler.Spell.Message1, eChatType.CT_Spell);
-            ((SpellHandler)SpellHandler).MessageToCaster(UtilCollection.MakeSentence(SpellHandler.Spell.Message2, Owner.GetName(0, true)), eChatType.CT_Spell);
-            Message.SystemToArea(Owner, UtilCollection.MakeSentence(SpellHandler.Spell.Message2, Owner.GetName(0, true)), eChatType.CT_Spell, Owner, SpellHandler.Caster);
+            ((SpellHandler)SpellHandler).MessageToLiving(Owner, SpellHandler.Spell.Message1, EChatType.CT_Spell);
+            ((SpellHandler)SpellHandler).MessageToCaster(UtilCollection.MakeSentence(SpellHandler.Spell.Message2, Owner.GetName(0, true)), EChatType.CT_Spell);
+            Message.SystemToArea(Owner, UtilCollection.MakeSentence(SpellHandler.Spell.Message2, Owner.GetName(0, true)), EChatType.CT_Spell, Owner, SpellHandler.Caster);
         }
     }
 

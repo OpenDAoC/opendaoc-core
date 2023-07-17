@@ -29,7 +29,7 @@ namespace DOL.GS.Commands
 			}
 			if (client.Player.IsMuted)
 			{
-				client.Player.Out.SendMessage("You have been muted. You cannot broadcast.", eChatType.CT_Staff, eChatLoc.CL_SystemWindow);
+				client.Player.Out.SendMessage("You have been muted. You cannot broadcast.", EChatType.CT_Staff, EChatLoc.CL_SystemWindow);
 				return;
 			}
 			string message = string.Join(" ", args, 1, args.Length - 1);
@@ -42,7 +42,7 @@ namespace DOL.GS.Commands
 			long changeTime = client.Player.CurrentRegion.Time - BroadTick;
 			if (changeTime < 800 && BroadTick > 0)
 			{
-				client.Player.Out.SendMessage("Slow down! Think before you say each word!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				client.Player.Out.SendMessage("Slow down! Think before you say each word!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				client.Player.TempProperties.setProperty(BROAD_TICK, client.Player.CurrentRegion.Time);
 				return;
 			}
@@ -57,11 +57,11 @@ namespace DOL.GS.Commands
 			{
 				if (GameServer.ServerRules.IsAllowedToUnderstand(c.Player, player))
 				{
-					c.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Scripts.Players.Region.Message", player.Name, message), eChatType.CT_Broadcast, eChatLoc.CL_ChatWindow);
+					c.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Scripts.Players.Region.Message", player.Name, message), EChatType.CT_Broadcast, EChatLoc.CL_ChatWindow);
 				}
 			}
 
-			if (Properties.DISCORD_ACTIVE) WebhookMessage.LogChatMessage(player, eChatType.CT_Broadcast, message);
+			if (Properties.DISCORD_ACTIVE) WebhookMessage.LogChatMessage(player, EChatType.CT_Broadcast, message);
 		}
 
 	}

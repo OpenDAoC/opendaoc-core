@@ -40,25 +40,25 @@ namespace DOL.GS.Commands
                         var npcString = args[2];
                         if (npcString == "")
                         {
-                            client.Out.SendMessage("You must specify a teleport string to whisper the npc.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            client.Out.SendMessage("You must specify a teleport string to whisper the npc.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                             return;
                         }
                         
                         if (npcString != "enter" || npcString != "exit")
                         {
-                            client.Out.SendMessage("Valid strings are \"enter\" and \"exit\"", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            client.Out.SendMessage("Valid strings are \"enter\" and \"exit\"", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                             return;
                         }
                         
                         if (args[3] == "")
                         {
-                            client.Out.SendMessage("You must specify the teleport type", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            client.Out.SendMessage("You must specify the teleport type", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                             return;
                         }
 
                         if (args[3] != "in" || args[3] != "out")
                         {
-                            client.Out.SendMessage("Valid types are \"in\" and \"out\"", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            client.Out.SendMessage("Valid types are \"in\" and \"out\"", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                             return;
                         }
 
@@ -75,7 +75,7 @@ namespace DOL.GS.Commands
                         var keep = GameServer.KeepManager.GetKeepCloseToSpot(client.Player.CurrentRegionID, client.Player, WorldMgr.VISIBILITY_DISTANCE);
                         if (keep == null)
                         {
-                            client.Out.SendMessage("You need to be inside a keep area.", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                            client.Out.SendMessage("You need to be inside a keep area.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                             return;
                         }
 
@@ -87,7 +87,7 @@ namespace DOL.GS.Commands
                     
                     var results = WorldMgr.LoadTeleports();
                     log.Info(results);
-                    client.Out.SendMessage(results, eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                    client.Out.SendMessage(results, EChatType.CT_System, EChatLoc.CL_SystemWindow);
                     
                     break;
 
@@ -111,7 +111,7 @@ namespace DOL.GS.Commands
             var verification = GameServer.Database.SelectObject<DbKeepDoorTeleports>(DB.Column("KeepID").IsEqualTo(keep.KeepID).And(DB.Column("Text").IsEqualTo(Text).And(DB.Column("Type").IsEqualTo(teleportType))));
             if (verification != null)
             {
-                client.Out.SendMessage(String.Format("Teleport ID with same parameter already exists!"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                client.Out.SendMessage(String.Format("Teleport ID with same parameter already exists!"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
                 return;
             }
             DbKeepDoorTeleports teleport = new DbKeepDoorTeleports();
@@ -127,7 +127,7 @@ namespace DOL.GS.Commands
 
             GameServer.Database.AddObject(teleport);
             client.Out.SendMessage(String.Format("KeepDoor Teleport ID [{0}] successfully added.", Text),
-                eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                EChatType.CT_System, EChatLoc.CL_SystemWindow);
         }
     }
 }

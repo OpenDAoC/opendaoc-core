@@ -54,7 +54,7 @@ namespace DOL.GS.Spells
 			foreach (GamePlayer player in m_caster.GetPlayersInRadius(WorldMgr.INFO_DISTANCE))
 			{
 				if (player != m_caster)
-					player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "GameObject.Casting.CastsASpell", m_caster.GetName(0, true)), eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
+					player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "GameObject.Casting.CastsASpell", m_caster.GetName(0, true)), EChatType.CT_Spell, EChatLoc.CL_SystemWindow);
 			}
 
 			m_caster.Mana -= PowerCost(target);
@@ -67,10 +67,10 @@ namespace DOL.GS.Spells
 			if (Spell.Message1 == string.Empty)
 			{
 				if (m_isSilent == false)
-					MessageToCaster(string.Format("The {0} is now under your control.", m_pet.Name), eChatType.CT_Spell);
+					MessageToCaster(string.Format("The {0} is now under your control.", m_pet.Name), EChatType.CT_Spell);
 			}
 			else
-				MessageToCaster(Spell.Message1, eChatType.CT_Spell);
+				MessageToCaster(Spell.Message1, EChatType.CT_Spell);
 		}
 
 		#region ApplyEffectOnTarget Gets
@@ -120,7 +120,7 @@ namespace DOL.GS.Spells
 			{
 				if (log.IsWarnEnabled)
 					log.WarnFormat("NPC template {0} not found! Spell: {1}", Spell.LifeDrainReturn, Spell.ToString());
-				MessageToCaster("NPC template " + Spell.LifeDrainReturn + " not found!", eChatType.CT_System);
+				MessageToCaster("NPC template " + Spell.LifeDrainReturn + " not found!", EChatType.CT_System);
 				return;
 			}
 

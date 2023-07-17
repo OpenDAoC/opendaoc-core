@@ -25,8 +25,8 @@ namespace DOL.GS.Commands
 			if (args.Length == 1)
 			{
 				client.Out.SendMessage("Usage: /email <address>",
-				                       eChatType.CT_System,
-				                       eChatLoc.CL_SystemWindow);
+				                       EChatType.CT_System,
+				                       EChatLoc.CL_SystemWindow);
 				return;
 			}
 			EmailSyntaxValidator emailsyntaxvalidator; // validate mail
@@ -35,8 +35,8 @@ namespace DOL.GS.Commands
 			if (!emailsyntaxvalidator.IsValid)
 			{
 				client.Out.SendMessage("Please enter a valid e-mail address.",
-				                       eChatType.CT_System,
-				                       eChatLoc.CL_SystemWindow);
+				                       EChatType.CT_System,
+				                       EChatLoc.CL_SystemWindow);
 				return;
 			}
 
@@ -57,13 +57,13 @@ namespace DOL.GS.Commands
 
 					client.Out.SendMessage("Contact e-mail address set to " +
 					                       obj.Client.Account.Mail + ". Thanks!",
-					                       eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					                       EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				}
 			}
 			catch (Exception)
 			{
 				client.Out.SendMessage("Error - Usage: /email <address>",
-				                       eChatType.CT_System, eChatLoc.CL_SystemWindow);
+				                       EChatType.CT_System, EChatLoc.CL_SystemWindow);
 			}
 		}
 

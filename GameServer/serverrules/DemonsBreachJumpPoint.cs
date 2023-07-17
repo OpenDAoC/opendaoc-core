@@ -20,7 +20,7 @@ namespace DOL.GS.ServerRules
 			{
 				return true;
 			}
-            player.Client.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "DemonsBreachJumpPoint.Requirements"), eChatType.CT_System, eChatLoc.CL_ChatWindow);
+            player.Client.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "DemonsBreachJumpPoint.Requirements"), EChatType.CT_System, EChatLoc.CL_ChatWindow);
 			return false;
 		}
 		
@@ -38,7 +38,7 @@ namespace DOL.GS.ServerRules
 			{
 				return true;
 			}
-            player.Client.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "DemonsBreachJumpPoint.Requirements"), eChatType.CT_System, eChatLoc.CL_ChatWindow);
+            player.Client.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "DemonsBreachJumpPoint.Requirements"), EChatType.CT_System, EChatLoc.CL_ChatWindow);
 			return false;
 		}
 	}

@@ -60,7 +60,7 @@ namespace DOL.AI.Brain
 		{
 			foreach (GameClient player in WorldMgr.GetClientsOfZone(Body.CurrentZone.ID))
 			{
-				player.Out.SendMessage(message, eChatType.CT_Broadcast, eChatLoc.CL_SystemWindow);
+				player.Out.SendMessage(message, EChatType.CT_Broadcast, EChatLoc.CL_SystemWindow);
 			}
 		}
 		public override void Think()

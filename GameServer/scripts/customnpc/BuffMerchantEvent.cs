@@ -807,7 +807,7 @@ namespace DOL.GS.Scripts
 
         private void SendReply(GamePlayer target, string msg)
         {
-            target.Out.SendMessage(msg, eChatType.CT_System, eChatLoc.CL_PopupWindow);
+            target.Out.SendMessage(msg, EChatType.CT_System, EChatLoc.CL_PopupWindow);
         }
 
         public class Container
@@ -849,7 +849,7 @@ namespace DOL.GS.Scripts
             TradeItems = new MerchantTradeItems("BuffTokens");
             if (!base.Interact(player)) return false;
             TurnTo(player, 10000);
-            player.Out.SendMessage("Greetings, " + player.Name + ".\n Atlas has instructed me to strengthen you so that you may defend the lands with valor. Simply hand me the token for the enhancement you desire, and I will empower you accordingly.", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+            player.Out.SendMessage("Greetings, " + player.Name + ".\n Atlas has instructed me to strengthen you so that you may defend the lands with valor. Simply hand me the token for the enhancement you desire, and I will empower you accordingly.", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
             SendMerchantWindow(player);
             return true;
         }
@@ -890,13 +890,13 @@ namespace DOL.GS.Scripts
 
                 if (player.GetCurrentMoney() < totalValue)
                 {
-                    player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "GameMerchant.OnPlayerBuy.YouNeed", Money.GetString(totalValue)), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                    player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "GameMerchant.OnPlayerBuy.YouNeed", Money.GetString(totalValue)), EChatType.CT_System, EChatLoc.CL_SystemWindow);
                     return;
                 }
 
                 if (!player.Inventory.AddTemplate(GameInventoryItem.Create(template), amountToBuy, eInventorySlot.FirstBackpack, eInventorySlot.LastBackpack))
                 {
-                    player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "GameMerchant.OnPlayerBuy.NotInventorySpace"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                    player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "GameMerchant.OnPlayerBuy.NotInventorySpace"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
                     return;
                 }
                 InventoryLogging.LogInventoryAction(this, player, eInventoryActionType.Merchant, template, amountToBuy);
@@ -907,7 +907,7 @@ namespace DOL.GS.Scripts
                 else
                     message = LanguageMgr.GetTranslation(player.Client.Account.Language, "GameMerchant.OnPlayerBuy.Bought", template.GetName(1, false), Money.GetString(totalValue));
 
-                if (!player.RemoveMoney(totalValue, message, eChatType.CT_Merchant, eChatLoc.CL_SystemWindow))
+                if (!player.RemoveMoney(totalValue, message, EChatType.CT_Merchant, EChatLoc.CL_SystemWindow))
                 {
                     throw new Exception("Money amount changed while adding items.");
                 }
@@ -924,7 +924,7 @@ namespace DOL.GS.Scripts
 
             if (GetDistanceTo(t) > WorldMgr.INTERACT_DISTANCE)
             {
-                ((GamePlayer)source).Out.SendMessage("You are too far away to give anything to " + GetName(0, false) + ".", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                ((GamePlayer)source).Out.SendMessage("You are too far away to give anything to " + GetName(0, false) + ".", EChatType.CT_System, EChatLoc.CL_SystemWindow);
                 return false;
             }
             if (t != null && item != null)
@@ -962,7 +962,7 @@ namespace DOL.GS.Scripts
                     //BuffPlayer(t, MerchEndRegenBuff, MerchSpecSpellLine);
                     //BuffPlayer(t, MerchHealBuff, MerchSpecSpellLine);
                     #endregion Non-live (commented out)
-                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
                     t.Inventory.RemoveItem(item);
                     return true;
                 }
@@ -982,7 +982,7 @@ namespace DOL.GS.Scripts
                         BuffPlayer(t, MerchDexQuiBuff, MerchSpecSpellLine);
                         BuffPlayer(t, MerchAcuityBuff, MerchSpecSpellLine);
                     }
-                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
                     t.Inventory.RemoveItem(item);
                     return true;
 
@@ -1003,7 +1003,7 @@ namespace DOL.GS.Scripts
                         BuffPlayer(t, MerchDexBuff, MerchBaseSpellLine);
                         BuffPlayer(t, MerchConBuff, MerchBaseSpellLine);
                     }
-                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
                     t.Inventory.RemoveItem(item);
                     return true;
                 }
@@ -1017,7 +1017,7 @@ namespace DOL.GS.Scripts
                     {
                         BuffPlayer(t, MerchStrBuff, MerchBaseSpellLine);
                     }
-                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
                     t.Inventory.RemoveItem(item);
                     return true;
                 }
@@ -1031,7 +1031,7 @@ namespace DOL.GS.Scripts
                     {
                         BuffPlayer(t, MerchConBuff, MerchBaseSpellLine);
                     }
-                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
                     t.Inventory.RemoveItem(item);
                     return true;
                 }
@@ -1045,7 +1045,7 @@ namespace DOL.GS.Scripts
                     {
                         BuffPlayer(t, MerchDexBuff, MerchBaseSpellLine);
                     }
-                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
                     t.Inventory.RemoveItem(item);
                     return true;
                 }
@@ -1059,7 +1059,7 @@ namespace DOL.GS.Scripts
                     {
                         BuffPlayer(t, MerchBaseAFBuff, MerchBaseSpellLine);
                     }
-                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
                     t.Inventory.RemoveItem(item);
                     return true;
                 }
@@ -1073,7 +1073,7 @@ namespace DOL.GS.Scripts
                     {
                         BuffPlayer(t, MerchStrConBuff, MerchSpecSpellLine);
                     }
-                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
                     t.Inventory.RemoveItem(item);
                     return true;
                 }
@@ -1087,7 +1087,7 @@ namespace DOL.GS.Scripts
                     {
                         BuffPlayer(t, MerchDexQuiBuff, MerchSpecSpellLine);
                     }
-                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
                     t.Inventory.RemoveItem(item);
                     return true;
                 }
@@ -1101,7 +1101,7 @@ namespace DOL.GS.Scripts
                     {
                         BuffPlayer(t, MerchAcuityBuff, MerchSpecSpellLine);
                     }
-                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
                     t.Inventory.RemoveItem(item);
                     return true;
                 }
@@ -1115,14 +1115,14 @@ namespace DOL.GS.Scripts
                     {
                         BuffPlayer(t, MerchSpecAFBuff, MerchSpecSpellLine);
                     }
-                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
                     t.Inventory.RemoveItem(item);
                     return true;
                 }
                 if (item.Id_nb == "Haste_Buff_Token" || item.Id_nb == "BPHaste_Buff_Token")
                 {
                     BuffPlayer(t, MerchHasteBuff, MerchSpecSpellLine);
-                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                    t.Out.SendMessage("Fight well, " + t.RaceName + ".", EChatType.CT_Say, EChatLoc.CL_PopupWindow);
                     t.Inventory.RemoveItem(item);
                     return true;
                 }

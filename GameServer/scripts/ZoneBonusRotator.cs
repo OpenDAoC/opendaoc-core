@@ -468,7 +468,7 @@ namespace DOL.GS.Scripts
         private static void TellClient(GameClient client)
         {
             // client.Out.SendMessage(GetText(), eChatType.CT_Important, eChatLoc.CL_SystemWindow);
-            client.Out.SendMessage("Bonus zones updated.", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+            client.Out.SendMessage("Bonus zones updated.", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 
         }
 
