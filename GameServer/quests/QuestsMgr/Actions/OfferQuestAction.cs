@@ -8,23 +8,23 @@ using DOL.GS.Behaviour;
 
 namespace DOL.GS.Quests.Actions
 {
-    [ActionAttribute(ActionType = eActionType.OfferQuest)]
+    [ActionAttribute(ActionType = EActionType.OfferQuest)]
     public class OfferQuestAction : AbstractAction<Type,String>
     {               
 
-        public OfferQuestAction(GameNPC defaultNPC, eActionType actionType, Object p, Object q)
-            : base(defaultNPC, eActionType.OfferQuest, p, q)
+        public OfferQuestAction(GameNPC defaultNPC, EActionType actionType, Object p, Object q)
+            : base(defaultNPC, EActionType.OfferQuest, p, q)
         {                
         }
 
         public OfferQuestAction(GameNPC defaultNPC, Type questType, String offerMessage)
-            : this(defaultNPC, eActionType.OfferQuest, (object)questType, (object)offerMessage) { }
+            : this(defaultNPC, EActionType.OfferQuest, (object)questType, (object)offerMessage) { }
         
 
         public override void Perform(DOLEvent e, object sender, EventArgs args)
         {
-            GamePlayer player = BehaviourUtils.GuessGamePlayerFromNotify(e, sender, args);
-            string message = BehaviourUtils.GetPersonalizedMessage(Q, player);
+            GamePlayer player = BehaviorUtils.GuessGamePlayerFromNotify(e, sender, args);
+            string message = BehaviorUtils.GetPersonalizedMessage(Q, player);
             QuestMgr.ProposeQuestToPlayer(P, message, player, NPC);
         }
     }

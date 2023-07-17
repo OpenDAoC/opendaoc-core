@@ -771,7 +771,7 @@ namespace DOL.GS.Quests
 		{
 			get 
             {
-                return BehaviourUtils.GetPersonalizedMessage(m_dataQuest.FinishText, m_questPlayer);
+                return BehaviorUtils.GetPersonalizedMessage(m_dataQuest.FinishText, m_questPlayer);
             }
 		}
 
@@ -886,12 +886,12 @@ namespace DOL.GS.Quests
 					}
 					else
 					{
-                        return BehaviourUtils.GetPersonalizedMessage(m_dataQuest.Description, m_questPlayer);
+                        return BehaviorUtils.GetPersonalizedMessage(m_dataQuest.Description, m_questPlayer);
 					}
 				}
 				else
 				{
-                    return BehaviourUtils.GetPersonalizedMessage(StepText, m_questPlayer);
+                    return BehaviorUtils.GetPersonalizedMessage(StepText, m_questPlayer);
 				}
 			}
 		}

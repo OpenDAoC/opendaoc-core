@@ -7,12 +7,12 @@ using DOL.GS.Behaviour.Attributes;using DOL.GS.Behaviour;
 
 namespace DOL.GS.Quests.Actions
 {
-    [ActionAttribute(ActionType = eActionType.IncQuestStep)]
+    [ActionAttribute(ActionType = EActionType.IncQuestStep)]
     public class IncreaseQuestStepAction: AbstractAction<Type,Unused>
     {
 
         public IncreaseQuestStepAction(GameNPC defaultNPC,  Object p, Object q)
-            : base(defaultNPC, eActionType.IncQuestStep, p, q) 
+            : base(defaultNPC, EActionType.IncQuestStep, p, q) 
         {        
         }
 
@@ -23,7 +23,7 @@ namespace DOL.GS.Quests.Actions
 
         public override void Perform(DOLEvent e, object sender, EventArgs args)
         {
-            GamePlayer player = BehaviourUtils.GuessGamePlayerFromNotify(e, sender, args);
+            GamePlayer player = BehaviorUtils.GuessGamePlayerFromNotify(e, sender, args);
             AbstractQuest playerQuest = player.IsDoingQuest(P);
             if (playerQuest != null)
             {

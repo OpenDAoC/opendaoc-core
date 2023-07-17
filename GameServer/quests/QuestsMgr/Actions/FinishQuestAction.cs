@@ -7,12 +7,12 @@ using DOL.GS.Behaviour.Attributes;using DOL.GS.Behaviour;
 
 namespace DOL.GS.Quests.Actions
 {
-    [ActionAttribute(ActionType = eActionType.FinishQuest)]
+    [ActionAttribute(ActionType = EActionType.FinishQuest)]
     public class FinishQuestAction: AbstractAction<Type,Unused>
     {
 
         public FinishQuestAction(GameNPC defaultNPC, Object p, Object q)
-            : base(defaultNPC, eActionType.FinishQuest, p, q) 
+            : base(defaultNPC, EActionType.FinishQuest, p, q) 
         { }
 
         public FinishQuestAction(GameNPC defaultNPC, Type questType)
@@ -22,7 +22,7 @@ namespace DOL.GS.Quests.Actions
 
         public override void Perform(DOLEvent e, object sender, EventArgs args)
         {
-            GamePlayer player = BehaviourUtils.GuessGamePlayerFromNotify(e, sender, args);
+            GamePlayer player = BehaviorUtils.GuessGamePlayerFromNotify(e, sender, args);
             AbstractQuest playerQuest = player.IsDoingQuest(P);
             if (playerQuest != null)
                 playerQuest.FinishQuest();

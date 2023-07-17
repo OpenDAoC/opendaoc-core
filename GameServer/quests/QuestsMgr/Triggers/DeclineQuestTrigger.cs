@@ -14,7 +14,7 @@ namespace DOL.GS.Quests.Triggers
     /// This can be eTriggerAction.Interact, eTriggerAction.GiveItem, eTriggerAction.Attack, etc...
     /// Additional there are two variables to add the needed parameters for the triggertype (Item to give for GiveItem, NPC to interact for Interact, etc...). To fire a QuestAction at least one of the added triggers must be fulfilled. 
     /// </summary>
-    [TriggerAttribute(TriggerType=eTriggerType.DeclineQuest)]
+    [TriggerAttribute(TriggerType=ETriggerType.DeclineQuest)]
     public class DeclineQuestTrigger : AbstractTrigger<Unused,Type>
     {
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
@@ -27,7 +27,7 @@ namespace DOL.GS.Quests.Triggers
 		/// <param name="k"></param>
 		/// <param name="i"></param>
         public DeclineQuestTrigger(GameNPC defaultNPC, DOLEventHandler notifyHandler, Object k, Object i)
-            : base(defaultNPC, notifyHandler, eTriggerType.DeclineQuest, k, i)
+            : base(defaultNPC, notifyHandler, ETriggerType.DeclineQuest, k, i)
         { }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace DOL.GS.Quests.Triggers
 
 			if (e == GamePlayerEvent.DeclineQuest)
 			{
-				GamePlayer player = BehaviourUtils.GuessGamePlayerFromNotify(e, sender, args);
+				GamePlayer player = BehaviorUtils.GuessGamePlayerFromNotify(e, sender, args);
 				QuestEventArgs qArgs = (QuestEventArgs)args;
 				Type type = QuestMgr.GetQuestTypeForID(qArgs.QuestID);
 				if (type != null)

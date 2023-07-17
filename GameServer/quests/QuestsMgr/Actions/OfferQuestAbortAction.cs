@@ -7,12 +7,12 @@ using DOL.GS.Behaviour.Attributes;using DOL.GS.Behaviour;
 
 namespace DOL.GS.Quests.Actions
 {
-    [ActionAttribute(ActionType = eActionType.OfferQuestAbort)]
+    [ActionAttribute(ActionType = EActionType.OfferQuestAbort)]
     public class OfferQuestAbortAction : AbstractAction<Type,String>
     {               
 
         public OfferQuestAbortAction(GameNPC defaultNPC, Object p, Object q)
-            : base(defaultNPC, eActionType.OfferQuestAbort, p, q)
+            : base(defaultNPC, EActionType.OfferQuestAbort, p, q)
         {
         }
 
@@ -23,8 +23,8 @@ namespace DOL.GS.Quests.Actions
 
         public override void Perform(DOLEvent e, object sender, EventArgs args)
         {
-            GamePlayer player = BehaviourUtils.GuessGamePlayerFromNotify(e, sender, args);
-            string message = BehaviourUtils.GetPersonalizedMessage(Q, player);
+            GamePlayer player = BehaviorUtils.GuessGamePlayerFromNotify(e, sender, args);
+            string message = BehaviorUtils.GetPersonalizedMessage(Q, player);
             QuestMgr.AbortQuestToPlayer(P, message, player, NPC);
         }
     }

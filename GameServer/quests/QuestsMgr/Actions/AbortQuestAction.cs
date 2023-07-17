@@ -7,12 +7,12 @@ using DOL.GS.Behaviour.Attributes;using DOL.GS.Behaviour;
 
 namespace DOL.GS.Quests.Actions
 {
-    [ActionAttribute(ActionType = eActionType.AbortQuest)]
+    [ActionAttribute(ActionType = EActionType.AbortQuest)]
     public class AbortQuestAction: AbstractAction<Type,Unused>
     {
 
         public AbortQuestAction(GameNPC defaultNPC, Object p, Object q)
-            : base(defaultNPC, eActionType.AbortQuest, p, q) 
+            : base(defaultNPC, EActionType.AbortQuest, p, q) 
         { }
 
         public AbortQuestAction(GameNPC defaultNPC, Type questType)
@@ -22,7 +22,7 @@ namespace DOL.GS.Quests.Actions
 
         public override void Perform(DOLEvent e, object sender, EventArgs args)
         {
-            GamePlayer player = BehaviourUtils.GuessGamePlayerFromNotify(e, sender, args);
+            GamePlayer player = BehaviorUtils.GuessGamePlayerFromNotify(e, sender, args);
             AbstractQuest playerQuest = player.IsDoingQuest(P);
             if (playerQuest != null)
             {

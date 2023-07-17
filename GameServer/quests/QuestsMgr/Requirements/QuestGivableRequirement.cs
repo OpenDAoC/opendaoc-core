@@ -15,7 +15,7 @@ namespace DOL.GS.Quests.Requirements
 	/// Level of player, Step of Quest, Class of Player, etc... There are also some variables to add
 	/// additional parameters. To fire a QuestAction ALL requirements must be fulfilled.         
 	/// </summary>
-    [RequirementAttribute(RequirementType=eRequirementType.QuestGivable,DefaultValueV=eDefaultValueConstants.NPC)]
+    [RequirementAttribute(RequirementType=eRequirementType.QuestGivable,DefaultValueV=EDefaultValueConstants.NPC)]
 	public class QuestGivableRequirement : AbstractRequirement<Type,GameNPC>
 	{
 		private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
@@ -54,7 +54,7 @@ namespace DOL.GS.Quests.Requirements
 		public override bool Check(DOLEvent e, object sender, EventArgs args)
 		{
 			bool result = true;
-            GamePlayer player = BehaviourUtils.GuessGamePlayerFromNotify(e, sender, args);
+            GamePlayer player = BehaviorUtils.GuessGamePlayerFromNotify(e, sender, args);
 
             if (Comparator == eComparator.Not)
                 result = QuestMgr.CanGiveQuest(N, player, V) <= 0;

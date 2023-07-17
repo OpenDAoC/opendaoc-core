@@ -53,7 +53,7 @@ namespace DOL.GS.Quests.Requirements
 		public override bool Check(DOLEvent e, object sender, EventArgs args)
 		{
 			bool result = true;
-            GamePlayer player = BehaviourUtils.GuessGamePlayerFromNotify(e, sender, args);
+            GamePlayer player = BehaviorUtils.GuessGamePlayerFromNotify(e, sender, args);
             
             if (Comparator == eComparator.Not)
                 result = player.IsDoingQuest(N) == null;

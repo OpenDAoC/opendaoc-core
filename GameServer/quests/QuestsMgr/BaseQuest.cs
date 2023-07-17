@@ -130,7 +130,7 @@ namespace DOL.GS.Quests
 			if (questPart.Triggers == null)
 				return;
 
-			foreach (IBehaviourTrigger trigger in questPart.Triggers)
+			foreach (IBehaviorTrigger trigger in questPart.Triggers)
 			{
 				trigger.Unregister();
 			}

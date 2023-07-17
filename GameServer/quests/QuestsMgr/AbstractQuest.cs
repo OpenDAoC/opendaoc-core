@@ -654,7 +654,7 @@ namespace DOL.GS.Quests
         /// <param name="chatLoc"></param>
 		protected static void SendMessage(GamePlayer player, string msg, uint delay, eChatType chatType, eChatLoc chatLoc)
 		{
-            msg = BehaviourUtils.GetPersonalizedMessage(msg, player);
+            msg = BehaviorUtils.GetPersonalizedMessage(msg, player);
 
             if (delay == 0)
             {

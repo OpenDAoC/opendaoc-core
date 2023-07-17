@@ -14,7 +14,7 @@ namespace DOL.GS.Quests.Triggers
     /// This can be eTriggerAction.Interact, eTriggerAction.GiveItem, eTriggerAction.Attack, etc...
     /// Additional there are two variables to add the needed parameters for the triggertype (Item to give for GiveItem, NPC to interact for Interact, etc...). To fire a QuestAction at least one of the added triggers must be fulfilled. 
     /// </summary>
-    [TriggerAttribute(TriggerType=eTriggerType.ContinueQuest)]
+    [TriggerAttribute(TriggerType=ETriggerType.ContinueQuest)]
     public class ContinueQuestTrigger : AbstractTrigger<Unused,Type>
     {
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
@@ -27,7 +27,7 @@ namespace DOL.GS.Quests.Triggers
 		/// <param name="k"></param>
 		/// <param name="i"></param>
         public ContinueQuestTrigger(GameNPC defaultNPC, DOLEventHandler notifyHandler, Object k, Object i)
-            : base(defaultNPC,notifyHandler, eTriggerType.ContinueQuest, k, i)
+            : base(defaultNPC,notifyHandler, ETriggerType.ContinueQuest, k, i)
         { }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace DOL.GS.Quests.Triggers
 
             if (e == GamePlayerEvent.ContinueQuest)
             {
-                GamePlayer player = BehaviourUtils.GuessGamePlayerFromNotify(e, sender, args);
+                GamePlayer player = BehaviorUtils.GuessGamePlayerFromNotify(e, sender, args);
                 QuestEventArgs qArgs = (QuestEventArgs)args;
                 result = (qArgs.Player.ObjectID == player.ObjectID && QuestMgr.GetQuestTypeForID(qArgs.QuestID).Equals(I));
             }

@@ -30,7 +30,7 @@ namespace DOL.GS.Quests
     /// at the moment there are: GiveItem, TakeItem, Talk, Give Quest, Increase Quest Step, FinishQuest,
     /// etc....
 	/// </summary>
-	public class QuestBehaviour : BaseBehaviour
+	public class QuestBehaviour : BaseBehavior
     {
 
         public const string NUMBER_OF_EXECUTIONS = "quest.numberOfExecutions";
@@ -94,7 +94,7 @@ namespace DOL.GS.Quests
         /// <param name="args">EventArgs of notify call</param>        
         public override void Notify(DOLEvent e, object sender, EventArgs args)
         {            
-            GamePlayer player = BehaviourUtils.GuessGamePlayerFromNotify(e, sender, args);
+            GamePlayer player = BehaviorUtils.GuessGamePlayerFromNotify(e, sender, args);
 
             if (player == null)
             {
@@ -114,7 +114,7 @@ namespace DOL.GS.Quests
             {
                 if (CheckTriggers(e, sender, args) && CheckRequirements(e, sender, args) && Actions != null)
                 {
-                    foreach (IBehaviourAction action in Actions)
+                    foreach (IBehaviorAction action in Actions)
                     {
                         action.Perform(e, sender, args);
                     }

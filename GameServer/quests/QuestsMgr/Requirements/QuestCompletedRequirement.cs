@@ -54,7 +54,7 @@ namespace DOL.GS.Quests.Requirements
 		public override bool Check(DOLEvent e, object sender, EventArgs args)
 		{
 			bool result = true;
-            GamePlayer player = BehaviourUtils.GuessGamePlayerFromNotify(e, sender, args);
+            GamePlayer player = BehaviorUtils.GuessGamePlayerFromNotify(e, sender, args);
             
             int finishedCount = player.HasFinishedQuest(N);            
             result = compare(finishedCount, V, Comparator);            
