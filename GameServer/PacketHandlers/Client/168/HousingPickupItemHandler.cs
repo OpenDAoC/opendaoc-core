@@ -158,7 +158,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 					house.IndoorItems.Remove(position);
 
 					var pak = new GsTcpPacketOut(client.Out.GetPacketCode(EServerPackets.HousingItem));
-					if (client.Version >= GameClient.eClientVersion.Version1125)
+					if (client.Version >= GameClient.EClientVersion.Version1125)
                     {
                         pak.WriteShortLowEndian((ushort)housenumber);
                         pak.WriteByte(0x01);

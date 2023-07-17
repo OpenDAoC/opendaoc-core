@@ -29,7 +29,7 @@ namespace DOL.Tests.Integration.Server
 			Assert.IsNotNull(character);
 			
 			var client = new GameClient(GameServer.Instance);
-			client.Version = GameClient.eClientVersion.Version1105;
+			client.Version = GameClient.EClientVersion.Version1105;
 			client.Socket = new Socket(AddressFamily.InterNetwork,SocketType.Stream,ProtocolType.Tcp);
 			client.Account = account;
 			client.PacketProcessor = new PacketProcessor(client);

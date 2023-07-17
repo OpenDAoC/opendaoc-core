@@ -30,7 +30,7 @@ namespace DOL.GS
                     return;
 
                 if (player.LastWorldUpdate + Properties.WORLD_PLAYER_UPDATE_INTERVAL >= tick ||
-                    player.Client.ClientState != GameClient.eClientState.Playing ||
+                    player.Client.ClientState != GameClient.EClientState.Playing ||
                     player.ObjectState != GameObject.eObjectState.Active)
                 {
                     return;

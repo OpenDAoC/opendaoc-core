@@ -214,7 +214,7 @@ namespace DOL.Tests.Integration.Server
 			var gameplayer = new GamePlayer(client, client.Account.Characters[0]);
 			client.Player = gameplayer;
 			
-			client.ClientState = GameClient.eClientState.WorldEnter;
+			client.ClientState = GameClient.EClientState.WorldEnter;
 					
 			CollectionAssert.IsEmpty(received);
 			GameServer.Instance.PlayerManager.Friends.RemovePlayerFriendsListFromCache(gameplayer);
@@ -239,7 +239,7 @@ namespace DOL.Tests.Integration.Server
 
 			GameServer.Instance.PlayerManager.Friends.AddPlayerFriendsListToCache(gameplayerMate);
 			
-			client.ClientState = GameClient.eClientState.WorldEnter;
+			client.ClientState = GameClient.EClientState.WorldEnter;
 					
 			CollectionAssert.AreEquivalent(new[] { "mate" }, received);
 			GameServer.Instance.PlayerManager.Friends.RemovePlayerFriendsListFromCache(gameplayer);
@@ -273,7 +273,7 @@ namespace DOL.Tests.Integration.Server
 			
 			GameServer.Instance.PlayerManager.Friends.AddPlayerFriendsListToCache(gameplayerBuddy);
 			
-			client.ClientState = GameClient.eClientState.WorldEnter;
+			client.ClientState = GameClient.EClientState.WorldEnter;
 					
 			CollectionAssert.AreEquivalent(new[] { "mate" }, received);
 			GameServer.Instance.PlayerManager.Friends.RemovePlayerFriendsListFromCache(gameplayer);

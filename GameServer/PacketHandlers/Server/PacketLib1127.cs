@@ -4,7 +4,7 @@ using log4net;
 
 namespace DOL.GS.PacketHandler
 {
-	[PacketLib(1127, GameClient.eClientVersion.Version1127)]
+	[PacketLib(1127, GameClient.EClientVersion.Version1127)]
 	public class PacketLib1127 : PacketLib1126
 	{
 		private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
@@ -44,7 +44,7 @@ namespace DOL.GS.PacketHandler
 
 		public override void SendMessage(string msg, EChatType type, EChatLoc loc)
 		{
-			if (m_gameClient.ClientState == GameClient.eClientState.CharScreen)
+			if (m_gameClient.ClientState == GameClient.EClientState.CharScreen)
 				return;
 
 			GsTcpPacketOut pak = new GsTcpPacketOut(GetPacketCode(EServerPackets.Message));

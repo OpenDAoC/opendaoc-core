@@ -573,7 +573,7 @@ namespace DOL.GS.PacketHandler
 				return;
 			}
 			
-			if (m_client.ClientState == GameClient.eClientState.Playing)
+			if (m_client.ClientState == GameClient.EClientState.Playing)
 			{
 				if ((DateTime.Now.Ticks - m_client.UdpPingTime) > 500000000L) // really 24s, not 50s
 				{

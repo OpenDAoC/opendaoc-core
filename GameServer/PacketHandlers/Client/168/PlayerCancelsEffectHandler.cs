@@ -12,7 +12,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		public void HandlePacket(GameClient client, GsPacketIn packet)
 		{
 			int effectID = packet.ReadShort();
-			if (client.Version <= GameClient.eClientVersion.Version1109)
+			if (client.Version <= GameClient.EClientVersion.Version1109)
 				new CancelEffectHandler(client.Player, effectID).Start(1);
 			else
 				new CancelEffectHandler1110(client.Player, effectID).Start(1);

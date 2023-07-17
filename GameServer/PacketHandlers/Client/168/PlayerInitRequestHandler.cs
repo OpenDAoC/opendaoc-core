@@ -156,7 +156,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 				{
 					player.IsDiving = true;
 				}
-				player.Client.ClientState = GameClient.eClientState.Playing;
+				player.Client.ClientState = GameClient.EClientState.Playing;
 
 				#region TempPropertiesManager LookUp
 

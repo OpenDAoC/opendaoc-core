@@ -3,7 +3,7 @@ using DOL.Database;
 
 namespace DOL.GS.PacketHandler
 {
-	[PacketLib(1119, GameClient.eClientVersion.Version1119)]
+	[PacketLib(1119, GameClient.EClientVersion.Version1119)]
 	public class PacketLib1119 : PacketLib1118
 	{
 		/// <summary>

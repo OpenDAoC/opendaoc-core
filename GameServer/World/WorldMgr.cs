@@ -518,8 +518,8 @@ namespace DOL.GS
 					try
 					{
 						// check ping timeout if we are in charscreen or in playing state
-						if (client.ClientState == GameClient.eClientState.CharScreen ||
-						    client.ClientState == GameClient.eClientState.Playing)
+						if (client.ClientState == GameClient.EClientState.CharScreen ||
+						    client.ClientState == GameClient.EClientState.Playing)
 						{
 							if (client.PingTime + PING_TIMEOUT * 1000 * 1000 * 10 < DateTime.Now.Ticks)
 							{

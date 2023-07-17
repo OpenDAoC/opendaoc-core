@@ -153,7 +153,7 @@ namespace DOL.GS.GameEvents
 			}
 		}
 		
-		public static IList<StartupLocation> GetAllStartupLocationForCharacter(DbCoreCharacters ch, GameClient.eClientVersion cli)
+		public static IList<StartupLocation> GetAllStartupLocationForCharacter(DbCoreCharacters ch, GameClient.EClientVersion cli)
 		{
 			return m_cachedLocations.Where(sl => sl.MinVersion <= (int)cli)
 				.Where(sl => sl.ClassID == 0 || sl.ClassID == ch.Class)

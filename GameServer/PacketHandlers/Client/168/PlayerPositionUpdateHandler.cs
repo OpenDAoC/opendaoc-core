@@ -34,7 +34,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		public void HandlePacket(GameClient client, GsPacketIn packet)
 		{
 			//Tiv: in very rare cases client send 0xA9 packet before sending S<=C 0xE8 player world initialize
-			if ((client.Player.ObjectState != GameObject.eObjectState.Active) || (client.ClientState != GameClient.eClientState.Playing))
+			if ((client.Player.ObjectState != GameObject.eObjectState.Active) || (client.ClientState != GameClient.EClientState.Playing))
 				return;
 
 			// Don't allow movement if the player isn't close to the NPC they're supposed to be riding.
@@ -59,7 +59,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 				}
 			}
 
-			if (client.Version >= GameClient.eClientVersion.Version1124)
+			if (client.Version >= GameClient.EClientVersion.Version1124)
 			{
 				_HandlePacket1124(client, packet);
 				return;
@@ -593,7 +593,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 					fallSpeed = (flyingflag & 0xFFF) - 100 * safeFallLevel; // 0x7FF fall speed and 0x800 bit = fall speed overcaped
 					int fallMinSpeed = 400;
 					int fallDivide = 6;
-					if (client.Version >= GameClient.eClientVersion.Version188)
+					if (client.Version >= GameClient.EClientVersion.Version188)
 					{
 						fallMinSpeed = 500;
 						fallDivide = 15;
@@ -773,11 +773,11 @@ namespace DOL.GS.PacketHandler.Client.v168
 					player.Client.GameObjectUpdateArray[new Tuple<ushort, ushort>(client.Player.CurrentRegionID, (ushort)client.Player.ObjectID)] = GameLoop.GetCurrentTime();
 
 					//forward the position packet like normal!
-					if (player.Client.Version >= GameClient.eClientVersion.Version1124)
+					if (player.Client.Version >= GameClient.EClientVersion.Version1124)
 						player.Out.SendUDP(outpak1124);
-					else if (player.Client.Version >= GameClient.eClientVersion.Version1112)
+					else if (player.Client.Version >= GameClient.EClientVersion.Version1112)
 						player.Out.SendUDP(outpak1112);
-					else if (player.Client.Version >= GameClient.eClientVersion.Version190)
+					else if (player.Client.Version >= GameClient.EClientVersion.Version190)
 						player.Out.SendUDP(outpak190);
 				}
 				else
@@ -806,7 +806,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		{
 			//Tiv: in very rare cases client send 0xA9 packet before sending S<=C 0xE8 player world initialize
 			if ((client.Player.ObjectState != GameObject.eObjectState.Active) ||
-				(client.ClientState != GameClient.eClientState.Playing))
+				(client.ClientState != GameClient.EClientState.Playing))
 				return;
 
 			long environmentTick = GameLoop.GameLoopTime;
@@ -818,7 +818,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 			var newPlayerSpeed = packet.ReadFloatLowEndian();
 			var newPlayerZSpeed = packet.ReadFloatLowEndian();
 			ushort sessionID = packet.ReadShort();
-			if (client.Version >= GameClient.eClientVersion.Version1127)
+			if (client.Version >= GameClient.EClientVersion.Version1127)
 				packet.ReadShort(); // object ID
 			ushort currentZoneID = packet.ReadShort();
 			ushort playerState = packet.ReadShort();
@@ -1331,11 +1331,11 @@ namespace DOL.GS.PacketHandler.Client.v168
 					// Update Player Cache
 					player.Client.GameObjectUpdateArray[new Tuple<ushort, ushort>(client.Player.CurrentRegionID, (ushort)client.Player.ObjectID)] = GameLoop.GetCurrentTime();
 
-					if (player.Client.Version >= GameClient.eClientVersion.Version1127)
+					if (player.Client.Version >= GameClient.EClientVersion.Version1127)
 						player.Out.SendUDP(outpak1127);
-					else if (player.Client.Version >= GameClient.eClientVersion.Version1124)
+					else if (player.Client.Version >= GameClient.EClientVersion.Version1124)
 						player.Out.SendUDP(outpak1124);
-					else if (player.Client.Version >= GameClient.eClientVersion.Version1112)
+					else if (player.Client.Version >= GameClient.EClientVersion.Version1112)
 						player.Out.SendUDP(outpak1112);
 					else
 						player.Out.SendUDP(outpak190);

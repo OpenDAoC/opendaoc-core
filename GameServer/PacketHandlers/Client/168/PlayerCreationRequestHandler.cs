@@ -13,7 +13,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
         public void HandlePacket(GameClient client, GsPacketIn packet)
         {
-            ushort id = client.Version >= GameClient.eClientVersion.Version1126 ? packet.ReadShortLowEndian() : packet.ReadShort();
+            ushort id = client.Version >= GameClient.EClientVersion.Version1126 ? packet.ReadShortLowEndian() : packet.ReadShort();
             GameClient target = WorldMgr.GetClientFromID(id);
             if (target == null)
             {

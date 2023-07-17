@@ -558,7 +558,7 @@ namespace DOL.Language
             {
                 if (client.Account.PrivLevel > 1 && client.Player != null && result)
                 {
-                    if (client.ClientState == GameClient.eClientState.Playing)
+                    if (client.ClientState == GameClient.EClientState.Playing)
                     {
                         bool debug = client.Player.TempProperties.getProperty("LANGUAGEMGR-DEBUG", false);
                         if (debug)

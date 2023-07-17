@@ -1,12 +1,12 @@
 ﻿using System.Reflection;
 
-[assembly: AssemblyTitle("Dawn of Light - GameServer")]
+[assembly: AssemblyTitle("OpenDAoC - GameServer")]
 [assembly: AssemblyDescription("Library containing server side emulating framework")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Dawn of Light Development Team")]
-[assembly: AssemblyProduct("DAoC Server Side Emulation Package - Dawn of Light")]
-[assembly: AssemblyCopyright("Dawn of Light Development Team")]
-[assembly: AssemblyTrademark("Dawn of Light Development Team")]
+[assembly: AssemblyCompany("OpenDAoC Development Team")]
+[assembly: AssemblyProduct("DAoC Server Side Emulation Package - OpenDAoC")]
+[assembly: AssemblyCopyright("OpenDAoC Development Team")]
+[assembly: AssemblyTrademark("OpenDAoC Development Team")]
 [assembly: AssemblyCulture("")]
 
-[assembly: AssemblyVersion("1.9.7.*")]
+[assembly: AssemblyVersion("1.0.0.*")]

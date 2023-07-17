@@ -17,7 +17,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		{
 			string localIP;
 			ushort localPort;
-			if (client.Version >= GameClient.eClientVersion.Version1124)
+			if (client.Version >= GameClient.EClientVersion.Version1124)
 			{
 				localIP = packet.ReadString(20);
 				localPort = packet.ReadShort();

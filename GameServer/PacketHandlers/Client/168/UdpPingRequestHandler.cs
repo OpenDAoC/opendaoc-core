@@ -23,7 +23,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		/// <returns>Non zero if function was successfull</returns>
 		public void HandlePacket(GameClient client, GsPacketIn packet)
 		{
-			if (client.Version < GameClient.eClientVersion.Version1124)
+			if (client.Version < GameClient.EClientVersion.Version1124)
 			{
 				string localIP = packet.ReadString(22);
 				ushort localPort = packet.ReadShort();

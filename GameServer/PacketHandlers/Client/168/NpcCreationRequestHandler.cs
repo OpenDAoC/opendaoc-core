@@ -14,7 +14,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 				return;
 
 			ushort id;
-			if (client.Version >= GameClient.eClientVersion.Version1126)
+			if (client.Version >= GameClient.EClientVersion.Version1126)
 				id = packet.ReadShortLowEndian(); // Dre: disassembled game.dll show a write of uint, is it a wip in the game.dll?
 			else
 				id = packet.ReadShort();

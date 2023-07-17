@@ -13,7 +13,7 @@ using log4net;
 
 namespace DOL.GS.PacketHandler
 {
-	[PacketLib(1124, GameClient.eClientVersion.Version1124)]
+	[PacketLib(1124, GameClient.EClientVersion.Version1124)]
 	public class PacketLib1124 : PacketLib1123
 	{
 		private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
@@ -814,7 +814,7 @@ namespace DOL.GS.PacketHandler
 				playerStatus |= 0x04;
 			if (SpellHelper.FindEffectOnTarget(living, "DamageOverTime") != null)
 				playerStatus |= 0x08;
-			if (player?.Client?.ClientState == GameClient.eClientState.Linkdead)
+			if (player?.Client?.ClientState == GameClient.EClientState.Linkdead)
 				playerStatus |= 0x10;
 			if (living.DebuffCategory[(int)EProperty.SpellRange] != 0 || living.DebuffCategory[(int)EProperty.ArcheryRange] != 0)
 				playerStatus |= 0x40;

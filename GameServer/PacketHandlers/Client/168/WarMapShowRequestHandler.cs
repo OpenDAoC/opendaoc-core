@@ -20,7 +20,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 				return;
 
 			//hack fix new keep ids
-			else if ((int)client.Version >= (int)GameClient.eClientVersion.Version190 && (int)client.Version < (int)GameClient.eClientVersion.Version1115)
+			else if ((int)client.Version >= (int)GameClient.EClientVersion.Version190 && (int)client.Version < (int)GameClient.EClientVersion.Version1115)
 			{
 				if (keepId >= 82)
 					keepId -= 7;

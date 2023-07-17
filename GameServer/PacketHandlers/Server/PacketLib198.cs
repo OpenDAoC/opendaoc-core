@@ -3,7 +3,7 @@ using log4net;
 
 namespace DOL.GS.PacketHandler
 {
-	[PacketLib(198, GameClient.eClientVersion.Version198)]
+	[PacketLib(198, GameClient.EClientVersion.Version198)]
 	public class PacketLib198 : PacketLib197
 	{
 		private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);

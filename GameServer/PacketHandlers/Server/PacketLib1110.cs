@@ -11,7 +11,7 @@ using log4net;
 
 namespace DOL.GS.PacketHandler
 {
-    [PacketLib(1110, GameClient.eClientVersion.Version1110)]
+    [PacketLib(1110, GameClient.EClientVersion.Version1110)]
     public class PacketLib1110 : PacketLib1109
     {
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);

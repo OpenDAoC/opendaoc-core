@@ -43,7 +43,7 @@ namespace DOL.GS.PacketHandler.Client.v168
         {
             bool needRefresh = false;
 
-            if (client.Version > GameClient.eClientVersion.Version1124) // 1125 support
+            if (client.Version > GameClient.EClientVersion.Version1124) // 1125 support
             {
                 var pakdata = new CreationCharacterData(packet, client);
 
@@ -270,7 +270,7 @@ namespace DOL.GS.PacketHandler.Client.v168
             /// <param name="client"></param>
             public CreationCharacterData(GsPacketIn packet, GameClient client)
             {
-                if (client.Version > GameClient.eClientVersion.Version1124) // 1125+ support
+                if (client.Version > GameClient.EClientVersion.Version1124) // 1125+ support
                 {
                     CharacterSlot = packet.ReadByte();
                     CharName = packet.ReadIntPascalStringLowEndian();
@@ -293,7 +293,7 @@ namespace DOL.GS.PacketHandler.Client.v168
                     packet.Skip(5); //Skip class name
                     packet.Skip(5); //Skip race name
 
-                    if (client.Version >= GameClient.eClientVersion.Version1126)
+                    if (client.Version >= GameClient.EClientVersion.Version1126)
                     {
                         Class = packet.ReadByte();
                         Realm = packet.ReadByte();
@@ -315,7 +315,7 @@ namespace DOL.GS.PacketHandler.Client.v168
                     //SIStartLocation = ((startRaceGender1 >> 7) != 0);
                     CreationModel = packet.ReadShortLowEndian();
 
-                    if (client.Version == GameClient.eClientVersion.Version1125)
+                    if (client.Version == GameClient.EClientVersion.Version1125)
                     {
                         Region = packet.ReadByte();
                         packet.Skip(5);                       
@@ -873,7 +873,7 @@ namespace DOL.GS.PacketHandler.Client.v168
         public static bool CheckForDeletedCharacter(string accountName, GameClient client, int slot)
         {
             int charSlot = slot;
-            if (client.Version > GameClient.eClientVersion.Version1124) // 1125 support
+            if (client.Version > GameClient.EClientVersion.Version1124) // 1125 support
             {
                 charSlot = client.Account.Realm * 100 + (slot - (client.Account.Realm - 1) * 10);
             }
@@ -899,7 +899,7 @@ namespace DOL.GS.PacketHandler.Client.v168
             {
                 foreach (DbCoreCharacters character in allChars.ToArray())
                 {
-                    if (character.AccountSlot == charSlot && client.ClientState == GameClient.eClientState.CharScreen)
+                    if (character.AccountSlot == charSlot && client.ClientState == GameClient.EClientState.CharScreen)
                     {
                         if (log.IsWarnEnabled)
                         {

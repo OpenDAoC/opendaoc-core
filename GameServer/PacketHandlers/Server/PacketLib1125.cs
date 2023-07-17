@@ -10,7 +10,7 @@ using log4net;
 
 namespace DOL.GS.PacketHandler
 {
-	[PacketLib(1125, GameClient.eClientVersion.Version1125)]
+	[PacketLib(1125, GameClient.EClientVersion.Version1125)]
 	public class PacketLib1125 : PacketLib1124
 	{
 
@@ -448,7 +448,7 @@ namespace DOL.GS.PacketHandler
 				playerStatus |= 0x04;
 			if (SpellHelper.FindEffectOnTarget(living, "DamageOverTime") != null)
 				playerStatus |= 0x08;
-			if (player?.Client?.ClientState == GameClient.eClientState.Linkdead)
+			if (player?.Client?.ClientState == GameClient.EClientState.Linkdead)
 				playerStatus |= 0x10;
 			if (living.DebuffCategory[(int)EProperty.SpellRange] != 0 || living.DebuffCategory[(int)EProperty.ArcheryRange] != 0)
 				playerStatus |= 0x40;

@@ -52,7 +52,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 			client.Player.CurrentHouse = house;
 
 			var menu = _menu168;
-			if (client.Version >= GameClient.eClientVersion.Version1127)
+			if (client.Version >= GameClient.EClientVersion.Version1127)
 				menu = _menu1127;
 
 			if (menu.TryGetValue(menuid, out var type))

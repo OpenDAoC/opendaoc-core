@@ -15,13 +15,13 @@ namespace DOL.GS.PacketHandler.Client.v168
 		public void HandlePacket(GameClient client, GsPacketIn packet)
 		{
 			// This actually prevents 1124 from entering the game. Should it be > instead of >=?
-			if (client.Version >= GameClient.eClientVersion.Version1124) // 1124 support
+			if (client.Version >= GameClient.EClientVersion.Version1124) // 1124 support
 			{
 				_HandlePacket1124(client, packet);
 				return;
 			}
 
-			client.ClientState = GameClient.eClientState.CharScreen;
+			client.ClientState = GameClient.EClientState.CharScreen;
 			if (client.Player != null)
 			{
 				try
@@ -117,7 +117,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
 		private void _HandlePacket1124(GameClient client, GsPacketIn packet)
 		{
-			client.ClientState = GameClient.eClientState.CharScreen;
+			client.ClientState = GameClient.EClientState.CharScreen;
 
 			if (client.Player != null)
 			{

@@ -1210,7 +1210,7 @@ namespace DOL.GS.Keeps
 		{
 			foreach (GameClient client in WorldMgr.GetClientsOfRegion(this.CurrentRegion.ID))
 			{
-				if (client.Player == null || client.ClientState != GameClient.eClientState.Playing || client.Player.ObjectState != GameObject.eObjectState.Active)
+				if (client.Player == null || client.ClientState != GameClient.EClientState.Playing || client.Player.ObjectState != GameObject.eObjectState.Active)
 					continue;
 				
 				GamePlayer player = client.Player;
@@ -1232,7 +1232,7 @@ namespace DOL.GS.Keeps
 			foreach (GameClient client in WorldMgr.GetClientsOfRegion(this.CurrentRegion.ID))
 			{
 				
-				if (client.Player == null || client.ClientState != GameClient.eClientState.Playing || client.Player.ObjectState != GameObject.eObjectState.Active)
+				if (client.Player == null || client.ClientState != GameClient.EClientState.Playing || client.Player.ObjectState != GameObject.eObjectState.Active)
 					continue;
 				
 				GamePlayer player = client.Player;

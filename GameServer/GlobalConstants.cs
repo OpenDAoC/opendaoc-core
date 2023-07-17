@@ -59,7 +59,7 @@ namespace DOL.GS
 	/// <summary>
 	/// Ressurection sickness types
 	/// </summary>
-	public enum eResurectionSicknessType : int
+	public enum EResurectionSicknessType : int
 	{
 		PvMSickness = 0,
 		RvRSickness = 1,

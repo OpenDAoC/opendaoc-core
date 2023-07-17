@@ -5,7 +5,7 @@ using log4net;
 
 namespace DOL.GS.PacketHandler
 {
-	[PacketLib(191, GameClient.eClientVersion.Version191)]
+	[PacketLib(191, GameClient.EClientVersion.Version191)]
 	public class PacketLib191 : PacketLib190
 	{
 		/// <summary>
@@ -43,7 +43,7 @@ namespace DOL.GS.PacketHandler
 					playerStatus |= 0x08;
 				if (living is GamePlayer)
 				{
-					if ((living as GamePlayer).Client.ClientState == GameClient.eClientState.Linkdead)
+					if ((living as GamePlayer).Client.ClientState == GameClient.EClientState.Linkdead)
 						playerStatus |= 0x10;
 				}
 				if (!sameRegion)

@@ -38,7 +38,7 @@ namespace DOL.GS.Commands
 			}
 
 			// no longer used since 1.105, except if we explicitely want
-			if (client.Version >= GameClient.eClientVersion.Version1105)
+			if (client.Version >= GameClient.EClientVersion.Version1105)
 			{
 				if (!ServerProperties.Properties.CUSTOM_TRAIN)
 				{

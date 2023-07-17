@@ -20,7 +20,7 @@ using log4net;
 
 namespace DOL.GS.PacketHandler
 {
-	[PacketLib(168, GameClient.eClientVersion.Version168)]
+	[PacketLib(168, GameClient.EClientVersion.Version168)]
 	public class PacketLib168 : AbstractPacketLib, IPacketLib
 	{
 		protected const int MaxPacketLength = 2048;
@@ -591,7 +591,7 @@ namespace DOL.GS.PacketHandler
 
 		public virtual void SendMessage(string msg, EChatType type, EChatLoc loc)
 		{
-			if (m_gameClient.ClientState == GameClient.eClientState.CharScreen)
+			if (m_gameClient.ClientState == GameClient.EClientState.CharScreen)
 				return;
 
 			// types not supported by 1.68+ clients
@@ -1647,7 +1647,7 @@ namespace DOL.GS.PacketHandler
 							if (SpellHelper.FindEffectOnTarget(updateLiving, "DamageOverTime") != null)
 								playerStatus |= 0x08;
 							if (updateLiving is GamePlayer &&
-							    (updateLiving as GamePlayer).Client.ClientState == GameClient.eClientState.Linkdead)
+							    (updateLiving as GamePlayer).Client.ClientState == GameClient.EClientState.Linkdead)
 								playerStatus |= 0x10;
 							if (updateLiving.CurrentRegion != m_gameClient.Player.CurrentRegion)
 								playerStatus |= 0x20;
@@ -3335,7 +3335,7 @@ namespace DOL.GS.PacketHandler
 		public virtual void SendExitHouse(House house, ushort unknown = 0)
 		{
 			// do not send anything if client is leaving house due to linkdeath
-			if (m_gameClient != null && m_gameClient.Player != null && m_gameClient.ClientState != GameClient.eClientState.Linkdead)
+			if (m_gameClient != null && m_gameClient.Player != null && m_gameClient.ClientState != GameClient.EClientState.Linkdead)
 			{
 				using (var pak = new GsTcpPacketOut(GetPacketCode(EServerPackets.HouseExit)))
 				{
@@ -4053,7 +4053,7 @@ namespace DOL.GS.PacketHandler
 					playerStatus |= 0x04;
 				if (SpellHelper.FindEffectOnTarget(living, "DamageOverTime") != null)
 					playerStatus |= 0x08;
-				if (living is GamePlayer && ((GamePlayer) living).Client.ClientState == GameClient.eClientState.Linkdead)
+				if (living is GamePlayer && ((GamePlayer) living).Client.ClientState == GameClient.EClientState.Linkdead)
 					playerStatus |= 0x10;
 
 				pak.WriteByte(playerStatus);

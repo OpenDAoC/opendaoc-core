@@ -336,7 +336,7 @@ namespace DOL.GS.Friends
 			if (client == null)
 				return;
 
-			if (client.ClientState == GameClient.eClientState.WorldEnter && client.Player != null)
+			if (client.ClientState == GameClient.EClientState.WorldEnter && client.Player != null)
 			{
 				// Load Friend List
 				AddPlayerFriendsListToCache(client.Player);

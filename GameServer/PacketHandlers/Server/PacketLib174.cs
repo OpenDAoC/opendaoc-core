@@ -7,7 +7,7 @@ using log4net;
 
 namespace DOL.GS.PacketHandler
 {
-	[PacketLib(174, GameClient.eClientVersion.Version174)]
+	[PacketLib(174, GameClient.EClientVersion.Version174)]
 	public class PacketLib174 : PacketLib173
 	{
 		/// <summary>

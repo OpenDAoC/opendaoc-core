@@ -27,7 +27,7 @@ namespace DOL.GS
 		/// The client addons enum
 		/// </summary>
 		[Flags]
-		public enum eClientAddons
+		public enum EClientAddons
 		{
 			bit4 = 0x10,
 			NewNewFrontiers = 0x20,
@@ -42,7 +42,7 @@ namespace DOL.GS
 		/// <summary>
 		/// Current state of the client
 		/// </summary>
-		public enum eClientState
+		public enum EClientState
 		{
 			NotConnected = 0x00,
 			Connecting = 0x01,
@@ -60,7 +60,7 @@ namespace DOL.GS
 		/// <summary>
 		/// The client software type enum
 		/// </summary>
-		public enum eClientType
+		public enum EClientType
 		{
 			Unknown = -1,
 			Classic = 1,
@@ -78,7 +78,7 @@ namespace DOL.GS
 		/// <summary>
 		/// the version enum
 		/// </summary>
-		public enum eClientVersion
+		public enum EClientVersion
 		{
 			VersionNotChecked = -1,
 			VersionUnknown = 0,
@@ -166,19 +166,19 @@ namespace DOL.GS
 		/// <summary>
 		/// Holds installed client addons
 		/// </summary>
-		protected eClientAddons m_clientAddons;
+		protected EClientAddons m_clientAddons;
 
 		/// <summary>
 		/// Holds the current clientstate
 		/// </summary>
-		protected volatile eClientState m_clientState = eClientState.NotConnected;
+		protected volatile EClientState m_clientState = EClientState.NotConnected;
 
 		/// <summary>
 		/// Holds client software type
 		/// </summary>
-		protected eClientType m_clientType = eClientType.Unknown;
+		protected EClientType m_clientType = EClientType.Unknown;
 
-		protected eClientVersion m_clientVersion;
+		protected EClientVersion m_clientVersion;
 
 		/// <summary>
 		/// Holds the time of the last UDP ping
@@ -281,7 +281,7 @@ namespace DOL.GS
 		public GameClient(BaseServer srvr)
 			: base(srvr)
 		{
-			m_clientVersion = eClientVersion.VersionNotChecked;
+			m_clientVersion = EClientVersion.VersionNotChecked;
 			m_player = null;
 			m_activeCharIndex = -1; //No character loaded yet!
 			m_GameObjectUpdateArray = new ReaderWriterDictionary<Tuple<ushort, ushort>, long>();
@@ -300,16 +300,16 @@ namespace DOL.GS
 		/// <summary>
 		/// Gets or sets the client state
 		/// </summary>
-		public eClientState ClientState
+		public EClientState ClientState
 		{
 			get { return m_clientState; }
 			set
 			{
-				eClientState oldState = m_clientState;
+				EClientState oldState = m_clientState;
 
 				// refresh ping timeouts immediately when we change into playing state or charscreen
-				if ((oldState != eClientState.Playing && value == eClientState.Playing) ||
-				    (oldState != eClientState.CharScreen && value == eClientState.CharScreen))
+				if ((oldState != EClientState.Playing && value == EClientState.Playing) ||
+				    (oldState != EClientState.CharScreen && value == EClientState.CharScreen))
 				{
 					PingTime = DateTime.Now.Ticks;
 				}
@@ -338,7 +338,7 @@ namespace DOL.GS
 			get
 			{
 				//Linkdead players also count as playing :)
-				return m_clientState == eClientState.Playing || m_clientState == eClientState.Linkdead;
+				return m_clientState == EClientState.Playing || m_clientState == EClientState.Linkdead;
 			}
 		}
 
@@ -450,7 +450,7 @@ namespace DOL.GS
 		/// <summary>
 		/// the version of this client
 		/// </summary>
-		public eClientVersion Version
+		public EClientVersion Version
 		{
 			get { return m_clientVersion; }
 			set { m_clientVersion = value; }
@@ -459,7 +459,7 @@ namespace DOL.GS
 		/// <summary>
 		/// Gets/sets client software type (classic/SI/ToA/Catacombs)
 		/// </summary>
-		public eClientType ClientType
+		public EClientType ClientType
 		{
 			get { return m_clientType; }
 			set { m_clientType = value; }
@@ -472,7 +472,7 @@ namespace DOL.GS
 		/// <summary>
 		/// Gets/sets installed client addons (housing/new frontiers)
 		/// </summary>
-		public eClientAddons ClientAddons
+		public EClientAddons ClientAddons
 		{
 			get { return m_clientAddons; }
 			set { m_clientAddons = value; }
@@ -515,7 +515,7 @@ namespace DOL.GS
 		protected override void OnReceive(int numBytes)
 		{
 			//This is the first received packet ...
-			if (Version == eClientVersion.VersionNotChecked)
+			if (Version == EClientVersion.VersionNotChecked)
 			{
 				//Disconnect if the packet seems wrong
 				if (numBytes < 17) // 17 is correct bytes count for 0xF4 packet
@@ -554,12 +554,12 @@ namespace DOL.GS
 					version = _pBuf[11] * 1000 + _pBuf[12] * 100 + _pBuf[13];
 				}
 
-				eClientVersion ver;
+				EClientVersion ver;
 				IPacketLib lib = AbstractPacketLib.CreatePacketLibForVersion(version, this, out ver);
 
 				if (lib == null)
 				{
-					Version = eClientVersion.VersionUnknown;
+					Version = EClientVersion.VersionUnknown;
 					if (log.IsWarnEnabled)
 						log.Warn(TcpEndpointAddress + " client Version " + version + " not handled on this server!");
 					GameServer.Instance.Disconnect(this);
@@ -573,7 +573,7 @@ namespace DOL.GS
 				}
 			}
 
-			if (Version != eClientVersion.VersionUnknown)
+			if (Version != EClientVersion.VersionUnknown)
 			{
 				m_packetProcessor.ReceiveBytes(numBytes);
 			}
@@ -593,14 +593,14 @@ namespace DOL.GS
 				
 				//If we went linkdead and we were inside the game
 				//we don't let the player disappear!
-				if (ClientState == eClientState.Playing)
+				if (ClientState == EClientState.Playing)
 				{
 					OnLinkdeath();
 					linkdead = true;
 					return;
 				}
 
-				if (ClientState == eClientState.WorldEnter && Player != null)
+				if (ClientState == EClientState.WorldEnter && Player != null)
 				{
 					Player.SaveIntoDatabase();
 				}
@@ -773,7 +773,7 @@ namespace DOL.GS
 			}
 			else
 			{
-				ClientState = eClientState.Linkdead;
+				ClientState = EClientState.Linkdead;
 				LinkDeathTime = GameLoop.GameLoopTime;
 				// If we have a good sessionid, we won't remove the client yet!
 				// OnLinkdeath() can start a timer to remove the client "a bit later"
@@ -791,11 +791,11 @@ namespace DOL.GS
 			{
 				try
 				{
-					eClientState oldClientState = ClientState;
+					EClientState oldClientState = ClientState;
 					if (m_sessionID != 0)
 					{
-						if (oldClientState == eClientState.Playing || oldClientState == eClientState.WorldEnter ||
-						    oldClientState == eClientState.Linkdead)
+						if (oldClientState == EClientState.Playing || oldClientState == EClientState.WorldEnter ||
+						    oldClientState == EClientState.Linkdead)
 						{
 							try
 							{
@@ -822,7 +822,7 @@ namespace DOL.GS
 						}
 					}
 
-					ClientState = eClientState.Disconnected;
+					ClientState = EClientState.Disconnected;
 					//Player = null;
 
 					GameEventMgr.Notify(GameClientEvent.Disconnected, this);

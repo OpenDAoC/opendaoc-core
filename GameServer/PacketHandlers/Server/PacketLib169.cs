@@ -3,7 +3,7 @@ using DOL.GS.Spells;
 
 namespace DOL.GS.PacketHandler
 {
-	[PacketLib(169, GameClient.eClientVersion.Version169)]
+	[PacketLib(169, GameClient.EClientVersion.Version169)]
 	public class PacketLib169 : PacketLib168
 	{
 		/// <summary>
@@ -58,7 +58,7 @@ namespace DOL.GS.PacketHandler
 								playerStatus |= 0x04;
 							if (SpellHelper.FindEffectOnTarget(living, "DamageOverTime") != null)
 								playerStatus |= 0x08;
-							if (living is GamePlayer && ((GamePlayer)living).Client.ClientState == GameClient.eClientState.Linkdead)
+							if (living is GamePlayer && ((GamePlayer)living).Client.ClientState == GameClient.EClientState.Linkdead)
 								playerStatus |= 0x10;
 							if (living.CurrentRegion != m_gameClient.Player.CurrentRegion)
 								playerStatus |= 0x20;
@@ -108,7 +108,7 @@ namespace DOL.GS.PacketHandler
 					playerStatus |= 0x04;
 				if (SpellHelper.FindEffectOnTarget(living, "DamageOverTime") != null)
 					playerStatus |= 0x08;
-				if (living is GamePlayer && ((GamePlayer)living).Client.ClientState == GameClient.eClientState.Linkdead)
+				if (living is GamePlayer && ((GamePlayer)living).Client.ClientState == GameClient.EClientState.Linkdead)
 					playerStatus |= 0x10;
 				if (!sameRegion)
 					playerStatus |= 0x20;

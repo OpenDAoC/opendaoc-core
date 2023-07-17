@@ -1433,7 +1433,7 @@ namespace DOL.GS
                         if (player == null)
                             return;
 
-                        if ((int)player.Client.Version < (int)GameClient.eClientVersion.Version187)
+                        if ((int)player.Client.Version < (int)GameClient.EClientVersion.Version187)
                             player.Out.SendEmoteAnimation(this, EEmote.Bind);
                         else
                             player.Out.SendEmoteAnimation(this, bindEmote);
@@ -2633,7 +2633,7 @@ namespace DOL.GS
         protected override int HealthRegenerationTimerCallback(ECSGameTimer callingTimer)
         {
             // I'm not sure what the point of this is.
-            if (Client.ClientState != GameClient.eClientState.Playing)
+            if (Client.ClientState != GameClient.EClientState.Playing)
                 return HealthRegenerationPeriod;
 
             // adjust timer based on Live testing of player
@@ -2697,7 +2697,7 @@ namespace DOL.GS
         /// <returns>the new time</returns>
         protected override int PowerRegenerationTimerCallback(ECSGameTimer selfRegenerationTimer)
         {
-            if (Client.ClientState != GameClient.eClientState.Playing)
+            if (Client.ClientState != GameClient.EClientState.Playing)
                 return PowerRegenerationPeriod;
             if (IsSitting)
             {
@@ -2716,7 +2716,7 @@ namespace DOL.GS
         /// <returns>the new time</returns>
         protected override int EnduranceRegenerationTimerCallback(ECSGameTimer selfRegenerationTimer)
         {
-            if (Client.ClientState != GameClient.eClientState.Playing)
+            if (Client.ClientState != GameClient.EClientState.Playing)
                 return EnduranceRegenerationPeriod;
 
             LastEnduTick = GameLoop.GameLoopTime;

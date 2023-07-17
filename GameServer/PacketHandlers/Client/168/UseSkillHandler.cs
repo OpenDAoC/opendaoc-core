@@ -16,7 +16,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
 		public void HandlePacket(GameClient client, GsPacketIn packet)
 		{
-			if (client.Version >= GameClient.eClientVersion.Version1124)
+			if (client.Version >= GameClient.EClientVersion.Version1124)
 			{
 				client.Player.X = (int)packet.ReadFloatLowEndian();
 				client.Player.Y = (int)packet.ReadFloatLowEndian();

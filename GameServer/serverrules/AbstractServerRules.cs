@@ -80,8 +80,8 @@ namespace DOL.GS.ServerRules
 				return false;
 			}
 
-			GameClient.eClientVersion min = (GameClient.eClientVersion)Properties.CLIENT_VERSION_MIN;
-			if (min != GameClient.eClientVersion.VersionNotChecked && client.Version < min)
+			GameClient.EClientVersion min = (GameClient.EClientVersion)Properties.CLIENT_VERSION_MIN;
+			if (min != GameClient.EClientVersion.VersionNotChecked && client.Version < min)
 			{
 				client.IsConnected = false;
 				client.Out.SendLoginDenied(ELoginError.ClientVersionTooLow);
@@ -89,8 +89,8 @@ namespace DOL.GS.ServerRules
 				return false;
 			}
 
-			GameClient.eClientVersion max = (GameClient.eClientVersion)Properties.CLIENT_VERSION_MAX;
-			if (max != GameClient.eClientVersion.VersionNotChecked && client.Version > max)
+			GameClient.EClientVersion max = (GameClient.EClientVersion)Properties.CLIENT_VERSION_MAX;
+			if (max != GameClient.EClientVersion.VersionNotChecked && client.Version > max)
 			{
 				client.IsConnected = false;
 				client.Out.SendLoginDenied(ELoginError.NotAuthorizedToUseExpansionVersion);
@@ -100,7 +100,7 @@ namespace DOL.GS.ServerRules
 
 			if (Properties.CLIENT_TYPE_MAX > -1)
 			{
-				GameClient.eClientType type = (GameClient.eClientType)Properties.CLIENT_TYPE_MAX;
+				GameClient.EClientType type = (GameClient.EClientType)Properties.CLIENT_TYPE_MAX;
 				if ((int)client.ClientType > (int)type)
 				{
 					client.IsConnected = false;
@@ -343,7 +343,7 @@ namespace DOL.GS.ServerRules
 				if ((attacker as GameNPC).Brain is IControlledBrain)
 					playerAttacker = ((attacker as GameNPC).Brain as IControlledBrain).GetPlayerOwner();
 
-			if (playerDefender != null && (playerDefender.Client.ClientState == GameClient.eClientState.WorldEnter || playerDefender.IsInvulnerableToAttack))
+			if (playerDefender != null && (playerDefender.Client.ClientState == GameClient.EClientState.WorldEnter || playerDefender.IsInvulnerableToAttack))
 			{
 				if (!quiet)
 					MessageToLiving(attacker, defender.Name + " is entering the game and is temporarily immune to PvP attacks!");

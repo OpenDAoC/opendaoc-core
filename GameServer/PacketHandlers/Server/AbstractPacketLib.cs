@@ -106,7 +106,7 @@ namespace DOL.GS.PacketHandler
 		/// <param name="client">The client for which to create packet lib.</param>
 		/// <param name="version">The client version of packetlib.</param>
 		/// <returns>null if not found or new packetlib instance.</returns>
-		public static IPacketLib CreatePacketLibForVersion(int rawVersion, GameClient client, out GameClient.eClientVersion version)
+		public static IPacketLib CreatePacketLibForVersion(int rawVersion, GameClient client, out GameClient.EClientVersion version)
 		{
 			foreach (Type t in ScriptMgr.GetDerivedClasses(typeof (IPacketLib)))
 			{
@@ -129,7 +129,7 @@ namespace DOL.GS.PacketHandler
 				}
 			}
 			
-			version = GameClient.eClientVersion.VersionUnknown;
+			version = GameClient.EClientVersion.VersionUnknown;
 			return null;
 		}
 		

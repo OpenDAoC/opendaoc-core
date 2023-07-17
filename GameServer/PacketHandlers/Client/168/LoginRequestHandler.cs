@@ -78,7 +78,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 			/// Packet Format Change above 1.115
 			/// </summary>
 			
-			if (client.Version < GameClient.eClientVersion.Version1115)
+			if (client.Version < GameClient.EClientVersion.Version1115)
 			{
 				packet.Skip(2); //Skip the client_type byte
 				
@@ -93,12 +93,12 @@ namespace DOL.GS.PacketHandler.Client.v168
 				//bool loggerUsing = false;
 				switch (client.Version)
 				{
-					case GameClient.eClientVersion.Version168:
-					case GameClient.eClientVersion.Version169:
-					case GameClient.eClientVersion.Version170:
-					case GameClient.eClientVersion.Version171:
-					case GameClient.eClientVersion.Version172:
-					case GameClient.eClientVersion.Version173:
+					case GameClient.EClientVersion.Version168:
+					case GameClient.EClientVersion.Version169:
+					case GameClient.EClientVersion.Version170:
+					case GameClient.EClientVersion.Version171:
+					case GameClient.EClientVersion.Version172:
+					case GameClient.EClientVersion.Version173:
 						v174 = false;
 						break;
 					default:
@@ -130,7 +130,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 	
 				userName = packet.ReadString(20);
 			}
-			else if (client.Version < GameClient.eClientVersion.Version1126) // 1.125+ only // we support 1.109 and 1.125+ only
+			else if (client.Version < GameClient.EClientVersion.Version1126) // 1.125+ only // we support 1.109 and 1.125+ only
 			{
 				// client type
 				packet.Skip(1);
@@ -145,7 +145,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 				// build
 				packet.Skip(2);
 
-				if (client.Version <= GameClient.eClientVersion.Version1124)
+				if (client.Version <= GameClient.EClientVersion.Version1124)
 				{
 					userName = packet.ReadShortPascalStringLowEndian();
 					password = packet.ReadShortPascalStringLowEndian();
@@ -209,8 +209,8 @@ namespace DOL.GS.PacketHandler.Client.v168
 				// Make sure that client won't quit
 				lock (client)
 				{
-					GameClient.eClientState state = client.ClientState;
-					if (state != GameClient.eClientState.NotConnected)
+					GameClient.EClientState state = client.ClientState;
+					if (state != GameClient.EClientState.NotConnected)
 					{
 						Log.DebugFormat("wrong client state on connect {0} {1}", userName, state.ToString());
 						return;
@@ -225,7 +225,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 					{
 						client.IsConnected = false;
 						                            
-						if (findclient.ClientState == GameClient.eClientState.Connecting)
+						if (findclient.ClientState == GameClient.EClientState.Connecting)
 						{
 							if (Log.IsInfoEnabled) Log.Info("User is already connecting, ignored.");
 
@@ -234,7 +234,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 							return;
 						} // in login
 
-						if (findclient.ClientState == GameClient.eClientState.Linkdead)
+						if (findclient.ClientState == GameClient.EClientState.Linkdead)
 						{
 							if (Log.IsInfoEnabled) Log.Info("User is still being logged out from linkdeath!");
 
@@ -458,7 +458,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 					}
 
 					client.Out.SendLoginGranted();
-					client.ClientState = GameClient.eClientState.Connecting;
+					client.ClientState = GameClient.EClientState.Connecting;
 					
 					GameServer.Database.FillObjectRelations(client.Account);
 

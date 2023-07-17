@@ -132,17 +132,17 @@ namespace DOL.GS.Commands
 
 
                 #region count GMs, and different client states
-                if (c.ClientState == GameClient.eClientState.Connecting)
+                if (c.ClientState == GameClient.EClientState.Connecting)
                     ++connecting;
-                else if (c.ClientState == GameClient.eClientState.Disconnected)
+                else if (c.ClientState == GameClient.EClientState.Disconnected)
                     ++disconnecting;
-                else if (c.ClientState == GameClient.eClientState.CharScreen)
+                else if (c.ClientState == GameClient.EClientState.CharScreen)
                     ++charscreen;
-                else if (c.ClientState == GameClient.eClientState.Linkdead)
+                else if (c.ClientState == GameClient.EClientState.Linkdead)
                     ++linkdeath;
-                else if (c.ClientState == GameClient.eClientState.WorldEnter)
+                else if (c.ClientState == GameClient.EClientState.WorldEnter)
                     ++enterworld;
-                else if (c.ClientState == GameClient.eClientState.Playing)
+                else if (c.ClientState == GameClient.EClientState.Playing)
                     ++playing;
                 else
                     continue;

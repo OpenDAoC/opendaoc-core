@@ -9,7 +9,7 @@ using log4net;
 
 namespace DOL.GS.PacketHandler
 {
-	[PacketLib(171, GameClient.eClientVersion.Version171)]
+	[PacketLib(171, GameClient.EClientVersion.Version171)]
 	public class PacketLib171 : PacketLib170
 	{
 		/// <summary>
@@ -185,7 +185,7 @@ namespace DOL.GS.PacketHandler
 				string add = "";
 				byte flags2 = 0x00;
 				IControlledBrain brain = npc.Brain as IControlledBrain;
-				if (m_gameClient.Version >= GameClient.eClientVersion.Version187)
+				if (m_gameClient.Version >= GameClient.EClientVersion.Version187)
 				{
 					if (brain != null)
 					{

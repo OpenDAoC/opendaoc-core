@@ -44,7 +44,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 				// trade permissions are done in GamePlayer
 				if (tradeTarget != null)
 				{
-					if (tradeTarget.Client.ClientState != GameClient.eClientState.Playing)
+					if (tradeTarget.Client.ClientState != GameClient.EClientState.Playing)
 					{
 						client.Out.SendInventorySlotsUpdate(new int[] { fromClientSlot });
 						client.Out.SendMessage("Can't trade with inactive players.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
@@ -139,7 +139,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 				}
 
 				//Is the "item" we want to move money? For Version 1.78+
-				if (client.Version >= GameClient.eClientVersion.Version178 && 
+				if (client.Version >= GameClient.EClientVersion.Version178 && 
 					fromClientSlot >= (int)eInventorySlot.Mithril178 && 
 					fromClientSlot <= (int)eInventorySlot.Copper178)
 				{
@@ -153,7 +153,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 					money[fromClientSlot - (ushort)eInventorySlot.Mithril] = itemCount;
 					long flatMoney = Money.GetMoney(money[0], money[1], money[2], money[3], money[4]);
 
-					if (client.Version >= GameClient.eClientVersion.Version178) // add it back for proper slot update...
+					if (client.Version >= GameClient.EClientVersion.Version178) // add it back for proper slot update...
 					{
 						fromClientSlot += eInventorySlot.Mithril178 - eInventorySlot.Mithril;
 					}
