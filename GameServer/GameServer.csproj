@@ -48,6 +48,20 @@
     <EmbeddedResource Include=".\config\*" />
     <TranslationFiles Include=".\language\**\*.txt" />
     <APIDocs Include=".\API\docs\*" />
+    <TranslationFiles Include="Languages\DE\GameObjects\GameKeepGuardMgr.txt" />
+    <TranslationFiles Include="Languages\DE\GameObjects\GameKeepGuards.txt" />
+    <TranslationFiles Include="Languages\DE\GameUtils\GameUtils.txt" />
+    <TranslationFiles Include="Languages\EN\GameObjects\GameKeepGuardMgr.txt" />
+    <TranslationFiles Include="Languages\EN\GameObjects\GameKeepGuards.txt" />
+    <TranslationFiles Include="Languages\EN\GameUtils\GameUtils.txt" />
+    <TranslationFiles Include="Languages\EN\Keeps.txt" />
+    <TranslationFiles Include="Languages\FR\GameObjects\GameKeepGuardMgr.txt" />
+    <TranslationFiles Include="Languages\FR\GameObjects\GameKeepGuards.txt" />
+    <TranslationFiles Include="Languages\FR\GameObjects\GameTrainers.txt" />
+    <TranslationFiles Include="Languages\FR\GameUtils\GameUtils.txt" />
+    <TranslationFiles Include="Languages\IT\GameObjects\NameRegistrar.txt" />
+    <TranslationFiles Include="Languages\IT\GameObjects\VaultKeeper.txt" />
+    <TranslationFiles Include="Languages\NL\Commands\AdminCmds.txt" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="API\Docs\index.css" />
