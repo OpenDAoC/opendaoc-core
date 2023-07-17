@@ -1,5 +1,3 @@
-using System;
-
 namespace DOL.GS.PlayerTitles
 {
 	/// <summary>

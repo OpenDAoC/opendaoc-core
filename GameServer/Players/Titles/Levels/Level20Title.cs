@@ -1,54 +1,22 @@
 
-using System;
-using System.Linq;
+/*
+ * Suncheck: [19.06.2007]
+ *   - Corrected
+ *   - Sorted
+ *   - Added missing (+language support)
+ */
 
-using DOL.Language;
+using System;
 using DOL.Events;
+using DOL.Language;
 
 namespace DOL.GS.PlayerTitles
 {
   	/// <summary>
-	/// Master Level Title Handler
+	/// Example...
 	/// </summary>
-	public class MasterlevelTitle : EventPlayerTitle
+	public class Level20Title : EventPlayerTitle
 	{
-		/// <summary>
-		/// Map ML Spec on ML Translate ID
-		/// </summary>
-		/// <param name="player"></param>
-		/// <returns></returns>
-		private int GetPlayerMLLine(GamePlayer player)
-		{
-			var mlspec = player.GetSpecList().FirstOrDefault(spec => spec is IMasterLevelsSpecialization);
-			
-			if(mlspec != null)
-			{
-				switch(mlspec.KeyName)
-				{
-					case "Banelord":
-						return 1;
-					case "Battlemaster":
-						return 2;
-					case "Convoker":
-						return 3;
-					case "Perfecter":
-						return 4;
-					case "Sojourner":
-						return 5;
-					case "Spymaster":
-						return 6;
-					case "Stormlord":
-						return 7;
-					case "Warlord":
-						return 8;
-					default:
-						return 0;
-				}
-			}
-			
-			return 0;
-		}
-		
 		/// <summary>
 		/// The title description, shown in "Titles" window.
 		/// </summary>
@@ -56,7 +24,7 @@ namespace DOL.GS.PlayerTitles
 		/// <returns>The title description.</returns>
 		public override string GetDescription(GamePlayer player)
 		{
-			return GetValue(player, player);
+			return LanguageMgr.TryTranslateOrDefault(player, "!Level 20+!", "Titles.Level.Level20Info");
 		}
 
 		/// <summary>
@@ -67,14 +35,7 @@ namespace DOL.GS.PlayerTitles
 		/// <returns>The title value.</returns>
 		public override string GetValue(GamePlayer source, GamePlayer player)
 		{
-			if (player.MLGranted && player.MLLevel > 0)
-			{
-				// try get player ML Number
-				int mlline = GetPlayerMLLine(player);
-				return LanguageMgr.TryTranslateOrDefault(source, string.Format("!ML Title {0}!", mlline), string.Format("Titles.ML.Line{0}", mlline));
-			}
-			
-			return LanguageMgr.TryTranslateOrDefault(source, "!None!", "DetailDisplayHandler.HandlePacket.None");
+			return LanguageMgr.TryTranslateOrDefault(source, "!Level {0}!", "Titles.Level.Level20", player.Level);
 		}
 		
 		/// <summary>
@@ -82,7 +43,7 @@ namespace DOL.GS.PlayerTitles
 		/// </summary>
 		public override CoreEvent Event
 		{
-			get { return GamePlayerEvent.BecomeML; }
+			get { return GamePlayerEvent.LevelUp; }
 		}
 		
 		/// <summary>
@@ -92,7 +53,7 @@ namespace DOL.GS.PlayerTitles
 		/// <returns>true if the player is suitable for this title.</returns>
 		public override bool IsSuitable(GamePlayer player)
 		{
-			return player.MLGranted && player.MLLevel > 0;
+			return player.Level >= 20;
 		}
 		
 		/// <summary>

@@ -1,5 +1,5 @@
-using DOL.GS.Realm;
 using System.Collections.Generic;
+using DOL.GS.Realm;
 
 namespace DOL.GS.PlayerClass
 {

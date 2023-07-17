@@ -13284,7 +13284,7 @@ namespace DOL.GS
         {
             get
             {
-                var title = m_titles.FirstOrDefault(ttl => ttl is CraftTitle);
+                var title = m_titles.FirstOrDefault(ttl => ttl is CraftTitles);
                 if (title != null && title.IsSuitable(this))
                     return title;
 
@@ -15133,7 +15133,7 @@ namespace DOL.GS
         {
             get
             {
-                var title = m_titles.FirstOrDefault(ttl => ttl is MasterlevelTitle);
+                var title = m_titles.FirstOrDefault(ttl => ttl is MasterLevelTitles);
 
                 if (title != null && title.IsSuitable(this))
                     return title;
