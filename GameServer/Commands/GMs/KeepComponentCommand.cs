@@ -10,7 +10,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		 "&keepcomponent",
-		 ePrivLevel.GM,
+		 EPrivLevel.GM,
 		 "GMCommands.KeepComponents.Description",
 		 "GMCommands.KeepComponents.Usage.Create.TID",
 		 "GMCommands.KeepComponents.Usage.Create.T",

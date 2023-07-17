@@ -11,7 +11,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		 "&lastname",
-		 ePrivLevel.Player,
+		 EPrivLevel.Player,
 		 "Set/change your lastname.", "/lastname <name>")]
 
 	public class LastNameCommand : AbstractCommandHandler, ICommandHandler

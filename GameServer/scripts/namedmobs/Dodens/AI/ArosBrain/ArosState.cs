@@ -15,7 +15,7 @@ public class ArosState_IDLE : ArosState
 {
     public ArosState_IDLE(Fsm fsm, ArosBrain brain) : base(fsm, brain)
     {
-        _id = eFSMStateType.IDLE;
+        _id = EFsmStateType.IDLE;
     }
 
     public override void Enter()
@@ -46,7 +46,7 @@ public class ArosState_IDLE : ArosState
             {
                 //Set state to AGGRO
                 _brain.AttackMostWanted();
-                _brain.FSM.SetCurrentState(eFSMStateType.AGGRO);
+                _brain.FSM.SetCurrentState(EFsmStateType.AGGRO);
                 return;
             }
             else
@@ -63,7 +63,7 @@ public class ArosState_IDLE : ArosState
         if (_brain.CheckTether())
         {
             //set state to RETURN TO SPAWN
-            _brain.FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+            _brain.FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
         }
     }
 }
@@ -72,7 +72,7 @@ public class ArosState_AGGRO : ArosState
 {
     public ArosState_AGGRO(Fsm fsm, ArosBrain brain) : base(fsm, brain)
     {
-        _id = eFSMStateType.AGGRO;
+        _id = EFsmStateType.AGGRO;
     }
 
     public override void Enter()
@@ -94,7 +94,7 @@ public class ArosState_AGGRO : ArosState
         if (_brain.CheckTether() || !_brain.CheckProximityAggro())
         {
             //set state to RETURN TO SPAWN
-            _brain.FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+            _brain.FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
         }
     }
 
@@ -104,7 +104,7 @@ public class ArosState_RETURN_TO_SPAWN : ArosState
 {
     public ArosState_RETURN_TO_SPAWN(Fsm fsm, ArosBrain brain) : base(fsm, brain)
     {
-        _id = eFSMStateType.RETURN_TO_SPAWN;
+        _id = EFsmStateType.RETURN_TO_SPAWN;
     }
 
     public override void Enter()
@@ -123,7 +123,7 @@ public class ArosState_RETURN_TO_SPAWN : ArosState
         if (_brain.Body.IsNearSpawn)
         {
             _brain.Body.CancelReturnToSpawnPoint();
-            _brain.FSM.SetCurrentState(eFSMStateType.IDLE);
+            _brain.FSM.SetCurrentState(EFsmStateType.IDLE);
         }
     }
 }

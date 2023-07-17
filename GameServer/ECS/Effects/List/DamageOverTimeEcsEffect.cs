@@ -15,7 +15,7 @@ namespace DOL.GS
         {
             // Remove stealth on first application since the code that normally handles removing stealth on
             // attack ignores DoT damage, since only the first tick of a DoT should remove stealth.            
-            if (OwnerPlayer != null && !OwnerPlayer.effectListComponent.ContainsEffectForEffectType(eEffect.Vanish))
+            if (OwnerPlayer != null && !OwnerPlayer.effectListComponent.ContainsEffectForEffectType(EEffect.Vanish))
                 OwnerPlayer.Stealth(false);
             
             // "Searing pain fills your mind!"
@@ -25,7 +25,7 @@ namespace DOL.GS
 
         public override void OnStopEffect()
         {
-            if (EffectType == eEffect.Bleed && !Owner.effectListComponent.ContainsEffectForEffectType(eEffect.Bleed))
+            if (EffectType == EEffect.Bleed && !Owner.effectListComponent.ContainsEffectForEffectType(EEffect.Bleed))
                 Owner.TempProperties.removeProperty(StyleBleeding.BLEED_VALUE_PROPERTY);
             
             // "Your mental agony fades."
@@ -53,7 +53,7 @@ namespace DOL.GS
                     }
 
                     double postRAEffectiveness = Effectiveness;
-                    if (handler.Caster.effectListComponent.ContainsEffectForEffectType(eEffect.Viper) && SpellHandler.Spell.IsPoison)
+                    if (handler.Caster.effectListComponent.ContainsEffectForEffectType(EEffect.Viper) && SpellHandler.Spell.IsPoison)
                         postRAEffectiveness *= 2;
                     
                     handler.OnDirectEffect(Owner, postRAEffectiveness);
@@ -61,7 +61,7 @@ namespace DOL.GS
                 else if (SpellHandler is StyleBleeding bleedHandler)
                 {
 
-                    if (Owner.effectListComponent.ContainsEffectForEffectType(eEffect.Bleed)
+                    if (Owner.effectListComponent.ContainsEffectForEffectType(EEffect.Bleed)
                         && Owner.TempProperties.getProperty<int>(StyleBleeding.BLEED_VALUE_PROPERTY) > bleedHandler.Spell.Damage)
                     {
                         if (OwnerPlayer != null)

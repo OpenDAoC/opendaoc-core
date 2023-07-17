@@ -13,10 +13,10 @@ namespace DOL.GS.PropertyCalc
     /// </summary>
 
     //Debuff Effectivness
-    [PropertyCalculator(eProperty.DebuffEffectivness)]
+    [PropertyCalculator(EProperty.DebuffEffectivness)]
     public class DebuffEffectivnessPercentCalculator : PropertyCalculator
     {
-        public override int CalcValue(GameLiving living, eProperty property)
+        public override int CalcValue(GameLiving living, EProperty property)
         {
             // Hardcap at 25%
             return Math.Min(25, living.ItemBonus[(int)property] - living.DebuffCategory[(int)property]);
@@ -24,10 +24,10 @@ namespace DOL.GS.PropertyCalc
     }
 
     //Buff Effectivness
-    [PropertyCalculator(eProperty.BuffEffectiveness)]
+    [PropertyCalculator(EProperty.BuffEffectiveness)]
     public class BuffEffectivenessPercentCalculator : PropertyCalculator
     {
-        public override int CalcValue(GameLiving living, eProperty property)
+        public override int CalcValue(GameLiving living, EProperty property)
         {
             GameLiving livingToCheck;
 
@@ -43,10 +43,10 @@ namespace DOL.GS.PropertyCalc
     }
 
     // Healing Effectivness
-    [PropertyCalculator(eProperty.HealingEffectiveness)]
+    [PropertyCalculator(EProperty.HealingEffectiveness)]
     public class HealingEffectivenessPercentCalculator : PropertyCalculator
     {
-        public override int CalcValue(GameLiving living, eProperty property)
+        public override int CalcValue(GameLiving living, EProperty property)
         {
             // Hardcap at 25%
             int percent = Math.Min(25, living.BaseBuffBonusCategory[(int)property]
@@ -68,12 +68,12 @@ namespace DOL.GS.PropertyCalc
     /// 
     /// Crit propability is capped to 50%
     /// </summary>
-    [PropertyCalculator(eProperty.CriticalHealHitChance)]
+    [PropertyCalculator(EProperty.CriticalHealHitChance)]
     public class CriticalHealHitChanceCalculator : PropertyCalculator
     {
         public CriticalHealHitChanceCalculator() { }
 
-        public override int CalcValue(GameLiving living, eProperty property)
+        public override int CalcValue(GameLiving living, EProperty property)
         {
             int percent = living.AbilityBonus[(int)property];
 
@@ -83,10 +83,10 @@ namespace DOL.GS.PropertyCalc
     }
 
     //Cast Speed
-    [PropertyCalculator(eProperty.CastingSpeed)]
+    [PropertyCalculator(EProperty.CastingSpeed)]
     public class SpellCastSpeedPercentCalculator : PropertyCalculator
     {
-        public override int CalcValue(GameLiving living, eProperty property)
+        public override int CalcValue(GameLiving living, EProperty property)
         {
             GameLiving livingToCheck;
 
@@ -105,10 +105,10 @@ namespace DOL.GS.PropertyCalc
     }
 
     //Spell Duration
-    [PropertyCalculator(eProperty.SpellDuration)]
+    [PropertyCalculator(EProperty.SpellDuration)]
     public class SpellDurationPercentCalculator : PropertyCalculator
     {
-        public override int CalcValue(GameLiving living, eProperty property)
+        public override int CalcValue(GameLiving living, EProperty property)
         {
             //hardcap at 25%
             return Math.Min(25, living.ItemBonus[(int)property] - living.DebuffCategory[(int)property]);
@@ -116,10 +116,10 @@ namespace DOL.GS.PropertyCalc
     }
 
     //Spell Damage
-    [PropertyCalculator(eProperty.SpellDamage)]
+    [PropertyCalculator(EProperty.SpellDamage)]
     public class SpellDamagePercentCalculator : PropertyCalculator
     {
-        public override int CalcValue(GameLiving living, eProperty property)
+        public override int CalcValue(GameLiving living, EProperty property)
         {
             // Hardcap at 10%
             int percent = Math.Min(10, living.BaseBuffBonusCategory[(int)property]

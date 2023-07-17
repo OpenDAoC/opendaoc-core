@@ -36,8 +36,8 @@ namespace DOL.GS.ServerRules
 			return (player.Realm == DarknessFallOwner);
 		}
 
-		public static eRealm DarknessFallOwner = eRealm.None;
-		public static eRealm PreviousOwner = eRealm.None;
+		public static ERealm DarknessFallOwner = ERealm.None;
+		public static ERealm PreviousOwner = ERealm.None;
 
 		public static long GracePeriod = 900 * 1000; //15 mins
 		public static long LastRealmSwapTick = 0;
@@ -62,21 +62,21 @@ namespace DOL.GS.ServerRules
 		
 		private static void CheckDFOwner()
 		{
-			int albcount = GameServer.KeepManager.GetKeepCountByRealm(eRealm.Albion);
-			int midcount = GameServer.KeepManager.GetKeepCountByRealm(eRealm.Midgard);
-			int hibcount = GameServer.KeepManager.GetKeepCountByRealm(eRealm.Hibernia);
+			int albcount = GameServer.KeepManager.GetKeepCountByRealm(ERealm.Albion);
+			int midcount = GameServer.KeepManager.GetKeepCountByRealm(ERealm.Midgard);
+			int hibcount = GameServer.KeepManager.GetKeepCountByRealm(ERealm.Hibernia);
 			
 			if (albcount > midcount && albcount > hibcount)
 			{
-				DarknessFallOwner = eRealm.Albion;
+				DarknessFallOwner = ERealm.Albion;
 			}
 			if (midcount > albcount && midcount > hibcount)
 			{
-				DarknessFallOwner = eRealm.Midgard;
+				DarknessFallOwner = ERealm.Midgard;
 			}
 			if (hibcount > midcount && hibcount > albcount)
 			{
-				DarknessFallOwner = eRealm.Hibernia;
+				DarknessFallOwner = ERealm.Hibernia;
 			}
 		}
 
@@ -91,7 +91,7 @@ namespace DOL.GS.ServerRules
 		public static void OnKeepTaken(DOLEvent e, object sender, EventArgs arguments)
 		{
 			KeepEventArgs args = arguments as KeepEventArgs;
-			eRealm realm = (eRealm) args.Keep.Realm ;
+			ERealm realm = (ERealm) args.Keep.Realm ;
 			if (realm != DarknessFallOwner )
 			{
 				// TODO send message to chat and discord web hook
@@ -112,8 +112,8 @@ namespace DOL.GS.ServerRules
 
 				if (oldDFOwner != GlobalConstants.RealmToName(DarknessFallOwner))
 				{ 
-					BroadcastMessage(messageDFLostControl, eRealm.None);
-					BroadcastMessage(messageDFGetControl, eRealm.None);
+					BroadcastMessage(messageDFLostControl, ERealm.None);
+					BroadcastMessage(messageDFGetControl, ERealm.None);
 				}
 			}
 		}
@@ -124,13 +124,13 @@ namespace DOL.GS.ServerRules
 		/// </summary>
 		/// <param name="message">The message</param>
 		/// <param name="realm">The realm</param>
-		public static void BroadcastMessage(string message, eRealm realm)
+		public static void BroadcastMessage(string message, ERealm realm)
 		{
 			foreach (GameClient client in WorldMgr.GetAllClients())
 			{
 				if (client.Player == null)
 					continue;
-				if ((client.Account.PrivLevel != 1 || realm == eRealm.None) || client.Player.Realm == realm)
+				if ((client.Account.PrivLevel != 1 || realm == ERealm.None) || client.Player.Realm == realm)
 				{
 					client.Out.SendMessage(message, eChatType.CT_Important, eChatLoc.CL_SystemWindow);
 				}
@@ -161,7 +161,7 @@ namespace DOL.GS.ServerRules
 			
 		}
 
-		public static void SetDFOwner(GamePlayer p, eRealm NewDFOwner)
+		public static void SetDFOwner(GamePlayer p, ERealm NewDFOwner)
 		{
 			if (DarknessFallOwner != NewDFOwner)
 			{

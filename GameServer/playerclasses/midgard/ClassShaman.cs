@@ -3,7 +3,7 @@ using DOL.GS.Realm;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)eCharacterClass.Shaman, "Shaman", "Seer")]
+	[CharacterClass((int)ECharacterClass.Shaman, "Shaman", "Seer")]
 	public class ClassShaman : ClassSeer
 	{
 		public ClassShaman()
@@ -11,10 +11,10 @@ namespace DOL.GS.PlayerClass
 		{
 			m_profession = "PlayerClass.Profession.HouseofYmir";
 			m_specializationMultiplier = 10;
-			m_primaryStat = eStat.PIE;
-			m_secondaryStat = eStat.CON;
-			m_tertiaryStat = eStat.STR;
-			m_manaStat = eStat.PIE;
+			m_primaryStat = EStat.PIE;
+			m_secondaryStat = EStat.CON;
+			m_tertiaryStat = EStat.STR;
+			m_manaStat = EStat.PIE;
 		}
 
 		public override bool HasAdvancedFromBaseClass()

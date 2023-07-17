@@ -66,7 +66,7 @@ namespace DOL.GS.DailyQuest.Albion
 			
 
 			#region defineNPCs
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Pazz", eRealm.Albion);
+			GameNPC[] npcs = WorldMgr.GetNPCsByName("Pazz", ERealm.Albion);
 
 			if (npcs.Length > 0)
 				foreach (GameNPC npc in npcs)
@@ -86,7 +86,7 @@ namespace DOL.GS.DailyQuest.Albion
 				PazzAlb.Model = 26;
 				PazzAlb.Name = "Pazz";
 				PazzAlb.GuildName = "Bone Collector";
-				PazzAlb.Realm = eRealm.Albion;
+				PazzAlb.Realm = ERealm.Albion;
 				//Druim Ligen Location
 				PazzAlb.CurrentRegionID = 252;
 				PazzAlb.Size = 40;

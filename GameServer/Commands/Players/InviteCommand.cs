@@ -6,7 +6,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		"&invite",
-		ePrivLevel.Player,
+		EPrivLevel.Player,
 		"Invite a specified or targeted player to join your group", "/invite <player>")]
 	public class InviteCommand : AbstractCommandHandler, ICommandHandler
 	{

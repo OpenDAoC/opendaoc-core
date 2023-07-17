@@ -5,7 +5,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		"&webdisplay",
-		ePrivLevel.Player,
+		EPrivLevel.Player,
 		"Set informations displayed on the herald",
 		"/webdisplay <position|template|equipment|craft> [on|off]")]
 	public class WebDisplayCommand : AbstractCommandHandler, ICommandHandler

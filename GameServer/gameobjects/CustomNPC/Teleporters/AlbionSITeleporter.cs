@@ -33,7 +33,7 @@ namespace DOL.GS
 			template.AddNPCEquipment(eInventorySlot.TwoHandWeapon, 1166);
 			Inventory = template.CloseTemplate();
 
-			SwitchWeapon(eActiveWeaponSlot.TwoHanded);
+			SwitchWeapon(EActiveWeaponSlot.TwoHanded);
 			return base.AddToWorld();
 		}
 

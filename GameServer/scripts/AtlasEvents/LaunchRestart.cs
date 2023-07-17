@@ -72,7 +72,7 @@ namespace DOL.GS.GameEvents
             player.OnLevelUp(0);
             
             BattlegroundEventLoot.GenerateArmor(player);
-            BattlegroundEventLoot.GenerateWeaponsForClass((eCharacterClass)player.CharacterClass.ID, player);
+            BattlegroundEventLoot.GenerateWeaponsForClass((ECharacterClass)player.CharacterClass.ID, player);
             player.ReceiveItem(player, "Personal_Bind_Recall_Stone");
 
             player.Out.SendUpdatePlayer();

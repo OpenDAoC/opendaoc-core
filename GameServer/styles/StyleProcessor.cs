@@ -33,18 +33,18 @@ namespace DOL.GS.Styles
 					return false;
 
 				// Required attack result.
-				eAttackResult requiredAttackResult = eAttackResult.Any;
+				EAttackResult requiredAttackResult = EAttackResult.Any;
 
 				switch (style.AttackResultRequirement)
 				{
-					case Style.eAttackResultRequirement.Any: requiredAttackResult = eAttackResult.Any; break;
-					case Style.eAttackResultRequirement.Block: requiredAttackResult = eAttackResult.Blocked; break;
-					case Style.eAttackResultRequirement.Evade: requiredAttackResult = eAttackResult.Evaded; break;
-					case Style.eAttackResultRequirement.Fumble: requiredAttackResult = eAttackResult.Fumbled; break;
-					case Style.eAttackResultRequirement.Hit: requiredAttackResult = eAttackResult.HitUnstyled; break;
-					case Style.eAttackResultRequirement.Style: requiredAttackResult = eAttackResult.HitStyle; break;
-					case Style.eAttackResultRequirement.Miss: requiredAttackResult = eAttackResult.Missed; break;
-					case Style.eAttackResultRequirement.Parry: requiredAttackResult = eAttackResult.Parried; break;
+					case Style.eAttackResultRequirement.Any: requiredAttackResult = EAttackResult.Any; break;
+					case Style.eAttackResultRequirement.Block: requiredAttackResult = EAttackResult.Blocked; break;
+					case Style.eAttackResultRequirement.Evade: requiredAttackResult = EAttackResult.Evaded; break;
+					case Style.eAttackResultRequirement.Fumble: requiredAttackResult = EAttackResult.Fumbled; break;
+					case Style.eAttackResultRequirement.Hit: requiredAttackResult = EAttackResult.HitUnstyled; break;
+					case Style.eAttackResultRequirement.Style: requiredAttackResult = EAttackResult.HitStyle; break;
+					case Style.eAttackResultRequirement.Miss: requiredAttackResult = EAttackResult.Missed; break;
+					case Style.eAttackResultRequirement.Parry: requiredAttackResult = EAttackResult.Parried; break;
 				}
 
 				AttackData lastAD = (AttackData)living.TempProperties.getProperty<object>(GameLiving.LAST_ATTACK_DATA, null);
@@ -55,16 +55,16 @@ namespace DOL.GS.Styles
 						// Style required before this one?
 						if (style.OpeningRequirementValue != 0
 							&& (lastAD == null
-							|| lastAD.AttackResult != eAttackResult.HitStyle
+							|| lastAD.AttackResult != EAttackResult.HitStyle
 							|| lastAD.Style == null
 							|| lastAD.Style.ID != style.OpeningRequirementValue
 							/*|| lastAD.Target != target*/)) // style chains are *NOT* possible only on the same target
 							return false;
 
 						// Last attack result.
-						eAttackResult lastRes = (lastAD != null) ? lastAD.AttackResult : eAttackResult.Any;
+						EAttackResult lastRes = (lastAD != null) ? lastAD.AttackResult : EAttackResult.Any;
 
-						if (requiredAttackResult != eAttackResult.Any && lastRes != requiredAttackResult)
+						if (requiredAttackResult != EAttackResult.Any && lastRes != requiredAttackResult)
 							return false;
 
 						break;
@@ -72,14 +72,14 @@ namespace DOL.GS.Styles
 						AttackData targetsLastAD = (AttackData)target.TempProperties.getProperty<object>(GameLiving.LAST_ATTACK_DATA, null);
 
 						// Last attack result.
-						if (requiredAttackResult != eAttackResult.Any)
+						if (requiredAttackResult != EAttackResult.Any)
 						{
 							if (targetsLastAD == null || targetsLastAD.Target != living)
 								return false;
 
-							if (requiredAttackResult != eAttackResult.HitStyle && targetsLastAD.AttackResult != requiredAttackResult)
+							if (requiredAttackResult != EAttackResult.HitStyle && targetsLastAD.AttackResult != requiredAttackResult)
 								return false;
-							else if (requiredAttackResult == eAttackResult.HitStyle && targetsLastAD.Style == null)
+							else if (requiredAttackResult == EAttackResult.HitStyle && targetsLastAD.Style == null)
 								return false;
 						}
 
@@ -158,7 +158,7 @@ namespace DOL.GS.Styles
 					return;
 				}
 
-				if (living.ActiveWeaponSlot == eActiveWeaponSlot.Distance)
+				if (living.ActiveWeaponSlot == EActiveWeaponSlot.Distance)
 				{
 					player?.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "StyleProcessor.TryToUseStyle.CantMeleeCombat"), eChatType.CT_YouHit, eChatLoc.CL_SystemWindow);
 					return;
@@ -166,7 +166,7 @@ namespace DOL.GS.Styles
 
 				// Put player into attack state before setting the styles.
 				// Changing the attack state clears out the styles.
-				if (living.attackComponent.AttackState == false || EffectListService.GetEffectOnTarget(living, eEffect.Engage) != null)
+				if (living.attackComponent.AttackState == false || EffectListService.GetEffectOnTarget(living, EEffect.Engage) != null)
 					living.attackComponent.RequestStartAttack(player.TargetObject);
 
 				if (living.TargetObject == null)
@@ -175,7 +175,7 @@ namespace DOL.GS.Styles
 					return;
 				}
 
-				InventoryItem weapon = (style.WeaponTypeRequirement == (int)eObjectType.Shield) ? living.Inventory.GetItem(eInventorySlot.LeftHandWeapon) : living.ActiveWeapon;
+				InventoryItem weapon = (style.WeaponTypeRequirement == (int)EObjectType.Shield) ? living.Inventory.GetItem(eInventorySlot.LeftHandWeapon) : living.ActiveWeapon;
 
 				if (!CheckWeaponType(style, living, weapon))
 				{
@@ -215,7 +215,7 @@ namespace DOL.GS.Styles
 						{
 							AttackData lastAD = (AttackData)living.TempProperties.getProperty<object>(GameLiving.LAST_ATTACK_DATA, null);
 							if (lastAD == null
-								|| lastAD.AttackResult != eAttackResult.HitStyle
+								|| lastAD.AttackResult != EAttackResult.HitStyle
 								|| lastAD.Style == null
 								|| lastAD.Style.ID != style.OpeningRequirementValue)
 							{
@@ -232,7 +232,7 @@ namespace DOL.GS.Styles
 						if (living.IsEngaging)
 						{
 							// Cancel engage effect if exist.
-							EngageEcsEffect effect = (EngageEcsEffect)EffectListService.GetEffectOnTarget(living, eEffect.Engage);
+							EngageEcsEffect effect = (EngageEcsEffect)EffectListService.GetEffectOnTarget(living, EEffect.Engage);
 
 							if (effect != null)
 								effect.Cancel(false);
@@ -270,7 +270,7 @@ namespace DOL.GS.Styles
 									AttackData lastAD = (AttackData)living.TempProperties.getProperty<object>(GameLiving.LAST_ATTACK_DATA, null);
 
 									if (lastAD == null
-										|| lastAD.AttackResult != eAttackResult.HitStyle
+										|| lastAD.AttackResult != EAttackResult.HitStyle
 										|| lastAD.Style == null
 										|| lastAD.Style.ID != style.OpeningRequirementValue)
 									{
@@ -314,7 +314,7 @@ namespace DOL.GS.Styles
 				// Used to disable RA styles when they're actually firing.
 				style.OnStyleExecuted?.Invoke(living);
 
-				if (weapon != null && weapon.Object_Type == (int)eObjectType.Shield)
+				if (weapon != null && weapon.Object_Type == (int)EObjectType.Shield)
 					attackData.AnimationId = (weapon.Hand != 1) ? attackData.Style.Icon : attackData.Style.TwoHandAnimation; // 2h shield?
 
 				int fatCost = 0;
@@ -325,17 +325,17 @@ namespace DOL.GS.Styles
 				// Reduce endurance if styled attack missed.
 				switch (attackData.AttackResult)
 				{
-					case eAttackResult.Blocked:
-					case eAttackResult.Evaded:
-					case eAttackResult.Missed:
-					case eAttackResult.Parried:
+					case EAttackResult.Blocked:
+					case EAttackResult.Evaded:
+					case EAttackResult.Missed:
+					case EAttackResult.Parried:
 						if (player != null)
 							living.Endurance -= Math.Max(1, fatCost / 2);
 						return false;
 				}
 
 				// Ignore all other attack results.
-				if (attackData.AttackResult is not eAttackResult.HitUnstyled and not eAttackResult.HitStyle)
+				if (attackData.AttackResult is not EAttackResult.HitUnstyled and not EAttackResult.HitStyle)
 					return false;
 
 				// Did primary and backup style fail?
@@ -402,9 +402,9 @@ namespace DOL.GS.Styles
 					// Style absorb bonus.
 					int absorb = 0;
 
-					if (attackData.Target is GamePlayer && attackData.Target.GetModified(eProperty.StyleAbsorb) > 0)
+					if (attackData.Target is GamePlayer && attackData.Target.GetModified(EProperty.StyleAbsorb) > 0)
 					{
-						absorb= (int)Math.Floor(attackData.StyleDamage * ((double)attackData.Target.GetModified(eProperty.StyleAbsorb) / 100));
+						absorb= (int)Math.Floor(attackData.StyleDamage * ((double)attackData.Target.GetModified(EProperty.StyleAbsorb) / 100));
 						attackData.StyleDamage -= absorb;
 					}
 
@@ -522,13 +522,13 @@ namespace DOL.GS.Styles
 
             //Camelot Herald 1.90 : Battlemaster styles will now cost a flat amount of Endurance, regardless of weapon speed
             if (style.Spec == Specs.Battlemaster)
-                return Math.Max(1, (int)Math.Ceiling((30 * style.EnduranceCost / 40) * living.GetModified(eProperty.FatigueConsumption) * 0.01));
+                return Math.Max(1, (int)Math.Ceiling((30 * style.EnduranceCost / 40) * living.GetModified(EProperty.FatigueConsumption) * 0.01));
             
             int fatCost = weaponSpd * style.EnduranceCost / 40;
 			if (weaponSpd < 40)
 				fatCost++;
 			
-            fatCost = (int)Math.Ceiling(fatCost * living.GetModified(eProperty.FatigueConsumption) * 0.01);
+            fatCost = (int)Math.Ceiling(fatCost * living.GetModified(EProperty.FatigueConsumption) * 0.01);
 			return Math.Max(1, fatCost);
 		}
 
@@ -558,12 +558,12 @@ namespace DOL.GS.Styles
 					if (rightHand == null || leftHand == null || (rightHand.Item_Type != Slot.RIGHTHAND && rightHand.Item_Type != Slot.LEFTHAND))
 						return false;
 
-					if (style.Spec == Specs.HandToHand && (rightHand.Object_Type != (int)eObjectType.HandToHand || leftHand.Object_Type != (int)eObjectType.HandToHand))
+					if (style.Spec == Specs.HandToHand && (rightHand.Object_Type != (int)EObjectType.HandToHand || leftHand.Object_Type != (int)EObjectType.HandToHand))
 						return false;
-					else if (style.Spec == Specs.Fist_Wraps && (rightHand.Object_Type != (int)eObjectType.FistWraps || leftHand.Object_Type != (int)eObjectType.FistWraps))
+					else if (style.Spec == Specs.Fist_Wraps && (rightHand.Object_Type != (int)EObjectType.FistWraps || leftHand.Object_Type != (int)EObjectType.FistWraps))
 						return false;
 
-					return leftHand.Object_Type != (int)eObjectType.Shield;
+					return leftHand.Object_Type != (int)EObjectType.Shield;
 
 				case Style.SpecialWeaponType.AnyWeapon:
 					// TODO: style can be used with any weapon type,
@@ -577,14 +577,14 @@ namespace DOL.GS.Styles
 						return false;
 
 					// can't use shield styles if no active weapon
-					if (style.WeaponTypeRequirement == (int)eObjectType.Shield
+					if (style.WeaponTypeRequirement == (int)EObjectType.Shield
 						&& (player.ActiveWeapon == null || (player.ActiveWeapon.Item_Type != Slot.RIGHTHAND && player.ActiveWeapon.Item_Type != Slot.LEFTHAND)))
 						return false;
 
 					// weapon type check
 					return GameServer.ServerRules.IsObjectTypesEqual(
-							(eObjectType)style.WeaponTypeRequirement,
-							(eObjectType)weapon.Object_Type);
+							(EObjectType)style.WeaponTypeRequirement,
+							(EObjectType)weapon.Object_Type);
 			}
 		}
 

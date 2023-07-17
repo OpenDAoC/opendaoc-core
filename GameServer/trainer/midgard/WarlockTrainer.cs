@@ -7,12 +7,12 @@ namespace DOL.GS.Trainer
 	/// <summary>
 	/// Warlock Trainer
 	/// </summary>
-	[NPCGuildScript("Warlock Trainer", eRealm.Midgard)]		// this attribute instructs DOL to use this script for all "Warlock Trainer" NPC's in Albion (multiple guilds are possible for one script)
+	[NPCGuildScript("Warlock Trainer", ERealm.Midgard)]		// this attribute instructs DOL to use this script for all "Warlock Trainer" NPC's in Albion (multiple guilds are possible for one script)
 	public class WarlockTrainer : GameTrainer
 	{
-		public override eCharacterClass TrainedClass
+		public override ECharacterClass TrainedClass
 		{
-			get { return eCharacterClass.Warlock; }
+			get { return ECharacterClass.Warlock; }
 		}
 
 		public const string WEAPON_ID = "warlock_item";
@@ -67,7 +67,7 @@ namespace DOL.GS.Trainer
 					// promote player to other class
 					if (CanPromotePlayer(player))
 					{
-						PromotePlayer(player, (int)eCharacterClass.Warlock, "Welcome young Warlock! May your time in Midgard army be rewarding!", null);
+						PromotePlayer(player, (int)ECharacterClass.Warlock, "Welcome young Warlock! May your time in Midgard army be rewarding!", null);
 						player.ReceiveItem(this, WEAPON_ID);
 					}
 					break;

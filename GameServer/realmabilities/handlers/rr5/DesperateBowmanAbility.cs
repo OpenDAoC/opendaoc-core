@@ -34,7 +34,7 @@ namespace DOL.GS.RealmAbilities
 			if (!living.IsWithinRadius(target, 1000))
 				return;
 
-			if (living.ActiveWeaponSlot != eActiveWeaponSlot.Distance)
+			if (living.ActiveWeaponSlot != EActiveWeaponSlot.Distance)
 				return;
 
 			SendCasterSpellEffectAndCastMessage(living, 7061, true);
@@ -61,10 +61,10 @@ namespace DOL.GS.RealmAbilities
 			}
 
 			AttackData ad = new AttackData();
-			ad.AttackResult = eAttackResult.HitUnstyled;
+			ad.AttackResult = EAttackResult.HitUnstyled;
 			ad.Attacker = caster;
 			ad.Target = target;
-			ad.DamageType = eDamageType.Crush;
+			ad.DamageType = EDamageType.Crush;
 			ad.Damage = damage;
 			target.OnAttackedByEnemy(ad);
 			caster.DealDamage(ad);

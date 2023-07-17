@@ -259,7 +259,7 @@ namespace DOL.GS.Scripts
             GameNpcInventoryTemplate template = new GameNpcInventoryTemplate();
             switch (Realm)
             {
-                case eRealm.Albion:
+                case ERealm.Albion:
                     Name = "Albion Trainer";
                     Model = 39;
                     template.AddNPCEquipment(eInventorySlot.HeadArmor, 1290);
@@ -271,7 +271,7 @@ namespace DOL.GS.Scripts
                     template.AddNPCEquipment(eInventorySlot.Cloak, 4105);
                     break;
 
-                case eRealm.Midgard:
+                case ERealm.Midgard:
                     Name = "Midgard Trainer";
                     Model = 153;
                     template.AddNPCEquipment(eInventorySlot.HeadArmor, 1291);
@@ -283,7 +283,7 @@ namespace DOL.GS.Scripts
                     template.AddNPCEquipment(eInventorySlot.Cloak, 4107);
                     break;
 
-                case eRealm.Hibernia:
+                case ERealm.Hibernia:
                     Name = "Hibernia Trainer";
                     Model = 302;
                     Size = 55;
@@ -305,9 +305,9 @@ namespace DOL.GS.Scripts
             return base.AddToWorld();
         }
 
-        public override eQuestIndicator GetQuestIndicator(GamePlayer player)
+        public override EQuestIndicator GetQuestIndicator(GamePlayer player)
 	    {
-		return eQuestIndicator.Lore;
+		return EQuestIndicator.Lore;
 	    }
     }
 

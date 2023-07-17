@@ -15,7 +15,7 @@ using DOL.GS.Quests;
 namespace DOL.GS.Commands
 {
 	//[CmdAttribute("&task", ePrivLevel.Player, "Ask for a Task from Guards or Merchants", "/task")]
-	[Command("&task", ePrivLevel.Player, "Show the actual task", "/task")]
+	[Command("&task", EPrivLevel.Player, "Show the actual task", "/task")]
 	public class TaskCommand : AbstractCommandHandler, ICommandHandler
 	{
 		public void OnCommand(GameClient client, string[] args)

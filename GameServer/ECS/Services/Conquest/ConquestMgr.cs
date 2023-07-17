@@ -30,7 +30,7 @@ public class ConquestMgr
     public long LastConquestStopTime;
     public long LastConquestWindowStart;
 
-    public eRealm ActiveConquestRealm = (eRealm)Util.Random(1, 3);
+    public ERealm ActiveConquestRealm = (ERealm)Util.Random(1, 3);
 
     private HashSet<GamePlayer> ContributedPlayers = new HashSet<GamePlayer>();
     private HashSet<GamePlayer> ActiveDefenders = new HashSet<GamePlayer>();
@@ -45,11 +45,11 @@ public class ConquestMgr
         {
             switch (ActiveConquestRealm)
             {
-                case eRealm.Hibernia:
+                case ERealm.Hibernia:
                     return ActiveHiberniaObjective;
-                case eRealm.Albion:
+                case ERealm.Albion:
                     return ActiveAlbionObjective;
-                case eRealm.Midgard:
+                case ERealm.Midgard:
                     return ActiveMidgardObjective;
             }
 
@@ -235,7 +235,7 @@ public class ConquestMgr
         return ActiveDefenders.ToList();
     }
 
-    private void AwardContributorsForRealm(eRealm realmToAward, bool primaryObjective)
+    private void AwardContributorsForRealm(ERealm realmToAward, bool primaryObjective)
     {
         foreach (var player in ContributedPlayers?.ToList()?.Where(player => player.Realm == realmToAward))
         {
@@ -344,15 +344,15 @@ public class ConquestMgr
         return player.GetDistance(new Point2D(ActiveObjective.Keep.X, ActiveObjective.Keep.Y)) <= 2000 && player.Realm == ActiveObjective.Keep.Realm;
     }
 
-    private string GetStringFromRealm(eRealm realm)
+    private string GetStringFromRealm(ERealm realm)
     {
         switch (realm)
         {
-            case eRealm.Albion:
+            case ERealm.Albion:
                 return "Albion";
-            case eRealm.Midgard:
+            case ERealm.Midgard:
                 return "Midgard";
-            case eRealm.Hibernia:
+            case ERealm.Hibernia:
                 return "Hibernia";
             default:
                 return "Undefined Realm";
@@ -374,21 +374,21 @@ public class ConquestMgr
         ActiveHiberniaObjective = null;
         ActiveMidgardObjective = null;
         //find next realm, set active objective to that realm
-        if (ActiveConquestRealm == eRealm.Albion)
+        if (ActiveConquestRealm == ERealm.Albion)
         {
-            ActiveConquestRealm = eRealm.Hibernia;
+            ActiveConquestRealm = ERealm.Hibernia;
         }
-        else if (ActiveConquestRealm == eRealm.Hibernia)
+        else if (ActiveConquestRealm == ERealm.Hibernia)
         {
-            ActiveConquestRealm = eRealm.Midgard;
+            ActiveConquestRealm = ERealm.Midgard;
         }
-        else if (ActiveConquestRealm == eRealm.Midgard)
+        else if (ActiveConquestRealm == ERealm.Midgard)
         {
-            ActiveConquestRealm = eRealm.Albion;
+            ActiveConquestRealm = ERealm.Albion;
         }
 
         if ((int) ActiveConquestRealm < 1 || (int) ActiveConquestRealm > 3)
-            ActiveConquestRealm = (eRealm)Util.Random(1, 3);
+            ActiveConquestRealm = (ERealm)Util.Random(1, 3);
         
         PredatorMgr.PlayerKillTallyDict.Clear();
         
@@ -397,9 +397,9 @@ public class ConquestMgr
 
     public void StartConquest()
     {
-        SetDefensiveKeepForRealm(eRealm.Albion);
-        SetDefensiveKeepForRealm(eRealm.Hibernia);
-        SetDefensiveKeepForRealm(eRealm.Midgard);
+        SetDefensiveKeepForRealm(ERealm.Albion);
+        SetDefensiveKeepForRealm(ERealm.Hibernia);
+        SetDefensiveKeepForRealm(ERealm.Midgard);
 
         ActiveObjective.StartConquest();
         LastConquestStartTime = GameLoop.GameLoopTime;
@@ -429,13 +429,13 @@ public class ConquestMgr
             Dictionary<ConquestObjective, int> keepDict = new Dictionary<ConquestObjective, int>();
             switch (keep.OriginalRealm)
             {
-                case eRealm.Albion:
+                case ERealm.Albion:
                     keepDict = _albionObjectives;
                     break;
-                case eRealm.Hibernia:
+                case ERealm.Hibernia:
                     keepDict = _hiberniaObjectives;
                     break;
-                case eRealm.Midgard:
+                case ERealm.Midgard:
                     keepDict = _midgardObjectives;
                     break;
             }
@@ -463,7 +463,7 @@ public class ConquestMgr
 
             switch (keep.OriginalRealm)
             {
-                case eRealm.Albion:
+                case ERealm.Albion:
                     List<ConquestObjective> albKeepsSort =
                         new List<ConquestObjective>(keepDict.Keys.Where(x =>
                             keepDict[x] == objectiveWeight && x.Keep.Realm != keep.Realm)); //get a list of all keeps with the current weight
@@ -473,7 +473,7 @@ public class ConquestMgr
                     ActiveAlbionObjective =
                         albKeepsSort[Util.Random(albKeepsSort.Count() - 1)]; //pick one at random
                     break;
-                case eRealm.Hibernia:
+                case ERealm.Hibernia:
                     List<ConquestObjective> hibKeepsSort = new List<ConquestObjective>(keepDict.Keys.Where(x =>
                         keepDict[x] == objectiveWeight && x.Keep.Realm != keep.Realm)); //get a list of all keeps with the current weight
                     if (hibKeepsSort.Count < 1)
@@ -482,7 +482,7 @@ public class ConquestMgr
                     ActiveHiberniaObjective =
                         hibKeepsSort[Util.Random(hibKeepsSort.Count() - 1)]; //pick one at random
                     break;
-                case eRealm.Midgard:
+                case ERealm.Midgard:
                     List<ConquestObjective> midKeepsSort = new List<ConquestObjective>(keepDict.Keys.Where(x =>
                         keepDict[x] == objectiveWeight && x.Keep.Realm != keep.Realm)); //get a list of all keeps with the current weight
                     if (midKeepsSort.Count < 1)
@@ -508,25 +508,25 @@ public class ConquestMgr
             if (c == null || c.Player == null || c.Player.CurrentZone == null)
                 continue;
             
-            if (c.Player.CurrentZone.IsOF && c.Account.PrivLevel == (uint)ePrivLevel.Player)
+            if (c.Player.CurrentZone.IsOF && c.Account.PrivLevel == (uint)EPrivLevel.Player)
                 frontiers++;
         }
 
         return frontiers;
     }
 
-    private void SetDefensiveKeepForRealm(eRealm realm, int minimumValue)
+    private void SetDefensiveKeepForRealm(ERealm realm, int minimumValue)
     {
         Dictionary<ConquestObjective, int> keepDict = new Dictionary<ConquestObjective, int>();
         switch (realm)
         {
-            case eRealm.Albion:
+            case ERealm.Albion:
                 keepDict = _albionObjectives;
                 break;
-            case eRealm.Hibernia:
+            case ERealm.Hibernia:
                 keepDict = _hiberniaObjectives;
                 break;
-            case eRealm.Midgard:
+            case ERealm.Midgard:
                 keepDict = _midgardObjectives;
                 break;
         }
@@ -543,7 +543,7 @@ public class ConquestMgr
 
         switch (realm)
         {
-            case eRealm.Albion:
+            case ERealm.Albion:
                 if (objectiveWeight == 1)
                 {
                     ActiveAlbionObjective = keepDict.Keys.FirstOrDefault(x => keepDict[x] == 1);
@@ -557,7 +557,7 @@ public class ConquestMgr
                 }
 
                 break;
-            case eRealm.Hibernia:
+            case ERealm.Hibernia:
                 if (objectiveWeight == 1)
                 {
                     ActiveHiberniaObjective = keepDict.Keys.FirstOrDefault(x => keepDict[x] == 1);
@@ -571,7 +571,7 @@ public class ConquestMgr
                 }
 
                 break;
-            case eRealm.Midgard:
+            case ERealm.Midgard:
                 if (objectiveWeight == 1)
                 {
                     ActiveMidgardObjective = keepDict.Keys.FirstOrDefault(x => keepDict[x] == 1);
@@ -588,7 +588,7 @@ public class ConquestMgr
         }
     }
 
-    private void SetDefensiveKeepForRealm(eRealm realm)
+    private void SetDefensiveKeepForRealm(ERealm realm)
     {
         SetDefensiveKeepForRealm(realm, 1);
     }
@@ -598,15 +598,15 @@ public class ConquestMgr
         var secondaries = new List<ConquestObjective>();
         switch (ActiveConquestRealm)
         {
-            case eRealm.Albion:
+            case ERealm.Albion:
                 secondaries.Add(ActiveHiberniaObjective);
                 secondaries.Add(ActiveMidgardObjective);
                 break;
-            case eRealm.Hibernia:
+            case ERealm.Hibernia:
                 secondaries.Add(ActiveAlbionObjective);
                 secondaries.Add(ActiveMidgardObjective);
                 break;
-            case eRealm.Midgard:
+            case ERealm.Midgard:
                 secondaries.Add(ActiveAlbionObjective);
                 secondaries.Add(ActiveHiberniaObjective);
                 break;

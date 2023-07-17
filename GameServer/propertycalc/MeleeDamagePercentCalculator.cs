@@ -2,16 +2,16 @@ using System;
 
 namespace DOL.GS.PropertyCalc
 {
-	[PropertyCalculator(eProperty.MeleeDamage)]
+	[PropertyCalculator(EProperty.MeleeDamage)]
 	public class MeleeDamagePercentCalculator : PropertyCalculator
 	{
-		public override int CalcValue(GameLiving living, eProperty property)
+		public override int CalcValue(GameLiving living, EProperty property)
 		{
 			if (living is GameNPC)
 			{
 				int strengthPerMeleeDamagePercent = 8;
-				var strengthBuffBonus = living.BaseBuffBonusCategory[eProperty.Strength] + living.SpecBuffBonusCategory[eProperty.Strength];
-				var strengthDebuffMalus = living.DebuffCategory[eProperty.Strength] + living.SpecDebuffCategory[eProperty.Strength];
+				var strengthBuffBonus = living.BaseBuffBonusCategory[EProperty.Strength] + living.SpecBuffBonusCategory[EProperty.Strength];
+				var strengthDebuffMalus = living.DebuffCategory[EProperty.Strength] + living.SpecDebuffCategory[EProperty.Strength];
 				return ((living as GameNPC).Strength + (strengthBuffBonus - strengthDebuffMalus)) / strengthPerMeleeDamagePercent;
 			}
 

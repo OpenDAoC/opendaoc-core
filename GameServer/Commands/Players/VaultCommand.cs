@@ -6,7 +6,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		"&vault",
-		ePrivLevel.Player,
+		EPrivLevel.Player,
 		"Open the player's inventory.")]
 	public class VaultCommand : AbstractCommandHandler, ICommandHandler
 	{

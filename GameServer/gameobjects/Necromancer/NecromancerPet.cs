@@ -97,7 +97,7 @@ namespace DOL.GS
 		/// <summary>
 		/// Get modified bonuses for the pet; some bonuses come from the shade, some come from the pet.
 		/// </summary>
-		public override int GetModified(eProperty property)
+		public override int GetModified(EProperty property)
 		{
 			if (Brain == null || (Brain as IControlledBrain) == null)
 				return base.GetModified(property);
@@ -107,20 +107,20 @@ namespace DOL.GS
 
 			switch (property)
 			{
-				case eProperty.Resist_Body:
-				case eProperty.Resist_Cold:
-				case eProperty.Resist_Crush:
-				case eProperty.Resist_Energy:
-				case eProperty.Resist_Heat:
-				case eProperty.Resist_Matter:
-				case eProperty.Resist_Slash:
-				case eProperty.Resist_Spirit:
-				case eProperty.Resist_Thrust:
+				case EProperty.Resist_Body:
+				case EProperty.Resist_Cold:
+				case EProperty.Resist_Crush:
+				case EProperty.Resist_Energy:
+				case EProperty.Resist_Heat:
+				case EProperty.Resist_Matter:
+				case EProperty.Resist_Slash:
+				case EProperty.Resist_Spirit:
+				case EProperty.Resist_Thrust:
 					return base.GetModified(property);
-				case eProperty.Strength:
-				case eProperty.Dexterity:
-				case eProperty.Quickness:
-				case eProperty.Intelligence:
+				case EProperty.Strength:
+				case EProperty.Dexterity:
+				case EProperty.Quickness:
+				case EProperty.Intelligence:
 					{
 						// Get item bonuses from the shade, but buff bonuses from the pet.
 						int itemBonus = livingOwner.GetModifiedFromItems(property);
@@ -135,19 +135,19 @@ namespace DOL.GS
 
 						switch (property)
 						{
-							case eProperty.Strength:
+							case EProperty.Strength:
 								baseBonus = Strength;
 								augRaBonus = AtlasRAHelpers.GetStatEnhancerAmountForLevel(playerOwner != null ? AtlasRAHelpers.GetAugStrLevel(playerOwner) : 0);
 								break;
-							case eProperty.Dexterity:
+							case EProperty.Dexterity:
 								baseBonus = Dexterity;
 								augRaBonus = AtlasRAHelpers.GetStatEnhancerAmountForLevel(playerOwner != null ? AtlasRAHelpers.GetAugDexLevel(playerOwner) : 0);
 								break;
-							case eProperty.Quickness:
+							case EProperty.Quickness:
 								baseBonus = Quickness;
 								augRaBonus = AtlasRAHelpers.GetStatEnhancerAmountForLevel(playerOwner != null ? AtlasRAHelpers.GetAugQuiLevel(playerOwner) : 0);
 								break;
-							case eProperty.Intelligence:
+							case EProperty.Intelligence:
 								baseBonus = Intelligence;
 								augRaBonus = AtlasRAHelpers.GetStatEnhancerAmountForLevel(playerOwner != null ? AtlasRAHelpers.GetAugAcuityLevel(playerOwner) : 0);
 								break;
@@ -168,10 +168,10 @@ namespace DOL.GS
 
 						return itemBonus + buffBonus;
 					}
-				case eProperty.Constitution:
+				case EProperty.Constitution:
 					{
 						int baseBonus = Constitution;
-						int buffBonus = GetModifiedFromBuffs(eProperty.Constitution);
+						int buffBonus = GetModifiedFromBuffs(EProperty.Constitution);
 						int debuff = DebuffCategory[(int)property];
 
 						// Apply debuffs. 100% Effectiveness for player buffs, but only 50% effectiveness for base bonuses.
@@ -187,7 +187,7 @@ namespace DOL.GS
 
 						return baseBonus + buffBonus;
 					}
-				case eProperty.MaxHealth:
+				case EProperty.MaxHealth:
 					{
 						int conBonus = (int)(3.1 * m_summonConBonus);
 						int hitsBonus = 30 * Level + m_summonHitsBonus;
@@ -363,7 +363,7 @@ namespace DOL.GS
 		{
 			base.ModifyAttack(attackData);
 
-			if ((Owner as GamePlayer).Client.Account.PrivLevel > (int)ePrivLevel.Player)
+			if ((Owner as GamePlayer).Client.Account.PrivLevel > (int)EPrivLevel.Player)
 			{
 				attackData.Damage = 0;
 				attackData.CriticalDamage = 0;
@@ -390,7 +390,7 @@ namespace DOL.GS
 			Spell tauntSpell = null;
 			foreach (Spell spell in chantsList)
 			{
-				if (spell.SpellType == eSpellType.Taunt && spell.Level <= Level)
+				if (spell.SpellType == ESpellType.Taunt && spell.Level <= Level)
 					tauntSpell = spell;
 			}
 
@@ -410,7 +410,7 @@ namespace DOL.GS
 			return WhisperReceive(player, "arawn");
 		}
 
-		public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+		public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
 		{
 			criticalAmount /= 2;
 			base.TakeDamage(source, damageType, damageAmount, criticalAmount);
@@ -454,7 +454,7 @@ namespace DOL.GS
 							break;
 					}
 
-					SwitchWeapon(eActiveWeaponSlot.TwoHanded);
+					SwitchWeapon(EActiveWeaponSlot.TwoHanded);
 				}
 				else
 				{
@@ -470,7 +470,7 @@ namespace DOL.GS
 						item.SPD_ABS = 37;
 					}
 
-					SwitchWeapon(eActiveWeaponSlot.Standard);
+					SwitchWeapon(EActiveWeaponSlot.Standard);
 				}
 			}
 

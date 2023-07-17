@@ -90,7 +90,7 @@ namespace DOL.GS.Quests.Albion
 
 			#region defineNPCs
 
-            GameNPC[] npcs = WorldMgr.GetNPCsByName("Master Ferowl", eRealm.Albion);
+            GameNPC[] npcs = WorldMgr.GetNPCsByName("Master Ferowl", ERealm.Albion);
 
 			if (npcs.Length > 0)
 				foreach (GameNPC npc in npcs)
@@ -108,7 +108,7 @@ namespace DOL.GS.Quests.Albion
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find " + Ferowl.Name + " , creating it ...");
 				Ferowl.GuildName = "";
-				Ferowl.Realm = eRealm.Albion;
+				Ferowl.Realm = ERealm.Albion;
 				Ferowl.CurrentRegionID = 1;
 				Ferowl.Size = 51;
 				Ferowl.Level = 40;
@@ -123,7 +123,7 @@ namespace DOL.GS.Quests.Albion
 			}
 			// end npc
 
-			npcs = WorldMgr.GetNPCsByName("Morgana", eRealm.None);
+			npcs = WorldMgr.GetNPCsByName("Morgana", ERealm.None);
 
 			if (npcs.Length > 0)
 				foreach (GameNPC npc in npcs)
@@ -141,7 +141,7 @@ namespace DOL.GS.Quests.Albion
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find " + Morgana.Name + " , creating it ...");
 				Morgana.GuildName = "";
-				Morgana.Realm = eRealm.None;
+				Morgana.Realm = ERealm.None;
 				Morgana.CurrentRegionID = 1;
 				Morgana.Size = 51;
 				Morgana.Level = 90;
@@ -292,16 +292,16 @@ namespace DOL.GS.Quests.Albion
 				item.Durability = 50000;
 
 				item.Bonus1 = 4;
-				item.Bonus1Type = (int) eProperty.Skill_Cold;
+				item.Bonus1Type = (int) EProperty.Skill_Cold;
 
 				item.Bonus2 = 22;
-				item.Bonus2Type = (int) eStat.DEX;
+				item.Bonus2Type = (int) EStat.DEX;
 
 				item.Bonus3 = 8;
-				item.Bonus3Type = (int) eResist.Body;
+				item.Bonus3Type = (int) EResist.Body;
 
 				item.Bonus4 = 8;
-				item.Bonus4Type = (int) eResist.Energy;
+				item.Bonus4Type = (int) EResist.Energy;
 
 				
 					GameServer.Database.AddObject(item);
@@ -335,16 +335,16 @@ namespace DOL.GS.Quests.Albion
 				item.Durability = 50000;
 
 				item.Bonus1 = 13;
-				item.Bonus1Type = (int) eStat.DEX;
+				item.Bonus1Type = (int) EStat.DEX;
 
 				item.Bonus2 = 21;
-				item.Bonus2Type = (int) eStat.INT;
+				item.Bonus2Type = (int) EStat.INT;
 
 				item.Bonus3 = 8;
-				item.Bonus3Type = (int) eResist.Thrust;
+				item.Bonus3Type = (int) EResist.Thrust;
 
 				item.Bonus4 = 8;
-				item.Bonus4Type = (int) eResist.Spirit;
+				item.Bonus4Type = (int) EResist.Spirit;
 
 				
 					GameServer.Database.AddObject(item);
@@ -378,16 +378,16 @@ namespace DOL.GS.Quests.Albion
 				item.Durability = 50000;
 
 				item.Bonus1 = 16;
-				item.Bonus1Type = (int) eStat.DEX;
+				item.Bonus1Type = (int) EStat.DEX;
 
 				item.Bonus2 = 18;
-				item.Bonus2Type = (int) eStat.INT;
+				item.Bonus2Type = (int) EStat.INT;
 
 				item.Bonus3 = 8;
-				item.Bonus3Type = (int) eResist.Matter;
+				item.Bonus3Type = (int) EResist.Matter;
 
 				item.Bonus4 = 8;
-				item.Bonus4Type = (int) eResist.Heat;
+				item.Bonus4Type = (int) EResist.Heat;
 
 				
 					GameServer.Database.AddObject(item);
@@ -421,13 +421,13 @@ namespace DOL.GS.Quests.Albion
 				item.Durability = 50000;
 
 				item.Bonus1 = 4;
-				item.Bonus1Type = (int) eResist.Cold;
+				item.Bonus1Type = (int) EResist.Cold;
 
 				item.Bonus2 = 14;
-				item.Bonus2Type = (int) eProperty.PowerRegenerationRate;
+				item.Bonus2Type = (int) EProperty.PowerRegenerationRate;
 
 				item.Bonus3 = 24;
-				item.Bonus3Type = (int) eProperty.MaxHealth;
+				item.Bonus3Type = (int) EProperty.MaxHealth;
 
 				
 					GameServer.Database.AddObject(item);
@@ -461,13 +461,13 @@ namespace DOL.GS.Quests.Albion
 				item.Durability = 50000;
 
 				item.Bonus1 = 4;
-				item.Bonus1Type = (int) eProperty.Skill_Fire;
+				item.Bonus1Type = (int) EProperty.Skill_Fire;
 
 				item.Bonus2 = 8;
-				item.Bonus2Type = (int) eResist.Cold;
+				item.Bonus2Type = (int) EResist.Cold;
 
 				item.Bonus3 = 8;
-				item.Bonus3Type = (int) eResist.Energy;
+				item.Bonus3Type = (int) EResist.Energy;
 
 				
 					GameServer.Database.AddObject(item);
@@ -501,13 +501,13 @@ namespace DOL.GS.Quests.Albion
 				item.Durability = 50000;
 
 				item.Bonus1 = 4;
-				item.Bonus1Type = (int) eProperty.Skill_Earth;
+				item.Bonus1Type = (int) EProperty.Skill_Earth;
 
 				item.Bonus2 = 18;
-				item.Bonus2Type = (int) eStat.DEX;
+				item.Bonus2Type = (int) EStat.DEX;
 
 				item.Bonus3 = 16;
-				item.Bonus3Type = (int) eStat.INT;
+				item.Bonus3Type = (int) EStat.INT;
 
 				
 					GameServer.Database.AddObject(item);
@@ -541,16 +541,16 @@ namespace DOL.GS.Quests.Albion
 				item.Durability = 50000;
 
 				item.Bonus1 = 7;
-				item.Bonus1Type = (int) eStat.DEX;
+				item.Bonus1Type = (int) EStat.DEX;
 
 				item.Bonus2 = 27;
-				item.Bonus2Type = (int) eStat.QUI;
+				item.Bonus2Type = (int) EStat.QUI;
 
 				item.Bonus3 = 8;
-				item.Bonus3Type = (int) eResist.Slash;
+				item.Bonus3Type = (int) EResist.Slash;
 
 				item.Bonus4 = 8;
-				item.Bonus4Type = (int) eResist.Cold;
+				item.Bonus4Type = (int) EResist.Cold;
 
 				
 					GameServer.Database.AddObject(item);
@@ -585,16 +585,16 @@ namespace DOL.GS.Quests.Albion
 				item.Durability = 50000;
 
 				item.Bonus1 = 16;
-				item.Bonus1Type = (int) eStat.CON;
+				item.Bonus1Type = (int) EStat.CON;
 
 				item.Bonus2 = 18;
-				item.Bonus2Type = (int) eStat.CHR;
+				item.Bonus2Type = (int) EStat.CHR;
 
 				item.Bonus3 = 8;
-				item.Bonus3Type = (int) eResist.Thrust;
+				item.Bonus3Type = (int) EResist.Thrust;
 
 				item.Bonus4 = 8;
-				item.Bonus4Type = (int) eResist.Energy;
+				item.Bonus4Type = (int) EResist.Energy;
 
 				
 					GameServer.Database.AddObject(item);
@@ -629,16 +629,16 @@ namespace DOL.GS.Quests.Albion
 				item.Durability = 50000;
 
 				item.Bonus1 = 15;
-				item.Bonus1Type = (int) eStat.CON;
+				item.Bonus1Type = (int) EStat.CON;
 
 				item.Bonus2 = 19;
-				item.Bonus2Type = (int) eStat.DEX;
+				item.Bonus2Type = (int) EStat.DEX;
 
 				item.Bonus3 = 8;
-				item.Bonus3Type = (int) eResist.Crush;
+				item.Bonus3Type = (int) EResist.Crush;
 
 				item.Bonus4 = 8;
-				item.Bonus4Type = (int) eResist.Heat;
+				item.Bonus4Type = (int) EResist.Heat;
 
 				
 					GameServer.Database.AddObject(item);
@@ -672,16 +672,16 @@ namespace DOL.GS.Quests.Albion
 				item.Durability = 50000;
 
 				item.Bonus1 = 6;
-				item.Bonus1Type = (int) eResist.Cold;
+				item.Bonus1Type = (int) EResist.Cold;
 
 				item.Bonus2 = 8;
-				item.Bonus2Type = (int) eProperty.PowerRegenerationRate;
+				item.Bonus2Type = (int) EProperty.PowerRegenerationRate;
 
 				item.Bonus3 = 39;
-				item.Bonus3Type = (int) eProperty.MaxHealth;
+				item.Bonus3Type = (int) EProperty.MaxHealth;
 
 				item.Bonus4 = 6;
-				item.Bonus4Type = (int) eResist.Energy;
+				item.Bonus4Type = (int) EResist.Energy;
 
 				
 					GameServer.Database.AddObject(item);
@@ -715,16 +715,16 @@ namespace DOL.GS.Quests.Albion
 				item.Durability = 50000;
 
 				item.Bonus1 = 15;
-				item.Bonus1Type = (int) eStat.STR;
+				item.Bonus1Type = (int) EStat.STR;
 
 				item.Bonus2 = 19;
-				item.Bonus2Type = (int) eStat.CON;
+				item.Bonus2Type = (int) EStat.CON;
 
 				item.Bonus3 = 8;
-				item.Bonus3Type = (int) eResist.Body;
+				item.Bonus3Type = (int) EResist.Body;
 
 				item.Bonus4 = 8;
-				item.Bonus4Type = (int) eResist.Heat;
+				item.Bonus4Type = (int) EResist.Heat;
 
 				
 					GameServer.Database.AddObject(item);
@@ -758,16 +758,16 @@ namespace DOL.GS.Quests.Albion
 				item.Durability = 50000;
 
 				item.Bonus1 = 16;
-				item.Bonus1Type = (int) eStat.STR;
+				item.Bonus1Type = (int) EStat.STR;
 
 				item.Bonus2 = 21;
-				item.Bonus2Type = (int) eStat.DEX;
+				item.Bonus2Type = (int) EStat.DEX;
 
 				item.Bonus3 = 8;
-				item.Bonus3Type = (int) eResist.Crush;
+				item.Bonus3Type = (int) EResist.Crush;
 
 				item.Bonus4 = 8;
-				item.Bonus4Type = (int) eResist.Body;
+				item.Bonus4Type = (int) EResist.Body;
 
 				
 					GameServer.Database.AddObject(item);
@@ -800,16 +800,16 @@ namespace DOL.GS.Quests.Albion
 				item.Durability = 50000;
 
 				item.Bonus1 = 4;
-				item.Bonus1Type = (int) eProperty.Focus_Matter;
+				item.Bonus1Type = (int) EProperty.Focus_Matter;
 
 				item.Bonus2 = 22;
-				item.Bonus2Type = (int) eStat.DEX;
+				item.Bonus2Type = (int) EStat.DEX;
 
 				item.Bonus3 = 8;
-				item.Bonus3Type = (int) eResist.Matter;
+				item.Bonus3Type = (int) EResist.Matter;
 
 				item.Bonus4 = 8;
-				item.Bonus4Type = (int) eResist.Energy;
+				item.Bonus4Type = (int) EResist.Energy;
 
 				
 					GameServer.Database.AddObject(item);
@@ -844,16 +844,16 @@ namespace DOL.GS.Quests.Albion
 				item.Durability = 50000;
 
 				item.Bonus1 = 13;
-				item.Bonus1Type = (int) eStat.DEX;
+				item.Bonus1Type = (int) EStat.DEX;
 
 				item.Bonus2 = 21;
-				item.Bonus2Type = (int) eStat.INT;
+				item.Bonus2Type = (int) EStat.INT;
 
 				item.Bonus3 = 8;
-				item.Bonus3Type = (int) eResist.Slash;
+				item.Bonus3Type = (int) EResist.Slash;
 
 				item.Bonus4 = 8;
-				item.Bonus4Type = (int) eResist.Thrust;
+				item.Bonus4Type = (int) EResist.Thrust;
 
 				
 					GameServer.Database.AddObject(item);
@@ -888,16 +888,16 @@ namespace DOL.GS.Quests.Albion
 				item.Durability = 50000;
 
 				item.Bonus1 = 16;
-				item.Bonus1Type = (int) eStat.DEX;
+				item.Bonus1Type = (int) EStat.DEX;
 
 				item.Bonus2 = 18;
-				item.Bonus2Type = (int) eStat.INT;
+				item.Bonus2Type = (int) EStat.INT;
 
 				item.Bonus3 = 8;
-				item.Bonus3Type = (int) eResist.Cold;
+				item.Bonus3Type = (int) EResist.Cold;
 
 				item.Bonus4 = 8;
-				item.Bonus4Type = (int) eResist.Heat;
+				item.Bonus4Type = (int) EResist.Heat;
 
 				
 					GameServer.Database.AddObject(item);
@@ -931,13 +931,13 @@ namespace DOL.GS.Quests.Albion
 				item.Durability = 50000;
 
 				item.Bonus1 = 4;
-				item.Bonus1Type = (int) eResist.Spirit;
+				item.Bonus1Type = (int) EResist.Spirit;
 
 				item.Bonus2 = 14;
-				item.Bonus2Type = (int) eProperty.PowerRegenerationRate;
+				item.Bonus2Type = (int) EProperty.PowerRegenerationRate;
 
 				item.Bonus3 = 24;
-				item.Bonus3Type = (int) eProperty.MaxHealth;
+				item.Bonus3Type = (int) EProperty.MaxHealth;
 
 				
 					GameServer.Database.AddObject(item);
@@ -971,16 +971,16 @@ namespace DOL.GS.Quests.Albion
 				item.Durability = 50000;
 
 				item.Bonus1 = 4;
-				item.Bonus1Type = (int) eProperty.Focus_Mind;
+				item.Bonus1Type = (int) EProperty.Focus_Mind;
 
 				item.Bonus2 = 19;
-				item.Bonus2Type = (int) eStat.CON;
+				item.Bonus2Type = (int) EStat.CON;
 
 				item.Bonus3 = 8;
-				item.Bonus3Type = (int) eResist.Body;
+				item.Bonus3Type = (int) EResist.Body;
 
 				item.Bonus4 = 8;
-				item.Bonus4Type = (int) eResist.Spirit;
+				item.Bonus4Type = (int) EResist.Spirit;
 
 				
 					GameServer.Database.AddObject(item);
@@ -1014,13 +1014,13 @@ namespace DOL.GS.Quests.Albion
 				item.Durability = 50000;
 
 				item.Bonus1 = 4;
-				item.Bonus1Type = (int) eProperty.Focus_Body;
+				item.Bonus1Type = (int) EProperty.Focus_Body;
 
 				item.Bonus2 = 16;
-				item.Bonus2Type = (int) eStat.DEX;
+				item.Bonus2Type = (int) EStat.DEX;
 
 				item.Bonus3 = 18;
-				item.Bonus3Type = (int) eStat.INT;
+				item.Bonus3Type = (int) EStat.INT;
 
 				
 					GameServer.Database.AddObject(item);
@@ -1250,9 +1250,9 @@ namespace DOL.GS.Quests.Albion
 			if (player.IsDoingQuest(typeof (Academy_50)) != null)
 				return true;
 
-			if (player.CharacterClass.ID != (byte) eCharacterClass.Minstrel &&
-				player.CharacterClass.ID != (byte) eCharacterClass.Wizard &&
-				player.CharacterClass.ID != (byte) eCharacterClass.Sorcerer)
+			if (player.CharacterClass.ID != (byte) ECharacterClass.Minstrel &&
+				player.CharacterClass.ID != (byte) ECharacterClass.Wizard &&
+				player.CharacterClass.ID != (byte) ECharacterClass.Sorcerer)
 				return false;
 
 			// This checks below are only performed is player isn't doing quest already
@@ -1422,7 +1422,7 @@ namespace DOL.GS.Quests.Albion
 		{
 			RemoveItem(Ferowl, m_questPlayer, sealed_pouch);
 
-			if (m_questPlayer.CharacterClass.ID == (byte)eCharacterClass.Minstrel)
+			if (m_questPlayer.CharacterClass.ID == (byte)ECharacterClass.Minstrel)
 			{
 				GiveItem(m_questPlayer, MinstrelEpicBoots);
 				GiveItem(m_questPlayer, MinstrelEpicHelm);
@@ -1431,7 +1431,7 @@ namespace DOL.GS.Quests.Albion
 				GiveItem(m_questPlayer, MinstrelEpicVest);
 				GiveItem(m_questPlayer, MinstrelEpicLegs);
 			}
-			else if (m_questPlayer.CharacterClass.ID == (byte)eCharacterClass.Wizard)
+			else if (m_questPlayer.CharacterClass.ID == (byte)ECharacterClass.Wizard)
 			{
 				GiveItem(m_questPlayer, WizardEpicBoots);
 				GiveItem(m_questPlayer, WizardEpicHelm);
@@ -1440,7 +1440,7 @@ namespace DOL.GS.Quests.Albion
 				GiveItem(m_questPlayer, WizardEpicArms);
 				GiveItem(m_questPlayer, WizardEpicLegs);
 			}
-			else if (m_questPlayer.CharacterClass.ID == (byte)eCharacterClass.Sorcerer)
+			else if (m_questPlayer.CharacterClass.ID == (byte)ECharacterClass.Sorcerer)
 			{
 				GiveItem(m_questPlayer, SorcerorEpicBoots);
 				GiveItem(m_questPlayer, SorcerorEpicHelm);
@@ -1453,7 +1453,7 @@ namespace DOL.GS.Quests.Albion
 			base.FinishQuest(); //Defined in Quest, changes the state, stores in DB etc ...
 
 
-			m_questPlayer.GainExperience(eXPSource.Quest, 1937768448, false);
+			m_questPlayer.GainExperience(EXpSource.Quest, 1937768448, false);
 			//m_questPlayer.AddMoney(Money.GetMoney(0,0,0,2,Util.Random(50)), "You recieve {0} as a reward.");		
 		}
 

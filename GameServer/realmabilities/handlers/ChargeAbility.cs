@@ -31,7 +31,7 @@ namespace DOL.GS.RealmAbilities
 				//		}
 				//	}
 				//}
-				var effect = EffectListService.GetSpellEffectOnTarget(living, eEffect.MovementSpeedDebuff);
+				var effect = EffectListService.GetSpellEffectOnTarget(living, EEffect.MovementSpeedDebuff);
 				if (effect != null && effect.SpellHandler.Spell.Value != 99)
                 {
 					GamePlayer player = living as GamePlayer;
@@ -60,7 +60,7 @@ namespace DOL.GS.RealmAbilities
 			//		((GamePlayer)living).Out.SendMessage("You already an effect of that type!", eChatType.CT_SpellResisted, eChatLoc.CL_SystemWindow);
 			//	return;
 			//}
-			ChargeEcsEffect charge = (ChargeEcsEffect)EffectListService.GetEffectOnTarget(living, eEffect.Charge);
+			ChargeEcsEffect charge = (ChargeEcsEffect)EffectListService.GetEffectOnTarget(living, EEffect.Charge);
 			//ChargeEffect charge = living.EffectList.GetOfType<ChargeEffect>();
 			if (charge != null)
 				charge.Cancel(false);

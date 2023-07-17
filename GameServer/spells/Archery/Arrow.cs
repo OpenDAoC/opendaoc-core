@@ -127,7 +127,7 @@ namespace DOL.GS.Spells
 				// add defence bonus from last executed style if any
 				AttackData targetAD = (AttackData)target.TempProperties.getProperty<object>(GameLiving.LAST_ATTACK_DATA, null);
 				if (targetAD != null
-				    && targetAD.AttackResult == eAttackResult.HitStyle
+				    && targetAD.AttackResult == EAttackResult.HitStyle
 				    && targetAD.Style != null)
 				{
 					missrate += targetAD.Style.BonusToDefense;
@@ -135,17 +135,17 @@ namespace DOL.GS.Spells
 
 				// half of the damage is magical
 				// subtract any spelldamage bonus and re-calculate after half damage is calculated
-				AttackData ad = m_handler.CalculateDamageToTarget(target, 0.5 - (caster.GetModified(eProperty.SpellDamage) * 0.01));
+				AttackData ad = m_handler.CalculateDamageToTarget(target, 0.5 - (caster.GetModified(EProperty.SpellDamage) * 0.01));
 
 				// check for bladeturn miss
-				if (ad.AttackResult == eAttackResult.Missed)
+				if (ad.AttackResult == EAttackResult.Missed)
 				{
 					return 0;
 				}
 
 				if (Util.Chance(missrate))
 				{
-					ad.AttackResult = eAttackResult.Missed;
+					ad.AttackResult = EAttackResult.Missed;
 					m_handler.MessageToCaster("You miss!", eChatType.CT_YouHit);
 					m_handler.MessageToLiving(target, caster.GetName(0, false) + " missed!", eChatType.CT_Missed);
 					target.OnAttackedByEnemy(ad);
@@ -159,7 +159,7 @@ namespace DOL.GS.Spells
 					return 0;
 				}
 
-				ad.Damage = (int)((double)ad.Damage * (1.0 + caster.GetModified(eProperty.SpellDamage) * 0.01));
+				ad.Damage = (int)((double)ad.Damage * (1.0 + caster.GetModified(EProperty.SpellDamage) * 0.01));
 
 				bool arrowBlock = false;
 
@@ -169,7 +169,7 @@ namespace DOL.GS.Spells
 					InventoryItem lefthand = player.Inventory.GetItem(eInventorySlot.LeftHandWeapon);
 					if (lefthand != null && (player.ActiveWeapon == null || player.ActiveWeapon.Item_Type == Slot.RIGHTHAND || player.ActiveWeapon.Item_Type == Slot.LEFTHAND))
 					{
-						if (target.IsObjectInFront(caster, 180) && lefthand.Object_Type == (int)eObjectType.Shield)
+						if (target.IsObjectInFront(caster, 180) && lefthand.Object_Type == (int)EObjectType.Shield)
 						{
 							// TODO: shield size vs number of attackers not calculated
 							double shield = 0.5 * player.GetModifiedSpecLevel(Specs.Shields);
@@ -181,7 +181,7 @@ namespace DOL.GS.Spells
 
 							if (target.IsEngaging)
 							{
-								EngageEcsEffect engage = (EngageEcsEffect)EffectListService.GetEffectOnTarget(target, eEffect.Engage);
+								EngageEcsEffect engage = (EngageEcsEffect)EffectListService.GetEffectOnTarget(target, EEffect.Engage);
 								if (engage != null && target.attackComponent.AttackState && engage.EngageTarget == caster)
 								{
 									// Engage raised block change to 85% if attacker is engageTarget and player is in attackstate
@@ -233,7 +233,7 @@ namespace DOL.GS.Spells
 					if (target.Inventory != null)
 						armor = target.Inventory.GetItem((eInventorySlot)ad.ArmorHitLocation);
 
-					double ws = (caster.Level * 8 * (1.0 + (caster.GetModified(eProperty.Dexterity) - 50) / 200.0));
+					double ws = (caster.Level * 8 * (1.0 + (caster.GetModified(EProperty.Dexterity) - 50) / 200.0));
 
 					damage *= ((ws + 90.68) / (target.GetArmorAF(ad.ArmorHitLocation) + 20 * 4.67));
 					damage *= 1.0 - Math.Min(0.85, ad.Target.GetArmorAbsorb(ad.ArmorHitLocation));
@@ -241,7 +241,7 @@ namespace DOL.GS.Spells
 					damage += ad.Modifier;
 
 					double effectiveness = caster.Effectiveness;
-					effectiveness += (caster.GetModified(eProperty.SpellDamage) * 0.01);
+					effectiveness += (caster.GetModified(EProperty.SpellDamage) * 0.01);
 					damage = damage * effectiveness;
 
 					damage *= (1.0 + RelicMgr.GetRelicBonusModifier(caster.Realm, eRelicType.Magic));
@@ -312,9 +312,9 @@ namespace DOL.GS.Spells
 					}
 				}
 
-				if (arrowBlock == false && m_handler.Caster.ActiveWeapon != null && GlobalConstants.IsBowWeapon((eObjectType)m_handler.Caster.ActiveWeapon.Object_Type))
+				if (arrowBlock == false && m_handler.Caster.ActiveWeapon != null && GlobalConstants.IsBowWeapon((EObjectType)m_handler.Caster.ActiveWeapon.Object_Type))
 				{
-					if (ad.AttackResult == eAttackResult.HitUnstyled || ad.AttackResult == eAttackResult.HitStyle)
+					if (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle)
 					{
 						caster.CheckWeaponMagicalEffect(ad, m_handler.Caster.ActiveWeapon);
 					}

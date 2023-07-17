@@ -477,7 +477,7 @@ namespace DOL.GS.Keeps
 		/// </summary>
 		/// <param name="realm"></param>
 		/// <returns></returns>
-		public virtual int GetTowerCountByRealm(eRealm realm)
+		public virtual int GetTowerCountByRealm(ERealm realm)
 		{
 			int index = 0;
 			lock (m_keepList.SyncRoot)
@@ -485,7 +485,7 @@ namespace DOL.GS.Keeps
 				foreach (AbstractGameKeep keep in m_keepList.Values)
 				{
 					if (m_frontierRegionsList.Contains(keep.Region) == false) continue;
-					if (((eRealm)keep.Realm == realm) && (keep is GameKeepTower))
+					if (((ERealm)keep.Realm == realm) && (keep is GameKeepTower))
 						index++;
 				}
 			}
@@ -496,12 +496,12 @@ namespace DOL.GS.Keeps
 		/// Get the tower count of each realm
 		/// </summary>
 		/// <returns></returns>
-		public virtual Dictionary<eRealm, int> GetTowerCountAllRealm()
+		public virtual Dictionary<ERealm, int> GetTowerCountAllRealm()
 		{
-			Dictionary<eRealm, int> realmXTower = new Dictionary<eRealm,int>(3);
-			realmXTower.Add(eRealm.Albion, 0);
-			realmXTower.Add(eRealm.Hibernia, 0);
-			realmXTower.Add(eRealm.Midgard, 0);
+			Dictionary<ERealm, int> realmXTower = new Dictionary<ERealm,int>(3);
+			realmXTower.Add(ERealm.Albion, 0);
+			realmXTower.Add(ERealm.Hibernia, 0);
+			realmXTower.Add(ERealm.Midgard, 0);
 
 			lock (m_keepList.SyncRoot)
 			{
@@ -521,13 +521,13 @@ namespace DOL.GS.Keeps
 		/// Get the tower count of each realm
 		/// </summary>
 		/// <returns></returns>
-		public virtual Dictionary<eRealm, int> GetTowerCountFromZones(List<int> zones)
+		public virtual Dictionary<ERealm, int> GetTowerCountFromZones(List<int> zones)
 		{
-			Dictionary<eRealm, int> realmXTower = new Dictionary<eRealm, int>(4);
-			realmXTower.Add(eRealm.Albion, 0);
-			realmXTower.Add(eRealm.Hibernia, 0);
-			realmXTower.Add(eRealm.Midgard, 0);
-			realmXTower.Add(eRealm.None, 0);
+			Dictionary<ERealm, int> realmXTower = new Dictionary<ERealm, int>(4);
+			realmXTower.Add(ERealm.Albion, 0);
+			realmXTower.Add(ERealm.Hibernia, 0);
+			realmXTower.Add(ERealm.Midgard, 0);
+			realmXTower.Add(ERealm.None, 0);
 
 			lock (m_keepList.SyncRoot)
 			{
@@ -548,7 +548,7 @@ namespace DOL.GS.Keeps
 		/// </summary>
 		/// <param name="realm"></param>
 		/// <returns></returns>
-		public virtual int GetKeepCountByRealm(eRealm realm)
+		public virtual int GetKeepCountByRealm(ERealm realm)
 		{
 			int index = 0;
 			lock (m_keepList.SyncRoot)
@@ -758,13 +758,13 @@ namespace DOL.GS.Keeps
 			}
 		}
 
-		public virtual int GetRealmKeepBonusLevel(eRealm realm)
+		public virtual int GetRealmKeepBonusLevel(ERealm realm)
 		{
 			int keep = 7 - GetKeepCountByRealm(realm);
 			return (int)(keep * ServerProperties.Properties.KEEP_BALANCE_MULTIPLIER);
 		}
 
-		public virtual int GetRealmTowerBonusLevel(eRealm realm)
+		public virtual int GetRealmTowerBonusLevel(ERealm realm)
 		{
 			int tower = 28 - GetTowerCountByRealm(realm);
 			return (int)(tower * ServerProperties.Properties.TOWER_BALANCE_MULTIPLIER);
@@ -784,13 +784,13 @@ namespace DOL.GS.Keeps
 					if (ServerProperties.Properties.BALANCE_TOWERS_SEPARATE)
 					{
 						if (keep is GameKeepTower)
-							newLevel = (byte)(keep.DBKeep.BaseLevel + GameServer.KeepManager.GetRealmTowerBonusLevel((eRealm)keep.Realm));
+							newLevel = (byte)(keep.DBKeep.BaseLevel + GameServer.KeepManager.GetRealmTowerBonusLevel((ERealm)keep.Realm));
 						else
-							newLevel = (byte)(keep.DBKeep.BaseLevel + GameServer.KeepManager.GetRealmKeepBonusLevel((eRealm)keep.Realm));
+							newLevel = (byte)(keep.DBKeep.BaseLevel + GameServer.KeepManager.GetRealmKeepBonusLevel((ERealm)keep.Realm));
 					}
 					else
 					{
-						newLevel = (byte)(keep.DBKeep.BaseLevel + GameServer.KeepManager.GetRealmKeepBonusLevel((eRealm)keep.Realm) + GameServer.KeepManager.GetRealmTowerBonusLevel((eRealm)keep.Realm));
+						newLevel = (byte)(keep.DBKeep.BaseLevel + GameServer.KeepManager.GetRealmKeepBonusLevel((ERealm)keep.Realm) + GameServer.KeepManager.GetRealmTowerBonusLevel((ERealm)keep.Realm));
 					}
 
 					if (keep.BaseLevel != newLevel)
@@ -826,9 +826,9 @@ namespace DOL.GS.Keeps
 			string location = "";
 			switch (player.Realm)
 			{
-				case eRealm.Albion: location = "Castle Sauvage"; break;
-				case eRealm.Midgard: location = "Svasudheim Faste"; break;
-				case eRealm.Hibernia: location = "Druim Ligen"; break;
+				case ERealm.Albion: location = "Castle Sauvage"; break;
+				case ERealm.Midgard: location = "Svasudheim Faste"; break;
+				case ERealm.Hibernia: location = "Druim Ligen"; break;
 			}
 
 			if (location != "")

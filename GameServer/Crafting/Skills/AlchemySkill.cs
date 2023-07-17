@@ -51,7 +51,7 @@ namespace DOL.GS
                 return false;
 			
 			if (((InventoryItem)player.TradeWindow.TradeItems[0]).Object_Type != 
-                (int)eObjectType.AlchemyTincture)
+                (int)EObjectType.AlchemyTincture)
 			{
 				player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, 
                     "Alchemy.IsAllowedToCombine.AlchemyTinctures"), PacketHandler.eChatType.CT_System, 

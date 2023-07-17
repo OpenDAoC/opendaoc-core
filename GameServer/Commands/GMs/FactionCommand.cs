@@ -10,7 +10,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 	   "&faction",
-	   ePrivLevel.GM,
+	   EPrivLevel.GM,
 	   "GMCommands.Faction.Description",
 	   "GMCommands.Faction.Usage.Create",
 	   "GMCommands.Faction.Usage.Assign",

@@ -18,7 +18,7 @@ namespace DOL.GS.Commands
     /// <author>Aredhel</author>
 	[Command(
 		"&teleport",
-		ePrivLevel.GM,
+		EPrivLevel.GM,
         "Manage teleport destinations",
         "'/teleport add <ID> <type>' add a teleport destination",
 		"'/teleport reload' reload all teleport locations from the db")]
@@ -85,7 +85,7 @@ namespace DOL.GS.Commands
         private void AddTeleport(GameClient client, String teleportID, String type)
         {
             GamePlayer player = client.Player;
-            eRealm realm = player.Realm;
+            ERealm realm = player.Realm;
 
             if (WorldMgr.GetTeleportLocation(realm, String.Format("{0}:{1}", type, teleportID)) != null)
             {

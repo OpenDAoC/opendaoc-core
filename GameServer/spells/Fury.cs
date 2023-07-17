@@ -20,12 +20,12 @@ namespace DOL.GS.Spells
             int value = (int)m_spell.Value;
 
             SendEffectAnimation(effect.Owner, 0, false, 1);
-            effect.Owner.AbilityBonus[(int)eProperty.Resist_Body] += value;
-            effect.Owner.AbilityBonus[(int)eProperty.Resist_Cold] += value;
-            effect.Owner.AbilityBonus[(int)eProperty.Resist_Energy] += value;
-            effect.Owner.AbilityBonus[(int)eProperty.Resist_Heat] += value;
-            effect.Owner.AbilityBonus[(int)eProperty.Resist_Matter] += value;
-            effect.Owner.AbilityBonus[(int)eProperty.Resist_Spirit] += value;
+            effect.Owner.AbilityBonus[(int)EProperty.Resist_Body] += value;
+            effect.Owner.AbilityBonus[(int)EProperty.Resist_Cold] += value;
+            effect.Owner.AbilityBonus[(int)EProperty.Resist_Energy] += value;
+            effect.Owner.AbilityBonus[(int)EProperty.Resist_Heat] += value;
+            effect.Owner.AbilityBonus[(int)EProperty.Resist_Matter] += value;
+            effect.Owner.AbilityBonus[(int)EProperty.Resist_Spirit] += value;
 
             GamePlayer player = effect.Owner as GamePlayer;
             if (player != null)
@@ -40,12 +40,12 @@ namespace DOL.GS.Spells
         {
             int value = (int)m_spell.Value;
 
-            effect.Owner.AbilityBonus[(int)eProperty.Resist_Body] -= value;
-            effect.Owner.AbilityBonus[(int)eProperty.Resist_Cold] -= value;
-            effect.Owner.AbilityBonus[(int)eProperty.Resist_Energy] -= value;
-            effect.Owner.AbilityBonus[(int)eProperty.Resist_Heat] -= value;
-            effect.Owner.AbilityBonus[(int)eProperty.Resist_Matter] -= value;
-            effect.Owner.AbilityBonus[(int)eProperty.Resist_Spirit] -= value;
+            effect.Owner.AbilityBonus[(int)EProperty.Resist_Body] -= value;
+            effect.Owner.AbilityBonus[(int)EProperty.Resist_Cold] -= value;
+            effect.Owner.AbilityBonus[(int)EProperty.Resist_Energy] -= value;
+            effect.Owner.AbilityBonus[(int)EProperty.Resist_Heat] -= value;
+            effect.Owner.AbilityBonus[(int)EProperty.Resist_Matter] -= value;
+            effect.Owner.AbilityBonus[(int)EProperty.Resist_Spirit] -= value;
 
             GamePlayer player = effect.Owner as GamePlayer;
             if (player != null)

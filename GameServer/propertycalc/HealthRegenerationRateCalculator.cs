@@ -13,7 +13,7 @@ namespace DOL.GS.PropertyCalc
 	/// BuffBonusCategory4 unused
 	/// BuffBonusMultCategory1 unused
 	/// </summary>
-	[PropertyCalculator(eProperty.HealthRegenerationRate)]
+	[PropertyCalculator(EProperty.HealthRegenerationRate)]
 	public class HealthRegenerationRateCalculator : PropertyCalculator
 	{
 		public HealthRegenerationRateCalculator() {}
@@ -24,7 +24,7 @@ namespace DOL.GS.PropertyCalc
 		/// <param name="living"></param>
 		/// <param name="property"></param>
 		/// <returns></returns>
-		public override int CalcValue(GameLiving living, eProperty property)
+		public override int CalcValue(GameLiving living, EProperty property)
 		{
 			if (living.IsDiseased)
 				return 0; // no HP regen if diseased

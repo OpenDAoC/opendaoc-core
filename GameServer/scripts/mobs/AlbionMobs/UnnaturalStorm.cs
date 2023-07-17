@@ -21,7 +21,7 @@ namespace DOL.GS
 			Model = 665;
 			Level = (byte)Util.Random(65, 70);
 			Size = 100;
-			MeleeDamageType = eDamageType.Crush;
+			MeleeDamageType = EDamageType.Crush;
 			Race = 2003;
 			Flags = (GameNPC.eFlags)44;//notarget noname flying
 			MaxSpeedBase = 0;
@@ -126,12 +126,12 @@ namespace DOL.AI.Brain
 					spell.ClientEffect = 3508;
 					spell.Icon = 3508;
 					spell.Damage = 200;
-					spell.DamageType = (int)eDamageType.Energy;
+					spell.DamageType = (int)EDamageType.Energy;
 					spell.Name = "Storm Lightning";
 					spell.Range = 2500;
 					spell.SpellID = 11947;
 					spell.Target = "Enemy";
-					spell.Type = eSpellType.DirectDamageNoVariance.ToString();
+					spell.Type = ESpellType.DirectDamageNoVariance.ToString();
 					spell.Uninterruptible = true;
 					spell.MoveCast = true;
 					m_StormDD = new Spell(spell, 50);
@@ -156,7 +156,7 @@ namespace DOL.GS
 			Model = 665;
 			Level = (byte)Util.Random(40, 42);
 			Size = 100;
-			MeleeDamageType = eDamageType.Crush;
+			MeleeDamageType = EDamageType.Crush;
 			Race = 2003;
 			Flags = (GameNPC.eFlags)60;//notarget noname flying
 			MaxSpeedBase = 0;

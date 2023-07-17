@@ -3,7 +3,7 @@ using DOL.GS.Realm;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)eCharacterClass.Bard, "Bard", "Naturalist")]
+	[CharacterClass((int)ECharacterClass.Bard, "Bard", "Naturalist")]
 	public class ClassBard : ClassNaturalist
 	{
 		public ClassBard()
@@ -11,10 +11,10 @@ namespace DOL.GS.PlayerClass
 		{
 			m_profession = "PlayerClass.Profession.PathofEssence";
 			m_specializationMultiplier = 15;
-			m_primaryStat = eStat.CHR;
-			m_secondaryStat = eStat.EMP;
-			m_tertiaryStat = eStat.CON;
-			m_manaStat = eStat.CHR;
+			m_primaryStat = EStat.CHR;
+			m_secondaryStat = EStat.EMP;
+			m_tertiaryStat = EStat.CON;
+			m_manaStat = EStat.CHR;
 			m_wsbase = 360;
 		}
 

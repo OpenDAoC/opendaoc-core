@@ -630,7 +630,7 @@ namespace DOL.GS
 			//todo check if bullet
 			return base.ReceiveItem(source, item);
 		}
-		public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+		public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
 		{
 			if (source is GamePlayer)
 			{
@@ -720,7 +720,7 @@ namespace DOL.GS
 
 		private int DecayTimerCallback(ECSGameTimer callingTimer)
 		{
-			TakeDamage(this, eDamageType.Natural, DecayDeductHp, 0);
+			TakeDamage(this, EDamageType.Natural, DecayDeductHp, 0);
 			return DECAYPERIOD;
 		}
 

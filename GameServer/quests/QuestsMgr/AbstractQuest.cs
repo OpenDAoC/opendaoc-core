@@ -741,7 +741,7 @@ namespace DOL.GS.Quests
 
 				ticket.Model = 499;
 
-				ticket.Object_Type = (int)eObjectType.GenericItem;
+				ticket.Object_Type = (int)EObjectType.GenericItem;
 				ticket.Item_Type = 40;
 
 				ticket.IsPickable = true;

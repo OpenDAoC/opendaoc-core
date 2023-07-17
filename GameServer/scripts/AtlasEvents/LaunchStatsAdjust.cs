@@ -49,7 +49,7 @@ namespace DOL.GS.GameEvents
             var secondLaunchDate = new DateTime(2022, 7,4,15,0,0);
             
             //Male chars created after 2nd launch day dont need to be reset.
-            if (player.CreationDate > secondLaunchDate && player.Gender == eGender.Male) return;
+            if (player.CreationDate > secondLaunchDate && player.Gender == EGender.Male) return;
 
             var femaleFixDate = new DateTime(2022, 8,9,7,0,0);
 
@@ -65,7 +65,7 @@ namespace DOL.GS.GameEvents
 
             var stsMessage = $"STATSADJUST - {player.Name} PREV STATS ";
             stsMessage +=
-                $"STR: {player.GetBaseStat(eStat.STR)} CON: {player.GetBaseStat(eStat.CON)} DEX: {player.GetBaseStat(eStat.DEX)} QUI: {player.GetBaseStat(eStat.QUI)} INT: {player.GetBaseStat(eStat.INT)} PIE: {player.GetBaseStat(eStat.PIE)} EMP: {player.GetBaseStat(eStat.EMP)} CHR: {player.GetBaseStat(eStat.CHR)}";
+                $"STR: {player.GetBaseStat(EStat.STR)} CON: {player.GetBaseStat(EStat.CON)} DEX: {player.GetBaseStat(EStat.DEX)} QUI: {player.GetBaseStat(EStat.QUI)} INT: {player.GetBaseStat(EStat.INT)} PIE: {player.GetBaseStat(EStat.PIE)} EMP: {player.GetBaseStat(EStat.EMP)} CHR: {player.GetBaseStat(EStat.CHR)}";
             Log.Warn(stsMessage);
 
             
@@ -80,35 +80,35 @@ namespace DOL.GS.GameEvents
             var baseEmp = (short)rBaseStats.Empathy;
             var baseCha = (short)rBaseStats.Charisma;
 
-            player.ChangeBaseStat(eStat.STR, (short)-player.GetBaseStat(eStat.STR));
-            player.ChangeBaseStat(eStat.EMP,(short)-player.GetBaseStat(eStat.EMP));
-            player.ChangeBaseStat(eStat.CHR,(short)-player.GetBaseStat(eStat.CHR));
-            player.ChangeBaseStat(eStat.PIE,(short)-player.GetBaseStat(eStat.PIE));
-            player.ChangeBaseStat(eStat.INT,(short)-player.GetBaseStat(eStat.INT));
-            player.ChangeBaseStat(eStat.QUI,(short)-player.GetBaseStat(eStat.QUI));
-            player.ChangeBaseStat(eStat.DEX,(short)-player.GetBaseStat(eStat.DEX));
-            player.ChangeBaseStat(eStat.CON,(short)-player.GetBaseStat(eStat.CON));
+            player.ChangeBaseStat(EStat.STR, (short)-player.GetBaseStat(EStat.STR));
+            player.ChangeBaseStat(EStat.EMP,(short)-player.GetBaseStat(EStat.EMP));
+            player.ChangeBaseStat(EStat.CHR,(short)-player.GetBaseStat(EStat.CHR));
+            player.ChangeBaseStat(EStat.PIE,(short)-player.GetBaseStat(EStat.PIE));
+            player.ChangeBaseStat(EStat.INT,(short)-player.GetBaseStat(EStat.INT));
+            player.ChangeBaseStat(EStat.QUI,(short)-player.GetBaseStat(EStat.QUI));
+            player.ChangeBaseStat(EStat.DEX,(short)-player.GetBaseStat(EStat.DEX));
+            player.ChangeBaseStat(EStat.CON,(short)-player.GetBaseStat(EStat.CON));
             
-            player.ChangeBaseStat(eStat.STR,baseStr);
-            player.ChangeBaseStat(eStat.CON,baseCon);
-            player.ChangeBaseStat(eStat.DEX,baseDex);
-            player.ChangeBaseStat(eStat.QUI,baseQui);
-            player.ChangeBaseStat(eStat.INT,baseInt);
-            player.ChangeBaseStat(eStat.PIE,basePie);
-            player.ChangeBaseStat(eStat.EMP,baseEmp);
-            player.ChangeBaseStat(eStat.CHR,baseCha);
+            player.ChangeBaseStat(EStat.STR,baseStr);
+            player.ChangeBaseStat(EStat.CON,baseCon);
+            player.ChangeBaseStat(EStat.DEX,baseDex);
+            player.ChangeBaseStat(EStat.QUI,baseQui);
+            player.ChangeBaseStat(EStat.INT,baseInt);
+            player.ChangeBaseStat(EStat.PIE,basePie);
+            player.ChangeBaseStat(EStat.EMP,baseEmp);
+            player.ChangeBaseStat(EStat.CHR,baseCha);
             
             for (var i = 6; i <= player.Level ; i++)
             {
-                if (player.CharacterClass.PrimaryStat != eStat.UNDEFINED)
+                if (player.CharacterClass.PrimaryStat != EStat.UNDEFINED)
                 {
                     player.ChangeBaseStat(player.CharacterClass.PrimaryStat, +1);
                 }
-                if (player.CharacterClass.SecondaryStat != eStat.UNDEFINED && ((i - 6) % 2 == 0))
+                if (player.CharacterClass.SecondaryStat != EStat.UNDEFINED && ((i - 6) % 2 == 0))
                 {
                     player.ChangeBaseStat(player.CharacterClass.SecondaryStat, +1);
                 }
-                if (player.CharacterClass.TertiaryStat != eStat.UNDEFINED && ((i - 6) % 3 == 0))
+                if (player.CharacterClass.TertiaryStat != EStat.UNDEFINED && ((i - 6) % 3 == 0))
                 {
                     player.ChangeBaseStat(player.CharacterClass.TertiaryStat, +1);
                 }
@@ -116,7 +116,7 @@ namespace DOL.GS.GameEvents
             
             stsMessage = $"STATSADJUST - {player.Name} NEW STATS ";
             stsMessage +=
-                $"STR: {player.GetBaseStat(eStat.STR)} CON: {player.GetBaseStat(eStat.CON)} DEX: {player.GetBaseStat(eStat.DEX)} QUI: {player.GetBaseStat(eStat.QUI)} INT: {player.GetBaseStat(eStat.INT)} PIE: {player.GetBaseStat(eStat.PIE)} EMP: {player.GetBaseStat(eStat.EMP)} CHR: {player.GetBaseStat(eStat.CHR)}";
+                $"STR: {player.GetBaseStat(EStat.STR)} CON: {player.GetBaseStat(EStat.CON)} DEX: {player.GetBaseStat(EStat.DEX)} QUI: {player.GetBaseStat(EStat.QUI)} INT: {player.GetBaseStat(EStat.INT)} PIE: {player.GetBaseStat(EStat.PIE)} EMP: {player.GetBaseStat(EStat.EMP)} CHR: {player.GetBaseStat(EStat.CHR)}";
             Log.Warn(stsMessage);
             
             Log.Warn($"STATSADJUST - {player.Name} Granted a stats respec");
@@ -141,14 +141,14 @@ namespace DOL.GS.GameEvents
             player.Out.SendMessage(message, eChatType.CT_Staff, eChatLoc.CL_ChatWindow);
             
             message += "Your new base stats are:\n\n";
-            message += $"STR: {player.GetBaseStat(eStat.STR)}\n" +
-                       $"CON: {player.GetBaseStat(eStat.CON)}\n" +
-                       $"DEX: {player.GetBaseStat(eStat.DEX)}\n" +
-                       $"QUI: {player.GetBaseStat(eStat.QUI)}\n" +
-                       $"INT: {player.GetBaseStat(eStat.INT)}\n" +
-                       $"PIE: {player.GetBaseStat(eStat.PIE)}\n" +
-                       $"EMP: {player.GetBaseStat(eStat.EMP)}\n" +
-                       $"CHR: {player.GetBaseStat(eStat.CHR)}\n\n";
+            message += $"STR: {player.GetBaseStat(EStat.STR)}\n" +
+                       $"CON: {player.GetBaseStat(EStat.CON)}\n" +
+                       $"DEX: {player.GetBaseStat(EStat.DEX)}\n" +
+                       $"QUI: {player.GetBaseStat(EStat.QUI)}\n" +
+                       $"INT: {player.GetBaseStat(EStat.INT)}\n" +
+                       $"PIE: {player.GetBaseStat(EStat.PIE)}\n" +
+                       $"EMP: {player.GetBaseStat(EStat.EMP)}\n" +
+                       $"CHR: {player.GetBaseStat(EStat.CHR)}\n\n";
             
             message += "REMEMBER TO LOGOUT AND CLICK ON CUSTOMIZE TO DISTRIBUTE YOUR 30 STARTING POINTS.";
 

@@ -12,9 +12,9 @@ public class StandardMobState : BaseState
     protected static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
     protected StandardMobBrain _brain = null;
-    protected eFSMStateType _id;
+    protected EFsmStateType _id;
 
-    public eFSMStateType ID => _id;
+    public EFsmStateType ID => _id;
 
     public StandardMobState(Fsm fsm, StandardMobBrain brain) : base(fsm)
     {
@@ -26,7 +26,7 @@ public class StandardMobState_Idle : StandardMobState
 {
     public StandardMobState_Idle(Fsm fsm, StandardMobBrain brain) : base(fsm, brain)
     {
-        _id = eFSMStateType.IDLE;
+        _id = EFsmStateType.IDLE;
     }
 
     public override void Enter()
@@ -41,25 +41,25 @@ public class StandardMobState_Idle : StandardMobState
     {
         if (_brain.HasPatrolPath())
         {
-            _brain.FSM.SetCurrentState(eFSMStateType.PATROLLING);
+            _brain.FSM.SetCurrentState(EFsmStateType.PATROLLING);
             return;
         }
 
         if (_brain.Body.CanRoam)
         {
-            _brain.FSM.SetCurrentState(eFSMStateType.ROAMING);
+            _brain.FSM.SetCurrentState(EFsmStateType.ROAMING);
             return;
         }
 
         if (_brain.IsBeyondTetherRange())
         {
-            _brain.FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+            _brain.FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
             return;
         }
 
         if (_brain.CheckProximityAggro())
         {
-            _brain.FSM.SetCurrentState(eFSMStateType.AGGRO);
+            _brain.FSM.SetCurrentState(EFsmStateType.AGGRO);
             return;
         }
 
@@ -72,30 +72,30 @@ public class StandardMobState_WakingUp : StandardMobState
 {
     public StandardMobState_WakingUp(Fsm fsm, StandardMobBrain brain) : base(fsm, brain)
     {
-        _id = eFSMStateType.WAKING_UP;
+        _id = EFsmStateType.WAKING_UP;
     }
 
     public override void Think()
     {
         if (!_brain.Body.attackComponent.AttackState && _brain.Body.CanRoam)
         {
-            _brain.FSM.SetCurrentState(eFSMStateType.ROAMING);
+            _brain.FSM.SetCurrentState(EFsmStateType.ROAMING);
             return;
         }
 
         if (_brain.HasPatrolPath())
         {
-            _brain.FSM.SetCurrentState(eFSMStateType.PATROLLING);
+            _brain.FSM.SetCurrentState(EFsmStateType.PATROLLING);
             return;
         }
 
         if (_brain.CheckProximityAggro())
         {
-            _brain.FSM.SetCurrentState(eFSMStateType.AGGRO);
+            _brain.FSM.SetCurrentState(EFsmStateType.AGGRO);
             return;
         }
 
-        _brain.FSM.SetCurrentState(eFSMStateType.IDLE);
+        _brain.FSM.SetCurrentState(EFsmStateType.IDLE);
         base.Think();
     }
 }
@@ -104,7 +104,7 @@ public class StandardMobState_Aggro : StandardMobState
 {
     public StandardMobState_Aggro(Fsm fsm, StandardMobBrain brain) : base(fsm, brain)
     {
-        _id = eFSMStateType.AGGRO;
+        _id = EFsmStateType.AGGRO;
     }
 
     public override void Enter()
@@ -131,9 +131,9 @@ public class StandardMobState_Aggro : StandardMobState
             if (_brain.IsBeyondTetherRange() || !_brain.CheckProximityAggro())
             {
                 if (_brain.Body.CurrentWaypoint != null)
-                    _brain.FSM.SetCurrentState(eFSMStateType.PATROLLING);
+                    _brain.FSM.SetCurrentState(EFsmStateType.PATROLLING);
                 else
-                    _brain.FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+                    _brain.FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
 
                 return;
             }
@@ -154,7 +154,7 @@ public class StandardMobState_Roaming : StandardMobState
 
     public StandardMobState_Roaming(Fsm fsm, StandardMobBrain brain) : base(fsm, brain)
     {
-        _id = eFSMStateType.ROAMING;
+        _id = EFsmStateType.ROAMING;
     }
 
     public override void Enter()
@@ -169,13 +169,13 @@ public class StandardMobState_Roaming : StandardMobState
     {
         if (_brain.IsBeyondTetherRange())
         {
-            _brain.FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+            _brain.FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
             return;
         }
 
         if (_brain.CheckProximityAggro())
         {
-            _brain.FSM.SetCurrentState(eFSMStateType.AGGRO);
+            _brain.FSM.SetCurrentState(EFsmStateType.AGGRO);
             return;
         }
 
@@ -198,7 +198,7 @@ public class StandardMobState_ReturnToSpawn : StandardMobState
 {
     public StandardMobState_ReturnToSpawn(Fsm fsm, StandardMobBrain brain) : base(fsm, brain)
     {
-        _id = eFSMStateType.RETURN_TO_SPAWN;
+        _id = EFsmStateType.RETURN_TO_SPAWN;
     }
 
     public override void Enter()
@@ -221,14 +221,14 @@ public class StandardMobState_ReturnToSpawn : StandardMobState
             (!_brain.Body.IsReturningToSpawnPoint) &&
             _brain.Body.CurrentSpeed == 0)
         {
-            _brain.FSM.SetCurrentState(eFSMStateType.WAKING_UP);
+            _brain.FSM.SetCurrentState(EFsmStateType.WAKING_UP);
             _brain.Body.TurnTo(_brain.Body.SpawnHeading);
             return;
         }
 
         if (_brain.Body.IsNearSpawn)
         {
-            _brain.FSM.SetCurrentState(eFSMStateType.WAKING_UP);
+            _brain.FSM.SetCurrentState(EFsmStateType.WAKING_UP);
             _brain.Body.TurnTo(_brain.Body.SpawnHeading);
             return;
         }
@@ -241,7 +241,7 @@ public class StandardMobState_Patrolling : StandardMobState
 {
     public StandardMobState_Patrolling(Fsm fsm, StandardMobBrain brain) : base(fsm, brain)
     {
-        _id = eFSMStateType.PATROLLING;
+        _id = EFsmStateType.PATROLLING;
     }
 
     public override void Enter()
@@ -258,12 +258,12 @@ public class StandardMobState_Patrolling : StandardMobState
     {
         if (_brain.IsBeyondTetherRange())
         {
-            _brain.FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+            _brain.FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
         }
 
         if (_brain.CheckProximityAggro())
         {
-            _brain.FSM.SetCurrentState(eFSMStateType.AGGRO);
+            _brain.FSM.SetCurrentState(EFsmStateType.AGGRO);
             return;
         }
 
@@ -275,7 +275,7 @@ public class StandardMobState_Dead : StandardMobState
 {
     public StandardMobState_Dead(Fsm fsm, StandardMobBrain brain) : base(fsm, brain)
     {
-        _id = eFSMStateType.DEAD;
+        _id = EFsmStateType.DEAD;
     }
 
     public override void Enter()
@@ -289,7 +289,7 @@ public class StandardMobState_Dead : StandardMobState
 
     public override void Think()
     {
-        _brain.FSM.SetCurrentState(eFSMStateType.WAKING_UP);
+        _brain.FSM.SetCurrentState(EFsmStateType.WAKING_UP);
         base.Think();
     }
 }

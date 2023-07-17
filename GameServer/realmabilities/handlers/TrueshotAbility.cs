@@ -21,11 +21,11 @@ namespace DOL.GS.RealmAbilities
 			GamePlayer player = living as GamePlayer;
 			if (player != null)
 			{
-				SureShotEcsEffect sureShot = (SureShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.SureShot);
+				SureShotEcsEffect sureShot = (SureShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, EEffect.SureShot);
 				if (sureShot != null)
 					EffectService.RequestImmediateCancelEffect(sureShot);
 
-				RapidFireEcsEffect rapidFire = (RapidFireEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.RapidFire);
+				RapidFireEcsEffect rapidFire = (RapidFireEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, EEffect.RapidFire);
 				if (rapidFire != null)
 					EffectService.RequestImmediateCancelEffect(rapidFire, false);
 

@@ -47,7 +47,7 @@ namespace DOL.GS.Spells
             dbs.DamageType = (int)spell.DamageType;
             dbs.Target = "Realm";
             dbs.Radius = 0;
-            dbs.Type = eSpellType.HealOverTime.ToString();
+            dbs.Type = ESpellType.HealOverTime.ToString();
             dbs.Value = spell.Value;
             dbs.Duration = spell.ResurrectHealth;
             dbs.Frequency = spell.ResurrectMana;
@@ -103,7 +103,7 @@ namespace DOL.GS.Spells
             dbs.DamageType = (int)spell.DamageType;
             dbs.Target = "Realm";
             dbs.Radius = 0;
-            dbs.Type = eSpellType.PowerOverTime.ToString();
+            dbs.Type = ESpellType.PowerOverTime.ToString();
             dbs.Value = spell.Value;
             dbs.Duration = spell.ResurrectHealth;
             dbs.Frequency = spell.ResurrectMana;
@@ -158,7 +158,7 @@ namespace DOL.GS.Spells
             dbs.DamageType = (int)spell.DamageType;
             dbs.Target = "Realm";
             dbs.Radius = 0;
-            dbs.Type = eSpellType.MesmerizeDurationBuff.ToString();
+            dbs.Type = ESpellType.MesmerizeDurationBuff.ToString();
             dbs.Value = spell.Value;
             dbs.Duration = spell.ResurrectHealth;
             dbs.Frequency = spell.ResurrectMana;
@@ -227,7 +227,7 @@ namespace DOL.GS.Spells
             dbs.DamageType = (int)spell.DamageType;
             dbs.Target = "Enemy";
             dbs.Radius = 0;
-            dbs.Type = eSpellType.PowerRend.ToString();
+            dbs.Type = ESpellType.PowerRend.ToString();
             dbs.Value = spell.Value;
             dbs.Duration = spell.ResurrectHealth;
             dbs.Frequency = spell.ResurrectMana;
@@ -308,10 +308,10 @@ namespace DOL.GS.Spells
             if (target is GamePlayer)
             {
                 GamePlayer player = target as GamePlayer;
-                if (player.CharacterClass.ID == (int)eCharacterClass.Vampiir 
-                    || player.CharacterClass.ID == (int)eCharacterClass.MaulerHib
-                    || player.CharacterClass.ID == (int)eCharacterClass.MaulerMid
-                    || player.CharacterClass.ID == (int)eCharacterClass.MaulerAlb)
+                if (player.CharacterClass.ID == (int)ECharacterClass.Vampiir 
+                    || player.CharacterClass.ID == (int)ECharacterClass.MaulerHib
+                    || player.CharacterClass.ID == (int)ECharacterClass.MaulerMid
+                    || player.CharacterClass.ID == (int)ECharacterClass.MaulerAlb)
                     return;
             }
 
@@ -356,9 +356,9 @@ namespace DOL.GS.Spells
         public override void OnEffectStart(GameSpellEffect effect)
         {
         	base.OnEffectStart(effect);
-            effect.Owner.BaseBuffBonusCategory[(int)eProperty.MesmerizeDurationReduction] += (int)m_spell.Value;
-            effect.Owner.BaseBuffBonusCategory[(int)eProperty.StunDurationReduction] += (int)m_spell.Value;
-            effect.Owner.BaseBuffBonusCategory[(int)eProperty.SpeedDecreaseDurationReduction] += (int)m_spell.Value;
+            effect.Owner.BaseBuffBonusCategory[(int)EProperty.MesmerizeDurationReduction] += (int)m_spell.Value;
+            effect.Owner.BaseBuffBonusCategory[(int)EProperty.StunDurationReduction] += (int)m_spell.Value;
+            effect.Owner.BaseBuffBonusCategory[(int)EProperty.SpeedDecreaseDurationReduction] += (int)m_spell.Value;
              
             if (effect.Owner is GamePlayer)
             {
@@ -370,9 +370,9 @@ namespace DOL.GS.Spells
 
         public override int OnEffectExpires(GameSpellEffect effect, bool noMessages)
         {
-            effect.Owner.BaseBuffBonusCategory[(int)eProperty.MesmerizeDurationReduction] -= (int)m_spell.Value;
-            effect.Owner.BaseBuffBonusCategory[(int)eProperty.StunDurationReduction] -= (int)m_spell.Value;
-            effect.Owner.BaseBuffBonusCategory[(int)eProperty.SpeedDecreaseDurationReduction] -= (int)m_spell.Value;
+            effect.Owner.BaseBuffBonusCategory[(int)EProperty.MesmerizeDurationReduction] -= (int)m_spell.Value;
+            effect.Owner.BaseBuffBonusCategory[(int)EProperty.StunDurationReduction] -= (int)m_spell.Value;
+            effect.Owner.BaseBuffBonusCategory[(int)EProperty.SpeedDecreaseDurationReduction] -= (int)m_spell.Value;
             
             if (effect.Owner is GamePlayer)
             {

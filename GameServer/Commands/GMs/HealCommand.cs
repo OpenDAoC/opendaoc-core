@@ -6,7 +6,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		"&heal",
-		ePrivLevel.GM,
+		EPrivLevel.GM,
 		"GMCommands.Heal.Description",
 		"GMCommands.Heal.Usage",
 		"/heal me - heals self")]
@@ -25,14 +25,14 @@ namespace DOL.GS.Commands
 				target.Endurance = target.MaxEndurance;
 				target.Mana = target.MaxMana;
 
-				if (target.effectListComponent.ContainsEffectForEffectType(eEffect.ResurrectionIllness))
+				if (target.effectListComponent.ContainsEffectForEffectType(EEffect.ResurrectionIllness))
 				{
-					EffectService.RequestCancelEffect(target.effectListComponent.GetAllEffects().FirstOrDefault(e => e.EffectType == eEffect.ResurrectionIllness));
+					EffectService.RequestCancelEffect(target.effectListComponent.GetAllEffects().FirstOrDefault(e => e.EffectType == EEffect.ResurrectionIllness));
 				}
 				
-				if (target.effectListComponent.ContainsEffectForEffectType(eEffect.RvrResurrectionIllness))
+				if (target.effectListComponent.ContainsEffectForEffectType(EEffect.RvrResurrectionIllness))
 				{
-					EffectService.RequestCancelEffect(target.effectListComponent.GetAllEffects().FirstOrDefault(e => e.EffectType == eEffect.RvrResurrectionIllness));
+					EffectService.RequestCancelEffect(target.effectListComponent.GetAllEffects().FirstOrDefault(e => e.EffectType == EEffect.RvrResurrectionIllness));
 				}
 			}
 			catch (Exception)

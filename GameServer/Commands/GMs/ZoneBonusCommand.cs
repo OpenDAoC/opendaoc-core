@@ -6,7 +6,7 @@ namespace DOL.GS.Commands
 	[Command(
 		"&zonebonus",
 		new string[] {"&zb"},
-		ePrivLevel.GM,
+		EPrivLevel.GM,
 		"Picks a new bonus zone",
 		"/zonebonus or /zb")]
 	public class ZoneBonusCommand : AbstractCommandHandler, ICommandHandler

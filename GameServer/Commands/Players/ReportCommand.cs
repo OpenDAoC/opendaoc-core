@@ -9,7 +9,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		"&report",
-		ePrivLevel.Player,
+		EPrivLevel.Player,
 		"'Reports a bug",
 		"'Usage: /report <message>  Please be as detailed as possible.")]
 	public class ReportCommand : AbstractCommandHandler, ICommandHandler

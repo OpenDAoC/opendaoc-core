@@ -8,7 +8,7 @@ namespace DOL.GS.RealmAbilities
 	/// </summary>
 	public class MasteryOfStealthAbility : RAPropertyEnhancer
 	{
-		public MasteryOfStealthAbility(DbAbilities dba, int level) : base(dba, level, eProperty.Undefined) { }
+		public MasteryOfStealthAbility(DbAbilities dba, int level) : base(dba, level, EProperty.Undefined) { }
 
 		public override int GetAmountForLevel(int level)
 		{

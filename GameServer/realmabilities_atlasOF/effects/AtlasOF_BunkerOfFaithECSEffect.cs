@@ -8,7 +8,7 @@ namespace DOL.GS.Effects
 
         public BunkerOfFaithECSEffect(ECSGameEffectInitParams initParams) : base(initParams)
         {
-            EffectType = eEffect.ArmorAbsorptionBuff;
+            EffectType = EEffect.ArmorAbsorptionBuff;
         }
     }
 }

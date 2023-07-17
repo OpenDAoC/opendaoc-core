@@ -16,7 +16,7 @@ namespace DOL.GS.RealmAbilities.Statics
 		private DBSpell dbs;
 		private Spell s;
 		private SpellLine sl;
-		public VolleyBase(int damage,eDamageType dmgType)
+		public VolleyBase(int damage,EDamageType dmgType)
 		{
 			dbs = new DBSpell();
 			dbs.Name = GetStaticName();
@@ -26,7 +26,7 @@ namespace DOL.GS.RealmAbilities.Statics
 			dbs.DamageType = (int)dmgType;
 			dbs.Target = "Enemy";
 			dbs.Radius = 0;
-			dbs.Type = eSpellType.Archery.ToString();
+			dbs.Type = ESpellType.Archery.ToString();
 			dbs.Value = 0;
 			dbs.Duration = 0;
 			dbs.Pulse = 0;

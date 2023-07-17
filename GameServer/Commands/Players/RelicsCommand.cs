@@ -12,7 +12,7 @@ namespace DOL.GS.Commands
 	[Command(
 	"&relics",
 	new string[] {"&relic"},
-	ePrivLevel.Player,
+	EPrivLevel.Player,
 	"Displays the current relic status.", "/relics")]
    public class RelicsCommand : AbstractCommandHandler, ICommandHandler
    {
@@ -47,14 +47,14 @@ namespace DOL.GS.Commands
             foreach (GameRelic relic in RelicMgr.getNFRelics())
             {
                 string relicLoc = "";
-                if (relic.Realm == eRealm.None)
+                if (relic.Realm == ERealm.None)
                 {
                     relicLoc = $" ({relic.CurrentZone.Description})";
                 }
 
                 switch (relic.OriginalRealm)
                 {
-                    case eRealm.Albion:
+                    case ERealm.Albion:
                         {
                             if (relic.RelicType == eRelicType.Strength)
 								albStr = LanguageMgr.GetTranslation(client.Account.Language, "Scripts.Players.Relic.Strength") + ": " + GlobalConstants.RealmToName(relic.Realm) + relicLoc + " | " + RelicMgr.GetDaysSinceCapture(relic) + "d ago";
@@ -63,7 +63,7 @@ namespace DOL.GS.Commands
                             break;
                         }
 
-                    case eRealm.Midgard:
+                    case ERealm.Midgard:
                         {
                             if (relic.RelicType == eRelicType.Strength)
 								midStr = LanguageMgr.GetTranslation(client.Account.Language, "Scripts.Players.Relic.Strength") + ": " + GlobalConstants.RealmToName(relic.Realm) + relicLoc + " | " + RelicMgr.GetDaysSinceCapture(relic) + "d ago";
@@ -72,7 +72,7 @@ namespace DOL.GS.Commands
                             break;
                         }
 
-                    case eRealm.Hibernia:
+                    case ERealm.Hibernia:
                         {
                             if (relic.RelicType == eRelicType.Strength)
 								hibStr = LanguageMgr.GetTranslation(client.Account.Language, "Scripts.Players.Relic.Strength") + ": " + GlobalConstants.RealmToName(relic.Realm) + relicLoc + " | " + RelicMgr.GetDaysSinceCapture(relic) + "d ago";

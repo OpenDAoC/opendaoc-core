@@ -72,7 +72,7 @@ namespace DOL.GS
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Rey", eRealm.Midgard);
+			GameNPC[] npcs = WorldMgr.GetNPCsByName("Rey", ERealm.Midgard);
 
 			if (npcs.Length > 0)
 				foreach (GameNPC npc in npcs)
@@ -92,7 +92,7 @@ namespace DOL.GS
 				ReyMid.Model = 26;
 				ReyMid.Name = "Rey";
 				ReyMid.GuildName = "Bone Collector";
-				ReyMid.Realm = eRealm.Midgard;
+				ReyMid.Realm = ERealm.Midgard;
 				//Svasud Faste Location
 				ReyMid.CurrentRegionID = 100;
 				ReyMid.Size = 60;

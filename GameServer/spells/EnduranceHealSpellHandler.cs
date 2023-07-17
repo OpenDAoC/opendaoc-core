@@ -88,7 +88,7 @@ namespace DOL.GS.Spells
 				return false;
 			}
 
-			int heal = target.ChangeEndurance(Caster, eEnduranceChangeType.Spell, amount);
+			int heal = target.ChangeEndurance(Caster, EEnduranceChangeType.Spell, amount);
 
 			if (heal == 0)
 			{

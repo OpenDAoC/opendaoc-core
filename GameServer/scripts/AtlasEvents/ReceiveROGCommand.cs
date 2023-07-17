@@ -9,7 +9,7 @@ namespace DOL.GS.Commands
 {
     [Command(
         "&eventrog",
-        ePrivLevel.Player,
+        EPrivLevel.Player,
         "Toggle receiving ROGs during the event",
         "/eventrog <on/off>")]
     public class EventROGCommandHandler : AbstractCommandHandler, ICommandHandler

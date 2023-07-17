@@ -11,7 +11,7 @@ namespace DOL.GS.Effects
         public AtlasOF_RuneOfDecimationECSEffect(ECSGameEffectInitParams initParams)
             : base(initParams)
         {
-            EffectType = eEffect.RuneOfDecimation;
+            EffectType = EEffect.RuneOfDecimation;
             this.NextTick = 1;
             //EffectService.RequestStartEffect(this);
         }
@@ -62,7 +62,7 @@ namespace DOL.GS.Effects
                     ad.Target = target;
                     ad.AttackType = AttackData.eAttackType.Spell;
                     ad.SpellHandler = SpellHandler;
-                    ad.AttackResult = eAttackResult.HitUnstyled;
+                    ad.AttackResult = EAttackResult.HitUnstyled;
                     ad.IsSpellResisted = false;
                     ad.Damage = CalculateDamageWithFalloff((int)SpellHandler.Spell.Damage, triggeringLiving, target);
                     ad.DamageType = SpellHandler.Spell.DamageType;

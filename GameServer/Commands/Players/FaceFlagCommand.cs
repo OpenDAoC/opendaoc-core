@@ -13,7 +13,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		"&faceflag",
-		ePrivLevel.Player,
+		EPrivLevel.Player,
 		"Turns and faces your character into the direction of the x, y coordinates provided (using Mythic zone coordinates).",
 		"/faceflag [1|2|3|4]")]
 	public class FaceFlagCommand : AbstractCommandHandler,ICommandHandler

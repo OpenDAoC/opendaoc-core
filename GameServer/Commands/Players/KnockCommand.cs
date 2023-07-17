@@ -6,7 +6,7 @@ using DOL.GS.Housing;
 namespace DOL.GS.Commands
 {
 	[Command("&knock", //command to handle
-		ePrivLevel.Player, //minimum privelege level
+		EPrivLevel.Player, //minimum privelege level
 	   "Knock on a house", //command description
 		"/knock")] //command usage
 	public class KnockCommand : AbstractCommandHandler, ICommandHandler

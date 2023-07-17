@@ -14,13 +14,13 @@ namespace DOL.GS
         public Issorden() : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 40;// dmg reduction for melee dmg
-                case eDamageType.Crush: return 40;// dmg reduction for melee dmg
-                case eDamageType.Thrust: return 40;// dmg reduction for melee dmg
+                case EDamageType.Slash: return 40;// dmg reduction for melee dmg
+                case EDamageType.Crush: return 40;// dmg reduction for melee dmg
+                case EDamageType.Thrust: return 40;// dmg reduction for melee dmg
                 default: return 70;// dmg reduction for rest resists
             }
         }
@@ -43,12 +43,12 @@ namespace DOL.GS
             return base.HasAbility(keyName);
         }
 
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 350;
         }
 
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -110,7 +110,7 @@ namespace DOL.AI.Brain
             if (!CheckProximityAggro())
             {
                 //set state to RETURN TO SPAWN
-                FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+                FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
                 Body.Health = Body.MaxHealth;
                 BafMobs = false;
                 PrepareBolt = false;
@@ -221,7 +221,7 @@ namespace DOL.AI.Brain
                     spell.Type = "SpeedDecrease";
                     spell.Uninterruptible = true;
                     spell.MoveCast = true;
-                    spell.DamageType = (int) eDamageType.Cold;
+                    spell.DamageType = (int) EDamageType.Cold;
                     m_IssoRoot = new Spell(spell, 70);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_IssoRoot);
                 }
@@ -246,11 +246,11 @@ namespace DOL.AI.Brain
                     spell.Name = "Frost Sphere";
                     spell.Range = 1800;
                     spell.SpellID = 11921;
-                    spell.Target = eSpellTarget.Enemy.ToString();
-                    spell.Type = eSpellType.Bolt.ToString();
+                    spell.Target = ESpellTarget.Enemy.ToString();
+                    spell.Type = ESpellType.Bolt.ToString();
                     spell.Uninterruptible = true;
                     spell.MoveCast = true;
-                    spell.DamageType = (int)eDamageType.Cold;
+                    spell.DamageType = (int)EDamageType.Cold;
                     m_Isso_Bolt = new Spell(spell, 70);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_Isso_Bolt);
                 }

@@ -23,8 +23,8 @@ namespace DOL.GS.PropertyCalc
 		/// <param name="living"></param>
 		/// <param name="property"></param>
 		/// <returns></returns>
-		int CalcValue(GameLiving living, eProperty property);
-		int CalcValueBase(GameLiving living, eProperty property);
+		int CalcValue(GameLiving living, EProperty property);
+		int CalcValueBase(GameLiving living, EProperty property);
 
         /// <summary>
         /// Calculates the modified value from buff bonuses only.
@@ -32,7 +32,7 @@ namespace DOL.GS.PropertyCalc
         /// <param name="living"></param>
         /// <param name="property"></param>
         /// <returns></returns>
-        int CalcValueFromBuffs(GameLiving living, eProperty property);
+        int CalcValueFromBuffs(GameLiving living, EProperty property);
 
         /// <summary>
         /// Calculates the modified value from item bonuses only.
@@ -40,6 +40,6 @@ namespace DOL.GS.PropertyCalc
         /// <param name="living"></param>
         /// <param name="property"></param>
         /// <returns></returns>
-        int CalcValueFromItems(GameLiving living, eProperty property);
+        int CalcValueFromItems(GameLiving living, EProperty property);
 	}
 }

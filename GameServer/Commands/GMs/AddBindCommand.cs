@@ -7,7 +7,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		"&addbind",
-		ePrivLevel.GM,
+		EPrivLevel.GM,
 		"GMCommands.AddBind.Description",
 		"GMCommands.AddBind.Usage")]
 	public class AddBindCommand : AbstractCommandHandler, ICommandHandler

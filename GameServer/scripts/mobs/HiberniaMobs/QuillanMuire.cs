@@ -88,11 +88,11 @@ namespace DOL.AI.Brain
 					spell.Name = "Energy Blast";
 					spell.Range = 1500;
 					spell.SpellID = 11948;
-					spell.Target = eSpellTarget.Enemy.ToString();
-					spell.Type = eSpellType.DirectDamageNoVariance.ToString();
+					spell.Target = ESpellTarget.Enemy.ToString();
+					spell.Type = ESpellType.DirectDamageNoVariance.ToString();
 					spell.Uninterruptible = true;
 					spell.MoveCast = true;
-					spell.DamageType = (int)eDamageType.Energy;
+					spell.DamageType = (int)EDamageType.Energy;
 					m_QuillanMuire_DD = new Spell(spell, 20);
 					SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_QuillanMuire_DD);
 				}
@@ -117,11 +117,11 @@ namespace DOL.AI.Brain
 					spell.Name = "Energy Blast";
 					spell.Range = 1500;
 					spell.SpellID = 11949;
-					spell.Target = eSpellTarget.Enemy.ToString();
-					spell.Type = eSpellType.DirectDamageNoVariance.ToString();
+					spell.Target = ESpellTarget.Enemy.ToString();
+					spell.Type = ESpellType.DirectDamageNoVariance.ToString();
 					spell.Uninterruptible = true;
 					spell.MoveCast = true;
-					spell.DamageType = (int)eDamageType.Energy;
+					spell.DamageType = (int)EDamageType.Energy;
 					m_QuillanMuire_DD2 = new Spell(spell, 20);
 					SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_QuillanMuire_DD2);
 				}
@@ -218,7 +218,7 @@ namespace DOL.AI.Brain
 				{
 					if (npc != null && npc.IsAlive && (npc.Name == "Muire Hero" || npc.Name == "Muire Champion" || npc.Name == "Quillan Muire"))
 					{
-						if (!Body.IsCasting && !npc.effectListComponent.ContainsEffectForEffectType(eEffect.StrengthBuff))
+						if (!Body.IsCasting && !npc.effectListComponent.ContainsEffectForEffectType(EEffect.StrengthBuff))
 						{
 							IsBuffing = true;
 							Body.TargetObject = npc;
@@ -228,7 +228,7 @@ namespace DOL.AI.Brain
 						{
 							Body.TargetObject = null;
 							IsBuffing = false;
-							if (!Body.IsCasting && !Body.effectListComponent.ContainsEffectForEffectType(eEffect.StrengthBuff))
+							if (!Body.IsCasting && !Body.effectListComponent.ContainsEffectForEffectType(EEffect.StrengthBuff))
 							{
 								IsBuffingSelf = true;
 								Body.TargetObject = Body;
@@ -276,7 +276,7 @@ namespace DOL.AI.Brain
 					spell.Range = 1500;
 					spell.SpellID = 11949;
 					spell.Target = "Realm";
-					spell.Type = eSpellType.Heal.ToString();
+					spell.Type = ESpellType.Heal.ToString();
 					spell.Uninterruptible = true;
 					m_MuireHerbalistHeal = new Spell(spell, 15);
 					SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_MuireHerbalistHeal);
@@ -304,7 +304,7 @@ namespace DOL.AI.Brain
 					spell.Range = 1500;
 					spell.SpellID = 11950;
 					spell.Target = "Realm";
-					spell.Type = eSpellType.StrengthBuff.ToString();
+					spell.Type = ESpellType.StrengthBuff.ToString();
 					spell.Uninterruptible = true;
 					m_MuireHerbalist_Buff_STR = new Spell(spell, 15);
 					SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_MuireHerbalist_Buff_STR);

@@ -5,7 +5,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		"&dismount",
-		ePrivLevel.Player,
+		EPrivLevel.Player,
 		"Dismount your steed",
 		"/dismount")]
 	public class DismountCommand : AbstractCommandHandler, ICommandHandler

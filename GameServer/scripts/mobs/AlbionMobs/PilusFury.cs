@@ -108,7 +108,7 @@ namespace DOL.AI.Brain
 
 				if (nearbyPoint != null)
 				{
-					if (player.CharacterClass.ID == (int) eCharacterClass.Necromancer && player.ControlledBrain != null)
+					if (player.CharacterClass.ID == (int) ECharacterClass.Necromancer && player.ControlledBrain != null)
 					{
 						if (player.ControlledBrain.Body != null)
 						{
@@ -128,7 +128,7 @@ namespace DOL.AI.Brain
 				}
 				else 
 				{
-					if (player.CharacterClass.ID == (int) eCharacterClass.Necromancer && player.ControlledBrain != null)
+					if (player.CharacterClass.ID == (int) ECharacterClass.Necromancer && player.ControlledBrain != null)
 					{
 						if (player.ControlledBrain.Body != null && DD_Enemys.Contains(player.ControlledBrain.Body))
 						{
@@ -145,7 +145,7 @@ namespace DOL.AI.Brain
 
 			if (player != null && player.Client.Account.PrivLevel != 1)
 			{
-				if (player.CharacterClass.ID == (int) eCharacterClass.Necromancer && player.ControlledBrain != null)
+				if (player.CharacterClass.ID == (int) ECharacterClass.Necromancer && player.ControlledBrain != null)
 				{
 					if (player.ControlledBrain.Body != null)
 					{
@@ -161,7 +161,7 @@ namespace DOL.AI.Brain
 				}
 			}
 
-			if (player?.CharacterClass.ID == (int) eCharacterClass.Necromancer && player.ControlledBrain != null)
+			if (player?.CharacterClass.ID == (int) ECharacterClass.Necromancer && player.ControlledBrain != null)
 			{
 				NecromancerPet pet = (NecromancerPet) player.ControlledBrain.Body;
 				if (pet is {IsAlive: false} && DD_Enemys.Contains(pet))
@@ -226,10 +226,10 @@ namespace DOL.AI.Brain
 		private protected void DamageTarget(GameLiving target, GameNPC caster)
         {
 			AttackData ad = new AttackData();
-			ad.AttackResult = eAttackResult.HitUnstyled;
+			ad.AttackResult = EAttackResult.HitUnstyled;
 			ad.Attacker = caster;
 			ad.Target = target;
-			ad.DamageType = eDamageType.Heat;
+			ad.DamageType = EDamageType.Heat;
 			ad.IsSpellResisted = false;
 			ad.Damage = Util.Random(100,250);
 			ad.CausesCombat = true;

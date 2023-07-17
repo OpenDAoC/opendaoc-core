@@ -10,7 +10,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		"&cast",
-		ePrivLevel.GM,
+		EPrivLevel.GM,
 		"GMCommands.Cast.Description",
 		"/cast loadspell <spellid> Load a spell from the DB into the global spell cache",
 		"GMCommands.Cast.Usage")]

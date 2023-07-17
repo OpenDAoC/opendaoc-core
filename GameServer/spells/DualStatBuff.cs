@@ -9,8 +9,8 @@ namespace DOL.GS.Spells
 	/// </summary>	
 	public abstract class DualStatBuff : SingleStatBuff
 	{
-		public override eBuffBonusCategory BonusCategory1 { get { return eBuffBonusCategory.SpecBuff; } }
-		public override eBuffBonusCategory BonusCategory2 { get { return eBuffBonusCategory.SpecBuff; } }
+		public override EBuffBonusCategory BonusCategory1 { get { return EBuffBonusCategory.SpecBuff; } }
+		public override EBuffBonusCategory BonusCategory2 { get { return EBuffBonusCategory.SpecBuff; } }
 
 		/// <summary>
 		/// Default Constructor
@@ -37,8 +37,8 @@ namespace DOL.GS.Spells
             }
             base.ApplyEffectOnTarget(target, effectiveness);
         }
-		public override eProperty Property1 { get { return eProperty.Strength; } }	
-		public override eProperty Property2 { get { return eProperty.Constitution; } }	
+		public override EProperty Property1 { get { return EProperty.Strength; } }	
+		public override EProperty Property2 { get { return EProperty.Constitution; } }	
 
 		// constructor
 		public StrengthConBuff(GameLiving caster, Spell spell, SpellLine line) : base(caster, spell, line) {}
@@ -60,8 +60,8 @@ namespace DOL.GS.Spells
             }
             base.ApplyEffectOnTarget(target, effectiveness);
         }
-		public override eProperty Property1 { get { return eProperty.Dexterity; } }	
-		public override eProperty Property2 { get { return eProperty.Quickness; } }	
+		public override EProperty Property1 { get { return EProperty.Dexterity; } }	
+		public override EProperty Property2 { get { return EProperty.Quickness; } }	
 
 		// constructor
 		public DexterityQuiBuff(GameLiving caster, Spell spell, SpellLine line) : base(caster, spell, line) {}

@@ -14,13 +14,13 @@ namespace DOL.GS
         public Torst() : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 40;// dmg reduction for melee dmg
-                case eDamageType.Crush: return 40;// dmg reduction for melee dmg
-                case eDamageType.Thrust: return 40;// dmg reduction for melee dmg
+                case EDamageType.Slash: return 40;// dmg reduction for melee dmg
+                case EDamageType.Crush: return 40;// dmg reduction for melee dmg
+                case EDamageType.Thrust: return 40;// dmg reduction for melee dmg
                 default: return 70;// dmg reduction for rest resists
             }
         }
@@ -40,11 +40,11 @@ namespace DOL.GS
 
             return base.HasAbility(keyName);
         }
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 350;
         }
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -103,7 +103,7 @@ namespace DOL.GS
         {
             if (Util.Chance(20))
             {
-                if (ad != null && (ad.AttackResult == eAttackResult.HitUnstyled || ad.AttackResult == eAttackResult.HitStyle))
+                if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
                     CastSpell(TorstDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
             }
             base.OnAttackEnemy(ad);
@@ -130,7 +130,7 @@ namespace DOL.GS
                     spell.Type = "DirectDamageNoVariance";
                     spell.Uninterruptible = true;
                     spell.MoveCast = true;
-                    spell.DamageType = (int)eDamageType.Cold;
+                    spell.DamageType = (int)EDamageType.Cold;
                     m_TorstDD = new Spell(spell, 70);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_TorstDD);
                 }
@@ -292,7 +292,7 @@ namespace DOL.AI.Brain
             if (!CheckProximityAggro())
             {
                 //set state to RETURN TO SPAWN
-                FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+                FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
                 Body.Health = Body.MaxHealth;
                 Body.Flags = GameNPC.eFlags.FLYING; //fly
                 SpawnEddies = false;
@@ -369,7 +369,7 @@ namespace DOL.AI.Brain
                 {
                     GameLiving target = Body.TargetObject as GameLiving; //mob target
                     RandomTarget = PlayersToAttack[Util.Random(0, PlayersToAttack.Count - 1)]; //mob next random target
-                    if (target.effectListComponent.ContainsEffectForEffectType(eEffect.MovementSpeedDebuff)) //if target got root
+                    if (target.effectListComponent.ContainsEffectForEffectType(EEffect.MovementSpeedDebuff)) //if target got root
                     {
                         Body.StopAttack();
                         AggroTable.Clear(); //clear aggro list
@@ -405,7 +405,7 @@ namespace DOL.AI.Brain
                     spell.Type = "SpeedDecrease";
                     spell.Uninterruptible = true;
                     spell.MoveCast = true;
-                    spell.DamageType = (int) eDamageType.Cold;
+                    spell.DamageType = (int) EDamageType.Cold;
                     m_TorstRoot = new Spell(spell, 70);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_TorstRoot);
                 }
@@ -426,13 +426,13 @@ namespace DOL.GS
         {
         }
 
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 40;// dmg reduction for melee dmg
-                case eDamageType.Crush: return 40;// dmg reduction for melee dmg
-                case eDamageType.Thrust: return 40;// dmg reduction for melee dmg
+                case EDamageType.Slash: return 40;// dmg reduction for melee dmg
+                case EDamageType.Crush: return 40;// dmg reduction for melee dmg
+                case EDamageType.Thrust: return 40;// dmg reduction for melee dmg
                 default: return 70;// dmg reduction for rest resists
             }
         }
@@ -466,12 +466,12 @@ namespace DOL.GS
             return base.HasAbility(keyName);
         }
 
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 350;
         }
 
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -644,7 +644,7 @@ namespace DOL.AI.Brain
             if (!CheckProximityAggro())
             {
                 //set state to RETURN TO SPAWN
-                FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+                FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
                 Body.Health = Body.MaxHealth;
                 Body.Flags = GameNPC.eFlags.FLYING; //fly
                 IsTargetPicked = false;
@@ -706,13 +706,13 @@ namespace DOL.GS
         public TorstEddies() : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 15;// dmg reduction for melee dmg
-                case eDamageType.Crush: return 15;// dmg reduction for melee dmg
-                case eDamageType.Thrust: return 15;// dmg reduction for melee dmg
+                case EDamageType.Slash: return 15;// dmg reduction for melee dmg
+                case EDamageType.Crush: return 15;// dmg reduction for melee dmg
+                case EDamageType.Thrust: return 15;// dmg reduction for melee dmg
                 default: return 15;// dmg reduction for rest resists
             }
         }
@@ -724,11 +724,11 @@ namespace DOL.GS
         {
             get { return 10000; }
         }
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 200;
         }
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.10;
@@ -890,10 +890,10 @@ namespace DOL.AI.Brain
                     spell.Radius = 300;
                     spell.SpellID = 11926;
                     spell.Target = "Enemy";
-                    spell.Type = eSpellType.DirectDamageNoVariance.ToString();
+                    spell.Type = ESpellType.DirectDamageNoVariance.ToString();
                     spell.Uninterruptible = true;
                     spell.MoveCast = true;
-                    spell.DamageType = (int)eDamageType.Cold;
+                    spell.DamageType = (int)EDamageType.Cold;
                     m_ColdGroundDD = new Spell(spell, 60);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_ColdGroundDD);
                 }

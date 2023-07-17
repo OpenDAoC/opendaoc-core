@@ -10,7 +10,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 	   "&realmtimer",
-	   ePrivLevel.Player,
+	   EPrivLevel.Player,
 		 "Displays the players current realmtimer Status", "/realmtimer")]
 	public class RealmTimerCommand : AbstractCommandHandler, ICommandHandler
 	{
@@ -20,15 +20,15 @@ namespace DOL.GS.Commands
 				return;
 
 			string realmname = "None";
-			switch ((eRealm)RealmTimer.CurrentRealm(client.Player))
+			switch ((ERealm)RealmTimer.CurrentRealm(client.Player))
 			{
-				case eRealm.Albion: 
+				case ERealm.Albion: 
 					realmname = "Albion";
 					break;
-				case eRealm.Midgard:
+				case ERealm.Midgard:
 				 	realmname = "Midgard";
 					break;
-				case eRealm.Hibernia:
+				case ERealm.Hibernia:
 				 	realmname = "Hibernia";
 					break;
 				default: 

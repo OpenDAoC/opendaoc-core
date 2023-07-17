@@ -92,7 +92,7 @@ namespace DOL.GS
             set { }
         }
 
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             int AF = 400;
             if (this.attackComponent.Attackers.Count > 1)
@@ -105,7 +105,7 @@ namespace DOL.GS
             return AF * DragonDifficulty / 100;
         }
 
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.85 * DragonDifficulty / 100;
@@ -116,15 +116,15 @@ namespace DOL.GS
         /// </summary>
         /// <param name="damageType"></param>
         /// <returns></returns>
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             // 35% vulnerable to melee, 1% to everything else.
 
             switch (damageType)
             {
-                case eDamageType.Slash:
-                case eDamageType.Crush:
-                case eDamageType.Thrust: return 65 * DragonDifficulty / 100;
+                case EDamageType.Slash:
+                case EDamageType.Crush:
+                case EDamageType.Thrust: return 65 * DragonDifficulty / 100;
                 default:
                     int resistPercent = 99;
                     if (this.attackComponent.Attackers.Count > 1)
@@ -240,7 +240,7 @@ namespace DOL.GS
 
                     if (canReportNews && GameServer.ServerRules.CanGenerateNews(player) == false)
                     {
-                        if (player.Client.Account.PrivLevel == (int)ePrivLevel.Player)
+                        if (player.Client.Account.PrivLevel == (int)EPrivLevel.Player)
                             canReportNews = false;
                     }
 
@@ -271,7 +271,7 @@ namespace DOL.GS
         /// <param name="damageType">The type of damage.</param>
         /// <param name="damageAmount">The amount of damage inflicted.</param>
         /// <param name="criticalAmount">The critical amount of damage inflicted</param>
-        public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+        public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
         {
             m_healthPercentOld = HealthPercent;
             base.TakeDamage(source, damageType, damageAmount, criticalAmount);
@@ -286,7 +286,7 @@ namespace DOL.GS
         /// <param name="healSource">The source of the heal.</param>
         /// <param name="changeType">The way the living was healed.</param>
         /// <param name="healAmount">The amount that was healed.</param>
-        public override void EnemyHealed(GameLiving enemy, GameObject healSource, eHealthChangeType changeType, int healAmount)
+        public override void EnemyHealed(GameLiving enemy, GameObject healSource, EHealthChangeType changeType, int healAmount)
         {
             base.EnemyHealed(enemy, healSource, changeType, healAmount);
             Brain.Notify(GameLivingEvent.EnemyHealed, this,
@@ -817,7 +817,7 @@ namespace DOL.GS
             else if (target is GameNPC targetNpc)
             {
                 targetNpc.MoveInRegion(target.CurrentRegionID, targetPosition.X, targetPosition.Y, targetPosition.Z, target.Heading, true);
-                target.ChangeHealth(this, eHealthChangeType.Spell, (int)(target.Health * -0.35));
+                target.ChangeHealth(this, EHealthChangeType.Spell, (int)(target.Health * -0.35));
             }
         }
 
@@ -871,7 +871,7 @@ namespace DOL.GS
                     spell.RecastDelay = 10;
                     spell.SpellID = 6000;
                     spell.Target = "Enemy";
-                    spell.Type = eSpellType.Stun.ToString();
+                    spell.Type = ESpellType.Stun.ToString();
                     spell.Message1 = "You cannot move!";
                     spell.Message2 = "{0} cannot seem to move!";
                     m_stun = new Spell(spell, 70);

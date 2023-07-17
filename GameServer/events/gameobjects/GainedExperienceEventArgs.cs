@@ -14,7 +14,7 @@ namespace DOL.Events
 		private long m_expOutpostBonus;
 		private bool m_sendMessage;
 		private bool m_allowMultiply;
-		private eXPSource m_xpSource;
+		private EXpSource m_xpSource;
 
         /// <summary>
         /// Constructs new ReceiveMoneyEventArgs
@@ -25,7 +25,7 @@ namespace DOL.Events
         /// <param name="expOutpostBonus">outpost bonus to exp gained</param>
         /// <param name="sendMessage">send experience gained messages</param>
         /// <param name="allowMultiply"></param>
-		public GainedExperienceEventArgs(long expBase, long expCampBonus, long expGroupBonus, long expOutpostBonus, bool sendMessage, bool allowMultiply, eXPSource xpSource)
+		public GainedExperienceEventArgs(long expBase, long expCampBonus, long expGroupBonus, long expOutpostBonus, bool sendMessage, bool allowMultiply, EXpSource xpSource)
 		{
 			m_expBase = expBase;
 			m_expCampBonus = expCampBonus;
@@ -84,7 +84,7 @@ namespace DOL.Events
 			get { return m_allowMultiply; }
 		}
 
-		public eXPSource XPSource
+		public EXpSource XPSource
 		{
 			get { return m_xpSource; }
 		}

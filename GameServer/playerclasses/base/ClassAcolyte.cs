@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)eCharacterClass.Acolyte, "Acolyte", "Acolyte")]
+	[CharacterClass((int)ECharacterClass.Acolyte, "Acolyte", "Acolyte")]
 	public class ClassAcolyte : CharacterClassBase
 	{
 		public ClassAcolyte()
@@ -12,7 +12,7 @@ namespace DOL.GS.PlayerClass
 			m_specializationMultiplier = 10;
 			m_wsbase = 320;
 			m_baseHP = 720;
-			m_manaStat = eStat.PIE;
+			m_manaStat = EStat.PIE;
 		}
 
 		public override string GetTitle(GamePlayer player, int level)

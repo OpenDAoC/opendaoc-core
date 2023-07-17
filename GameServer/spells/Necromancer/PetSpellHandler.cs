@@ -64,7 +64,7 @@ namespace DOL.GS.Spells
 			int powerCost = PowerCost(player);
 
 			if (powerCost > 0)
-				player.ChangeMana(player, eManaChangeType.Spell, -powerCost);
+				player.ChangeMana(player, EPowerChangeType.Spell, -powerCost);
 
 			ControlledNpcBrain petBrain = player.ControlledBrain as ControlledNpcBrain;
 			if (petBrain != null && Spell.SubSpellID > 0)

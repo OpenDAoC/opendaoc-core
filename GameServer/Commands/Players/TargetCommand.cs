@@ -3,7 +3,7 @@ using DOL.GS.PacketHandler;
 
 namespace DOL.GS.Commands
 {
-	[Command("&target", ePrivLevel.Player, "target a player by name", "/target <playerName>")]
+	[Command("&target", EPrivLevel.Player, "target a player by name", "/target <playerName>")]
 	public class TargetCommand : AbstractCommandHandler, ICommandHandler
 	{
 		public void OnCommand(GameClient client, string[] args)

@@ -72,7 +72,7 @@ namespace DOL.GS.DailyQuest.Midgard
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Isaac", eRealm.Midgard);
+			GameNPC[] npcs = WorldMgr.GetNPCsByName("Isaac", ERealm.Midgard);
 
 			if (npcs.Length > 0)
 				foreach (GameNPC npc in npcs)
@@ -90,7 +90,7 @@ namespace DOL.GS.DailyQuest.Midgard
 				Isaac.Model = 774;
 				Isaac.Name = "Isaac";
 				Isaac.GuildName = "Advisor to the King";
-				Isaac.Realm = eRealm.Midgard;
+				Isaac.Realm = ERealm.Midgard;
 				Isaac.CurrentRegionID = 100;
 				Isaac.Size = 50;
 				Isaac.Level = 59;

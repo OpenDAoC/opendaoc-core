@@ -19,13 +19,13 @@ namespace DOL.GS
 			if (log.IsInfoEnabled)
 				log.Info("Blight Initializing...");
 		}
-		public override int GetResist(eDamageType damageType)
+		public override int GetResist(EDamageType damageType)
 		{
 			switch (damageType)
 			{
-				case eDamageType.Slash: return 40;// dmg reduction for melee dmg
-				case eDamageType.Crush: return 40;// dmg reduction for melee dmg
-				case eDamageType.Thrust: return 40;// dmg reduction for melee dmg
+				case EDamageType.Slash: return 40;// dmg reduction for melee dmg
+				case EDamageType.Crush: return 40;// dmg reduction for melee dmg
+				case EDamageType.Thrust: return 40;// dmg reduction for melee dmg
 				default: return 70;// dmg reduction for rest resists
 			}
 		}
@@ -53,11 +53,11 @@ namespace DOL.GS
 				return true;
 			return base.HasAbility(keyName);
 		}
-		public override double GetArmorAF(eArmorSlot slot)
+		public override double GetArmorAF(EArmorSlot slot)
 		{
 			return 350;
 		}
-		public override double GetArmorAbsorb(eArmorSlot slot)
+		public override double GetArmorAbsorb(EArmorSlot slot)
 		{
 			// 85% ABS is cap.
 			return 0.20;
@@ -159,7 +159,7 @@ namespace DOL.GS
 		{
 			if (Util.Chance(25))
 			{
-				if (ad != null && (ad.AttackResult == eAttackResult.HitUnstyled || ad.AttackResult == eAttackResult.HitStyle))
+				if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 					CastSpell(BlightDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			}
 			base.OnAttackEnemy(ad);
@@ -180,12 +180,12 @@ namespace DOL.GS
 					spell.ClientEffect = 360;
 					spell.Icon = 360;
 					spell.Damage = 400;
-					spell.DamageType = (int)eDamageType.Heat;
+					spell.DamageType = (int)EDamageType.Heat;
 					spell.Name = "Fire Strike";
 					spell.Range = 500;
 					spell.SpellID = 11899;
 					spell.Target = "Enemy";
-					spell.Type = eSpellType.DirectDamageNoVariance.ToString();
+					spell.Type = ESpellType.DirectDamageNoVariance.ToString();
 					m_BlightDD = new Spell(spell, 60);
 					SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_BlightDD);
 				}
@@ -234,7 +234,7 @@ namespace DOL.AI.Brain
 			if (!CheckProximityAggro())
 			{
 				//set state to RETURN TO SPAWN
-				FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+				FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
 				Body.Health = Body.MaxHealth;
 			}
 			base.Think();
@@ -250,13 +250,13 @@ namespace DOL.GS
 		public FireBlight() : base()
 		{
 		}
-		public override int GetResist(eDamageType damageType)
+		public override int GetResist(EDamageType damageType)
 		{
 			switch (damageType)
 			{
-				case eDamageType.Slash: return 15;// dmg reduction for melee dmg
-				case eDamageType.Crush: return 15;// dmg reduction for melee dmg
-				case eDamageType.Thrust: return 15;// dmg reduction for melee dmg
+				case EDamageType.Slash: return 15;// dmg reduction for melee dmg
+				case EDamageType.Crush: return 15;// dmg reduction for melee dmg
+				case EDamageType.Thrust: return 15;// dmg reduction for melee dmg
 				default: return 15;// dmg reduction for rest resists
 			}
 		}
@@ -268,11 +268,11 @@ namespace DOL.GS
 		{
 			get { return 2500; }
 		}
-		public override double GetArmorAF(eArmorSlot slot)
+		public override double GetArmorAF(EArmorSlot slot)
 		{
 			return 200;
 		}
-		public override double GetArmorAbsorb(eArmorSlot slot)
+		public override double GetArmorAbsorb(EArmorSlot slot)
 		{
 			// 85% ABS is cap.
 			return 0.10;
@@ -361,13 +361,13 @@ namespace DOL.GS
 		public LateBlight() : base()
 		{
 		}
-		public override int GetResist(eDamageType damageType)
+		public override int GetResist(EDamageType damageType)
 		{
 			switch (damageType)
 			{
-				case eDamageType.Slash: return 15;// dmg reduction for melee dmg
-				case eDamageType.Crush: return 15;// dmg reduction for melee dmg
-				case eDamageType.Thrust: return 15;// dmg reduction for melee dmg
+				case EDamageType.Slash: return 15;// dmg reduction for melee dmg
+				case EDamageType.Crush: return 15;// dmg reduction for melee dmg
+				case EDamageType.Thrust: return 15;// dmg reduction for melee dmg
 				default: return 15;// dmg reduction for rest resists
 			}
 		}
@@ -379,11 +379,11 @@ namespace DOL.GS
 		{
 			get { return 5000; }
 		}
-		public override double GetArmorAF(eArmorSlot slot)
+		public override double GetArmorAF(EArmorSlot slot)
 		{
 			return 200;
 		}
-		public override double GetArmorAbsorb(eArmorSlot slot)
+		public override double GetArmorAbsorb(EArmorSlot slot)
 		{
 			// 85% ABS is cap.
 			return 0.10;
@@ -472,13 +472,13 @@ namespace DOL.GS
 		public FleshBlight() : base()
 		{
 		}
-		public override int GetResist(eDamageType damageType)
+		public override int GetResist(EDamageType damageType)
 		{
 			switch (damageType)
 			{
-				case eDamageType.Slash: return 15;// dmg reduction for melee dmg
-				case eDamageType.Crush: return 15;// dmg reduction for melee dmg
-				case eDamageType.Thrust: return 15;// dmg reduction for melee dmg
+				case EDamageType.Slash: return 15;// dmg reduction for melee dmg
+				case EDamageType.Crush: return 15;// dmg reduction for melee dmg
+				case EDamageType.Thrust: return 15;// dmg reduction for melee dmg
 				default: return 15;// dmg reduction for rest resists
 			}
 		}
@@ -490,11 +490,11 @@ namespace DOL.GS
 		{
 			get { return 10000; }
 		}
-		public override double GetArmorAF(eArmorSlot slot)
+		public override double GetArmorAF(EArmorSlot slot)
 		{
 			return 200;
 		}
-		public override double GetArmorAbsorb(eArmorSlot slot)
+		public override double GetArmorAbsorb(EArmorSlot slot)
 		{
 			// 85% ABS is cap.
 			return 0.10;

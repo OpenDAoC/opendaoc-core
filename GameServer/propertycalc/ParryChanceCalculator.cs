@@ -12,10 +12,10 @@ namespace DOL.GS.PropertyCalc
 	/// BuffBonusCategory4 unused
 	/// BuffBonusMultCategory1 unused
 	/// </summary>
-	[PropertyCalculator(eProperty.ParryChance)]
+	[PropertyCalculator(EProperty.ParryChance)]
 	public class ParryChanceCalculator : PropertyCalculator
 	{
-		public override int CalcValue(GameLiving living, eProperty property)
+		public override int CalcValue(GameLiving living, EProperty property)
 		{
 			
 			GamePlayer player = living as GamePlayer;
@@ -48,7 +48,7 @@ namespace DOL.GS.PropertyCalc
 					- pet.DebuffCategory[(int)property] * 10
 					+ pet.BuffBonusCategory4[(int)property] * 10
 					+ pet.AbilityBonus[(int)property] * 10
-					+ (pet.GetModified(eProperty.Dexterity) * 2 - 100) / 4
+					+ (pet.GetModified(EProperty.Dexterity) * 2 - 100) / 4
 					+ pet.ParryChance * 10;
 					return buff;
 				}

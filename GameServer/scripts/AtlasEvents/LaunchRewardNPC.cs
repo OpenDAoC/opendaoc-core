@@ -24,9 +24,9 @@ namespace DOL.GS.Scripts
 
             Model = Realm switch
             {
-                eRealm.Albion => 8,
-                eRealm.Midgard => 213,
-                eRealm.Hibernia => 361,
+                ERealm.Albion => 8,
+                ERealm.Midgard => 213,
+                ERealm.Hibernia => 361,
                 _ => Model
             };
 
@@ -117,15 +117,15 @@ namespace DOL.GS.Scripts
             }
         }
         
-        private string RealmName(eRealm realm)
+        private string RealmName(ERealm realm)
         {
             switch (realm)
             {
-                case eRealm.Albion:
+                case ERealm.Albion:
                     return "Albion";
-                case eRealm.Midgard:
+                case ERealm.Midgard:
                     return "Midgard";
-                case eRealm.Hibernia:
+                case ERealm.Hibernia:
                     return "Hibernia";
             }
             return "";

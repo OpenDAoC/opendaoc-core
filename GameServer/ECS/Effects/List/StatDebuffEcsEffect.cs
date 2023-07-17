@@ -31,19 +31,19 @@ namespace DOL.GS
                 }
             }
 
-            if (EffectType == eEffect.StrConDebuff || EffectType == eEffect.DexQuiDebuff)
+            if (EffectType == EEffect.StrConDebuff || EffectType == EEffect.DexQuiDebuff)
             {
                 if (Caster is GamePlayer {CharacterClass: ClassChampion})
                     Effectiveness = 2;
                 foreach (var prop in EffectService.GetPropertiesFromEffect(EffectType))
                 {
                     //Console.WriteLine($"Debuffing {prop.ToString()}");
-                    ApplyBonus(Owner, eBuffBonusCategory.Debuff, prop, SpellHandler.Spell.Value, Effectiveness, true);
+                    ApplyBonus(Owner, EBuffBonusCategory.Debuff, prop, SpellHandler.Spell.Value, Effectiveness, true);
                 }
             }
             else
             {
-                if (EffectType == eEffect.MovementSpeedDebuff)
+                if (EffectType == EEffect.MovementSpeedDebuff)
                 {
                     //// Cannot apply if the effect owner has a charging effect
                     //if (effect.Owner.EffectList.GetOfType<ChargeEffect>() != null || effect.Owner.TempProperties.getProperty("Charging", false))
@@ -55,7 +55,7 @@ namespace DOL.GS
                     //Console.WriteLine("Debuffing Speed for " + e.Owner.Name);
                     //e.Owner.BuffBonusMultCategory1.Set((int)eProperty.MaxSpeed, e.SpellHandler.Spell.ID, 1.0 - e.SpellHandler.Spell.Value * 0.01);
 
-                    var speedDebuffs = Owner.effectListComponent.GetSpellEffects(eEffect.MovementSpeedDebuff)
+                    var speedDebuffs = Owner.effectListComponent.GetSpellEffects(EEffect.MovementSpeedDebuff)
                                                                 .Where(x => x.SpellHandler.Spell.ID != this.SpellHandler.Spell.ID);
 
                     if (speedDebuffs.Any(x => x.SpellHandler.Spell.Value > this.SpellHandler.Spell.Value))
@@ -70,7 +70,7 @@ namespace DOL.GS
 
                     var effectiveValue = SpellHandler.Spell.Value * Effectiveness;
 
-                    Owner.BuffBonusMultCategory1.Set((int) eProperty.MaxSpeed, EffectType,
+                    Owner.BuffBonusMultCategory1.Set((int) EProperty.MaxSpeed, EffectType,
                         1.0 - effectiveValue * 0.01);
                     UnbreakableSpeedDecreaseSpellHandler.SendUpdates(Owner);
 
@@ -83,11 +83,11 @@ namespace DOL.GS
                     foreach (var prop in EffectService.GetPropertiesFromEffect(EffectType))
                     {
                         //Console.WriteLine($"Debuffing {prop.ToString()}");
-                        if (EffectType == eEffect.ArmorFactorDebuff)
-                            ApplyBonus(Owner, eBuffBonusCategory.Debuff, prop, SpellHandler.Spell.Value, Effectiveness,
+                        if (EffectType == EEffect.ArmorFactorDebuff)
+                            ApplyBonus(Owner, EBuffBonusCategory.Debuff, prop, SpellHandler.Spell.Value, Effectiveness,
                                 false);
                         else
-                            ApplyBonus(Owner, eBuffBonusCategory.Debuff, prop, SpellHandler.Spell.Value, Effectiveness,
+                            ApplyBonus(Owner, EBuffBonusCategory.Debuff, prop, SpellHandler.Spell.Value, Effectiveness,
                                 true);
                     }
                 }
@@ -102,19 +102,19 @@ namespace DOL.GS
 
         public override void OnStopEffect()
         {
-            if (EffectType == eEffect.StrConDebuff || EffectType == eEffect.DexQuiDebuff)
+            if (EffectType == EEffect.StrConDebuff || EffectType == EEffect.DexQuiDebuff)
             {
                 if (Caster is GamePlayer {CharacterClass: ClassChampion})
                     Effectiveness = 2;
                 foreach (var prop in EffectService.GetPropertiesFromEffect(EffectType))
                 {
                     //Console.WriteLine($"Canceling {prop.ToString()} on {e.Owner}.");
-                    ApplyBonus(Owner, eBuffBonusCategory.Debuff, prop, SpellHandler.Spell.Value, Effectiveness, false);
+                    ApplyBonus(Owner, EBuffBonusCategory.Debuff, prop, SpellHandler.Spell.Value, Effectiveness, false);
                 }
             }
             else
             {
-                if (EffectType == eEffect.MovementSpeedDebuff)
+                if (EffectType == EEffect.MovementSpeedDebuff)
                 {
                     //if (SpellHandler.Spell.SpellType == eSpellType.SpeedDecrease)
                     //{
@@ -123,14 +123,14 @@ namespace DOL.GS
 
                     //e.Owner.BuffBonusMultCategory1.Remove((int)eProperty.MaxSpeed, e.SpellHandler.Spell.ID);
 
-                    var speedDebuff = Owner.effectListComponent.GetBestDisabledSpellEffect(eEffect.MovementSpeedDebuff);
+                    var speedDebuff = Owner.effectListComponent.GetBestDisabledSpellEffect(EEffect.MovementSpeedDebuff);
 
                     if (speedDebuff != null)
                     {
                         EffectService.RequestEnableEffect(speedDebuff);
                     }
 
-                    Owner.BuffBonusMultCategory1.Remove((int) eProperty.MaxSpeed, EffectType);
+                    Owner.BuffBonusMultCategory1.Remove((int) EProperty.MaxSpeed, EffectType);
                     UnbreakableSpeedDecreaseSpellHandler.SendUpdates(Owner);
                 }
                 else
@@ -141,18 +141,18 @@ namespace DOL.GS
                     {
                         //Console.WriteLine($"Canceling {prop.ToString()} on {e.Owner}.");
 
-                        if (EffectType == eEffect.ArmorFactorDebuff)
-                            ApplyBonus(Owner, eBuffBonusCategory.Debuff, prop, SpellHandler.Spell.Value, Effectiveness,
+                        if (EffectType == EEffect.ArmorFactorDebuff)
+                            ApplyBonus(Owner, EBuffBonusCategory.Debuff, prop, SpellHandler.Spell.Value, Effectiveness,
                                 true);
                         else
-                            ApplyBonus(Owner, eBuffBonusCategory.Debuff, prop, SpellHandler.Spell.Value, Effectiveness,
+                            ApplyBonus(Owner, EBuffBonusCategory.Debuff, prop, SpellHandler.Spell.Value, Effectiveness,
                                 false);
                     }
                 }
             }
 
-            if (EffectType == eEffect.ConstitutionDebuff || EffectType == eEffect.StrConDebuff ||
-                EffectType == eEffect.WsConDebuff)
+            if (EffectType == EEffect.ConstitutionDebuff || EffectType == EEffect.StrConDebuff ||
+                EffectType == EEffect.WsConDebuff)
             {
                 Owner.StartHealthRegeneration();
             }
@@ -164,17 +164,17 @@ namespace DOL.GS
             IsBuffActive = false;
         }
 
-        private static void ApplyBonus(GameLiving owner, eBuffBonusCategory BonusCat, eProperty Property, double Value,
+        private static void ApplyBonus(GameLiving owner, EBuffBonusCategory BonusCat, EProperty Property, double Value,
             double Effectiveness, bool IsSubstracted)
         {
             
             int effectiveValue = (int) Value;
 
-            if (Property != eProperty.FatigueConsumption)
+            if (Property != EProperty.FatigueConsumption)
                 effectiveValue = (int)(Value * Effectiveness);
 
             IPropertyIndexer tblBonusCat;
-            if (Property != eProperty.Undefined)
+            if (Property != EProperty.Undefined)
             {
                 tblBonusCat = GetBonusCategory(owner, BonusCat);
 
@@ -189,27 +189,27 @@ namespace DOL.GS
             }
         }
 
-        private static IPropertyIndexer GetBonusCategory(GameLiving target, eBuffBonusCategory categoryid)
+        private static IPropertyIndexer GetBonusCategory(GameLiving target, EBuffBonusCategory categoryid)
         {
             IPropertyIndexer bonuscat = null;
             switch (categoryid)
             {
-                case eBuffBonusCategory.BaseBuff:
+                case EBuffBonusCategory.BaseBuff:
                     bonuscat = target.BaseBuffBonusCategory;
                     break;
-                case eBuffBonusCategory.SpecBuff:
+                case EBuffBonusCategory.SpecBuff:
                     bonuscat = target.SpecBuffBonusCategory;
                     break;
-                case eBuffBonusCategory.Debuff:
+                case EBuffBonusCategory.Debuff:
                     bonuscat = target.DebuffCategory;
                     break;
-                case eBuffBonusCategory.Other:
+                case EBuffBonusCategory.Other:
                     bonuscat = target.BuffBonusCategory4;
                     break;
-                case eBuffBonusCategory.SpecDebuff:
+                case EBuffBonusCategory.SpecDebuff:
                     bonuscat = target.SpecDebuffCategory;
                     break;
-                case eBuffBonusCategory.AbilityBuff:
+                case EBuffBonusCategory.AbilityBuff:
                     bonuscat = target.AbilityBonus;
                     break;
                 default:

@@ -42,7 +42,7 @@ namespace DOL.GS.RealmAbilities
                 return;
             }
 
-            if (!living.IsWithinRadius( target, (int)(1500 * living.GetModified(eProperty.SpellRange) * 0.01)))
+            if (!living.IsWithinRadius( target, (int)(1500 * living.GetModified(EProperty.SpellRange) * 0.01)))
             {
                 Message.ChatToOthers(living, "You are too far away from your target to use this ability!", eChatType.CT_SpellResisted);
                 return;
@@ -77,7 +77,7 @@ namespace DOL.GS.RealmAbilities
                 level = 50;
             modifier = 0.5 + (level * 0.01) * Math.Pow(0.75, counter);
             basedamage = (int)(450 * modifier);
-            resist = basedamage * target.GetResist(eDamageType.Energy) / -100;
+            resist = basedamage * target.GetResist(EDamageType.Energy) / -100;
             damage = basedamage + resist;
 
             GamePlayer player = caster as GamePlayer;
@@ -99,10 +99,10 @@ namespace DOL.GS.RealmAbilities
 
             //target.TakeDamage(caster, eDamageType.Spirit, damage, 0);
             AttackData ad = new AttackData();
-            ad.AttackResult = eAttackResult.HitUnstyled;
+            ad.AttackResult = EAttackResult.HitUnstyled;
             ad.Attacker = caster;
             ad.Target = target;
-            ad.DamageType = eDamageType.Energy;
+            ad.DamageType = EDamageType.Energy;
             ad.Damage = damage;
             target.OnAttackedByEnemy(ad);
             caster.DealDamage(ad);

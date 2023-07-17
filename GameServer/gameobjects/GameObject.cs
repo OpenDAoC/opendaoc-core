@@ -79,9 +79,9 @@ namespace DOL.GS
 		protected Zone _currentZone;
 		protected string _ownerID;
 		protected ushort _heading;
-		protected eRealm _realm;
+		protected ERealm _realm;
 
-		public virtual eRealm Realm
+		public virtual ERealm Realm
 		{
 			get => _realm;
 			set => _realm = value;
@@ -417,7 +417,7 @@ namespace DOL.GS
         {
             get
             {
-                if (this.Realm == eRealm.None)
+                if (this.Realm == ERealm.None)
                     return true;
 
                 return false;
@@ -1011,7 +1011,7 @@ namespace DOL.GS
 		/// <param name="damageType">the damage type</param>
 		/// <param name="damageAmount">the amount of damage</param>
 		/// <param name="criticalAmount">the amount of critical damage</param>
-		public virtual void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+		public virtual void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
 		{
 			Notify(GameObjectEvent.TakeDamage, this, new TakeDamageEventArgs(source, damageType, damageAmount, criticalAmount));
 		}
@@ -1292,9 +1292,9 @@ namespace DOL.GS
         /// <summary>
         /// All objects are neutral.
         /// </summary>
-        public virtual eGender Gender
+        public virtual EGender Gender
         {
-            get { return eGender.Neutral; }
+            get { return EGender.Neutral; }
             set { }
         }
 

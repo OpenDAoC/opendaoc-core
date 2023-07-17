@@ -104,9 +104,9 @@ public class Utils
         if (!_cache.TryGetValue(_playerCountCacheKey, out PlayerCount playerCount))
         {
             var clients = WorldMgr.GetAllPlayingClientsCount();
-            var albPlayers = WorldMgr.GetClientsOfRealmCount(eRealm.Albion);
-            var midPlayers = WorldMgr.GetClientsOfRealmCount(eRealm.Midgard);
-            var hibPlayers = WorldMgr.GetClientsOfRealmCount(eRealm.Hibernia);
+            var albPlayers = WorldMgr.GetClientsOfRealmCount(ERealm.Albion);
+            var midPlayers = WorldMgr.GetClientsOfRealmCount(ERealm.Midgard);
+            var hibPlayers = WorldMgr.GetClientsOfRealmCount(ERealm.Hibernia);
             var now = DateTime.Now;
 
             playerCount = new PlayerCount

@@ -48,7 +48,7 @@ namespace DOL.GS.Spells
                 return;
             }
             AttackData ad = args.AttackData;
-            if (ad.AttackResult != eAttackResult.HitUnstyled && ad.AttackResult != eAttackResult.HitStyle)
+            if (ad.AttackResult != EAttackResult.HitUnstyled && ad.AttackResult != EAttackResult.HitStyle)
                 return;
 
             int baseChance = 0;
@@ -65,7 +65,7 @@ namespace DOL.GS.Spells
                     InventoryItem leftWeapon = player.Inventory.GetItem(eInventorySlot.LeftHandWeapon);
                     // if we can use left weapon, we have currently a weapon in left hand and we still have endurance,
                     // we can assume that we are using the two weapons.
-                    if (player.attackComponent.CanUseLefthandedWeapon && leftWeapon != null && leftWeapon.Object_Type != (int)eObjectType.Shield)
+                    if (player.attackComponent.CanUseLefthandedWeapon && leftWeapon != null && leftWeapon.Object_Type != (int)EObjectType.Shield)
                     {
                         baseChance /= 2;
                     }

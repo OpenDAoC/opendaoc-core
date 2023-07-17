@@ -18,13 +18,13 @@ namespace DOL.GS
 			if (log.IsInfoEnabled)
 				log.Info("Vortanos Initializing...");
 		}
-		public override int GetResist(eDamageType damageType)
+		public override int GetResist(EDamageType damageType)
 		{
 			switch (damageType)
 			{
-				case eDamageType.Slash: return 20;// dmg reduction for melee dmg
-				case eDamageType.Crush: return 20;// dmg reduction for melee dmg
-				case eDamageType.Thrust: return 20;// dmg reduction for melee dmg
+				case EDamageType.Slash: return 20;// dmg reduction for melee dmg
+				case EDamageType.Crush: return 20;// dmg reduction for melee dmg
+				case EDamageType.Thrust: return 20;// dmg reduction for melee dmg
 				default: return 30;// dmg reduction for rest resists
 			}
 		}
@@ -44,11 +44,11 @@ namespace DOL.GS
 
 			return base.HasAbility(keyName);
 		}
-		public override double GetArmorAF(eArmorSlot slot)
+		public override double GetArmorAF(EArmorSlot slot)
 		{
 			return 350;
 		}
-		public override double GetArmorAbsorb(eArmorSlot slot)
+		public override double GetArmorAbsorb(EArmorSlot slot)
 		{
 			// 85% ABS is cap.
 			return 0.20;
@@ -95,11 +95,11 @@ namespace DOL.GS
         }
         public override void OnAttackEnemy(AttackData ad)
 		{
-			if (ad != null && (ad.AttackResult == eAttackResult.HitUnstyled || ad.AttackResult == eAttackResult.HitStyle))
+			if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
 			{
-				if(Util.Chance(50) && !ad.Target.effectListComponent.ContainsEffectForEffectType(eEffect.StrConDebuff))
+				if(Util.Chance(50) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.StrConDebuff))
 					CastSpell(VortanosSCDebuff, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
-				if (Util.Chance(50) && !ad.Target.effectListComponent.ContainsEffectForEffectType(eEffect.DexQuiDebuff))
+				if (Util.Chance(50) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.DexQuiDebuff))
 					CastSpell(VortanosDebuffDQ, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
 			}
 			base.OnAttackEnemy(ad);
@@ -154,8 +154,8 @@ namespace DOL.GS
 					spell.Range = 1500;
 					spell.Radius = 350;
 					spell.SpellID = 11918;
-					spell.Target = eSpellTarget.Enemy.ToString();
-					spell.Type = eSpellType.DexterityQuicknessDebuff.ToString();
+					spell.Target = ESpellTarget.Enemy.ToString();
+					spell.Type = ESpellType.DexterityQuicknessDebuff.ToString();
 					spell.Uninterruptible = true;
 					spell.MoveCast = true;
 					m_VortanosDebuffDQ = new Spell(spell, 60);
@@ -245,7 +245,7 @@ namespace DOL.AI.Brain
 			if (!CheckProximityAggro())
 			{
 				//set state to RETURN TO SPAWN
-				FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+				FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
 				Body.Health = Body.MaxHealth;
 				CanSpawnAdds = false;
 				SpamMess1 = false;
@@ -286,7 +286,7 @@ namespace DOL.AI.Brain
 				}
 				if (Util.Chance(35) && !Body.IsCasting)
 					Body.CastSpell(Vortanos_DD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells),false);
-				if (Util.Chance(35) && !Body.IsCasting && !target.effectListComponent.ContainsEffectForEffectType(eEffect.DamageOverTime))
+				if (Util.Chance(35) && !Body.IsCasting && !target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
 					Body.CastSpell(Vortanos_Dot, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells), false);
 				if(!CanSpawnAdds)
                 {
@@ -358,11 +358,11 @@ namespace DOL.AI.Brain
 					spell.Range = 1500;
 					spell.Radius = 350;
 					spell.SpellID = 11915;
-					spell.Target = eSpellTarget.Enemy.ToString();
-					spell.Type = eSpellType.DirectDamageNoVariance.ToString();
+					spell.Target = ESpellTarget.Enemy.ToString();
+					spell.Type = ESpellType.DirectDamageNoVariance.ToString();
 					spell.Uninterruptible = true;
 					spell.MoveCast = true;
-					spell.DamageType = (int)eDamageType.Heat;
+					spell.DamageType = (int)EDamageType.Heat;
 					m_Vortanos_DD = new Spell(spell, 60);
 					SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_Vortanos_DD);
 				}
@@ -397,10 +397,10 @@ namespace DOL.AI.Brain
 					spell.Target = "Enemy";
 					spell.SpellGroup = 1800;
 					spell.EffectGroup = 1500;
-					spell.Type = eSpellType.DamageOverTime.ToString();
+					spell.Type = ESpellType.DamageOverTime.ToString();
 					spell.Uninterruptible = true;
 					spell.MoveCast = true;
-					spell.DamageType = (int)eDamageType.Matter;
+					spell.DamageType = (int)EDamageType.Matter;
 					m_Vortanos_Dot = new Spell(spell, 70);
 					SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_Vortanos_Dot);
 				}
@@ -418,13 +418,13 @@ namespace DOL.GS
 	{
 		public VortanosAdd() : base() { }
 
-		public override int GetResist(eDamageType damageType)
+		public override int GetResist(EDamageType damageType)
 		{
 			switch (damageType)
 			{
-				case eDamageType.Slash: return 10;// dmg reduction for melee dmg
-				case eDamageType.Crush: return 10;// dmg reduction for melee dmg
-				case eDamageType.Thrust: return 10;// dmg reduction for melee dmg
+				case EDamageType.Slash: return 10;// dmg reduction for melee dmg
+				case EDamageType.Crush: return 10;// dmg reduction for melee dmg
+				case EDamageType.Thrust: return 10;// dmg reduction for melee dmg
 				default: return 10;// dmg reduction for rest resists
 			}
 		}
@@ -437,11 +437,11 @@ namespace DOL.GS
 			get { return 350; }
 			set { }
 		}
-		public override double GetArmorAF(eArmorSlot slot)
+		public override double GetArmorAF(EArmorSlot slot)
 		{
 			return 200;
 		}
-		public override double GetArmorAbsorb(eArmorSlot slot)
+		public override double GetArmorAbsorb(EArmorSlot slot)
 		{
 			// 85% ABS is cap.
 			return 0.10;

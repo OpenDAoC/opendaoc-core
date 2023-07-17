@@ -66,7 +66,7 @@ namespace DOL.GS.DailyQuest.Hibernia
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Pazz", eRealm.Midgard);
+			GameNPC[] npcs = WorldMgr.GetNPCsByName("Pazz", ERealm.Midgard);
 
 			if (npcs.Length > 0)
 				foreach (GameNPC npc in npcs)
@@ -86,7 +86,7 @@ namespace DOL.GS.DailyQuest.Hibernia
 				PazzMid.Model = 26;
 				PazzMid.Name = "Pazz";
 				PazzMid.GuildName = "Bone Collector";
-				PazzMid.Realm = eRealm.Midgard;
+				PazzMid.Realm = ERealm.Midgard;
 				//Svasud Faste Location
 				PazzMid.CurrentRegionID = 252;
 				PazzMid.Size = 40;

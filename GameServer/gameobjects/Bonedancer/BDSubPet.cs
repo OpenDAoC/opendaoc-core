@@ -85,7 +85,7 @@ namespace DOL.GS
                     Inventory.RemoveItem(Inventory.GetItem((eInventorySlot)weapon.Item_Type));
 
                 Inventory.AddItem((eInventorySlot)weapon.Item_Type, weapon);
-                SwitchWeapon((eActiveWeaponSlot)weapon.Hand);
+                SwitchWeapon((EActiveWeaponSlot)weapon.Hand);
             }
         }
 

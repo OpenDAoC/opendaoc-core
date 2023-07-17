@@ -8,7 +8,7 @@ namespace DOL.GS
         public SureShotEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams)
         {
-            EffectType = eEffect.Berserk;
+            EffectType = EEffect.Berserk;
             EffectService.RequestStartEffect(this);
         }
 

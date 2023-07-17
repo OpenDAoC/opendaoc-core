@@ -14,7 +14,7 @@ namespace DOL.GS.Effects
         public AtlasOF_BatteryOfLifeECSEffect(ECSGameEffectInitParams initParams)
             : base(initParams)
         {
-            EffectType = eEffect.BatteryOfLife;
+            EffectType = EEffect.BatteryOfLife;
             EffectService.RequestStartEffect(this);
         }
         
@@ -31,7 +31,7 @@ namespace DOL.GS.Effects
 
         public override void OnStartEffect()
         {
-            m_HealthPool = (int) (1000 * (1 + (OwnerPlayer.GetModified(eProperty.BuffEffectiveness) * 0.01)));
+            m_HealthPool = (int) (1000 * (1 + (OwnerPlayer.GetModified(EProperty.BuffEffectiveness) * 0.01)));
             this.NextTick = 1;
             base.OnStartEffect();
         }
@@ -69,12 +69,12 @@ namespace DOL.GS.Effects
                     {
                         if(currentLiving is GamePlayer ptarg) ptarg.Out.SendMessage($"{this.OwnerName}'s Battery of Life heals you for {difference} health points!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
                         if(Owner is GamePlayer pcaster) pcaster.Out.SendMessage($"Your Battery of Life heals {currentLiving.Name} for {difference} health points!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
-                        currentLiving.ChangeHealth(OwnerPlayer, eHealthChangeType.Spell, difference);
+                        currentLiving.ChangeHealth(OwnerPlayer, EHealthChangeType.Spell, difference);
                         m_HealthPool -= difference;
                     }
                     else
                     {
-                        currentLiving.ChangeHealth(OwnerPlayer, eHealthChangeType.Spell, m_HealthPool);
+                        currentLiving.ChangeHealth(OwnerPlayer, EHealthChangeType.Spell, m_HealthPool);
                         m_HealthPool = 0;
                     }
                 }

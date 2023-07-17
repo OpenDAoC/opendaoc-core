@@ -25,7 +25,7 @@ namespace DOL.AI.Brain
             FSM.Add(new NecroPetState_Passive(FSM, this));
             FSM.Add(new StandardMobState_Dead(FSM, this));
 
-            FSM.SetCurrentState(eFSMStateType.WAKING_UP);
+            FSM.SetCurrentState(EFsmStateType.WAKING_UP);
         }
 
         public override int ThinkInterval => 500;

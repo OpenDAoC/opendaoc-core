@@ -5,7 +5,7 @@
 {
 	[Command(
 		"&release", new string[] { "&rel" },
-		ePrivLevel.Player,
+		EPrivLevel.Player,
 		"When you are dead you can '/release'. This will bring you back to your bindpoint!",
 		"/release")]
 	public class ReleaseCommand : AbstractCommandHandler, ICommandHandler
@@ -14,7 +14,7 @@
 		{
 			if (client.Player.CurrentRegion.IsRvR && !client.Player.CurrentRegion.IsDungeon || ServerProperties.Properties.EVENT_THIDRANKI || ServerProperties.Properties.EVENT_TUTORIAL)
 			{
-				client.Player.Release(eReleaseType.RvR, false);
+				client.Player.Release(EReleaseType.RvR, false);
 				return;
 			}
 
@@ -22,7 +22,7 @@
             {
 	            if (ServerProperties.Properties.EVENT_THIDRANKI || ServerProperties.Properties.EVENT_TUTORIAL)
 		            return;
-				client.Player.Release(eReleaseType.City, false);
+				client.Player.Release(EReleaseType.City, false);
 					return;
 			}
 
@@ -30,10 +30,10 @@
             {
 	            if (ServerProperties.Properties.EVENT_THIDRANKI || ServerProperties.Properties.EVENT_TUTORIAL)
 		            return;
-                client.Player.Release(eReleaseType.House, false);
+                client.Player.Release(EReleaseType.House, false);
                 return;
             }
-			client.Player.Release(eReleaseType.Normal, false);
+			client.Player.Release(EReleaseType.Normal, false);
 		}
 	}
 }

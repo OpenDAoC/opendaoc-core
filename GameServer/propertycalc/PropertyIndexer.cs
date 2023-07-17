@@ -35,7 +35,7 @@ namespace DOL.GS.PropertyCalc
 			}
 		}
 		
-		public int this[eProperty index]
+		public int this[EProperty index]
 		{
 			get
 			{

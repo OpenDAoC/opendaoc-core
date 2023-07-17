@@ -30,7 +30,7 @@ namespace DOL.GS
             PulseFreq = spell.Frequency;
             Caster = SpellHandler.Caster;
 
-            if (spell.SpellType is (eSpellType.SpeedDecrease) or (eSpellType.UnbreakableSpeedDecrease))
+            if (spell.SpellType is (ESpellType.SpeedDecrease) or (ESpellType.UnbreakableSpeedDecrease))
             {
                 TickInterval = 650;
                 NextTick = 1 + (Duration >> 1) + (int)StartTick;
@@ -56,12 +56,12 @@ namespace DOL.GS
 
         public override bool ShouldBeAddedToConcentrationList()
         {
-            return SpellHandler.Spell.IsConcentration || EffectType == eEffect.Pulse;
+            return SpellHandler.Spell.IsConcentration || EffectType == EEffect.Pulse;
         }
 
         public override bool ShouldBeRemovedFromConcentrationList()
         {
-            return SpellHandler.Spell.IsConcentration || EffectType == eEffect.Pulse;
+            return SpellHandler.Spell.IsConcentration || EffectType == EEffect.Pulse;
         }
 
         public override void TryApplyImmunity()
@@ -70,22 +70,22 @@ namespace DOL.GS
             {
                 if (OwnerPlayer != null)
                 {
-                    if ((EffectType == eEffect.Stun && SpellHandler.Caster is GameSummonedPet) || SpellHandler is UnresistableStunSpellHandler)
+                    if ((EffectType == EEffect.Stun && SpellHandler.Caster is GameSummonedPet) || SpellHandler is UnresistableStunSpellHandler)
                         return;
 
                     new ECSImmunityEffect(Owner, SpellHandler, ImmunityDuration, (int)PulseFreq, Effectiveness, Icon);
                 }
                 else if (Owner is GameNPC)
                 {
-                    if (EffectType == eEffect.Stun)
+                    if (EffectType == EEffect.Stun)
                     {
-                        NPCECSStunImmunityEffect npcImmune = (NPCECSStunImmunityEffect)EffectListService.GetEffectOnTarget(Owner, eEffect.NPCStunImmunity);
+                        NPCECSStunImmunityEffect npcImmune = (NPCECSStunImmunityEffect)EffectListService.GetEffectOnTarget(Owner, EEffect.NPCStunImmunity);
                         if (npcImmune is null)
                             new NPCECSStunImmunityEffect(new ECSGameEffectInitParams(Owner, ImmunityDuration, Effectiveness));
                     }
-                    else if (EffectType == eEffect.Mez)
+                    else if (EffectType == EEffect.Mez)
                     {
-                        NPCECSMezImmunityEffect npcImmune = (NPCECSMezImmunityEffect)EffectListService.GetEffectOnTarget(Owner, eEffect.NPCMezImmunity);
+                        NPCECSMezImmunityEffect npcImmune = (NPCECSMezImmunityEffect)EffectListService.GetEffectOnTarget(Owner, EEffect.NPCMezImmunity);
                         if (npcImmune is null)
                             new NPCECSMezImmunityEffect(new ECSGameEffectInitParams(Owner, ImmunityDuration, Effectiveness));
                     }

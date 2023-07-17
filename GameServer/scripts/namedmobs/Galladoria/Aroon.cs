@@ -30,7 +30,7 @@ namespace DOL.GS
         public static bool Aroon_spirit = false;
 
         #region Aroon resist damage checks
-        public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+        public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
         {
             Point3D spawn = new Point3D(SpawnPoint.X, SpawnPoint.Y, SpawnPoint.Z);
             if (source is GamePlayer || source is GameSummonedPet)
@@ -39,11 +39,11 @@ namespace DOL.GS
                     Aroon_cold == false && Aroon_energy == false && Aroon_heat == false
                     && Aroon_matter == false && Aroon_spirit == false) || !source.IsWithinRadius(spawn, TetherRange))
                 {
-                    if (damageType == eDamageType.Body || damageType == eDamageType.Cold ||
-                        damageType == eDamageType.Energy || damageType == eDamageType.Heat
-                        || damageType == eDamageType.Matter || damageType == eDamageType.Spirit ||
-                        damageType == eDamageType.Crush || damageType == eDamageType.Thrust
-                        || damageType == eDamageType.Slash)
+                    if (damageType == EDamageType.Body || damageType == EDamageType.Cold ||
+                        damageType == EDamageType.Energy || damageType == EDamageType.Heat
+                        || damageType == EDamageType.Matter || damageType == EDamageType.Spirit ||
+                        damageType == EDamageType.Crush || damageType == EDamageType.Thrust
+                        || damageType == EDamageType.Slash)
                     {
                         GamePlayer truc;
                         if (source is GamePlayer)
@@ -67,10 +67,10 @@ namespace DOL.GS
                     Aroon_cold == false && Aroon_energy == false && Aroon_heat == false
                     && Aroon_matter == false && Aroon_spirit == false) || !source.IsWithinRadius(spawn, TetherRange))
                 {
-                    if (damageType == eDamageType.Body || damageType == eDamageType.Cold ||
-                        damageType == eDamageType.Energy || damageType == eDamageType.Heat
-                        || damageType == eDamageType.Matter || damageType == eDamageType.Spirit ||
-                        damageType == eDamageType.Crush || damageType == eDamageType.Thrust)
+                    if (damageType == EDamageType.Body || damageType == EDamageType.Cold ||
+                        damageType == EDamageType.Energy || damageType == EDamageType.Heat
+                        || damageType == EDamageType.Matter || damageType == EDamageType.Spirit ||
+                        damageType == EDamageType.Crush || damageType == EDamageType.Thrust)
                     {
                         GamePlayer truc;
                         if (source is GamePlayer)
@@ -94,10 +94,10 @@ namespace DOL.GS
                     Aroon_cold == false && Aroon_energy == false && Aroon_heat == false
                     && Aroon_matter == false && Aroon_spirit == false) || !source.IsWithinRadius(spawn, TetherRange))
                 {
-                    if (damageType == eDamageType.Body || damageType == eDamageType.Cold ||
-                        damageType == eDamageType.Energy || damageType == eDamageType.Heat
-                        || damageType == eDamageType.Matter || damageType == eDamageType.Spirit ||
-                        damageType == eDamageType.Crush)
+                    if (damageType == EDamageType.Body || damageType == EDamageType.Cold ||
+                        damageType == EDamageType.Energy || damageType == EDamageType.Heat
+                        || damageType == EDamageType.Matter || damageType == EDamageType.Spirit ||
+                        damageType == EDamageType.Crush)
                     {
                         GamePlayer truc;
                         if (source is GamePlayer)
@@ -121,9 +121,9 @@ namespace DOL.GS
                     Aroon_cold == false && Aroon_energy == false && Aroon_heat == false
                     && Aroon_matter == false && Aroon_spirit == false) || !source.IsWithinRadius(spawn, TetherRange))
                 {
-                    if (damageType == eDamageType.Body || damageType == eDamageType.Cold ||
-                        damageType == eDamageType.Energy || damageType == eDamageType.Heat
-                        || damageType == eDamageType.Matter || damageType == eDamageType.Spirit)
+                    if (damageType == EDamageType.Body || damageType == EDamageType.Cold ||
+                        damageType == EDamageType.Energy || damageType == EDamageType.Heat
+                        || damageType == EDamageType.Matter || damageType == EDamageType.Spirit)
                     {
                         GamePlayer truc;
                         if (source is GamePlayer)
@@ -147,9 +147,9 @@ namespace DOL.GS
                     Aroon_cold == false && Aroon_energy == false && Aroon_heat == false
                     && Aroon_matter == false && Aroon_spirit == false) || !source.IsWithinRadius(spawn, TetherRange))
                 {
-                    if (damageType == eDamageType.Cold || damageType == eDamageType.Energy ||
-                        damageType == eDamageType.Heat
-                        || damageType == eDamageType.Matter || damageType == eDamageType.Spirit)
+                    if (damageType == EDamageType.Cold || damageType == EDamageType.Energy ||
+                        damageType == EDamageType.Heat
+                        || damageType == EDamageType.Matter || damageType == EDamageType.Spirit)
                     {
                         GamePlayer truc;
                         if (source is GamePlayer)
@@ -173,8 +173,8 @@ namespace DOL.GS
                     Aroon_cold == true && Aroon_energy == false && Aroon_heat == false
                     && Aroon_matter == false && Aroon_spirit == false) || !source.IsWithinRadius(spawn, TetherRange))
                 {
-                    if (damageType == eDamageType.Energy || damageType == eDamageType.Heat
-                    || damageType == eDamageType.Matter || damageType == eDamageType.Spirit)
+                    if (damageType == EDamageType.Energy || damageType == EDamageType.Heat
+                    || damageType == EDamageType.Matter || damageType == EDamageType.Spirit)
                     {
                         GamePlayer truc;
                         if (source is GamePlayer)
@@ -198,8 +198,8 @@ namespace DOL.GS
                     Aroon_cold == true && Aroon_energy == true && Aroon_heat == false
                     && Aroon_matter == false && Aroon_spirit == false) || !source.IsWithinRadius(spawn, TetherRange))
                 {
-                    if (damageType == eDamageType.Heat || damageType == eDamageType.Matter ||
-                        damageType == eDamageType.Spirit)
+                    if (damageType == EDamageType.Heat || damageType == EDamageType.Matter ||
+                        damageType == EDamageType.Spirit)
                     {
                         GamePlayer truc;
                         if (source is GamePlayer)
@@ -223,7 +223,7 @@ namespace DOL.GS
                     Aroon_cold == true && Aroon_energy == true && Aroon_heat == true
                     && Aroon_matter == false && Aroon_spirit == false) || !source.IsWithinRadius(spawn, TetherRange))
                 {
-                    if (damageType == eDamageType.Matter || damageType == eDamageType.Spirit)
+                    if (damageType == EDamageType.Matter || damageType == EDamageType.Spirit)
                     {
                         GamePlayer truc;
                         if (source is GamePlayer)
@@ -247,7 +247,7 @@ namespace DOL.GS
                     Aroon_cold == true && Aroon_energy == true && Aroon_heat == true
                     && Aroon_matter == true && Aroon_spirit == false) || !source.IsWithinRadius(spawn, TetherRange))
                 {
-                    if (damageType == eDamageType.Spirit)
+                    if (damageType == EDamageType.Spirit)
                     {
                         GamePlayer truc;
                         if (source is GamePlayer)
@@ -310,12 +310,12 @@ namespace DOL.GS
             return base.HasAbility(keyName);
         }
 
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 350;
         }
 
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -369,7 +369,7 @@ namespace DOL.GS
         {
             GameNPC[] npcs;
 
-            npcs = WorldMgr.GetNPCsByNameFromRegion("Aroon the Urlamhai", 191, (eRealm) 0);
+            npcs = WorldMgr.GetNPCsByNameFromRegion("Aroon the Urlamhai", 191, (ERealm) 0);
             if (npcs.Length == 0)
             {
                 log.Warn("Aroon not found, creating it...");
@@ -390,7 +390,7 @@ namespace DOL.GS
                 CO.Constitution = 200;
                 CO.Quickness = 125;
                 CO.BodyType = 5;
-                CO.MeleeDamageType = eDamageType.Slash;
+                CO.MeleeDamageType = EDamageType.Slash;
                 CO.Faction = FactionMgr.GetFactionByID(96);
                 CO.Faction.AddFriendFaction(FactionMgr.GetFactionByID(96));
 
@@ -443,7 +443,7 @@ namespace DOL.AI.Brain
             if (!CheckProximityAggro())
             {
                 //set state to RETURN TO SPAWN
-                FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+                FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
                 Body.Health = Body.MaxHealth;
                 Aroon.Aroon_slash = false;
                 Aroon.Aroon_thrust = false;
@@ -599,7 +599,7 @@ namespace DOL.AI.Brain
                     spell.Type = "SpeedDecrease";
                     spell.Uninterruptible = true;
                     spell.MoveCast = true;
-                    spell.DamageType = (int) eDamageType.Matter;
+                    spell.DamageType = (int) EDamageType.Matter;
                     m_AroonRoot = new Spell(spell, 70);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_AroonRoot);
                 }
@@ -623,13 +623,13 @@ namespace DOL.GS
         public CorpScaith() : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 20; // dmg reduction for melee dmg
-                case eDamageType.Crush: return 20; // dmg reduction for melee dmg
-                case eDamageType.Thrust: return 20; // dmg reduction for melee dmg
+                case EDamageType.Slash: return 20; // dmg reduction for melee dmg
+                case EDamageType.Crush: return 20; // dmg reduction for melee dmg
+                case EDamageType.Thrust: return 20; // dmg reduction for melee dmg
                 default: return 60; // dmg reduction for rest resists
             }
         }
@@ -644,12 +644,12 @@ namespace DOL.GS
             set { }
         }
 
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 300;
         }
 
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -688,7 +688,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(96);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(96));
             BodyType = 8;
-            Realm = eRealm.None;
+            Realm = ERealm.None;
             CorpScaithBrain adds = new CorpScaithBrain();
             SetOwnBrain(adds);
             base.AddToWorld();
@@ -799,13 +799,13 @@ namespace DOL.GS
         public SpioradScaith() : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 20; // dmg reduction for melee dmg
-                case eDamageType.Crush: return 20; // dmg reduction for melee dmg
-                case eDamageType.Thrust: return 20; // dmg reduction for melee dmg
+                case EDamageType.Slash: return 20; // dmg reduction for melee dmg
+                case EDamageType.Crush: return 20; // dmg reduction for melee dmg
+                case EDamageType.Thrust: return 20; // dmg reduction for melee dmg
                 default: return 60; // dmg reduction for rest resists
             }
         }
@@ -822,12 +822,12 @@ namespace DOL.GS
             set { }
         }
 
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 300;
         }
 
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -848,7 +848,7 @@ namespace DOL.GS
             base.Die(null); // null to not gain experience
         }
 
-        public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+        public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
         {
             if (source is GamePlayer || source is GameSummonedPet)
             {
@@ -890,7 +890,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(96);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(96));
             BodyType = 8;
-            Realm = eRealm.None;
+            Realm = ERealm.None;
             SpioradScaithBrain adds = new SpioradScaithBrain();
             SetOwnBrain(adds);
             base.AddToWorld();
@@ -995,13 +995,13 @@ namespace DOL.GS
         public RopadhScaith() : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 20; // dmg reduction for melee dmg
-                case eDamageType.Crush: return 20; // dmg reduction for melee dmg
-                case eDamageType.Thrust: return 20; // dmg reduction for melee dmg
+                case EDamageType.Slash: return 20; // dmg reduction for melee dmg
+                case EDamageType.Crush: return 20; // dmg reduction for melee dmg
+                case EDamageType.Thrust: return 20; // dmg reduction for melee dmg
                 default: return 60; // dmg reduction for rest resists
             }
         }
@@ -1017,12 +1017,12 @@ namespace DOL.GS
             set { }
         }
 
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 300;
         }
 
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -1043,7 +1043,7 @@ namespace DOL.GS
             base.Die(null); // null to not gain experience
         }
 
-        public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+        public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
         {
             if (source is GamePlayer || source is GameSummonedPet)
             {
@@ -1085,7 +1085,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(96);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(96));
             BodyType = 8;
-            Realm = eRealm.None;
+            Realm = ERealm.None;
             RopadhScaithBrain adds = new RopadhScaithBrain();
             SetOwnBrain(adds);
             base.AddToWorld();
@@ -1196,13 +1196,13 @@ namespace DOL.GS
         public DamhnaScaith() : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 20; // dmg reduction for melee dmg
-                case eDamageType.Crush: return 20; // dmg reduction for melee dmg
-                case eDamageType.Thrust: return 20; // dmg reduction for melee dmg
+                case EDamageType.Slash: return 20; // dmg reduction for melee dmg
+                case EDamageType.Crush: return 20; // dmg reduction for melee dmg
+                case EDamageType.Thrust: return 20; // dmg reduction for melee dmg
                 default: return 60; // dmg reduction for rest resists
             }
         }
@@ -1218,12 +1218,12 @@ namespace DOL.GS
             set { }
         }
 
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 300;
         }
 
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -1244,7 +1244,7 @@ namespace DOL.GS
             base.Die(null); // null to not gain experience
         }
 
-        public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+        public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
         {
             if (source is GamePlayer || source is GameSummonedPet)
             {
@@ -1286,7 +1286,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(96);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(96));
             BodyType = 8;
-            Realm = eRealm.None;
+            Realm = ERealm.None;
             DamhnaScaithBrain adds = new DamhnaScaithBrain();
             SetOwnBrain(adds);
             base.AddToWorld();
@@ -1397,13 +1397,13 @@ namespace DOL.GS
         public FuinneamgScaith() : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 20; // dmg reduction for melee dmg
-                case eDamageType.Crush: return 20; // dmg reduction for melee dmg
-                case eDamageType.Thrust: return 20; // dmg reduction for melee dmg
+                case EDamageType.Slash: return 20; // dmg reduction for melee dmg
+                case EDamageType.Crush: return 20; // dmg reduction for melee dmg
+                case EDamageType.Thrust: return 20; // dmg reduction for melee dmg
                 default: return 60; // dmg reduction for rest resists
             }
         }
@@ -1419,12 +1419,12 @@ namespace DOL.GS
             set { }
         }
 
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 300;
         }
 
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -1445,7 +1445,7 @@ namespace DOL.GS
             base.Die(null); // null to not gain experience
         }
 
-        public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+        public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
         {
             if (source is GamePlayer || source is GameSummonedPet)
             {
@@ -1488,7 +1488,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(96);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(96));
             BodyType = 8;
-            Realm = eRealm.None;
+            Realm = ERealm.None;
             FuinneamgScaithBrain adds = new FuinneamgScaithBrain();
             SetOwnBrain(adds);
             base.AddToWorld();
@@ -1600,13 +1600,13 @@ namespace DOL.GS
         public BruScaith() : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 20; // dmg reduction for melee dmg
-                case eDamageType.Crush: return 20; // dmg reduction for melee dmg
-                case eDamageType.Thrust: return 20; // dmg reduction for melee dmg
+                case EDamageType.Slash: return 20; // dmg reduction for melee dmg
+                case EDamageType.Crush: return 20; // dmg reduction for melee dmg
+                case EDamageType.Thrust: return 20; // dmg reduction for melee dmg
                 default: return 60; // dmg reduction for rest resists
             }
         }
@@ -1622,12 +1622,12 @@ namespace DOL.GS
             set { }
         }
 
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 300;
         }
 
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -1648,7 +1648,7 @@ namespace DOL.GS
             base.Die(null); // null to not gain experience
         }
 
-        public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+        public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
         {
             if (source is GamePlayer || source is GameSummonedPet)
             {
@@ -1691,7 +1691,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(96);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(96));
             BodyType = 8;
-            Realm = eRealm.None;
+            Realm = ERealm.None;
             BruScaithBrain adds = new BruScaithBrain();
             SetOwnBrain(adds);
             base.AddToWorld();
@@ -1803,13 +1803,13 @@ namespace DOL.GS
         public FuarScaith() : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 20; // dmg reduction for melee dmg
-                case eDamageType.Crush: return 20; // dmg reduction for melee dmg
-                case eDamageType.Thrust: return 20; // dmg reduction for melee dmg
+                case EDamageType.Slash: return 20; // dmg reduction for melee dmg
+                case EDamageType.Crush: return 20; // dmg reduction for melee dmg
+                case EDamageType.Thrust: return 20; // dmg reduction for melee dmg
                 default: return 60; // dmg reduction for rest resists
             }
         }
@@ -1825,12 +1825,12 @@ namespace DOL.GS
             set { }
         }
 
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 300;
         }
 
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -1851,7 +1851,7 @@ namespace DOL.GS
             base.Die(null); // null to not gain experience
         }
 
-        public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+        public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
         {
             if (source is GamePlayer || source is GameSummonedPet)
             {
@@ -1894,7 +1894,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(96);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(96));
             BodyType = 8;
-            Realm = eRealm.None;
+            Realm = ERealm.None;
             FuarScaithBrain adds = new FuarScaithBrain();
             SetOwnBrain(adds);
             base.AddToWorld();
@@ -2006,13 +2006,13 @@ namespace DOL.GS
         public TaesScaith() : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 20; // dmg reduction for melee dmg
-                case eDamageType.Crush: return 20; // dmg reduction for melee dmg
-                case eDamageType.Thrust: return 20; // dmg reduction for melee dmg
+                case EDamageType.Slash: return 20; // dmg reduction for melee dmg
+                case EDamageType.Crush: return 20; // dmg reduction for melee dmg
+                case EDamageType.Thrust: return 20; // dmg reduction for melee dmg
                 default: return 60; // dmg reduction for rest resists
             }
         }
@@ -2028,12 +2028,12 @@ namespace DOL.GS
             set { }
         }
 
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 300;
         }
 
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -2054,7 +2054,7 @@ namespace DOL.GS
             base.Die(null); // null to not gain experience
         }
 
-        public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+        public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
         {
             if (source is GamePlayer || source is GameSummonedPet)
             {
@@ -2098,7 +2098,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(96);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(96));
             BodyType = 8;
-            Realm = eRealm.None;
+            Realm = ERealm.None;
             TaesScaithBrain adds = new TaesScaithBrain();
             SetOwnBrain(adds);
             base.AddToWorld();
@@ -2210,13 +2210,13 @@ namespace DOL.GS
         public ScorScaith() : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 20; // dmg reduction for melee dmg
-                case eDamageType.Crush: return 20; // dmg reduction for melee dmg
-                case eDamageType.Thrust: return 20; // dmg reduction for melee dmg
+                case EDamageType.Slash: return 20; // dmg reduction for melee dmg
+                case EDamageType.Crush: return 20; // dmg reduction for melee dmg
+                case EDamageType.Thrust: return 20; // dmg reduction for melee dmg
                 default: return 60; // dmg reduction for rest resists
             }
         }
@@ -2232,12 +2232,12 @@ namespace DOL.GS
             set { }
         }
 
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 300;
         }
 
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -2258,7 +2258,7 @@ namespace DOL.GS
             base.Die(null); // null to not gain experience
         }
 
-        public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+        public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
         {
             if (source is GamePlayer || source is GameSummonedPet)
             {
@@ -2302,7 +2302,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(96);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(96));
             BodyType = 8;
-            Realm = eRealm.None;
+            Realm = ERealm.None;
             ScorScaithBrain adds = new ScorScaithBrain();
             SetOwnBrain(adds);
             base.AddToWorld();

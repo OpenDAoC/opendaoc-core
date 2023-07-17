@@ -11,7 +11,7 @@ namespace DOL.GS.Commands
 {
     [Command(
     "&aggro",
-    ePrivLevel.GM,
+    EPrivLevel.GM,
     "Toggle server logging of mob aggro tables.",
     "/aggro debug <on|off> to toggle mob aggro logging on server.")]
     public class AggroCommand : AbstractCommandHandler, ICommandHandler

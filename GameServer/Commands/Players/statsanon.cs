@@ -10,7 +10,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 	"&statsanon",
-	ePrivLevel.Player,
+	EPrivLevel.Player,
 	"Hides your statistics",
 	"/statsanon")]
 	public class StatsAnonHandler : AbstractCommandHandler, ICommandHandler

@@ -29,7 +29,7 @@ namespace DOL.GS.RealmAbilities
 				return;
 			}
 
-			if ( !m_caster.IsWithinRadius( m_caster.TargetObject, (int)( 1500 * m_caster.GetModified(eProperty.SpellRange) * 0.01 ) ) )
+			if ( !m_caster.IsWithinRadius( m_caster.TargetObject, (int)( 1500 * m_caster.GetModified(EProperty.SpellRange) * 0.01 ) ) )
 			{
 				m_caster.Out.SendMessage(m_caster.TargetObject + " is too far away.", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
 				return;
@@ -93,7 +93,7 @@ namespace DOL.GS.RealmAbilities
 				return 0;
 			}
 
-            if ( !m_caster.IsWithinRadius( m_caster.TargetObject, (int)( 1500 * m_caster.GetModified( eProperty.SpellRange ) * 0.01 ) ) )
+            if ( !m_caster.IsWithinRadius( m_caster.TargetObject, (int)( 1500 * m_caster.GetModified( EProperty.SpellRange ) * 0.01 ) ) )
 			{
 				m_caster.Out.SendMessage(m_caster.TargetObject + " is too far away.", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
 				return 0;
@@ -109,7 +109,7 @@ namespace DOL.GS.RealmAbilities
 				if (!GameServer.ServerRules.IsAllowedToAttack(m_caster, mob, true))
 					continue;
 
-				mob.TakeDamage(m_caster, eDamageType.Heat, m_dmgValue, 0);
+				mob.TakeDamage(m_caster, EDamageType.Heat, m_dmgValue, 0);
 				m_caster.Out.SendMessage("You hit the " + mob.Name + " for " + m_dmgValue + " damage.", eChatType.CT_YouHit, eChatLoc.CL_SystemWindow);
 				foreach (GamePlayer player2 in m_caster.TargetObject.GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE))
 				{
@@ -122,7 +122,7 @@ namespace DOL.GS.RealmAbilities
 				if (!GameServer.ServerRules.IsAllowedToAttack(m_caster, aeplayer, true))
 					continue;
 
-				aeplayer.TakeDamage(m_caster, eDamageType.Heat, m_dmgValue, 0);
+				aeplayer.TakeDamage(m_caster, EDamageType.Heat, m_dmgValue, 0);
 				m_caster.Out.SendMessage("You hit " + aeplayer.Name + " for " + m_dmgValue + " damage.", eChatType.CT_YouHit, eChatLoc.CL_SystemWindow);
 				aeplayer.Out.SendMessage(m_caster.Name + " hits you for " + m_dmgValue + " damage.", eChatType.CT_YouWereHit, eChatLoc.CL_SystemWindow); 
 				foreach (GamePlayer player3 in m_caster.TargetObject.GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE))

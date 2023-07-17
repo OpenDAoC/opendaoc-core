@@ -12,7 +12,7 @@ namespace DOL.GS.Commands
 	[Command(
 		"&advice",
 		 new [] { "&adv" },
-		ePrivLevel.Player,
+		EPrivLevel.Player,
 		// Displays next to the command when '/cmd' is entered
 		"Lists all flagged Advisors, sends advisors questions, and sends messages to the Advice channel.",
 		// Message: '/adv <message>' - Sends a message to the Advice channel.
@@ -113,13 +113,13 @@ namespace DOL.GS.Commands
 
 		}
 
-		public string getRealmString(eRealm Realm)
+		public string getRealmString(ERealm Realm)
 		{
 			switch (Realm)
 			{
-				case eRealm.Albion: return "ALB";
-				case eRealm.Midgard: return "MID";
-				case eRealm.Hibernia: return "HIB";
+				case ERealm.Albion: return "ALB";
+				case ERealm.Midgard: return "MID";
+				case ERealm.Hibernia: return "HIB";
 				default: return "NONE";
 			}
 		}

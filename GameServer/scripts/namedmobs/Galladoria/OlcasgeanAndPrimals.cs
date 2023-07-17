@@ -324,13 +324,13 @@ namespace DOL.GS
             : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 40;// dmg reduction for melee dmg
-                case eDamageType.Crush: return 40;// dmg reduction for melee dmg
-                case eDamageType.Thrust: return 40;// dmg reduction for melee dmg
+                case EDamageType.Slash: return 40;// dmg reduction for melee dmg
+                case EDamageType.Crush: return 40;// dmg reduction for melee dmg
+                case EDamageType.Thrust: return 40;// dmg reduction for melee dmg
                 default: return 70;// dmg reduction for rest resists
             }
         }
@@ -354,16 +354,16 @@ namespace DOL.GS
 
             return base.HasAbility(keyName);
         }
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 350;
         }
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
         }
-        public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+        public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
         {
             base.TakeDamage(source, damageType, damageAmount, criticalAmount);
             int damageDealt = damageAmount + criticalAmount;
@@ -446,7 +446,7 @@ namespace DOL.GS
 
                 if (canReportNews && GameServer.ServerRules.CanGenerateNews(player) == false)
                 {
-                    if (player.Client.Account.PrivLevel == (int)ePrivLevel.Player)
+                    if (player.Client.Account.PrivLevel == (int)EPrivLevel.Player)
                         canReportNews = false;
                 }
             }
@@ -537,8 +537,8 @@ namespace DOL.GS
                     spell.Range = 1800;
                     spell.SpellID = 11901;
                     spell.Target = "Enemy";
-                    spell.Type = eSpellType.DirectDamageNoVariance.ToString();
-                    spell.DamageType = (int)eDamageType.Matter;
+                    spell.Type = ESpellType.DirectDamageNoVariance.ToString();
+                    spell.DamageType = (int)EDamageType.Matter;
                     m_OlcasgeanDD = new Spell(spell, 70);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_OlcasgeanDD);
                 }
@@ -639,7 +639,7 @@ namespace DOL.AI.Brain
             if (!CheckProximityAggro())
             {
                 //set state to RETURN TO SPAWN
-                FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+                FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
                 teleport_player = false;
                 cast1 = true;
                 spawn_antipass = false;
@@ -847,8 +847,8 @@ namespace DOL.AI.Brain
                     spell.Range = 1800;
                     spell.SpellID = 11717;
                     spell.Target = "Enemy";
-                    spell.Type = eSpellType.DirectDamageNoVariance.ToString();
-                    spell.DamageType = (int)eDamageType.Matter;
+                    spell.Type = ESpellType.DirectDamageNoVariance.ToString();
+                    spell.DamageType = (int)EDamageType.Matter;
                     m_OlcasgeanDD = new Spell(spell, 70);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_OlcasgeanDD);
                 }
@@ -869,13 +869,13 @@ namespace DOL.GS
             : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 40;// dmg reduction for melee dmg
-                case eDamageType.Crush: return 40;// dmg reduction for melee dmg
-                case eDamageType.Thrust: return 40;// dmg reduction for melee dmg
+                case EDamageType.Slash: return 40;// dmg reduction for melee dmg
+                case EDamageType.Crush: return 40;// dmg reduction for melee dmg
+                case EDamageType.Thrust: return 40;// dmg reduction for melee dmg
                 default: return 70;// dmg reduction for rest resists
             }
         }
@@ -899,16 +899,16 @@ namespace DOL.GS
 
             return base.HasAbility(keyName);
         }
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 350;
         }
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
         }
-        public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+        public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
         {
             base.TakeDamage(source, damageType, damageAmount, criticalAmount);
             int damageDealt = damageAmount + criticalAmount;
@@ -990,7 +990,7 @@ namespace DOL.GS
 
                 if (canReportNews && GameServer.ServerRules.CanGenerateNews(player) == false)
                 {
-                    if (player.Client.Account.PrivLevel == (int)ePrivLevel.Player)
+                    if (player.Client.Account.PrivLevel == (int)EPrivLevel.Player)
                         canReportNews = false;
                 }
             }
@@ -1062,8 +1062,8 @@ namespace DOL.GS
                     spell.Range = 1800;
                     spell.SpellID = 12011;
                     spell.Target = "Enemy";
-                    spell.Type = eSpellType.DirectDamageNoVariance.ToString();
-                    spell.DamageType = (int)eDamageType.Matter;
+                    spell.Type = ESpellType.DirectDamageNoVariance.ToString();
+                    spell.DamageType = (int)EDamageType.Matter;
                     m_OlcasgeanDD2 = new Spell(spell, 70);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_OlcasgeanDD2);
                 }
@@ -1097,7 +1097,7 @@ namespace DOL.AI.Brain
             if (!CheckProximityAggro())
             {
                 //set state to RETURN TO SPAWN
-                FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+                FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
             }
 
             if (Body.IsAlive)
@@ -1133,17 +1133,17 @@ namespace DOL.GS
             : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 40;// dmg reduction for melee dmg
-                case eDamageType.Crush: return 40;// dmg reduction for melee dmg
-                case eDamageType.Thrust: return 40;// dmg reduction for melee dmg
+                case EDamageType.Slash: return 40;// dmg reduction for melee dmg
+                case EDamageType.Crush: return 40;// dmg reduction for melee dmg
+                case EDamageType.Thrust: return 40;// dmg reduction for melee dmg
                 default: return 70;// dmg reduction for rest resists
             }
         }
-        public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+        public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
         {
             if (source is GameSummonedPet || source is TurretPet)
             {
@@ -1164,12 +1164,12 @@ namespace DOL.GS
 
             return base.HasAbility(keyName);
         }
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 350;
         }
 
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -1304,7 +1304,7 @@ namespace DOL.AI.Brain
                         if (Util.Chance(15) && RandomTarget != null)
                         {
                             Body.TargetObject = RandomTarget;
-                            if (!RandomTarget.effectListComponent.ContainsEffectForEffectType(eEffect.Mez))
+                            if (!RandomTarget.effectListComponent.ContainsEffectForEffectType(EEffect.Mez))
                             {
                                 Body.CastSpell(Mezz, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
                                 AggroTable.Remove(RandomTarget);
@@ -1525,10 +1525,10 @@ namespace DOL.AI.Brain
                     spell.Range = 1200;
                     spell.SpellID = 11718;
                     spell.Target = "Enemy";
-                    spell.Type = eSpellType.DirectDamageNoVariance.ToString();
+                    spell.Type = ESpellType.DirectDamageNoVariance.ToString();
                     spell.Uninterruptible = true;
                     spell.MoveCast = true;
-                    spell.DamageType = (int)eDamageType.Spirit;
+                    spell.DamageType = (int)EDamageType.Spirit;
                     m_AirDD = new Spell(spell, 70);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_AirDD);
                 }
@@ -1558,7 +1558,7 @@ namespace DOL.AI.Brain
                     spell.Type = "Mesmerize";
                     spell.Uninterruptible = true;
                     spell.MoveCast = true;
-                    spell.DamageType = (int)eDamageType.Spirit; //Spirit DMG Type
+                    spell.DamageType = (int)EDamageType.Spirit; //Spirit DMG Type
                     m_mezSpell = new Spell(spell, 70);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_mezSpell);
                 }
@@ -1583,13 +1583,13 @@ namespace DOL.GS
             : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 40;// dmg reduction for melee dmg
-                case eDamageType.Crush: return 40;// dmg reduction for melee dmg
-                case eDamageType.Thrust: return 40;// dmg reduction for melee dmg
+                case EDamageType.Slash: return 40;// dmg reduction for melee dmg
+                case EDamageType.Crush: return 40;// dmg reduction for melee dmg
+                case EDamageType.Thrust: return 40;// dmg reduction for melee dmg
                 default: return 70;// dmg reduction for rest resists
             }
         }
@@ -1609,12 +1609,12 @@ namespace DOL.GS
 
             return base.HasAbility(keyName);
         }
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 350;
         }
 
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -1637,15 +1637,15 @@ namespace DOL.GS
             {
             }
         }
-        public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+        public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
         {
             if (source is GamePlayer || source is GameSummonedPet)
             {
                 if (WaterPrimalBrain.dontattack)//dont take any dmg 
                 {
-                    if (damageType == eDamageType.Body || damageType == eDamageType.Cold || damageType == eDamageType.Energy || damageType == eDamageType.Heat
-                        || damageType == eDamageType.Matter || damageType == eDamageType.Spirit || damageType == eDamageType.Crush || damageType == eDamageType.Thrust
-                        || damageType == eDamageType.Slash)
+                    if (damageType == EDamageType.Body || damageType == EDamageType.Cold || damageType == EDamageType.Energy || damageType == EDamageType.Heat
+                        || damageType == EDamageType.Matter || damageType == EDamageType.Spirit || damageType == EDamageType.Crush || damageType == EDamageType.Thrust
+                        || damageType == EDamageType.Slash)
                     {
                         GamePlayer truc;
                         if (source is GamePlayer)
@@ -1891,7 +1891,7 @@ namespace DOL.AI.Brain
                     spell.TooltipId = 4323;
                     spell.SpellID = 11865;
                     spell.Target = "Self";
-                    spell.Type = eSpellType.PowerRegenBuff.ToString();
+                    spell.Type = ESpellType.PowerRegenBuff.ToString();
                     spell.Uninterruptible = true;
                     spell.MoveCast = true;
                     m_WaterEffect = new Spell(spell, 70);
@@ -1918,13 +1918,13 @@ namespace DOL.GS
             : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 40;// dmg reduction for melee dmg
-                case eDamageType.Crush: return 40;// dmg reduction for melee dmg
-                case eDamageType.Thrust: return 40;// dmg reduction for melee dmg
+                case EDamageType.Slash: return 40;// dmg reduction for melee dmg
+                case EDamageType.Crush: return 40;// dmg reduction for melee dmg
+                case EDamageType.Thrust: return 40;// dmg reduction for melee dmg
                 default: return 70;// dmg reduction for rest resists
             }
         }
@@ -1953,11 +1953,11 @@ namespace DOL.GS
 
             return base.HasAbility(keyName);
         }
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 350;
         }
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -2139,7 +2139,7 @@ namespace DOL.AI.Brain
                     spell.Type = "DamageShield";
                     spell.Uninterruptible = true;
                     spell.MoveCast = true;
-                    spell.DamageType = (int)eDamageType.Heat;
+                    spell.DamageType = (int)EDamageType.Heat;
                     m_FireDS = new Spell(spell, 70);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_FireDS);
                 }
@@ -2159,13 +2159,13 @@ namespace DOL.GS
             : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 99; // dmg reduction for melee dmg
-                case eDamageType.Crush: return 99; // dmg reduction for melee dmg
-                case eDamageType.Thrust: return 99; // dmg reduction for melee dmg
+                case EDamageType.Slash: return 99; // dmg reduction for melee dmg
+                case EDamageType.Crush: return 99; // dmg reduction for melee dmg
+                case EDamageType.Thrust: return 99; // dmg reduction for melee dmg
                 default: return 99; // dmg reduction for rest resists
             }
         }
@@ -2179,11 +2179,11 @@ namespace DOL.GS
 
             return base.HasAbility(keyName);
         }
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 800;
         }
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.55;
@@ -2270,10 +2270,10 @@ namespace DOL.GS
                     spell.Radius = 450;
                     spell.SpellID = 11866;
                     spell.Target = "Area";
-                    spell.Type = eSpellType.DirectDamageNoVariance.ToString();
+                    spell.Type = ESpellType.DirectDamageNoVariance.ToString();
                     spell.Uninterruptible = true;
                     spell.MoveCast = true;
-                    spell.DamageType = (int)eDamageType.Heat;
+                    spell.DamageType = (int)EDamageType.Heat;
                     m_FireGroundDD = new Spell(spell, 70);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_FireGroundDD);
                 }
@@ -2316,13 +2316,13 @@ namespace DOL.GS
             : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 40;// dmg reduction for melee dmg
-                case eDamageType.Crush: return 40;// dmg reduction for melee dmg
-                case eDamageType.Thrust: return 40;// dmg reduction for melee dmg
+                case EDamageType.Slash: return 40;// dmg reduction for melee dmg
+                case EDamageType.Crush: return 40;// dmg reduction for melee dmg
+                case EDamageType.Thrust: return 40;// dmg reduction for melee dmg
                 default: return 70;// dmg reduction for rest resists
             }
         }
@@ -2353,11 +2353,11 @@ namespace DOL.GS
 
             return base.HasAbility(keyName);
         }
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 350;
         }
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -2467,7 +2467,7 @@ namespace DOL.AI.Brain
             }
             if (Body.IsOutOfTetherRange && !HasAggro)
             {
-                FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+                FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
             }
             base.Think();
         }
@@ -2495,7 +2495,7 @@ namespace DOL.AI.Brain
                     spell.Type = "SpeedDecrease";
                     spell.Uninterruptible = true;
                     spell.MoveCast = true;
-                    spell.DamageType = (int)eDamageType.Cold;
+                    spell.DamageType = (int)EDamageType.Cold;
                     m_EarthRoot = new Spell(spell, 70);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_EarthRoot);
                 }
@@ -2521,17 +2521,17 @@ namespace DOL.GS
             : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 20; // dmg reduction for melee dmg
-                case eDamageType.Crush: return 20; // dmg reduction for melee dmg
-                case eDamageType.Thrust: return 20; // dmg reduction for melee dmg
+                case EDamageType.Slash: return 20; // dmg reduction for melee dmg
+                case EDamageType.Crush: return 20; // dmg reduction for melee dmg
+                case EDamageType.Thrust: return 20; // dmg reduction for melee dmg
                 default: return 60; // dmg reduction for rest resists
             }
         }
-        public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+        public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
         {
             if (source is GamePlayer)
             {
@@ -2566,11 +2566,11 @@ namespace DOL.GS
 
             return base.HasAbility(keyName);
         }
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 300;
         }
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -2593,10 +2593,10 @@ namespace DOL.GS
             MaxSpeedBase = 0;
 
             RespawnInterval = -1;//will not respawn
-            Gender = eGender.Neutral;
+            Gender = EGender.Neutral;
             Faction = FactionMgr.GetFactionByID(96);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(96));
-            MeleeDamageType = eDamageType.Slash;
+            MeleeDamageType = EDamageType.Slash;
             BodyType = 5;
 
             GuardianEarthmenderBrain sBrain = new GuardianEarthmenderBrain();
@@ -2729,20 +2729,20 @@ namespace DOL.GS
             : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 20; // dmg reduction for melee dmg
-                case eDamageType.Crush: return 20; // dmg reduction for melee dmg
-                case eDamageType.Thrust: return 20; // dmg reduction for melee dmg
+                case EDamageType.Slash: return 20; // dmg reduction for melee dmg
+                case EDamageType.Crush: return 20; // dmg reduction for melee dmg
+                case EDamageType.Thrust: return 20; // dmg reduction for melee dmg
                 default: return 60; // dmg reduction for rest resists
             }
         }
         public override void StartAttack(GameObject target)
         {
         }
-        public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+        public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
         {
             if (source is GamePlayer)
             {
@@ -2774,12 +2774,12 @@ namespace DOL.GS
 
             return base.HasAbility(keyName);
         }
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 300;
         }
 
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -2803,10 +2803,10 @@ namespace DOL.GS
 
 
             RespawnInterval = -1;//will not respawn
-            Gender = eGender.Neutral;
+            Gender = EGender.Neutral;
             Faction = FactionMgr.GetFactionByID(96);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(96));
-            MeleeDamageType = eDamageType.Slash;
+            MeleeDamageType = EDamageType.Slash;
             BodyType = 5;
 
             MagicalEarthmenderBrain sBrain = new MagicalEarthmenderBrain();
@@ -2940,17 +2940,17 @@ namespace DOL.GS
             : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 20; // dmg reduction for melee dmg
-                case eDamageType.Crush: return 20; // dmg reduction for melee dmg
-                case eDamageType.Thrust: return 20; // dmg reduction for melee dmg
+                case EDamageType.Slash: return 20; // dmg reduction for melee dmg
+                case EDamageType.Crush: return 20; // dmg reduction for melee dmg
+                case EDamageType.Thrust: return 20; // dmg reduction for melee dmg
                 default: return 60; // dmg reduction for rest resists
             }
         }
-        public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+        public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
         {
             if (source is GamePlayer)
             {
@@ -2985,11 +2985,11 @@ namespace DOL.GS
 
             return base.HasAbility(keyName);
         }
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 300;
         }
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -3012,10 +3012,10 @@ namespace DOL.GS
             MaxSpeedBase = 0;
 
             RespawnInterval = -1;//will not respawn
-            Gender = eGender.Neutral;
+            Gender = EGender.Neutral;
             Faction = FactionMgr.GetFactionByID(96);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(96));
-            MeleeDamageType = eDamageType.Slash;
+            MeleeDamageType = EDamageType.Slash;
             BodyType = 5;
 
             NaturalEarthmenderBrain sBrain = new NaturalEarthmenderBrain();
@@ -3148,17 +3148,17 @@ namespace DOL.GS
             : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 20; // dmg reduction for melee dmg
-                case eDamageType.Crush: return 20; // dmg reduction for melee dmg
-                case eDamageType.Thrust: return 20; // dmg reduction for melee dmg
+                case EDamageType.Slash: return 20; // dmg reduction for melee dmg
+                case EDamageType.Crush: return 20; // dmg reduction for melee dmg
+                case EDamageType.Thrust: return 20; // dmg reduction for melee dmg
                 default: return 60; // dmg reduction for rest resists
             }
         }
-        public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+        public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
         {
             if (source is GamePlayer)
             {
@@ -3193,11 +3193,11 @@ namespace DOL.GS
 
             return base.HasAbility(keyName);
         }
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 300;
         }
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -3220,10 +3220,10 @@ namespace DOL.GS
             MaxSpeedBase = 0;
 
             RespawnInterval = -1;//will not respawn
-            Gender = eGender.Neutral;
+            Gender = EGender.Neutral;
             Faction = FactionMgr.GetFactionByID(96);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(96));
-            MeleeDamageType = eDamageType.Slash;
+            MeleeDamageType = EDamageType.Slash;
             BodyType = 5;
 
             ShadowyEarthmenderBrain sBrain = new ShadowyEarthmenderBrain();
@@ -3350,13 +3350,13 @@ namespace DOL.GS
     public class Vortex : GameNPC
     {
         public Vortex() : base() { }
-        public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+        public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
         {
             if (source is GamePlayer || source is GameSummonedPet)
             {
-                if (damageType == eDamageType.Body || damageType == eDamageType.Cold || damageType == eDamageType.Energy || damageType == eDamageType.Heat
-                    || damageType == eDamageType.Matter || damageType == eDamageType.Spirit || damageType == eDamageType.Crush || damageType == eDamageType.Thrust
-                    || damageType == eDamageType.Slash)
+                if (damageType == EDamageType.Body || damageType == EDamageType.Cold || damageType == EDamageType.Energy || damageType == EDamageType.Heat
+                    || damageType == EDamageType.Matter || damageType == EDamageType.Spirit || damageType == EDamageType.Crush || damageType == EDamageType.Thrust
+                    || damageType == EDamageType.Slash)
                 {
                     GamePlayer truc;
                     if (source is GamePlayer)
@@ -3411,7 +3411,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(96);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(96));
             BodyType = 8;
-            Realm = eRealm.None;
+            Realm = ERealm.None;
             VortexBrain adds = new VortexBrain();
             LoadedFromScript = true;
             SetOwnBrain(adds);
@@ -3466,7 +3466,7 @@ namespace DOL.AI.Brain
                     spell.Type = "DamageSpeedDecrease";
                     spell.Uninterruptible = true;
                     spell.MoveCast = true;
-                    spell.DamageType = (int)eDamageType.Spirit;
+                    spell.DamageType = (int)EDamageType.Spirit;
                     m_VortexDD = new Spell(spell, 70);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_VortexDD);
                 }
@@ -3497,7 +3497,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(96);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(96));
             BodyType = 8;
-            Realm = eRealm.None;
+            Realm = ERealm.None;
             WaterfallAntipassBrain adds = new WaterfallAntipassBrain();
             LoadedFromScript = true;
             SetOwnBrain(adds);
@@ -3557,7 +3557,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(96);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(96));
             BodyType = 8;
-            Realm = eRealm.None;
+            Realm = ERealm.None;
             OlcasgeanEffectBrain adds = new OlcasgeanEffectBrain();
             LoadedFromScript = true;
             SetOwnBrain(adds);

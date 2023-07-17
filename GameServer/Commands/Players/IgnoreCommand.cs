@@ -7,7 +7,7 @@ namespace DOL.GS.Commands
     /// </summary>
     [Command(
         "&ignore",
-        ePrivLevel.Player,
+        EPrivLevel.Player,
         "Adds/Removes a player to/from your Ignorelist!",
         "/ignore <playerName>")]
     public class IgnoreCommand : AbstractCommandHandler, ICommandHandler

@@ -101,12 +101,12 @@ namespace DOL.GS.Keeps
 
 		public override byte Level => (byte)(Keep.BaseLevel-10 + (Keep.Level * 3));
 
-		public override eRealm Realm
+		public override ERealm Realm
 		{
 			get 
 			{
 				if (Keep != null) return Keep.Realm;
-				return eRealm.None;
+				return ERealm.None;
 			}
 		}
 
@@ -444,7 +444,7 @@ namespace DOL.GS.Keeps
 			base.SaveIntoDatabase();
 		}
 
-		public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+		public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
 		{
 			if (damageAmount > 0)
 			{
@@ -468,7 +468,7 @@ namespace DOL.GS.Keeps
 		public override void ModifyAttack(AttackData attackData)
 		{
 			// Allow a GM to use commands to damage components, regardless of toughness setting
-			if (attackData.DamageType == eDamageType.GM)
+			if (attackData.DamageType == EDamageType.GM)
 				return;
 
 			int toughness = Properties.SET_STRUCTURES_TOUGHNESS;
@@ -489,7 +489,7 @@ namespace DOL.GS.Keeps
 				{
 					baseDamage = 0;
 					styleDamage = 0;
-					attackData.AttackResult = eAttackResult.NotAllowed_ServerRules;
+					attackData.AttackResult = EAttackResult.NotAllowed_ServerRules;
 				}
 				else
 				{
@@ -502,7 +502,7 @@ namespace DOL.GS.Keeps
 						if (player != null)
 						{
 							// special considerations for pet spam classes
-							if (player.CharacterClass.ID == (int)eCharacterClass.Theurgist || player.CharacterClass.ID == (int)eCharacterClass.Animist)
+							if (player.CharacterClass.ID == (int)ECharacterClass.Theurgist || player.CharacterClass.ID == (int)ECharacterClass.Animist)
 							{
 								baseDamage = (int)(baseDamage * Properties.PET_SPAM_DAMAGE_MULTIPLIER);
 								styleDamage = (int)(styleDamage * Properties.PET_SPAM_DAMAGE_MULTIPLIER);

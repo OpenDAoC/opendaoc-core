@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace DOL.GS.Commands
 {
 	[Command("&cmdhelp", //command to handle
-		ePrivLevel.Player, //minimum privelege level
+		EPrivLevel.Player, //minimum privelege level
 		"Displays available commands", //command description
 		//usage
 		"'/cmdhelp' displays a list of all the commands and their descriptions",
@@ -19,14 +19,14 @@ namespace DOL.GS.Commands
 			if (IsSpammingCommand(client.Player, "cmdhelp"))
 				return;
 
-			ePrivLevel privilegeLevel = (ePrivLevel)client.Account.PrivLevel;
+			EPrivLevel privilegeLevel = (EPrivLevel)client.Account.PrivLevel;
 			bool isCommand = true;
 
 			if (args.Length > 1)
 			{
 				try
 				{
-					privilegeLevel = (ePrivLevel)Convert.ToUInt32(args[1]);
+					privilegeLevel = (EPrivLevel)Convert.ToUInt32(args[1]);
 				}
 				catch (Exception)
 				{
@@ -63,10 +63,10 @@ namespace DOL.GS.Commands
 			}
 		}
 
-        private static IDictionary<ePrivLevel, String[]> m_commandLists = new Dictionary<ePrivLevel, String[]>();
+        private static IDictionary<EPrivLevel, String[]> m_commandLists = new Dictionary<EPrivLevel, String[]>();
         private static object m_syncObject = new object();
 
-        private String[] GetCommandList(ePrivLevel privilegeLevel)
+        private String[] GetCommandList(EPrivLevel privilegeLevel)
         {
             lock (m_syncObject)
             {

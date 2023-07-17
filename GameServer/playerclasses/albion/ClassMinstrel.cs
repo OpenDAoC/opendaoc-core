@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)eCharacterClass.Minstrel, "Minstrel", "Rogue")]
+	[CharacterClass((int)ECharacterClass.Minstrel, "Minstrel", "Rogue")]
 	public class ClassMinstrel : ClassAlbionRogue
 	{
 		private static readonly string[] AutotrainableSkills = new[] { Specs.Instruments };
@@ -13,10 +13,10 @@ namespace DOL.GS.PlayerClass
 		{
 			m_profession = "PlayerClass.Profession.Academy";
 			m_specializationMultiplier = 15;
-			m_primaryStat = eStat.CHR;
-			m_secondaryStat = eStat.DEX;
-			m_tertiaryStat = eStat.STR;
-			m_manaStat = eStat.CHR;
+			m_primaryStat = EStat.CHR;
+			m_secondaryStat = EStat.DEX;
+			m_tertiaryStat = EStat.STR;
+			m_manaStat = EStat.CHR;
 			m_wsbase = 360;
 			m_baseHP = 720;
 		}

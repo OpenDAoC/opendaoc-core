@@ -77,7 +77,7 @@ namespace DOL.AI.Brain
 			FSM.Add(new ControlledNpcState_Aggro(FSM, this));
 			FSM.Add(new StandardMobState_Dead(FSM, this));
 
-			FSM.SetCurrentState(eFSMStateType.WAKING_UP);
+			FSM.SetCurrentState(EFsmStateType.WAKING_UP);
 		}
 
 		protected bool m_isMainPet = true;
@@ -237,7 +237,7 @@ namespace DOL.AI.Brain
 			}
 
 			m_orderAttackTarget = target as GameLiving;
-			FSM.SetCurrentState(eFSMStateType.AGGRO);
+			FSM.SetCurrentState(EFsmStateType.AGGRO);
 
 			if (target != Body.TargetObject && Body.IsCasting)
 				Body.StopCurrentSpellcast();
@@ -335,8 +335,8 @@ namespace DOL.AI.Brain
 				
 			if (Owner is GamePlayer
 			    && IsMainPet
-			    && ((GamePlayer)Owner).CharacterClass.ID != (int)eCharacterClass.Animist
-			    && ((GamePlayer)Owner).CharacterClass.ID != (int)eCharacterClass.Theurgist)
+			    && ((GamePlayer)Owner).CharacterClass.ID != (int)ECharacterClass.Animist
+			    && ((GamePlayer)Owner).CharacterClass.ID != (int)ECharacterClass.Theurgist)
 				Body.Follow(Owner, MIN_OWNER_FOLLOW_DIST, MAX_OWNER_FOLLOW_DIST);
 			else if (Owner is GameNPC)
 				Body.Follow(Owner, MIN_OWNER_FOLLOW_DIST, MAX_OWNER_FOLLOW_DIST);
@@ -561,59 +561,59 @@ namespace DOL.AI.Brain
             switch (spell.SpellType)
             {
                 #region Buffs
-                case eSpellType.AcuityBuff:
-                case eSpellType.AFHitsBuff:
-                case eSpellType.AllMagicResistBuff:
-                case eSpellType.ArmorAbsorptionBuff:
-                case eSpellType.ArmorFactorBuff:
-                case eSpellType.BodyResistBuff:
-                case eSpellType.BodySpiritEnergyBuff:
-                case eSpellType.Buff:
-                case eSpellType.CelerityBuff:
-                case eSpellType.ColdResistBuff:
-                case eSpellType.CombatSpeedBuff:
-                case eSpellType.ConstitutionBuff:
-                case eSpellType.CourageBuff:
-                case eSpellType.CrushSlashTrustBuff:
-                case eSpellType.DexterityBuff:
-                case eSpellType.DexterityQuicknessBuff:
-                case eSpellType.EffectivenessBuff:
-                case eSpellType.EnduranceRegenBuff:
-                case eSpellType.EnergyResistBuff:
-                case eSpellType.FatigueConsumptionBuff:
-                case eSpellType.FlexibleSkillBuff:
-                case eSpellType.HasteBuff:
-                case eSpellType.HealthRegenBuff:
-                case eSpellType.HeatColdMatterBuff:
-                case eSpellType.HeatResistBuff:
-                case eSpellType.HeroismBuff:
-                case eSpellType.KeepDamageBuff:
-                case eSpellType.MagicResistBuff:
-                case eSpellType.MatterResistBuff:
-                case eSpellType.MeleeDamageBuff:
-                case eSpellType.MesmerizeDurationBuff:
-                case eSpellType.MLABSBuff:
-                case eSpellType.PaladinArmorFactorBuff:
-                case eSpellType.ParryBuff:
-                case eSpellType.PowerHealthEnduranceRegenBuff:
-                case eSpellType.PowerRegenBuff:
-                case eSpellType.SavageCombatSpeedBuff:
-                case eSpellType.SavageCrushResistanceBuff:
-                case eSpellType.SavageDPSBuff:
-                case eSpellType.SavageParryBuff:
-                case eSpellType.SavageSlashResistanceBuff:
-                case eSpellType.SavageThrustResistanceBuff:
-                case eSpellType.SpiritResistBuff:
-                case eSpellType.StrengthBuff:
-                case eSpellType.StrengthConstitutionBuff:
-                case eSpellType.SuperiorCourageBuff:
-                case eSpellType.ToHitBuff:
-                case eSpellType.WeaponSkillBuff:
-                case eSpellType.DamageAdd:
-                case eSpellType.OffensiveProc:
-                case eSpellType.DefensiveProc:
-                case eSpellType.DamageShield:
-                case eSpellType.Bladeturn:
+                case ESpellType.AcuityBuff:
+                case ESpellType.AFHitsBuff:
+                case ESpellType.AllMagicResistBuff:
+                case ESpellType.ArmorAbsorptionBuff:
+                case ESpellType.ArmorFactorBuff:
+                case ESpellType.BodyResistBuff:
+                case ESpellType.BodySpiritEnergyBuff:
+                case ESpellType.Buff:
+                case ESpellType.CelerityBuff:
+                case ESpellType.ColdResistBuff:
+                case ESpellType.CombatSpeedBuff:
+                case ESpellType.ConstitutionBuff:
+                case ESpellType.CourageBuff:
+                case ESpellType.CrushSlashTrustBuff:
+                case ESpellType.DexterityBuff:
+                case ESpellType.DexterityQuicknessBuff:
+                case ESpellType.EffectivenessBuff:
+                case ESpellType.EnduranceRegenBuff:
+                case ESpellType.EnergyResistBuff:
+                case ESpellType.FatigueConsumptionBuff:
+                case ESpellType.FlexibleSkillBuff:
+                case ESpellType.HasteBuff:
+                case ESpellType.HealthRegenBuff:
+                case ESpellType.HeatColdMatterBuff:
+                case ESpellType.HeatResistBuff:
+                case ESpellType.HeroismBuff:
+                case ESpellType.KeepDamageBuff:
+                case ESpellType.MagicResistBuff:
+                case ESpellType.MatterResistBuff:
+                case ESpellType.MeleeDamageBuff:
+                case ESpellType.MesmerizeDurationBuff:
+                case ESpellType.MLABSBuff:
+                case ESpellType.PaladinArmorFactorBuff:
+                case ESpellType.ParryBuff:
+                case ESpellType.PowerHealthEnduranceRegenBuff:
+                case ESpellType.PowerRegenBuff:
+                case ESpellType.SavageCombatSpeedBuff:
+                case ESpellType.SavageCrushResistanceBuff:
+                case ESpellType.SavageDPSBuff:
+                case ESpellType.SavageParryBuff:
+                case ESpellType.SavageSlashResistanceBuff:
+                case ESpellType.SavageThrustResistanceBuff:
+                case ESpellType.SpiritResistBuff:
+                case ESpellType.StrengthBuff:
+                case ESpellType.StrengthConstitutionBuff:
+                case ESpellType.SuperiorCourageBuff:
+                case ESpellType.ToHitBuff:
+                case ESpellType.WeaponSkillBuff:
+                case ESpellType.DamageAdd:
+                case ESpellType.OffensiveProc:
+                case ESpellType.DefensiveProc:
+                case ESpellType.DamageShield:
+                case ESpellType.Bladeturn:
                     {
 						string target = spell.Target.ToUpper();
 
@@ -678,7 +678,7 @@ namespace DOL.AI.Brain
                 #endregion Buffs
 
                 #region Disease Cure/Poison Cure/Summon
-                case eSpellType.CureDisease:
+                case ESpellType.CureDisease:
 					//Cure owner
 					owner = (this as IControlledBrain).Owner;
 					if (owner.IsDiseased)
@@ -710,7 +710,7 @@ namespace DOL.AI.Brain
 						}
 					}
 					break;
-                case eSpellType.CurePoison:
+                case ESpellType.CurePoison:
 					//Cure owner
 					owner = (this as IControlledBrain).Owner;
 					if (LivingIsPoisoned(owner))
@@ -742,19 +742,19 @@ namespace DOL.AI.Brain
 						}
 					}
 					break;
-                case eSpellType.Summon:
+                case ESpellType.Summon:
 					Body.TargetObject = Body;
 					break;
                 #endregion
 
                 #region Heals
-                case eSpellType.CombatHeal:
-                case eSpellType.Heal:
-                case eSpellType.HealOverTime:
-                case eSpellType.MercHeal:
-                case eSpellType.OmniHeal:
-                case eSpellType.PBAoEHeal:
-                case eSpellType.SpreadHeal:
+                case ESpellType.CombatHeal:
+                case ESpellType.Heal:
+                case ESpellType.HealOverTime:
+                case ESpellType.MercHeal:
+                case ESpellType.OmniHeal:
+                case ESpellType.PBAoEHeal:
+                case ESpellType.SpreadHeal:
 					String spellTarget = spell.Target.ToUpper();
 					int bodyPercent = Body.HealthPercent;
 					//underhill ally heals at half the normal threshold 'will heal seriously injured groupmates'
@@ -926,7 +926,7 @@ namespace DOL.AI.Brain
 				return true;
 			else
 			{
-				ECSGameSpellEffect root = EffectListService.GetSpellEffectOnTarget(living, eEffect.MovementSpeedDebuff);
+				ECSGameSpellEffect root = EffectListService.GetSpellEffectOnTarget(living, EEffect.MovementSpeedDebuff);
 
 				if (root != null && root.SpellHandler.Spell.Value == 99)
 					return true;
@@ -1043,10 +1043,10 @@ namespace DOL.AI.Brain
 
 		public virtual void OnOwnerAttacked(AttackData ad)
 		{
-			if(FSM.GetState(eFSMStateType.PASSIVE) == FSM.GetCurrentState()) { return; }
+			if(FSM.GetState(EFsmStateType.PASSIVE) == FSM.GetCurrentState()) { return; }
 
 			// Theurgist pets don't help their owner.
-			if (Owner is GamePlayer && ((GamePlayer)Owner).CharacterClass.ID == (int)eCharacterClass.Theurgist)
+			if (Owner is GamePlayer && ((GamePlayer)Owner).CharacterClass.ID == (int)ECharacterClass.Theurgist)
 				return;
 
 			if (ad.Target is GamePlayer && ((ad.Target as GamePlayer).ControlledBrain != this || (ad.Target as GamePlayer).ControlledBrain.Body == Owner))
@@ -1054,18 +1054,18 @@ namespace DOL.AI.Brain
 
 			switch (ad.AttackResult)
 			{
-				case eAttackResult.Blocked:
-				case eAttackResult.Evaded:
-				case eAttackResult.Fumbled:
-				case eAttackResult.HitStyle:
-				case eAttackResult.HitUnstyled:
-				case eAttackResult.Missed:
-				case eAttackResult.Parried:
+				case EAttackResult.Blocked:
+				case EAttackResult.Evaded:
+				case EAttackResult.Fumbled:
+				case EAttackResult.HitStyle:
+				case EAttackResult.HitUnstyled:
+				case EAttackResult.Missed:
+				case EAttackResult.Parried:
 					AddToAggroList(ad.Attacker, ad.Attacker.EffectiveLevel + ad.Damage + ad.CriticalDamage);
 					break;
 			}
 
-			if (FSM.GetState(eFSMStateType.AGGRO) != FSM.GetCurrentState()) { FSM.SetCurrentState(eFSMStateType.AGGRO); }
+			if (FSM.GetState(EFsmStateType.AGGRO) != FSM.GetCurrentState()) { FSM.SetCurrentState(EFsmStateType.AGGRO); }
 			AttackMostWanted();
 		}
 

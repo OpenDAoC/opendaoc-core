@@ -7,7 +7,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		"&morph", //command to handle
-		ePrivLevel.GM, //minimum privelege level
+		EPrivLevel.GM, //minimum privelege level
 		"Temporarily changes the target player's model", //command description
 		"'/morph <modelID> [time]' to change into <modelID> for [time] minutes (default=10)")] //usage
 	public class MorphCommand : AbstractCommandHandler, ICommandHandler
@@ -50,7 +50,7 @@ namespace DOL.GS.Commands
 			dbSpell.Range = 4000;
 			dbSpell.Power = 0;
 			dbSpell.CastTime = 0;
-			dbSpell.Type = eSpellType.Morph.ToString();
+			dbSpell.Type = ESpellType.Morph.ToString();
 			dbSpell.Duration = duration * 60;
 			dbSpell.LifeDrainReturn = model;
 

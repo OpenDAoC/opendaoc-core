@@ -3,7 +3,7 @@ using DOL.GS.Realm;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClassAttribute((int)eCharacterClass.Savage, "Savage", "Viking")]
+	[CharacterClassAttribute((int)ECharacterClass.Savage, "Savage", "Viking")]
 	public class ClassSavage : ClassViking
 	{
 
@@ -12,9 +12,9 @@ namespace DOL.GS.PlayerClass
 		{
 			m_profession = "PlayerClass.Profession.HouseofKelgor";
 			m_specializationMultiplier = 15;
-			m_primaryStat = eStat.DEX;
-			m_secondaryStat = eStat.QUI;
-			m_tertiaryStat = eStat.STR;
+			m_primaryStat = EStat.DEX;
+			m_secondaryStat = EStat.QUI;
+			m_tertiaryStat = EStat.STR;
 			m_wsbase = 400;
 		}
 

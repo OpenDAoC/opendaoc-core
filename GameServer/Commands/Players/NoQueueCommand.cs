@@ -3,7 +3,7 @@ using DOL.GS.PacketHandler;
 namespace DOL.GS.Commands
 {
 	[Command("&Noqueue", //command to handle
-	ePrivLevel.Player, //minimum privelege level
+	EPrivLevel.Player, //minimum privelege level
 	"Allows you to disable/enable queuing", "/Noqueue")] //usage
 	public class NoQueueCommand : AbstractCommandHandler, ICommandHandler
 	{

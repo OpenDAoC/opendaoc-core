@@ -40,13 +40,13 @@ namespace DOL.GS.Keeps
 		public static void BroadcastCapture(AbstractGameKeep keep)
 		{
 			string message = "";
-			if (keep.Realm != eRealm.None)
+			if (keep.Realm != ERealm.None)
 			{
-				message = string.Format(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "PlayerManager.BroadcastCapture.Captured", GlobalConstants.RealmToName((eRealm)keep.Realm), keep.Name));
+				message = string.Format(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "PlayerManager.BroadcastCapture.Captured", GlobalConstants.RealmToName((ERealm)keep.Realm), keep.Name));
 			}
 			else
 			{
-                message = string.Format(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "PlayerManager.BroadcastCapture.CapturedR0", GlobalConstants.RealmToName((eRealm)keep.Realm), keep.Name));
+                message = string.Format(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "PlayerManager.BroadcastCapture.CapturedR0", GlobalConstants.RealmToName((ERealm)keep.Realm), keep.Name));
 			}
 
 			/*
@@ -80,10 +80,10 @@ namespace DOL.GS.Keeps
 		/// </summary>
 		/// <param name="keep">The keep object</param>
 		/// <param name="realm">The raizing realm</param>
-		public static void BroadcastRaize(AbstractGameKeep keep, eRealm realm)
+		public static void BroadcastRaize(AbstractGameKeep keep, ERealm realm)
 		{
 			string message = string.Format(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "PlayerManager.BroadcastRaize.Razed", keep.Name, GlobalConstants.RealmToName(realm)));
-			BroadcastMessage(message, eRealm.None);
+			BroadcastMessage(message, ERealm.None);
 			NewsMgr.CreateNews(message, keep.Realm, eNewsType.RvRGlobal, false);
 		}
 
@@ -97,7 +97,7 @@ namespace DOL.GS.Keeps
 			string claimMessage = string.Format(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE,
 				"PlayerManager.BroadcastClaim.Claimed", keep.Guild.Name, keep.Name));
 			
-			BroadcastMessage(claimMessage, (eRealm)keep.Realm);
+			BroadcastMessage(claimMessage, (ERealm)keep.Realm);
 			
 			// if (ServerProperties.Properties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(ServerProperties.Properties.DISCORD_WEBHOOK_ID)))
 			// {
@@ -115,7 +115,7 @@ namespace DOL.GS.Keeps
 				ServerProperties.Properties.SERV_LANGUAGE, "PlayerManager.BroadcastRelease.LostControl",
 				keep.Guild.Name, keep.Name));
 			
-			BroadcastMessage(lostClaimMessage, (eRealm)keep.Realm);
+			BroadcastMessage(lostClaimMessage, (ERealm)keep.Realm);
 			
 			// if (ServerProperties.Properties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(ServerProperties.Properties.DISCORD_WEBHOOK_ID)))
 			// {
@@ -130,13 +130,13 @@ namespace DOL.GS.Keeps
 		/// </summary>
 		/// <param name="message">The message</param>
 		/// <param name="realm">The realm</param>
-		public static void BroadcastMessage(string message, eRealm realm)
+		public static void BroadcastMessage(string message, ERealm realm)
 		{
 			foreach (GameClient client in WorldMgr.GetAllClients())
 			{
 				if (client.Player == null)
 					continue;
-				if ((client.Account.PrivLevel != 1 || realm == eRealm.None) || client.Player.Realm == realm)
+				if ((client.Account.PrivLevel != 1 || realm == ERealm.None) || client.Player.Realm == realm)
 				{
 					client.Out.SendMessage(message, eChatType.CT_Important, eChatLoc.CL_SystemWindow);
 				}
@@ -149,7 +149,7 @@ namespace DOL.GS.Keeps
 		/// </summary>
 		/// <param name="message">The message</param>
 		/// <param name="capturingrealm">The realm that captured the keep</param>
-		public static void BroadcastKeepTakeMessage(string message, eRealm capturingrealm)
+		public static void BroadcastKeepTakeMessage(string message, ERealm capturingrealm)
 		{
 			foreach (GameClient client in WorldMgr.GetAllClients())
 			{
@@ -161,13 +161,13 @@ namespace DOL.GS.Keeps
 				
 				switch (capturingrealm)
 				{
-					case eRealm.Albion:
+					case ERealm.Albion:
 						client.Out.SendSoundEffect(220, 0, 0, 0, 0, 0);
 						break;
-					case eRealm.Midgard:
+					case ERealm.Midgard:
 						client.Out.SendSoundEffect(218, 0, 0, 0, 0, 0);
 						break;
-					case eRealm.Hibernia:
+					case ERealm.Hibernia:
 						client.Out.SendSoundEffect(219, 0, 0, 0, 0, 0);
 						break;
 				}
@@ -180,17 +180,17 @@ namespace DOL.GS.Keeps
 		/// </summary>
 		/// <param name="message">The message</param>
 		/// <param name="realm">The realm</param>
-		public static void BroadcastDiscordRvR(string message, eRealm realm, string keepName)
+		public static void BroadcastDiscordRvR(string message, ERealm realm, string keepName)
 		{
 			int color = 0;
 			string avatarUrl = "";
 			switch (realm)
 			{
-				case eRealm._FirstPlayerRealm:
+				case ERealm._FirstPlayerRealm:
 					color = 16711680;
 					avatarUrl = "https://cdn.discordapp.com/attachments/919610633656369214/928728399822860369/keep_alb.png";
 					break;
-				case eRealm._LastPlayerRealm:
+				case ERealm._LastPlayerRealm:
 					color = 32768;
 					avatarUrl = "https://cdn.discordapp.com/attachments/919610633656369214/928728400116478073/keep_hib.png";
 					break;

@@ -76,7 +76,7 @@ namespace DOL.GS.AtlasQuest.Albion
 			
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Laura", eRealm.Albion);
+			GameNPC[] npcs = WorldMgr.GetNPCsByName("Laura", ERealm.Albion);
 
 			if (npcs.Length > 0)
 				foreach (GameNPC npc in npcs)
@@ -94,7 +94,7 @@ namespace DOL.GS.AtlasQuest.Albion
 				Laura.Model = 261;
 				Laura.Name = "Laura";
 				Laura.GuildName = "Protector of Beetles";
-				Laura.Realm = eRealm.Albion;
+				Laura.Realm = ERealm.Albion;
 				Laura.CurrentRegionID = 10;
 				Laura.Size = 50;
 				Laura.Level = 59;
@@ -326,7 +326,7 @@ namespace DOL.GS.AtlasQuest.Albion
             Beetle.Model = 669;
             Beetle.Name = "Francis";
             Beetle.GuildName = "";
-            Beetle.Realm = eRealm.Albion;
+            Beetle.Realm = ERealm.Albion;
             Beetle.Race = 2007;
             Beetle.BodyType = (ushort) NpcTemplateMgr.eBodyType.Magical;
             Beetle.Size = 40;
@@ -348,7 +348,7 @@ namespace DOL.GS.AtlasQuest.Albion
 			MobEffect.Model = 1822;
 			MobEffect.Name = "power of the beetle";
 			MobEffect.GuildName = "";
-			MobEffect.Realm = eRealm.Hibernia;
+			MobEffect.Realm = ERealm.Hibernia;
 			MobEffect.Race = 2007;
 			MobEffect.BodyType = (ushort) NpcTemplateMgr.eBodyType.Magical;
 			MobEffect.Size = 25;

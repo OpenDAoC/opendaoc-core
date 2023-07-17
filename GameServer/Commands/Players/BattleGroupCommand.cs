@@ -10,7 +10,7 @@ namespace DOL.GS.Commands
     [Command(
         "&battlechat",
         new string[] { "&bc", "&bchat" },
-        ePrivLevel.Player,
+        EPrivLevel.Player,
         "Battle group command",
         "/bc <text>")]
     public class BattleGroupCommand : AbstractCommandHandler, ICommandHandler
@@ -78,7 +78,7 @@ namespace DOL.GS.Commands
     [Command(
         "&battlegroup",
         new string[] { "&bg" },
-        ePrivLevel.Player,
+        EPrivLevel.Player,
         "Battle group command",
         "/bg <option>")]
     public class BattleGroupSetupCommandHandler : AbstractCommandHandler, ICommandHandler

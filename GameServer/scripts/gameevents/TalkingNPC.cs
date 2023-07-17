@@ -43,7 +43,7 @@ namespace DOL.GS.GameEvents
 				Model = 5;
 				Size = 50;
 				Level = 10;
-				Realm = eRealm.Albion;
+				Realm = ERealm.Albion;
 				CurrentRegionID = 1;
 			}
 

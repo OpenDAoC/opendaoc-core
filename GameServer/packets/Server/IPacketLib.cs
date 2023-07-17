@@ -617,8 +617,8 @@ namespace DOL.GS.PacketHandler
 		void SendLoginGranted(byte color);
 		void SendSessionID();
 		void SendPingReply(ulong timestamp, ushort sequence);
-		void SendRealm(eRealm realm);
-		void SendCharacterOverview(eRealm realm);
+		void SendRealm(ERealm realm);
+		void SendCharacterOverview(ERealm realm);
 		void SendDupNameCheckReply(string name, byte result);
 		void SendBadNameCheckReply(string name, bool bad);
 		void SendAttackMode(bool attackState);
@@ -728,7 +728,7 @@ namespace DOL.GS.PacketHandler
 		void SendChangeGroundTarget(Point3D newTarget);
 		void SendPetWindow(GameLiving pet, ePetWindowAction windowAction, EAggressionState aggroState, EWalkState walkState);
 		void SendPlaySound(eSoundType soundType, ushort soundID);
-		void SendNPCsQuestEffect(GameNPC npc, eQuestIndicator indicator);
+		void SendNPCsQuestEffect(GameNPC npc, EQuestIndicator indicator);
 		void SendMasterLevelWindow(byte ml);
 		void SendHexEffect(GamePlayer player, byte effect1, byte effect2, byte effect3, byte effect4, byte effect5);
 		void SendRvRGuildBanner(GamePlayer player, bool show);

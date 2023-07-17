@@ -53,13 +53,13 @@ namespace DOL.GS.Effects
 				foreach (IGameEffect effect in living.EffectList)
 				{
 					if (effect is GameSpellEffect == false) continue;
-					if ((effect as GameSpellEffect).Spell.SpellType == eSpellType.SpeedEnhancement)
+					if ((effect as GameSpellEffect).Spell.SpellType == ESpellType.SpeedEnhancement)
 						speedSpells.Add(effect);
 				}
 			}
 			foreach (GameSpellEffect spell in speedSpells)
 				spell.Cancel(false);
-			m_living.BuffBonusMultCategory1.Set((int)eProperty.MaxSpeed, this, PropertyCalc.MaxSpeedCalculator.SPEED3);
+			m_living.BuffBonusMultCategory1.Set((int)EProperty.MaxSpeed, this, PropertyCalc.MaxSpeedCalculator.SPEED3);
 			m_living.TempProperties.setProperty("Charging", true);
 			if (m_living is GamePlayer)
 				((GamePlayer)m_living).Out.SendUpdateMaxSpeed();
@@ -71,7 +71,7 @@ namespace DOL.GS.Effects
 		{
 			m_living.TempProperties.removeProperty("Charging");
 			m_living.EffectList.Remove(this);
-			m_living.BuffBonusMultCategory1.Remove((int)eProperty.MaxSpeed, this);
+			m_living.BuffBonusMultCategory1.Remove((int)EProperty.MaxSpeed, this);
 			//Send messages
 			if (m_living is GamePlayer)
 			{

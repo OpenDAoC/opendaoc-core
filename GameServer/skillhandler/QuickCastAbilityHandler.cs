@@ -30,7 +30,7 @@ namespace DOL.GS.SkillHandler
                 return;
 			}
 
-			QuickCastEcsEffect quickcast = (QuickCastEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.QuickCast);
+			QuickCastEcsEffect quickcast = (QuickCastEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, EEffect.QuickCast);
 			if (quickcast!=null)
 			{
 				quickcast.Cancel(true);

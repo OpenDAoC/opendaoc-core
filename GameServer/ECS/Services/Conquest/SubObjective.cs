@@ -21,8 +21,8 @@ public class SubObjective
 
     private HashSet<GamePlayer> RecentCaps = new HashSet<GamePlayer>();
 
-    private eRealm CapturingRealm;
-    public eRealm OwningRealm;
+    private ERealm CapturingRealm;
+    public ERealm OwningRealm;
 
     public SubObjective(int x, int y, int z, AbstractGameKeep keep, int objectiveNumber)
     {
@@ -48,7 +48,7 @@ public class SubObjective
         RecentCaps.Clear();
     }
 
-    private void StartCaptureTimer(eRealm capturingRealm)
+    private void StartCaptureTimer(ERealm capturingRealm)
     {
         if (CaptureTimer == null)
         {
@@ -126,13 +126,13 @@ public class SubObjective
         {
             switch (player.Realm)
             {
-                case eRealm.Albion:
+                case ERealm.Albion:
                     player.Out.SendSoundEffect(2594, 0, 0, 0, 0, 0);
                     break;
-                case eRealm.Midgard:
+                case ERealm.Midgard:
                     player.Out.SendSoundEffect(2596, 0, 0, 0, 0, 0);
                     break;
-                case eRealm.Hibernia:
+                case ERealm.Hibernia:
                     player.Out.SendSoundEffect(2595, 0, 0, 0, 0, 0);
                     break;
             }
@@ -151,18 +151,18 @@ public class SubObjective
         });
     }
     
-    private ushort GetModelIDForRealm(eRealm realm)
+    private ushort GetModelIDForRealm(ERealm realm)
     {
         ushort modelID = 0;
         switch (realm)
         {
-            case eRealm.Hibernia:
+            case ERealm.Hibernia:
                 modelID = 466;
                 break;
-            case eRealm.Albion:
+            case ERealm.Albion:
                 modelID = 464;
                 break;
-            case eRealm.Midgard:
+            case ERealm.Midgard:
                 modelID = 465;
                 break;
         }
@@ -172,7 +172,7 @@ public class SubObjective
     
     public void CheckNearbyPlayers()
     {
-        Dictionary<eRealm, int> playersOfRealmDict = new Dictionary<eRealm, int>();
+        Dictionary<ERealm, int> playersOfRealmDict = new Dictionary<ERealm, int>();
        // Console.WriteLine($"Flag Object {FlagObject} {FlagObject.CurrentZone.Description} {FlagObject.Realm} {FlagObject.CurrentRegion.Description} players nearby {FlagObject.GetPlayersInRadius(true, 1000, true)}");
        var nearbyPlayers = FlagObject.GetPlayersInRadius(750, true);
         foreach (GamePlayer player in nearbyPlayers)
@@ -209,11 +209,11 @@ public class SubObjective
     {
         switch (OwningRealm)
         {
-            case eRealm.Albion:
+            case ERealm.Albion:
                 return "Albion";
-            case eRealm.Hibernia:
+            case ERealm.Hibernia:
                 return "Hibernia";
-            case eRealm.Midgard:
+            case ERealm.Midgard:
                 return "Midgard";
         }
 

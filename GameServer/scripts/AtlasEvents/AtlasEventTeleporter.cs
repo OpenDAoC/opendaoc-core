@@ -116,13 +116,13 @@ namespace DOL.GS.Scripts
 				case "testing lobby":
 					switch (t.Realm)
 					{
-						case eRealm.Albion:
+						case ERealm.Albion:
 							t.MoveTo(330, 52759, 39528, 4677, 36);
 							break;
-						case eRealm.Midgard:
+						case ERealm.Midgard:
 							t.MoveTo(334, 52160, 39862, 5472, 46);
 							break;
-						case eRealm.Hibernia:
+						case ERealm.Hibernia:
 							t.MoveTo(335, 52836, 40401, 4672, 441);
 							break;
 					}
@@ -131,13 +131,13 @@ namespace DOL.GS.Scripts
 				case "battleground":
 					switch (t.Realm)
 					{
-						case eRealm.Albion:
+						case ERealm.Albion:
 							t.MoveTo(252, 38113, 53507, 4160, 3268);
 							break;
-						case eRealm.Midgard:
+						case ERealm.Midgard:
 							t.MoveTo(252, 53568, 23643, 4530, 3268);
 							break;
-						case eRealm.Hibernia:
+						case ERealm.Hibernia:
 							t.MoveTo(252, 17367, 18248, 4320, 3268);
 							break;
 					}

@@ -59,21 +59,21 @@ namespace DOL.GS.Scripts.discord
             // Send to Discord
             switch (player.Realm)
             {
-                case eRealm.Albion:
+                case ERealm.Albion:
                     if (!string.IsNullOrEmpty(Properties.DISCORD_ALBCHAT_WEBHOOK_ID))
                     {
                         avatar = "https://cdn.discordapp.com/attachments/861979059550421023/929455017902104627/alb.png";
                         SendMessage(Properties.DISCORD_ALBCHAT_WEBHOOK_ID,formattedMessage, avatar: avatar);
                     }
                     break;
-                case eRealm.Hibernia:
+                case ERealm.Hibernia:
                     if (!string.IsNullOrEmpty(Properties.DISCORD_HIBCHAT_WEBHOOK_ID))
                     {
                         avatar = "https://cdn.discordapp.com/attachments/861979059550421023/929455017457496214/hib.png";
                         SendMessage(Properties.DISCORD_HIBCHAT_WEBHOOK_ID,formattedMessage, avatar: avatar);
                     }
                     break;
-                case eRealm.Midgard:
+                case ERealm.Midgard:
                     if (!string.IsNullOrEmpty(Properties.DISCORD_MIDCHAT_WEBHOOK_ID))
                     {
                         avatar = "https://cdn.discordapp.com/attachments/861979059550421023/929455017675616288/mid.png";

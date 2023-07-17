@@ -46,7 +46,7 @@ namespace DOL.GS.SkillHandler
 			if (targetObject == null)
 			{
 				//foreach (InterceptEffect intercept in player.EffectList.GetAllOfType<InterceptEffect>())
-				foreach (InterceptEcsEffect intercept in player.effectListComponent.GetAbilityEffects().Where(e => e.EffectType == eEffect.Intercept))
+				foreach (InterceptEcsEffect intercept in player.effectListComponent.GetAbilityEffects().Where(e => e.EffectType == EEffect.Intercept))
 				{
 					if (intercept.InterceptSource != player)
 						continue;
@@ -68,7 +68,7 @@ namespace DOL.GS.SkillHandler
 
 			// check if someone is already intercepting for that target
 			//foreach (InterceptEffect intercept in interceptTarget.EffectList.GetAllOfType<InterceptEffect>())
-			foreach (InterceptEcsEffect intercept in interceptTarget.effectListComponent.GetAbilityEffects().Where(e => e.EffectType == eEffect.Intercept))
+			foreach (InterceptEcsEffect intercept in interceptTarget.effectListComponent.GetAbilityEffects().Where(e => e.EffectType == EEffect.Intercept))
 			{
 				if (intercept.InterceptTarget != interceptTarget)
 					continue;
@@ -81,7 +81,7 @@ namespace DOL.GS.SkillHandler
 
 			// cancel all intercepts by this player
 			//foreach (InterceptEffect intercept in player.EffectList.GetAllOfType<InterceptEffect>())
-			foreach (InterceptEcsEffect intercept in player.effectListComponent.GetAbilityEffects().Where(e => e.EffectType == eEffect.Intercept))
+			foreach (InterceptEcsEffect intercept in player.effectListComponent.GetAbilityEffects().Where(e => e.EffectType == EEffect.Intercept))
 			{
 				if (intercept.InterceptSource != player)
 					continue;

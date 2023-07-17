@@ -26,7 +26,7 @@ namespace DOL.GS.SkillHandler
 			return level < 6 ? 0 : (level - 5) * RatioByLevel;
 		}
 		
-		protected VampiirAbility(DbAbilities dba, int level, eProperty property)
+		protected VampiirAbility(DbAbilities dba, int level, EProperty property)
 			: base(dba, level, property)
 		{
 		}
@@ -43,7 +43,7 @@ namespace DOL.GS.SkillHandler
 		public override int RatioByLevel { get { return 3; } }
 		
 		public VampiirStrength(DbAbilities dba, int level)
-			: base(dba, level, eProperty.Strength)
+			: base(dba, level, EProperty.Strength)
 		{
 		}
 	}
@@ -59,7 +59,7 @@ namespace DOL.GS.SkillHandler
 		public override int RatioByLevel { get { return 3; } }
 
 		public VampiirDexterity(DbAbilities dba, int level)
-			: base(dba, level, eProperty.Dexterity)
+			: base(dba, level, EProperty.Dexterity)
 		{
 		}
 	}
@@ -75,7 +75,7 @@ namespace DOL.GS.SkillHandler
 		public override int RatioByLevel { get { return 3; } }
 
 		public VampiirConstitution(DbAbilities dba, int level)
-			: base(dba, level, eProperty.Constitution)
+			: base(dba, level, EProperty.Constitution)
 		{
 		}
 	}
@@ -91,7 +91,7 @@ namespace DOL.GS.SkillHandler
 		public override int RatioByLevel { get { return 2; } }
 
 		public VampiirQuickness(DbAbilities dba, int level)
-			: base(dba, level, eProperty.Quickness)
+			: base(dba, level, EProperty.Quickness)
 		{
 		}
 	}

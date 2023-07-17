@@ -13,10 +13,10 @@ namespace DOL.GS.PropertyCalc
 	/// BuffBonusCategory4 unused
 	/// BuffBonusMultCategory1 unused
 	/// </summary>
-	[PropertyCalculator(eProperty.ArcheryRange)]
+	[PropertyCalculator(EProperty.ArcheryRange)]
 	public class ArcheryRangePercentCalculator : PropertyCalculator
 	{
-		public override int CalcValue(GameLiving living, eProperty property)
+		public override int CalcValue(GameLiving living, EProperty property)
 		{
 			int debuff = living.DebuffCategory[(int)property];
 			if(debuff > 0)
@@ -30,10 +30,10 @@ namespace DOL.GS.PropertyCalc
 				+ Math.Min(10, living.ItemBonus[(int)property]));// http://www.camelotherald.com/more/1325.shtml
 
 			int ra = 0;
-			if (living.rangeAttackComponent.RangedAttackType == eRangedAttackType.Long)
+			if (living.rangeAttackComponent.RangedAttackType == ERangedAttackType.Long)
 			{
 				ra = 50;
-				TrueShotEcsEffect effect = (TrueShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(living, eEffect.TrueShot);
+				TrueShotEcsEffect effect = (TrueShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(living, EEffect.TrueShot);
 				if (effect != null)
 					EffectService.RequestImmediateCancelEffect(effect, false);
 			}

@@ -24,11 +24,11 @@ namespace DOL.GS.RealmAbilities
 			InventoryItem shield = living.Inventory.GetItem(eInventorySlot.LeftHandWeapon);
 			if (shield == null)
 				return;
-			if (shield.Object_Type != (int)eObjectType.Shield)
+			if (shield.Object_Type != (int)EObjectType.Shield)
 				return;
 			if (living.TargetObject == null)
 				return;
-			if (living.ActiveWeaponSlot == eActiveWeaponSlot.Distance)
+			if (living.ActiveWeaponSlot == EActiveWeaponSlot.Distance)
 				return;
 			if (living.ActiveWeapon.Hand == 1)
 				return;

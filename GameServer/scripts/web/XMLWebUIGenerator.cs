@@ -284,7 +284,7 @@ namespace DOL.GS.Scripts
 					pi.Guild = plr.GuildName;
 					pi.Level = plr.Level;
 					pi.Alive = plr.IsAlive ? "yes" : "no";
-					pi.Realm = ((eRealm) plr.Realm).ToString();
+					pi.Realm = ((ERealm) plr.Realm).ToString();
 					pi.Region = plr.CurrentRegion.Name;
 					pi.X = plr.X;
 					pi.Y = plr.Y;

@@ -13,7 +13,7 @@ namespace DOL.GS.Commands
 	[Command(
 		"&zonepoint",
 		new [] { "&zp" },
-		ePrivLevel.GM,
+		EPrivLevel.GM,
 		"GMCommands.Zonepoint.Description",
 		"GMCommands.Zonepoint.Usage", "GMCommands.Zonepoint.UsageClass")]
 	public class ZonePointCommand : AbstractCommandHandler, ICommandHandler

@@ -11,7 +11,7 @@ namespace DOL.GS.Commands
 {
     [Command(
     "&fsm",
-    ePrivLevel.GM,
+    EPrivLevel.GM,
     "Toggle server logging of mob FSM states.",
     "/fsm debug <on|off> to toggle performance diagnostics logging on server.")]
     public class FsmCommand : AbstractCommandHandler, ICommandHandler

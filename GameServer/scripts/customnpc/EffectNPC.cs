@@ -118,8 +118,8 @@ namespace DOL.GS {
                 case "effect":
                     switch (item.Object_Type)
                     {
-                        case (int)eObjectType.TwoHandedWeapon:
-                        case (int)eObjectType.LargeWeapons:
+                        case (int)EObjectType.TwoHandedWeapon:
+                        case (int)EObjectType.LargeWeapons:
                             SendReply(player,
                                 "Choose a weapon effect: \n" +
                                 "[gr sword - yellow flames] (" + effectPrice + " " + currencyName + ")\n" +
@@ -141,9 +141,9 @@ namespace DOL.GS {
                                 "[gr - hot green glow] (" + effectPrice + " " + currencyName + ")\n");
                             break;
 
-                        case (int)eObjectType.Blunt:
-                        case (int)eObjectType.CrushingWeapon:
-                        case (int)eObjectType.Hammer:
+                        case (int)EObjectType.Blunt:
+                        case (int)EObjectType.CrushingWeapon:
+                        case (int)EObjectType.Hammer:
                             SendReply(player,
                                          "Choose a weapon effect: \n" +
                                          "[hammer - red aura] (" + effectPrice + " " + currencyName + ")\n" +
@@ -170,12 +170,12 @@ namespace DOL.GS {
                                          "[crush - cold vapor] (" + effectPrice + " " + currencyName + ")\n");
                             break;
 
-                        case (int)eObjectType.SlashingWeapon:
-                        case (int)eObjectType.Sword:
-                        case (int)eObjectType.Blades:
-                        case (int)eObjectType.Piercing:
-                        case (int)eObjectType.ThrustWeapon:
-                        case (int)eObjectType.LeftAxe:
+                        case (int)EObjectType.SlashingWeapon:
+                        case (int)EObjectType.Sword:
+                        case (int)EObjectType.Blades:
+                        case (int)EObjectType.Piercing:
+                        case (int)EObjectType.ThrustWeapon:
+                        case (int)EObjectType.LeftAxe:
                             SendReply(player,
                                         "Choose a weapon effect: \n" +
                                         "[longsword - propane-style flame] (" + effectPrice + " " + currencyName + ")\n" +
@@ -207,7 +207,7 @@ namespace DOL.GS {
                                         "[shortsword - black glow] (" + effectPrice + " " + currencyName + ")\n");
                             break;
 
-                        case (int)eObjectType.Axe:
+                        case (int)EObjectType.Axe:
                             SendReply(player,
                                         "Choose a weapon effect: \n" +
                                         "[axe - basic flame] (" + effectPrice + " " + currencyName + ")\n" +
@@ -222,7 +222,7 @@ namespace DOL.GS {
                                         "[axe - hot purple glow] (" + effectPrice + " " + currencyName + ")\n" +
                                         "[axe - blue->purple->orange glow] (" + effectPrice + " " + currencyName + ")\n");
                             break;
-                        case (int) eObjectType.Shield:
+                        case (int) EObjectType.Shield:
                             SendReply(player,"[crush - arcing halo] (" + effectPrice + " " + currencyName + ")\n" +
                                              "[crush - center arcing] (" + effectPrice + " " + currencyName + ")\n" +
                                              "[crush - smaller arcing halo] (" + effectPrice + " " + currencyName + ")\n" +
@@ -236,9 +236,9 @@ namespace DOL.GS {
                                              "[crush - hot purple glow] (" + effectPrice + " " + currencyName + ")\n" +
                                              "[crush - cold vapor] (" + effectPrice + " " + currencyName + ")\n");
                             break;
-                        case (int)eObjectType.Spear:
-                        case (int)eObjectType.CelticSpear:
-                        case (int)eObjectType.PolearmWeapon:
+                        case (int)EObjectType.Spear:
+                        case (int)EObjectType.CelticSpear:
+                        case (int)EObjectType.PolearmWeapon:
                             SendReply(player,
                                 "Choose a weapon effect:  (" + effectPrice + " " + currencyName + ")\n" +
                                 "[battlespear - cold with twinkles] (" + effectPrice + " " + currencyName + ")\n" +
@@ -260,7 +260,7 @@ namespace DOL.GS {
                                 "[lugged spear - silvery glow] (" + effectPrice + " " + currencyName + ")\n");
                             break;
 
-                        case (int)eObjectType.Staff:
+                        case (int)EObjectType.Staff:
                             SendReply(player,
                                 "Choose a weapon effect:  (" + effectPrice + " " + currencyName + ")\n" +
                                 "[staff - blue glow] (" + effectPrice + " " + currencyName + ")\n" +
@@ -1175,15 +1175,15 @@ namespace DOL.GS {
             if (item.Hand == 1)
             {
                 tempAd.AttackType = AttackData.eAttackType.MeleeTwoHand;
-                display.SwitchWeapon(eActiveWeaponSlot.TwoHanded);
+                display.SwitchWeapon(EActiveWeaponSlot.TwoHanded);
             }
             else
             {
                 tempAd.AttackType = AttackData.eAttackType.MeleeOneHand;
-                display.SwitchWeapon(eActiveWeaponSlot.Standard);
+                display.SwitchWeapon(EActiveWeaponSlot.Standard);
             }
 
-            tempAd.AttackResult = eAttackResult.HitUnstyled;
+            tempAd.AttackResult = EAttackResult.HitUnstyled;
             display.AttackState = true;
             display.TargetObject = display;
             display.ObjectState = eObjectState.Active;

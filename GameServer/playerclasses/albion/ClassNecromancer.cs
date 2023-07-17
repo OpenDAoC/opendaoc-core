@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)eCharacterClass.Necromancer, "Necromancer", "Disciple")]
+	[CharacterClass((int)ECharacterClass.Necromancer, "Necromancer", "Disciple")]
 	public class ClassNecromancer : CharacterClassNecromancer
 	{
 		public ClassNecromancer()
@@ -11,10 +11,10 @@ namespace DOL.GS.PlayerClass
 		{
 			m_profession = "PlayerClass.Profession.TempleofArawn";
 			m_specializationMultiplier = 10;
-			m_primaryStat = eStat.INT;
-			m_secondaryStat = eStat.DEX;
-			m_tertiaryStat = eStat.QUI;
-			m_manaStat = eStat.INT;
+			m_primaryStat = EStat.INT;
+			m_secondaryStat = EStat.DEX;
+			m_tertiaryStat = EStat.QUI;
+			m_manaStat = EStat.INT;
 		}
 
 		public override bool HasAdvancedFromBaseClass()

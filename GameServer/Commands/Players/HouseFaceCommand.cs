@@ -6,7 +6,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 	  "&houseface",
-	  ePrivLevel.Player,
+	  EPrivLevel.Player,
 	  "Points to the specified guildhouse of the guild noted, or the lot number noted in the command. /houseface alone will point to one's personal home.")]
 	public class HouseFaceCommand : AbstractCommandHandler, ICommandHandler
 	{

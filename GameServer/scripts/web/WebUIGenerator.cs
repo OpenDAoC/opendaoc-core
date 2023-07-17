@@ -159,8 +159,8 @@ namespace DOL.GS.Scripts
 			int gm = 0;
 			int admin = 0;
 			foreach (GameClient client in WorldMgr.GetAllClients()) {
-				if (client.Account.PrivLevel == (int)ePrivLevel.GM) gm++;
-				if (client.Account.PrivLevel == (int)ePrivLevel.Admin) admin++;
+				if (client.Account.PrivLevel == (int)EPrivLevel.GM) gm++;
+				if (client.Account.PrivLevel == (int)EPrivLevel.Admin) admin++;
 			}
 
 			m_js.AppendFormat("var numClientsConnected = {0}", GameServer.Instance.ClientCount);
@@ -394,7 +394,7 @@ namespace DOL.GS.Scripts
 				//Realm
 				m_js.Append("document.write(\"<td bgcolor=\\\"#333333\\\">\")");
 				m_js.Append(nl.NewLine);
-				m_js.AppendFormat("document.write(\"{0}\")", ((eRealm) plr.Realm).ToString());
+				m_js.AppendFormat("document.write(\"{0}\")", ((ERealm) plr.Realm).ToString());
 				m_js.Append(nl.NewLine);
 				m_js.Append("document.write(\"</td>\")");
 				m_js.Append(nl.NewLine);

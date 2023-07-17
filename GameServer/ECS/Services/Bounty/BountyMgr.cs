@@ -334,7 +334,7 @@ public class BountyMgr
         return PlayerBounties;
     }
 
-    private static BountyPoster GetActiveBountyForPlayerForRealm(eRealm realm, GamePlayer player)
+    private static BountyPoster GetActiveBountyForPlayerForRealm(ERealm realm, GamePlayer player)
     {
         foreach (List<BountyPoster> bPL in ActiveBounties.Values)
         {

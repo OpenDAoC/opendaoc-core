@@ -13,7 +13,7 @@ namespace DOL.GS.SkillHandler
 	{
 		public void Execute(Ability ab, GamePlayer player)
 		{
-			if (player.ActiveWeaponSlot != eActiveWeaponSlot.Distance)
+			if (player.ActiveWeaponSlot != EActiveWeaponSlot.Distance)
 			{
                 player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Skill.Ability.CannotUse.CriticalShot.NoRangedWeapons"), eChatType.CT_Important, eChatLoc.CL_SystemWindow);
                 return;
@@ -25,20 +25,20 @@ namespace DOL.GS.SkillHandler
 			}
 
 			// cancel rapid fire effect
-			RapidFireEcsEffect rapidFire = (RapidFireEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.RapidFire);
+			RapidFireEcsEffect rapidFire = (RapidFireEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, EEffect.RapidFire);
 			if (rapidFire != null)
 				EffectService.RequestImmediateCancelEffect(rapidFire, false);
 
 			// cancel sure shot effect
-			SureShotEcsEffect sureShot = (SureShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.SureShot);
+			SureShotEcsEffect sureShot = (SureShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, EEffect.SureShot);
 			if (sureShot != null)
 				EffectService.RequestImmediateCancelEffect(sureShot);
 
-			TrueShotEcsEffect trueshot = (TrueShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.TrueShot);
+			TrueShotEcsEffect trueshot = (TrueShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, EEffect.TrueShot);
 			if (trueshot != null)
 				EffectService.RequestImmediateCancelEffect(trueshot, false);
 
-			ECSGameEffect volley = EffectListService.GetEffectOnTarget(player, eEffect.Volley);
+			ECSGameEffect volley = EffectListService.GetEffectOnTarget(player, EEffect.Volley);
 			if (volley != null)
             {
 				player.Out.SendMessage("You can't use Critical-Shot while Volley is active!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
@@ -47,10 +47,10 @@ namespace DOL.GS.SkillHandler
 
 			if (player.attackComponent.AttackState)
 			{
-				if (player.rangeAttackComponent.RangedAttackType == eRangedAttackType.Critical)
+				if (player.rangeAttackComponent.RangedAttackType == ERangedAttackType.Critical)
 				{
                     player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Skill.Ability.CriticalShot.SwitchToRegular"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
-					player.rangeAttackComponent.RangedAttackType = eRangedAttackType.Normal;
+					player.rangeAttackComponent.RangedAttackType = ERangedAttackType.Normal;
 				}
 				else
 				{
@@ -58,7 +58,7 @@ namespace DOL.GS.SkillHandler
 				}
 				return;
 			}
-			player.rangeAttackComponent.RangedAttackType = eRangedAttackType.Critical;
+			player.rangeAttackComponent.RangedAttackType = ERangedAttackType.Critical;
 			player.attackComponent.RequestStartAttack(player.TargetObject);
 		}
 	}

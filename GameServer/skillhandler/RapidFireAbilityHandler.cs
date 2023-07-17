@@ -14,7 +14,7 @@ namespace DOL.GS.SkillHandler
 		public void Execute(Ability ab, GamePlayer player)
 		{
 
-			RapidFireEcsEffect rapidFire = (RapidFireEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.RapidFire);
+			RapidFireEcsEffect rapidFire = (RapidFireEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, EEffect.RapidFire);
 			if (rapidFire!=null)
 			{
 				EffectService.RequestImmediateCancelEffect(rapidFire, false);
@@ -27,15 +27,15 @@ namespace DOL.GS.SkillHandler
                 return;
 			}
 
-			SureShotEcsEffect sureShot = (SureShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.SureShot);
+			SureShotEcsEffect sureShot = (SureShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, EEffect.SureShot);
 			if (sureShot != null)
 				EffectService.RequestImmediateCancelEffect(sureShot);
 
-			TrueShotEcsEffect trueshot = (TrueShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.TrueShot);
+			TrueShotEcsEffect trueshot = (TrueShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, EEffect.TrueShot);
 			if (trueshot != null)
 				EffectService.RequestImmediateCancelEffect(trueshot, false);
 
-			ECSGameEffect volley = EffectListService.GetEffectOnTarget(player, eEffect.Volley);
+			ECSGameEffect volley = EffectListService.GetEffectOnTarget(player, EEffect.Volley);
 			if (volley != null)
 			{
 				player.Out.SendMessage("You can't use "+ab.Name+" while Volley is active!", eChatType.CT_System, eChatLoc.CL_SystemWindow);

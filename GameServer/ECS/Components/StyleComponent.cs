@@ -109,7 +109,7 @@ namespace DOL.GS
         {
             InventoryItem weapon;
             if (NextCombatStyle == null) return null;
-            if (NextCombatStyle.WeaponTypeRequirement == (int)eObjectType.Shield)
+            if (NextCombatStyle.WeaponTypeRequirement == (int)EObjectType.Shield)
                 weapon = owner.Inventory.GetItem(eInventorySlot.LeftHandWeapon);
             else weapon = owner.ActiveWeapon;
 

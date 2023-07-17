@@ -8,7 +8,7 @@ namespace DOL.GS.Effects
         public AtlasOF_HailOfBlowsECSEffect(ECSGameEffectInitParams initParams)
             : base(initParams)
         {
-            EffectType = eEffect.MeleeHasteBuff;
+            EffectType = EEffect.MeleeHasteBuff;
         }
         
         public override ushort Icon { get { return 4240; } }

@@ -5,7 +5,7 @@
         public PiercingMagicEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams)
         {
-            EffectType = eEffect.PiercingMagic;
+            EffectType = EEffect.PiercingMagic;
         }
 
         public override void OnStartEffect()

@@ -7,7 +7,7 @@ namespace DOL.GS.SkillHandler
 	public class ScarsOfBattle : StatChangingAbility
 	{
 		public ScarsOfBattle(DbAbilities dba, int level)
-			: base(dba, 1, eProperty.MaxHealth)
+			: base(dba, 1, EProperty.MaxHealth)
 		{
 		}
 		public override int GetAmountForLevel(int level)

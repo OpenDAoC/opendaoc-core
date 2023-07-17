@@ -278,7 +278,7 @@ namespace DOL.GS
 		/// <summary>
 		/// Gets or sets the Realm of this NPC
 		/// </summary>
-		public override eRealm Realm
+		public override ERealm Realm
 		{
 			get
 			{
@@ -479,7 +479,7 @@ namespace DOL.GS
 		/// </summary>
 		/// <param name="stat">The stat to change</param>
 		/// <param name="val">The new value</param>
-		public override void ChangeBaseStat(eStat stat, short val)
+		public override void ChangeBaseStat(EStat stat, short val)
 		{
 			int oldstat = GetBaseStat(stat);
 			base.ChangeBaseStat(stat, val);
@@ -489,14 +489,14 @@ namespace DOL.GS
 			{
 				switch (stat)
 				{
-					case eStat.STR: npc.Strength = (short)newstat; break;
-					case eStat.DEX: npc.Dexterity = (short)newstat; break;
-					case eStat.CON: npc.Constitution = (short)newstat; break;
-					case eStat.QUI: npc.Quickness = (short)newstat; break;
-					case eStat.INT: npc.Intelligence = (short)newstat; break;
-					case eStat.PIE: npc.Piety = (short)newstat; break;
-					case eStat.EMP: npc.Empathy = (short)newstat; break;
-					case eStat.CHR: npc.Charisma = (short)newstat; break;
+					case EStat.STR: npc.Strength = (short)newstat; break;
+					case EStat.DEX: npc.Dexterity = (short)newstat; break;
+					case EStat.CON: npc.Constitution = (short)newstat; break;
+					case EStat.QUI: npc.Quickness = (short)newstat; break;
+					case EStat.INT: npc.Intelligence = (short)newstat; break;
+					case EStat.PIE: npc.Piety = (short)newstat; break;
+					case EStat.EMP: npc.Empathy = (short)newstat; break;
+					case EStat.CHR: npc.Charisma = (short)newstat; break;
 				}
 			}
 		}
@@ -508,9 +508,9 @@ namespace DOL.GS
 		{
 			get
 			{
-				return m_charStat[eStat.CON - eStat._First];
+				return m_charStat[EStat.CON - EStat._First];
 			}
-			set { m_charStat[eStat.CON - eStat._First] = value; }
+			set { m_charStat[EStat.CON - EStat._First] = value; }
 		}
 
 		/// <summary>
@@ -518,8 +518,8 @@ namespace DOL.GS
 		/// </summary>
 		public virtual short Dexterity
 		{
-			get { return m_charStat[eStat.DEX - eStat._First]; }
-			set { m_charStat[eStat.DEX - eStat._First] = value; }
+			get { return m_charStat[EStat.DEX - EStat._First]; }
+			set { m_charStat[EStat.DEX - EStat._First] = value; }
 		}
 
 		/// <summary>
@@ -527,8 +527,8 @@ namespace DOL.GS
 		/// </summary>
 		public virtual short Strength
 		{
-			get { return m_charStat[eStat.STR - eStat._First]; }
-			set { m_charStat[eStat.STR - eStat._First] = value; }
+			get { return m_charStat[EStat.STR - EStat._First]; }
+			set { m_charStat[EStat.STR - EStat._First] = value; }
 		}
 
 		/// <summary>
@@ -536,8 +536,8 @@ namespace DOL.GS
 		/// </summary>
 		public virtual short Quickness
 		{
-			get { return m_charStat[eStat.QUI - eStat._First]; }
-			set { m_charStat[eStat.QUI - eStat._First] = value; }
+			get { return m_charStat[EStat.QUI - EStat._First]; }
+			set { m_charStat[EStat.QUI - EStat._First] = value; }
 		}
 
 		/// <summary>
@@ -545,8 +545,8 @@ namespace DOL.GS
 		/// </summary>
 		public virtual short Intelligence
 		{
-			get { return m_charStat[eStat.INT - eStat._First]; }
-			set { m_charStat[eStat.INT - eStat._First] = value; }
+			get { return m_charStat[EStat.INT - EStat._First]; }
+			set { m_charStat[EStat.INT - EStat._First] = value; }
 		}
 
 		/// <summary>
@@ -554,8 +554,8 @@ namespace DOL.GS
 		/// </summary>
 		public virtual short Piety
 		{
-			get { return m_charStat[eStat.PIE - eStat._First]; }
-			set { m_charStat[eStat.PIE - eStat._First] = value; }
+			get { return m_charStat[EStat.PIE - EStat._First]; }
+			set { m_charStat[EStat.PIE - EStat._First] = value; }
 		}
 
 		/// <summary>
@@ -563,8 +563,8 @@ namespace DOL.GS
 		/// </summary>
 		public virtual short Empathy
 		{
-			get { return m_charStat[eStat.EMP - eStat._First]; }
-			set { m_charStat[eStat.EMP - eStat._First] = value; }
+			get { return m_charStat[EStat.EMP - EStat._First]; }
+			set { m_charStat[EStat.EMP - EStat._First] = value; }
 		}
 
 		/// <summary>
@@ -572,8 +572,8 @@ namespace DOL.GS
 		/// </summary>
 		public virtual short Charisma
 		{
-			get { return m_charStat[eStat.CHR - eStat._First]; }
-			set { m_charStat[eStat.CHR - eStat._First] = value; }
+			get { return m_charStat[EStat.CHR - EStat._First]; }
+			set { m_charStat[EStat.CHR - EStat._First] = value; }
 		}
 		#endregion
 
@@ -1031,7 +1031,7 @@ namespace DOL.GS
 				{
 					//if the distance slot isnt empty we use that
 					if (Inventory.GetItem(eInventorySlot.DistanceWeapon) != null)
-						SwitchWeapon(eActiveWeaponSlot.Distance);
+						SwitchWeapon(EActiveWeaponSlot.Distance);
 					else
 					{
 						InventoryItem twohand = Inventory.GetItem(eInventorySlot.TwoHandWeapon);
@@ -1039,13 +1039,13 @@ namespace DOL.GS
 
 						if (twohand != null && onehand != null)
 							//Let's add some random chance
-							SwitchWeapon(Util.Chance(50) ? eActiveWeaponSlot.TwoHanded : eActiveWeaponSlot.Standard);
+							SwitchWeapon(Util.Chance(50) ? EActiveWeaponSlot.TwoHanded : EActiveWeaponSlot.Standard);
 						else if (twohand != null)
 							//Hmm our right hand weapon may have been null
-							SwitchWeapon(eActiveWeaponSlot.TwoHanded);
+							SwitchWeapon(EActiveWeaponSlot.TwoHanded);
 						else if (onehand != null)
 							//Hmm twohand was null lets default down here
-							SwitchWeapon(eActiveWeaponSlot.Standard);
+							SwitchWeapon(EActiveWeaponSlot.Standard);
 					}
 				}
 			}
@@ -1085,7 +1085,7 @@ namespace DOL.GS
 			_heading = (ushort) (dbMob.Heading & 0xFFF);
 			MaxSpeedBase = (short) dbMob.Speed;
 			CurrentRegionID = dbMob.Region;
-			Realm = (eRealm)dbMob.Realm;
+			Realm = (ERealm)dbMob.Realm;
 			Model = dbMob.Model;
 			Size = dbMob.Size;
 			Flags = (eFlags)dbMob.Flags;
@@ -1094,13 +1094,13 @@ namespace DOL.GS
 			m_databaseLevel = dbMob.Level;
 			AutoSetStats(dbMob);
 			Level = dbMob.Level;
-			MeleeDamageType = (eDamageType)dbMob.MeleeDamageType;
+			MeleeDamageType = (EDamageType)dbMob.MeleeDamageType;
 
 			if (MeleeDamageType == 0)
-				MeleeDamageType = eDamageType.Slash;
+				MeleeDamageType = EDamageType.Slash;
 
-			m_activeWeaponSlot = eActiveWeaponSlot.Standard;
-			rangeAttackComponent.ActiveQuiverSlot = eActiveQuiverSlot.None;
+			m_activeWeaponSlot = EActiveWeaponSlot.Standard;
+			rangeAttackComponent.ActiveQuiverSlot = EActiveQuiverSlot.None;
 			m_faction = FactionMgr.GetFactionByID(dbMob.FactionID);
 
 			LoadEquipmentTemplateFromDatabase(dbMob.EquipmentTemplateID);
@@ -1140,7 +1140,7 @@ namespace DOL.GS
 
 				if (aggroBrain.AggroRange == Constants.USE_AUTOVALUES)
 				{
-					if (Realm == eRealm.None)
+					if (Realm == ERealm.None)
 					{
 						aggroBrain.AggroRange = 400;
 
@@ -1164,7 +1164,7 @@ namespace DOL.GS
 					if (Name != Name.ToLower())
 						aggroBrain.AggroLevel = 30;
 
-					if (Realm != eRealm.None)
+					if (Realm != ERealm.None)
 						aggroBrain.AggroLevel = 60;
 				}
 			}
@@ -1176,7 +1176,7 @@ namespace DOL.GS
 			RoamingRange = dbMob.RoamingRange;
 			m_isCloakHoodUp = dbMob.IsCloakHoodUp;
 			m_visibleActiveWeaponSlots = dbMob.VisibleWeaponSlots;
-			Gender = (eGender)dbMob.Gender;
+			Gender = (EGender)dbMob.Gender;
 			OwnerID = dbMob.OwnerID;
 
 			LoadTemplate(NPCTemplate);
@@ -1373,9 +1373,9 @@ namespace DOL.GS
 			switch (choosenGender)
 			{
 				default:
-				case 0: this.Gender = eGender.Neutral; break;
-				case 1: this.Gender = eGender.Male; break;
-				case 2: this.Gender = eGender.Female; break;
+				case 0: this.Gender = EGender.Neutral; break;
+				case 1: this.Gender = EGender.Male; break;
+				case 2: this.Gender = EGender.Female; break;
 			}
 
 			byte choosenSize = 50;
@@ -1471,7 +1471,7 @@ namespace DOL.GS
 				{
 					this.Inventory = new GameNPCInventory(equip);
 					if (this.Inventory.GetItem(eInventorySlot.DistanceWeapon) != null)
-						this.SwitchWeapon(eActiveWeaponSlot.Distance);
+						this.SwitchWeapon(EActiveWeaponSlot.Distance);
 					else
 					{
 						InventoryItem twohand = Inventory.GetItem(eInventorySlot.TwoHandWeapon);
@@ -1479,13 +1479,13 @@ namespace DOL.GS
 
 						if (twohand != null && onehand != null)
 							//Let's add some random chance
-							SwitchWeapon(Util.Chance(50) ? eActiveWeaponSlot.TwoHanded : eActiveWeaponSlot.Standard);
+							SwitchWeapon(Util.Chance(50) ? EActiveWeaponSlot.TwoHanded : EActiveWeaponSlot.Standard);
 						else if (twohand != null)
 							//Hmm our right hand weapon may have been null
-							SwitchWeapon(eActiveWeaponSlot.TwoHanded);
+							SwitchWeapon(EActiveWeaponSlot.TwoHanded);
 						else if (onehand != null)
 							//Hmm twohand was null lets default down here
-							SwitchWeapon(eActiveWeaponSlot.Standard);
+							SwitchWeapon(EActiveWeaponSlot.Standard);
 
 					}
 				}
@@ -1495,14 +1495,14 @@ namespace DOL.GS
 			}
 			#endregion
 
-			BuffBonusCategory4[(int)eStat.STR] += template.Strength;
-			BuffBonusCategory4[(int)eStat.DEX] += template.Dexterity;
-			BuffBonusCategory4[(int)eStat.CON] += template.Constitution;
-			BuffBonusCategory4[(int)eStat.QUI] += template.Quickness;
-			BuffBonusCategory4[(int)eStat.INT] += template.Intelligence;
-			BuffBonusCategory4[(int)eStat.PIE] += template.Piety;
-			BuffBonusCategory4[(int)eStat.EMP] += template.Empathy;
-			BuffBonusCategory4[(int)eStat.CHR] += template.Charisma;
+			BuffBonusCategory4[(int)EStat.STR] += template.Strength;
+			BuffBonusCategory4[(int)EStat.DEX] += template.Dexterity;
+			BuffBonusCategory4[(int)EStat.CON] += template.Constitution;
+			BuffBonusCategory4[(int)EStat.QUI] += template.Quickness;
+			BuffBonusCategory4[(int)EStat.INT] += template.Intelligence;
+			BuffBonusCategory4[(int)EStat.PIE] += template.Piety;
+			BuffBonusCategory4[(int)EStat.EMP] += template.Empathy;
+			BuffBonusCategory4[(int)EStat.CHR] += template.Charisma;
 
 			m_ownBrain = new StandardMobBrain
 			{
@@ -1523,7 +1523,7 @@ namespace DOL.GS
 		/// Switches the active weapon to another one
 		/// </summary>
 		/// <param name="slot">the new eActiveWeaponSlot</param>
-		public override void SwitchWeapon(eActiveWeaponSlot slot)
+		public override void SwitchWeapon(EActiveWeaponSlot slot)
 		{
 			base.SwitchWeapon(slot);
 			if (ObjectState == eObjectState.Active)
@@ -1630,11 +1630,11 @@ namespace DOL.GS
 		/// <param name="questType">Type of quest</param>
 		/// <param name="player">player requesting the quest</param>
 		/// <returns></returns>
-		public eQuestIndicator SetQuestIndicator(Type questType, GamePlayer player)
+		public EQuestIndicator SetQuestIndicator(Type questType, GamePlayer player)
 		{
-			if (CanShowOneQuest(player)) return eQuestIndicator.Available;
-			if (player.HasFinishedQuest(questType) > 0) return eQuestIndicator.Finish;
-			return eQuestIndicator.None;
+			if (CanShowOneQuest(player)) return EQuestIndicator.Available;
+			if (player.HasFinishedQuest(questType) > 0) return EQuestIndicator.Finish;
+			return EQuestIndicator.None;
 		}
 
 		protected GameNPC m_teleporterIndicator = null;
@@ -1653,17 +1653,17 @@ namespace DOL.GS
 		/// </summary>
 		/// <param name="player"></param>
 		/// <returns>True if the NPC should show quest indicator, false otherwise</returns>
-		public virtual eQuestIndicator GetQuestIndicator(GamePlayer player)
+		public virtual EQuestIndicator GetQuestIndicator(GamePlayer player)
 		{
 			// Available one ?
 			if (CanShowOneQuest(player))
-				return eQuestIndicator.Available;
+				return EQuestIndicator.Available;
 
 			// Finishing one ?
 			if (CanFinishOneQuest(player))
-				return eQuestIndicator.Finish;
+				return EQuestIndicator.Finish;
 
-			return eQuestIndicator.None;
+			return EQuestIndicator.None;
 		}
 
 		/// <summary>
@@ -2422,7 +2422,7 @@ namespace DOL.GS
 		{
 			switch (Gender)
 			{
-				case eGender.Male:
+				case EGender.Male:
 					switch (form)
 					{
 						case 1:
@@ -2433,7 +2433,7 @@ namespace DOL.GS
 							return Capitalize(capitalize, LanguageMgr.GetTranslation(lang, "GameLiving.Pronoun.Male.Subjective"));
 					}
 
-				case eGender.Female:
+				case EGender.Female:
 					switch (form)
 					{
 						case 1:
@@ -2468,7 +2468,7 @@ namespace DOL.GS
 
 			switch (Gender)
 			{
-				case eGender.Male:
+				case EGender.Male:
 					switch (form)
 					{
 						case 1:
@@ -2482,7 +2482,7 @@ namespace DOL.GS
 																					 "GameLiving.Pronoun.Male.Subjective"));
 					}
 
-				case eGender.Female:
+				case EGender.Female:
 					switch (form)
 					{
 						case 1:
@@ -2810,9 +2810,9 @@ namespace DOL.GS
 			
 			int weaponskill = (Level + 1) 
 				* (ScalingFactor / 4) // Mob damage table calc, basically.
-				* (200 + GetModified(eProperty.MeleeDamage)) / 500 // Melee damage buffs.
+				* (200 + GetModified(EProperty.MeleeDamage)) / 500 // Melee damage buffs.
 				* ((100 + Strength) / 100) // NPCs only use STR to calculate, can skip str or str/dex check.
-				* ((100 + GetModified(eProperty.WeaponSkill)) / 100); // WeaponSkill buffs.
+				* ((100 + GetModified(EProperty.WeaponSkill)) / 100); // WeaponSkill buffs.
   
 			return weaponskill;
 		}
@@ -3022,12 +3022,12 @@ namespace DOL.GS
 		/// <summary>
 		/// Stores the melee damage type of this NPC
 		/// </summary>
-		protected eDamageType m_meleeDamageType = eDamageType.Slash;
+		protected EDamageType m_meleeDamageType = EDamageType.Slash;
 
 		/// <summary>
 		/// Gets or sets the melee damage type of this NPC
 		/// </summary>
-		public virtual eDamageType MeleeDamageType
+		public virtual EDamageType MeleeDamageType
 		{
 			get { return m_meleeDamageType; }
 			set { m_meleeDamageType = value; }
@@ -3067,7 +3067,7 @@ namespace DOL.GS
 			get
 			{
 				//When npcs have two handed weapons, we don't want them to block
-				if (ActiveWeaponSlot != eActiveWeaponSlot.Standard)
+				if (ActiveWeaponSlot != EActiveWeaponSlot.Standard)
 					return 0;
 
 				return m_blockChance;
@@ -3130,15 +3130,15 @@ namespace DOL.GS
 			InventoryItem righthand = Inventory.GetItem(eInventorySlot.RightHandWeapon);
 
 			if (twohand != null && righthand == null)
-				SwitchWeapon(eActiveWeaponSlot.TwoHanded);
+				SwitchWeapon(EActiveWeaponSlot.TwoHanded);
 			else if (twohand != null && righthand != null)
 			{
 				if (Util.Chance(50))
-					SwitchWeapon(eActiveWeaponSlot.TwoHanded);
-				else SwitchWeapon(eActiveWeaponSlot.Standard);
+					SwitchWeapon(EActiveWeaponSlot.TwoHanded);
+				else SwitchWeapon(EActiveWeaponSlot.Standard);
 			}
 			else
-				SwitchWeapon(eActiveWeaponSlot.Standard);
+				SwitchWeapon(EActiveWeaponSlot.Standard);
 
 			attackComponent.RequestStartAttack(target);
 		}
@@ -3151,7 +3151,7 @@ namespace DOL.GS
 		{
 			StopFollowing();
 			attackComponent.StopAttack();
-			SwitchWeapon(eActiveWeaponSlot.Distance);
+			SwitchWeapon(EActiveWeaponSlot.Distance);
 			attackComponent.RequestStartAttack(target);
 		}
 
@@ -3379,15 +3379,15 @@ namespace DOL.GS
 		/// </summary>
 		public int AttackCriticalChance(InventoryItem weapon)
 		{
-			if (m_activeWeaponSlot == eActiveWeaponSlot.Distance)
+			if (m_activeWeaponSlot == EActiveWeaponSlot.Distance)
 			{
-				if (rangeAttackComponent.RangedAttackType == eRangedAttackType.Critical)
+				if (rangeAttackComponent.RangedAttackType == ERangedAttackType.Critical)
 					return 0; // no crit damage for crit shots
 				else
-					return GetModified(eProperty.CriticalArcheryHitChance);
+					return GetModified(EProperty.CriticalArcheryHitChance);
 			}
 
-			return GetModified(eProperty.CriticalMeleeHitChance);
+			return GetModified(EProperty.CriticalMeleeHitChance);
 		}
 
 		public override void OnAttackedByEnemy(AttackData ad)
@@ -3456,9 +3456,9 @@ namespace DOL.GS
 						}
 					}
 
-					if (Keeps.KeepBonusMgr.RealmHasBonus(DOL.GS.Keeps.eKeepBonusType.Coin_Drop_5, (eRealm)killer.Realm))
+					if (Keeps.KeepBonusMgr.RealmHasBonus(DOL.GS.Keeps.eKeepBonusType.Coin_Drop_5, (ERealm)killer.Realm))
 						value += (value / 100) * 5;
-					else if (Keeps.KeepBonusMgr.RealmHasBonus(DOL.GS.Keeps.eKeepBonusType.Coin_Drop_3, (eRealm)killer.Realm))
+					else if (Keeps.KeepBonusMgr.RealmHasBonus(DOL.GS.Keeps.eKeepBonusType.Coin_Drop_3, (ERealm)killer.Realm))
 						value += (value / 100) * 3;
 
 					//this will need to be changed when the ML for increasing money is added
@@ -3473,9 +3473,9 @@ namespace DOL.GS
 					if (killer is GamePlayer)
 					{
 						GamePlayer killerPlayer = killer as GamePlayer;
-						if (killerPlayer.GetModified(eProperty.MythicalCoin) > 0)
+						if (killerPlayer.GetModified(EProperty.MythicalCoin) > 0)
 						{
-							value += (value * killerPlayer.GetModified(eProperty.MythicalCoin)) / 100;
+							value += (value * killerPlayer.GetModified(EProperty.MythicalCoin)) / 100;
 							killerPlayer.Out.SendMessage(LanguageMgr.GetTranslation(killerPlayer.Client,
 																					"GameNPC.DropLoot.ItemAdditionalMoney", Money.GetString(value - lootTemplate.Price)), eChatType.CT_Loot, eChatLoc.CL_SystemWindow);
 						}
@@ -3600,11 +3600,11 @@ namespace DOL.GS
 		/// <param name="healSource"></param>
 		/// <param name="changeType"></param>
 		/// <param name="healAmount"></param>
-		public override void EnemyHealed(GameLiving enemy, GameObject healSource, eHealthChangeType changeType, int healAmount)
+		public override void EnemyHealed(GameLiving enemy, GameObject healSource, EHealthChangeType changeType, int healAmount)
 		{
 			base.EnemyHealed(enemy, healSource, changeType, healAmount);
 
-			if (changeType != eHealthChangeType.Spell)
+			if (changeType != EHealthChangeType.Spell)
 				return;
 			if (enemy == healSource)
 				return;
@@ -4156,7 +4156,7 @@ namespace DOL.GS
 			{
 				foreach ((Spell, int, int) t in style.Procs)
 				{
-					if (t.Item1.SpellType == eSpellType.StyleStun && living.HasEffect(t.Item1))
+					if (t.Item1.SpellType == ESpellType.StyleStun && living.HasEffect(t.Item1))
 						return false;
 				}
 			}
@@ -4488,7 +4488,7 @@ namespace DOL.GS
 			}
 		}
 
-		public override eGender Gender { get; set; }
+		public override EGender Gender { get; set; }
 
 		public new NpcMovementComponent movementComponent;
 

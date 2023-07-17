@@ -7,7 +7,7 @@ namespace DOL.GS
         public ShadeEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams)
         {
-            EffectType = eEffect.Shade;
+            EffectType = EEffect.Shade;
             EffectService.RequestStartEffect(this);
         }
 

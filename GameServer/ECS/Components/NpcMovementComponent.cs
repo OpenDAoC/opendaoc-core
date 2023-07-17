@@ -107,7 +107,7 @@ namespace DOL.GS
                     TurnTo(targetPosition.X, targetPosition.Y);
 
                 // Cancel the ranged attack if the NPC is moving.
-                if (Owner.ActiveWeaponSlot == eActiveWeaponSlot.Distance)
+                if (Owner.ActiveWeaponSlot == EActiveWeaponSlot.Distance)
                 {
                     Owner.StopAttack();
                     Owner.attackComponent.attackAction?.CleanUp();
@@ -379,7 +379,7 @@ namespace DOL.GS
                         {
                             Owner.LastAttackedByEnemyTickPvE = 0;
                             Owner.LastAttackedByEnemyTickPvP = 0;
-                            brain.FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+                            brain.FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
                             return 0;
                         }
                     }

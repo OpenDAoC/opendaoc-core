@@ -59,10 +59,10 @@ namespace DOL.GS
 			if (player.InCombat)
 				return false;
 
-			if (GameServer.ServerRules.IsSameRealm(this, player, true) == false && player.Client.Account.PrivLevel == (int)ePrivLevel.Player)
+			if (GameServer.ServerRules.IsSameRealm(this, player, true) == false && player.Client.Account.PrivLevel == (int)EPrivLevel.Player)
 				return false;
 
-			if ((GuildName == null || GuildName.Length == 0) && player.Client.Account.PrivLevel > (int)ePrivLevel.Player)
+			if ((GuildName == null || GuildName.Length == 0) && player.Client.Account.PrivLevel > (int)EPrivLevel.Player)
 			{
 				SayTo(player, "I have not been set up properly, I need a guild name in order to work.");
 				SayTo(player, "You can set what I say to players by setting the packageid with /mob package \"Some Text\"");
@@ -87,7 +87,7 @@ namespace DOL.GS
 				numDestinations++;
 			}
 
-			if (numDestinations == 0 && player.Client.Account.PrivLevel > (int)ePrivLevel.Player)
+			if (numDestinations == 0 && player.Client.Account.PrivLevel > (int)EPrivLevel.Player)
 			{
 				SayTo(player, "I have not been set up properly, I need teleport locations.  Do /teleport add \"Destination Name\" \"" + GuildName + "\"");
 			}
@@ -122,7 +122,7 @@ namespace DOL.GS
 				return false;
 			}
 
-			if (GameServer.ServerRules.IsSameRealm(this, player, true) == false && player.Client.Account.PrivLevel == (int)ePrivLevel.Player)
+			if (GameServer.ServerRules.IsSameRealm(this, player, true) == false && player.Client.Account.PrivLevel == (int)EPrivLevel.Player)
 				return false;
 
 			DbTeleports destination = null;

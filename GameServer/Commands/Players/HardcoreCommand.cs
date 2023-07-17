@@ -71,7 +71,7 @@ namespace DOL.GS.Commands
 {
     [Command(
         "&hardcore",
-        ePrivLevel.Player,
+        EPrivLevel.Player,
         "Flags a player as Hardcore. Dying after activating Hardcore will result in the character deletion.",
         "/hardcore on")]
     public class HardcoreCommand : AbstractCommandHandler, ICommandHandler
@@ -141,7 +141,7 @@ namespace DOL.GS.Commands
     
     [Command(
         "&hcladder",
-        ePrivLevel.Player,
+        EPrivLevel.Player,
         "Displays the Hardcore Ladder.",
         "/hcladder")]
     public class HardcoreLadderCommandHandler : AbstractCommandHandler, ICommandHandler
@@ -198,7 +198,7 @@ namespace DOL.GS.Commands
                 if (c == null)
                     continue;
 
-                string className = ((eCharacterClass)c.Class).ToString();
+                string className = ((ECharacterClass)c.Class).ToString();
                 bool isSolo = false;
                 
                 const string customKey = "grouped_char";

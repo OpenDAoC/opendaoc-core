@@ -7,7 +7,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		"&repair",
-		ePrivLevel.Player,
+		EPrivLevel.Player,
 		"You can repair an item when you are a crafter",
 		"/repair")]
 	public class RepairCommand : AbstractCommandHandler, ICommandHandler
@@ -61,7 +61,7 @@ namespace DOL.GS.Commands
 			if (player.Realm != obj.Realm)
 				return false;
 
-			if (player.Client.Account.PrivLevel > (int)ePrivLevel.Player)
+			if (player.Client.Account.PrivLevel > (int)EPrivLevel.Player)
 				return true;
 
 			// if ((obj as GameLiving).InCombat)
@@ -249,7 +249,7 @@ namespace DOL.GS.Commands
 
 		private static double CalculateRepairChance(GamePlayer player, GameObject obj)
 		{
-			if (player.Client.Account.PrivLevel > (int)ePrivLevel.Player)
+			if (player.Client.Account.PrivLevel > (int)EPrivLevel.Player)
 				return 100;
 
 			double skill = player.GetCraftingSkillValue(eCraftingSkill.WoodWorking);

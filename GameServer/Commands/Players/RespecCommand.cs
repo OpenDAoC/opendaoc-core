@@ -25,7 +25,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		"&respec",
-		ePrivLevel.Player,
+		EPrivLevel.Player,
 		"Respecs the char",
 		"/respec")]
 	public class RespecCommand : AbstractCommandHandler, ICommandHandler

@@ -25,7 +25,7 @@ namespace DOL.GS.Behaviour.Actions
         public override void Perform(DOLEvent e, object sender, EventArgs args)
         {
             GamePlayer player = BehaviorUtils.GuessGamePlayerFromNotify(e, sender, args);
-            player.GainExperience(eXPSource.NPC, P);
+            player.GainExperience(EXpSource.NPC, P);
         }
     }
 }

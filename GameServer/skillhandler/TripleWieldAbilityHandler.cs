@@ -59,7 +59,7 @@ namespace DOL.GS.SkillHandler
                 player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Skill.Ability.CannotUseStanding"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
                 return;
             }
-			TripleWieldEcsEffect tw = (TripleWieldEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.TripleWield);
+			TripleWieldEcsEffect tw = (TripleWieldEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, EEffect.TripleWield);
 			if (tw != null)
 			{
                 player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Skill.Ability.CannotUseAlreadyActive"), eChatType.CT_System, eChatLoc.CL_SystemWindow);

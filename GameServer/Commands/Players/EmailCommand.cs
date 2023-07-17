@@ -10,7 +10,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		"&email",
-		ePrivLevel.Player,
+		EPrivLevel.Player,
 		"Set e-mail address for current account",
 		"/email <address>")]
 	public class EmailCommand : AbstractCommandHandler, ICommandHandler

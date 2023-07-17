@@ -61,7 +61,7 @@ namespace DOL.GS.RealmAbilities
 				gp.Out.SendMessage("You are protected by a pool of healing!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
 				m_affected.Add(gp);
 				GameEventMgr.AddHandler(gp, GamePlayerEvent.TakeDamage, new DOLEventHandler(TakeDamage));
-                if (gp.CharacterClass.ID == (int)eCharacterClass.Necromancer)
+                if (gp.CharacterClass.ID == (int)ECharacterClass.Necromancer)
                 {
                     if (gp.ControlledBrain != null)
                     {
@@ -82,7 +82,7 @@ namespace DOL.GS.RealmAbilities
             if (pjargs.Member is GamePlayer)
             {
                 ((GamePlayer)pjargs.Member).Out.SendMessage("You are protected by a pool of healing!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
-                if (((GamePlayer)pjargs.Member).CharacterClass.ID == (int)eCharacterClass.Necromancer)
+                if (((GamePlayer)pjargs.Member).CharacterClass.ID == (int)ECharacterClass.Necromancer)
                 {
                     if (((GamePlayer)pjargs.Member).ControlledBrain != null)
                     {
@@ -102,7 +102,7 @@ namespace DOL.GS.RealmAbilities
             if (pdargs.Member is GamePlayer)
             {
                 ((GamePlayer)pdargs.Member).Out.SendMessage("You are no longer protected by a pool of healing!", eChatType.CT_SpellExpires, eChatLoc.CL_SystemWindow);
-                if (((GamePlayer)pdargs.Member).CharacterClass.ID == (int)eCharacterClass.Necromancer)
+                if (((GamePlayer)pdargs.Member).CharacterClass.ID == (int)ECharacterClass.Necromancer)
                 {
                     if (((GamePlayer)pdargs.Member).ControlledBrain != null)
                     {
@@ -156,7 +156,7 @@ namespace DOL.GS.RealmAbilities
 
             m_playerOwner.Out.SendMessage("Your pool of healing heals the " + npc.Name + " of " + petOwner.Name + " for " + healamount + "!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
 
-            npc.ChangeHealth(m_owner, eHealthChangeType.Spell, healamount);
+            npc.ChangeHealth(m_owner, EHealthChangeType.Spell, healamount);
             PoolValue -= dmgamount;
 
             if (PoolValue <= 0)
@@ -171,7 +171,7 @@ namespace DOL.GS.RealmAbilities
 			if (!player.IsWithinRadius(m_owner, 2300))
 				return;
 
-			if (targs.DamageType == eDamageType.Falling) return;
+			if (targs.DamageType == EDamageType.Falling) return;
 
 			if (!player.IsAlive) return;
 
@@ -203,7 +203,7 @@ namespace DOL.GS.RealmAbilities
 			}
 			player.Out.SendMessage("You are healed by the pool of healing for " + healamount + "!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
             m_playerOwner.Out.SendMessage("Your pool of healing heals " + player.Name + " for " + healamount + "!", eChatType.CT_Spell, eChatLoc.CL_SystemWindow);
-			player.ChangeHealth(m_owner, eHealthChangeType.Spell, healamount);
+			player.ChangeHealth(m_owner, EHealthChangeType.Spell, healamount);
 			PoolValue -= dmgamount;
 
 			if (PoolValue <= 0)

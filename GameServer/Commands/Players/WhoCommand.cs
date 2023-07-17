@@ -36,7 +36,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		"&who",
-		ePrivLevel.Player,
+		EPrivLevel.Player,
 		"Shows who is online",
 		//help:
 		//"/who  Can be modified with [playername], [class], [#] level, [location], [##] [##] level range",
@@ -81,13 +81,13 @@ namespace DOL.GS.Commands
 			{
 				GamePlayer addPlayer = serverClient.Player;
 				if (addPlayer == null) continue;
-				if (serverClient.Account.PrivLevel > (uint)ePrivLevel.Player && serverClient.Player.IsAnonymous == false)
+				if (serverClient.Account.PrivLevel > (uint)EPrivLevel.Player && serverClient.Player.IsAnonymous == false)
 				{
 					clientsList.Add(addPlayer.Client);
 					continue;
 				}
 				if (addPlayer.Client != client // always add self
-					&& client.Account.PrivLevel == (uint)ePrivLevel.Player
+					&& client.Account.PrivLevel == (uint)EPrivLevel.Player
 					&& (addPlayer.IsAnonymous || !GameServer.ServerRules.IsSameRealm(addPlayer, client.Player, true)))
 				{
 					continue;
@@ -273,11 +273,11 @@ namespace DOL.GS.Commands
 			if (player.CurrentZone != null && GameServer.Instance.Configuration.ServerType != EGameServerType.GST_PvP)
 			{
 				// If '/who' source is a Player and target is plvl 3, do not return zone description (only return for Admins if Admin is source)
-				if (source.Account.PrivLevel == (uint)ePrivLevel.Player && player.Client.Account.PrivLevel == (uint)ePrivLevel.Player || source.Account.PrivLevel == (uint)ePrivLevel.Admin)
+				if (source.Account.PrivLevel == (uint)EPrivLevel.Player && player.Client.Account.PrivLevel == (uint)EPrivLevel.Player || source.Account.PrivLevel == (uint)EPrivLevel.Admin)
 				{
 					result.Append(" in ");
 					// Counter-espionage behavior: Change zone description to "Frontiers" if source is a Player and target(s) located in OF (RVR-enabled zone in classic Alb/Hib/Mid region)
-					if (source.Account.PrivLevel == (uint)ePrivLevel.Player && player.CurrentZone.IsRvR && player.CurrentRegion.ID is 1 or 100 or 200)
+					if (source.Account.PrivLevel == (uint)EPrivLevel.Player && player.CurrentZone.IsRvR && player.CurrentRegion.ID is 1 or 100 or 200)
 					{
 						result.Append("the Frontiers");
 					}
@@ -290,7 +290,7 @@ namespace DOL.GS.Commands
 			}
 			else
 			{
-				if (log.IsErrorEnabled && player.Client.Account.PrivLevel != (uint)ePrivLevel.Admin)
+				if (log.IsErrorEnabled && player.Client.Account.PrivLevel != (uint)EPrivLevel.Admin)
 					log.Error("no currentzone in who commandhandler for player " + player.Name);
 			}
 			ChatGroup mychatgroup = (ChatGroup) player.TempProperties.getProperty<object>(ChatGroup.CHATGROUP_PROPERTY, null);
@@ -323,11 +323,11 @@ namespace DOL.GS.Commands
 			{
 				result.Append(" <SOLO>");
 			}
-			if(player.Client.Account.PrivLevel == (uint)ePrivLevel.GM)
+			if(player.Client.Account.PrivLevel == (uint)EPrivLevel.GM)
 			{
 				result.Append(" <GM>");
 			}
-			if(player.Client.Account.PrivLevel == (uint)ePrivLevel.Admin)
+			if(player.Client.Account.PrivLevel == (uint)EPrivLevel.Admin)
 			{
 				result.Append(" <Admin>");
 			}
@@ -456,7 +456,7 @@ namespace DOL.GS.Commands
 		{
 			public bool ApplyFilter(GamePlayer player)
 			{
-				if(!player.IsAnonymous && player.Client.Account.PrivLevel > (uint)ePrivLevel.Player)
+				if(!player.IsAnonymous && player.Client.Account.PrivLevel > (uint)EPrivLevel.Player)
 					return true;
 				return false;
 			}
@@ -502,9 +502,9 @@ namespace DOL.GS.Commands
 		{
 			public bool ApplyFilter(GamePlayer player)
 			{
-				if (player.Client.Account.PrivLevel == (uint)ePrivLevel.Admin && player.CurrentZone.IsRvR)
+				if (player.Client.Account.PrivLevel == (uint)EPrivLevel.Admin && player.CurrentZone.IsRvR)
 					return false;
-				if (player.Client.Account.PrivLevel < (uint)ePrivLevel.Admin && player.CurrentZone.IsRvR && player.CurrentRegion.ID is 1 or 100 or 200)
+				if (player.Client.Account.PrivLevel < (uint)EPrivLevel.Admin && player.CurrentZone.IsRvR && player.CurrentRegion.ID is 1 or 100 or 200)
 					return true;
 				return false;
 			}

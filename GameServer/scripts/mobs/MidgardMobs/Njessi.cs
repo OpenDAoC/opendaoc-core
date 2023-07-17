@@ -40,14 +40,14 @@ namespace DOL.GS
         }
         public override void OnAttackEnemy(AttackData ad) //on enemy actions
         {
-            if (Util.Chance(10) && !ad.Target.effectListComponent.ContainsEffectForEffectType(eEffect.DamageOverTime))
+            if (Util.Chance(10) && !ad.Target.effectListComponent.ContainsEffectForEffectType(EEffect.DamageOverTime))
             {
-                if (ad != null && (ad.AttackResult == eAttackResult.HitUnstyled || ad.AttackResult == eAttackResult.HitStyle))
+                if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
                     CastSpell(NjessiPoison, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
             }
             if (Util.Chance(30))
             {
-                if (ad != null && (ad.AttackResult == eAttackResult.HitUnstyled || ad.AttackResult == eAttackResult.HitStyle))
+                if (ad != null && (ad.AttackResult == EAttackResult.HitUnstyled || ad.AttackResult == EAttackResult.HitStyle))
                     CastSpell(NjessiDD, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
             }
             base.OnAttackEnemy(ad);
@@ -68,13 +68,13 @@ namespace DOL.GS
                     spell.ClientEffect = 5700;
                     spell.Icon = 5700;
                     spell.Damage = 100;
-                    spell.DamageType = (int)eDamageType.Heat;
+                    spell.DamageType = (int)EDamageType.Heat;
                     spell.Name = "Flame Breath";
                     spell.Range = 500;
                     spell.Radius = 300;
                     spell.SpellID = 11933;
                     spell.Target = "Enemy";
-                    spell.Type = eSpellType.DirectDamageNoVariance.ToString();
+                    spell.Type = ESpellType.DirectDamageNoVariance.ToString();
                     m_NjessiDD = new Spell(spell, 20);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_NjessiDD);
                 }
@@ -106,9 +106,9 @@ namespace DOL.GS
                     spell.Frequency = 30;
                     spell.Range = 500;
                     spell.SpellID = 11934;
-                    spell.Target = eSpellTarget.Enemy.ToString();
-                    spell.Type = eSpellType.DamageOverTime.ToString();
-                    spell.DamageType = (int)eDamageType.Body;
+                    spell.Target = ESpellTarget.Enemy.ToString();
+                    spell.Type = ESpellType.DamageOverTime.ToString();
+                    spell.DamageType = (int)EDamageType.Body;
                     spell.Uninterruptible = true;
                     m_NjessiPoison = new Spell(spell, 20);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_NjessiPoison);

@@ -4,7 +4,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		"&spacing",
-		ePrivLevel.Player,
+		EPrivLevel.Player,
 		"Change the spacing of your pets!", "/spacing {normal, big, huge}")]
 	public class SpacingCommand : AbstractCommandHandler, ICommandHandler
 	{
@@ -16,7 +16,7 @@ namespace DOL.GS.Commands
 			GamePlayer player = client.Player;
 
 			//No one else needs to use this spell
-			if (player.CharacterClass.ID != (int)eCharacterClass.Bonedancer)
+			if (player.CharacterClass.ID != (int)ECharacterClass.Bonedancer)
 			{
 				DisplayMessage(player, "Only Bonedancers can use this command!");
 				return;

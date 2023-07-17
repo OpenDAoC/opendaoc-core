@@ -14,13 +14,13 @@ namespace DOL.GS
         public Jailer() : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 40;// dmg reduction for melee dmg
-                case eDamageType.Crush: return 40;// dmg reduction for melee dmg
-                case eDamageType.Thrust: return 40;// dmg reduction for melee dmg
+                case EDamageType.Slash: return 40;// dmg reduction for melee dmg
+                case EDamageType.Crush: return 40;// dmg reduction for melee dmg
+                case EDamageType.Thrust: return 40;// dmg reduction for melee dmg
                 default: return 70;// dmg reduction for rest resists
             }
         }
@@ -42,11 +42,11 @@ namespace DOL.GS
             return base.HasAbility(keyName);
         }
 
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 350;
         }
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -82,7 +82,7 @@ namespace DOL.GS
         public static void ScriptLoaded(DOLEvent e, object sender, EventArgs args)
         {
             GameNPC[] npcs;
-            npcs = WorldMgr.GetNPCsByNameFromRegion("Jailer Vifil", 160, (eRealm) 0);
+            npcs = WorldMgr.GetNPCsByNameFromRegion("Jailer Vifil", 160, (ERealm) 0);
             if (npcs.Length == 0)
             {
                 log.Warn("Jailer Vifil not found, creating it...");
@@ -95,7 +95,7 @@ namespace DOL.GS
                 TG.Level = 82;
                 TG.Size = 70;
                 TG.CurrentRegionID = 160; //tuscaran glacier
-                TG.MeleeDamageType = eDamageType.Crush;
+                TG.MeleeDamageType = EDamageType.Crush;
                 TG.RespawnInterval =
                     ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL *
                     60000; //1min is 60000 miliseconds
@@ -210,7 +210,7 @@ namespace DOL.AI.Brain
             if (!CheckProximityAggro())
             {
                 //set state to RETURN TO SPAWN
-                FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+                FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
                 Body.Health = Body.MaxHealth;
             }
 
@@ -282,13 +282,13 @@ namespace DOL.GS
         public JailerAdd() : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 45; // dmg reduction for melee dmg
-                case eDamageType.Crush: return 45; // dmg reduction for melee dmg
-                case eDamageType.Thrust: return 45; // dmg reduction for melee dmg
+                case EDamageType.Slash: return 45; // dmg reduction for melee dmg
+                case EDamageType.Crush: return 45; // dmg reduction for melee dmg
+                case EDamageType.Thrust: return 45; // dmg reduction for melee dmg
                 default: return 30; // dmg reduction for rest resists
             }
         }
@@ -303,12 +303,12 @@ namespace DOL.GS
             set { }
         }
 
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 200;
         }
 
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.15;
@@ -323,7 +323,7 @@ namespace DOL.GS
         public override bool AddToWorld()
         {
             Model = 918;
-            MeleeDamageType = eDamageType.Crush;
+            MeleeDamageType = EDamageType.Crush;
             Name = "hrimathursa tormentor";
             RespawnInterval = -1;
 
@@ -336,7 +336,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(140);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(140));
             BodyType = 1;
-            Realm = eRealm.None;
+            Realm = ERealm.None;
 
             JailerAddBrain adds = new JailerAddBrain();
             SetOwnBrain(adds);

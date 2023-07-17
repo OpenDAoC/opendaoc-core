@@ -50,7 +50,7 @@ namespace DOL.GS.SkillHandler
 			base.Activate(living, sendUpdates);
 		}
 		
-		public LevelBasedStatChangingAbility(DbAbilities dba, int level, eProperty property)
+		public LevelBasedStatChangingAbility(DbAbilities dba, int level, EProperty property)
 			: base(dba, level, property)
 		{
 		}

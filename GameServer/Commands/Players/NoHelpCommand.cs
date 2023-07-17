@@ -15,7 +15,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		"&nohelp",
-		ePrivLevel.Player,
+		EPrivLevel.Player,
 		"Toggle nohelp on or off, to follow the path of solitude and stop receiving help from  your realm", "/nohelp>")]
 	public class NoHelpCommand : AbstractCommandHandler, ICommandHandler
 	{
@@ -134,7 +134,7 @@ namespace DOL.GS.Commands
 
 		[Command(
 			"&sololadder",
-			ePrivLevel.Player,
+			EPrivLevel.Player,
 			"Displays the Solo Ladder.",
 			"/sololadder")]
 		public class SoloLadderCommandHandler : AbstractCommandHandler, ICommandHandler
@@ -193,7 +193,7 @@ namespace DOL.GS.Commands
 						if (c == null)
 							continue;
 
-						string className = ((eCharacterClass) c.Class).ToString();
+						string className = ((ECharacterClass) c.Class).ToString();
 						
 
 						soloCharacters.Add(new SoloCharacter() {CharacterName = c.Name, CharacterLevel = c.Level, CharacterClass = className, isHC = c.HCFlag});

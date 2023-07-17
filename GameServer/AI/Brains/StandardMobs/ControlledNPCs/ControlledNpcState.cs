@@ -6,7 +6,7 @@ public class ControlledNpcState_WakingUp : StandardMobState_WakingUp
 {
     public ControlledNpcState_WakingUp(Fsm fsm, StandardMobBrain brain) : base(fsm, brain)
     {
-        _id = eFSMStateType.WAKING_UP;
+        _id = EFsmStateType.WAKING_UP;
     }
 
     public override void Think()
@@ -23,11 +23,11 @@ public class ControlledNpcState_WakingUp : StandardMobState_WakingUp
 
         // Determine state we should be in.
         if (brain.AggressionState == EAggressionState.Aggressive)
-            brain.FSM.SetCurrentState(eFSMStateType.AGGRO);
+            brain.FSM.SetCurrentState(EFsmStateType.AGGRO);
         else if (brain.AggressionState == EAggressionState.Defensive)
-            brain.FSM.SetCurrentState(eFSMStateType.IDLE);
+            brain.FSM.SetCurrentState(EFsmStateType.IDLE);
         else if (brain.AggressionState == EAggressionState.Passive)
-            brain.FSM.SetCurrentState(eFSMStateType.PASSIVE);
+            brain.FSM.SetCurrentState(EFsmStateType.PASSIVE);
 
         // Put this here so no delay after entering initial state before next Think().
         brain.Think();
@@ -38,7 +38,7 @@ public class ControlledNpcState_Defensive : StandardMobState_Idle
 {
     public ControlledNpcState_Defensive(Fsm fsm, ControlledNpcBrain brain) : base(fsm, brain)
     {
-        _id = eFSMStateType.IDLE;
+        _id = EFsmStateType.IDLE;
     }
 
     public override void Think()
@@ -57,9 +57,9 @@ public class ControlledNpcState_Defensive : StandardMobState_Idle
 
         // Handle state changes.
         if (brain.AggressionState == EAggressionState.Aggressive)
-            brain.FSM.SetCurrentState(eFSMStateType.AGGRO);
+            brain.FSM.SetCurrentState(EFsmStateType.AGGRO);
         else if (brain.AggressionState == EAggressionState.Passive)
-            brain.FSM.SetCurrentState(eFSMStateType.PASSIVE);
+            brain.FSM.SetCurrentState(EFsmStateType.PASSIVE);
 
         // Handle pet movement.
         if (brain.WalkState == EWalkState.Follow && brain.Owner != null)
@@ -74,7 +74,7 @@ public class ControlledNpcState_Aggro : StandardMobState_Aggro
 {
     public ControlledNpcState_Aggro(Fsm fsm, ControlledNpcBrain brain) : base(fsm, brain)
     {
-        _id = eFSMStateType.AGGRO;
+        _id = EFsmStateType.AGGRO;
     }
 
     public override void Exit()
@@ -103,7 +103,7 @@ public class ControlledNpcState_Aggro : StandardMobState_Aggro
 
         if (brain.AggressionState == EAggressionState.Passive)
         {
-            brain.FSM.SetCurrentState(eFSMStateType.PASSIVE);
+            brain.FSM.SetCurrentState(EFsmStateType.PASSIVE);
             return;
         }
 
@@ -136,7 +136,7 @@ public class ControlledNpcState_Aggro : StandardMobState_Aggro
 
         // Return to defensive if our target(s) are dead.
         if (!brain.HasAggro && brain.OrderedAttackTarget == null && brain.AggressionState != EAggressionState.Aggressive)
-            brain.FSM.SetCurrentState(eFSMStateType.IDLE);
+            brain.FSM.SetCurrentState(EFsmStateType.IDLE);
         else
             brain.AttackMostWanted();
     }
@@ -146,7 +146,7 @@ public class ControlledNpcState_Passive : StandardMobState
 {
     public ControlledNpcState_Passive(Fsm fsm, ControlledNpcBrain brain) : base(fsm, brain)
     {
-        _id = eFSMStateType.PASSIVE;
+        _id = EFsmStateType.PASSIVE;
     }
 
     public override void Enter()
@@ -173,9 +173,9 @@ public class ControlledNpcState_Passive : StandardMobState
 
         // Handle state changes.
         if (brain.AggressionState == EAggressionState.Aggressive)
-            brain.FSM.SetCurrentState(eFSMStateType.AGGRO);
+            brain.FSM.SetCurrentState(EFsmStateType.AGGRO);
         else if (brain.AggressionState == EAggressionState.Defensive)
-            brain.FSM.SetCurrentState(eFSMStateType.IDLE);
+            brain.FSM.SetCurrentState(EFsmStateType.IDLE);
 
         // Handle pet movement.
         if (brain.WalkState == EWalkState.Follow && brain.Owner != null)

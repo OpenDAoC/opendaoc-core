@@ -16,13 +16,13 @@ namespace DOL.GS
         public Birghir() : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 40;// dmg reduction for melee dmg
-                case eDamageType.Crush: return 40;// dmg reduction for melee dmg
-                case eDamageType.Thrust: return 40;// dmg reduction for melee dmg
+                case EDamageType.Slash: return 40;// dmg reduction for melee dmg
+                case EDamageType.Crush: return 40;// dmg reduction for melee dmg
+                case EDamageType.Thrust: return 40;// dmg reduction for melee dmg
                 default: return 70;// dmg reduction for rest resists
             }
         }
@@ -42,11 +42,11 @@ namespace DOL.GS
 
             return base.HasAbility(keyName);
         }
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 350;
         }
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -74,13 +74,13 @@ namespace DOL.GS
             GameNpcInventoryTemplate template = new GameNpcInventoryTemplate();
             template.AddNPCEquipment(eInventorySlot.TwoHandWeapon, 19, 0);
             Inventory = template.CloseTemplate();
-            SwitchWeapon(eActiveWeaponSlot.TwoHanded);
+            SwitchWeapon(EActiveWeaponSlot.TwoHanded);
             BirghirBrain.IsTargetPicked = false;
             BirghirBrain.message1 = false;
             BirghirBrain.IsPulled = false;
 
             VisibleActiveWeaponSlots = 34;
-            MeleeDamageType = eDamageType.Crush;
+            MeleeDamageType = EDamageType.Crush;
             BirghirBrain sbrain = new BirghirBrain();
             SetOwnBrain(sbrain);
             LoadedFromScript = false; //load from database
@@ -213,7 +213,7 @@ namespace DOL.AI.Brain
             if (!CheckProximityAggro())
             {
                 //set state to RETURN TO SPAWN
-                FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+                FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
                 Body.Health = Body.MaxHealth;
                 message1 = false;
                 IsTargetPicked = false;
@@ -251,12 +251,12 @@ namespace DOL.AI.Brain
                     GameLiving target = Body.TargetObject as GameLiving;
                     if (Util.Chance(20))
                     {                    
-                        if(target != null && target.IsAlive && !target.effectListComponent.ContainsEffectForEffectType(eEffect.StrConDebuff))
+                        if(target != null && target.IsAlive && !target.effectListComponent.ContainsEffectForEffectType(EEffect.StrConDebuff))
                             Body.CastSpell(Icelord_SC_Debuff, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
                     }
                     if (Util.Chance(20))
                     {
-                        if (target != null && target.IsAlive && !target.effectListComponent.ContainsEffectForEffectType(eEffect.MeleeHasteDebuff))
+                        if (target != null && target.IsAlive && !target.effectListComponent.ContainsEffectForEffectType(EEffect.MeleeHasteDebuff))
                             Body.CastSpell(Icelord_Haste_Debuff, SkillBase.GetSpellLine(GlobalSpellsLines.Mob_Spells));
                     }
                 }
@@ -285,7 +285,7 @@ namespace DOL.AI.Brain
                     spell.Radius = 450;
                     spell.SpellID = 11928;
                     spell.Target = "Enemy";
-                    spell.Type = eSpellType.StrengthConstitutionDebuff.ToString();
+                    spell.Type = ESpellType.StrengthConstitutionDebuff.ToString();
                     spell.Uninterruptible = true;
                     spell.MoveCast = true;
                     m_Icelord_SC_Debuff = new Spell(spell, 70);
@@ -314,7 +314,7 @@ namespace DOL.AI.Brain
                     spell.Value = 19;
                     spell.SpellID = 11929;
                     spell.Target = "Enemy";
-                    spell.Type = eSpellType.CombatSpeedDebuff.ToString();
+                    spell.Type = ESpellType.CombatSpeedDebuff.ToString();
                     spell.Uninterruptible = true;
                     spell.MoveCast = true;
                     m_Icelord_Haste_Debuff = new Spell(spell, 70);
@@ -341,11 +341,11 @@ namespace DOL.AI.Brain
                     spell.Name = "Frost Sphere";
                     spell.Range = 1800;
                     spell.SpellID = 11749;
-                    spell.Target = eSpellTarget.Enemy.ToString();
-                    spell.Type = eSpellType.Bolt.ToString();
+                    spell.Target = ESpellTarget.Enemy.ToString();
+                    spell.Type = ESpellType.Bolt.ToString();
                     spell.Uninterruptible = true;
                     spell.MoveCast = true;
-                    spell.DamageType = (int)eDamageType.Cold;
+                    spell.DamageType = (int)EDamageType.Cold;
                     m_Icelord_Bolt = new Spell(spell, 70);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_Icelord_Bolt);
                 }
@@ -370,11 +370,11 @@ namespace DOL.AI.Brain
                     spell.Name = "Frost Strike";
                     spell.Range = 1800;
                     spell.SpellID = 11750;
-                    spell.Target = eSpellTarget.Enemy.ToString();
-                    spell.Type = eSpellType.DirectDamageNoVariance.ToString();
+                    spell.Target = ESpellTarget.Enemy.ToString();
+                    spell.Type = ESpellType.DirectDamageNoVariance.ToString();
                     spell.Uninterruptible = true;
                     spell.MoveCast = true;
-                    spell.DamageType = (int)eDamageType.Cold;
+                    spell.DamageType = (int)EDamageType.Cold;
                     m_Icelord_dd = new Spell(spell, 70);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_Icelord_dd);
                 }
@@ -393,13 +393,13 @@ namespace DOL.GS
         public Guthlac() : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 40;// dmg reduction for melee dmg
-                case eDamageType.Crush: return 40;// dmg reduction for melee dmg
-                case eDamageType.Thrust: return 40;// dmg reduction for melee dmg
+                case EDamageType.Slash: return 40;// dmg reduction for melee dmg
+                case EDamageType.Crush: return 40;// dmg reduction for melee dmg
+                case EDamageType.Thrust: return 40;// dmg reduction for melee dmg
                 default: return 70;// dmg reduction for rest resists
             }
         }
@@ -419,11 +419,11 @@ namespace DOL.GS
 
             return base.HasAbility(keyName);
         }
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 350;
         }
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -464,7 +464,7 @@ namespace DOL.GS
             GameNpcInventoryTemplate template = new GameNpcInventoryTemplate();
             template.AddNPCEquipment(eInventorySlot.TwoHandWeapon, 19, 0);
             Inventory = template.CloseTemplate();
-            SwitchWeapon(eActiveWeaponSlot.TwoHanded);
+            SwitchWeapon(EActiveWeaponSlot.TwoHanded);
 
             GuthlacBrain.message1 = false;
             GuthlacBrain.IsBombUp = false;
@@ -472,7 +472,7 @@ namespace DOL.GS
             GuthlacBrain.IsPulled2 = false;
 
             VisibleActiveWeaponSlots = 34;
-            MeleeDamageType = eDamageType.Crush;
+            MeleeDamageType = EDamageType.Crush;
             GuthlacBrain sbrain = new GuthlacBrain();
             SetOwnBrain(sbrain);
             LoadedFromScript = false; //load from database
@@ -600,7 +600,7 @@ namespace DOL.AI.Brain
             if (!CheckProximityAggro())
             {
                 //set state to RETURN TO SPAWN
-                FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+                FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
                 Body.Health = Body.MaxHealth;
                 IsPulled2 = false;
                 RandomTarget = null;
@@ -733,8 +733,8 @@ namespace DOL.AI.Brain
                     spell.Range = 1500;
                     spell.Radius = 350;
                     spell.SpellID = 11932;
-                    spell.Target = eSpellTarget.Enemy.ToString();
-                    spell.Type = eSpellType.DexterityQuicknessDebuff.ToString();
+                    spell.Target = ESpellTarget.Enemy.ToString();
+                    spell.Type = ESpellType.DexterityQuicknessDebuff.ToString();
                     spell.Uninterruptible = true;
                     spell.MoveCast = true;
                     m_DebuffDQ = new Spell(spell, 60);
@@ -765,7 +765,7 @@ namespace DOL.AI.Brain
                     spell.Type = "SpeedDecrease";
                     spell.Uninterruptible = true;
                     spell.MoveCast = true;
-                    spell.DamageType = (int)eDamageType.Body;
+                    spell.DamageType = (int)EDamageType.Body;
                     m_GuthlacRoot = new Spell(spell, 70);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_GuthlacRoot);
                 }
@@ -792,11 +792,11 @@ namespace DOL.AI.Brain
                     spell.Name = "Rune of Mazing";
                     spell.Range = 1800;
                     spell.SpellID = 11930;
-                    spell.Target = eSpellTarget.Enemy.ToString();
-                    spell.Type = eSpellType.DamageSpeedDecreaseNoVariance.ToString();
+                    spell.Target = ESpellTarget.Enemy.ToString();
+                    spell.Type = ESpellType.DamageSpeedDecreaseNoVariance.ToString();
                     spell.Uninterruptible = true;
                     spell.MoveCast = true;
-                    spell.DamageType = (int)eDamageType.Energy;
+                    spell.DamageType = (int)EDamageType.Energy;
                     m_Icelord_dd = new Spell(spell, 70);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_Icelord_dd);
                 }
@@ -819,14 +819,14 @@ namespace DOL.GS
         public override void StartAttack(GameObject target)
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 15; // dmg reduction for melee dmg
-                case eDamageType.Crush: return 15; // dmg reduction for melee dmg
-                case eDamageType.Thrust: return 15; // dmg reduction for melee dmg
-                case eDamageType.Cold: return 99; // almost immune to cold dmg
+                case EDamageType.Slash: return 15; // dmg reduction for melee dmg
+                case EDamageType.Crush: return 15; // dmg reduction for melee dmg
+                case EDamageType.Thrust: return 15; // dmg reduction for melee dmg
+                case EDamageType.Cold: return 99; // almost immune to cold dmg
                 default: return 15; // dmg reduction for rest resists
             }
         }
@@ -867,11 +867,11 @@ namespace DOL.GS
                 Die(this);
             return 0;
         }
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 200;
         }
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.15;
@@ -897,7 +897,7 @@ namespace DOL.GS
 
             Faction = FactionMgr.GetFactionByID(140);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(140));
-            Realm = eRealm.None;
+            Realm = ERealm.None;
             RespawnInterval = -1;
 
             FrozenBombBrain adds = new FrozenBombBrain();
@@ -930,11 +930,11 @@ namespace DOL.GS
                     spell.Radius = 3000; //very big radius to make them feel pain lol
                     spell.Range = 0;
                     spell.SpellID = 11751;
-                    spell.Target = eSpellTarget.Enemy.ToString();
-                    spell.Type = eSpellType.DirectDamageNoVariance.ToString();
+                    spell.Target = ESpellTarget.Enemy.ToString();
+                    spell.Type = ESpellType.DirectDamageNoVariance.ToString();
                     spell.Uninterruptible = true;
                     spell.MoveCast = true;
-                    spell.DamageType = (int)eDamageType.Cold;
+                    spell.DamageType = (int)EDamageType.Cold;
                     m_GuthlacIceSpike_aoe = new Spell(spell, 70);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_GuthlacIceSpike_aoe);
                 }

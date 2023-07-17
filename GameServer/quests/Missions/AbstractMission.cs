@@ -51,7 +51,7 @@ namespace DOL.GS.Quests
 					return eMissionType.Personal;
 				else if (m_owner is Group)
 					return eMissionType.Group;
-				else if (m_owner is eRealm)
+				else if (m_owner is ERealm)
 					return eMissionType.Realm;
 				else return eMissionType.None;
 			}
@@ -188,7 +188,7 @@ namespace DOL.GS.Quests
 						continue;
 				}
 				if (RewardXP > 0)
-					player.GainExperience(eXPSource.Mission, RewardXP);
+					player.GainExperience(EXpSource.Mission, RewardXP);
 
                 if (RewardMoney > 0)
                 {

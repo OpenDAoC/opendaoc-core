@@ -5,7 +5,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		"&debug",
-		ePrivLevel.GM,
+		EPrivLevel.GM,
 		"GMCommands.Debug.Description",
 		"GMCommands.Debug.Usage")]
 	public class DebugCommand : AbstractCommandHandler, ICommandHandler

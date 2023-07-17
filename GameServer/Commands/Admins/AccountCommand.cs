@@ -39,7 +39,7 @@ namespace DOL.GS.Commands
 		"&account",
 		// Message: <----- '/account' Commands (plvl 3) ----->
 		"AdminCommands.Header.Syntax.Account",
-		ePrivLevel.Admin,
+		EPrivLevel.Admin,
 		// Message: "Creates new, manages existing, and controls character assignment for Atlas DAoC accounts. We recommend using the Atlas Web Admin tool (https://admin.atlasfreeshard.com/) where possible to perform many of these same functions. Otherwise, use the following syntax:"
 		"AdminCommands.Account.Description",
 		// Syntax: /account command
@@ -140,8 +140,8 @@ namespace DOL.GS.Commands
 	                        {
 	                            Name = accountname,
 	                            Password = LoginRequestHandler.CryptPassword(password),
-	                            PrivLevel = (uint)ePrivLevel.Player,
-	                            Realm = (int)eRealm.None,
+	                            PrivLevel = (uint)EPrivLevel.Player,
+	                            Realm = (int)ERealm.None,
 	                            CreationDate = DateTime.Now,
 	                            Language = ServerProperties.Properties.SERV_LANGUAGE
 	                        };
@@ -355,15 +355,15 @@ namespace DOL.GS.Commands
                         }
 
                         int firstAccountSlot;
-                        switch ((eRealm)cha.Realm)
+                        switch ((ERealm)cha.Realm)
                         {
-                            case eRealm.Albion:
+                            case ERealm.Albion:
                                 firstAccountSlot = 100;
                                 break;
-                            case eRealm.Midgard:
+                            case ERealm.Midgard:
                                 firstAccountSlot = 200;
                                 break;
-                            case eRealm.Hibernia:
+                            case ERealm.Hibernia:
                                 firstAccountSlot = 300;
                                 break;
                             default:

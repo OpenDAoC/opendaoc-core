@@ -24,7 +24,7 @@ namespace DOL.Tests.Integration.Server
 
 			GameMerchant merchant = new GameMerchant();
 			merchant.Name = "Tester";
-			merchant.Realm = eRealm.Albion;
+			merchant.Realm = ERealm.Albion;
 			Console.WriteLine(player.Name);
 
 			if (MoneyTask.CheckAvailability(player, merchant))

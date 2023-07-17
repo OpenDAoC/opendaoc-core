@@ -20,21 +20,21 @@ namespace DOL.GS
         {
             get { return ServerProperties.Properties.SET_DIFFICULTY_ON_EPIC_ENCOUNTERS / 100; }
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 20; // dmg reduction for melee dmg
-                case eDamageType.Crush: return 20; // dmg reduction for melee dmg
-                case eDamageType.Thrust: return 20; // dmg reduction for melee dmg
+                case EDamageType.Slash: return 20; // dmg reduction for melee dmg
+                case EDamageType.Crush: return 20; // dmg reduction for melee dmg
+                case EDamageType.Thrust: return 20; // dmg reduction for melee dmg
                 default: return 30; // dmg reduction for rest resists
             }
         }
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 350;
         }
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -250,12 +250,12 @@ namespace DOL.GS
             {
             }
         }
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 300;
         }
 
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.25;
@@ -278,8 +278,8 @@ namespace DOL.GS
             Quickness = 125;
             RespawnInterval = -1;
 
-            Gender = eGender.Neutral;
-            MeleeDamageType = eDamageType.Slash;
+            Gender = EGender.Neutral;
+            MeleeDamageType = EDamageType.Slash;
 
             Faction = FactionMgr.GetFactionByID(154);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(154));
@@ -325,12 +325,12 @@ namespace DOL.GS
             {
             }
         }
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 300;
         }
 
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.25;
@@ -353,8 +353,8 @@ namespace DOL.GS
             Quickness = 125;
             RespawnInterval = -1;
 
-            Gender = eGender.Neutral;
-            MeleeDamageType = eDamageType.Slash;
+            Gender = EGender.Neutral;
+            MeleeDamageType = EDamageType.Slash;
             
             Faction = FactionMgr.GetFactionByID(154);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(154));
@@ -400,12 +400,12 @@ namespace DOL.GS
             {
             }
         }
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 300;
         }
 
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.25;
@@ -430,8 +430,8 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(154);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(154));
             
-            Gender = eGender.Neutral;
-            MeleeDamageType = eDamageType.Slash;
+            Gender = EGender.Neutral;
+            MeleeDamageType = EDamageType.Slash;
 
             BodyType = 5;
             YarAddBrain sBrain = new YarAddBrain();

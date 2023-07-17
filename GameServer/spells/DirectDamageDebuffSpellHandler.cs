@@ -22,7 +22,7 @@ namespace DOL.GS.Spells
 		
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-		public override eProperty Property1 { get { return Caster.GetResistTypeForDamage(Spell.DamageType); } }
+		public override EProperty Property1 { get { return Caster.GetResistTypeForDamage(Spell.DamageType); } }
 		public override string DebuffTypeName { get { return GlobalConstants.DamageTypeToName(Spell.DamageType); } }
 
 		#region LOS on Keeps
@@ -234,7 +234,7 @@ namespace DOL.GS.Spells
                     list.Add(LanguageMgr.GetTranslation((Caster as GamePlayer).Client, "DelveInfo.ConcentrationCost", Spell.Concentration));
 				if(Spell.Radius != 0)
                     list.Add(LanguageMgr.GetTranslation((Caster as GamePlayer).Client, "DelveInfo.Radius", Spell.Radius));
-				if(Spell.DamageType != eDamageType.Natural)
+				if(Spell.DamageType != EDamageType.Natural)
                     list.Add(LanguageMgr.GetTranslation((Caster as GamePlayer).Client, "DelveInfo.Damage", GlobalConstants.DamageTypeToName(Spell.DamageType)));
 
 				return list;

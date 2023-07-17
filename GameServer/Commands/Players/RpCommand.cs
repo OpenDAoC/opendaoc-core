@@ -5,7 +5,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		"&rp",
-		ePrivLevel.Player,
+		EPrivLevel.Player,
 		"toggle receiving realm points",
 		"/rp <on/off>")]
 	public class RpCommand : AbstractCommandHandler, ICommandHandler

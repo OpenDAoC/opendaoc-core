@@ -173,7 +173,7 @@ namespace DOL.GS.RealmAbilities
 			GameLiving living = timer.TimerOwner as GameLiving;
 			if (living != null)
 			{
-				living.BuffBonusMultCategory1.Remove((int)eProperty.MaxSpeed, this);
+				living.BuffBonusMultCategory1.Remove((int)EProperty.MaxSpeed, this);
 				SendUpdates(living);
 			}
 			timer.Stop();
@@ -216,9 +216,9 @@ namespace DOL.GS.RealmAbilities
 
 			switch (attackArgs.AttackData.AttackResult)
 			{
-				case eAttackResult.HitStyle:
-				case eAttackResult.HitUnstyled:
-					living.BuffBonusMultCategory1.Remove((int)eProperty.MaxSpeed, this);
+				case EAttackResult.HitStyle:
+				case EAttackResult.HitUnstyled:
+					living.BuffBonusMultCategory1.Remove((int)EProperty.MaxSpeed, this);
 					SendUpdates(living);
 					break;
 			}
@@ -236,9 +236,9 @@ namespace DOL.GS.RealmAbilities
 			duration = 20000;
 
 			#region Resists and Determination
-			var primaryResistModifier = target.GetResist(eDamageType.Spirit);
-			var secondaryResistModifier = target.SpecBuffBonusCategory[(int)eProperty.Resist_Spirit];
-			var rootdet = ((target.GetModified(eProperty.SpeedDecreaseDurationReduction) - 100) * -1);
+			var primaryResistModifier = target.GetResist(EDamageType.Spirit);
+			var secondaryResistModifier = target.SpecBuffBonusCategory[(int)EProperty.Resist_Spirit];
+			var rootdet = ((target.GetModified(EProperty.SpeedDecreaseDurationReduction) - 100) * -1);
 
 			var resistModifier = 0;
 			resistModifier += (int)((dmgValue * (double)primaryResistModifier) * -0.01);
@@ -268,7 +268,7 @@ namespace DOL.GS.RealmAbilities
 				return;
 
 			//GameSpellEffect mez = SpellHandler.FindEffectOnTarget(aeplayer, "Mesmerize");
-			ECSGameEffect mez = EffectListService.GetEffectOnTarget(target, eEffect.Mez);
+			ECSGameEffect mez = EffectListService.GetEffectOnTarget(target, EEffect.Mez);
 			if (mez != null)
 				EffectService.RequestCancelEffect(mez);
 				//mez.Cancel(false);
@@ -276,7 +276,7 @@ namespace DOL.GS.RealmAbilities
 			// Falloff damage
 			int dmgWithFalloff = CalculateDamageWithFalloff(dmgValue, living, target);
 
-			target.TakeDamage(caster, eDamageType.Spirit, dmgWithFalloff, 0);
+			target.TakeDamage(caster, EDamageType.Spirit, dmgWithFalloff, 0);
 			target.StartInterruptTimer(3000, AttackData.eAttackType.Spell, caster);
 
 			// Spell damage messages
@@ -286,9 +286,9 @@ namespace DOL.GS.RealmAbilities
 				gpTarget.Out.SendMessage(caster.Name + " hits you for " + dmgWithFalloff + " damage!", eChatType.CT_Damaged, eChatLoc.CL_SystemWindow);
 
 			// Make sure they're not using SoS (needs fixing), Charge, or in Shade form
-			var targetCharge = EffectListService.GetEffectOnTarget(target, eEffect.Charge);
-			var targetShade = EffectListService.GetEffectOnTarget(target, eEffect.Shade);
-			var targetSoS = EffectListService.GetEffectOnTarget(target, eEffect.SpeedOfSound);
+			var targetCharge = EffectListService.GetEffectOnTarget(target, EEffect.Charge);
+			var targetShade = EffectListService.GetEffectOnTarget(target, EEffect.Shade);
+			var targetSoS = EffectListService.GetEffectOnTarget(target, EEffect.SpeedOfSound);
 			if (targetCharge == null && targetSoS == null && targetShade == null)
 			{
 				/*
@@ -312,7 +312,7 @@ namespace DOL.GS.RealmAbilities
 				}
 				*/
 				//Check if Ichor root is already on target. If it is, then reset duration.
-				var targetIchor = EffectListService.GetEffectOnTarget(target, eEffect.Ichor);
+				var targetIchor = EffectListService.GetEffectOnTarget(target, EEffect.Ichor);
 				if(targetIchor != null)
 				{
 					//TODO - Refresh existing Ichor duration (or whatever the proper mechanic is?)

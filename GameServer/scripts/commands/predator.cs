@@ -9,7 +9,7 @@ namespace DOL.GS.Scripts
 {
     [Command(
         "&predator",
-        ePrivLevel.Player,
+        EPrivLevel.Player,
         "Join the hunt or view your current prey", "/predator join", "/predator prey", "/predator abandon")]
     public class PredatorCommandHandler : AbstractCommandHandler, ICommandHandler
     {

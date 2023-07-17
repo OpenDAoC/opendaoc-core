@@ -120,9 +120,9 @@ namespace DOL.GS.GameEvents
 				m_lastBytesOut = Statistics.BytesOut;
 
 				int clients = WorldMgr.GetAllPlayingClientsCount();
-				int AlbPlayers = WorldMgr.GetClientsOfRealmCount(eRealm.Albion);
-				int MidPlayers = WorldMgr.GetClientsOfRealmCount(eRealm.Midgard);
-				int HibPlayers = WorldMgr.GetClientsOfRealmCount(eRealm.Hibernia);
+				int AlbPlayers = WorldMgr.GetClientsOfRealmCount(ERealm.Albion);
+				int MidPlayers = WorldMgr.GetClientsOfRealmCount(ERealm.Midgard);
+				int HibPlayers = WorldMgr.GetClientsOfRealmCount(ERealm.Hibernia);
 
 				float cpu = 0;
 				// if (m_systemCpuUsedCounter != null)

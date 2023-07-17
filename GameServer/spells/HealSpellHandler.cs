@@ -144,10 +144,10 @@ namespace DOL.GS.Spells
 //             }
 
             double criticalvalue = 0;
-            int criticalchance = Caster.GetModified(eProperty.CriticalHealHitChance);
+            int criticalchance = Caster.GetModified(EProperty.CriticalHealHitChance);
             double effectiveness = 0;
             if (Caster is GamePlayer)
-                effectiveness = (Caster as GamePlayer).Effectiveness + (double)(Caster.GetModified(eProperty.HealingEffectiveness)) * 0.01;
+                effectiveness = (Caster as GamePlayer).Effectiveness + (double)(Caster.GetModified(EProperty.HealingEffectiveness)) * 0.01;
             if (Caster is GameNPC)
                 effectiveness = 1.0;
 
@@ -161,7 +161,7 @@ namespace DOL.GS.Spells
             if (this.Caster is GamePlayer spellCaster && spellCaster.UseDetailedCombatLog)
             {
                 spellCaster.Out.SendMessage($"heal crit chance: {criticalchance} random: {randNum}", eChatType.CT_DamageAdd, eChatLoc.CL_SystemWindow);
-                spellCaster.Out.SendMessage($"heal effectiveness: {Caster.GetModified(eProperty.HealingEffectiveness)}%", eChatType.CT_DamageAdd, eChatLoc.CL_SystemWindow);
+                spellCaster.Out.SendMessage($"heal effectiveness: {Caster.GetModified(EProperty.HealingEffectiveness)}%", eChatType.CT_DamageAdd, eChatLoc.CL_SystemWindow);
             }
 
             if (criticalchance > randNum)
@@ -222,7 +222,7 @@ namespace DOL.GS.Spells
             }
             #endregion
 
-            int heal = target.ChangeHealth(Caster, eHealthChangeType.Spell, (int)amount);
+            int heal = target.ChangeHealth(Caster, EHealthChangeType.Spell, (int)amount);
 
             #region PVP DAMAGE
 
@@ -359,7 +359,7 @@ namespace DOL.GS.Spells
                     ad.Target = target;
                     ad.AttackType = AttackData.eAttackType.Spell;
                     ad.SpellHandler = this;
-                    ad.AttackResult = eAttackResult.HitUnstyled;
+                    ad.AttackResult = EAttackResult.HitUnstyled;
                     ad.IsSpellResisted = false;
                     ad.Damage = (int)Spell.Value;
                     ad.DamageType = Spell.DamageType;
@@ -409,7 +409,7 @@ namespace DOL.GS.Spells
 			if (target is Keeps.GameKeepComponent || target is Keeps.GameKeepDoor)
 				return false;
 
-			int heal = target.ChangeHealth(Caster, eHealthChangeType.Spell, (int)Math.Round(amount));
+			int heal = target.ChangeHealth(Caster, EHealthChangeType.Spell, (int)Math.Round(amount));
 
 			if (m_caster == target && heal > 0)
 			{

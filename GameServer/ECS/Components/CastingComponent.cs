@@ -102,7 +102,7 @@ namespace DOL.GS
                 {
                     if (Owner is GamePlayer player)
                     {
-                        if (startCastSpellRequest.Spell.CastTime > 0 && SpellHandler is not ChamberSpellHandler && startCastSpellRequest.Spell.SpellType != eSpellType.Chamber)
+                        if (startCastSpellRequest.Spell.CastTime > 0 && SpellHandler is not ChamberSpellHandler && startCastSpellRequest.Spell.SpellType != ESpellType.Chamber)
                         {
                             if (SpellHandler.Spell.InstrumentRequirement != 0)
                             {
@@ -212,7 +212,7 @@ namespace DOL.GS
         {
             GamePlayer player = living as GamePlayer;
 
-            if (player.effectListComponent.ContainsEffectForEffectType(eEffect.Volley))
+            if (player.effectListComponent.ContainsEffectForEffectType(EEffect.Volley))
             {
                 player.Out.SendMessage("You can't cast spells while Volley is active!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
                 return false;

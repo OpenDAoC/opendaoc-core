@@ -185,7 +185,7 @@ namespace DOL.GS
             ExamineArticle = item.ExamineArticle;
 			Model = item.Model;
 			Emblem = item.Emblem;
-			Realm = (eRealm)item.Realm;
+			Realm = (ERealm)item.Realm;
 			Heading = item.Heading;
 			X = item.X;
 			Y = item.Y;
@@ -230,7 +230,7 @@ namespace DOL.GS
 		/// <summary>
 		/// Gets or sets the realm of this item
 		/// </summary>
-		public override eRealm Realm
+		public override ERealm Realm
 		{
 			get { return base.Realm; }
 			set

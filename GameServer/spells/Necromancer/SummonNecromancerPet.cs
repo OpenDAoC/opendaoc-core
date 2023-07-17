@@ -34,8 +34,8 @@ namespace DOL.GS.Spells
 			int hitsCap = MaxHealthCalculator.GetItemBonusCap(Caster) + MaxHealthCalculator.GetItemBonusCapIncrease(Caster);
 			int conFromRa = AtlasRAHelpers.GetStatEnhancerAmountForLevel(Caster is GamePlayer playerOwner  ? AtlasRAHelpers.GetAugConLevel(playerOwner) : 0);
 
-			m_summonConBonus = Caster.GetModifiedFromItems(eProperty.Constitution) + conFromRa;
-			m_summonHitsBonus = Math.Min(Caster.ItemBonus[(int)eProperty.MaxHealth], hitsCap);
+			m_summonConBonus = Caster.GetModifiedFromItems(EProperty.Constitution) + conFromRa;
+			m_summonHitsBonus = Math.Min(Caster.ItemBonus[(int)EProperty.MaxHealth], hitsCap);
 		}
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace DOL.GS.Spells
         /// <returns></returns>
         public override bool CheckBeginCast(GameLiving selectedTarget)
         {
-            if (EffectListService.GetAbilityEffectOnTarget(Caster, eEffect.Shade) != null)
+            if (EffectListService.GetAbilityEffectOnTarget(Caster, EEffect.Shade) != null)
             {
                 MessageToCaster(LanguageMgr.GetTranslation((Caster as GamePlayer).Client, "SummonNecromancerPet.CheckBeginCast.ShadeEffectIsNotNull"), eChatType.CT_System);
                 return false;

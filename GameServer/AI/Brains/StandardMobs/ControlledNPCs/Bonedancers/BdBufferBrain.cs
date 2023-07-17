@@ -29,7 +29,7 @@ namespace DOL.AI.Brain
 			// Don't stop casting. Buffers should prioritize buffing.
 			// 'AttackMostWanted()' will be called automatically once the pet is done buffing.
 			m_orderAttackTarget = target as GameLiving;
-			FSM.SetCurrentState(eFSMStateType.AGGRO);
+			FSM.SetCurrentState(EFsmStateType.AGGRO);
 		}
 
 		#region AI
@@ -54,9 +54,9 @@ namespace DOL.AI.Brain
 			switch (spell.SpellType)
 			{
 				#region Buffs
-				case eSpellType.CombatSpeedBuff:
-				case eSpellType.DamageShield:
-				case eSpellType.Bladeturn:
+				case ESpellType.CombatSpeedBuff:
+				case ESpellType.DamageShield:
+				case ESpellType.Bladeturn:
 					{
 						if (!Body.IsAttacking)
 						{

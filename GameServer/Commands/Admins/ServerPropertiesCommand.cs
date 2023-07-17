@@ -6,7 +6,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		"&serverproperties",
-		ePrivLevel.Admin,
+		EPrivLevel.Admin,
 		"AdminCommands.ServerProperties.Description",
 		"AdminCommands.ServerProperties.Usage")]
 	public class ServerPropertiesCommand : AbstractCommandHandler, ICommandHandler

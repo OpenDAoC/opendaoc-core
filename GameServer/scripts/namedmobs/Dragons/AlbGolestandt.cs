@@ -42,17 +42,17 @@ namespace DOL.GS
 				dragonName[0]),
 				X, Y, 0, LairRadius + 200));
 		}
-		public override void TakeDamage(GameObject source, eDamageType damageType, int damageAmount, int criticalAmount)
+		public override void TakeDamage(GameObject source, EDamageType damageType, int damageAmount, int criticalAmount)
 		{
 			if (source is GamePlayer || source is GameSummonedPet)
 			{
 				if (!IsWithinRadius(spawnPoint,LairRadius))//dragon take 0 dmg is it's out of his lair
 				{
-					if (damageType == eDamageType.Body || damageType == eDamageType.Cold ||
-						damageType == eDamageType.Energy || damageType == eDamageType.Heat
-						|| damageType == eDamageType.Matter || damageType == eDamageType.Spirit ||
-						damageType == eDamageType.Crush || damageType == eDamageType.Thrust
-						|| damageType == eDamageType.Slash)
+					if (damageType == EDamageType.Body || damageType == EDamageType.Cold ||
+						damageType == EDamageType.Energy || damageType == EDamageType.Heat
+						|| damageType == EDamageType.Matter || damageType == EDamageType.Spirit ||
+						damageType == EDamageType.Crush || damageType == EDamageType.Thrust
+						|| damageType == EDamageType.Slash)
 					{
 						GamePlayer truc;
 						if (source is GamePlayer)
@@ -130,7 +130,7 @@ namespace DOL.GS
 					player.Notify(GameLivingEvent.EnemyKilled, killer, new EnemyKilledEventArgs(this));
 					if (canReportNews && GameServer.ServerRules.CanGenerateNews(player) == false)
 					{
-						if (player.Client.Account.PrivLevel == (int)ePrivLevel.Player)
+						if (player.Client.Account.PrivLevel == (int)EPrivLevel.Player)
 							canReportNews = false;
 					}
 				}
@@ -155,13 +155,13 @@ namespace DOL.GS
 				}
 		}
 		#endregion
-		public override int GetResist(eDamageType damageType)
+		public override int GetResist(EDamageType damageType)
 		{
 			switch (damageType)
 			{
-				case eDamageType.Slash: return 40;// dmg reduction for melee dmg
-				case eDamageType.Crush: return 40;// dmg reduction for melee dmg
-				case eDamageType.Thrust: return 40;// dmg reduction for melee dmg
+				case EDamageType.Slash: return 40;// dmg reduction for melee dmg
+				case EDamageType.Crush: return 40;// dmg reduction for melee dmg
+				case EDamageType.Thrust: return 40;// dmg reduction for melee dmg
 				default: return 70;// dmg reduction for rest resists
 			}
 		}
@@ -181,11 +181,11 @@ namespace DOL.GS
 			get { return 350; }
 			set { }
 		}
-		public override double GetArmorAF(eArmorSlot slot)
+		public override double GetArmorAF(EArmorSlot slot)
 		{
 			return 350;
 		}
-		public override double GetArmorAbsorb(eArmorSlot slot)
+		public override double GetArmorAbsorb(EArmorSlot slot)
 		{
 			// 85% ABS is cap.
 			return 0.25;
@@ -247,7 +247,7 @@ namespace DOL.GS
 			AlbGolestandtBrain.DragonKaboom8 = false;
 			AlbGolestandtBrain.DragonKaboom9 = false;
 			#endregion
-			MeleeDamageType = eDamageType.Crush;
+			MeleeDamageType = EDamageType.Crush;
 			Faction = FactionMgr.GetFactionByID(31);
 			Faction.AddFriendFaction(FactionMgr.GetFactionByID(31));
 			AlbGolestandtBrain sbrain = new AlbGolestandtBrain();
@@ -880,9 +880,9 @@ namespace DOL.AI.Brain
 					spell.Radius = 1000;
 					spell.SpellID = 11955;
 					spell.Target = "Enemy";
-					spell.Type = eSpellType.DirectDamageNoVariance.ToString();
+					spell.Type = ESpellType.DirectDamageNoVariance.ToString();
 					spell.Uninterruptible = true;
-					spell.DamageType = (int)eDamageType.Heat;
+					spell.DamageType = (int)EDamageType.Heat;
 					m_Dragon_DD2 = new Spell(spell, 70);
 					SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_Dragon_DD2);
 				}
@@ -909,9 +909,9 @@ namespace DOL.AI.Brain
 					spell.Radius = 1000;
 					spell.SpellID = 11956;
 					spell.Target = "Enemy";
-					spell.Type = eSpellType.DirectDamageNoVariance.ToString();
+					spell.Type = ESpellType.DirectDamageNoVariance.ToString();
 					spell.Uninterruptible = true;
-					spell.DamageType = (int)eDamageType.Heat;
+					spell.DamageType = (int)EDamageType.Heat;
 					m_Dragon_DD = new Spell(spell, 70);
 					SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_Dragon_DD);
 				}
@@ -938,9 +938,9 @@ namespace DOL.AI.Brain
 					spell.Radius = 2000;
 					spell.SpellID = 11957;
 					spell.Target = "Enemy";
-					spell.Type = eSpellType.DirectDamageNoVariance.ToString();
+					spell.Type = ESpellType.DirectDamageNoVariance.ToString();
 					spell.Uninterruptible = true;
-					spell.DamageType = (int)eDamageType.Heat;
+					spell.DamageType = (int)EDamageType.Heat;
 					m_Dragon_PBAOE = new Spell(spell, 70);
 					SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_Dragon_PBAOE);
 				}
@@ -967,9 +967,9 @@ namespace DOL.AI.Brain
 					spell.Radius = 2000;
 					spell.SpellID = 11958;
 					spell.Target = "Enemy";
-					spell.Type = eSpellType.Stun.ToString();
+					spell.Type = ESpellType.Stun.ToString();
 					spell.Uninterruptible = true;
-					spell.DamageType = (int)eDamageType.Body;
+					spell.DamageType = (int)EDamageType.Body;
 					m_Dragon_Stun = new Spell(spell, 70);
 					SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_Dragon_Stun);
 				}
@@ -998,9 +998,9 @@ namespace DOL.AI.Brain
 					spell.Radius = 2000;
 					spell.SpellID = 11965;
 					spell.Target = "Enemy";
-					spell.Type = eSpellType.HeatResistDebuff.ToString();
+					spell.Type = ESpellType.HeatResistDebuff.ToString();
 					spell.Uninterruptible = true;
-					spell.DamageType = (int)eDamageType.Heat;
+					spell.DamageType = (int)EDamageType.Heat;
 					m_Dragon_Debuff = new Spell(spell, 70);
 					SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_Dragon_Debuff);
 				}
@@ -1025,21 +1025,21 @@ namespace DOL.GS
 				return;
 			base.ReturnToSpawnPoint();
 		}
-		public override int GetResist(eDamageType damageType)
+		public override int GetResist(EDamageType damageType)
 		{
 			switch (damageType)
 			{
-				case eDamageType.Slash: return 10; // dmg reduction for melee dmg
-				case eDamageType.Crush: return 10; // dmg reduction for melee dmg
-				case eDamageType.Thrust: return 10; // dmg reduction for melee dmg
+				case EDamageType.Slash: return 10; // dmg reduction for melee dmg
+				case EDamageType.Crush: return 10; // dmg reduction for melee dmg
+				case EDamageType.Thrust: return 10; // dmg reduction for melee dmg
 				default: return 20; // dmg reduction for rest resists
 			}
 		}
-		public override double GetArmorAF(eArmorSlot slot)
+		public override double GetArmorAF(EArmorSlot slot)
 		{
 			return 200;
 		}
-		public override double GetArmorAbsorb(eArmorSlot slot)
+		public override double GetArmorAbsorb(EArmorSlot slot)
 		{
 			// 85% ABS is cap.
 			return 0.10;
@@ -1054,7 +1054,7 @@ namespace DOL.GS
 			Size = 80;
 			Level = (byte)Util.Random(50, 55);
 			RespawnInterval = -1;
-			Realm = eRealm.None;
+			Realm = ERealm.None;
 			MaxSpeedBase = 225;
 			Faction = FactionMgr.GetFactionByID(31);
 			Faction.AddFriendFaction(FactionMgr.GetFactionByID(31));
@@ -1342,13 +1342,13 @@ namespace DOL.GS
 	{
 		public GolestandtSpawnedAdd() : base() { }
 
-		public override int GetResist(eDamageType damageType)
+		public override int GetResist(EDamageType damageType)
 		{
 			switch (damageType)
 			{
-				case eDamageType.Slash: return 20;// dmg reduction for melee dmg
-				case eDamageType.Crush: return 20;// dmg reduction for melee dmg
-				case eDamageType.Thrust: return 20;// dmg reduction for melee dmg
+				case EDamageType.Slash: return 20;// dmg reduction for melee dmg
+				case EDamageType.Crush: return 20;// dmg reduction for melee dmg
+				case EDamageType.Thrust: return 20;// dmg reduction for melee dmg
 				default: return 20;// dmg reduction for rest resists
 			}
 		}
@@ -1356,11 +1356,11 @@ namespace DOL.GS
 		{
 			return base.AttackDamage(weapon) * Strength / 100;
 		}
-		public override double GetArmorAF(eArmorSlot slot)
+		public override double GetArmorAF(EArmorSlot slot)
 		{
 			return 200;
 		}
-		public override double GetArmorAbsorb(eArmorSlot slot)
+		public override double GetArmorAbsorb(EArmorSlot slot)
 		{
 			// 85% ABS is cap.
 			return 0.15;

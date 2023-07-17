@@ -11,7 +11,7 @@ namespace DOL.GS.Commands
 {
     [Command(
         "&charstats",
-        ePrivLevel.GM,
+        EPrivLevel.GM,
         "Shows normally hidden character stats.")]
     public class CharStatsCommand : AbstractCommandHandler, ICommandHandler
     {
@@ -49,19 +49,19 @@ namespace DOL.GS.Commands
             }
 
             // Melee crit chance.
-            int meleeCritChance = player.GetModified(eProperty.CriticalMeleeHitChance);
+            int meleeCritChance = player.GetModified(EProperty.CriticalMeleeHitChance);
             messages.Add($"Melee Crit Chance: {meleeCritChance}%");
 
             // Spell crit chance
-            int spellCritChance = player.GetModified(eProperty.CriticalSpellHitChance);
+            int spellCritChance = player.GetModified(EProperty.CriticalSpellHitChance);
             messages.Add($"Spell Crit Chance: {spellCritChance}");
 
             // Spell casting speed bonus.
-            int spellCastSpeed = player.GetModified(eProperty.CastingSpeed);
+            int spellCastSpeed = player.GetModified(EProperty.CastingSpeed);
             messages.Add($"Spell Casting Speed Bonus: {spellCastSpeed}%");
 
             // Heal crit chance.
-            int healCritChance = player.GetModified(eProperty.CriticalHealHitChance);
+            int healCritChance = player.GetModified(EProperty.CriticalHealHitChance);
             messages.Add($"Heal Crit Chance: {healCritChance}%");
 
             // Archery crit chance.
@@ -72,7 +72,7 @@ namespace DOL.GS.Commands
                 || player.HasSpecialization(Specs.Crossbow)
                 || player.HasSpecialization(Specs.Longbow))
             {
-                int archeryCritChance = player.GetModified(eProperty.CriticalArcheryHitChance);
+                int archeryCritChance = player.GetModified(EProperty.CriticalArcheryHitChance);
                 messages.Add($"Archery Crit Chance: {archeryCritChance}%");
             }
 

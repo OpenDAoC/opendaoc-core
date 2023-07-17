@@ -67,7 +67,7 @@ namespace DOL.GS.WeeklyQuests.Midgard
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Rey", eRealm.Midgard);
+			GameNPC[] npcs = WorldMgr.GetNPCsByName("Rey", ERealm.Midgard);
 
 			if (npcs.Length > 0)
 				foreach (GameNPC npc in npcs)
@@ -87,7 +87,7 @@ namespace DOL.GS.WeeklyQuests.Midgard
 				ReyMid.Model = 26;
 				ReyMid.Name = "Rey";
 				ReyMid.GuildName = "Bone Collector";
-				ReyMid.Realm = eRealm.Midgard;
+				ReyMid.Realm = ERealm.Midgard;
 				//Druim Ligen Location
 				ReyMid.CurrentRegionID = 100;
 				ReyMid.Size = 60;

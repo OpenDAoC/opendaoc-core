@@ -3,7 +3,7 @@ using DOL.GS.Realm;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)eCharacterClass.Berserker, "Berserker", "Viking")]
+	[CharacterClass((int)ECharacterClass.Berserker, "Berserker", "Viking")]
 	public class ClassBerserker : ClassViking
 	{
 		public ClassBerserker()
@@ -11,9 +11,9 @@ namespace DOL.GS.PlayerClass
 		{
 			m_profession = "PlayerClass.Profession.HouseofModi";
 			m_specializationMultiplier = 20;
-			m_primaryStat = eStat.STR;
-			m_secondaryStat = eStat.DEX;
-			m_tertiaryStat = eStat.CON;
+			m_primaryStat = EStat.STR;
+			m_secondaryStat = EStat.DEX;
+			m_tertiaryStat = EStat.CON;
 			m_wsbase = 440;
 		}
 

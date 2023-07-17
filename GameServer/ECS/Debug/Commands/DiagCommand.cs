@@ -11,7 +11,7 @@ namespace DOL.GS.Commands
 {
     [Command(
     "&diag",
-    ePrivLevel.GM,
+    EPrivLevel.GM,
     "Toggle server logging of performance diagnostics.",
     "/diag perf <on|off> to toggle performance diagnostics logging on server.",
     "/diag notify <on|off> <interval> to toggle GameEventMgr Notify profiling, where interval is the period of time in milliseconds during which to accumulate stats.",

@@ -21,7 +21,7 @@ namespace DOL.GS.RealmAbilities
 		{
 			Console.WriteLine();
 			if (living is not GamePlayer player) return;
-			if (player.ActiveWeaponSlot != eActiveWeaponSlot.Distance)
+			if (player.ActiveWeaponSlot != EActiveWeaponSlot.Distance)
 			{
                 player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Skill.Ability.CannotUse.CriticalShot.NoRangedWeapons"), eChatType.CT_Important, eChatLoc.CL_SystemWindow);
                 return;
@@ -33,25 +33,25 @@ namespace DOL.GS.RealmAbilities
 			}
 
 			// cancel rapid fire effect
-			RapidFireEcsEffect rapidFire = (RapidFireEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.RapidFire);
+			RapidFireEcsEffect rapidFire = (RapidFireEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, EEffect.RapidFire);
 			if (rapidFire != null)
 				EffectService.RequestImmediateCancelEffect(rapidFire, false);
 
 			// cancel sure shot effect
-			SureShotEcsEffect sureShot = (SureShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.SureShot);
+			SureShotEcsEffect sureShot = (SureShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, EEffect.SureShot);
 			if (sureShot != null)
 				EffectService.RequestImmediateCancelEffect(sureShot);
 
-			TrueShotEcsEffect trueshot = (TrueShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.TrueShot);
+			TrueShotEcsEffect trueshot = (TrueShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, EEffect.TrueShot);
 			if (trueshot != null)
 				EffectService.RequestImmediateCancelEffect(trueshot, false);
 
 			if (player.attackComponent.AttackState)
 			{
-				if (player.rangeAttackComponent.RangedAttackType == eRangedAttackType.Long)
+				if (player.rangeAttackComponent.RangedAttackType == ERangedAttackType.Long)
 				{
                     player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Skill.Ability.CriticalShot.SwitchToRegular"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
-					player.rangeAttackComponent.RangedAttackType = eRangedAttackType.Normal;
+					player.rangeAttackComponent.RangedAttackType = ERangedAttackType.Normal;
 				}
 				else
 				{
@@ -59,7 +59,7 @@ namespace DOL.GS.RealmAbilities
 				}
 				return;
 			}
-			player.rangeAttackComponent.RangedAttackType = eRangedAttackType.Long;
+			player.rangeAttackComponent.RangedAttackType = ERangedAttackType.Long;
 			player.attackComponent.RequestStartAttack(player.TargetObject);
 			
 			DisableSkill(player);

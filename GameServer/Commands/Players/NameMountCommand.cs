@@ -3,7 +3,7 @@ using DOL.GS.PacketHandler;
 
 namespace DOL.GS.Commands
 {
-	[Command("&namemount", ePrivLevel.Player,"Name your hourse","/namemount")]
+	[Command("&namemount", EPrivLevel.Player,"Name your hourse","/namemount")]
 	public class NameMountCommand : AbstractCommandHandler, ICommandHandler
 	{
 		public void OnCommand(GameClient client, string[] args)

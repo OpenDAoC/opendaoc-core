@@ -134,13 +134,13 @@ namespace DOL.GS.GameEvents
 			{
 				switch (p.Realm)
 				{
-					case eRealm.Albion:
+					case ERealm.Albion:
 						p.MoveTo(330, 52759, 39528, 4677, 36);
 						break;
-					case eRealm.Midgard:
+					case ERealm.Midgard:
 						p.MoveTo(334, 52160, 39862, 5472, 46);
 						break;
-					case eRealm.Hibernia:
+					case ERealm.Hibernia:
 						p.MoveTo(335, 52836, 40401, 4672, 441);
 						break;
 				}
@@ -161,13 +161,13 @@ namespace DOL.GS.GameEvents
 			{
 				switch (p.Realm)
 				{
-					case eRealm.Albion:
+					case ERealm.Albion:
 						p.MoveTo(330, 52759, 39528, 4677, 36);
 						break;
-					case eRealm.Midgard:
+					case ERealm.Midgard:
 						p.MoveTo(334, 52160, 39862, 5472, 46);
 						break;
-					case eRealm.Hibernia:
+					case ERealm.Hibernia:
 						p.MoveTo(335, 52836, 40401, 4672, 441);
 						break;
 				}
@@ -217,13 +217,13 @@ namespace DOL.GS.GameEvents
 					//case eRealm.Hibernia:
 					//	p.MoveTo(252, 17367, 18248, 4320, 3268);
 					//	break;
-					case eRealm.Albion:
+					case ERealm.Albion:
 						p.MoveTo(330, 52759, 39528, 4677, 36);
 						break;
-					case eRealm.Midgard:
+					case ERealm.Midgard:
 						p.MoveTo(334, 52160, 39862, 5472, 46);
 						break;
-					case eRealm.Hibernia:
+					case ERealm.Hibernia:
 						p.MoveTo(335, 52836, 40401, 4672, 441);
 						break;
 				}

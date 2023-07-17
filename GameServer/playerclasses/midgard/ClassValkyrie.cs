@@ -3,7 +3,7 @@ using DOL.GS.Realm;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)eCharacterClass.Valkyrie, "Valkyrie", "Viking")]
+	[CharacterClass((int)ECharacterClass.Valkyrie, "Valkyrie", "Viking")]
 	public class ClassValkyrie : ClassViking
 	{
 		public ClassValkyrie()
@@ -11,10 +11,10 @@ namespace DOL.GS.PlayerClass
 		{
 			m_profession = "PlayerClass.Profession.HouseofOdin";
 			m_specializationMultiplier = 20;
-			m_primaryStat = eStat.CON;
-			m_secondaryStat = eStat.STR;
-			m_tertiaryStat = eStat.DEX;
-			m_manaStat = eStat.PIE;
+			m_primaryStat = EStat.CON;
+			m_secondaryStat = EStat.STR;
+			m_tertiaryStat = EStat.DEX;
+			m_manaStat = EStat.PIE;
 			m_wsbase = 360;
 			m_baseHP = 720;
 		}

@@ -71,7 +71,7 @@ namespace DOL.GS
             _leftWeapon = _owner.Inventory?.GetItem(eInventorySlot.LeftHandWeapon);
             _effectiveness = _owner.Effectiveness;
 
-            if (_owner.ActiveWeaponSlot != eActiveWeaponSlot.Distance)
+            if (_owner.ActiveWeaponSlot != EActiveWeaponSlot.Distance)
             {
                 _target = _owner.TargetObject;
 
@@ -139,18 +139,18 @@ namespace DOL.GS
 
         protected virtual bool PrepareMeleeAttack()
         {
-            if (_attackData != null && _attackData.AttackResult is eAttackResult.Fumbled)
+            if (_attackData != null && _attackData.AttackResult is EAttackResult.Fumbled)
             {
                 // Skip this attack if the last one fumbled.
                 _styleComponent.NextCombatStyle = null;
                 _styleComponent.NextCombatBackupStyle = null;
-                _attackData.AttackResult = eAttackResult.Missed;
+                _attackData.AttackResult = EAttackResult.Missed;
                 _interval = _attackComponent.AttackSpeed(_weapon) * 2;
                 StartTime = _interval;
                 return false;
             }
 
-            if (_combatStyle != null && _combatStyle.WeaponTypeRequirement == (int)eObjectType.Shield)
+            if (_combatStyle != null && _combatStyle.WeaponTypeRequirement == (int)EObjectType.Shield)
                 _weapon = _leftWeapon;
 
             int mainHandAttackSpeed = _attackComponent.AttackSpeed(_weapon);
@@ -178,14 +178,14 @@ namespace DOL.GS
 
         protected virtual bool PrepareRangedAttack()
         {
-            eCheckRangeAttackStateResult rangeCheckresult = _owner.rangeAttackComponent.CheckRangeAttackState(_target);
+            ECheckRangedAttackStateResult rangedCheckresult = _owner.rangeAttackComponent.CheckRangeAttackState(_target);
 
-            if (rangeCheckresult == eCheckRangeAttackStateResult.Hold)
+            if (rangedCheckresult == ECheckRangedAttackStateResult.Hold)
             {
                 _interval = TICK_INTERVAL_FOR_NON_ATTACK;
                 return false;
             }
-            else if (rangeCheckresult == eCheckRangeAttackStateResult.Stop || _target == null)
+            else if (rangedCheckresult == ECheckRangedAttackStateResult.Stop || _target == null)
             {
                 _attackComponent.StopAttack();
                 _attackComponent.attackAction?.CleanUp();
@@ -197,7 +197,7 @@ namespace DOL.GS
             _ticksToTarget = _owner.GetDistanceTo(_target) * 1000 / RangeAttackComponent.PROJECTILE_FLIGHT_SPEED;
             int model = _weapon == null ? 0 : _weapon.Model;
             byte flightDuration = (byte)(_ticksToTarget > 350 ? 1 + (_ticksToTarget - 350) / 75 : 1);
-            bool cancelPrepareAnimation = _owner.ActiveWeapon.Object_Type == (int)eObjectType.Thrown;
+            bool cancelPrepareAnimation = _owner.ActiveWeapon.Object_Type == (int)EObjectType.Thrown;
 
             Parallel.ForEach(_owner.GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE), player =>
             {
@@ -218,7 +218,7 @@ namespace DOL.GS
 
             switch (_owner.rangeAttackComponent.RangedAttackType)
             {
-                case eRangedAttackType.Critical:
+                case ERangedAttackType.Critical:
                 {
                     double tmpEffectiveness = 2 - 0.3 * _owner.GetConLevel(_target);
 
@@ -232,13 +232,13 @@ namespace DOL.GS
                     break;
                 }
 
-                case eRangedAttackType.SureShot:
+                case ERangedAttackType.SureShot:
                 {
                     _effectiveness *= 0.5;
                     break;
                 }
 
-                case eRangedAttackType.RapidFire:
+                case ERangedAttackType.RapidFire:
                 {
                     // Source : http://www.camelotherald.com/more/888.shtml
                     // - (About Rapid Fire) If you release the shot 75% through the normal timer, the shot (if it hits) does 75% of its normal damage. If you
@@ -268,9 +268,9 @@ namespace DOL.GS
             {
                 int PALevel = _owner.GetAbilityLevel(Abilities.PenetratingArrow);
 
-                if ((PALevel > 0) && (_owner.rangeAttackComponent.RangedAttackType != eRangedAttackType.Long))
+                if ((PALevel > 0) && (_owner.rangeAttackComponent.RangedAttackType != ERangedAttackType.Long))
                 {
-                    ECSGameSpellEffect bladeturn = livingTarget.effectListComponent.GetSpellEffects(eEffect.Bladeturn)?.FirstOrDefault();
+                    ECSGameSpellEffect bladeturn = livingTarget.effectListComponent.GetSpellEffects(EEffect.Bladeturn)?.FirstOrDefault();
 
                     if (bladeturn != null && _target != bladeturn.SpellHandler.Caster)
                         _effectiveness *= 0.25 + PALevel * 0.25;
@@ -291,8 +291,8 @@ namespace DOL.GS
         {
             _attackComponent.weaponAction = new WeaponAction(_owner, _target, _weapon, _effectiveness, _interruptDuration, _owner.rangeAttackComponent.RangedAttackType);
 
-            if (_owner.rangeAttackComponent.RangedAttackType == eRangedAttackType.Critical)
-                _owner.rangeAttackComponent.RangedAttackType = eRangedAttackType.Normal;
+            if (_owner.rangeAttackComponent.RangedAttackType == ERangedAttackType.Critical)
+                _owner.rangeAttackComponent.RangedAttackType = ERangedAttackType.Normal;
 
             // A positive ticksToTarget means the effects of our attack will be delayed. Typically used for ranged attacks.
             if (_ticksToTarget > 0)
@@ -312,12 +312,12 @@ namespace DOL.GS
         {
             // Melee weapons tick every TICK_INTERVAL_FOR_NON_ATTACK if they didn't attack.
             if (_attackData != null &&
-                _attackData.AttackResult is not eAttackResult.Missed
-                and not eAttackResult.HitUnstyled
-                and not eAttackResult.HitStyle
-                and not eAttackResult.Evaded
-                and not eAttackResult.Blocked
-                and not eAttackResult.Parried)
+                _attackData.AttackResult is not EAttackResult.Missed
+                and not EAttackResult.HitUnstyled
+                and not EAttackResult.HitStyle
+                and not EAttackResult.Evaded
+                and not EAttackResult.Blocked
+                and not EAttackResult.Parried)
             {
                 _interval = TICK_INTERVAL_FOR_NON_ATTACK;
 
@@ -342,21 +342,21 @@ namespace DOL.GS
 
             // Need to find a way to not have to call 'AttackSpeed()' again (currently needed
             _interval = _attackComponent.AttackSpeed(_weapon);
-            _owner.rangeAttackComponent.RangedAttackState = eRangedAttackState.Aim;
+            _owner.rangeAttackComponent.RangedAttackState = ERangedAttackState.Aim;
 
-            if (_owner.rangeAttackComponent.RangedAttackType != eRangedAttackType.Long)
+            if (_owner.rangeAttackComponent.RangedAttackType != ERangedAttackType.Long)
             {
-                _owner.rangeAttackComponent.RangedAttackType = eRangedAttackType.Normal;
+                _owner.rangeAttackComponent.RangedAttackType = ERangedAttackType.Normal;
 
-                if (EffectListService.GetAbilityEffectOnTarget(_owner, eEffect.SureShot) != null)
-                    _owner.rangeAttackComponent.RangedAttackType = eRangedAttackType.SureShot;
-                if (EffectListService.GetAbilityEffectOnTarget(_owner, eEffect.RapidFire) != null)
+                if (EffectListService.GetAbilityEffectOnTarget(_owner, EEffect.SureShot) != null)
+                    _owner.rangeAttackComponent.RangedAttackType = ERangedAttackType.SureShot;
+                if (EffectListService.GetAbilityEffectOnTarget(_owner, EEffect.RapidFire) != null)
                 {
-                    _owner.rangeAttackComponent.RangedAttackType = eRangedAttackType.RapidFire;
+                    _owner.rangeAttackComponent.RangedAttackType = ERangedAttackType.RapidFire;
                     _interval = Math.Max(1500, _interval /= 2);
                 }
-                if (EffectListService.GetAbilityEffectOnTarget(_owner, eEffect.TrueShot) != null)
-                    _owner.rangeAttackComponent.RangedAttackType = eRangedAttackType.Long;
+                if (EffectListService.GetAbilityEffectOnTarget(_owner, EEffect.TrueShot) != null)
+                    _owner.rangeAttackComponent.RangedAttackType = ERangedAttackType.Long;
             }
 
             Parallel.ForEach(_owner.GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE), player =>

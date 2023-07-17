@@ -14,7 +14,7 @@ using DOL.GS.PacketHandler;
 namespace DOL.GS.Commands
 {
     [Command("&spammob", //command to handle
-        ePrivLevel.GM, //minimum privelege level
+        EPrivLevel.GM, //minimum privelege level
         "Mob creation and modification commands.", //command description
         "/spammob create [amount] - creates [amount] mobs at the player's location",
         "/spammob create [amount] [radius] - creates [amount] mobs in a [radius] around the player",
@@ -97,7 +97,7 @@ namespace DOL.GS.Commands
                         if (radius > 5000) radius = 5000;
 
                         foreach (GameNPC npc in client.Player.GetNPCsInRadius(radius))
-                            if (npc.Realm == eRealm.None && (npc is SpamMob.SpamMobNPC))
+                            if (npc.Realm == ERealm.None && (npc is SpamMob.SpamMobNPC))
                                 remove(npc);
                     }
                     else
@@ -184,7 +184,7 @@ namespace DOL.GS.Commands
                 mob.CurrentRegion = client.Player.CurrentRegion;
                 mob.Heading = client.Player.Heading;
                 mob.Level = 50;
-                mob.Realm = (eRealm) realm;
+                mob.Realm = (ERealm) realm;
                 mob.Name = "Spam Mob";
                 mob.Model = 34;
 
@@ -299,59 +299,59 @@ namespace DOL.GS.SpamMob
             switch (spell.SpellType)
             {
                 #region Buffs
-                case eSpellType.AcuityBuff:
-                case eSpellType.AFHitsBuff:
-                case eSpellType.AllMagicResistBuff:
-                case eSpellType.ArmorAbsorptionBuff:
-                case eSpellType.ArmorFactorBuff:
-                case eSpellType.BodyResistBuff:
-                case eSpellType.BodySpiritEnergyBuff:
-                case eSpellType.Buff:
-                case eSpellType.CelerityBuff:
-                case eSpellType.ColdResistBuff:
-                case eSpellType.CombatSpeedBuff:
-                case eSpellType.ConstitutionBuff:
-                case eSpellType.CourageBuff:
-                case eSpellType.CrushSlashTrustBuff:
-                case eSpellType.DexterityBuff:
-                case eSpellType.DexterityQuicknessBuff:
-                case eSpellType.EffectivenessBuff:
-                case eSpellType.EnduranceRegenBuff:
-                case eSpellType.EnergyResistBuff:
-                case eSpellType.FatigueConsumptionBuff:
-                case eSpellType.FlexibleSkillBuff:
-                case eSpellType.HasteBuff:
-                case eSpellType.HealthRegenBuff:
-                case eSpellType.HeatColdMatterBuff:
-                case eSpellType.HeatResistBuff:
-                case eSpellType.HeroismBuff:
-                case eSpellType.KeepDamageBuff:
-                case eSpellType.MagicResistBuff:
-                case eSpellType.MatterResistBuff:
-                case eSpellType.MeleeDamageBuff:
-                case eSpellType.MesmerizeDurationBuff:
-                case eSpellType.MLABSBuff:
-                case eSpellType.PaladinArmorFactorBuff:
-                case eSpellType.ParryBuff:
-                case eSpellType.PowerHealthEnduranceRegenBuff:
-                case eSpellType.PowerRegenBuff:
-                case eSpellType.SavageCombatSpeedBuff:
-                case eSpellType.SavageCrushResistanceBuff:
-                case eSpellType.SavageDPSBuff:
-                case eSpellType.SavageParryBuff:
-                case eSpellType.SavageSlashResistanceBuff:
-                case eSpellType.SavageThrustResistanceBuff:
-                case eSpellType.SpiritResistBuff:
-                case eSpellType.StrengthBuff:
-                case eSpellType.StrengthConstitutionBuff:
-                case eSpellType.SuperiorCourageBuff:
-                case eSpellType.ToHitBuff:
-                case eSpellType.WeaponSkillBuff:
-                case eSpellType.DamageAdd:
-                case eSpellType.OffensiveProc:
-                case eSpellType.DefensiveProc:
-                case eSpellType.DamageShield:
-                case eSpellType.DamageOverTime:
+                case ESpellType.AcuityBuff:
+                case ESpellType.AFHitsBuff:
+                case ESpellType.AllMagicResistBuff:
+                case ESpellType.ArmorAbsorptionBuff:
+                case ESpellType.ArmorFactorBuff:
+                case ESpellType.BodyResistBuff:
+                case ESpellType.BodySpiritEnergyBuff:
+                case ESpellType.Buff:
+                case ESpellType.CelerityBuff:
+                case ESpellType.ColdResistBuff:
+                case ESpellType.CombatSpeedBuff:
+                case ESpellType.ConstitutionBuff:
+                case ESpellType.CourageBuff:
+                case ESpellType.CrushSlashTrustBuff:
+                case ESpellType.DexterityBuff:
+                case ESpellType.DexterityQuicknessBuff:
+                case ESpellType.EffectivenessBuff:
+                case ESpellType.EnduranceRegenBuff:
+                case ESpellType.EnergyResistBuff:
+                case ESpellType.FatigueConsumptionBuff:
+                case ESpellType.FlexibleSkillBuff:
+                case ESpellType.HasteBuff:
+                case ESpellType.HealthRegenBuff:
+                case ESpellType.HeatColdMatterBuff:
+                case ESpellType.HeatResistBuff:
+                case ESpellType.HeroismBuff:
+                case ESpellType.KeepDamageBuff:
+                case ESpellType.MagicResistBuff:
+                case ESpellType.MatterResistBuff:
+                case ESpellType.MeleeDamageBuff:
+                case ESpellType.MesmerizeDurationBuff:
+                case ESpellType.MLABSBuff:
+                case ESpellType.PaladinArmorFactorBuff:
+                case ESpellType.ParryBuff:
+                case ESpellType.PowerHealthEnduranceRegenBuff:
+                case ESpellType.PowerRegenBuff:
+                case ESpellType.SavageCombatSpeedBuff:
+                case ESpellType.SavageCrushResistanceBuff:
+                case ESpellType.SavageDPSBuff:
+                case ESpellType.SavageParryBuff:
+                case ESpellType.SavageSlashResistanceBuff:
+                case ESpellType.SavageThrustResistanceBuff:
+                case ESpellType.SpiritResistBuff:
+                case ESpellType.StrengthBuff:
+                case ESpellType.StrengthConstitutionBuff:
+                case ESpellType.SuperiorCourageBuff:
+                case ESpellType.ToHitBuff:
+                case ESpellType.WeaponSkillBuff:
+                case ESpellType.DamageAdd:
+                case ESpellType.OffensiveProc:
+                case ESpellType.DefensiveProc:
+                case ESpellType.DamageShield:
+                case ESpellType.DamageOverTime:
                     {
                         // Buff self, if not in melee, but not each and every mob
                         // at the same time, because it looks silly.
@@ -370,7 +370,7 @@ namespace DOL.GS.SpamMob
                 #endregion Buffs
 
                 #region Disease Cure/Poison Cure/Summon
-                case eSpellType.CureDisease:
+                case ESpellType.CureDisease:
                     if (Body.IsDiseased)
                     {
                         Body.TargetObject = Body;
@@ -383,7 +383,7 @@ namespace DOL.GS.SpamMob
                         break;
                     }
                     break;
-                case eSpellType.CurePoison:
+                case ESpellType.CurePoison:
                     if (LivingIsPoisoned(Body))
                     {
                         Body.TargetObject = Body;
@@ -396,10 +396,10 @@ namespace DOL.GS.SpamMob
                         break;
                     }
                     break;
-                case eSpellType.Summon:
+                case ESpellType.Summon:
                     Body.TargetObject = Body;
                     break;
-                case eSpellType.SummonMinion:
+                case ESpellType.SummonMinion:
                     //If the list is null, lets make sure it gets initialized!
                     if (Body.ControlledNpcList == null)
                         Body.InitControlledBrainArray(2);
@@ -422,13 +422,13 @@ namespace DOL.GS.SpamMob
                 #endregion Disease Cure/Poison Cure/Summon
 
                 #region Heals
-                case eSpellType.CombatHeal:
-                case eSpellType.Heal:
-                case eSpellType.HealOverTime:
-                case eSpellType.MercHeal:
-                case eSpellType.OmniHeal:
-                case eSpellType.PBAoEHeal:
-                case eSpellType.SpreadHeal:
+                case ESpellType.CombatHeal:
+                case ESpellType.Heal:
+                case ESpellType.HealOverTime:
+                case ESpellType.MercHeal:
+                case ESpellType.OmniHeal:
+                case ESpellType.PBAoEHeal:
+                case ESpellType.SpreadHeal:
                     if (spell.Target.ToLower() == "self")
                     {
                         // if we have a self heal and health is less than 75% then heal, otherwise return false to try another spell or do nothing
@@ -460,13 +460,13 @@ namespace DOL.GS.SpamMob
 
                 //case "SummonAnimistFnF":
                 //case "SummonAnimistPet":
-                case eSpellType.SummonCommander:
-                case eSpellType.SummonDruidPet:
-                case eSpellType.SummonHunterPet:
-                case eSpellType.SummonNecroPet:
-                case eSpellType.SummonUnderhill:
-                case eSpellType.SummonSimulacrum:
-                case eSpellType.SummonSpiritFighter:
+                case ESpellType.SummonCommander:
+                case ESpellType.SummonDruidPet:
+                case ESpellType.SummonHunterPet:
+                case ESpellType.SummonNecroPet:
+                case ESpellType.SummonUnderhill:
+                case ESpellType.SummonSimulacrum:
+                case ESpellType.SummonSpiritFighter:
                     //case "SummonTheurgistPet":
                     if (Body.ControlledBrain != null)
                         break;
@@ -528,7 +528,7 @@ namespace DOL.GS.SpamMob
                 spell.SpellID = 88001;
                 spell.Target = "Self";
                 spell.Message1 = "Damage Over TIme";
-                spell.Type = eSpellType.DamageOverTime.ToString();
+                spell.Type = ESpellType.DamageOverTime.ToString();
                 spell.EffectGroup = 1070;
 
                 af = new Spell(spell, 0);
@@ -551,7 +551,7 @@ namespace DOL.GS.SpamMob
                 spell.SpellID = 88001;
                 spell.Target = "Self";
                 spell.Message1 = "Increases target's Base Armor Factor by 20.";
-                spell.Type = eSpellType.ArmorFactorBuff.ToString();
+                spell.Type = ESpellType.ArmorFactorBuff.ToString();
                 spell.EffectGroup = 1;
 
                 af = new Spell(spell, 0);
@@ -573,7 +573,7 @@ namespace DOL.GS.SpamMob
                 spell.SpellID = 88002;
                 spell.Target = "Self";
                 spell.Message1 = "Increases target's Strength by 20.";
-                spell.Type = eSpellType.StrengthBuff.ToString();
+                spell.Type = ESpellType.StrengthBuff.ToString();
                 spell.EffectGroup = 4;
 
                 str = new Spell(spell, 0);
@@ -595,7 +595,7 @@ namespace DOL.GS.SpamMob
                 spell.SpellID = 88003;
                 spell.Target = "Self";
                 spell.Message1 = "Increases target's Constitution by 20.";
-                spell.Type = eSpellType.ConstitutionBuff.ToString();
+                spell.Type = ESpellType.ConstitutionBuff.ToString();
                 spell.EffectGroup = 201;
 
                 con = new Spell(spell, 0);
@@ -617,7 +617,7 @@ namespace DOL.GS.SpamMob
                 spell.SpellID = 88004;
                 spell.Target = "Self";
                 spell.Message1 = "Increases target's Dexterity by 20.";
-                spell.Type = eSpellType.DexterityBuff.ToString();
+                spell.Type = ESpellType.DexterityBuff.ToString();
                 spell.EffectGroup = 202;
 
                 dex = new Spell(spell, 39);

@@ -32,10 +32,10 @@ namespace DOL.GS
 			GameNpcInventoryTemplate template = new GameNpcInventoryTemplate();
 			template.AddNPCEquipment(eInventorySlot.RightHandWeapon, 315, 0, 0);
 			Inventory = template.CloseTemplate();
-			SwitchWeapon(eActiveWeaponSlot.Standard);
+			SwitchWeapon(EActiveWeaponSlot.Standard);
 
 			VisibleActiveWeaponSlots = 16;
-			MeleeDamageType = eDamageType.Slash;
+			MeleeDamageType = EDamageType.Slash;
 
 			TaborBrain sbrain = new TaborBrain();
 			SetOwnBrain(sbrain);
@@ -115,10 +115,10 @@ namespace DOL.AI.Brain
 					spell.Name = "Earth Blast";
 					spell.Range = 1500;
 					spell.SpellID = 11931;
-					spell.Target = eSpellTarget.Enemy.ToString();
-					spell.Type = eSpellType.DirectDamageNoVariance.ToString();
+					spell.Target = ESpellTarget.Enemy.ToString();
+					spell.Type = ESpellType.DirectDamageNoVariance.ToString();
 					spell.Uninterruptible = true;
-					spell.DamageType = (int)eDamageType.Matter;
+					spell.DamageType = (int)EDamageType.Matter;
 					m_Tabor_DD = new Spell(spell, 20);
 					SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_Tabor_DD);
 				}
@@ -144,10 +144,10 @@ namespace DOL.AI.Brain
 					spell.Range = 1500;
 					spell.Radius = 350;
 					spell.SpellID = 11932;
-					spell.Target = eSpellTarget.Enemy.ToString();
-					spell.Type = eSpellType.DirectDamageNoVariance.ToString();
+					spell.Target = ESpellTarget.Enemy.ToString();
+					spell.Type = ESpellType.DirectDamageNoVariance.ToString();
 					spell.Uninterruptible = true;
-					spell.DamageType = (int)eDamageType.Matter;
+					spell.DamageType = (int)EDamageType.Matter;
 					m_Tabor_DD2 = new Spell(spell, 20);
 					SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_Tabor_DD2);
 				}
@@ -182,9 +182,9 @@ namespace DOL.AI.Brain
 					spell.Target = "Enemy";
 					spell.SpellGroup = 1802;
 					spell.EffectGroup = 1502;
-					spell.Type = eSpellType.DamageOverTime.ToString();
+					spell.Type = ESpellType.DamageOverTime.ToString();
 					spell.Uninterruptible = true;
-					spell.DamageType = (int)eDamageType.Matter;
+					spell.DamageType = (int)EDamageType.Matter;
 					m_Tabor_Dot = new Spell(spell, 20);
 					SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_Tabor_Dot);
 				}
@@ -219,9 +219,9 @@ namespace DOL.AI.Brain
 					spell.Target = "Enemy";
 					spell.SpellGroup = 1803;
 					spell.EffectGroup = 1503;
-					spell.Type = eSpellType.DamageOverTime.ToString();
+					spell.Type = ESpellType.DamageOverTime.ToString();
 					spell.Uninterruptible = true;
-					spell.DamageType = (int)eDamageType.Body;
+					spell.DamageType = (int)EDamageType.Body;
 					m_Tabor_Dot2 = new Spell(spell, 20);
 					SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_Tabor_Dot2);
 				}
@@ -263,10 +263,10 @@ namespace DOL.GS
 			template.AddNPCEquipment(eInventorySlot.RightHandWeapon, 445, 0, 0);
 			template.AddNPCEquipment(eInventorySlot.DistanceWeapon, 471, 0, 0);
 			Inventory = template.CloseTemplate();
-			SwitchWeapon(eActiveWeaponSlot.Standard);
+			SwitchWeapon(EActiveWeaponSlot.Standard);
 
 			VisibleActiveWeaponSlots = 16;
-			MeleeDamageType = eDamageType.Slash;
+			MeleeDamageType = EDamageType.Slash;
 
 			RespawnInterval = -1;
 			TaborGhostBrain sbrain = new TaborGhostBrain();
@@ -330,10 +330,10 @@ namespace DOL.AI.Brain
 					spell.Name = "Earth Blast";
 					spell.Range = 1500;
 					spell.SpellID = 11938;
-					spell.Target = eSpellTarget.Enemy.ToString();
-					spell.Type = eSpellType.DirectDamageNoVariance.ToString();
+					spell.Target = ESpellTarget.Enemy.ToString();
+					spell.Type = ESpellType.DirectDamageNoVariance.ToString();
 					spell.Uninterruptible = true;
-					spell.DamageType = (int)eDamageType.Matter;
+					spell.DamageType = (int)EDamageType.Matter;
 					m_Tabor_DD = new Spell(spell, 20);
 					SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_Tabor_DD);
 				}
@@ -359,10 +359,10 @@ namespace DOL.AI.Brain
 					spell.Range = 1500;
 					spell.Radius = 350;
 					spell.SpellID = 11937;
-					spell.Target = eSpellTarget.Enemy.ToString();
-					spell.Type = eSpellType.DirectDamageNoVariance.ToString();
+					spell.Target = ESpellTarget.Enemy.ToString();
+					spell.Type = ESpellType.DirectDamageNoVariance.ToString();
 					spell.Uninterruptible = true;
-					spell.DamageType = (int)eDamageType.Matter;
+					spell.DamageType = (int)EDamageType.Matter;
 					m_Tabor_DD2 = new Spell(spell, 20);
 					SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_Tabor_DD2);
 				}
@@ -397,9 +397,9 @@ namespace DOL.AI.Brain
 					spell.Target = "Enemy";
 					spell.SpellGroup = 1802;
 					spell.EffectGroup = 1502;
-					spell.Type = eSpellType.DamageOverTime.ToString();
+					spell.Type = ESpellType.DamageOverTime.ToString();
 					spell.Uninterruptible = true;
-					spell.DamageType = (int)eDamageType.Matter;
+					spell.DamageType = (int)EDamageType.Matter;
 					m_Tabor_Dot = new Spell(spell, 20);
 					SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_Tabor_Dot);
 				}
@@ -434,9 +434,9 @@ namespace DOL.AI.Brain
 					spell.Target = "Enemy";
 					spell.SpellGroup = 1803;
 					spell.EffectGroup = 1503;
-					spell.Type = eSpellType.DamageOverTime.ToString();
+					spell.Type = ESpellType.DamageOverTime.ToString();
 					spell.Uninterruptible = true;
-					spell.DamageType = (int)eDamageType.Body;
+					spell.DamageType = (int)EDamageType.Body;
 					m_Tabor_Dot2 = new Spell(spell, 20);
 					SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_Tabor_Dot2);
 				}

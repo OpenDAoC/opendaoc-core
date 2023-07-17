@@ -7,7 +7,7 @@ public class AlluvianGlobuleState_Idle : StandardMobState_Idle
 {
     public AlluvianGlobuleState_Idle(Fsm fsm, AlluvianGlobuleBrain brain) : base(fsm, brain)
     {
-        _id = eFSMStateType.IDLE;
+        _id = EFsmStateType.IDLE;
     }
 
     public override void Enter()
@@ -33,7 +33,7 @@ public class AlluvianGlobuleState_Roaming : StandardMobState_Roaming
 {
     public AlluvianGlobuleState_Roaming(Fsm fsm, AlluvianGlobuleBrain brain) : base(fsm, brain)
     {
-        _id = eFSMStateType.ROAMING;
+        _id = EFsmStateType.ROAMING;
     }
 
     public override void Enter()

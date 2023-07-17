@@ -7,7 +7,7 @@ namespace DOL.GS.Effects
         public ReflexAttackECSEffect(ECSGameEffectInitParams initParams)
             : base(initParams)
         {
-            EffectType = eEffect.ReflexAttack;
+            EffectType = EEffect.ReflexAttack;
             EffectService.RequestStartEffect(this);
         }
 

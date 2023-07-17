@@ -11,7 +11,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		"&announce",
-		ePrivLevel.GM,
+		EPrivLevel.GM,
 	    "GMCommands.Announce.Description",
 	    "GMCommands.Announce.Usage")]
 	public class AnnounceCommand : AbstractCommandHandler, ICommandHandler

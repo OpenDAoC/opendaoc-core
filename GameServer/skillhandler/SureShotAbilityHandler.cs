@@ -13,7 +13,7 @@ namespace DOL.GS.SkillHandler
 	{
 		public void Execute(Ability ab, GamePlayer player)
 		{
-			SureShotEcsEffect sureShot = (SureShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.SureShot);
+			SureShotEcsEffect sureShot = (SureShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, EEffect.SureShot);
 			if (sureShot != null)
 			{
 				EffectService.RequestImmediateCancelEffect(sureShot);
@@ -26,11 +26,11 @@ namespace DOL.GS.SkillHandler
                 return;
 			}
 
-			RapidFireEcsEffect rapidFire = (RapidFireEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.RapidFire);
+			RapidFireEcsEffect rapidFire = (RapidFireEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, EEffect.RapidFire);
 			if (rapidFire != null)
 				EffectService.RequestImmediateCancelEffect(rapidFire, false);
 
-			TrueShotEcsEffect trueshot = (TrueShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.TrueShot);
+			TrueShotEcsEffect trueshot = (TrueShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, EEffect.TrueShot);
 			if (trueshot != null)
 				EffectService.RequestImmediateCancelEffect(trueshot, false);
 

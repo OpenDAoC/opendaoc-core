@@ -23,21 +23,21 @@ namespace DOL.GS
 			if (log.IsInfoEnabled)
 				log.Info("Xanxicar Initializing...");
 		}
-		public override int GetResist(eDamageType damageType)
+		public override int GetResist(EDamageType damageType)
 		{
 			switch (damageType)
 			{
-				case eDamageType.Slash: return 40; // dmg reduction for melee dmg
-				case eDamageType.Crush: return 40; // dmg reduction for melee dmg
-				case eDamageType.Thrust: return 40; // dmg reduction for melee dmg
+				case EDamageType.Slash: return 40; // dmg reduction for melee dmg
+				case EDamageType.Crush: return 40; // dmg reduction for melee dmg
+				case EDamageType.Thrust: return 40; // dmg reduction for melee dmg
 				default: return 70; // dmg reduction for rest resists
 			}
 		}
-		public override double GetArmorAF(eArmorSlot slot)
+		public override double GetArmorAF(EArmorSlot slot)
 		{
 			return 350;
 		}
-		public override double GetArmorAbsorb(eArmorSlot slot)
+		public override double GetArmorAbsorb(EArmorSlot slot)
 		{
 			// 85% ABS is cap.
 			return 0.20;
@@ -103,7 +103,7 @@ namespace DOL.GS
 
 				if (canReportNews && GameServer.ServerRules.CanGenerateNews(player) == false)
 				{
-					if (player.Client.Account.PrivLevel == (int)ePrivLevel.Player)
+					if (player.Client.Account.PrivLevel == (int)EPrivLevel.Player)
 						canReportNews = false;
 				}
 
@@ -313,7 +313,7 @@ namespace DOL.AI.Brain
 			if (!CheckProximityAggro())
 			{
 				//set state to RETURN TO SPAWN
-				FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+				FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
 				Body.Health = Body.MaxHealth;
 				RandomTarget = null;//throw
 				RandomTarget2 = null;//glare
@@ -445,10 +445,10 @@ namespace DOL.AI.Brain
 					spell.Range = 0;
 					spell.Radius = 2500;
 					spell.SpellID = 11802;
-					spell.Target = eSpellTarget.Enemy.ToString();
-					spell.Type = eSpellType.DirectDamageNoVariance.ToString();
+					spell.Target = ESpellTarget.Enemy.ToString();
+					spell.Type = ESpellType.DirectDamageNoVariance.ToString();
 					spell.Uninterruptible = true;
-					spell.DamageType = (int)eDamageType.Energy;
+					spell.DamageType = (int)EDamageType.Energy;
 					m_XanxicarStomp = new Spell(spell, 70);
 					SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_XanxicarStomp);
 				}
@@ -474,10 +474,10 @@ namespace DOL.AI.Brain
 					spell.Range = 1500;
 					spell.Radius = 450;
 					spell.SpellID = 11803;
-					spell.Target = eSpellTarget.Enemy.ToString();
-					spell.Type = eSpellType.DirectDamageNoVariance.ToString();
+					spell.Target = ESpellTarget.Enemy.ToString();
+					spell.Type = ESpellType.DirectDamageNoVariance.ToString();
 					spell.Uninterruptible = true;
-					spell.DamageType = (int)eDamageType.Energy;
+					spell.DamageType = (int)EDamageType.Energy;
 					m_XanxicarGlare = new Spell(spell, 70);
 					SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_XanxicarGlare);
 				}
@@ -495,13 +495,13 @@ namespace DOL.GS
 	{
 		public XanxicarianChampion() : base() { }
 
-		public override int GetResist(eDamageType damageType)
+		public override int GetResist(EDamageType damageType)
 		{
 			switch (damageType)
 			{
-				case eDamageType.Slash: return 40;// dmg reduction for melee dmg
-				case eDamageType.Crush: return 40;// dmg reduction for melee dmg
-				case eDamageType.Thrust: return 40;// dmg reduction for melee dmg
+				case EDamageType.Slash: return 40;// dmg reduction for melee dmg
+				case EDamageType.Crush: return 40;// dmg reduction for melee dmg
+				case EDamageType.Thrust: return 40;// dmg reduction for melee dmg
 				default: return 70;// dmg reduction for rest resists
 			}
 		}
@@ -509,11 +509,11 @@ namespace DOL.GS
 		{
 			return base.AttackDamage(weapon) * Strength / 100;
 		}
-		public override double GetArmorAF(eArmorSlot slot)
+		public override double GetArmorAF(EArmorSlot slot)
 		{
 			return 300;
 		}
-		public override double GetArmorAbsorb(eArmorSlot slot)
+		public override double GetArmorAbsorb(EArmorSlot slot)
 		{
 			// 85% ABS is cap.
 			return 0.25;

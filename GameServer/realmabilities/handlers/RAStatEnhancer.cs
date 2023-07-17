@@ -15,14 +15,14 @@ namespace DOL.GS.RealmAbilities
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-		eProperty m_property = eProperty.Undefined;
+		EProperty m_property = EProperty.Undefined;
 
-		public eProperty Property
+		public EProperty Property
 		{
 			get { return m_property; }
 		}
 
-		public RAStatEnhancer(DbAbilities dba, int level, eProperty property)
+		public RAStatEnhancer(DbAbilities dba, int level, EProperty property)
 			: base(dba, level)
 		{
 			m_property = property;
@@ -137,37 +137,37 @@ namespace DOL.GS.RealmAbilities
 
 	public class RAStrengthEnhancer : RAStatEnhancer
 	{
-		public RAStrengthEnhancer(DbAbilities dba, int level) : base(dba, level, eProperty.Strength) { }
+		public RAStrengthEnhancer(DbAbilities dba, int level) : base(dba, level, EProperty.Strength) { }
 	}
 
 	public class RAConstitutionEnhancer : RAStatEnhancer
 	{
-		public RAConstitutionEnhancer(DbAbilities dba, int level) : base(dba, level, eProperty.Constitution) { }
+		public RAConstitutionEnhancer(DbAbilities dba, int level) : base(dba, level, EProperty.Constitution) { }
 	}
 
 	public class RAQuicknessEnhancer : RAStatEnhancer
 	{
-		public RAQuicknessEnhancer(DbAbilities dba, int level) : base(dba, level, eProperty.Quickness) { }
+		public RAQuicknessEnhancer(DbAbilities dba, int level) : base(dba, level, EProperty.Quickness) { }
 	}
 
 	public class RADexterityEnhancer : RAStatEnhancer
 	{
-		public RADexterityEnhancer(DbAbilities dba, int level) : base(dba, level, eProperty.Dexterity) { }
+		public RADexterityEnhancer(DbAbilities dba, int level) : base(dba, level, EProperty.Dexterity) { }
 	}
 
 	public class RAAcuityEnhancer : RAStatEnhancer
 	{
-		public RAAcuityEnhancer(DbAbilities dba, int level) : base(dba, level, eProperty.Acuity) { }
+		public RAAcuityEnhancer(DbAbilities dba, int level) : base(dba, level, EProperty.Acuity) { }
 	}
 
 	public class RAMaxManaEnhancer : RAStatEnhancer
 	{
-		public RAMaxManaEnhancer(DbAbilities dba, int level) : base(dba, level, eProperty.MaxMana) { }
+		public RAMaxManaEnhancer(DbAbilities dba, int level) : base(dba, level, EProperty.MaxMana) { }
 	}
 
 	public class RAMaxHealthEnhancer : RAStatEnhancer
 	{
-		public RAMaxHealthEnhancer(DbAbilities dba, int level) : base(dba, level, eProperty.MaxHealth) { }
+		public RAMaxHealthEnhancer(DbAbilities dba, int level) : base(dba, level, EProperty.MaxHealth) { }
 
 		public override bool CheckRequirement(GamePlayer player)
 		{
@@ -177,6 +177,6 @@ namespace DOL.GS.RealmAbilities
 	
 	public class RAEndRegenEnhancer : RAStatEnhancer
 	{
-		public RAEndRegenEnhancer(DbAbilities dba, int level) : base(dba, level, eProperty.EnduranceRegenerationRate) { }
+		public RAEndRegenEnhancer(DbAbilities dba, int level) : base(dba, level, EProperty.EnduranceRegenerationRate) { }
 	}
 }

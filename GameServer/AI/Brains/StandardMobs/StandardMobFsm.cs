@@ -22,12 +22,12 @@ public class StandardMobFsm : Fsm
         m_states.Add((int) state.ID, state);
     }
 
-    public StandardMobState GetState(eFSMStateType key)
+    public StandardMobState GetState(EFsmStateType key)
     {
         return (StandardMobState)GetState((int) key);
     }
 
-    public void SetCurrentState(eFSMStateType stateKey)
+    public void SetCurrentState(EFsmStateType stateKey)
     {
         BaseState state = m_states[(int)stateKey];
         if (state != null)
@@ -43,7 +43,7 @@ public class StandardMobFsm : Fsm
 
     public override void KillFSM()
     {
-        SetCurrentState(eFSMStateType.DEAD);
+        SetCurrentState(EFsmStateType.DEAD);
         base.KillFSM();
     }
 }

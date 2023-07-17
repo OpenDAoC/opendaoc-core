@@ -6,7 +6,7 @@ namespace DOL.GS.Commands
 	[Command(
 		"&send",
 		new [] { "&tell", "&t" },
-		ePrivLevel.Player,
+		EPrivLevel.Player,
 		// Displays next to the command when '/cmd' is entered
 		"Sends a private message to the target player.",
 		"PLCommands.SendMessage.Syntax.Send")]
@@ -57,16 +57,16 @@ namespace DOL.GS.Commands
 			}
 
             // prevent to send an anon GM a message to find him - but send the message to the GM - thx to Sumy
-            if (targetClient.Player != null && targetClient.Player.IsAnonymous && targetClient.Account.PrivLevel > (uint)ePrivLevel.Player && targetClient != client)
+            if (targetClient.Player != null && targetClient.Player.IsAnonymous && targetClient.Account.PrivLevel > (uint)EPrivLevel.Player && targetClient != client)
             {
-				if (client.Account.PrivLevel == (uint)ePrivLevel.Player)
+				if (client.Account.PrivLevel == (uint)EPrivLevel.Player)
 				{
 					// Message: "{0} is not in the game, or is a member of another realm."
 					ChatUtil.SendSystemMessage(client, "Social.SendMessage.Err.OfflineOtherRealm", name);
 					// Message: {0} tried to send you a message: "{1}"
 					ChatUtil.SendSendMessage(targetClient.Player, "Social.ReceiveMessage.Staff.TriedToSend", client.Player.Name, message);
 				}
-				if (client.Account.PrivLevel > (uint)ePrivLevel.Player)
+				if (client.Account.PrivLevel > (uint)EPrivLevel.Player)
 				{
 					// Let staff ignore anon state for other staff members
 					// Message: You send, "{0}" to {1} [ANON].

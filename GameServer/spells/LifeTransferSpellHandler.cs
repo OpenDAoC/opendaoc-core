@@ -115,7 +115,7 @@ namespace DOL.GS.Spells
 			}
 
 
-			int heal = target.ChangeHealth(Caster, eHealthChangeType.Spell, amount);
+			int heal = target.ChangeHealth(Caster, EHealthChangeType.Spell, amount);
 
             #region PVP DAMAGE
 

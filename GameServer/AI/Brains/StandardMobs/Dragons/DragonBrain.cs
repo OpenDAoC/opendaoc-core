@@ -38,7 +38,7 @@ namespace DOL.AI.Brain
 			FSM.Add(new DragonState_Aggro(FSM, this));
 			FSM.Add(new StandardMobState_Dead(FSM, this));
 
-			FSM.SetCurrentState(eFSMStateType.WAKING_UP);
+			FSM.SetCurrentState(EFsmStateType.WAKING_UP);
 			LastGlareUseTick = 0;
         }
 

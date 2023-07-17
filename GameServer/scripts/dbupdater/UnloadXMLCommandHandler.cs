@@ -17,7 +17,7 @@ namespace DOL.GS.DatabaseUpdate
 	/// </summary>
 	[Command(
 		"&unloadxmldb",
-		ePrivLevel.Admin,
+		EPrivLevel.Admin,
 		"Unload your Database Tables to a local XML File Repository.",
 		"Usage: /unloadxmldb [FULL|TableName]")]
 	public class UnloadXMLCommandHandler : AbstractCommandHandler, ICommandHandler

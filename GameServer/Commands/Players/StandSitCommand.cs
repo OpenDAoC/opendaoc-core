@@ -1,7 +1,7 @@
  
 namespace DOL.GS.Commands
 {
-	[Command("&stand", ePrivLevel.Player, "Stands up when sitting", "/stand")]
+	[Command("&stand", EPrivLevel.Player, "Stands up when sitting", "/stand")]
 	public class StandCommand : AbstractCommandHandler, ICommandHandler
 	{
 		public void OnCommand(GameClient client, string[] args)
@@ -13,7 +13,7 @@ namespace DOL.GS.Commands
 		}
 	}
 
-	[Command("&sit", new string[] { "&rest" }, ePrivLevel.Player, "Sit", "/sit")]
+	[Command("&sit", new string[] { "&rest" }, EPrivLevel.Player, "Sit", "/sit")]
 	public class SitCommand : AbstractCommandHandler, ICommandHandler
 	{
 		public void OnCommand(GameClient client, string[] args)

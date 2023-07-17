@@ -17,7 +17,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		"&stats",
-		ePrivLevel.Player,
+		EPrivLevel.Player,
 		"Displays player statistics")]
 
 	public class StatsCommand : AbstractCommandHandler, ICommandHandler

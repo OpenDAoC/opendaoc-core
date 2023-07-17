@@ -8,7 +8,7 @@ namespace DOL.GS
         public EngageEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams)
         {
-            EffectType = eEffect.Engage;
+            EffectType = EEffect.Engage;
             EffectService.RequestStartEffect(this);
         }
 

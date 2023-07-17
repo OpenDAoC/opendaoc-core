@@ -63,10 +63,10 @@ namespace DOL.AI.Brain
         {
             switch (spell.SpellType)
             {
-                case eSpellType.HeatColdMatterBuff:
-                case eSpellType.BodySpiritEnergyBuff:
-                case eSpellType.ArmorAbsorptionBuff:
-                case eSpellType.AblativeArmor:
+                case ESpellType.HeatColdMatterBuff:
+                case ESpellType.BodySpiritEnergyBuff:
+                case ESpellType.ArmorAbsorptionBuff:
+                case ESpellType.AblativeArmor:
                     return TrustCast(spell, eCheckSpellType.Defensive, GetDefensiveTarget(spell));
             }
 
@@ -77,11 +77,11 @@ namespace DOL.AI.Brain
         {
             switch (spell.SpellType)
             {
-                case eSpellType.DirectDamage:
-                case eSpellType.DamageSpeedDecrease:
-                case eSpellType.SpeedDecrease:
-                case eSpellType.Taunt:
-                case eSpellType.MeleeDamageDebuff:
+                case ESpellType.DirectDamage:
+                case ESpellType.DamageSpeedDecrease:
+                case ESpellType.SpeedDecrease:
+                case ESpellType.Taunt:
+                case ESpellType.MeleeDamageDebuff:
                     return TrustCast(spell, eCheckSpellType.Offensive, CalculateNextAttackTarget());
             }
 

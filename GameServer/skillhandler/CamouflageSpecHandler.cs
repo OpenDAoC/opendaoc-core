@@ -26,7 +26,7 @@ namespace DOL.GS.SkillHandler
                 return;
 			}
 			 
-			CamouflageEcsEffect camouflage = (CamouflageEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.Camouflage);
+			CamouflageEcsEffect camouflage = (CamouflageEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, EEffect.Camouflage);
 			
 			if (camouflage != null)
 			{				

@@ -5,7 +5,7 @@ namespace DOL.GS.Commands
 {
     [Command(
         "&loyalty",
-        ePrivLevel.Player,
+        EPrivLevel.Player,
         "display current realm loyalty levels",
         "/loyalty")]
     public class LoyaltyCommand : AbstractCommandHandler, ICommandHandler

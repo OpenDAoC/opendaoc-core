@@ -6,6 +6,6 @@ namespace DOL.GS.PropertyCalc
 	public interface IPropertyIndexer
 	{
 		int this[int index] { get; set; }
-		int this[eProperty index] { get; set; }
+		int this[EProperty index] { get; set; }
 	}
 }

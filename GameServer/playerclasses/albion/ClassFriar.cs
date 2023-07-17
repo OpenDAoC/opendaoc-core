@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)eCharacterClass.Friar, "Friar", "Acolyte")]
+	[CharacterClass((int)ECharacterClass.Friar, "Friar", "Acolyte")]
 	public class ClassFriar : ClassAcolyte
 	{
 		public ClassFriar()
@@ -11,10 +11,10 @@ namespace DOL.GS.PlayerClass
 		{
 			m_profession = "PlayerClass.Profession.DefendersofAlbion";
 			m_specializationMultiplier = 15; //atlas reduced from 18
-			m_primaryStat = eStat.PIE;
-			m_secondaryStat = eStat.CON;
-			m_tertiaryStat = eStat.STR;
-			m_manaStat = eStat.PIE;
+			m_primaryStat = EStat.PIE;
+			m_secondaryStat = EStat.CON;
+			m_tertiaryStat = EStat.STR;
+			m_manaStat = EStat.PIE;
 			m_wsbase = 380;
 			m_baseHP = 720;
 		}

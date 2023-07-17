@@ -31,13 +31,13 @@ namespace DOL.GS
             : base()
         {
         }
-        public override int GetResist(eDamageType damageType)
+        public override int GetResist(EDamageType damageType)
         {
             switch (damageType)
             {
-                case eDamageType.Slash: return 40;// dmg reduction for melee dmg
-                case eDamageType.Crush: return 40;// dmg reduction for melee dmg
-                case eDamageType.Thrust: return 40;// dmg reduction for melee dmg
+                case EDamageType.Slash: return 40;// dmg reduction for melee dmg
+                case EDamageType.Crush: return 40;// dmg reduction for melee dmg
+                case EDamageType.Thrust: return 40;// dmg reduction for melee dmg
                 default: return 70;// dmg reduction for rest resists
             }
         }
@@ -58,12 +58,12 @@ namespace DOL.GS
             set { }
         }
 
-        public override double GetArmorAF(eArmorSlot slot)
+        public override double GetArmorAF(EArmorSlot slot)
         {
             return 350;
         }
 
-        public override double GetArmorAbsorb(eArmorSlot slot)
+        public override double GetArmorAbsorb(EArmorSlot slot)
         {
             // 85% ABS is cap.
             return 0.20;
@@ -123,7 +123,7 @@ namespace DOL.GS
         {
             GameNPC[] npcs;
 
-            npcs = WorldMgr.GetNPCsByNameFromRegion("Hurionthex", 191, (eRealm) 0);
+            npcs = WorldMgr.GetNPCsByNameFromRegion("Hurionthex", 191, (ERealm) 0);
             if (npcs.Length == 0)
             {
                 log.Warn("Hurionthex not found, creating it...");
@@ -145,7 +145,7 @@ namespace DOL.GS
                 Hurion.Quickness = 125;
                 Hurion.Empathy = 280;
                 Hurion.BodyType = 5; // Giant
-                Hurion.MeleeDamageType = eDamageType.Crush;
+                Hurion.MeleeDamageType = EDamageType.Crush;
                 Hurion.RoamingRange = 0;
                 Hurion.Faction = FactionMgr.GetFactionByID(96);
 
@@ -223,7 +223,7 @@ namespace DOL.AI.Brain
         {
             Body.Model = 889;
             Body.Size = 170;
-            Body.MeleeDamageType = eDamageType.Crush;
+            Body.MeleeDamageType = EDamageType.Crush;
             Body.BodyType = 5; // Giant
 
             Body.Strength = 250;
@@ -250,7 +250,7 @@ namespace DOL.AI.Brain
             Body.Model = 946;
             Body.Size = 120;
             Body.AttackRange = 450;
-            Body.MeleeDamageType = eDamageType.Spirit;
+            Body.MeleeDamageType = EDamageType.Spirit;
             Body.BodyType = 10; // Plant
 
             Body.Strength = 400;
@@ -278,7 +278,7 @@ namespace DOL.AI.Brain
             Body.Model = 844;
             Body.Size = 160;
             Body.AttackRange = 450;
-            Body.MeleeDamageType = eDamageType.Spirit;
+            Body.MeleeDamageType = EDamageType.Spirit;
             Body.BodyType = 1; // Animal
 
             Body.Strength = 350;
@@ -306,7 +306,7 @@ namespace DOL.AI.Brain
             Body.Model = 925;
             Body.Size = 150;
             Body.AttackRange = 450;
-            Body.MeleeDamageType = eDamageType.Spirit;
+            Body.MeleeDamageType = EDamageType.Spirit;
 
             Body.Strength = 300;
             Body.Constitution = 100;
@@ -521,7 +521,7 @@ namespace DOL.AI.Brain
             // Reset boss encounter in the event of a party wipe or people running away
             if (!CheckProximityAggro())
             {
-                FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+                FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
                 Body.Health = Body.MaxHealth;
                 IsBaseForm = false;
                 IsSaiyanForm = false;
@@ -588,7 +588,7 @@ namespace DOL.AI.Brain
                 {
                     if (Util.Chance(100) && Body.TargetObject != null)
                     {
-                        if (!Body.effectListComponent.ContainsEffectForEffectType(eEffect.DamageAdd))
+                        if (!Body.effectListComponent.ContainsEffectForEffectType(EEffect.DamageAdd))
                         {
                             if (cast_DA == false)
                             {
@@ -603,7 +603,7 @@ namespace DOL.AI.Brain
                 {
                     if (Util.Chance(100) && Body.TargetObject != null)
                     {
-                        if (!Body.effectListComponent.ContainsEffectForEffectType(eEffect.DamageReturn))
+                        if (!Body.effectListComponent.ContainsEffectForEffectType(EEffect.DamageReturn))
                         {
                             if (cast_DS == false)
                             {
@@ -645,7 +645,7 @@ namespace DOL.AI.Brain
                     spell.Target = "Enemy";
                     spell.Type = "Disease";
                     spell.Uninterruptible = true;
-                    spell.DamageType = (int) eDamageType.Energy; //Energy DMG Type
+                    spell.DamageType = (int) EDamageType.Energy; //Energy DMG Type
                     m_black_plague = new Spell(spell, 70);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_black_plague);
                 }
@@ -677,7 +677,7 @@ namespace DOL.AI.Brain
                     spell.Target = "Self";
                     spell.Type = "DamageAdd";
                     spell.Uninterruptible = true;
-                    spell.DamageType = (int) eDamageType.Energy; //Energy DMG Type
+                    spell.DamageType = (int) EDamageType.Energy; //Energy DMG Type
                     m_damage_add = new Spell(spell, 70);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_damage_add);
                 }
@@ -709,7 +709,7 @@ namespace DOL.AI.Brain
                     spell.Target = "Self";
                     spell.Type = "DamageShield";
                     spell.Uninterruptible = true;
-                    spell.DamageType = (int) eDamageType.Heat; //heat DMG Type
+                    spell.DamageType = (int) EDamageType.Heat; //heat DMG Type
                     m_damage_shield = new Spell(spell, 70);
                     SkillBase.AddScriptedSpell(GlobalSpellsLines.Mob_Spells, m_damage_shield);
                 }

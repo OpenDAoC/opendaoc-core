@@ -154,7 +154,7 @@ namespace DOL.GS.PacketHandler
 				{
 					switch (relic.OriginalRealm)
 					{
-						case eRealm.Albion:
+						case ERealm.Albion:
 							if (relic.RelicType == eRelicType.Strength)
 							{
 								albStr = (byte)relic.Realm;
@@ -164,7 +164,7 @@ namespace DOL.GS.PacketHandler
 								albMagic = (byte)relic.Realm;
 							}
 							break;
-						case eRealm.Hibernia:
+						case ERealm.Hibernia:
 							if (relic.RelicType == eRelicType.Strength)
 							{
 								hibStr = (byte)relic.Realm;
@@ -174,7 +174,7 @@ namespace DOL.GS.PacketHandler
 								hibMagic = (byte)relic.Realm;
 							}
 							break;
-						case eRealm.Midgard:
+						case ERealm.Midgard:
 							if (relic.RelicType == eRelicType.Strength)
 							{
 								midStr = (byte)relic.Realm;
@@ -226,7 +226,7 @@ namespace DOL.GS.PacketHandler
 					}
 
 					//Teleport
-					if (m_gameClient.Account.PrivLevel > (int)ePrivLevel.Player)
+					if (m_gameClient.Account.PrivLevel > (int)EPrivLevel.Player)
 					{
 						flag |= (byte)eRealmWarmapKeepFlags.Teleportable;
 					}

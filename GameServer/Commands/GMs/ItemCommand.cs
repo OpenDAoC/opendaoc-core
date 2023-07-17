@@ -9,7 +9,7 @@ using DOL.Language;
 namespace DOL.GS.Commands
 {
 	[Command("&item",
-	     ePrivLevel.GM,
+	     EPrivLevel.GM,
 	     "GMCommands.Item.Description",
 	     "GMCommands.Item.Information",
 	     "GMCommands.Item.Usage.Blank",
@@ -823,9 +823,9 @@ namespace DOL.GS.Commands
 							try
 							{
 								bonusType = Convert.ToInt32(args[3]);
-								if (bonusType < 0 || bonusType >= (int)eProperty.MaxProperty)
+								if (bonusType < 0 || bonusType >= (int)EProperty.MaxProperty)
 								{
-									client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Item.mBonus.TypeShouldBeInRange", (int)(eProperty.MaxProperty - 1)), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+									client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Item.mBonus.TypeShouldBeInRange", (int)(EProperty.MaxProperty - 1)), eChatType.CT_System, eChatLoc.CL_SystemWindow);
 									break;
 								}
 							}
@@ -1546,7 +1546,7 @@ namespace DOL.GS.Commands
 
 							if (ServerProperties.Properties.USE_SALVAGE_PER_REALM)
 							{
-								whereClause = whereClause.And(DB.Column("Realm").IsEqualTo((int)eRealm.None).Or(DB.Column("Realm").IsEqualTo(item.Realm)));
+								whereClause = whereClause.And(DB.Column("Realm").IsEqualTo((int)ERealm.None).Or(DB.Column("Realm").IsEqualTo(item.Realm)));
 							}
 
 							salvageYield = CoreDb<DbSalvageYields>.SelectObject(whereClause);
@@ -1599,7 +1599,7 @@ namespace DOL.GS.Commands
 									list.Add("SalvageYield ID: " + yield.ID);
 									list.Add("       Material: " + materialName);
 									list.Add("          Count: " + yield.Count);
-									list.Add("          Realm: " + (yield.Realm == 0 ? "Any" : GlobalConstants.RealmToName((eRealm)yield.Realm)));
+									list.Add("          Realm: " + (yield.Realm == 0 ? "Any" : GlobalConstants.RealmToName((ERealm)yield.Realm)));
 									list.Add("      PackageID: " + yield.PackageID);
 								}
 							}
@@ -1610,7 +1610,7 @@ namespace DOL.GS.Commands
 								list.Add("   SalvageLevel: " + yield.SalvageLevel);
 								list.Add("       Material: " + materialName);
 								list.Add("          Count: " + SalvageMgr.GetMaterialYield(client.Player, item, yield, material));
-								list.Add("          Realm: " + (yield.Realm == 0 ? "Any" : GlobalConstants.RealmToName((eRealm)yield.Realm)));
+								list.Add("          Realm: " + (yield.Realm == 0 ? "Any" : GlobalConstants.RealmToName((ERealm)yield.Realm)));
 								list.Add("      PackageID: " + yield.PackageID);
 							}
 

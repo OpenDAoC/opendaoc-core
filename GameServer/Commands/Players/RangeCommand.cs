@@ -5,7 +5,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 		"&range",
-		ePrivLevel.Player,
+		EPrivLevel.Player,
 		"Gives a range to a target",
 		"/range")]
 	public class RangeCommand : AbstractCommandHandler, ICommandHandler

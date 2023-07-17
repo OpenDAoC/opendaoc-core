@@ -7,7 +7,7 @@ namespace DOL.GS.Scripts
 {
     [Command(
         "&bounty",
-        ePrivLevel.Player,
+        EPrivLevel.Player,
         "Allows to set a bounty on an enemy player", "/bounty list", "/bounty add <amount>")]
     public class BountyCommandHandler : AbstractCommandHandler, ICommandHandler
     {

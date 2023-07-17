@@ -14,11 +14,11 @@ public class DragonState : StandardMobState
 
 public class DragonState_WakingUp : DragonState {
     public DragonState_WakingUp(Fsm fsm, DragonBrain brain) : base(fsm, brain) {
-        _id = eFSMStateType.WAKING_UP;
+        _id = EFsmStateType.WAKING_UP;
     }
 
     public override void Think() {
-        _brain.FSM.SetCurrentState(eFSMStateType.IDLE);
+        _brain.FSM.SetCurrentState(EFsmStateType.IDLE);
         base.Think();
     }
 }
@@ -27,7 +27,7 @@ public class DragonState_Idle : DragonState
 {
     public DragonState_Idle(Fsm fsm, DragonBrain brain) : base(fsm, brain)
     {
-        _id = eFSMStateType.IDLE;
+        _id = EFsmStateType.IDLE;
     }
 
     public override void Enter()
@@ -56,7 +56,7 @@ public class DragonState_Idle : DragonState
         {
             //Set state to AGGRO
             _brain.AttackMostWanted();
-            _brain.FSM.SetCurrentState(eFSMStateType.AGGRO);
+            _brain.FSM.SetCurrentState(EFsmStateType.AGGRO);
             return;
         }
         else
@@ -72,7 +72,7 @@ public class DragonState_Idle : DragonState
         if (_brain.CheckTether())
         {
             //set state to RETURN TO SPAWN
-            _brain.FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+            _brain.FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
         }
     }
 }
@@ -81,7 +81,7 @@ public class DragonState_Aggro : DragonState
 {
     public DragonState_Aggro(Fsm fsm, DragonBrain brain) : base(fsm, brain)
     {
-        _id = eFSMStateType.AGGRO;
+        _id = EFsmStateType.AGGRO;
     }
 
     public override void Enter()
@@ -105,7 +105,7 @@ public class DragonState_Aggro : DragonState
         if (_brain.CheckTether() || !_brain.CheckProximityAggro())
         {
             //set state to RETURN TO SPAWN
-            _brain.FSM.SetCurrentState(eFSMStateType.RETURN_TO_SPAWN);
+            _brain.FSM.SetCurrentState(EFsmStateType.RETURN_TO_SPAWN);
         }
     }
 }
@@ -114,7 +114,7 @@ public class DragonState_ReturnToSpawn : DragonState
 {
     public DragonState_ReturnToSpawn(Fsm fsm, DragonBrain brain) : base(fsm, brain)
     {
-        _id = eFSMStateType.RETURN_TO_SPAWN;
+        _id = EFsmStateType.RETURN_TO_SPAWN;
     }
 
     public override void Enter()
@@ -139,7 +139,7 @@ public class DragonState_ReturnToSpawn : DragonState
         if (_brain.Body.IsNearSpawn)
         {
             _brain.Body.CancelReturnToSpawnPoint();
-            _brain.FSM.SetCurrentState(eFSMStateType.IDLE);
+            _brain.FSM.SetCurrentState(EFsmStateType.IDLE);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace DOL.GS.Commands
 	/// </summary>
 	[Command(
 		"&emote", new string[] {"&em", "&e"},
-		ePrivLevel.Player,
+		EPrivLevel.Player,
 		"Roleplay an action or emotion", "/emote <text>")]
 	public class EmoteCustomCommand : AbstractCommandHandler, ICommandHandler
 	{

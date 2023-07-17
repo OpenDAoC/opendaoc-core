@@ -71,7 +71,7 @@ namespace DOL.GS.MonthlyQuest.Hibernia
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Kelteen", eRealm.Hibernia);
+			GameNPC[] npcs = WorldMgr.GetNPCsByName("Kelteen", ERealm.Hibernia);
 
 			if (npcs.Length > 0)
 				foreach (GameNPC npc in npcs)
@@ -91,7 +91,7 @@ namespace DOL.GS.MonthlyQuest.Hibernia
 				Kelteen.Model = 315;
 				Kelteen.Name = "Kelteen";
 				Kelteen.GuildName = "Atlas Logistics";
-				Kelteen.Realm = eRealm.Hibernia;
+				Kelteen.Realm = ERealm.Hibernia;
 				//Druim Ligen Location
 				Kelteen.CurrentRegionID = 200;
 				Kelteen.Size = 60;

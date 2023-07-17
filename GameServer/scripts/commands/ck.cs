@@ -14,7 +14,7 @@ namespace DOL.GS.Commands
 {
 	[Command(
 	   "&ck",
-	   ePrivLevel.Player,
+	   EPrivLevel.Player,
 		 "Displays who owns the CK while in a battleground.", "/ck")]
 	public class CkCommandHandler : AbstractCommandHandler, ICommandHandler
 	{

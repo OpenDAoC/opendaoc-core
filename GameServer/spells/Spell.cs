@@ -15,12 +15,12 @@ namespace DOL.GS
 	{
 		protected readonly string m_description = "";
 		protected readonly string m_target = "";
-        protected readonly eSpellType m_spelltype;// = "-";
+        protected readonly ESpellType m_spelltype;// = "-";
 		protected readonly int m_range = 0;
 		protected readonly int m_radius = 0;
 		protected double m_value = 0;
 		protected double m_damage = 0;
-		protected readonly eDamageType m_damageType = eDamageType.Natural;
+		protected readonly EDamageType m_damageType = EDamageType.Natural;
 		protected byte m_concentration = 0;
 		protected int m_duration = 0;
 		protected readonly int m_frequency = 0;
@@ -162,13 +162,13 @@ namespace DOL.GS
 			set { m_damage = value; }
 		}
 
-		public eDamageType DamageType
+		public EDamageType DamageType
 		{
 			get { return m_damageType; }
 
 		}
 
-		public virtual eSpellType SpellType
+		public virtual ESpellType SpellType
 		{
 			get { return m_spelltype; }
 		}
@@ -302,7 +302,7 @@ namespace DOL.GS
 					case "ENEMY":						
 					case "AREA":
 					case "CONE":
-						if (SpellType == eSpellType.Charm)
+						if (SpellType == ESpellType.Charm)
 							return false;
 						else
 							return true;
@@ -340,17 +340,17 @@ namespace DOL.GS
 			{
 				switch (SpellType)//.ToUpper())
 				{
-                    case eSpellType.CurePoison: 
-                    case eSpellType.CureDisease:
-                    case eSpellType.CombatHeal:
-                    case eSpellType.Heal:
-                    case eSpellType.HealOverTime:
-                    case eSpellType.HealthRegenBuff:
-                    case eSpellType.MercHeal:
-                    case eSpellType.OmniHeal:
-                    case eSpellType.PBAoEHeal:
-                    case eSpellType.SpreadHeal:
-                    case eSpellType.SummonHealingElemental: 
+                    case ESpellType.CurePoison: 
+                    case ESpellType.CureDisease:
+                    case ESpellType.CombatHeal:
+                    case ESpellType.Heal:
+                    case ESpellType.HealOverTime:
+                    case ESpellType.HealthRegenBuff:
+                    case ESpellType.MercHeal:
+                    case ESpellType.OmniHeal:
+                    case ESpellType.PBAoEHeal:
+                    case ESpellType.SpreadHeal:
+                    case ESpellType.SummonHealingElemental: 
 						return true;
 					default:
 						return false;
@@ -383,12 +383,12 @@ namespace DOL.GS
 		{
 			m_description = dbspell.Description;
 			m_target = dbspell.Target;
-            m_spelltype = Enum.Parse<eSpellType>(dbspell.Type);
+            m_spelltype = Enum.Parse<ESpellType>(dbspell.Type);
 			m_range = dbspell.Range;
 			m_radius = dbspell.Radius;
 			m_value = dbspell.Value;
 			m_damage = dbspell.Damage;
-			m_damageType = (eDamageType)dbspell.DamageType;
+			m_damageType = (EDamageType)dbspell.DamageType;
 			m_concentration = (byte)dbspell.Concentration;
 			m_duration = dbspell.Duration * 1000;
 			m_frequency = dbspell.Frequency * 100;
@@ -429,7 +429,7 @@ namespace DOL.GS
 		/// </summary>
 		/// <param name="spell"></param>
 		/// <param name="spellType"></param>
-		public Spell(Spell spell, eSpellType spellType) :
+		public Spell(Spell spell, ESpellType spellType) :
 			base(spell.Name, spell.ID, (ushort)spell.Icon, spell.Level, spell.InternalID)
 		{
 			m_description = spell.Description;
@@ -516,7 +516,7 @@ namespace DOL.GS
 
 			if (Target.ToLower() == "enemy" || Target.ToLower() == "area" || Target.ToLower() == "cone")
 				delve.Add(String.Format("Damage: {0}", 
-					GlobalConstants.DamageTypeToName((eDamageType)DamageType)));
+					GlobalConstants.DamageTypeToName((EDamageType)DamageType)));
 
 			delve.Add("");
 		}

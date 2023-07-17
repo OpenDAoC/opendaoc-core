@@ -76,7 +76,7 @@ namespace DOL.GS.Quests.Albion
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Roben Fraomar", eRealm.Albion);
+			GameNPC[] npcs = WorldMgr.GetNPCsByName("Roben Fraomar", ERealm.Albion);
 
 			if (npcs.Length > 0)
 				foreach (GameNPC npc in npcs)
@@ -94,7 +94,7 @@ namespace DOL.GS.Quests.Albion
 				Roben.Model = 36;
 				Roben.Name = "Roben Fraomar";
 				Roben.GuildName = "";
-				Roben.Realm = eRealm.Albion;
+				Roben.Realm = ERealm.Albion;
 				Roben.CurrentRegionID = 1;
 				Roben.Size = 52;
 				Roben.Level = 50;
@@ -109,7 +109,7 @@ namespace DOL.GS.Quests.Albion
 			}
 			// end npc
 
-			npcs = WorldMgr.GetNPCsByName("Sister Blythe", eRealm.None);
+			npcs = WorldMgr.GetNPCsByName("Sister Blythe", ERealm.None);
 
 			if (npcs.Length > 0)
 				foreach (GameNPC npc in npcs)
@@ -127,7 +127,7 @@ namespace DOL.GS.Quests.Albion
 				Blythe.Model = 67;
 				Blythe.Name = "Sister Blythe";
 				Blythe.GuildName = "";
-				Blythe.Realm = eRealm.None;
+				Blythe.Realm = ERealm.None;
 				Blythe.CurrentRegionID = 1;
 				Blythe.Size = 50;
 				Blythe.Level = 69;
@@ -199,16 +199,16 @@ namespace DOL.GS.Quests.Albion
 				i.Durability = 50000;
 
 				i.Bonus1 = 13;
-				i.Bonus1Type = (int) eStat.CON;
+				i.Bonus1Type = (int) EStat.CON;
 
 				i.Bonus2 = 13;
-				i.Bonus2Type = (int) eStat.DEX;
+				i.Bonus2Type = (int) EStat.DEX;
 
 				i.Bonus3 = 13;
-				i.Bonus3Type = (int) eStat.QUI;
+				i.Bonus3Type = (int) EStat.QUI;
 
 				i.Bonus4 = 8;
-				i.Bonus4Type = (int) eResist.Spirit;
+				i.Bonus4Type = (int) EResist.Spirit;
 
 				if (SAVE_INTO_DATABASE)
 				{
@@ -244,16 +244,16 @@ namespace DOL.GS.Quests.Albion
 				i.Durability = 50000;
 
 				i.Bonus1 = 4;
-				i.Bonus1Type = (int) eProperty.Focus_Enchantments;
+				i.Bonus1Type = (int) EProperty.Focus_Enchantments;
 
 				i.Bonus2 = 12;
-				i.Bonus2Type = (int) eStat.CON;
+				i.Bonus2Type = (int) EStat.CON;
 
 				i.Bonus3 = 19;
-				i.Bonus3Type = (int) eStat.PIE;
+				i.Bonus3Type = (int) EStat.PIE;
 
 				i.Bonus4 = 8;
-				i.Bonus4Type = (int) eResist.Energy;
+				i.Bonus4Type = (int) EResist.Energy;
 
 				if (SAVE_INTO_DATABASE)
 				{
@@ -290,16 +290,16 @@ namespace DOL.GS.Quests.Albion
 				i.Durability = 50000;
 
 				i.Bonus1 = 4;
-				i.Bonus1Type = (int) eProperty.Skill_Smiting;
+				i.Bonus1Type = (int) EProperty.Skill_Smiting;
 
 				i.Bonus2 = 22;
-				i.Bonus2Type = (int) eStat.PIE;
+				i.Bonus2Type = (int) EStat.PIE;
 
 				i.Bonus3 = 8;
-				i.Bonus3Type = (int) eResist.Crush;
+				i.Bonus3Type = (int) EResist.Crush;
 
 				i.Bonus4 = 8;
-				i.Bonus4Type = (int) eResist.Matter;
+				i.Bonus4Type = (int) EResist.Matter;
 
 				if (SAVE_INTO_DATABASE)
 				{
@@ -335,16 +335,16 @@ namespace DOL.GS.Quests.Albion
 				i.Durability = 50000;
 
 				i.Bonus1 = 4;
-				i.Bonus1Type = (int) eResist.Crush;
+				i.Bonus1Type = (int) EResist.Crush;
 
 				i.Bonus2 = 4;
-				i.Bonus2Type = (int) eResist.Spirit;
+				i.Bonus2Type = (int) EResist.Spirit;
 
 				i.Bonus3 = 12;
-				i.Bonus3Type = (int) eProperty.PowerRegenerationRate;
+				i.Bonus3Type = (int) EProperty.PowerRegenerationRate;
 
 				i.Bonus4 = 27;
-				i.Bonus4Type = (int) eProperty.MaxHealth;
+				i.Bonus4Type = (int) EProperty.MaxHealth;
 
 				if (SAVE_INTO_DATABASE)
 				{
@@ -379,16 +379,16 @@ namespace DOL.GS.Quests.Albion
 				i.Durability = 50000;
 
 				i.Bonus1 = 4;
-				i.Bonus1Type = (int) eProperty.Skill_Rejuvenation;
+				i.Bonus1Type = (int) EProperty.Skill_Rejuvenation;
 
 				i.Bonus2 = 22;
-				i.Bonus2Type = (int) eStat.CON;
+				i.Bonus2Type = (int) EStat.CON;
 
 				i.Bonus3 = 8;
-				i.Bonus3Type = (int) eResist.Slash;
+				i.Bonus3Type = (int) EResist.Slash;
 
 				i.Bonus4 = 8;
-				i.Bonus4Type = (int) eResist.Cold;
+				i.Bonus4Type = (int) EResist.Cold;
 
 				if (SAVE_INTO_DATABASE)
 				{
@@ -424,16 +424,16 @@ namespace DOL.GS.Quests.Albion
 				i.Durability = 50000;
 
 				i.Bonus1 = 16;
-				i.Bonus1Type = (int) eStat.STR;
+				i.Bonus1Type = (int) EStat.STR;
 
 				i.Bonus2 = 18;
-				i.Bonus2Type = (int) eStat.PIE;
+				i.Bonus2Type = (int) EStat.PIE;
 
 				i.Bonus3 = 8;
-				i.Bonus3Type = (int) eResist.Thrust;
+				i.Bonus3Type = (int) EResist.Thrust;
 
 				i.Bonus4 = 8;
-				i.Bonus4Type = (int) eResist.Heat;
+				i.Bonus4Type = (int) EResist.Heat;
 
 				if (SAVE_INTO_DATABASE)
 				{
@@ -468,16 +468,16 @@ namespace DOL.GS.Quests.Albion
 				i.Durability = 50000;
 
 				i.Bonus1 = 18;
-				i.Bonus1Type = (int) eStat.STR;
+				i.Bonus1Type = (int) EStat.STR;
 
 				i.Bonus2 = 19;
-				i.Bonus2Type = (int) eStat.QUI;
+				i.Bonus2Type = (int) EStat.QUI;
 
 				i.Bonus3 = 6;
-				i.Bonus3Type = (int) eResist.Slash;
+				i.Bonus3Type = (int) EResist.Slash;
 
 				i.Bonus4 = 6;
-				i.Bonus4Type = (int) eResist.Energy;
+				i.Bonus4Type = (int) EResist.Energy;
 
 				if (SAVE_INTO_DATABASE)
 				{
@@ -514,16 +514,16 @@ namespace DOL.GS.Quests.Albion
 				i.Durability = 50000;
 
 				i.Bonus1 = 18;
-				i.Bonus1Type = (int) eStat.CON;
+				i.Bonus1Type = (int) EStat.CON;
 
 				i.Bonus2 = 19;
-				i.Bonus2Type = (int) eStat.DEX;
+				i.Bonus2Type = (int) EStat.DEX;
 
 				i.Bonus3 = 6;
-				i.Bonus3Type = (int) eResist.Crush;
+				i.Bonus3Type = (int) EResist.Crush;
 
 				i.Bonus4 = 6;
-				i.Bonus4Type = (int) eResist.Matter;
+				i.Bonus4Type = (int) EResist.Matter;
 
 				if (SAVE_INTO_DATABASE)
 				{
@@ -560,16 +560,16 @@ namespace DOL.GS.Quests.Albion
 				i.Durability = 50000;
 
 				i.Bonus1 = 19;
-				i.Bonus1Type = (int) eStat.STR;
+				i.Bonus1Type = (int) EStat.STR;
 
 				i.Bonus2 = 18;
-				i.Bonus2Type = (int) eStat.QUI;
+				i.Bonus2Type = (int) EStat.QUI;
 
 				i.Bonus3 = 6;
-				i.Bonus3Type = (int) eResist.Crush;
+				i.Bonus3Type = (int) EResist.Crush;
 
 				i.Bonus4 = 6;
-				i.Bonus4Type = (int) eResist.Heat;
+				i.Bonus4Type = (int) EResist.Heat;
 
 				if (SAVE_INTO_DATABASE)
 				{
@@ -605,16 +605,16 @@ namespace DOL.GS.Quests.Albion
 				i.Durability = 50000;
 
 				i.Bonus1 = 15;
-				i.Bonus1Type = (int) eStat.STR;
+				i.Bonus1Type = (int) EStat.STR;
 
 				i.Bonus2 = 6;
-				i.Bonus2Type = (int) eResist.Body;
+				i.Bonus2Type = (int) EResist.Body;
 
 				i.Bonus3 = 6;
-				i.Bonus3Type = (int) eResist.Spirit;
+				i.Bonus3Type = (int) EResist.Spirit;
 
 				i.Bonus4 = 24;
-				i.Bonus4Type = (int) eProperty.MaxHealth;
+				i.Bonus4Type = (int) EProperty.MaxHealth;
 
 				if (SAVE_INTO_DATABASE)
 				{
@@ -650,16 +650,16 @@ namespace DOL.GS.Quests.Albion
 				i.Durability = 50000;
 
 				i.Bonus1 = 22;
-				i.Bonus1Type = (int) eStat.CON;
+				i.Bonus1Type = (int) EStat.CON;
 
 				i.Bonus2 = 15;
-				i.Bonus2Type = (int) eStat.DEX;
+				i.Bonus2Type = (int) EStat.DEX;
 
 				i.Bonus3 = 6;
-				i.Bonus3Type = (int) eResist.Crush;
+				i.Bonus3Type = (int) EResist.Crush;
 
 				i.Bonus4 = 6;
-				i.Bonus4Type = (int) eResist.Cold;
+				i.Bonus4Type = (int) EResist.Cold;
 
 				if (SAVE_INTO_DATABASE)
 				{
@@ -695,16 +695,16 @@ namespace DOL.GS.Quests.Albion
 				i.Durability = 50000;
 
 				i.Bonus1 = 19;
-				i.Bonus1Type = (int) eStat.CON;
+				i.Bonus1Type = (int) EStat.CON;
 
 				i.Bonus2 = 15;
-				i.Bonus2Type = (int) eStat.DEX;
+				i.Bonus2Type = (int) EStat.DEX;
 
 				i.Bonus3 = 9;
-				i.Bonus3Type = (int) eStat.QUI;
+				i.Bonus3Type = (int) EStat.QUI;
 
 				i.Bonus4 = 6;
-				i.Bonus4Type = (int) eResist.Spirit;
+				i.Bonus4Type = (int) EResist.Spirit;
 
 				if (SAVE_INTO_DATABASE)
 				{
@@ -855,8 +855,8 @@ namespace DOL.GS.Quests.Albion
 			if (player.IsDoingQuest(typeof (Church_50)) != null)
 				return true;
 
-			if (player.CharacterClass.ID != (byte) eCharacterClass.Cleric &&
-				player.CharacterClass.ID != (byte) eCharacterClass.Paladin)
+			if (player.CharacterClass.ID != (byte) ECharacterClass.Cleric &&
+				player.CharacterClass.ID != (byte) ECharacterClass.Paladin)
 				return false;
 
 			// This checks below are only performed is player isn't doing quest already
@@ -1008,7 +1008,7 @@ namespace DOL.GS.Quests.Albion
 
 			base.FinishQuest(); //Defined in Quest, changes the state, stores in DB etc ...
 
-			if (m_questPlayer.CharacterClass.ID == (byte)eCharacterClass.Cleric)
+			if (m_questPlayer.CharacterClass.ID == (byte)ECharacterClass.Cleric)
 			{
 				GiveItem(m_questPlayer, ClericEpicBoots);
 				GiveItem(m_questPlayer, ClericEpicArms);
@@ -1017,7 +1017,7 @@ namespace DOL.GS.Quests.Albion
 				GiveItem(m_questPlayer, ClericEpicVest);
 				GiveItem(m_questPlayer, ClericEpicLegs);
 			}
-			else if (m_questPlayer.CharacterClass.ID == (byte)eCharacterClass.Paladin)
+			else if (m_questPlayer.CharacterClass.ID == (byte)ECharacterClass.Paladin)
 			{
 				GiveItem(m_questPlayer, PaladinEpicBoots);
 				GiveItem(m_questPlayer, PaladinEpicArms);
@@ -1027,7 +1027,7 @@ namespace DOL.GS.Quests.Albion
 				GiveItem(m_questPlayer, PaladinEpicLegs);
 			}
 
-			m_questPlayer.GainExperience(eXPSource.Quest, 1937768448, true);
+			m_questPlayer.GainExperience(EXpSource.Quest, 1937768448, true);
 			//m_questPlayer.AddMoney(Money.GetMoney(0,0,0,2,Util.Random(50)), "You recieve {0} as a reward.");		
 		}
 

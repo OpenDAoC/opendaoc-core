@@ -26,7 +26,7 @@ namespace DOL.GS
 
         public virtual LanguageDataObject.ETranslationIdentifier TranslationIdentifier => LanguageDataObject.ETranslationIdentifier.Zone;
         public string TranslationId { get => ID.ToString(); set { } }
-        public eRealm Realm { get; private set; }
+        public ERealm Realm { get; private set; }
         public Region ZoneRegion { get; set; }
         public ushort ID { get; }
         public ushort ZoneSkinID { get; } // The ID we send to the client, for client-side positioning of gameobjects and npcs.
@@ -247,7 +247,7 @@ namespace DOL.GS
             BonusRealmpoints = rpBonus;
             BonusBountypoints = bpBonus;
             BonusCoin = coinBonus;
-            Realm = (eRealm)realm;
+            Realm = (ERealm)realm;
         }
 
         public void Delete()
@@ -616,23 +616,23 @@ namespace DOL.GS
         /// <summary>
         /// Get a random NPC belonging to a realm.
         /// </summary>
-        public GameNPC GetRandomNPC(eRealm realm)
+        public GameNPC GetRandomNPC(ERealm realm)
         {
-            return GetRandomNPC(new eRealm[] { realm }, 0, 0);
+            return GetRandomNPC(new ERealm[] { realm }, 0, 0);
         }
 
         /// <summary>
         /// Get a random NPC belonging to a realm between levels minlevel and maxlevel.
         /// </summary>
-        public GameNPC GetRandomNPC(eRealm realm, int minLevel, int maxLevel)
+        public GameNPC GetRandomNPC(ERealm realm, int minLevel, int maxLevel)
         {
-            return GetRandomNPC(new eRealm[] { realm }, minLevel, maxLevel);
+            return GetRandomNPC(new ERealm[] { realm }, minLevel, maxLevel);
         }
 
         /// <summary>
         /// Get a random npc from zone with given realms.
         /// </summary>
-        public GameNPC GetRandomNPC(eRealm[] realms)
+        public GameNPC GetRandomNPC(ERealm[] realms)
         {
             return GetRandomNPC(realms, 0, 0);
         }
@@ -640,7 +640,7 @@ namespace DOL.GS
         /// <summary>
         /// Get a random npc from zone with given realms.
         /// </summary>
-        public GameNPC GetRandomNPC(eRealm[] realms, int minLevel, int maxLevel)
+        public GameNPC GetRandomNPC(ERealm[] realms, int minLevel, int maxLevel)
         {
             List<GameNPC> npcs = GetNPCsOfZone(realms, minLevel, maxLevel, 0, 0, true);
             GameNPC randomNPC = npcs.Count == 0 ? null : npcs[Util.Random(npcs.Count - 1)];
@@ -650,15 +650,15 @@ namespace DOL.GS
         /// <summary>
         /// Gets all NPC's in zone.
         /// </summary>
-        public List<GameNPC> GetNPCsOfZone(eRealm realm)
+        public List<GameNPC> GetNPCsOfZone(ERealm realm)
         {
-            return GetNPCsOfZone(new eRealm[] { realm }, 0, 0, 0, 0, false);
+            return GetNPCsOfZone(new ERealm[] { realm }, 0, 0, 0, 0, false);
         }
 
         /// <summary>
         /// Get NPCs of a zone given various parameters.
         /// </summary>
-        public List<GameNPC> GetNPCsOfZone(eRealm[] realms, int minLevel, int maxLevel, int compareLevel, int conLevel, bool firstOnly)
+        public List<GameNPC> GetNPCsOfZone(ERealm[] realms, int minLevel, int maxLevel, int compareLevel, int conLevel, bool firstOnly)
         {
             if (!_initialized)
                 InitializeZone();

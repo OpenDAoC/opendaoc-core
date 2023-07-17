@@ -5,7 +5,7 @@ namespace DOL.GS.Scripts
 {
     [Command(
        "&conquest",
-       ePrivLevel.Player,
+       EPrivLevel.Player,
          "Displays the current conqust status.", "/conquest")]
     public class ConquestCommandHandler : AbstractCommandHandler, ICommandHandler
     {

@@ -3,7 +3,7 @@ using DOL.GS.Realm;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)eCharacterClass.Warden, "Warden", "Naturalist")]
+	[CharacterClass((int)ECharacterClass.Warden, "Warden", "Naturalist")]
 	public class ClassWarden : ClassNaturalist
 	{
 		public ClassWarden()
@@ -11,10 +11,10 @@ namespace DOL.GS.PlayerClass
 		{
 			m_profession = "PlayerClass.Profession.PathofFocus";
 			m_specializationMultiplier = 15; //18
-			m_primaryStat = eStat.EMP;
-			m_secondaryStat = eStat.STR;
-			m_tertiaryStat = eStat.CON;
-			m_manaStat = eStat.EMP;
+			m_primaryStat = EStat.EMP;
+			m_secondaryStat = EStat.STR;
+			m_tertiaryStat = EStat.CON;
+			m_manaStat = EStat.EMP;
 			m_wsbase = 360;
 		}
 

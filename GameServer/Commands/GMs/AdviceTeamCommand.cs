@@ -7,7 +7,7 @@ namespace DOL.GS.Commands
 	[Command(
 		"&adviceteam",
 		 new [] { "&advt" },
-		ePrivLevel.GM,
+		EPrivLevel.GM,
 		// Displays next to the command when '/cmd' is entered
 		"Lists all flagged Advisors, sends advisors questions, and sends messages to the Advice channel as Atlas.")]
 	public class AdviceTeamCommand : AbstractCommandHandler, ICommandHandler
@@ -42,13 +42,13 @@ namespace DOL.GS.Commands
 
 		}
 
-		private string getRealmString(eRealm Realm)
+		private string getRealmString(ERealm Realm)
 		{
 			switch (Realm)
 			{
-				case eRealm.Albion: return "ALB";
-				case eRealm.Midgard: return "MID";
-				case eRealm.Hibernia: return "HIB";
+				case ERealm.Albion: return "ALB";
+				case ERealm.Midgard: return "MID";
+				case ERealm.Hibernia: return "HIB";
 				default: return "NONE";
 			}
 		}

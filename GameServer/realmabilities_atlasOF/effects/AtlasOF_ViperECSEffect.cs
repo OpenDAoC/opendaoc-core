@@ -11,7 +11,7 @@ namespace DOL.GS.Effects
         public AtlasOF_ViperECSEffect(ECSGameEffectInitParams initParams)
             : base(initParams)
         {
-            EffectType = eEffect.Viper;
+            EffectType = EEffect.Viper;
             EffectService.RequestStartEffect(this);
         }
 
