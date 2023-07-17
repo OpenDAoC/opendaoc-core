@@ -973,7 +973,7 @@ namespace DOL.GS
 						}
 						else if (itemCount < 0) // new item should be added
 						{
-							if (sourceItem.Template is ItemUnique)
+							if (sourceItem.Template is DbItemUnique)
 							{
 								item = GameInventoryItem.Create(sourceItem);
 							}

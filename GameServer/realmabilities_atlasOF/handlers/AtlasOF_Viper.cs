@@ -8,7 +8,7 @@ namespace DOL.GS.RealmAbilities
 
     public class AtlasOF_Viper : TimedRealmAbility
     {
-        public AtlasOF_Viper(DBAbility dba, int level) : base(dba, level) { }
+        public AtlasOF_Viper(DbAbilities dba, int level) : base(dba, level) { }
         
         int m_duration = 30000; // 30s
 

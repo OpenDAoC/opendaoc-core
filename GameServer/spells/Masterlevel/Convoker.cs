@@ -22,7 +22,7 @@ namespace DOL.GS.Spells
 		public SummonWoodSpellHandler(GameLiving caster, Spell spell, SpellLine line)
 			: base(caster, spell, line)
 		{
-			ItemTemplate template = GameServer.Database.FindObjectByKey<ItemTemplate>("mysticwood_wooden_boards");
+			DbItemTemplates template = GameServer.Database.FindObjectByKey<DbItemTemplates>("mysticwood_wooden_boards");
 			if (template != null)
 			{
                 items.Add(GameInventoryItem.Create(template));
@@ -254,7 +254,7 @@ namespace DOL.GS.Spells
 					ammo = "mystic_ammo_cold";
 					break;
 			}
-			ItemTemplate template = GameServer.Database.FindObjectByKey<ItemTemplate>(ammo);
+			DbItemTemplates template = GameServer.Database.FindObjectByKey<DbItemTemplates>(ammo);
 			if (template != null)
 			{
                 items.Add(GameInventoryItem.Create(template));

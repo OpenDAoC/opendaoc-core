@@ -49,7 +49,7 @@ namespace DOL.GS
 		{
 		}
 
-		public LaunchQuestAlb(GamePlayer questingPlayer, DBQuest dbQuest) : base(questingPlayer, dbQuest)
+		public LaunchQuestAlb(GamePlayer questingPlayer, DbQuests dbQuest) : base(questingPlayer, dbQuest)
 		{
 		}
 

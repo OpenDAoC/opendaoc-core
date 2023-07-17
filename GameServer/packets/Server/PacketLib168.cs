@@ -178,7 +178,7 @@ namespace DOL.GS.PacketHandler
 			using (var pak = new GSTCPPacketOut(GetPacketCode(eServerPackets.CharacterOverview)))
 			{
 				pak.FillString(m_gameClient.Account.Name, 24);
-				DOLCharacters[] characters = m_gameClient.Account.Characters;
+				DbCoreCharacters[] characters = m_gameClient.Account.Characters;
 				if (characters == null)
 				{
 					pak.Fill(0x0, 1848);
@@ -932,8 +932,8 @@ namespace DOL.GS.PacketHandler
                         }
                         else
                         {
-                            if (!Util.IsEmpty(((DBLanguageGameObject)translation).Name))
-                                name = ((DBLanguageGameObject)translation).Name;
+                            if (!Util.IsEmpty(((DbLanguageGameObjects)translation).Name))
+                                name = ((DbLanguageGameObjects)translation).Name;
                         }
                     }
                 }
@@ -1060,11 +1060,11 @@ namespace DOL.GS.PacketHandler
                 LanguageDataObject translation = LanguageMgr.GetTranslation(m_gameClient, npc);
                 if (translation != null)
                 {
-                    if(!Util.IsEmpty(((DBLanguageNPC)translation).Name))
-                        name = ((DBLanguageNPC)translation).Name;
+                    if(!Util.IsEmpty(((DbLanguageNpcs)translation).Name))
+                        name = ((DbLanguageNpcs)translation).Name;
 
-                    if (!Util.IsEmpty(((DBLanguageNPC)translation).GuildName))
-                        guildName = ((DBLanguageNPC)translation).GuildName;
+                    if (!Util.IsEmpty(((DbLanguageNpcs)translation).GuildName))
+                        guildName = ((DbLanguageNpcs)translation).GuildName;
                 }
 
                 if (name.Length + add.Length + 2 > 47) // clients crash with too long names
@@ -1827,7 +1827,7 @@ namespace DOL.GS.PacketHandler
 							if (!itemsInPage.Contains((int)i))
 								continue;
 
-							var item = (ItemTemplate) itemsInPage[(int)i];
+							var item = (DbItemTemplates) itemsInPage[(int)i];
 							if (item != null)
 							{
 								pak.WriteByte((byte) i); //Item index on page
@@ -1893,7 +1893,7 @@ namespace DOL.GS.PacketHandler
 							{
 								if (log.IsErrorEnabled)
 									log.Error("Merchant item template '" +
-									          ((MerchantItem) itemsInPage[page*MerchantTradeItems.MAX_ITEM_IN_TRADEWINDOWS + i]).ItemTemplateID +
+									          ((DbMerchantItems) itemsInPage[page*MerchantTradeItems.MAX_ITEM_IN_TRADEWINDOWS + i]).ItemTemplateID +
 									          "' not found, abort!!!");
 								return;
 							}
@@ -3496,8 +3496,8 @@ namespace DOL.GS.PacketHandler
 				LanguageDataObject translation = LanguageMgr.GetTranslation(m_gameClient, obj);
 				if (translation != null)
 				{
-					if (!Util.IsEmpty(((DBLanguageNPC)translation).Name))
-						name = ((DBLanguageNPC)translation).Name;
+					if (!Util.IsEmpty(((DbLanguageNpcs)translation).Name))
+						name = ((DbLanguageNpcs)translation).Name;
 				}
 
 				pak.WritePascalString(name);/*pak.WritePascalString(obj.Name);*/
@@ -3530,8 +3530,8 @@ namespace DOL.GS.PacketHandler
                 LanguageDataObject translation = LanguageMgr.GetTranslation(m_gameClient, siegeWeapon);
                 if (translation != null)
                 {
-                    if (!Util.IsEmpty(((DBLanguageNPC)translation).Name))
-                        name = ((DBLanguageNPC)translation).Name;
+                    if (!Util.IsEmpty(((DbLanguageNpcs)translation).Name))
+                        name = ((DbLanguageNpcs)translation).Name;
                 }
 
                 pak.WritePascalString(name + " (" + siegeWeapon.CurrentState + ")");

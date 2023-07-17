@@ -28,8 +28,8 @@ namespace DOL.GS.GameEvents
 			}
 			
 			// processing all the ZP
-			IList<ZonePoint> zonePoints = GameServer.Database.SelectAllObjects<ZonePoint>();
-			foreach (ZonePoint z in zonePoints)
+			IList<DbZonePoints> zonePoints = GameServer.Database.SelectAllObjects<DbZonePoints>();
+			foreach (DbZonePoints z in zonePoints)
 			{
 				if (z.SourceRegion == 0) continue;
 				

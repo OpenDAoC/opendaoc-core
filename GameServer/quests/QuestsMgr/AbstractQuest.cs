@@ -43,7 +43,7 @@ namespace DOL.GS.Quests
 		/// The quest database object, storing the information for the player
 		/// and the quest. Eg. QuestStep etc.
 		/// </summary>
-		private DBQuest m_dbQuest = null;
+		private DbQuests m_dbQuest = null;
 
 		/// <summary>
 		/// List of all QuestParts that can be fired on notify method of quest.
@@ -86,7 +86,7 @@ namespace DOL.GS.Quests
 		{
 			m_questPlayer = questingPlayer;
 			
-			DBQuest dbQuest = new DBQuest();
+			DbQuests dbQuest = new DbQuests();
 			dbQuest.Character_ID = questingPlayer.QuestPlayerID;
 			dbQuest.Name = GetType().FullName;
 			dbQuest.Step = step;
@@ -99,7 +99,7 @@ namespace DOL.GS.Quests
 		/// </summary>
 		/// <param name="questingPlayer">The player doing the quest</param>
 		/// <param name="dbQuest">The database object</param>
-		public AbstractQuest(GamePlayer questingPlayer, DBQuest dbQuest)
+		public AbstractQuest(GamePlayer questingPlayer, DbQuests dbQuest)
 		{
 			m_questPlayer = questingPlayer;
 			m_dbQuest = dbQuest;
@@ -113,7 +113,7 @@ namespace DOL.GS.Quests
 		/// <param name="targetPlayer">Player to assign the loaded quest</param>
 		/// <param name="dbQuest">Quest to load</param>
 		/// <returns>The created quest</returns>
-		public static AbstractQuest LoadFromDatabase(GamePlayer targetPlayer, DBQuest dbQuest)
+		public static AbstractQuest LoadFromDatabase(GamePlayer targetPlayer, DbQuests dbQuest)
 		{
 			Type questType = null;
 			foreach (Assembly asm in ScriptMgr.Scripts)
@@ -151,7 +151,7 @@ namespace DOL.GS.Quests
 		{
 			if(!m_dbQuest.IsPersisted) return;
 
-			DBQuest dbQuest = (DBQuest) GameServer.Database.FindObjectByKey<DBQuest>(m_dbQuest.ObjectId);
+			DbQuests dbQuest = (DbQuests) GameServer.Database.FindObjectByKey<DbQuests>(m_dbQuest.ObjectId);
 			if(dbQuest!=null)
 				GameServer.Database.DeleteObject(dbQuest);
 		}
@@ -470,22 +470,22 @@ namespace DOL.GS.Quests
 
 		#region Items
 
-		protected static void RemoveItem(GamePlayer player, ItemTemplate itemTemplate)
+		protected static void RemoveItem(GamePlayer player, DbItemTemplates itemTemplate)
 		{
 			RemoveItem(null, player, itemTemplate, true);
 		}
 
-		protected static void RemoveItem(GamePlayer player, ItemTemplate itemTemplate, bool notify)
+		protected static void RemoveItem(GamePlayer player, DbItemTemplates itemTemplate, bool notify)
 		{
 			RemoveItem(null, player, itemTemplate, notify);
 		}
 
-		protected static void RemoveItem(GameLiving target, GamePlayer player, ItemTemplate itemTemplate)
+		protected static void RemoveItem(GameLiving target, GamePlayer player, DbItemTemplates itemTemplate)
 		{
 			RemoveItem(target, player, itemTemplate, true);
 		}
 
-		protected static void ReplaceItem(GamePlayer target, ItemTemplate itemTemplateOut, ItemTemplate itemTemplateIn)
+		protected static void ReplaceItem(GamePlayer target, DbItemTemplates itemTemplateOut, DbItemTemplates itemTemplateIn)
 		{
 			target.Inventory.BeginChanges();
 			RemoveItem(target, itemTemplateOut, false);
@@ -493,7 +493,7 @@ namespace DOL.GS.Quests
 			target.Inventory.CommitChanges();
 		}
 
-		protected static void RemoveItem(GameLiving target, GamePlayer player, ItemTemplate itemTemplate, bool notify)
+		protected static void RemoveItem(GameLiving target, GamePlayer player, DbItemTemplates itemTemplate, bool notify)
 		{
 			if (itemTemplate == null)
 			{
@@ -544,7 +544,7 @@ namespace DOL.GS.Quests
 			}
 		}
 
-		protected static int RemoveAllItem(GameLiving target, GamePlayer player, ItemTemplate itemTemplate, bool notify)
+		protected static int RemoveAllItem(GameLiving target, GamePlayer player, DbItemTemplates itemTemplate, bool notify)
 		{
 			int itemsRemoved = 0;
 
@@ -670,39 +670,39 @@ namespace DOL.GS.Quests
             }
 		}
 
-		protected static bool TryGiveItem(GamePlayer player, ItemTemplate itemTemplate)
+		protected static bool TryGiveItem(GamePlayer player, DbItemTemplates itemTemplate)
 		{
 			return GiveItem(null, player, itemTemplate, false);
 		}
 
-		protected static bool TryGiveItem(GameLiving source, GamePlayer player, ItemTemplate itemTemplate)
+		protected static bool TryGiveItem(GameLiving source, GamePlayer player, DbItemTemplates itemTemplate)
 		{
 			return GiveItem(source, player, itemTemplate, false);
 		}
 
-		protected static bool GiveItem(GamePlayer player, ItemTemplate itemTemplate)
+		protected static bool GiveItem(GamePlayer player, DbItemTemplates itemTemplate)
 		{
 			return GiveItem(null, player, itemTemplate, true);
 		}
 
-		protected static bool GiveItem(GamePlayer player, ItemTemplate itemTemplate, bool canDrop)
+		protected static bool GiveItem(GamePlayer player, DbItemTemplates itemTemplate, bool canDrop)
 		{
 			return GiveItem(null, player, itemTemplate, canDrop);
 		}
 
-		protected static bool GiveItem(GameLiving source, GamePlayer player, ItemTemplate itemTemplate)
+		protected static bool GiveItem(GameLiving source, GamePlayer player, DbItemTemplates itemTemplate)
 		{
 			return GiveItem(source, player, itemTemplate, true);
 		}
 
-		protected static bool GiveItem(GameLiving source, GamePlayer player, ItemTemplate itemTemplate, bool canDrop)
+		protected static bool GiveItem(GameLiving source, GamePlayer player, DbItemTemplates itemTemplate, bool canDrop)
 		{
 			InventoryItem item = null;
 
-			if (itemTemplate is ItemUnique)
+			if (itemTemplate is DbItemUnique)
 			{
-				GameServer.Database.AddObject(itemTemplate as ItemUnique);
-				item = GameInventoryItem.Create(itemTemplate as ItemUnique);
+				GameServer.Database.AddObject(itemTemplate as DbItemUnique);
+				item = GameInventoryItem.Create(itemTemplate as DbItemUnique);
 			}
 			else
 			{
@@ -726,15 +726,15 @@ namespace DOL.GS.Quests
 			return true;
 		}
 
-		protected static ItemTemplate CreateTicketTo(String destination, String ticket_Id)
+		protected static DbItemTemplates CreateTicketTo(String destination, String ticket_Id)
 		{
-			ItemTemplate ticket = GameServer.Database.FindObjectByKey<ItemTemplate>(GameServer.Database.Escape(ticket_Id.ToLower()));
+			DbItemTemplates ticket = GameServer.Database.FindObjectByKey<DbItemTemplates>(GameServer.Database.Escape(ticket_Id.ToLower()));
 			if (ticket == null)
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find " + destination + ", creating it ...");
 
-				ticket = new ItemTemplate();
+				ticket = new DbItemTemplates();
 				ticket.Name = "ticket to " + destination;
 
 				ticket.Id_nb = ticket_Id.ToLower();

@@ -225,11 +225,11 @@ namespace DOL.GS.PacketHandler
 					LanguageDataObject translation = LanguageMgr.GetTranslation(m_gameClient, npc);
 					if (translation != null)
 					{
-						if (!Util.IsEmpty(((DBLanguageNPC)translation).Name))
-							name = ((DBLanguageNPC)translation).Name;
+						if (!Util.IsEmpty(((DbLanguageNpcs)translation).Name))
+							name = ((DbLanguageNpcs)translation).Name;
 
-						if (!Util.IsEmpty(((DBLanguageNPC)translation).GuildName))
-							guildName = ((DBLanguageNPC)translation).GuildName;
+						if (!Util.IsEmpty(((DbLanguageNpcs)translation).GuildName))
+							guildName = ((DbLanguageNpcs)translation).GuildName;
 					}
 
 					if (name.Length + add.Length + 2 > 47) // clients crash with too long names
@@ -715,8 +715,8 @@ namespace DOL.GS.PacketHandler
 				LanguageDataObject translation = LanguageMgr.GetTranslation(m_gameClient, siegeWeapon);
 				if (translation != null)
 				{
-					if (!Util.IsEmpty(((DBLanguageNPC)translation).Name))
-						name = ((DBLanguageNPC)translation).Name;
+					if (!Util.IsEmpty(((DbLanguageNpcs)translation).Name))
+						name = ((DbLanguageNpcs)translation).Name;
 				}
 
 				//pak.WritePascalString(name + " (" + siegeWeapon.CurrentState.ToString() + ")");
@@ -1035,7 +1035,7 @@ namespace DOL.GS.PacketHandler
 			pak.WritePascalString(name);
 		}
 
-		protected override void WriteTemplateData(GSTCPPacketOut pak, ItemTemplate template, int count)
+		protected override void WriteTemplateData(GSTCPPacketOut pak, DbItemTemplates template, int count)
 		{
 			if (template == null)
 			{

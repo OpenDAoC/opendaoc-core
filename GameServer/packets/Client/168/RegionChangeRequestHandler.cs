@@ -38,12 +38,12 @@ namespace DOL.GS.PacketHandler.Client.v168
 			}
 
 			var filterRealm = DB.Column("Realm").IsEqualTo((byte)targetRealm).Or(DB.Column("Realm").IsEqualTo(0)).Or(DB.Column("Realm").IsNull());
-			var zonePoint = DOLDB<ZonePoint>.SelectObject(DB.Column("Id").IsEqualTo(jumpSpotId).And(filterRealm));
+			var zonePoint = DOLDB<DbZonePoints>.SelectObject(DB.Column("Id").IsEqualTo(jumpSpotId).And(filterRealm));
 
 			if (zonePoint == null || zonePoint.TargetRegion == 0)
 			{
 				ChatUtil.SendDebugMessage(client, $"Invalid Jump (ZonePoint table): [{jumpSpotId}]{((zonePoint == null) ? ". Entry missing!" : ". TargetRegion is 0!")}");
-				zonePoint = new ZonePoint();
+				zonePoint = new DbZonePoints();
 				zonePoint.Id = jumpSpotId;
 			}
 
@@ -83,7 +83,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 			}
 
 			//check caps for battleground
-			Battleground bg = GameServer.KeepManager.GetBattleground(zonePoint.TargetRegion);
+			DbBattlegrounds bg = GameServer.KeepManager.GetBattleground(zonePoint.TargetRegion);
 			if (bg != null)
 			{
 				if (client.Player.Level < bg.MinLevel && client.Player.Level > bg.MaxLevel &&
@@ -158,7 +158,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 			/// <summary>
 			/// The target zone point
 			/// </summary>
-			protected readonly ZonePoint m_zonePoint;
+			protected readonly DbZonePoints m_zonePoint;
 
 			/// <summary>
 			/// Constructs a new RegionChangeRequestHandler
@@ -166,7 +166,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 			/// <param name="actionSource">The action source</param>
 			/// <param name="zonePoint">The target zone point</param>
 			/// <param name="checker">The jump point checker instance</param>
-			public RegionChangeRequestHandler(GamePlayer actionSource, ZonePoint zonePoint, IJumpPointHandler checkHandler)
+			public RegionChangeRequestHandler(GamePlayer actionSource, DbZonePoints zonePoint, IJumpPointHandler checkHandler)
 				: base(actionSource)
 			{
 				if (zonePoint == null)

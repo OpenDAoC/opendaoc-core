@@ -186,7 +186,7 @@ namespace DOL.GS
                 {
                     m_totalMoney = value;
 
-                    var merchant = DOLDB<HouseConsignmentMerchant>.SelectObject(DB.Column("HouseNumber").IsEqualTo(HouseNumber));
+                    var merchant = DOLDB<DbHouseConsignmentMerchants>.SelectObject(DB.Column("HouseNumber").IsEqualTo(HouseNumber));
                     merchant.Money = m_totalMoney;
                     GameServer.Database.SaveObject(merchant);
                 }
@@ -724,7 +724,7 @@ namespace DOL.GS
 
 			SetInventoryTemplate();
 
-			var houseCM = DOLDB<HouseConsignmentMerchant>.SelectObject(DB.Column("HouseNumber").IsEqualTo(HouseNumber));
+			var houseCM = DOLDB<DbHouseConsignmentMerchants>.SelectObject(DB.Column("HouseNumber").IsEqualTo(HouseNumber));
 			if (houseCM != null)
 			{
 				TotalMoney = houseCM.Money;
@@ -853,7 +853,7 @@ namespace DOL.GS
 
             if (house.DatabaseItem.GuildHouse)
             {
-            	var guild = DOLDB<DBGuild>.SelectObject(DB.Column("GuildName").IsEqualTo(house.DatabaseItem.GuildName));
+            	var guild = DOLDB<DbGuilds>.SelectObject(DB.Column("GuildName").IsEqualTo(house.DatabaseItem.GuildName));
                 int emblem = guild.Emblem;
 
                 InventoryItem cloak = Inventory.GetItem(eInventorySlot.Cloak);

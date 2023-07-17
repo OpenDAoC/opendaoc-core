@@ -79,7 +79,7 @@ namespace DOL.GS.GameEvents
 			if (EventLvCap == 0)
 				return;
 
-			DOLCharacters ch = chArgs.Character;
+			DbCoreCharacters ch = chArgs.Character;
 
 			//moving and binding newly created characters to the BG event zone
 			if (ServerProperties.Properties.EVENT_THIDRANKI)
@@ -248,7 +248,7 @@ namespace DOL.GS.GameEvents
 		/// Binds character to current location
 		/// </summary>
 		/// <param name="ch"></param>
-		public static void BindCharacter(DOLCharacters ch)
+		public static void BindCharacter(DbCoreCharacters ch)
 		{
 			ch.BindRegion = ch.Region;
 			ch.BindHeading = ch.Direction;

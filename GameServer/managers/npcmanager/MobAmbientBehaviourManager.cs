@@ -13,24 +13,24 @@ namespace DOL.GS
         /// <summary>
         /// Mob X Ambient Behaviour Cache indexed by Mob Name
         /// </summary>
-        private Dictionary<string, MobXAmbientBehaviour[]> AmbientBehaviour { get; }
+        private Dictionary<string, DbMobXAmbientBehaviors[]> AmbientBehaviour { get; }
 
         /// <summary>
         /// Retrieve MobXambiemtBehaviour Objects from Mob Name
         /// </summary>
-        public MobXAmbientBehaviour[] this[string index]
+        public DbMobXAmbientBehaviors[] this[string index]
         {
             get
             {
                 if (string.IsNullOrEmpty(index))
                 {
-                    return new MobXAmbientBehaviour[0];
+                    return new DbMobXAmbientBehaviors[0];
                 }
 
                 var lower = index.ToLower();
                 return AmbientBehaviour.ContainsKey(lower)
                     ? AmbientBehaviour[lower]
-                    : new MobXAmbientBehaviour[0];
+                    : new DbMobXAmbientBehaviors[0];
             }
         }
 
@@ -44,7 +44,7 @@ namespace DOL.GS
                 throw new ArgumentNullException(nameof(database));
             }
 
-            AmbientBehaviour = database.SelectAllObjects<MobXAmbientBehaviour>()
+            AmbientBehaviour = database.SelectAllObjects<DbMobXAmbientBehaviors>()
                 .GroupBy(x => x.Source)
                 .ToDictionary(key => key.Key.ToLower(), value => value.ToArray());
         }

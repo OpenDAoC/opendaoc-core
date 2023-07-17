@@ -14,9 +14,9 @@ namespace DOL.GS
 
         static MonthlyQuestService()
         {
-            IList<TaskRefreshIntervals> loadQuestsProp = GameServer.Database.SelectAllObjects<TaskRefreshIntervals>();
+            IList<DbTaskRefreshIntervals> loadQuestsProp = GameServer.Database.SelectAllObjects<DbTaskRefreshIntervals>();
 
-            foreach (TaskRefreshIntervals interval in loadQuestsProp)
+            foreach (DbTaskRefreshIntervals interval in loadQuestsProp)
             {
                 if (interval.RolloverInterval.Equals(MONTHLY_INTERVAL_KEY))
                     lastMonthlyRollover = interval.LastRollover;
@@ -32,7 +32,7 @@ namespace DOL.GS
             if (lastMonthlyRollover.Date.Month < DateTime.Now.Date.Month || lastMonthlyRollover.Year < DateTime.Now.Year)
             {
                 lastMonthlyRollover = DateTime.Now;
-                TaskRefreshIntervals loadQuestsProp = GameServer.Database.SelectObject<TaskRefreshIntervals>(DB.Column("RolloverInterval").IsEqualTo(MONTHLY_INTERVAL_KEY));
+                DbTaskRefreshIntervals loadQuestsProp = GameServer.Database.SelectObject<DbTaskRefreshIntervals>(DB.Column("RolloverInterval").IsEqualTo(MONTHLY_INTERVAL_KEY));
 
                 // Update the one we've got, or make a new one.
                 if (loadQuestsProp != null)
@@ -42,7 +42,7 @@ namespace DOL.GS
                 }
                 else
                 {
-                    TaskRefreshIntervals newTime = new();
+                    DbTaskRefreshIntervals newTime = new();
                     newTime.LastRollover = DateTime.Now;
                     newTime.RolloverInterval = MONTHLY_INTERVAL_KEY;
                     GameServer.Database.AddObject(newTime);
@@ -75,9 +75,9 @@ namespace DOL.GS
                     }
                 }
 
-                IList<DBQuest> existingMonthlyQuests = GameServer.Database.SelectObjects<DBQuest>(DB.Column("Name").IsLike("%MonthlyQuest%"));
+                IList<DbQuests> existingMonthlyQuests = GameServer.Database.SelectObjects<DbQuests>(DB.Column("Name").IsLike("%MonthlyQuest%"));
 
-                foreach (DBQuest existingMonthlyQuest in existingMonthlyQuests)
+                foreach (DbQuests existingMonthlyQuest in existingMonthlyQuests)
                 {
                     if (existingMonthlyQuest.Step <= -1)
                         GameServer.Database.DeleteObject(existingMonthlyQuest);

@@ -874,7 +874,7 @@ namespace DOL.GS.Scripts
             int pagenumber = item_slot / MerchantTradeItems.MAX_ITEM_IN_TRADEWINDOWS;
             int slotnumber = item_slot % MerchantTradeItems.MAX_ITEM_IN_TRADEWINDOWS;
 
-            ItemTemplate template = this.TradeItems.GetItem(pagenumber, (eMerchantWindowSlot)slotnumber);
+            DbItemTemplates template = this.TradeItems.GetItem(pagenumber, (eMerchantWindowSlot)slotnumber);
             if (template == null) return;
 
             int amountToBuy = number;
@@ -1200,12 +1200,12 @@ namespace DOL.GS.Items
             if (!ServerProperties.Properties.LOAD_BUFF_TOKENS)
                 return;
 
-            ItemTemplate item;
+            DbItemTemplates item;
 
-            item = (ItemTemplate)GameServer.Database.FindObjectByKey<ItemTemplate>("Full_Buffs_Token");
+            item = (DbItemTemplates)GameServer.Database.FindObjectByKey<DbItemTemplates>("Full_Buffs_Token");
             if (item == null)
             {
-                item = new ItemTemplate();
+                item = new DbItemTemplates();
                 item.Id_nb = "Full_Buffs_Token";
                 item.Name = "Full Buffs Token";
                 item.Level = 1;
@@ -1221,10 +1221,10 @@ namespace DOL.GS.Items
                     log.Debug("Added " + item.Id_nb);
             }
 
-            item = (ItemTemplate)GameServer.Database.FindObjectByKey<ItemTemplate>("Specialization_Buffs_Token");
+            item = (DbItemTemplates)GameServer.Database.FindObjectByKey<DbItemTemplates>("Specialization_Buffs_Token");
             if (item == null)
             {
-                item = new ItemTemplate();
+                item = new DbItemTemplates();
                 item.Id_nb = "Specialization_Buffs_Token";
                 item.Name = "Specialization Buffs Token";
                 item.Level = 1;
@@ -1240,10 +1240,10 @@ namespace DOL.GS.Items
                     log.Debug("Added " + item.Id_nb);
             }
 
-            item = (ItemTemplate)GameServer.Database.FindObjectByKey<ItemTemplate>("Baseline_Buffs_Token");
+            item = (DbItemTemplates)GameServer.Database.FindObjectByKey<DbItemTemplates>("Baseline_Buffs_Token");
             if (item == null)
             {
-                item = new ItemTemplate();
+                item = new DbItemTemplates();
                 item.Id_nb = "Baseline_Buffs_Token";
                 item.Name = "Baseline Buffs Token";
                 item.Level = 1;
@@ -1259,10 +1259,10 @@ namespace DOL.GS.Items
                     log.Debug("Added " + item.Id_nb);
             }
 
-            item = (ItemTemplate)GameServer.Database.FindObjectByKey<ItemTemplate>("Strength_Buff_Token");
+            item = (DbItemTemplates)GameServer.Database.FindObjectByKey<DbItemTemplates>("Strength_Buff_Token");
             if (item == null)
             {
-                item = new ItemTemplate();
+                item = new DbItemTemplates();
                 item.Id_nb = "Strength_Buff_Token";
                 item.Name = "Strength Buff Token";
                 item.Level = 1;
@@ -1278,10 +1278,10 @@ namespace DOL.GS.Items
                     log.Debug("Added " + item.Id_nb);
             }
 
-            item = (ItemTemplate)GameServer.Database.FindObjectByKey<ItemTemplate>("Fortification_Buff_Token");
+            item = (DbItemTemplates)GameServer.Database.FindObjectByKey<DbItemTemplates>("Fortification_Buff_Token");
             if (item == null)
             {
-                item = new ItemTemplate();
+                item = new DbItemTemplates();
                 item.Id_nb = "Fortification_Buff_Token";
                 item.Name = "Fortification Buff Token";
                 item.Level = 1;
@@ -1297,10 +1297,10 @@ namespace DOL.GS.Items
                     log.Debug("Added " + item.Id_nb);
             }
 
-            item = (ItemTemplate)GameServer.Database.FindObjectByKey<ItemTemplate>("Dexterity_Buff_Token");
+            item = (DbItemTemplates)GameServer.Database.FindObjectByKey<DbItemTemplates>("Dexterity_Buff_Token");
             if (item == null)
             {
-                item = new ItemTemplate();
+                item = new DbItemTemplates();
                 item.Id_nb = "Dexterity_Buff_Token";
                 item.Name = "Dexertity Buff Token";
                 item.Level = 1;
@@ -1316,10 +1316,10 @@ namespace DOL.GS.Items
                     log.Debug("Added " + item.Id_nb);
             }
 
-            item = (ItemTemplate)GameServer.Database.FindObjectByKey<ItemTemplate>("Armor_Buff_Token");
+            item = (DbItemTemplates)GameServer.Database.FindObjectByKey<DbItemTemplates>("Armor_Buff_Token");
             if (item == null)
             {
-                item = new ItemTemplate();
+                item = new DbItemTemplates();
                 item.Id_nb = "Armor_Buff_Token";
                 item.Name = "Armor Buff Token";
                 item.Level = 1;
@@ -1335,10 +1335,10 @@ namespace DOL.GS.Items
                     log.Debug("Added " + item.Id_nb);
             }
 
-            item = (ItemTemplate)GameServer.Database.FindObjectByKey<ItemTemplate>("StrCon_Buff_Token");
+            item = (DbItemTemplates)GameServer.Database.FindObjectByKey<DbItemTemplates>("StrCon_Buff_Token");
             if (item == null)
             {
-                item = new ItemTemplate();
+                item = new DbItemTemplates();
                 item.Id_nb = "StrCon_Buff_Token";
                 item.Name = "Might Buff Token";
                 item.Level = 1;
@@ -1354,10 +1354,10 @@ namespace DOL.GS.Items
                     log.Debug("Added " + item.Id_nb);
             }
 
-            item = (ItemTemplate)GameServer.Database.FindObjectByKey<ItemTemplate>("DexQui_Buff_Token");
+            item = (DbItemTemplates)GameServer.Database.FindObjectByKey<DbItemTemplates>("DexQui_Buff_Token");
             if (item == null)
             {
-                item = new ItemTemplate();
+                item = new DbItemTemplates();
                 item.Id_nb = "DexQui_Buff_Token";
                 item.Name = "Deftness Buff Token";
                 item.Level = 1;
@@ -1373,10 +1373,10 @@ namespace DOL.GS.Items
                     log.Debug("Added " + item.Id_nb);
             }
 
-            item = (ItemTemplate)GameServer.Database.FindObjectByKey<ItemTemplate>("Acu_Buff_Token");
+            item = (DbItemTemplates)GameServer.Database.FindObjectByKey<DbItemTemplates>("Acu_Buff_Token");
             if (item == null)
             {
-                item = new ItemTemplate();
+                item = new DbItemTemplates();
                 item.Id_nb = "Acu_Buff_Token";
                 item.Name = "Enlightenment Buff Token";
                 item.Level = 1;
@@ -1392,10 +1392,10 @@ namespace DOL.GS.Items
                     log.Debug("Added " + item.Id_nb);
             }
 
-            item = (ItemTemplate)GameServer.Database.FindObjectByKey<ItemTemplate>("SpecAF_Buff_Token");
+            item = (DbItemTemplates)GameServer.Database.FindObjectByKey<DbItemTemplates>("SpecAF_Buff_Token");
             if (item == null)
             {
-                item = new ItemTemplate();
+                item = new DbItemTemplates();
                 item.Id_nb = "SpecAF_Buff_Token";
                 item.Name = "Barrier Buff Token";
                 item.Level = 1;
@@ -1411,10 +1411,10 @@ namespace DOL.GS.Items
                     log.Debug("Added " + item.Id_nb);
             }
 
-            item = (ItemTemplate)GameServer.Database.FindObjectByKey<ItemTemplate>("Haste_Buff_Token");
+            item = (DbItemTemplates)GameServer.Database.FindObjectByKey<DbItemTemplates>("Haste_Buff_Token");
             if (item == null)
             {
-                item = new ItemTemplate();
+                item = new DbItemTemplates();
                 item.Id_nb = "Haste_Buff_Token";
                 item.Name = "Haste Buff Token";
                 item.Level = 1;
@@ -1440,16 +1440,16 @@ namespace DOL.GS.Items
         [GameServerStartedEvent]
         public static void OnServerStartup(DOLEvent e, object sender, EventArgs args)
         {
-            ItemTemplate[] buffMerchEvent = DOLDB<ItemTemplate>.SelectObjects(DB.Column("PackageID").IsLike("BuffTokens")).OrderBy(it => it.Item_Type).ToArray();
-            MerchantItem m_item = null;
+            DbItemTemplates[] buffMerchEvent = DOLDB<DbItemTemplates>.SelectObjects(DB.Column("PackageID").IsLike("BuffTokens")).OrderBy(it => it.Item_Type).ToArray();
+            DbMerchantItems m_item = null;
             int pagenumber = 0;
             int slotposition = 0;
-            m_item = DOLDB<MerchantItem>.SelectObject(DB.Column("ItemListID").IsEqualTo("BuffTokens"));
+            m_item = DOLDB<DbMerchantItems>.SelectObject(DB.Column("ItemListID").IsEqualTo("BuffTokens"));
             if (m_item == null)
             {
-                foreach (ItemTemplate item in buffMerchEvent)
+                foreach (DbItemTemplates item in buffMerchEvent)
                 {
-                    m_item = new MerchantItem();
+                    m_item = new DbMerchantItems();
                     m_item.ItemListID = "BuffTokens";
                     m_item.ItemTemplateID = item.Id_nb;
                     m_item.PageNumber = pagenumber;

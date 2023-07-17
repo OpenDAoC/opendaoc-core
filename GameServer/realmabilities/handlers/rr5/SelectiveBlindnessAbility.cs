@@ -18,7 +18,7 @@ namespace DOL.GS.RealmAbilities
         private GamePlayer m_player = null;
         private GamePlayer m_targetPlayer = null;
 
-        public SelectiveBlindnessAbility(DBAbility dba, int level) : base(dba, level) { }
+        public SelectiveBlindnessAbility(DbAbilities dba, int level) : base(dba, level) { }
 
         /// <summary>
         /// Action

@@ -12,7 +12,7 @@ namespace DOL.GS.RealmAbilities
 {
     public class AtlasOF_WhirlingDervish : TimedRealmAbility
     {
-        public AtlasOF_WhirlingDervish(DBAbility dba, int level) : base(dba, level) { }
+        public AtlasOF_WhirlingDervish(DbAbilities dba, int level) : base(dba, level) { }
 
         public const int duration = 60000; // 60 seconds
         public override int MaxLevel { get { return 3; } }

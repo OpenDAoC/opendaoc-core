@@ -12,7 +12,7 @@ using DOL.Language;
 namespace DOL.GS.Behaviour.Actions
 {
     [ActionAttribute(ActionType = eActionType.TakeItem,DefaultValueQ=1)]
-    public class TakeItemAction : AbstractAction<ItemTemplate, int>
+    public class TakeItemAction : AbstractAction<DbItemTemplates, int>
     {
 
         public TakeItemAction(GameNPC defaultNPC,  Object p, Object q)
@@ -21,7 +21,7 @@ namespace DOL.GS.Behaviour.Actions
         }
 
 
-        public TakeItemAction(GameNPC defaultNPC,   ItemTemplate itemTemplate, int quantity)
+        public TakeItemAction(GameNPC defaultNPC,   DbItemTemplates itemTemplate, int quantity)
             : this(defaultNPC, (object)itemTemplate,(object) quantity) { }
 
 
@@ -30,7 +30,7 @@ namespace DOL.GS.Behaviour.Actions
         {
             GamePlayer player = BehaviourUtils.GuessGamePlayerFromNotify(e, sender, args);
             int count = Q;
-            ItemTemplate itemToRemove = P;
+            DbItemTemplates itemToRemove = P;
 
 			Dictionary<InventoryItem, int?> dataSlots = new Dictionary<InventoryItem, int?>(10);
             lock (player.Inventory)

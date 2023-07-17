@@ -10,7 +10,7 @@ namespace DOL.GS.RealmAbilities
 	/// </summary>
 	public class TestudoAbility : RR5RealmAbility
 	{
-		public TestudoAbility(DBAbility dba, int level) : base(dba, level) { }
+		public TestudoAbility(DbAbilities dba, int level) : base(dba, level) { }
 
 		/// <summary>
 		/// Action

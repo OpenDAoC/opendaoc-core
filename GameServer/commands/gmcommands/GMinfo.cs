@@ -322,10 +322,10 @@ namespace DOL.GS.Commands
 					info.Add("");
 					info.Add(" + Loot:");
 
-					var template = DOLDB<LootTemplate>.SelectObjects(DB.Column("TemplateName").IsEqualTo(target.Name));
-					foreach (LootTemplate loot in template)
+					var template = DOLDB<DbLootTemplates>.SelectObjects(DB.Column("TemplateName").IsEqualTo(target.Name));
+					foreach (DbLootTemplates loot in template)
 					{
-						ItemTemplate drop = GameServer.Database.FindObjectByKey<ItemTemplate>(loot.ItemTemplateID);
+						DbItemTemplates drop = GameServer.Database.FindObjectByKey<DbItemTemplates>(loot.ItemTemplateID);
 
 						string message = "";
 						if (drop == null)
@@ -674,7 +674,7 @@ namespace DOL.GS.Commands
 					else if (GameServer.KeepManager.GetBattleground(target.CurrentRegionID) != null)
 					{
 						info.Add(" + Keep Manager : " + GameServer.KeepManager.GetType().FullName);
-						Battleground bg = GameServer.KeepManager.GetBattleground(client.Player.CurrentRegionID);
+						DbBattlegrounds bg = GameServer.KeepManager.GetBattleground(client.Player.CurrentRegionID);
 						info.Add(" + Battleground (" + bg.MinLevel + " to " + bg.MaxLevel + ", max RL: " + bg.MaxRealmLevel + ")");
 					}
 					else
@@ -791,7 +791,7 @@ namespace DOL.GS.Commands
 					else if (GameServer.KeepManager.GetBattleground(client.Player.CurrentRegionID) != null)
 					{
 						info.Add(" Keep Manager: " + GameServer.KeepManager.GetType().FullName);
-						Battleground bg = GameServer.KeepManager.GetBattleground(client.Player.CurrentRegionID);
+						DbBattlegrounds bg = GameServer.KeepManager.GetBattleground(client.Player.CurrentRegionID);
 						info.Add(" Battleground (" + bg.MinLevel + " to " + bg.MaxLevel + ", max RL: " + bg.MaxRealmLevel + ")");
 					}
 					else

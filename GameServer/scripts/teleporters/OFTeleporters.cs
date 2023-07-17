@@ -345,11 +345,11 @@ namespace DOL.GS.Scripts
 
                                     // Check if the house at the player's house bind location contains a bind stone
                                     House targetHouse = (House) houses[0];
-                                    IDictionary<uint, DBHouseHookpointItem>
+                                    IDictionary<uint, DbHouseHookPointItems>
                                         hookpointItems = targetHouse.HousepointItems;
                                     Boolean hasBindstone = false;
 
-                                    foreach (KeyValuePair<uint, DBHouseHookpointItem> targetHouseItem in hookpointItems)
+                                    foreach (KeyValuePair<uint, DbHouseHookPointItems> targetHouseItem in hookpointItems)
                                     {
                                         if (((GameObject) targetHouseItem.Value.GameObject).GetName(0, false).ToLower()
                                             .EndsWith("bindstone"))
@@ -502,11 +502,11 @@ namespace DOL.GS.Scripts
 
                                     // Check if the house at the player's house bind location contains a bind stone
                                     House targetHouse = (House) houses[0];
-                                    IDictionary<uint, DBHouseHookpointItem>
+                                    IDictionary<uint, DbHouseHookPointItems>
                                         hookpointItems = targetHouse.HousepointItems;
                                     Boolean hasBindstone = false;
 
-                                    foreach (KeyValuePair<uint, DBHouseHookpointItem> targetHouseItem in hookpointItems)
+                                    foreach (KeyValuePair<uint, DbHouseHookPointItems> targetHouseItem in hookpointItems)
                                     {
                                         if (((GameObject) targetHouseItem.Value.GameObject).GetName(0, false).ToLower()
                                             .EndsWith("bindstone"))
@@ -659,11 +659,11 @@ namespace DOL.GS.Scripts
 
                                     // Check if the house at the player's house bind location contains a bind stone
                                     House targetHouse = (House) houses[0];
-                                    IDictionary<uint, DBHouseHookpointItem>
+                                    IDictionary<uint, DbHouseHookPointItems>
                                         hookpointItems = targetHouse.HousepointItems;
                                     Boolean hasBindstone = false;
 
-                                    foreach (KeyValuePair<uint, DBHouseHookpointItem> targetHouseItem in hookpointItems)
+                                    foreach (KeyValuePair<uint, DbHouseHookPointItems> targetHouseItem in hookpointItems)
                                     {
                                         if (((GameObject) targetHouseItem.Value.GameObject).GetName(0, false).ToLower()
                                             .EndsWith("bindstone"))

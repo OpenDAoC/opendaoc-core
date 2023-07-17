@@ -7,6 +7,6 @@ namespace DOL.Language
     {
         string TranslationId { get; set; }
 
-        LanguageDataObject.eTranslationIdentifier TranslationIdentifier { get; }
+        LanguageDataObject.ETranslationIdentifier TranslationIdentifier { get; }
     }
 }

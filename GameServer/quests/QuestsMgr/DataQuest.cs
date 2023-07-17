@@ -120,8 +120,8 @@ namespace DOL.GS.Quests
 		private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
 		protected int m_step = 1;
-		protected DBDataQuest m_dataQuest = null;
-		protected CharacterXDataQuest m_charQuest = null;
+		protected DbDataQuest m_dataQuest = null;
+		protected DbCharacterXDataQuest m_charQuest = null;
 		protected GameObject m_startObject = null;
 		protected GameNPC m_startNPC = null;
 		protected IDataQuestStep m_customQuestStep = null;
@@ -238,10 +238,10 @@ namespace DOL.GS.Quests
 		protected List<long> m_rewardBPs = new List<long>();
 		protected List<long> m_rewardMoneys = new List<long>();
 		byte m_numOptionalRewardsChoice = 0;
-		protected List<ItemTemplate> m_optionalRewards = new List<ItemTemplate>();
-		protected List<ItemTemplate> m_optionalRewardChoice = new List<ItemTemplate>();
+		protected List<DbItemTemplates> m_optionalRewards = new List<DbItemTemplates>();
+		protected List<DbItemTemplates> m_optionalRewardChoice = new List<DbItemTemplates>();
 		protected int[] m_rewardItemsChosen = null;
-		protected List<ItemTemplate> m_finalRewards = new List<ItemTemplate>();
+		protected List<DbItemTemplates> m_finalRewards = new List<DbItemTemplates>();
 		protected List<string> m_questDependencies = new List<string>();
 		protected List<byte> m_allowedClasses = new List<byte>();
 		string m_classType = "";
@@ -261,7 +261,7 @@ namespace DOL.GS.Quests
         /// DataQuest object used for delving RewardItems or other information
         /// </summary>
         /// <param name="dataQuest"></param>
-        public DataQuest(DBDataQuest dataQuest)
+        public DataQuest(DbDataQuest dataQuest)
         {
             m_questPlayer = null;
             m_step = 1;
@@ -273,7 +273,7 @@ namespace DOL.GS.Quests
 		/// DataQuest object assigned to an object or NPC that is used to start or offer the quest
 		/// </summary>
 		/// <param name="dbQuest"></param>
-		public DataQuest(DBDataQuest dataQuest, GameObject startingObject)
+		public DataQuest(DbDataQuest dataQuest, GameObject startingObject)
 		{
 			m_questPlayer = null;
 			m_step = 1;
@@ -290,7 +290,7 @@ namespace DOL.GS.Quests
 		/// <param name="questingPlayer"></param>
 		/// <param name="dataQuest"></param>
 		/// <param name="charQuest"></param>
-		public DataQuest(GamePlayer questingPlayer, DBDataQuest dataQuest, CharacterXDataQuest charQuest)
+		public DataQuest(GamePlayer questingPlayer, DbDataQuest dataQuest, DbCharacterXDataQuest charQuest)
 			: this(questingPlayer, null, dataQuest, charQuest)
 		{
 		}
@@ -301,7 +301,7 @@ namespace DOL.GS.Quests
 		/// <param name="questingPlayer"></param>
 		/// <param name="dbQuest"></param>
 		/// <param name="charQuest"></param>
-		public DataQuest(GamePlayer questingPlayer, GameObject sourceObject, DBDataQuest dataQuest, CharacterXDataQuest charQuest)
+		public DataQuest(GamePlayer questingPlayer, GameObject sourceObject, DbDataQuest dataQuest, DbCharacterXDataQuest charQuest)
 		{
 			m_questPlayer = questingPlayer;
 			m_step = 1;
@@ -520,7 +520,7 @@ namespace DOL.GS.Quests
 					{
 						if (!string.IsNullOrEmpty(str))
 						{
-							ItemTemplate item = GameServer.Database.FindObjectByKey<ItemTemplate>(str);
+							DbItemTemplates item = GameServer.Database.FindObjectByKey<DbItemTemplates>(str);
 							if (item != null)
 							{
 								m_optionalRewards.Add(item);
@@ -541,7 +541,7 @@ namespace DOL.GS.Quests
 					parse1 = lastParse.Split('|');
 					foreach (string str in parse1)
 					{
-						ItemTemplate item = GameServer.Database.FindObjectByKey<ItemTemplate>(str);
+						DbItemTemplates item = GameServer.Database.FindObjectByKey<DbItemTemplates>(str);
 						if (item != null)
 						{
 							m_finalRewards.Add(item);
@@ -725,7 +725,7 @@ namespace DOL.GS.Quests
 		/// <summary>
 		/// List of final rewards for this quest
 		/// </summary>
-		public virtual List<ItemTemplate> FinalRewards
+		public virtual List<DbItemTemplates> FinalRewards
 		{
 			get { return m_finalRewards; }
 		}
@@ -742,7 +742,7 @@ namespace DOL.GS.Quests
 		/// <summary>
 		/// List of optional rewards for this quest
 		/// </summary>
-		public virtual List<ItemTemplate> OptionalRewards
+		public virtual List<DbItemTemplates> OptionalRewards
 		{
 			get { return m_optionalRewards; }
 			set { m_optionalRewards = value; }
@@ -751,7 +751,7 @@ namespace DOL.GS.Quests
 		/// <summary>
 		/// List of all the items the player has chosen
 		/// </summary>
-		public virtual List<ItemTemplate> OptionalRewardsChoice
+		public virtual List<DbItemTemplates> OptionalRewardsChoice
 		{
 			get { return m_optionalRewardChoice; }
 		}
@@ -778,7 +778,7 @@ namespace DOL.GS.Quests
 		/// <summary>
 		/// The DBDataQuest for this quest
 		/// </summary>
-		public virtual DBDataQuest DBDataQuest
+		public virtual DbDataQuest DBDataQuest
 		{
 			get { return m_dataQuest; }
 		}
@@ -787,7 +787,7 @@ namespace DOL.GS.Quests
 		/// <summary>
 		/// The CharacterXDataQuest entry for the player doing this quest
 		/// </summary>
-		public virtual CharacterXDataQuest CharDataQuest
+		public virtual DbCharacterXDataQuest CharDataQuest
 		{
 			get { return m_charQuest; }
 		}
@@ -961,13 +961,13 @@ namespace DOL.GS.Quests
 		/// </summary>
 		/// <param name="player"></param>
 		/// <returns></returns>
-		public static CharacterXDataQuest GetCharacterQuest(GamePlayer player, int ID, bool create)
+		public static DbCharacterXDataQuest GetCharacterQuest(GamePlayer player, int ID, bool create)
 		{
-			CharacterXDataQuest charQuest = DOLDB<CharacterXDataQuest>.SelectObject(DB.Column("Character_ID").IsEqualTo(player.QuestPlayerID).And(DB.Column("DataQuestID").IsEqualTo(ID)));
+			DbCharacterXDataQuest charQuest = DOLDB<DbCharacterXDataQuest>.SelectObject(DB.Column("Character_ID").IsEqualTo(player.QuestPlayerID).And(DB.Column("DataQuestID").IsEqualTo(ID)));
 
 			if (charQuest == null && create)
 			{
-				charQuest = new CharacterXDataQuest(player.QuestPlayerID, ID);
+				charQuest = new DbCharacterXDataQuest(player.QuestPlayerID, ID);
 				charQuest.Count = 0;
 				charQuest.Step = 0;
 				GameServer.Database.AddObject(charQuest);
@@ -1000,7 +1000,7 @@ namespace DOL.GS.Quests
 
 			if (StartType == eStartType.Collection)
 			{
-				CharacterXDataQuest charQuest = GetCharacterQuest(player, ID, false);
+				DbCharacterXDataQuest charQuest = GetCharacterQuest(player, ID, false);
 				if (charQuest != null && charQuest.Count >= MaxQuestCount)
 				{
 					return false;
@@ -1644,7 +1644,7 @@ namespace DOL.GS.Quests
 							{
 								foreach (string template in stepTemplates)
 								{
-									ItemTemplate item = GameServer.Database.FindObjectByKey<ItemTemplate>(template);
+									DbItemTemplates item = GameServer.Database.FindObjectByKey<DbItemTemplates>(template);
 									if (item == null)
 									{
 										string errorMsg = string.Format("StepItemTemplate {0} not found in DB!", template);
@@ -1934,11 +1934,11 @@ namespace DOL.GS.Quests
 				GamePlayer player = qargs.Player;
 				GameLiving giver = qargs.Source;
 
-				foreach (DBDataQuest quest in GameObject.DataQuestCache)
+				foreach (DbDataQuest quest in GameObject.DataQuestCache)
 				{
 					if ((quest.ID + DATAQUEST_CLIENTOFFSET) == qargs.QuestID)
 					{
-						CharacterXDataQuest charQuest = GetCharacterQuest(player, quest.ID, true);
+						DbCharacterXDataQuest charQuest = GetCharacterQuest(player, quest.ID, true);
 						DataQuest dq = new DataQuest(player, giver, quest, charQuest);
 						dq.Step = 1;
 						player.AddQuest(dq);
@@ -1976,7 +1976,7 @@ namespace DOL.GS.Quests
 				{
 					// This quest finishes with the interaction
 
-					CharacterXDataQuest charQuest = GetCharacterQuest(player, ID, true);
+					DbCharacterXDataQuest charQuest = GetCharacterQuest(player, ID, true);
 
 					if (charQuest.Count < MaxQuestCount)
 					{
@@ -1995,7 +1995,7 @@ namespace DOL.GS.Quests
 								{
 									if (player.Inventory.IsSlotsFree(m_finalRewards.Count, eInventorySlot.FirstBackpack, eInventorySlot.LastBackpack))
 									{
-										foreach (ItemTemplate item in m_finalRewards)
+										foreach (DbItemTemplates item in m_finalRewards)
 										{
 											if (item != null)
 											{
@@ -2069,7 +2069,7 @@ namespace DOL.GS.Quests
 
 				if (StartType == eStartType.AutoStart)
 				{
-					CharacterXDataQuest charQuest = GetCharacterQuest(player, ID, true);
+					DbCharacterXDataQuest charQuest = GetCharacterQuest(player, ID, true);
 					DataQuest dq = new DataQuest(player, obj, DBDataQuest, charQuest);
 					dq.Step = 1;
 					player.AddQuest(dq);
@@ -2101,7 +2101,7 @@ namespace DOL.GS.Quests
                         {
                             if (player.Inventory.IsSlotsFree(1, eInventorySlot.FirstBackpack, eInventorySlot.LastBackpack))
                             {
-                                ItemTemplate item = GameServer.Database.FindObjectByKey<ItemTemplate>(m_searchStartItemTemplate.Trim());
+                                DbItemTemplates item = GameServer.Database.FindObjectByKey<DbItemTemplates>(m_searchStartItemTemplate.Trim());
                                 if (item == null)
                                 {
                                     string errorMsg = string.Format("SearchStart Item Template {0} not found in DB!", m_searchStartItemTemplate);
@@ -2121,7 +2121,7 @@ namespace DOL.GS.Quests
 
                     }
 
-                    CharacterXDataQuest charQuest = GetCharacterQuest(player, ID, true);
+                    DbCharacterXDataQuest charQuest = GetCharacterQuest(player, ID, true);
                     DataQuest dq = new DataQuest(player, obj, DBDataQuest, charQuest);
                     dq.Step = 1;
                     player.AddQuest(dq);
@@ -2165,7 +2165,7 @@ namespace DOL.GS.Quests
 				}
 				if (StartType == eStartType.Collection)
 				{
-					CharacterXDataQuest charQuest = GetCharacterQuest(player, ID, false);
+					DbCharacterXDataQuest charQuest = GetCharacterQuest(player, ID, false);
 					
 					if (charQuest != null && charQuest.Count >= 1 && charQuest.Count < MaxQuestCount)
 					{
@@ -2215,7 +2215,7 @@ namespace DOL.GS.Quests
 			// collection quests do not go into the GamePlayer quest lists
 			if (StartType == eStartType.Collection && item.Id_nb.Equals(DBDataQuest.CollectItemTemplate))
 			{
-				CharacterXDataQuest charQuest = GetCharacterQuest(player, ID, true);
+				DbCharacterXDataQuest charQuest = GetCharacterQuest(player, ID, true);
 
 				//Console.WriteLine($"count {charQuest.Count} maxCount {MaxQuestCount} Minlvl {Level} Maxlvl {MaxLevel} playerlvl {player.Level}");
 				if (charQuest.Count < MaxQuestCount && player.Level <= MaxLevel && player.Level >= Level)
@@ -2343,7 +2343,7 @@ namespace DOL.GS.Quests
 			{
 				TryTurnTo(living, player);
 
-				CharacterXDataQuest charQuest = GetCharacterQuest(player, ID, true);
+				DbCharacterXDataQuest charQuest = GetCharacterQuest(player, ID, true);
 				DataQuest dq = new DataQuest(player, living, DBDataQuest, charQuest);
 				dq.Step = 1;
 				player.AddQuest(dq);
@@ -2642,7 +2642,7 @@ namespace DOL.GS.Quests
 				{
 					if (CheckQuestQualification(player))
 					{
-						CharacterXDataQuest charQuest = GetCharacterQuest(player, ID, true);
+						DbCharacterXDataQuest charQuest = GetCharacterQuest(player, ID, true);
 
 						if (charQuest.Count < MaxQuestCount)
 						{
@@ -2659,7 +2659,7 @@ namespace DOL.GS.Quests
 									{
 										if (player.Inventory.IsSlotsFree(m_finalRewards.Count, eInventorySlot.FirstBackpack, eInventorySlot.LastBackpack))
 										{
-											foreach (ItemTemplate item in m_finalRewards)
+											foreach (DbItemTemplates item in m_finalRewards)
 											{
 												if (item != null)
 												{
@@ -2925,7 +2925,7 @@ namespace DOL.GS.Quests
 							m_questPlayer.GainRealmPoints(rewardRP);
 						}
 	
-						foreach (ItemTemplate item in m_finalRewards)
+						foreach (DbItemTemplates item in m_finalRewards)
 						{
 							if (item != null)
 							{
@@ -2933,7 +2933,7 @@ namespace DOL.GS.Quests
 							}
 						}
 	
-						foreach (ItemTemplate item in m_optionalRewardChoice)
+						foreach (DbItemTemplates item in m_optionalRewardChoice)
 						{
 							if (item != null)
 							{
@@ -3009,7 +3009,7 @@ namespace DOL.GS.Quests
 							m_questPlayer.GainRealmPoints(rewardRP);
 						}
 	
-						foreach (ItemTemplate item in m_finalRewards)
+						foreach (DbItemTemplates item in m_finalRewards)
 						{
 							if (item != null)
 							{
@@ -3017,7 +3017,7 @@ namespace DOL.GS.Quests
 							}
 						}
 	
-						foreach (ItemTemplate item in m_optionalRewardChoice)
+						foreach (DbItemTemplates item in m_optionalRewardChoice)
 						{
 							if (item != null)
 							{
@@ -3199,7 +3199,7 @@ namespace DOL.GS.Quests
 		{
 			if (m_charQuest == null || m_charQuest.IsPersisted == false) return;
 
-			CharacterXDataQuest charQuest = GameServer.Database.FindObjectByKey<CharacterXDataQuest>(m_charQuest.ID);
+			DbCharacterXDataQuest charQuest = GameServer.Database.FindObjectByKey<DbCharacterXDataQuest>(m_charQuest.ID);
 			if (charQuest != null)
 			{
 				GameServer.Database.DeleteObject(charQuest);

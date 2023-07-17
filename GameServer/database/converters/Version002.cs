@@ -34,8 +34,8 @@ namespace DOL.GS.DatabaseConverters
 			log.Info(styles.Count + " Styles Processed");
 
 			log.Info("Converting Mobs");
-			var mobs = DOLDB<Mob>.SelectObjects(DB.Column("Realm").IsEqualTo(6));
-			foreach (Mob mob in mobs)
+			var mobs = DOLDB<DbMobs>.SelectObjects(DB.Column("Realm").IsEqualTo(6));
+			foreach (DbMobs mob in mobs)
 			{
 				if ((mob.Flags & (uint)GameNPC.eFlags.PEACE) == 0)
 				{

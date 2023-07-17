@@ -155,16 +155,16 @@ namespace DOL.GS.Scripts
 				}
 				else
 				{
-					List<ItemTemplate> atlasGem = new List<ItemTemplate>(DOLDB<ItemTemplate>.SelectObjects(DB.Column("Id_nb").IsEqualTo("atlas_gem")));
-					InventoryItem invitem = GameInventoryItem.Create<ItemUnique>(atlasGem.FirstOrDefault());
+					List<DbItemTemplates> atlasGem = new List<DbItemTemplates>(DOLDB<DbItemTemplates>.SelectObjects(DB.Column("Id_nb").IsEqualTo("atlas_gem")));
+					InventoryItem invitem = GameInventoryItem.Create<DbItemUnique>(atlasGem.FirstOrDefault());
 					player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, invitem);
 				
-					List<ItemTemplate> atlasCloak = new List<ItemTemplate>(DOLDB<ItemTemplate>.SelectObjects(DB.Column("Id_nb").IsEqualTo("atlas_cloak")));
-					InventoryItem invitem2 = GameInventoryItem.Create<ItemUnique>(atlasCloak.FirstOrDefault());
+					List<DbItemTemplates> atlasCloak = new List<DbItemTemplates>(DOLDB<DbItemTemplates>.SelectObjects(DB.Column("Id_nb").IsEqualTo("atlas_cloak")));
+					InventoryItem invitem2 = GameInventoryItem.Create<DbItemUnique>(atlasCloak.FirstOrDefault());
 					player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, invitem2);
 					
-					List<ItemTemplate> atlasRing = new List<ItemTemplate>(DOLDB<ItemTemplate>.SelectObjects(DB.Column("Id_nb").IsEqualTo("atlas_ring")));
-					InventoryItem invitem3 = GameInventoryItem.Create<ItemUnique>(atlasRing.FirstOrDefault());
+					List<DbItemTemplates> atlasRing = new List<DbItemTemplates>(DOLDB<DbItemTemplates>.SelectObjects(DB.Column("Id_nb").IsEqualTo("atlas_ring")));
+					InventoryItem invitem3 = GameInventoryItem.Create<DbItemUnique>(atlasRing.FirstOrDefault());
 					player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, invitem3);
 				}
 				
@@ -217,7 +217,7 @@ namespace DOL.GS.Scripts
 				charFreeEventMoney.Value = "15000";
 				GameServer.Database.AddObject(charFreeEventMoney);
 
-				ItemTemplate orbs = GameServer.Database.FindObjectByKey<ItemTemplate>(_currencyID);
+				DbItemTemplates orbs = GameServer.Database.FindObjectByKey<DbItemTemplates>(_currencyID);
 				
 				if (orbs == null)
 				{
@@ -283,7 +283,7 @@ namespace DOL.GS.Scripts
 		        item.IsTradable = false;
 		        item.Price = 1;
 		        GameServer.Database.AddObject(item);
-		        InventoryItem invitem = GameInventoryItem.Create<ItemUnique>(item);
+		        InventoryItem invitem = GameInventoryItem.Create<DbItemUnique>(item);
 		        player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, invitem);
 		        //player.Out.SendMessage("Generated: " + item.Name, eChatType.CT_System, eChatLoc.CL_SystemWindow);
 	        }
@@ -318,7 +318,7 @@ namespace DOL.GS.Scripts
 					item.IsTradable = false;
 					item.Price = 1;
 					GameServer.Database.AddObject(item);
-					InventoryItem invitem = GameInventoryItem.Create<ItemUnique>(item);
+					InventoryItem invitem = GameInventoryItem.Create<DbItemUnique>(item);
 					player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, invitem);
 				}
 				
@@ -332,7 +332,7 @@ namespace DOL.GS.Scripts
 				dmgTypeItem.IsTradable = false;
 				dmgTypeItem.Price = 1;
 				GameServer.Database.AddObject(dmgTypeItem);
-				InventoryItem tempItem = GameInventoryItem.Create<ItemUnique>(dmgTypeItem);
+				InventoryItem tempItem = GameInventoryItem.Create<DbItemUnique>(dmgTypeItem);
 				player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, tempItem);
 
 				//crush flex
@@ -342,7 +342,7 @@ namespace DOL.GS.Scripts
 				dmgTypeItem2.IsTradable = false;
 				dmgTypeItem2.Price = 1;
 				GameServer.Database.AddObject(dmgTypeItem2);
-				InventoryItem tempItem2 = GameInventoryItem.Create<ItemUnique>(dmgTypeItem2);
+				InventoryItem tempItem2 = GameInventoryItem.Create<DbItemUnique>(dmgTypeItem2);
 				player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, tempItem2);
 			}
 			else if(type == eObjectType.TwoHandedWeapon || type == eObjectType.PolearmWeapon || type == eObjectType.LargeWeapons)
@@ -362,7 +362,7 @@ namespace DOL.GS.Scripts
 					dmgTypeItem.IsTradable = false;
 					dmgTypeItem.Price = 1;
 					GameServer.Database.AddObject(dmgTypeItem);
-					InventoryItem tempItem = GameInventoryItem.Create<ItemUnique>(dmgTypeItem);
+					InventoryItem tempItem = GameInventoryItem.Create<DbItemUnique>(dmgTypeItem);
 					player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, tempItem);
 				}	
 			} else
@@ -374,7 +374,7 @@ namespace DOL.GS.Scripts
 				item.IsTradable = false;
 				item.Price = 1;
 				GameServer.Database.AddObject(item);
-				InventoryItem invitem = GameInventoryItem.Create<ItemUnique>(item);
+				InventoryItem invitem = GameInventoryItem.Create<DbItemUnique>(item);
 				player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, invitem);
 			}	
 		}
@@ -673,7 +673,7 @@ namespace DOL.GS.Scripts
 		        item.IsTradable = false;
 		        item.Price = 1;
 		        GameServer.Database.AddObject(item);
-		        InventoryItem invitem = GameInventoryItem.Create<ItemUnique>(item);
+		        InventoryItem invitem = GameInventoryItem.Create<DbItemUnique>(item);
 		        player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, invitem);
 		        //player.Out.SendMessage("Generated: " + item.Name, eChatType.CT_System, eChatLoc.CL_SystemWindow);
 	        }

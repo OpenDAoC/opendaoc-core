@@ -21,13 +21,13 @@ namespace DOL.GS
 		/// Map holding a list of ItemTemplateIDs for each TemplateName
 		/// 1:n mapping between loottemplateName and loottemplate entries
 		/// </summary>
-		protected static Dictionary<string, Dictionary<string, DropTemplateXItemTemplate>> m_lootTemplates;
+		protected static Dictionary<string, Dictionary<string, DbDropTemplateXItemTemplates>> m_lootTemplates;
 
 		/// <summary>
 		/// Map holding the corresponding LootTemplateName for each MobName
 		/// 1:n Mapping between Mob and LootTemplate
 		/// </summary>
-		protected static Dictionary<string, List<MobDropTemplate>> m_mobXLootTemplates;
+		protected static Dictionary<string, List<DbMobDropTemplates>> m_mobXLootTemplates;
 
 		/// <summary>
 		/// Construct a new templategenerate and load its values from database.
@@ -52,16 +52,16 @@ namespace DOL.GS
 		{
 			if (m_lootTemplates == null)
 			{
-				m_lootTemplates = new Dictionary<string, Dictionary<string, DropTemplateXItemTemplate>>();
+				m_lootTemplates = new Dictionary<string, Dictionary<string, DbDropTemplateXItemTemplates>>();
 
 				lock (m_lootTemplates)
 				{
-					IList<DropTemplateXItemTemplate> dbLootTemplates;
+					IList<DbDropTemplateXItemTemplates> dbLootTemplates;
 
 					try
 					{
 						// TemplateName (typically the mob name), ItemTemplateID, Chance
-						dbLootTemplates = GameServer.Database.SelectAllObjects<DropTemplateXItemTemplate>();
+						dbLootTemplates = GameServer.Database.SelectAllObjects<DbDropTemplateXItemTemplates>();
 					}
 					catch (Exception e)
 					{
@@ -74,17 +74,17 @@ namespace DOL.GS
 
 					if (dbLootTemplates != null)
 					{
-						Dictionary<string, DropTemplateXItemTemplate> loot;
+						Dictionary<string, DbDropTemplateXItemTemplates> loot;
 
-						foreach (DropTemplateXItemTemplate dbTemplate in dbLootTemplates)
+						foreach (DbDropTemplateXItemTemplates dbTemplate in dbLootTemplates)
 						{
 							if (!m_lootTemplates.TryGetValue(dbTemplate.TemplateName.ToLower(), out loot))
 							{
-								loot = new Dictionary<string, DropTemplateXItemTemplate>();
+								loot = new Dictionary<string, DbDropTemplateXItemTemplates>();
 								m_lootTemplates[dbTemplate.TemplateName.ToLower()] = loot;
 							}
 
-							ItemTemplate drop = GameServer.Database.FindObjectByKey<ItemTemplate>(dbTemplate.ItemTemplateID);
+							DbItemTemplates drop = GameServer.Database.FindObjectByKey<DbItemTemplates>(dbTemplate.ItemTemplateID);
 
 							if (drop == null)
 							{
@@ -105,16 +105,16 @@ namespace DOL.GS
 
 			if (m_mobXLootTemplates == null)
 			{
-				m_mobXLootTemplates = new Dictionary<string, List<MobDropTemplate>>();
+				m_mobXLootTemplates = new Dictionary<string, List<DbMobDropTemplates>>();
 
 				lock (m_mobXLootTemplates)
 				{
-					IList<MobDropTemplate> dbMobXLootTemplates;
+					IList<DbMobDropTemplates> dbMobXLootTemplates;
 
 					try
 					{
 						// MobName, LootTemplateName, DropCount
-						dbMobXLootTemplates = GameServer.Database.SelectAllObjects<MobDropTemplate>();
+						dbMobXLootTemplates = GameServer.Database.SelectAllObjects<DbMobDropTemplates>();
 					}
 					catch (Exception e)
 					{
@@ -127,13 +127,13 @@ namespace DOL.GS
 
 					if (dbMobXLootTemplates != null)
 					{
-						foreach (MobDropTemplate dbMobXTemplate in dbMobXLootTemplates)
+						foreach (DbMobDropTemplates dbMobXTemplate in dbMobXLootTemplates)
 						{
 							// There can be multiple MobDropTemplate for a mob, each pointing to a different loot template
-							List<MobDropTemplate> mobxLootTemplates;
+							List<DbMobDropTemplates> mobxLootTemplates;
 							if (!m_mobXLootTemplates.TryGetValue(dbMobXTemplate.MobName.ToLower(), out mobxLootTemplates))
 							{
-								mobxLootTemplates = new List<MobDropTemplate>();
+								mobxLootTemplates = new List<DbMobDropTemplates>();
 								m_mobXLootTemplates[dbMobXTemplate.MobName.ToLower()] = mobxLootTemplates;
 							}
 							mobxLootTemplates.Add(dbMobXTemplate);
@@ -159,20 +159,20 @@ namespace DOL.GS
 			bool isDefaultLootTemplateRefreshed = false;
 
 			// First see if there are any MobXLootTemplates associated with this mob
-			IList<MobDropTemplate> mxlts = DOLDB<MobDropTemplate>.SelectObjects(DB.Column("MobName").IsEqualTo(mob.Name));
+			IList<DbMobDropTemplates> mxlts = DOLDB<DbMobDropTemplates>.SelectObjects(DB.Column("MobName").IsEqualTo(mob.Name));
 
 			if (mxlts != null)
 			{
 				lock (m_mobXLootTemplates)
 				{
-					foreach (MobDropTemplate mxlt in mxlts)
+					foreach (DbMobDropTemplates mxlt in mxlts)
 						m_mobXLootTemplates.Remove(mxlt.MobName.ToLower());
-					foreach (MobDropTemplate mxlt in mxlts)
+					foreach (DbMobDropTemplates mxlt in mxlts)
 					{
-						List<MobDropTemplate> mobxLootTemplates;
+						List<DbMobDropTemplates> mobxLootTemplates;
 						if (!m_mobXLootTemplates.TryGetValue(mxlt.MobName.ToLower(), out mobxLootTemplates))
 						{
-							mobxLootTemplates = new List<MobDropTemplate>();
+							mobxLootTemplates = new List<DbMobDropTemplates>();
 							m_mobXLootTemplates[mxlt.MobName.ToLower()] = mobxLootTemplates;
 						}
 						mobxLootTemplates.Add(mxlt);
@@ -193,7 +193,7 @@ namespace DOL.GS
 
 		protected void RefreshLootTemplate(string templateName)
 		{
-			var lootTemplates = DOLDB<DropTemplateXItemTemplate>.SelectObjects(DB.Column("TemplateName").IsEqualTo(templateName));
+			var lootTemplates = DOLDB<DbDropTemplateXItemTemplates>.SelectObjects(DB.Column("TemplateName").IsEqualTo(templateName));
 
 			if (lootTemplates != null)
 			{
@@ -201,8 +201,8 @@ namespace DOL.GS
 				{
 					m_lootTemplates.Remove(templateName.ToLower());
 
-					var lootList = new Dictionary<string, DropTemplateXItemTemplate>();
-					foreach (DropTemplateXItemTemplate lt in lootTemplates)
+					var lootList = new Dictionary<string, DbDropTemplateXItemTemplates>();
+					foreach (DbDropTemplateXItemTemplates lt in lootTemplates)
 					{
 						if (lootList.ContainsKey(lt.ItemTemplateID.ToLower()) == false)
 						{
@@ -231,7 +231,7 @@ namespace DOL.GS
 				if (player.Group != null)
 					player = player.Group.Leader;
 
-				List<MobDropTemplate> killedMobXLootTemplates;
+				List<DbMobDropTemplates> killedMobXLootTemplates;
 				// MobDropTemplate contains a loot template name and the max number of drops allowed for that template.
 				// We don't need an entry in MobDropTemplate in order to drop loot, only to control the max number of drops.
 
@@ -241,13 +241,13 @@ namespace DOL.GS
 				// It is possible to have TemplateName != MobName but this works only if there is an entry in MobDropTemplate for the MobName.
 				if (!m_mobXLootTemplates.TryGetValue(mob.Name.ToLower(), out killedMobXLootTemplates))
 				{
-					Dictionary<string, DropTemplateXItemTemplate> lootTemplatesToDrop;
+					Dictionary<string, DbDropTemplateXItemTemplates> lootTemplatesToDrop;
 					// We can use DropTemplateXItemTemplate.Count to determine how many of a item can drop
 					if (m_lootTemplates.TryGetValue(mob.Name.ToLower(), out lootTemplatesToDrop))
 					{
-						foreach (DropTemplateXItemTemplate lootTemplate in lootTemplatesToDrop.Values)
+						foreach (DbDropTemplateXItemTemplates lootTemplate in lootTemplatesToDrop.Values)
 						{
-							ItemTemplate drop = GameServer.Database.FindObjectByKey<ItemTemplate>(lootTemplate.ItemTemplateID);
+							DbItemTemplates drop = GameServer.Database.FindObjectByKey<DbItemTemplates>(lootTemplate.ItemTemplateID);
 
 							if (drop.Realm == (int)player.Realm || drop.Realm == 0 || player.CanUseCrossRealmItems)
 							{
@@ -265,14 +265,14 @@ namespace DOL.GS
 					// Because we are restricting the max number of items to drop we need to traverse the list
 					// and add every 100% chance items to the loots Fixed list and add the rest to the Random list
 					// due to the fact that 100% items always drop regardless of the drop limit
-					List<DropTemplateXItemTemplate> lootTemplatesToDrop = new List<DropTemplateXItemTemplate>();
-					foreach (MobDropTemplate mobXLootTemplate in killedMobXLootTemplates)
+					List<DbDropTemplateXItemTemplates> lootTemplatesToDrop = new List<DbDropTemplateXItemTemplates>();
+					foreach (DbMobDropTemplates mobXLootTemplate in killedMobXLootTemplates)
 					{
 						loot = GenerateLootFromMobXLootTemplates(mobXLootTemplate, lootTemplatesToDrop, loot, player);
 						loot.DropCount = Math.Max(mobXLootTemplate.DropCount, loot.DropCount);
-						foreach (DropTemplateXItemTemplate lootTemplate in lootTemplatesToDrop)
+						foreach (DbDropTemplateXItemTemplates lootTemplate in lootTemplatesToDrop)
 						{
-							ItemTemplate drop = GameServer.Database.FindObjectByKey<ItemTemplate>(lootTemplate.ItemTemplateID);
+							DbItemTemplates drop = GameServer.Database.FindObjectByKey<DbItemTemplates>(lootTemplate.ItemTemplateID);
 
 							if (drop.Realm == (int)player.Realm || drop.Realm == 0 || player.CanUseCrossRealmItems)
 								loot.AddRandom(lootTemplate.Chance, drop, lootTemplate.Count);
@@ -297,20 +297,20 @@ namespace DOL.GS
 		/// <param name="lootList">List to hold loot.</param>
 		/// <param name="player">Player used to determine realm</param>
 		/// <returns>lootList (for readability)</returns>
-		private static LootList GenerateLootFromMobXLootTemplates(MobDropTemplate mobXLootTemplates, List<DropTemplateXItemTemplate> lootTemplates, LootList lootList, GamePlayer player)
+		private static LootList GenerateLootFromMobXLootTemplates(DbMobDropTemplates mobXLootTemplates, List<DbDropTemplateXItemTemplates> lootTemplates, LootList lootList, GamePlayer player)
 		{
 			if (mobXLootTemplates == null || lootTemplates == null || player == null)
 				return lootList;
 
-			Dictionary<string, DropTemplateXItemTemplate> templateList = null;
+			Dictionary<string, DbDropTemplateXItemTemplates> templateList = null;
 			if (m_lootTemplates.ContainsKey(mobXLootTemplates.LootTemplateName.ToLower()))
 				templateList = m_lootTemplates[mobXLootTemplates.LootTemplateName.ToLower()];
 
 			if (templateList != null)
 			{
-				foreach (DropTemplateXItemTemplate lootTemplate in templateList.Values)
+				foreach (DbDropTemplateXItemTemplates lootTemplate in templateList.Values)
 				{
-					ItemTemplate drop = GameServer.Database.FindObjectByKey<ItemTemplate>(lootTemplate.ItemTemplateID);
+					DbItemTemplates drop = GameServer.Database.FindObjectByKey<DbItemTemplates>(lootTemplate.ItemTemplateID);
 
 					if (drop.Realm == (int)player.Realm || drop.Realm == 0 || player.CanUseCrossRealmItems)
 					{

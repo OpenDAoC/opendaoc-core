@@ -48,7 +48,7 @@ namespace DOL.GS
 		{
 		}
 
-		public LaunchQuestMid(GamePlayer questingPlayer, DBQuest dbQuest) : base(questingPlayer, dbQuest)
+		public LaunchQuestMid(GamePlayer questingPlayer, DbQuests dbQuest) : base(questingPlayer, dbQuest)
 		{
 		}
 

@@ -121,10 +121,10 @@ namespace DOL.GS
 			player.Inventory.RemoveCountFromStack(tincture, 1);
 			InventoryLogging.LogInventoryAction(player, "(craft)", eInventoryActionType.Craft, tincture.Template);
 
-			if (item.Template is ItemUnique)
+			if (item.Template is DbItemUnique)
 			{
 				GameServer.Database.SaveObject(item);
-				GameServer.Database.SaveObject(item.Template as ItemUnique);
+				GameServer.Database.SaveObject(item.Template as DbItemUnique);
 			}
 			else
 			{

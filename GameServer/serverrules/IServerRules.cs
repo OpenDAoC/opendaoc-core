@@ -124,7 +124,7 @@ namespace DOL.GS.ServerRules
 		/// <param name="player"></param>
 		/// <param name="point"></param>
 		/// <returns></returns>
-		bool IsAllowedToBind(GamePlayer player, BindPoint point);
+		bool IsAllowedToBind(GamePlayer player, DbBindPoints point);
 
 		/// <summary>
 		/// Is player allowed to make the item
@@ -132,7 +132,7 @@ namespace DOL.GS.ServerRules
 		/// <param name="player"></param>
 		/// <param name="item"></param>
 		/// <returns></returns>
-		bool IsAllowedToCraft(GamePlayer player, ItemTemplate item);
+		bool IsAllowedToCraft(GamePlayer player, DbItemTemplates item);
 
 		/// <summary>
 		/// Is player allowed to claim in this region
@@ -183,7 +183,7 @@ namespace DOL.GS.ServerRules
 		/// <param name="living"></param>
 		/// <param name="item"></param>
 		/// <returns>true if player has ability to use item</returns>
-		bool CheckAbilityToUseItem(GameLiving living, ItemTemplate item);
+		bool CheckAbilityToUseItem(GameLiving living, DbItemTemplates item);
 
 		/// <summary>
 		/// Checks whether one object type is equal to another
@@ -240,7 +240,7 @@ namespace DOL.GS.ServerRules
 		/// <param name="player"></param>
 		/// <param name="source"></param>
 		/// <param name="destination"></param>
-		void OnPlayerTeleport(GamePlayer player, GameLocation source, Teleport destination);
+		void OnPlayerTeleport(GamePlayer player, GameLocation source, DbTeleports destination);
 
 		/// <summary>
 		/// Gets the Realm of an living for name text coloring
@@ -377,7 +377,7 @@ namespace DOL.GS.ServerRules
 		/// </summary>
 		/// <param name="player">The player</param>
 		/// <returns>True if the player can use /level</returns>
-		bool CountsTowardsSlashLevel(DOLCharacters player);
+		bool CountsTowardsSlashLevel(DbCoreCharacters player);
 		
 		/// <summary>
 		/// Gets the NPC name based on server type
@@ -429,7 +429,7 @@ namespace DOL.GS.ServerRules
 		/// <param name="heading"></param>
 		/// <param name="index"></param>
 		/// <returns></returns>
-		GameNPC PlaceHousingNPC(DOL.GS.Housing.House house, ItemTemplate item, IPoint3D location, ushort heading);
+		GameNPC PlaceHousingNPC(DOL.GS.Housing.House house, DbItemTemplates item, IPoint3D location, ushort heading);
 
 		/// <summary>
 		/// Get a static interior object for a house hookpoint
@@ -439,7 +439,7 @@ namespace DOL.GS.ServerRules
 		/// <param name="location"></param>
 		/// <param name="heading"></param>
 		/// <returns></returns>
-		GameStaticItem PlaceHousingInteriorItem(DOL.GS.Housing.House house, ItemTemplate item, IPoint3D location, ushort heading);
+		GameStaticItem PlaceHousingInteriorItem(DOL.GS.Housing.House house, DbItemTemplates item, IPoint3D location, ushort heading);
 
 		/// <summary>
 		/// Create a new consignment merchant for housing

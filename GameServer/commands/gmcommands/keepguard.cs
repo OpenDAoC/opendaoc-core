@@ -219,13 +219,13 @@ namespace DOL.GS.Commands
 							if (args.Length > 4)
 								int.TryParse(args[4], out height);
 
-							DBKeepPosition pos = PositionMgr.CreatePosition(guard.GetType(), height, client.Player, Guid.NewGuid().ToString(), component);
+							DbKeepPositions pos = PositionMgr.CreatePosition(guard.GetType(), height, client.Player, Guid.NewGuid().ToString(), component);
 							//PositionMgr.AddPosition(pos);
 							//PositionMgr.FillPositions();
-							DBKeepPosition[] list = component.Positions[pos.TemplateID] as DBKeepPosition[];
+							DbKeepPositions[] list = component.Positions[pos.TemplateID] as DbKeepPositions[];
 							if (list == null)
 							{
-								list = new DBKeepPosition[4];
+								list = new DbKeepPositions[4];
 								component.Positions[pos.TemplateID] = list;
 							}
 								
@@ -259,7 +259,7 @@ namespace DOL.GS.Commands
 							guard.AddToWorld();
 
 							if (guard.Component != null && guard.Component.Keep != null)
-								guard.Component.Keep.Guards.Add(DOL.Database.UniqueID.IDGenerator.GenerateID(), guard);
+								guard.Component.Keep.Guards.Add(DOL.Database.UniqueID.IdGenerator.GenerateId(), guard);
 						}
 
 						PositionMgr.FillPositions();
@@ -298,7 +298,7 @@ namespace DOL.GS.Commands
 										return;
 									}
 
-									DBKeepPosition pos = PositionMgr.CreatePosition(guard.GetType(), height, client.Player, guard.TemplateID, guard.Component);
+									DbKeepPositions pos = PositionMgr.CreatePosition(guard.GetType(), height, client.Player, guard.TemplateID, guard.Component);
 									PositionMgr.AddPosition(pos);
 									PositionMgr.FillPositions();
 
@@ -316,7 +316,7 @@ namespace DOL.GS.Commands
 									}
 
 									GameKeepGuard guard = client.Player.TargetObject as GameKeepGuard;
-									DBKeepPosition pos = guard.Position;
+									DbKeepPositions pos = guard.Position;
 									if (pos != null)
 									{
 										PositionMgr.RemovePosition(pos);

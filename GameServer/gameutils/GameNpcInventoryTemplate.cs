@@ -141,7 +141,7 @@ namespace DOL.GS
 					if (!m_usedInventoryItems.ContainsKey(itemID))
 					{
 						item = new GameInventoryItem();
-						item.Template = new ItemTemplate();
+						item.Template = new DbItemTemplates();
 						item.Template.Id_nb = itemID;
 						item.Model = model;
 						item.Color = color;
@@ -242,7 +242,7 @@ namespace DOL.GS
 					InventoryItem oldItem = de.Value;
 
 					InventoryItem item = new GameInventoryItem();
-					item.Template = new ItemTemplate();
+					item.Template = new DbItemTemplates();
 					item.Template.Id_nb = oldItem.Id_nb;
 					item.Model = oldItem.Model;
 					item.Color = oldItem.Color;
@@ -266,7 +266,7 @@ namespace DOL.GS
 		/// <summary>
 		/// Cache for fast loading of npc equipment
 		/// </summary>
-		protected static Dictionary<string, List<NPCEquipment>> m_npcEquipmentCache = null;
+		protected static Dictionary<string, List<DbNpcEquipment>> m_npcEquipmentCache = null;
 
 		/// <summary>
 		/// Loads the inventory template from the Database
@@ -279,12 +279,12 @@ namespace DOL.GS
 
 			lock (m_items)
 			{
-				IList<NPCEquipment> npcEquip;
+				IList<DbNpcEquipment> npcEquip;
 				
 				if (m_npcEquipmentCache.ContainsKey(templateID))
 					npcEquip = m_npcEquipmentCache[templateID];
 				else
-					npcEquip = DOLDB<NPCEquipment>.SelectObjects(DB.Column("templateID").IsEqualTo(templateID));
+					npcEquip = DOLDB<DbNpcEquipment>.SelectObjects(DB.Column("templateID").IsEqualTo(templateID));
 
 				if (npcEquip == null || npcEquip.Count == 0)
 				{
@@ -293,7 +293,7 @@ namespace DOL.GS
 					return false;
 				}
 				
-				foreach (NPCEquipment npcItem in npcEquip)
+				foreach (DbNpcEquipment npcItem in npcEquip)
 				{
 					if (!AddNPCEquipment((eInventorySlot)npcItem.Slot, npcItem.Model, npcItem.Color, npcItem.Effect, npcItem.Extension, npcItem.Emblem))
 					{
@@ -312,17 +312,17 @@ namespace DOL.GS
 		{
 			try
 			{
-				m_npcEquipmentCache = new Dictionary<string, List<NPCEquipment>>(1000);
-				foreach (NPCEquipment equip in GameServer.Database.SelectAllObjects<NPCEquipment>())
+				m_npcEquipmentCache = new Dictionary<string, List<DbNpcEquipment>>(1000);
+				foreach (DbNpcEquipment equip in GameServer.Database.SelectAllObjects<DbNpcEquipment>())
 				{
-					List<NPCEquipment> list;
+					List<DbNpcEquipment> list;
 					if (m_npcEquipmentCache.ContainsKey(equip.TemplateID))
 					{
 						list = m_npcEquipmentCache[equip.TemplateID];
 					}
 					else
 					{
-						list = new List<NPCEquipment>();
+						list = new List<DbNpcEquipment>();
 						m_npcEquipmentCache[equip.TemplateID] = list;
 					}
 
@@ -350,10 +350,10 @@ namespace DOL.GS
 					if (templateID == null)
 						throw new ArgumentNullException("templateID");
 
-					var npcEquipment = DOLDB<NPCEquipment>.SelectObjects(DB.Column("templateID").IsEqualTo(templateID));
+					var npcEquipment = DOLDB<DbNpcEquipment>.SelectObjects(DB.Column("templateID").IsEqualTo(templateID));
 
 					// delete removed item templates
-					foreach (NPCEquipment npcItem in npcEquipment)
+					foreach (DbNpcEquipment npcItem in npcEquipment)
 					{
 						if (!m_items.ContainsKey((eInventorySlot)npcItem.Slot))
 							GameServer.Database.DeleteObject(npcItem);
@@ -363,7 +363,7 @@ namespace DOL.GS
 					foreach (InventoryItem item in m_items.Values)
 					{
 						bool foundInDB = false;
-						foreach (NPCEquipment npcItem in npcEquipment)
+						foreach (DbNpcEquipment npcItem in npcEquipment)
 						{
 							if (item.SlotPosition != npcItem.Slot)
 								continue;
@@ -385,7 +385,7 @@ namespace DOL.GS
 
 						if (!foundInDB)
 						{
-							NPCEquipment npcItem = new NPCEquipment();
+							DbNpcEquipment npcItem = new DbNpcEquipment();
 							npcItem.Slot = item.SlotPosition;
 							npcItem.Model = item.Model;
 							npcItem.Color = item.Color;

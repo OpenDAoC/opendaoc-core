@@ -73,7 +73,7 @@ namespace DOL.GS
 			{
                 case "DE":
                     {
-                        var translation = (DBLanguageNPC)LanguageMgr.GetTranslation(player.Client.Account.Language, this);
+                        var translation = (DbLanguageNpcs)LanguageMgr.GetTranslation(player.Client.Account.Language, this);
 
                         if (translation != null)
                         {
@@ -383,7 +383,7 @@ namespace DOL.GS
 		/// <returns>true if succesful</returns>
 		public virtual bool addGift(String template, GamePlayer player)
 		{
-			ItemTemplate temp = GameServer.Database.FindObjectByKey<ItemTemplate>(template);
+			DbItemTemplates temp = GameServer.Database.FindObjectByKey<DbItemTemplates>(template);
 			if (temp != null)
 			{
 				if (!player.Inventory.AddTemplate(GameInventoryItem.Create(temp), 1, eInventorySlot.FirstBackpack, eInventorySlot.LastBackpack))

@@ -24,12 +24,12 @@ namespace DOL.GS {
         {
         }
 
-        public GameInventoryItem(ItemTemplate template)
+        public GameInventoryItem(DbItemTemplates template)
             : base(template)
         {
         }
 
-        public GameInventoryItem(ItemUnique template)
+        public GameInventoryItem(DbItemUnique template)
             : base(template)
         {
         }
@@ -41,9 +41,9 @@ namespace DOL.GS {
             ObjectId = item.ObjectId;
         }
 
-        public virtual LanguageDataObject.eTranslationIdentifier TranslationIdentifier
+        public virtual LanguageDataObject.ETranslationIdentifier TranslationIdentifier
         {
-            get { return LanguageDataObject.eTranslationIdentifier.eItem; }
+            get { return LanguageDataObject.ETranslationIdentifier.Item; }
         }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace DOL.GS {
         /// <param name="item"></param>
         /// <returns></returns>
         [Obsolete("Use Create() instead")]
-        public static GameInventoryItem Create<T>(ItemTemplate item)
+        public static GameInventoryItem Create<T>(DbItemTemplates item)
         {
             return Create(item);
         }
@@ -128,18 +128,18 @@ namespace DOL.GS {
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        public static GameInventoryItem Create(ItemTemplate item)
+        public static GameInventoryItem Create(DbItemTemplates item)
         {
             string classType = item.ClassType;
-            var itemUnique = item as ItemUnique;
+            var itemUnique = item as DbItemUnique;
 
             if (!string.IsNullOrEmpty(classType))
             {
                 GameInventoryItem gameItem;
                 if (itemUnique != null)
-                    gameItem = ScriptMgr.CreateObjectFromClassType<GameInventoryItem, ItemUnique>(classType, itemUnique);
+                    gameItem = ScriptMgr.CreateObjectFromClassType<GameInventoryItem, DbItemUnique>(classType, itemUnique);
                 else
-                    gameItem = ScriptMgr.CreateObjectFromClassType<GameInventoryItem, ItemTemplate>(classType, item);
+                    gameItem = ScriptMgr.CreateObjectFromClassType<GameInventoryItem, DbItemTemplates>(classType, item);
 
                 if (gameItem != null)
                     return gameItem;
@@ -1702,14 +1702,14 @@ namespace DOL.GS {
             delve.Add("--- Technical Information ---");
             delve.Add("");
 
-            if (Template is ItemUnique)
+            if (Template is DbItemUnique)
             {
                 delve.Add("  Item Unique: " + Id_nb);
             }
             else
             {
                 delve.Add("Item Template: " + Id_nb);
-                delve.Add("Allow Updates: " + (Template as ItemTemplate).AllowUpdate);
+                delve.Add("Allow Updates: " + (Template as DbItemTemplates).AllowUpdate);
             }
 
             delve.Add("");

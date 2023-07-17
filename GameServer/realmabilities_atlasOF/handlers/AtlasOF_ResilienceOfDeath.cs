@@ -12,7 +12,7 @@ namespace DOL.GS.RealmAbilities
 {
     public class AtlasOF_ResilienceOfDeath : TimedRealmAbility
     {
-        public AtlasOF_ResilienceOfDeath(DBAbility dba, int level) : base(dba, level) { }
+        public AtlasOF_ResilienceOfDeath(DbAbilities dba, int level) : base(dba, level) { }
 
         public const int duration = 60000; // 60 seconds
         public override int MaxLevel { get { return 1; } }

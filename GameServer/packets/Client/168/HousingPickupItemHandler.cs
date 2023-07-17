@@ -108,7 +108,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 					}
 					else if (iitem.DatabaseItem.BaseItemID.Contains("GuildBanner"))
 					{
-						var it = new ItemTemplate
+						var it = new DbItemTemplates
 						         	{
 						         		Id_nb = iitem.DatabaseItem.BaseItemID,
 						         		CanDropAsLoot = false,

@@ -12,7 +12,7 @@ namespace DOL.Events
 		/// <summary>
 		/// Holds the target character for this event
 		/// </summary>
-		private DOLCharacters m_character;
+		private DbCoreCharacters m_character;
 
 		/// <summary>
 		/// Holds the character's creation client for this event
@@ -25,7 +25,7 @@ namespace DOL.Events
 		/// </summary>
 		/// <param name="character"></param>
 		/// <param name="client"></param>
-		public CharacterEventArgs(DOLCharacters character, GameClient client)
+		public CharacterEventArgs(DbCoreCharacters character, GameClient client)
 		{
 			m_character = character;
 			m_client = client;
@@ -34,7 +34,7 @@ namespace DOL.Events
 		/// <summary>
 		/// Gets the character for this event
 		/// </summary>
-		public DOLCharacters Character
+		public DbCoreCharacters Character
 		{
 			get
 			{

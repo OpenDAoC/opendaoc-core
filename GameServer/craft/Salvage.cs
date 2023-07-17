@@ -48,7 +48,7 @@ namespace DOL.GS
 		/// <returns></returns>
 		public static int BeginWork(GamePlayer player, InventoryItem item)
 		{
-            SalvageYield salvageYield = null;
+            DbSalvageYields salvageYield = null;
 
 			if (!IsAllowedToBeginWork(player, item))
 			{
@@ -78,12 +78,12 @@ namespace DOL.GS
 				// salvageYield = new SalvageYield();
 				whereClause = DB.Column("ID").IsEqualTo(item.SalvageYieldID);
 				
-				salvageYield = DOLDB<SalvageYield>.SelectObject(whereClause);
-				ItemTemplate material = null;
+				salvageYield = DOLDB<DbSalvageYields>.SelectObject(whereClause);
+				DbItemTemplates material = null;
    
 				if (salvageYield != null && string.IsNullOrEmpty(salvageYield.MaterialId_nb) == false)
 				{
-					material = GameServer.Database.FindObjectByKey<ItemTemplate>(salvageYield.MaterialId_nb);
+					material = GameServer.Database.FindObjectByKey<DbItemTemplates>(salvageYield.MaterialId_nb);
    
 					if (material == null)
 					{
@@ -118,7 +118,7 @@ namespace DOL.GS
 					log.ErrorFormat("Salvage Error for item: {0}:  MaterialId_nb is null", salvageYield.ID);
 					return 0;
 				}
-				material = GameServer.Database.FindObjectByKey<ItemTemplate>(salvageYield.MaterialId_nb);
+				material = GameServer.Database.FindObjectByKey<DbItemTemplates>(salvageYield.MaterialId_nb);
 				if (material == null)
 				{
 					player.Out.SendMessage("Can't find material (" + salvageYield.MaterialId_nb + ") needed to salvage this item!", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
@@ -134,7 +134,7 @@ namespace DOL.GS
 			{
 				var sCalc = new SalvageCalculator();
 				var ReturnSalvage = sCalc.GetSalvage(player, item);
-				salvageYield = new SalvageYield();
+				salvageYield = new DbSalvageYields();
 				salvageYield.Count = ReturnSalvage.Count;
 				salvageYield.MaterialId_nb = (string) ReturnSalvage.ID;
 			}
@@ -252,7 +252,7 @@ namespace DOL.GS
 			siegeWeapon.ReleaseControl();
 			siegeWeapon.RemoveFromWorld();
 			bool error = false;
-			var recipe = DOLDB<DBCraftedItem>.SelectObject(DB.Column("Id_nb").IsEqualTo(siegeWeapon.ItemId));
+			var recipe = DOLDB<DbCraftedItems>.SelectObject(DB.Column("Id_nb").IsEqualTo(siegeWeapon.ItemId));
 
 			if (recipe == null)
             {
@@ -261,7 +261,7 @@ namespace DOL.GS
 				return 1;
             }
 
-			var rawMaterials = DOLDB<DBCraftedXItem>.SelectObjects(DB.Column("CraftedItemId_nb").IsEqualTo(recipe.Id_nb));
+			var rawMaterials = DOLDB<DbCraftedXItems>.SelectObjects(DB.Column("CraftedItemId_nb").IsEqualTo(recipe.Id_nb));
 
 			if (rawMaterials == null || rawMaterials.Count == 0)
             {
@@ -276,10 +276,10 @@ namespace DOL.GS
                 return 0;
             }
 			InventoryItem item;
-			ItemTemplate template;
-			foreach (DBCraftedXItem material in rawMaterials)
+			DbItemTemplates template;
+			foreach (DbCraftedXItems material in rawMaterials)
 			{
-				template = GameServer.Database.FindObjectByKey<ItemTemplate>(material.IngredientId_nb);
+				template = GameServer.Database.FindObjectByKey<DbItemTemplates>(material.IngredientId_nb);
 
 				if (template == null)
 				{
@@ -313,7 +313,7 @@ namespace DOL.GS
 		{
 			GamePlayer player = timer.Properties.getProperty<GamePlayer>(AbstractCraftingSkill.PLAYER_CRAFTER, null);
 			InventoryItem itemToSalvage = timer.Properties.getProperty<InventoryItem>(SALVAGED_ITEM, null);
-			SalvageYield yield = timer.Properties.getProperty<SalvageYield>(SALVAGE_YIELD, null);
+			DbSalvageYields yield = timer.Properties.getProperty<DbSalvageYields>(SALVAGE_YIELD, null);
 			IList<InventoryItem> itemList = player.TempProperties.getProperty<IList<InventoryItem>>(SALVAGE_QUEUE, null);
 			int materialCount = yield.Count;
 
@@ -324,11 +324,11 @@ namespace DOL.GS
 				return 0;
 			}
 
-			ItemTemplate rawMaterial = null;
+			DbItemTemplates rawMaterial = null;
 
 			if (string.IsNullOrEmpty(yield.MaterialId_nb) == false)
 			{
-				rawMaterial = GameServer.Database.FindObjectByKey<ItemTemplate>(yield.MaterialId_nb);
+				rawMaterial = GameServer.Database.FindObjectByKey<DbItemTemplates>(yield.MaterialId_nb);
 			}
 
 			if (rawMaterial == null)
@@ -548,7 +548,7 @@ namespace DOL.GS
         /// <summary>
         /// Calculate the count per Object_Type
         /// </summary>
-        public static int GetCountForSalvage(InventoryItem item, ItemTemplate rawMaterial)
+        public static int GetCountForSalvage(InventoryItem item, DbItemTemplates rawMaterial)
         {
             long maxCount = 0;
 
@@ -732,7 +732,7 @@ namespace DOL.GS
 		/// <summary>
 		/// Return the material yield for this salvage.
 		/// </summary>
-		public static int GetMaterialYield(GamePlayer player, InventoryItem item, SalvageYield salvageYield, ItemTemplate rawMaterial)
+		public static int GetMaterialYield(GamePlayer player, InventoryItem item, DbSalvageYields salvageYield, DbItemTemplates rawMaterial)
 		{
             int maxCount;
 

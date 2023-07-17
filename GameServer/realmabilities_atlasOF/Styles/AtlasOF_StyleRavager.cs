@@ -5,7 +5,7 @@ namespace DOL.GS.RealmAbilities
 {
     public class AtlasOF_StyleRavager : StyleRealmAbility
     {
-        public AtlasOF_StyleRavager(DBAbility ability, int level) : base(ability, level) { }
+        public AtlasOF_StyleRavager(DbAbilities ability, int level) : base(ability, level) { }
 
         protected override Style CreateStyle()
         {

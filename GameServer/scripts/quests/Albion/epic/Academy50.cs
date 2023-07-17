@@ -44,25 +44,25 @@ namespace DOL.GS.Quests.Albion
 
 		//private static IArea morganaArea = null;
 
-		private static ItemTemplate sealed_pouch = null; //sealed pouch
-		private static ItemTemplate WizardEpicBoots = null; //Bernor's Numinous Boots 
-		private static ItemTemplate WizardEpicHelm = null; //Bernor's Numinous Coif 
-		private static ItemTemplate WizardEpicGloves = null; //Bernor's Numinous Gloves 
-		private static ItemTemplate WizardEpicVest = null; //Bernor's Numinous Hauberk 
-		private static ItemTemplate WizardEpicLegs = null; //Bernor's Numinous Legs 
-		private static ItemTemplate WizardEpicArms = null; //Bernor's Numinous Sleeves 
-		private static ItemTemplate MinstrelEpicBoots = null; //Shadow Shrouded Boots 
-		private static ItemTemplate MinstrelEpicHelm = null; //Shadow Shrouded Coif 
-		private static ItemTemplate MinstrelEpicGloves = null; //Shadow Shrouded Gloves 
-		private static ItemTemplate MinstrelEpicVest = null; //Shadow Shrouded Hauberk 
-		private static ItemTemplate MinstrelEpicLegs = null; //Shadow Shrouded Legs 
-		private static ItemTemplate MinstrelEpicArms = null; //Shadow Shrouded Sleeves 
-		private static ItemTemplate SorcerorEpicBoots = null; //Valhalla Touched Boots 
-		private static ItemTemplate SorcerorEpicHelm = null; //Valhalla Touched Coif 
-		private static ItemTemplate SorcerorEpicGloves = null; //Valhalla Touched Gloves 
-		private static ItemTemplate SorcerorEpicVest = null; //Valhalla Touched Hauberk 
-		private static ItemTemplate SorcerorEpicLegs = null; //Valhalla Touched Legs 
-		private static ItemTemplate SorcerorEpicArms = null; //Valhalla Touched Sleeves                 
+		private static DbItemTemplates sealed_pouch = null; //sealed pouch
+		private static DbItemTemplates WizardEpicBoots = null; //Bernor's Numinous Boots 
+		private static DbItemTemplates WizardEpicHelm = null; //Bernor's Numinous Coif 
+		private static DbItemTemplates WizardEpicGloves = null; //Bernor's Numinous Gloves 
+		private static DbItemTemplates WizardEpicVest = null; //Bernor's Numinous Hauberk 
+		private static DbItemTemplates WizardEpicLegs = null; //Bernor's Numinous Legs 
+		private static DbItemTemplates WizardEpicArms = null; //Bernor's Numinous Sleeves 
+		private static DbItemTemplates MinstrelEpicBoots = null; //Shadow Shrouded Boots 
+		private static DbItemTemplates MinstrelEpicHelm = null; //Shadow Shrouded Coif 
+		private static DbItemTemplates MinstrelEpicGloves = null; //Shadow Shrouded Gloves 
+		private static DbItemTemplates MinstrelEpicVest = null; //Shadow Shrouded Hauberk 
+		private static DbItemTemplates MinstrelEpicLegs = null; //Shadow Shrouded Legs 
+		private static DbItemTemplates MinstrelEpicArms = null; //Shadow Shrouded Sleeves 
+		private static DbItemTemplates SorcerorEpicBoots = null; //Valhalla Touched Boots 
+		private static DbItemTemplates SorcerorEpicHelm = null; //Valhalla Touched Coif 
+		private static DbItemTemplates SorcerorEpicGloves = null; //Valhalla Touched Gloves 
+		private static DbItemTemplates SorcerorEpicVest = null; //Valhalla Touched Hauberk 
+		private static DbItemTemplates SorcerorEpicLegs = null; //Valhalla Touched Legs 
+		private static DbItemTemplates SorcerorEpicArms = null; //Valhalla Touched Sleeves                 
 
 		// Constructors
 		public Academy_50() : base()
@@ -77,7 +77,7 @@ namespace DOL.GS.Quests.Albion
 		{
 		}
 
-		public Academy_50(GamePlayer questingPlayer, DBQuest dbQuest) : base(questingPlayer, dbQuest)
+		public Academy_50(GamePlayer questingPlayer, DbQuests dbQuest) : base(questingPlayer, dbQuest)
 		{
 		}
 
@@ -239,12 +239,12 @@ namespace DOL.GS.Quests.Albion
 
 			#region Item Declarations
 
-			sealed_pouch = GameServer.Database.FindObjectByKey<ItemTemplate>("sealed_pouch");
+			sealed_pouch = GameServer.Database.FindObjectByKey<DbItemTemplates>("sealed_pouch");
 			if (sealed_pouch == null)
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Sealed Pouch , creating it ...");
-				sealed_pouch = new ItemTemplate();
+				sealed_pouch = new DbItemTemplates();
 				sealed_pouch.Id_nb = "sealed_pouch";
 				sealed_pouch.Name = "Sealed Pouch";
 				sealed_pouch.Level = 8;
@@ -265,14 +265,14 @@ namespace DOL.GS.Quests.Albion
 			}
 // end item
 
-			ItemTemplate item = null;
+			DbItemTemplates item = null;
 
-			WizardEpicBoots = GameServer.Database.FindObjectByKey<ItemTemplate>("WizardEpicBoots");
+			WizardEpicBoots = GameServer.Database.FindObjectByKey<DbItemTemplates>("WizardEpicBoots");
 			if (WizardEpicBoots == null)
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Wizards Epic Boots , creating it ...");
-				item = new ItemTemplate();
+				item = new DbItemTemplates();
 				item.Id_nb = "WizardEpicBoots";
 				item.Name = "Bernor's Numinous Boots";
 				item.Level = 50;
@@ -310,12 +310,12 @@ namespace DOL.GS.Quests.Albion
 			}
 //end item
 			//Bernor's Numinous Coif 
-			WizardEpicHelm = GameServer.Database.FindObjectByKey<ItemTemplate>("WizardEpicHelm");
+			WizardEpicHelm = GameServer.Database.FindObjectByKey<DbItemTemplates>("WizardEpicHelm");
 			if (WizardEpicHelm == null)
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Wizards Epic Helm , creating it ...");
-				item = new ItemTemplate();
+				item = new DbItemTemplates();
 				item.Id_nb = "WizardEpicHelm";
 				item.Name = "Bernor's Numinous Cap";
 				item.Level = 50;
@@ -353,12 +353,12 @@ namespace DOL.GS.Quests.Albion
 			}
 //end item
 			//Bernor's Numinous Gloves 
-			WizardEpicGloves = GameServer.Database.FindObjectByKey<ItemTemplate>("WizardEpicGloves");
+			WizardEpicGloves = GameServer.Database.FindObjectByKey<DbItemTemplates>("WizardEpicGloves");
 			if (WizardEpicGloves == null)
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Wizards Epic Gloves , creating it ...");
-				item = new ItemTemplate();
+				item = new DbItemTemplates();
 				item.Id_nb = "WizardEpicGloves";
 				item.Name = "Bernor's Numinous Gloves ";
 				item.Level = 50;
@@ -396,12 +396,12 @@ namespace DOL.GS.Quests.Albion
 			}
 
 			//Bernor's Numinous Hauberk 
-			WizardEpicVest = GameServer.Database.FindObjectByKey<ItemTemplate>("WizardEpicVest");
+			WizardEpicVest = GameServer.Database.FindObjectByKey<DbItemTemplates>("WizardEpicVest");
 			if (WizardEpicVest == null)
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Wizards Epic Vest , creating it ...");
-				item = new ItemTemplate();
+				item = new DbItemTemplates();
 				item.Id_nb = "WizardEpicVest";
 				item.Name = "Bernor's Numinous Robes";
 				item.Level = 50;
@@ -436,12 +436,12 @@ namespace DOL.GS.Quests.Albion
 
 			}
 			//Bernor's Numinous Legs 
-			WizardEpicLegs = GameServer.Database.FindObjectByKey<ItemTemplate>("WizardEpicLegs");
+			WizardEpicLegs = GameServer.Database.FindObjectByKey<DbItemTemplates>("WizardEpicLegs");
 			if (WizardEpicLegs == null)
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Wizards Epic Legs , creating it ...");
-				item = new ItemTemplate();
+				item = new DbItemTemplates();
 				item.Id_nb = "WizardEpicLegs";
 				item.Name = "Bernor's Numinous Pants";
 				item.Level = 50;
@@ -476,12 +476,12 @@ namespace DOL.GS.Quests.Albion
 
 			}
 			//Bernor's Numinous Sleeves 
-			WizardEpicArms = GameServer.Database.FindObjectByKey<ItemTemplate>("WizardEpicArms");
+			WizardEpicArms = GameServer.Database.FindObjectByKey<DbItemTemplates>("WizardEpicArms");
 			if (WizardEpicArms == null)
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Wizard Epic Arms , creating it ...");
-				item = new ItemTemplate();
+				item = new DbItemTemplates();
 				item.Id_nb = "WizardEpicArms";
 				item.Name = "Bernor's Numinous Sleeves";
 				item.Level = 50;
@@ -516,12 +516,12 @@ namespace DOL.GS.Quests.Albion
 
 			}
 //Minstrel Epic Sleeves End
-			MinstrelEpicBoots = GameServer.Database.FindObjectByKey<ItemTemplate>("MinstrelEpicBoots");
+			MinstrelEpicBoots = GameServer.Database.FindObjectByKey<DbItemTemplates>("MinstrelEpicBoots");
 			if (MinstrelEpicBoots == null)
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Minstrels Epic Boots , creating it ...");
-				item = new ItemTemplate();
+				item = new DbItemTemplates();
 				item.Id_nb = "MinstrelEpicBoots";
 				item.Name = "Boots of Coruscating Harmony";
 				item.Level = 50;
@@ -560,12 +560,12 @@ namespace DOL.GS.Quests.Albion
 			}
 //end item
 			//of Coruscating Harmony  Coif 
-			MinstrelEpicHelm = GameServer.Database.FindObjectByKey<ItemTemplate>("MinstrelEpicHelm");
+			MinstrelEpicHelm = GameServer.Database.FindObjectByKey<DbItemTemplates>("MinstrelEpicHelm");
 			if (MinstrelEpicHelm == null)
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Minstrels Epic Helm , creating it ...");
-				item = new ItemTemplate();
+				item = new DbItemTemplates();
 				item.Id_nb = "MinstrelEpicHelm";
 				item.Name = "Coif of Coruscating Harmony";
 				item.Level = 50;
@@ -604,12 +604,12 @@ namespace DOL.GS.Quests.Albion
 			}
 //end item
 			//of Coruscating Harmony  Gloves 
-			MinstrelEpicGloves = GameServer.Database.FindObjectByKey<ItemTemplate>("MinstrelEpicGloves");
+			MinstrelEpicGloves = GameServer.Database.FindObjectByKey<DbItemTemplates>("MinstrelEpicGloves");
 			if (MinstrelEpicGloves == null)
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Minstrels Epic Gloves , creating it ...");
-				item = new ItemTemplate();
+				item = new DbItemTemplates();
 				item.Id_nb = "MinstrelEpicGloves";
 				item.Name = "Gauntlets of Coruscating Harmony";
 				item.Level = 50;
@@ -647,12 +647,12 @@ namespace DOL.GS.Quests.Albion
 
 			}
 			//of Coruscating Harmony  Hauberk 
-			MinstrelEpicVest = GameServer.Database.FindObjectByKey<ItemTemplate>("MinstrelEpicVest");
+			MinstrelEpicVest = GameServer.Database.FindObjectByKey<DbItemTemplates>("MinstrelEpicVest");
 			if (MinstrelEpicVest == null)
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Minstrels Epic Vest , creating it ...");
-				item = new ItemTemplate();
+				item = new DbItemTemplates();
 				item.Id_nb = "MinstrelEpicVest";
 				item.Name = "Habergeon of Coruscating Harmony";
 				item.Level = 50;
@@ -690,12 +690,12 @@ namespace DOL.GS.Quests.Albion
 
 			}
 			//of Coruscating Harmony  Legs 
-			MinstrelEpicLegs = GameServer.Database.FindObjectByKey<ItemTemplate>("MinstrelEpicLegs");
+			MinstrelEpicLegs = GameServer.Database.FindObjectByKey<DbItemTemplates>("MinstrelEpicLegs");
 			if (MinstrelEpicLegs == null)
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Minstrels Epic Legs , creating it ...");
-				item = new ItemTemplate();
+				item = new DbItemTemplates();
 				item.Id_nb = "MinstrelEpicLegs";
 				item.Name = "Chaussess of Coruscating Harmony";
 				item.Level = 50;
@@ -733,12 +733,12 @@ namespace DOL.GS.Quests.Albion
 
 			}
 			//of Coruscating Harmony  Sleeves 
-			MinstrelEpicArms = GameServer.Database.FindObjectByKey<ItemTemplate>("MinstrelEpicArms");
+			MinstrelEpicArms = GameServer.Database.FindObjectByKey<DbItemTemplates>("MinstrelEpicArms");
 			if (MinstrelEpicArms == null)
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Minstrel Epic Arms , creating it ...");
-				item = new ItemTemplate();
+				item = new DbItemTemplates();
 				item.Id_nb = "MinstrelEpicArms";
 				item.Name = "Sleeves of Coruscating Harmony";
 				item.Level = 50;
@@ -775,12 +775,12 @@ namespace DOL.GS.Quests.Albion
 				MinstrelEpicArms = item;
 			}
 
-			SorcerorEpicBoots = GameServer.Database.FindObjectByKey<ItemTemplate>("SorcerorEpicBoots");
+			SorcerorEpicBoots = GameServer.Database.FindObjectByKey<DbItemTemplates>("SorcerorEpicBoots");
 			if (SorcerorEpicBoots == null)
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Sorceror Epic Boots , creating it ...");
-				item = new ItemTemplate();
+				item = new DbItemTemplates();
 				item.Id_nb = "SorcerorEpicBoots";
 				item.Name = "Boots of Mental Acuity";
 				item.Level = 50;
@@ -819,12 +819,12 @@ namespace DOL.GS.Quests.Albion
 			}
 //end item
 			//of Mental Acuity Coif 
-			SorcerorEpicHelm = GameServer.Database.FindObjectByKey<ItemTemplate>("SorcerorEpicHelm");
+			SorcerorEpicHelm = GameServer.Database.FindObjectByKey<DbItemTemplates>("SorcerorEpicHelm");
 			if (SorcerorEpicHelm == null)
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Sorceror Epic Helm , creating it ...");
-				item = new ItemTemplate();
+				item = new DbItemTemplates();
 				item.Id_nb = "SorcerorEpicHelm";
 				item.Name = "Cap of Mental Acuity";
 				item.Level = 50;
@@ -863,12 +863,12 @@ namespace DOL.GS.Quests.Albion
 			}
 //end item
 			//of Mental Acuity Gloves 
-			SorcerorEpicGloves = GameServer.Database.FindObjectByKey<ItemTemplate>("SorcerorEpicGloves");
+			SorcerorEpicGloves = GameServer.Database.FindObjectByKey<DbItemTemplates>("SorcerorEpicGloves");
 			if (SorcerorEpicGloves == null)
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Sorceror Epic Gloves , creating it ...");
-				item = new ItemTemplate();
+				item = new DbItemTemplates();
 				item.Id_nb = "SorcerorEpicGloves";
 				item.Name = "Gloves of Mental Acuity";
 				item.Level = 50;
@@ -906,12 +906,12 @@ namespace DOL.GS.Quests.Albion
 
 			}
 			//of Mental Acuity Hauberk 
-			SorcerorEpicVest = GameServer.Database.FindObjectByKey<ItemTemplate>("SorcerorEpicVest");
+			SorcerorEpicVest = GameServer.Database.FindObjectByKey<DbItemTemplates>("SorcerorEpicVest");
 			if (SorcerorEpicVest == null)
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Sorceror Epic Vest , creating it ...");
-				item = new ItemTemplate();
+				item = new DbItemTemplates();
 				item.Id_nb = "SorcerorEpicVest";
 				item.Name = "Vest of Mental Acuity";
 				item.Level = 50;
@@ -946,12 +946,12 @@ namespace DOL.GS.Quests.Albion
 
 			}
 			//of Mental Acuity Legs 
-			SorcerorEpicLegs = GameServer.Database.FindObjectByKey<ItemTemplate>("SorcerorEpicLegs");
+			SorcerorEpicLegs = GameServer.Database.FindObjectByKey<DbItemTemplates>("SorcerorEpicLegs");
 			if (SorcerorEpicLegs == null)
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Sorceror Epic Legs , creating it ...");
-				item = new ItemTemplate();
+				item = new DbItemTemplates();
 				item.Id_nb = "SorcerorEpicLegs";
 				item.Name = "Pants of Mental Acuity";
 				item.Level = 50;
@@ -989,12 +989,12 @@ namespace DOL.GS.Quests.Albion
 
 			}
 			//of Mental Acuity Sleeves 
-			SorcerorEpicArms = GameServer.Database.FindObjectByKey<ItemTemplate>("SorcerorEpicArms");
+			SorcerorEpicArms = GameServer.Database.FindObjectByKey<DbItemTemplates>("SorcerorEpicArms");
 			if (SorcerorEpicArms == null)
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Sorceror Epic Arms , creating it ...");
-				item = new ItemTemplate();
+				item = new DbItemTemplates();
 				item.Id_nb = "SorcerorEpicArms";
 				item.Name = "Sleeves of Mental Acuity";
 				item.Level = 50;

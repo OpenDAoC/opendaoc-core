@@ -5,7 +5,7 @@ namespace DOL.GS.RealmAbilities
 {
     public class AtlasOF_StyleRazorback : StyleRealmAbility
     {
-        public AtlasOF_StyleRazorback(DBAbility ability, int level) : base(ability, level) { }
+        public AtlasOF_StyleRazorback(DbAbilities ability, int level) : base(ability, level) { }
 
         protected override Style CreateStyle()
         {

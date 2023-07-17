@@ -27,8 +27,8 @@ namespace DOL.GS.PacketHandler.Client.v168
 				try
 				{
 					// find the cached character and force it to update with the latest saved character
-					DOLCharacters cachedCharacter = null;
-					foreach (DOLCharacters accountChar in client.Account.Characters)
+					DbCoreCharacters cachedCharacter = null;
+					foreach (DbCoreCharacters accountChar in client.Account.Characters)
 					{
 						if (accountChar.ObjectId == client.Player.InternalID)
 						{
@@ -124,8 +124,8 @@ namespace DOL.GS.PacketHandler.Client.v168
 				try
 				{
 					// find the cached character and force it to update with the latest saved character
-					DOLCharacters cachedCharacter = null;
-					foreach (DOLCharacters accountChar in client.Account.Characters)
+					DbCoreCharacters cachedCharacter = null;
+					foreach (DbCoreCharacters accountChar in client.Account.Characters)
 					{
 						if (accountChar.ObjectId == client.Player.InternalID)
 						{

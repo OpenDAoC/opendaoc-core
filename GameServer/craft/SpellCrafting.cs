@@ -226,10 +226,10 @@ namespace DOL.GS
 				ApplySpellcraftGems(player, item);
 			}
 
-			if (item.Template is ItemUnique)
+			if (item.Template is DbItemUnique)
 			{
 				GameServer.Database.SaveObject(item);
-				GameServer.Database.SaveObject(item.Template as ItemUnique);
+				GameServer.Database.SaveObject(item.Template as DbItemUnique);
 			}
 			else
 			{

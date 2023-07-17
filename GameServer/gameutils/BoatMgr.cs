@@ -109,7 +109,7 @@ namespace DOL.GS
 
 
                 //create table of GameBoat
-                boat.DBBoat = new DBBoat();
+                boat.DBBoat = new DbPlayerBoats();
                 boat.DBBoat.BoatOwner = creator.InternalID;
                 boat.DBBoat.BoatID = boat.BoatID;
                 boat.DBBoat.BoatMaxSpeedBase = boat.MaxSpeedBase;
@@ -145,7 +145,7 @@ namespace DOL.GS
                     return false;
                 }
 
-                var boats = GameServer.Database.FindObjectByKey<DBBoat>(boatName);
+                var boats = GameServer.Database.FindObjectByKey<DbPlayerBoats>(boatName);
                 GameServer.Database.DeleteObject(boats);
 
                 RemoveBoat(removeBoat);
@@ -243,7 +243,7 @@ namespace DOL.GS
             }
 
             //load boats
-            var objs = GameServer.Database.SelectAllObjects<DBBoat>();
+            var objs = GameServer.Database.SelectAllObjects<DbPlayerBoats>();
             foreach (var obj in objs)
             {
                 GameBoat myboat = new GameBoat();

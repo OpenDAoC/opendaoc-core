@@ -40,8 +40,8 @@ namespace DOL.GS.PacketHandler
 				}
 				else
 				{
-					Dictionary<int, DOLCharacters> charsBySlot = new Dictionary<int, DOLCharacters>();
-					foreach (DOLCharacters c in m_gameClient.Account.Characters)
+					Dictionary<int, DbCoreCharacters> charsBySlot = new Dictionary<int, DbCoreCharacters>();
+					foreach (DbCoreCharacters c in m_gameClient.Account.Characters)
 					{
 						try
 						{
@@ -78,7 +78,7 @@ namespace DOL.GS.PacketHandler
 
 					for (int i = firstSlot; i < (firstSlot + 10); i++)
 					{
-						DOLCharacters c = null;
+						DbCoreCharacters c = null;
 						if (!charsBySlot.TryGetValue(i, out c))
 						{
 							pak.Fill(0x0, 188);

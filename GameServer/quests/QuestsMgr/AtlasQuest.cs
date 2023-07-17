@@ -25,7 +25,7 @@ public abstract class AtlasQuest : BaseQuest
     {
     }
 
-    public AtlasQuest(GamePlayer questingPlayer, DBQuest dbQuest) : base(questingPlayer, dbQuest)
+    public AtlasQuest(GamePlayer questingPlayer, DbQuests dbQuest) : base(questingPlayer, dbQuest)
     {
     }
     

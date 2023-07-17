@@ -116,6 +116,6 @@ namespace DOL.GS
         public virtual void OnStopEffect() { }
         public virtual void OnEffectPulse() { }
 
-        public virtual PlayerXEffect getSavedEffect() { return null; }
+        public virtual DbPlayerXEffects getSavedEffect() { return null; }
     }
 }

@@ -39,7 +39,7 @@ namespace DOL.GS.PacketHandler
 			{
 				pak.FillString(m_gameClient.Account.Name, 24);
 				IList<InventoryItem> items;
-				DOLCharacters[] characters = m_gameClient.Account.Characters;
+				DbCoreCharacters[] characters = m_gameClient.Account.Characters;
 				if (characters == null)
 				{
 					pak.Fill(0x0, 1840);

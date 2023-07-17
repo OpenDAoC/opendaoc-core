@@ -16,7 +16,7 @@ namespace DOL.GS.RealmAbilities
         private double m_damage = 0;
         private GamePlayer m_player;
 
-        public AngerOfTheGodsAbility(DBAbility dba, int level) : base(dba, level) {}
+        public AngerOfTheGodsAbility(DbAbilities dba, int level) : base(dba, level) {}
         public virtual void CreateSpell(double damage)
         {
             m_dbspell = new DBSpell();

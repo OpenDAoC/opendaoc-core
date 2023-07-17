@@ -8,7 +8,7 @@ namespace DOL.GS.RealmAbilities
 {
 	public class BarrierOfFortitudeAbility : TimedRealmAbility
 	{
-		public BarrierOfFortitudeAbility(DBAbility dba, int level) : base(dba, level) { }
+		public BarrierOfFortitudeAbility(DbAbilities dba, int level) : base(dba, level) { }
 
         public const string BofBaSb = "RA_DAMAGE_DECREASE";
 

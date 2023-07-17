@@ -7,7 +7,7 @@ namespace DOL.GS.RealmAbilities;
 
 public class AtlasOF_BrilliantAura : TimedRealmAbility, ISpellCastingAbilityHandler
 {
-    public AtlasOF_BrilliantAura(DBAbility dba, int level) : base(dba, level) { }
+    public AtlasOF_BrilliantAura(DbAbilities dba, int level) : base(dba, level) { }
 
     private SpellHandler m_handler;
     

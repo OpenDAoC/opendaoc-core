@@ -35,7 +35,7 @@ namespace DOL.GS
 		{
 		}
 
-		public GuildBannerItem(ItemTemplate template)
+		public GuildBannerItem(DbItemTemplates template)
 			: base(template)
 		{
 		}
@@ -101,7 +101,7 @@ namespace DOL.GS
 			// if picked up by an enemy then turn this into a trophy
 			if (realm != player.Realm)
 			{
-				ItemUnique template = new ItemUnique(Template);
+				DbItemUnique template = new DbItemUnique(Template);
 				template.ClassType = "";
 				template.Model = trophyModel;
 				template.IsDropable = true;

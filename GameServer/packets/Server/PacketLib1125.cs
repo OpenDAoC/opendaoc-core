@@ -92,8 +92,8 @@ namespace DOL.GS.PacketHandler
 				}
 				else
 				{
-					Dictionary<int, DOLCharacters> charsBySlot = new Dictionary<int, DOLCharacters>();
-					foreach (DOLCharacters c in m_gameClient.Account.Characters)
+					Dictionary<int, DbCoreCharacters> charsBySlot = new Dictionary<int, DbCoreCharacters>();
+					foreach (DbCoreCharacters c in m_gameClient.Account.Characters)
 					{
 						try
 						{
@@ -132,7 +132,7 @@ namespace DOL.GS.PacketHandler
 
 					for (int i = firstSlot; i < (firstSlot + 10); i++)
 					{
-						if (!charsBySlot.TryGetValue(i, out DOLCharacters c))
+						if (!charsBySlot.TryGetValue(i, out DbCoreCharacters c))
 						{
 							pak.WriteByte(0);
 						}
@@ -644,7 +644,7 @@ namespace DOL.GS.PacketHandler
 								continue;
 							}
 
-							var item = (ItemTemplate)itemsInPage[(int)i];
+							var item = (DbItemTemplates)itemsInPage[(int)i];
 							if (item != null)
 							{
 								pak.WriteByte((byte)i); //Item index on page
@@ -720,7 +720,7 @@ namespace DOL.GS.PacketHandler
 								if (log.IsErrorEnabled)
 								{
 									log.Error("Merchant item template '" +
-											  ((MerchantItem)itemsInPage[page * MerchantTradeItems.MAX_ITEM_IN_TRADEWINDOWS + i]).ItemTemplateID +
+											  ((DbMerchantItems)itemsInPage[page * MerchantTradeItems.MAX_ITEM_IN_TRADEWINDOWS + i]).ItemTemplateID +
 											  "' not found, abort!!!");
 								}
 

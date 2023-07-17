@@ -33,7 +33,7 @@ namespace DOL.GS.GameEvents
 		/// <summary>
 		/// Table Cache
 		/// </summary>
-		private static readonly Dictionary<eCharacterClass, List<ItemTemplate>> m_cachedClassEquipment = new Dictionary<eCharacterClass, List<ItemTemplate>>();
+		private static readonly Dictionary<eCharacterClass, List<DbItemTemplates>> m_cachedClassEquipment = new Dictionary<eCharacterClass, List<DbItemTemplates>>();
 		
 		/// <summary>
 		/// Register Character Creation Events
@@ -70,7 +70,7 @@ namespace DOL.GS.GameEvents
 							{
 								eCharacterClass gameClass = (eCharacterClass)cId;
 								if (!m_cachedClassEquipment.ContainsKey(gameClass))
-									m_cachedClassEquipment.Add(gameClass, new List<ItemTemplate>());
+									m_cachedClassEquipment.Add(gameClass, new List<DbItemTemplates>());
 								
 								m_cachedClassEquipment[gameClass].Add(equipclass.Template);
 							}
@@ -120,7 +120,7 @@ namespace DOL.GS.GameEvents
 			if (chArgs == null)
 				return;
 			
-			DOLCharacters ch = chArgs.Character;
+			DbCoreCharacters ch = chArgs.Character;
 			
 			try
 			{

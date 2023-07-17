@@ -465,7 +465,7 @@ namespace DOL.GS.Quests
         /// <returns>InventoryItem of given Name and Level</returns>
         public static InventoryItem GenerateItem(string ItemName, int ItemLevel, int Model)
         {
-            ItemUnique TaskItems = new ItemUnique();
+            DbItemUnique TaskItems = new DbItemUnique();
             TaskItems.Name = ItemName;
             TaskItems.Level = ItemLevel;
             TaskItems.DPS_AF = 0;

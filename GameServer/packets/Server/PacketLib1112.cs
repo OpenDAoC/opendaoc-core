@@ -262,7 +262,7 @@ namespace DOL.GS.PacketHandler
 				SendForceTooltipUpdate(spellsXLines.SelectMany(e => e.Item2));
 		}
 
-		protected override void WriteTemplateData(GSTCPPacketOut pak, ItemTemplate template, int count)
+		protected override void WriteTemplateData(GSTCPPacketOut pak, DbItemTemplates template, int count)
 		{
 			if (template == null)
 			{

@@ -8,7 +8,7 @@ namespace DOL.GS.RealmAbilities
 
     public class AtlasOF_ShadowRun : TimedRealmAbility
     {
-        public AtlasOF_ShadowRun(DBAbility dba, int level) : base(dba, level) { }
+        public AtlasOF_ShadowRun(DbAbilities dba, int level) : base(dba, level) { }
         
         int m_duration = 30000; // 30s
 

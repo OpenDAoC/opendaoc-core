@@ -168,7 +168,7 @@ namespace DOL.GS
 
             try
 			{
-				DBGuild dbGuild = new DBGuild();
+				DbGuilds dbGuild = new DbGuilds();
 				dbGuild.GuildName = guildName;
 				dbGuild.GuildID = System.Guid.NewGuid().ToString();
 				dbGuild.Realm = (byte)realm;
@@ -198,7 +198,7 @@ namespace DOL.GS
 
 		public static void CreateRanks(Guild guild)
 		{
-			DBRank rank;
+			DbGuildRanks rank;
 			for (int i = 0; i < 10; i++)
 			{
 				rank = CreateRank(guild, i);
@@ -210,12 +210,12 @@ namespace DOL.GS
 
 		public static void RepairRanks(Guild guild)
 		{
-			DBRank rank;
+			DbGuildRanks rank;
 			for (int i = 0; i < 10; i++)
 			{
 				bool foundRank = false;
 
-				foreach (DBRank r in guild.Ranks)
+				foreach (DbGuildRanks r in guild.Ranks)
 				{
 					if (r == null)
 					{
@@ -239,9 +239,9 @@ namespace DOL.GS
 			}
 		}
 
-		private static DBRank CreateRank(Guild guild, int rankLevel)
+		private static DbGuildRanks CreateRank(Guild guild, int rankLevel)
 		{
-			DBRank rank = new DBRank();
+			DbGuildRanks rank = new DbGuildRanks();
 			rank.AcHear = false;
 			rank.AcSpeak = false;
 			rank.Alli = false;
@@ -333,16 +333,16 @@ namespace DOL.GS
 				if (removeGuild == null)
 					return false;
 
-				var guilds = DOLDB<DBGuild>.SelectObjects(DB.Column("GuildID").IsEqualTo(removeGuild.GuildID));
+				var guilds = DOLDB<DbGuilds>.SelectObjects(DB.Column("GuildID").IsEqualTo(removeGuild.GuildID));
 				foreach (var guild in guilds)
 				{
-					foreach (var cha in DOLDB<DOLCharacters>.SelectObjects(DB.Column("GuildID").IsEqualTo(guild.GuildID)))
+					foreach (var cha in DOLDB<DbCoreCharacters>.SelectObjects(DB.Column("GuildID").IsEqualTo(guild.GuildID)))
 						cha.GuildID = "";
 				}
 				GameServer.Database.DeleteObject(guilds);
 
 				//[StephenxPimentel] We need to delete the guild specific ranks aswell!
-				var ranks = DOLDB<DBRank>.SelectObjects(DB.Column("GuildID").IsEqualTo(removeGuild.GuildID));
+				var ranks = DOLDB<DbGuildRanks>.SelectObjects(DB.Column("GuildID").IsEqualTo(removeGuild.GuildID));
 				GameServer.Database.DeleteObject(ranks);
 
 				lock (removeGuild.GetListOfOnlineMembers())
@@ -424,7 +424,7 @@ namespace DOL.GS
 			m_lastID = 0;
 
 			//load guilds
-			var guildObjs = GameServer.Database.SelectAllObjects<DBGuild>();
+			var guildObjs = GameServer.Database.SelectAllObjects<DbGuilds>();
 			foreach(var obj in guildObjs)
 			{
 				var myguild = new Guild(obj);
@@ -447,15 +447,15 @@ namespace DOL.GS
 					RepairRanks(myguild);
 
 					// now reload the guild to fix the relations
-					myguild = new Guild(DOLDB<DBGuild>.SelectObjects(DB.Column("GuildID").IsEqualTo(obj.GuildID)).FirstOrDefault());
+					myguild = new Guild(DOLDB<DbGuilds>.SelectObjects(DB.Column("GuildID").IsEqualTo(obj.GuildID)).FirstOrDefault());
 				}
 
 				AddGuild(myguild);
 
-				var guildCharacters = DOLDB<DOLCharacters>.SelectObjects(DB.Column("GuildID").IsEqualTo(myguild.GuildID));
+				var guildCharacters = DOLDB<DbCoreCharacters>.SelectObjects(DB.Column("GuildID").IsEqualTo(myguild.GuildID));
 				var tempList = new Dictionary<string, GuildMemberDisplay>(guildCharacters.Count);
 
-				foreach (DOLCharacters ch in guildCharacters)
+				foreach (DbCoreCharacters ch in guildCharacters)
 				{
 					var member = new GuildMemberDisplay(ch.ObjectId, 
 														ch.Name, 
@@ -472,15 +472,15 @@ namespace DOL.GS
 			}
 
 			//load alliances
-			var allianceObjs = GameServer.Database.SelectAllObjects<DBAlliance>();
-			foreach (DBAlliance dball in allianceObjs)
+			var allianceObjs = GameServer.Database.SelectAllObjects<DbGuildAlliances>();
+			foreach (DbGuildAlliances dball in allianceObjs)
 			{
 				var myalliance = new Alliance();
 				myalliance.LoadFromDatabase(dball);
 
 				if (dball != null && dball.DBguilds != null)
 				{
-					foreach (DBGuild mydbgui in dball.DBguilds)
+					foreach (DbGuilds mydbgui in dball.DBguilds)
 					{
 						var gui = GetGuildByName(mydbgui.GuildName);
 						myalliance.Guilds.Add(gui);

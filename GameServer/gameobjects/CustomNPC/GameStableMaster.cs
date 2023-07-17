@@ -35,7 +35,7 @@ namespace DOL.GS
 			int pagenumber = item_slot / MerchantTradeItems.MAX_ITEM_IN_TRADEWINDOWS;
 			int slotnumber = item_slot % MerchantTradeItems.MAX_ITEM_IN_TRADEWINDOWS;
 
-			ItemTemplate template = this.TradeItems.GetItem(pagenumber, (eMerchantWindowSlot)slotnumber);
+			DbItemTemplates template = this.TradeItems.GetItem(pagenumber, (eMerchantWindowSlot)slotnumber);
 			if (template == null) return;
 
 			//Calculate the amout of items
@@ -244,7 +244,7 @@ namespace DOL.GS
 			{
 				foreach (DictionaryEntry de in m_tradeItems.GetAllItems())
 				{
-					ItemTemplate compareItem = de.Value as ItemTemplate;
+					DbItemTemplates compareItem = de.Value as DbItemTemplates;
 					if (compareItem != null)
 					{
 						if (compareItem.Id_nb == item.Id_nb)

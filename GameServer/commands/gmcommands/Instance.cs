@@ -69,7 +69,7 @@ namespace DOL.GS.Commands
 							}
 
 							//Create the database entry...
-							DBInstanceXElement element = new DBInstanceXElement();
+							DbInstanceXElements element = new DbInstanceXElements();
 							element.Heading = client.Player.Heading;
 							element.X = client.Player.X;
 							element.Y = client.Player.Y;
@@ -171,7 +171,7 @@ namespace DOL.GS.Commands
                         if (obj == null)
                             return;
                         string ObjectId = obj.Name + obj.GuildName;
-                        DataObject o = GameServer.Database.FindObjectByKey<DBInstanceXElement>(ObjectId);
+                        DataObject o = GameServer.Database.FindObjectByKey<DbInstanceXElements>(ObjectId);
 
                         if (o == null)
                         {

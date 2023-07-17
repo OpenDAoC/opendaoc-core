@@ -17,7 +17,7 @@ namespace DOL.GS.RealmAbilities
 		public const int MISSHITBONUS = 10; // 10% misshit bonus
 		public const int EFFECT = 1565;
 
-		public ShadowShroudAbility(DBAbility dba, int level) : base(dba, level) { }
+		public ShadowShroudAbility(DbAbilities dba, int level) : base(dba, level) { }
 
 		/// <summary>
 		/// Action

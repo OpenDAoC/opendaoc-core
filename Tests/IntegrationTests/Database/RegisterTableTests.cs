@@ -18,8 +18,8 @@ namespace DOL.Tests.Integration.Database
 			Database = DatabaseSetUp.Database;
 		}
 		
-		protected SQLObjectDatabase Database { get; set; }
-		protected virtual SQLObjectDatabase GetDatabaseV2 { get { return (SQLObjectDatabase)ObjectDatabase.GetObjectDatabase(ConnectionType.DATABASE_SQLITE, DatabaseSetUp.ConnectionString); } }
+		protected SqlObjectDatabase Database { get; set; }
+		protected virtual SqlObjectDatabase GetDatabaseV2 { get { return (SqlObjectDatabase)ObjectDatabase.GetObjectDatabase(EConnectionType.DATABASE_SQLITE, DatabaseSetUp.ConnectionString); } }
 		
 		/// <summary>
 		/// Test to Register all Assemblies Tables

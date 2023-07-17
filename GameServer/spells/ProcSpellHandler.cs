@@ -176,9 +176,9 @@ namespace DOL.GS.Spells
         /// </summary>
         /// <param name="e"></param>
         /// <returns></returns>
-        public override PlayerXEffect GetSavedEffect(GameSpellEffect e)
+        public override DbPlayerXEffects GetSavedEffect(GameSpellEffect e)
         {
-            PlayerXEffect eff = new PlayerXEffect();
+            DbPlayerXEffects eff = new DbPlayerXEffects();
             eff.Var1 = Spell.ID;
             eff.Duration = e.RemainingTime;
             eff.IsHandler = true;

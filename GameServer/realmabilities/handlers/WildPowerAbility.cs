@@ -9,7 +9,7 @@ namespace DOL.GS.RealmAbilities
 	public class WildPowerAbility : RAPropertyEnhancer
 	{
 
-		public WildPowerAbility(DBAbility dba, int level)
+		public WildPowerAbility(DbAbilities dba, int level)
 			: base(dba, level, eProperty.CriticalSpellHitChance)
 		{
 		}
@@ -56,7 +56,7 @@ namespace DOL.GS.RealmAbilities
 	/// </summary>
 	public class MasteryOfMageryAbility : RAPropertyEnhancer
 	{
-		public MasteryOfMageryAbility(DBAbility dba, int level)
+		public MasteryOfMageryAbility(DbAbilities dba, int level)
 			: base(dba, level, eProperty.SpellDamage)
 		{
 		}
@@ -103,7 +103,7 @@ namespace DOL.GS.RealmAbilities
 	/// </summary>
 	public class WildHealingAbility : RAPropertyEnhancer
 	{
-		public WildHealingAbility(DBAbility dba, int level)
+		public WildHealingAbility(DbAbilities dba, int level)
 			: base(dba, level, eProperty.CriticalHealHitChance)
 		{
 		}
@@ -149,7 +149,7 @@ namespace DOL.GS.RealmAbilities
 	/// </summary>
 	public class MasteryOfHealingAbility : RAPropertyEnhancer
 	{
-		public MasteryOfHealingAbility(DBAbility dba, int level)
+		public MasteryOfHealingAbility(DbAbilities dba, int level)
 			: base(dba, level, eProperty.HealingEffectiveness)
 		{
 		}
@@ -195,7 +195,7 @@ namespace DOL.GS.RealmAbilities
 	/// </summary>
 	public class MasteryOfFocusAbility : RAPropertyEnhancer
 	{
-		public MasteryOfFocusAbility(DBAbility dba, int level) : base(dba, level, eProperty.SpellLevel) { }
+		public MasteryOfFocusAbility(DbAbilities dba, int level) : base(dba, level, eProperty.SpellLevel) { }
 
 		public override int GetAmountForLevel(int level)
 		{

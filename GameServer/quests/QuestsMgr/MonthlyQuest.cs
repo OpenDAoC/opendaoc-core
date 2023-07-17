@@ -25,7 +25,7 @@ public abstract class MonthlyQuest : BaseQuest
     {
     }
 
-    public MonthlyQuest(GamePlayer questingPlayer, DBQuest dbQuest) : base(questingPlayer, dbQuest)
+    public MonthlyQuest(GamePlayer questingPlayer, DbQuests dbQuest) : base(questingPlayer, dbQuest)
     {
     }
     

@@ -9,7 +9,7 @@ namespace DOL.GS.Housing
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-		private DBHouse m_dbitem;
+		private DbHouses m_dbitem;
 
 		public GameLotMarker()
 			: base()
@@ -17,7 +17,7 @@ namespace DOL.GS.Housing
 			SaveInDB = false;
 		}
 
-		public DBHouse DatabaseItem
+		public DbHouses DatabaseItem
 		{
 			get { return m_dbitem; }
 			set { m_dbitem = value; }
@@ -232,7 +232,7 @@ namespace DOL.GS.Housing
 			// do nothing !!!
 		}
 
-		public static void SpawnLotMarker(DBHouse house)
+		public static void SpawnLotMarker(DbHouses house)
 		{
 			var obj = new GameLotMarker
 			          	{

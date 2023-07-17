@@ -128,8 +128,8 @@ namespace DOL.GS.PacketHandler
 						}
 						else
 						{
-							if (!Util.IsEmpty(((DBLanguageGameObject)translation).Name))
-								name = ((DBLanguageGameObject)translation).Name;
+							if (!Util.IsEmpty(((DbLanguageGameObjects)translation).Name))
+								name = ((DbLanguageGameObjects)translation).Name;
 						}
 					}
 				}

@@ -156,7 +156,7 @@ namespace DOL.GS
 		/// <summary>
 		/// This variable holds the accountdata
 		/// </summary>
-		protected Account m_account;
+		protected DbAccounts m_account;
 
 		/// <summary>
 		/// This variable holds the active charindex
@@ -345,7 +345,7 @@ namespace DOL.GS
 		/// <summary>
 		/// Gets or sets the account being used by this client
 		/// </summary>
-		public Account Account
+		public DbAccounts Account
 		{
 			get { return m_account; }
 			set
@@ -630,17 +630,17 @@ namespace DOL.GS
 		{
 			LoadPlayer(accountindex, Properties.PLAYER_CLASS);
 		} 
-		public void LoadPlayer(DOLCharacters dolChar)
+		public void LoadPlayer(DbCoreCharacters coreChar)
 		{
-			LoadPlayer(dolChar, Properties.PLAYER_CLASS);
+			LoadPlayer(coreChar, Properties.PLAYER_CLASS);
 		}
 
 		public void LoadPlayer(int accountindex, string playerClass)
 		{
 			// refreshing Account to load any changes from the DB
 			GameServer.Database.FillObjectRelations(m_account);
-			DOLCharacters dolChar = m_account.Characters[accountindex];
-			LoadPlayer(dolChar, playerClass);
+			DbCoreCharacters coreChar = m_account.Characters[accountindex];
+			LoadPlayer(coreChar, playerClass);
 		}
 
 
@@ -648,12 +648,12 @@ namespace DOL.GS
 		/// Loads a player from the DB
 		/// </summary>
 		/// <param name="accountindex">Index of the character within the account</param>
-		public void LoadPlayer(DOLCharacters dolChar, string playerClass)
+		public void LoadPlayer(DbCoreCharacters coreChar, string playerClass)
 		{
 			m_activeCharIndex = 0;
 			foreach (var ch in Account.Characters)
 			{
-				if (ch.ObjectId == dolChar.ObjectId)
+				if (ch.ObjectId == coreChar.ObjectId)
 					break;
 				m_activeCharIndex++;
 			}
@@ -663,7 +663,7 @@ namespace DOL.GS
 			GamePlayer player = null;
 			try
 			{
-				player = (GamePlayer)gasm.CreateInstance(playerClass, false, BindingFlags.CreateInstance, null, new object[] { this, dolChar }, null, null);
+				player = (GamePlayer)gasm.CreateInstance(playerClass, false, BindingFlags.CreateInstance, null, new object[] { this, coreChar }, null, null);
 			}
 			catch (Exception e)
 			{
@@ -677,7 +677,7 @@ namespace DOL.GS
 				{
 					try
 					{
-						player = (GamePlayer)asm.CreateInstance(playerClass, false, BindingFlags.CreateInstance, null, new object[] { this, dolChar }, null, null);
+						player = (GamePlayer)asm.CreateInstance(playerClass, false, BindingFlags.CreateInstance, null, new object[] { this, coreChar }, null, null);
 					}
 					catch (Exception e)
 					{
@@ -692,7 +692,7 @@ namespace DOL.GS
 			if (player == null)
 			{
 				log.ErrorFormat("Could not instantiate player class '{0}', using GamePlayer instead!", playerClass);
-				player = new GamePlayer(this, dolChar);
+				player = new GamePlayer(this, coreChar);
 			}
 
 			Thread.MemoryBarrier();
@@ -715,7 +715,7 @@ namespace DOL.GS
 						//Time playing
 						var connectedtime = DateTime.Now.Subtract(m_account.LastLogin).TotalMinutes;
 						//Lets get our player from DB.
-						var getp = GameServer.Database.FindObjectByKey<DOLCharacters>(m_player.InternalID);
+						var getp = GameServer.Database.FindObjectByKey<DbCoreCharacters>(m_player.InternalID);
 						//Let get saved poistion from DB.
 						int[] oldloc = { getp.Xpos, getp.Ypos, getp.Zpos, getp.Direction, getp.Region };
 						//Lets get current player Gloc.

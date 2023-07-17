@@ -14,7 +14,7 @@ namespace DOL.GS.RealmAbilities
         private Spell m_spell;
         private SpellLine m_spellline;
 
-        public AtlasOF_RainOfBase(DBAbility ability, int level) : base(ability, level) { }
+        public AtlasOF_RainOfBase(DbAbilities ability, int level) : base(ability, level) { }
 
         public override int MaxLevel => 3;
 

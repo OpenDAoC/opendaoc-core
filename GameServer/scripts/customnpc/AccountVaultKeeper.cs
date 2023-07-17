@@ -44,7 +44,7 @@ namespace DOL.GS
             message += "You can browse the [first] or [second] page of your Account Vault.";
             player.Out.SendMessage(message, eChatType.CT_Say, eChatLoc.CL_PopupWindow);
 
-            ItemTemplate vaultItem = GetDummyVaultItem(player);
+            DbItemTemplates vaultItem = GetDummyVaultItem(player);
             AccountVault vault = new AccountVault(player, this, player.Client.Account.Name + "_" + player.Realm.ToString(), 0, vaultItem);
             player.ActiveInventoryObject = vault;
             player.Out.SendInventoryItemsUpdate(vault.GetClientInventory(player), eInventoryWindowType.HouseVault);
@@ -77,9 +77,9 @@ namespace DOL.GS
             return true;
         }
 
-        private static ItemTemplate GetDummyVaultItem(GamePlayer player)
+        private static DbItemTemplates GetDummyVaultItem(GamePlayer player)
         {
-            ItemTemplate vaultItem = new ItemTemplate();
+            DbItemTemplates vaultItem = new DbItemTemplates();
             vaultItem.Object_Type = (int)eObjectType.HouseVault;
             vaultItem.Name = "Vault";
             vaultItem.ObjectId = player.Client.Account.Name + "_" + player.Realm.ToString();
@@ -123,7 +123,7 @@ namespace DOL.GS
         /// <param name="vaultOwner">ID of vault owner (can be anything unique, if it's the account name then all toons on account can access the items)</param>
         /// <param name="vaultNumber">Valid vault IDs are 0-3</param>
         /// <param name="dummyTemplate">An ItemTemplate to satisfy the base class's constructor</param>
-        public AccountVault(GamePlayer player, GameNPC vaultNPC, string vaultOwner, int vaultNumber, ItemTemplate dummyTemplate)
+        public AccountVault(GamePlayer player, GameNPC vaultNPC, string vaultOwner, int vaultNumber, DbItemTemplates dummyTemplate)
             : base(dummyTemplate, vaultNumber)
         {
             m_player = player;
@@ -131,7 +131,7 @@ namespace DOL.GS
             m_vaultOwner = vaultOwner;
             m_vaultNumber = vaultNumber;
 
-            DBHouse dbh = new DBHouse();
+            DbHouses dbh = new DbHouses();
             dbh.AllowAdd = false;
             dbh.GuildHouse = false;
             dbh.HouseNumber = player.ObjectID;

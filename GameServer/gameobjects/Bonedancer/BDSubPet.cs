@@ -40,7 +40,7 @@ namespace DOL.GS
                     if (dbSummoningSpell != null)
                     {
                         // Figure out which spell line the summoning spell is from
-                        DBLineXSpell dbLineSpell = DOLDB<DBLineXSpell>.SelectObject(DB.Column("SpellID").IsEqualTo(dbSummoningSpell.SpellID));
+                        DbLineXSpells dbLineSpell = DOLDB<DbLineXSpells>.SelectObject(DB.Column("SpellID").IsEqualTo(dbSummoningSpell.SpellID));
                         if (dbLineSpell != null)
                         {
                             // Now figure out what the spec name is
@@ -69,7 +69,7 @@ namespace DOL.GS
         /// </summary>
         public void MinionGetWeapon(CommanderPet.eWeaponType weaponType)
         {
-            ItemTemplate itemTemp = CommanderPet.GetWeaponTemplate(weaponType);
+            DbItemTemplates itemTemp = CommanderPet.GetWeaponTemplate(weaponType);
 
             if (itemTemp == null)
                 return;

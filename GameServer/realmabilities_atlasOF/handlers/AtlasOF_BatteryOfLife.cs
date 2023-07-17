@@ -8,7 +8,7 @@ namespace DOL.GS.RealmAbilities
 
     public class AtlasOF_BatteryOfLife : TimedRealmAbility
     {
-        public AtlasOF_BatteryOfLife(DBAbility dba, int level) : base(dba, level) { }
+        public AtlasOF_BatteryOfLife(DbAbilities dba, int level) : base(dba, level) { }
         
         int m_duration = 0; // 30s
 

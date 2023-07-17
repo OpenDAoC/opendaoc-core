@@ -6,7 +6,7 @@ namespace DOL.GS.RealmAbilities
 {
     public class AtlasOF_SiegeBolt : TimedRealmAbility, ISpellCastingAbilityHandler
     {
-        public AtlasOF_SiegeBolt(DBAbility dba, int level) : base(dba, level) { }
+        public AtlasOF_SiegeBolt(DbAbilities dba, int level) : base(dba, level) { }
 
         // ISpellCastingAbilityHandler
         public Spell Spell { get { return m_spell; } }

@@ -71,7 +71,7 @@ namespace DOL.GS
                             item.Price = 1;
                             //item.CapUtility(81);
                             GameServer.Database.AddObject(item);
-                            InventoryItem invitem = GameInventoryItem.Create<ItemUnique>(item);
+                            InventoryItem invitem = GameInventoryItem.Create<DbItemUnique>(item);
                             player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, invitem);
                             //player.Out.SendMessage("Generated: " + item.Name, eChatType.CT_System, eChatLoc.CL_SystemWindow);
                         }
@@ -122,7 +122,7 @@ namespace DOL.GS
 
                             item.AllowAdd = true;
                             GameServer.Database.AddObject(item);
-                            InventoryItem invitem = GameInventoryItem.Create<ItemUnique>(item);
+                            InventoryItem invitem = GameInventoryItem.Create<DbItemUnique>(item);
                             client.Player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, invitem);
                             client.Player.Out.SendMessage("Generated: " + item.Name, eChatType.CT_System,
                                 eChatLoc.CL_SystemWindow);
@@ -530,7 +530,7 @@ namespace DOL.GS
 					item.Price = 1;
 					//item.CapUtility(81);
 					GameServer.Database.AddObject(item);
-					InventoryItem invitem = GameInventoryItem.Create<ItemUnique>(item);
+					InventoryItem invitem = GameInventoryItem.Create<DbItemUnique>(item);
 					player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, invitem);
 				}
 				
@@ -544,7 +544,7 @@ namespace DOL.GS
 				dmgTypeItem.Price = 1;
 				//dmgTypeItem.CapUtility(81);
 				GameServer.Database.AddObject(dmgTypeItem);
-				InventoryItem tempItem = GameInventoryItem.Create<ItemUnique>(dmgTypeItem);
+				InventoryItem tempItem = GameInventoryItem.Create<DbItemUnique>(dmgTypeItem);
 				player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, tempItem);
 
 				//crush flex
@@ -554,7 +554,7 @@ namespace DOL.GS
 				dmgTypeItem2.Price = 1;
 				//dmgTypeItem2.CapUtility(81);
 				GameServer.Database.AddObject(dmgTypeItem2);
-				InventoryItem tempItem2 = GameInventoryItem.Create<ItemUnique>(dmgTypeItem2);
+				InventoryItem tempItem2 = GameInventoryItem.Create<DbItemUnique>(dmgTypeItem2);
 				player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, tempItem2);
 			}
 			else if(type == eObjectType.TwoHandedWeapon || type == eObjectType.PolearmWeapon || type == eObjectType.LargeWeapons)
@@ -574,7 +574,7 @@ namespace DOL.GS
 					dmgTypeItem.Price = 1;
 					//dmgTypeItem.CapUtility(81);
 					GameServer.Database.AddObject(dmgTypeItem);
-					InventoryItem tempItem = GameInventoryItem.Create<ItemUnique>(dmgTypeItem);
+					InventoryItem tempItem = GameInventoryItem.Create<DbItemUnique>(dmgTypeItem);
 					player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, tempItem);
 				}	
 			} else
@@ -586,7 +586,7 @@ namespace DOL.GS
 				item.Price = 1;
 				//item.CapUtility(81);
 				GameServer.Database.AddObject(item);
-				InventoryItem invitem = GameInventoryItem.Create<ItemUnique>(item);
+				InventoryItem invitem = GameInventoryItem.Create<DbItemUnique>(item);
 				player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, invitem);
 			}	
 		}

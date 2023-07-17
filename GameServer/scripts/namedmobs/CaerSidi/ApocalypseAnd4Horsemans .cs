@@ -1724,7 +1724,7 @@ namespace DOL.GS
             base.Die(killer);
         }
 
-        public override void AutoSetStats(Mob dbMob = null)
+        public override void AutoSetStats(DbMobs dbMob = null)
         {
             if (PackageID == "MorbusBaf")
                 return;
@@ -2620,7 +2620,7 @@ namespace DOL.GS
             base.Die(killer);
         }
 
-        public override void AutoSetStats(Mob dbMob = null)
+        public override void AutoSetStats(DbMobs dbMob = null)
         {
             if (this.PackageID == "ApocBaf")
                 return;
@@ -2733,7 +2733,7 @@ namespace DOL.GS
         {
             base.Die(killer);
         }
-        public override void AutoSetStats(Mob dbMob = null)
+        public override void AutoSetStats(DbMobs dbMob = null)
         {
             if (this.PackageID == "RainOfFire")
                 return;

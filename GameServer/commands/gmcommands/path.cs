@@ -348,7 +348,7 @@ namespace DOL.GS.Commands
 			string pathname = "";
 			if (merchant.TradeItems != null)
 			{
-				foreach (ItemTemplate template in merchant.TradeItems.GetAllItems().Values)
+				foreach (DbItemTemplates template in merchant.TradeItems.GetAllItems().Values)
 				{
 					if (template != null && template.Name.ToLower() == ticket.ToLower())
 					{

@@ -90,7 +90,7 @@ namespace DOL.GS.Commands
 						#region Blank
 					case "blank":
 						{
-                            ItemTemplate newTemplate = new ItemTemplate
+                            DbItemTemplates newTemplate = new DbItemTemplates
                             {
                                 Name = "(blank item)",
                                 Id_nb = InventoryItem.BLANK_ITEM
@@ -133,7 +133,7 @@ namespace DOL.GS.Commands
 						#region Create
 					case "create":
 						{
-							ItemTemplate template = GameServer.Database.FindObjectByKey<ItemTemplate>(args[2]);
+							DbItemTemplates template = GameServer.Database.FindObjectByKey<DbItemTemplates>(args[2]);
 							if (template == null)
 							{
 								client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Item.Create.NotFound", args[2]), eChatType.CT_System, eChatLoc.CL_SystemWindow);
@@ -254,7 +254,7 @@ namespace DOL.GS.Commands
 						#region Info
 					case "info":
 						{
-							ItemTemplate obj = GameServer.Database.FindObjectByKey<ItemTemplate>(args[2]);
+							DbItemTemplates obj = GameServer.Database.FindObjectByKey<DbItemTemplates>(args[2]);
 							if (obj == null)
 							{
 								client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Item.Info.ItemTemplateUnknown", args[2]), eChatType.CT_System, eChatLoc.CL_SystemWindow);
@@ -318,7 +318,7 @@ namespace DOL.GS.Commands
 							}
 							item.Extension = Convert.ToByte(args[2]);
 
-							if (item.Template is ItemUnique || (item.Template is ItemTemplate && (item.Template as ItemTemplate).AllowUpdate))
+							if (item.Template is DbItemUnique || (item.Template is DbItemTemplates && (item.Template as DbItemTemplates).AllowUpdate))
 							{
 								item.Template.Extension = item.Extension;
 							}
@@ -352,7 +352,7 @@ namespace DOL.GS.Commands
 							}
 							item.Color = Convert.ToUInt16(args[2]);
 
-							if (item.Template is ItemUnique || (item.Template is ItemTemplate && (item.Template as ItemTemplate).AllowUpdate))
+							if (item.Template is DbItemUnique || (item.Template is DbItemTemplates && (item.Template as DbItemTemplates).AllowUpdate))
 							{
 								item.Template.Color = item.Color;
 							}
@@ -601,7 +601,7 @@ namespace DOL.GS.Commands
 							}
 							item.Emblem = Convert.ToInt32(args[2]);
 
-							if (item.Template is ItemUnique || (item.Template is ItemTemplate && (item.Template as ItemTemplate).AllowUpdate))
+							if (item.Template is DbItemUnique || (item.Template is DbItemTemplates && (item.Template as DbItemTemplates).AllowUpdate))
 							{
 								item.Template.Emblem = item.Emblem;
 							}
@@ -691,7 +691,7 @@ namespace DOL.GS.Commands
 							int maxcon = Convert.ToInt32(args[3]);
 							item.Condition = con;
 							item.MaxCondition = maxcon;
-							if (item.Template is ItemUnique || (item.Template is ItemTemplate && (item.Template as ItemTemplate).AllowUpdate))
+							if (item.Template is DbItemUnique || (item.Template is DbItemTemplates && (item.Template as DbItemTemplates).AllowUpdate))
 							{
 								item.Template.Condition = item.Condition;
 							}
@@ -725,7 +725,7 @@ namespace DOL.GS.Commands
 							int Dur = Convert.ToInt32(args[2]);
 							int MaxDur = Convert.ToInt32(args[3]);
 							item.Durability = Dur;
-							if (item.Template is ItemUnique || (item.Template is ItemTemplate && (item.Template as ItemTemplate).AllowUpdate))
+							if (item.Template is DbItemUnique || (item.Template is DbItemTemplates && (item.Template as DbItemTemplates).AllowUpdate))
 							{
 								item.Template.Durability = item.Durability;
 							}
@@ -1179,7 +1179,7 @@ namespace DOL.GS.Commands
 							int SpellID = Convert.ToInt32(args[4]);
 							item.Charges = Charges;
 							item.MaxCharges = MaxCharges;
-							if (item.Template is ItemUnique || (item.Template is ItemTemplate && (item.Template as ItemTemplate).AllowUpdate))
+							if (item.Template is DbItemUnique || (item.Template is DbItemTemplates && (item.Template as DbItemTemplates).AllowUpdate))
 							{
 								item.Template.Charges = item.Charges;
 								item.Template.MaxCharges = item.MaxCharges;
@@ -1215,7 +1215,7 @@ namespace DOL.GS.Commands
 							int SpellID1 = Convert.ToInt32(args[4]);
 							item.Charges1 = Charges;
 							item.MaxCharges1 = MaxCharges;
-							if (item.Template is ItemUnique || (item.Template is ItemTemplate && (item.Template as ItemTemplate).AllowUpdate))
+							if (item.Template is DbItemUnique || (item.Template is DbItemTemplates && (item.Template as DbItemTemplates).AllowUpdate))
 							{
 								item.Template.Charges1 = item.Charges1;
 								item.Template.MaxCharges1 = item.MaxCharges1;
@@ -1329,7 +1329,7 @@ namespace DOL.GS.Commands
 							int SpellID = Convert.ToInt32(args[4]);
 							item.PoisonCharges = Charges;
 							item.PoisonMaxCharges = MaxCharges;
-							if (item.Template is ItemUnique || (item.Template is ItemTemplate && (item.Template as ItemTemplate).AllowUpdate))
+							if (item.Template is DbItemUnique || (item.Template is DbItemTemplates && (item.Template as DbItemTemplates).AllowUpdate))
 							{
 								item.Template.PoisonCharges = item.PoisonCharges;
 								item.Template.PoisonMaxCharges = item.PoisonMaxCharges;
@@ -1527,7 +1527,7 @@ namespace DOL.GS.Commands
 
 							List<string> list = new List<string>();
 
-							SalvageYield salvageYield = null;
+							DbSalvageYields salvageYield = null;
 							bool calculated = true;
 							var whereClause = WhereClause.Empty;
 
@@ -1549,16 +1549,16 @@ namespace DOL.GS.Commands
 								whereClause = whereClause.And(DB.Column("Realm").IsEqualTo((int)eRealm.None).Or(DB.Column("Realm").IsEqualTo(item.Realm)));
 							}
 
-							salvageYield = DOLDB<SalvageYield>.SelectObject(whereClause);
+							salvageYield = DOLDB<DbSalvageYields>.SelectObject(whereClause);
 
-							SalvageYield yield = null;
+							DbSalvageYields yield = null;
 
 							if (salvageYield != null)
 							{
-								yield = salvageYield.Clone() as SalvageYield;
+								yield = salvageYield.Clone() as DbSalvageYields;
 							}
 
-							if (yield == null || yield.PackageID == SalvageYield.LEGACY_SALVAGE_ID)
+							if (yield == null || yield.PackageID == DbSalvageYields.LEGACY_SALVAGE_ID)
 							{
 								if (calculated == false)
 								{
@@ -1580,7 +1580,7 @@ namespace DOL.GS.Commands
 
 							list.Add(" ");
 
-							ItemTemplate material = GameServer.Database.FindObjectByKey<ItemTemplate>(yield.MaterialId_nb);
+							DbItemTemplates material = GameServer.Database.FindObjectByKey<DbItemTemplates>(yield.MaterialId_nb);
 							string materialName = yield.MaterialId_nb;
 
 							if (material != null)
@@ -1682,9 +1682,9 @@ namespace DOL.GS.Commands
 								return;
 							}
 
-							if (item.Template is ItemUnique)
+							if (item.Template is DbItemUnique)
 							{
-								ItemUnique itemUnique = item.Template as ItemUnique;
+								DbItemUnique itemUnique = item.Template as DbItemUnique;
 								Log.Debug("update ItemUnique " + item.Template.Id_nb);
 								GameServer.Database.SaveObject(itemUnique);
 								client.Out.SendMessage(string.Format("ItemUnique {0} updated!", itemUnique.Id_nb), eChatType.CT_System, eChatLoc.CL_SystemWindow);
@@ -1749,7 +1749,7 @@ namespace DOL.GS.Commands
 							}
 							else if (idnb == string.Empty)
 							{
-								if (args[1].ToLower() == "save" && item.Template is ItemUnique)
+								if (args[1].ToLower() == "save" && item.Template is DbItemUnique)
 								{
 									DisplayMessage(client, "You need to provide a new id_nb to save this ItemUnique as an ItemTemplate.  Use saveunique to save this ItemUnique.");
 									return;
@@ -1758,11 +1758,11 @@ namespace DOL.GS.Commands
 								idnb = item.Id_nb;
 							}
 
-							ItemTemplate temp = null;
+							DbItemTemplates temp = null;
 							if (args[1].ToLower() == "save")
 							{
 								// if the item is allready in the database
-								temp = GameServer.Database.FindObjectByKey<ItemTemplate>(idnb);
+								temp = GameServer.Database.FindObjectByKey<DbItemTemplates>(idnb);
 							}
 
 							// save the new item
@@ -1773,7 +1773,7 @@ namespace DOL.GS.Commands
 									try
 									{
 										client.Player.Inventory.RemoveItem(item);
-                                        ItemTemplate itemTemplate = new ItemTemplate(item.Template)
+                                        DbItemTemplates itemTemplate = new DbItemTemplates(item.Template)
                                         {
                                             Id_nb = idnb
                                         };
@@ -1795,7 +1795,7 @@ namespace DOL.GS.Commands
 									try
 									{
 										client.Player.Inventory.RemoveItem(item);
-                                        ItemUnique unique = new ItemUnique(item.Template)
+                                        DbItemUnique unique = new DbItemUnique(item.Template)
                                         {
                                             Id_nb = idnb
                                         };
@@ -1817,10 +1817,10 @@ namespace DOL.GS.Commands
 							{
 								item.Template.Dirty = true;
 								GameServer.Database.SaveObject(item.Template);
-								GameServer.Database.UpdateInCache<ItemTemplate>(item.Template.Id_nb);
+								GameServer.Database.UpdateInCache<DbItemTemplates>(item.Template.Id_nb);
 								DisplayMessage(client, "Updated Inventory Item: " + item.Id_nb);
 
-								if (item.Template is ItemTemplate && (item.Template as ItemTemplate).AllowUpdate)
+								if (item.Template is DbItemTemplates && (item.Template as DbItemTemplates).AllowUpdate)
 								{
 									Log.Debug("Updated ItemTemplate: " + item.Template.Id_nb);
 									DisplayMessage(client, "++ Source ItemTemplate Updated!");
@@ -1836,9 +1836,9 @@ namespace DOL.GS.Commands
 							string name = string.Join(" ", args, 2, args.Length - 2);
 							if (name != "")
 							{
-								var items = DOLDB<ItemTemplate>.SelectObjects(DB.Column("id_nb").IsLike($"%{name}%"));
+								var items = DOLDB<DbItemTemplates>.SelectObjects(DB.Column("id_nb").IsLike($"%{name}%"));
 								DisplayMessage(client, LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Item.FindID.MatchingIDsForX", name, items.Count), new object[] { });
-								foreach (ItemTemplate item in items)
+								foreach (DbItemTemplates item in items)
 								{
 									DisplayMessage(client, item.Id_nb + " (" + item.Name + ")", new object[] { });
 								}
@@ -1852,9 +1852,9 @@ namespace DOL.GS.Commands
 							string name = string.Join(" ", args, 2, args.Length - 2);
 							if (name != "")
 							{
-								var items = DOLDB<ItemTemplate>.SelectObjects(DB.Column("name").IsLike($"%{name}%"));
+								var items = DOLDB<DbItemTemplates>.SelectObjects(DB.Column("name").IsLike($"%{name}%"));
 								DisplayMessage(client, LanguageMgr.GetTranslation(client.Account.Language, "GMCommands.Item.FindName.MatchingNamesForX", name, items.Count), new object[] { });
-								foreach (ItemTemplate item in items)
+								foreach (DbItemTemplates item in items)
 								{
 									DisplayMessage(client, item.Name + "  (" + item.Id_nb + ")", new object[] { });
 								}
@@ -1865,7 +1865,7 @@ namespace DOL.GS.Commands
 						#region Load
 					case "load":
 						{
-							if (GameServer.Database.UpdateInCache<ItemTemplate>(args[2]))
+							if (GameServer.Database.UpdateInCache<DbItemTemplates>(args[2]))
 							{
 								Log.DebugFormat("Item {0} updated or added to ItemTemplate cache.", args[2]);
 								DisplayMessage(client, "Item {0} updated or added to ItemTemplate cache.", args[2]);
@@ -1879,15 +1879,15 @@ namespace DOL.GS.Commands
 						}
 					case "reloadall":
 						{
-							var allItems = DOLDB<ItemTemplate>.SelectAllObjects();
+							var allItems = DOLDB<DbItemTemplates>.SelectAllObjects();
 							
 							if (allItems != null)
 							{
 								int count = 0;
 
-								foreach (ItemTemplate item in allItems)
+								foreach (DbItemTemplates item in allItems)
 								{
-									if (GameServer.Database.UpdateInCache<ItemTemplate>(item.Id_nb))
+									if (GameServer.Database.UpdateInCache<DbItemTemplates>(item.Id_nb))
 									{
 										count++;
 									}
@@ -1905,15 +1905,15 @@ namespace DOL.GS.Commands
 							{
 								if (args[2] == "**all**") args[2] = String.Empty;
 
-								var packageItems = DOLDB<ItemTemplate>.SelectObjects(DB.Column("PackageID").IsEqualTo(args[2]));
+								var packageItems = DOLDB<DbItemTemplates>.SelectObjects(DB.Column("PackageID").IsEqualTo(args[2]));
 
 								if (packageItems != null)
 								{
 									int count = 0;
 
-									foreach (ItemTemplate item in packageItems)
+									foreach (DbItemTemplates item in packageItems)
 									{
-										if (GameServer.Database.UpdateInCache<ItemTemplate>(item.Id_nb))
+										if (GameServer.Database.UpdateInCache<DbItemTemplates>(item.Id_nb))
 										{
 											count++;
 										}
@@ -1969,14 +1969,14 @@ namespace DOL.GS.Commands
 		
 		private void UpdateAllowed(InventoryItem item, GameClient client)
 		{
-			if (item.Template is ItemUnique)
+			if (item.Template is DbItemUnique)
 			{
 				DisplayMessage(client, "This command is only applicable for items based on an ItemTemplate");
 				return;
 			}
 			else
 			{
-				(item.Template as ItemTemplate).AllowUpdate = true;
+				(item.Template as DbItemTemplates).AllowUpdate = true;
 				client.Out.SendMessage("** When this item is saved all changes will also be made to the source ItemTemplate: " + item.Template.Id_nb, eChatType.CT_Staff, eChatLoc.CL_SystemWindow);
 				DisplayMessage(client, "** When this item is saved all changes will also be made to the source ItemTemplate: " + item.Template.Id_nb);
 			}

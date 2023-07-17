@@ -134,7 +134,7 @@ namespace DOL.GS.GameEvents
 
 				long totalmem = 0;
 				
-				ServerStats newstat = new ServerStats();
+				DbServerStats newstat = new DbServerStats();
 				newstat.CPU = cpu;
 				newstat.Clients = clients;
 				newstat.Upload = (int)outRate/1024;

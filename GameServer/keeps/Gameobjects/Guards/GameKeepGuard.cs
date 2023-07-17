@@ -40,8 +40,8 @@ namespace DOL.GS.Keeps
 			set { m_component = value; }
 		}
 
-		private DBKeepPosition m_position;
-		public DBKeepPosition Position
+		private DbKeepPositions m_position;
+		public DbKeepPositions Position
 		{
 			get { return m_position; }
 			set { m_position = value; }
@@ -656,7 +656,7 @@ namespace DOL.GS.Keeps
 			base.DeleteFromDatabase();
 		}
 
-		public void LoadFromPosition(DBKeepPosition pos, GameKeepComponent component)
+		public void LoadFromPosition(DbKeepPositions pos, GameKeepComponent component)
 		{
 			m_templateID = pos.TemplateID;
 			m_component = component;
@@ -670,7 +670,7 @@ namespace DOL.GS.Keeps
 		/// Move a guard to a position
 		/// </summary>
 		/// <param name="position">The new position for the guard</param>
-		public void MoveToPosition(DBKeepPosition position)
+		public void MoveToPosition(DbKeepPositions position)
 		{
 			PositionMgr.LoadGuardPosition(position, this);
 			if (!InCombat)
@@ -864,7 +864,7 @@ namespace DOL.GS.Keeps
 			}
 		}
 
-		public override void AutoSetStats(Mob dbMob = null)
+		public override void AutoSetStats(DbMobs dbMob = null)
 		{
 			Strength = (short) (Properties.GUARD_AUTOSET_STR_BASE + Level * Properties.GUARD_AUTOSET_STR_MULTIPLIER);
 			Constitution = (short) (Properties.GUARD_AUTOSET_CON_BASE + Level * Properties.GUARD_AUTOSET_CON_MULTIPLIER);

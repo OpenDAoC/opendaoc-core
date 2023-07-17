@@ -10,7 +10,7 @@ namespace DOL.GS.RealmAbilities
 	/// </summary>
 	public class ShieldTripAbility : RR5RealmAbility
 	{
-		public ShieldTripAbility(DBAbility dba, int level) : base(dba, level) { }
+		public ShieldTripAbility(DbAbilities dba, int level) : base(dba, level) { }
 
 		/// <summary>
 		/// Action

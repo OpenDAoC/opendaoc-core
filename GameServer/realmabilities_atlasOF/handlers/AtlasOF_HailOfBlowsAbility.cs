@@ -12,7 +12,7 @@ namespace DOL.GS.RealmAbilities
 {
     public class AtlasOF_HailOfBlows : TimedRealmAbility
     {
-        public AtlasOF_HailOfBlows(DBAbility dba, int level) : base(dba, level) { }
+        public AtlasOF_HailOfBlows(DbAbilities dba, int level) : base(dba, level) { }
 
         public const int duration = 60000; // 60 seconds
         public override int MaxLevel { get { return 3; } }

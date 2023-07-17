@@ -45,11 +45,11 @@ namespace DOL.GS.Quests.Midgard
 		private static GameNPC VikingDextz = null; // Start NPC
 		private static GameNPC Freeya = null; // Finish NPC
 		
-		private static WorldObject FreeyasGrave = null; // Object
+		private static DbWorldObjects FreeyasGrave = null; // Object
 
-		private static IList<WorldObject> GetItems()
+		private static IList<DbWorldObjects> GetItems()
 		{
-			return GameServer.Database.SelectObjects<WorldObject>(DB.Column("Name").IsEqualTo("Freeya's Grave"));
+			return GameServer.Database.SelectObjects<DbWorldObjects>(DB.Column("Name").IsEqualTo("Freeya's Grave"));
 		}
 
 		// Constructors
@@ -65,7 +65,7 @@ namespace DOL.GS.Quests.Midgard
 		{
 		}
 
-		public PlayTheLastSong(GamePlayer questingPlayer, DBQuest dbQuest) : base(questingPlayer, dbQuest)
+		public PlayTheLastSong(GamePlayer questingPlayer, DbQuests dbQuest) : base(questingPlayer, dbQuest)
 		{
 		}
 
@@ -188,7 +188,7 @@ namespace DOL.GS.Quests.Midgard
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Freeyas Grave, creating it ...");
-				var FreeyasGrave = new WorldObject();
+				var FreeyasGrave = new DbWorldObjects();
 				FreeyasGrave.Name = "Freeya\'s Grave";
 				FreeyasGrave.X = 763740;
 				FreeyasGrave.Y = 646102;

@@ -8,7 +8,7 @@ namespace DOL.GS.RealmAbilities
 {
     public class AtlasOF_RuneOfDecimation : TimedRealmAbility
     {
-        public AtlasOF_RuneOfDecimation(DBAbility dba, int level) : base(dba, level) { }
+        public AtlasOF_RuneOfDecimation(DbAbilities dba, int level) : base(dba, level) { }
 
         public const int m_duration = 480000; // 8 minutes
         public override int MaxLevel { get { return 1; } }

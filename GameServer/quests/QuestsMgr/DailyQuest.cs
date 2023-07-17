@@ -25,7 +25,7 @@ public abstract class DailyQuest : BaseQuest
     {
     }
 
-    public DailyQuest(GamePlayer questingPlayer, DBQuest dbQuest) : base(questingPlayer, dbQuest)
+    public DailyQuest(GamePlayer questingPlayer, DbQuests dbQuest) : base(questingPlayer, dbQuest)
     {
     }
 

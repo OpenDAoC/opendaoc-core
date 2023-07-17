@@ -6,7 +6,6 @@ using System.Collections;
 using System.Collections.Generic;
 
 using DOL.Database;
-using DOL.Database.Transaction;
 using DOL.GS;
 using DOL.GS.PacketHandler;
 using DOL.Events;

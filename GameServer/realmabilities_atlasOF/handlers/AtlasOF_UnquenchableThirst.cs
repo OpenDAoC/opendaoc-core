@@ -4,7 +4,7 @@ namespace DOL.GS.RealmAbilities
 {
     public class AtlasOF_UnquenchableThirst : TimedRealmAbility, ISpellCastingAbilityHandler
     {
-        public AtlasOF_UnquenchableThirst(DBAbility dba, int level) : base(dba, level) { }
+        public AtlasOF_UnquenchableThirst(DbAbilities dba, int level) : base(dba, level) { }
 
         // ISpellCastingAbilityHandler
         public Spell Spell { get { return m_spell; } }

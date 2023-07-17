@@ -17,7 +17,7 @@ namespace DOL.GS
 
             if (ambientTexts.Count>0)
             {
-                foreach (MobXAmbientBehaviour ambientText in ambientTexts)
+                foreach (DbMobXAmbientBehaviors ambientText in ambientTexts)
                     ambientText.Chance /= 5;
             }
         }

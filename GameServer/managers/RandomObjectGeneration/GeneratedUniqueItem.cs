@@ -29,7 +29,7 @@ namespace DOL.GS {
     /// GeneratedUniqueItem is a subclass of UniqueItem used to create RoG object
     /// Using it as a class is much more extendable to other usage than just loot and inventory
     /// </summary>
-    public class GeneratedUniqueItem : ItemUnique {
+    public class GeneratedUniqueItem : DbItemUnique {
         // TOA Chance in %
         public const ushort ROG_TOA_ITEM_CHANCE = 0;
         // Armor Chance in %

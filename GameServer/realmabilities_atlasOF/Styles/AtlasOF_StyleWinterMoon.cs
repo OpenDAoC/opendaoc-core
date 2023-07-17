@@ -5,7 +5,7 @@ namespace DOL.GS.RealmAbilities
 {
     public class AtlasOF_StyleWinterMoon : StyleRealmAbility
     {
-        public AtlasOF_StyleWinterMoon(DBAbility ability, int level) : base(ability, level) { }
+        public AtlasOF_StyleWinterMoon(DbAbilities ability, int level) : base(ability, level) { }
 
         protected override Style CreateStyle()
         {

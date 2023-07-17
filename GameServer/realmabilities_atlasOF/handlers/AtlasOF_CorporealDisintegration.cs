@@ -4,7 +4,7 @@ namespace DOL.GS.RealmAbilities
 {
     public class AtlasOF_CorporealDisintegration : TimedRealmAbility, ISpellCastingAbilityHandler
     {
-        public AtlasOF_CorporealDisintegration(DBAbility dba, int level) : base(dba, level) { }
+        public AtlasOF_CorporealDisintegration(DbAbilities dba, int level) : base(dba, level) { }
 
         // ISpellCastingAbilityHandler
         public Spell Spell { get { return m_spell; } }

@@ -263,7 +263,7 @@ namespace DOL.GS.PacketHandler
 			{
 				pak.FillString(m_gameClient.Account.Name, 24);
 				IList<InventoryItem> items;
-				DOLCharacters[] characters = m_gameClient.Account.Characters;
+				DbCoreCharacters[] characters = m_gameClient.Account.Characters;
 				if (characters == null)
 				{
 					pak.Fill(0x0, 1840);
@@ -676,8 +676,8 @@ namespace DOL.GS.PacketHandler
 	            LanguageDataObject translation = LanguageMgr.GetTranslation(m_gameClient, siegeWeapon);
 	            if (translation != null)
 	            {
-	                if (!Util.IsEmpty(((DBLanguageNPC)translation).Name))
-	                    name = ((DBLanguageNPC)translation).Name;
+	                if (!Util.IsEmpty(((DbLanguageNpcs)translation).Name))
+	                    name = ((DbLanguageNpcs)translation).Name;
 	            }
 
 	            pak.WritePascalString(name + " (" + siegeWeapon.CurrentState.ToString() + ")");

@@ -16,13 +16,13 @@ namespace DOL.GS
 
 		private readonly string _templateID;
 		private readonly object _vaultLock = new object();
-		private DBHouseHookpointItem _hookedItem;
+		private DbHouseHookPointItems _hookedItem;
 
 		/// <summary>
 		/// Create a new house vault.
 		/// </summary>
 		/// <param name="vaultIndex"></param>
-		public GameHouseVault(ItemTemplate itemTemplate, int vaultIndex)
+		public GameHouseVault(DbItemTemplates itemTemplate, int vaultIndex)
 		{
 			if (itemTemplate == null)
 				throw new ArgumentNullException();
@@ -60,7 +60,7 @@ namespace DOL.GS
                 return false;
 
             // register vault in the DB.
-            var hookedItem = new DBHouseHookpointItem
+            var hookedItem = new DbHouseHookPointItems
             {
                 HouseNumber = house.HouseNumber,
                 HookpointID = hookpointID,
@@ -69,7 +69,7 @@ namespace DOL.GS
                 Index = (byte)Index
             };
 
-            var hpitem = DOLDB<DBHouseHookpointItem>.SelectObjects(DB.Column("HouseNumber").IsEqualTo(house.HouseNumber).And(DB.Column("HookpointID").IsEqualTo(hookpointID)));
+            var hpitem = DOLDB<DbHouseHookPointItems>.SelectObjects(DB.Column("HouseNumber").IsEqualTo(house.HouseNumber).And(DB.Column("HookpointID").IsEqualTo(hookpointID)));
 
 			// if there isn't anything already on this hookpoint then add it to the DB
 			if (hpitem.Count == 0)
@@ -87,7 +87,7 @@ namespace DOL.GS
 		/// <param name="house"></param>
 		/// <param name="hookedItem"></param>
 		/// <returns></returns>
-		public bool Attach(House house, DBHouseHookpointItem hookedItem)
+		public bool Attach(House house, DbHouseHookPointItems hookedItem)
 		{
 			if (house == null || hookedItem == null)
 				return false;

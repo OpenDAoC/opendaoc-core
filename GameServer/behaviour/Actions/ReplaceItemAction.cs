@@ -9,7 +9,7 @@ using DOL.Database;
 namespace DOL.GS.Behaviour.Actions
 {
     [ActionAttribute(ActionType = eActionType.ReplaceItem)]
-    public class ReplaceItemAction : AbstractAction<ItemTemplate,ItemTemplate>
+    public class ReplaceItemAction : AbstractAction<DbItemTemplates,DbItemTemplates>
     {               
 
         public ReplaceItemAction(GameNPC defaultNPC,  Object p, Object q)
@@ -18,7 +18,7 @@ namespace DOL.GS.Behaviour.Actions
         }
 
 
-        public ReplaceItemAction(GameNPC defaultNPC,  ItemTemplate oldItemTemplate, ItemTemplate newItemTemplate)
+        public ReplaceItemAction(GameNPC defaultNPC,  DbItemTemplates oldItemTemplate, DbItemTemplates newItemTemplate)
             : this(defaultNPC, (object) oldItemTemplate,(object) newItemTemplate) { }
         
 
@@ -27,8 +27,8 @@ namespace DOL.GS.Behaviour.Actions
         {
             GamePlayer player = BehaviourUtils.GuessGamePlayerFromNotify(e, sender, args);
 
-            ItemTemplate oldItem = P;
-            ItemTemplate newItem = Q;
+            DbItemTemplates oldItem = P;
+            DbItemTemplates newItem = Q;
 
             //TODO: what about stacked items???
             if (player.Inventory.RemoveTemplate(oldItem.Id_nb, 1, eInventorySlot.FirstBackpack, eInventorySlot.LastBackpack))

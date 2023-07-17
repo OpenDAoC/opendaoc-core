@@ -218,7 +218,7 @@ namespace DOL.GS.Spells
 		/// </summary>
 		byte DelveInfoDepth { get; set; }
 
-		PlayerXEffect GetSavedEffect(GameSpellEffect e);
+		DbPlayerXEffects GetSavedEffect(GameSpellEffect e);
 		void OnEffectRestored(GameSpellEffect effect, int[] RestoreVars);
 		int OnRestoredEffectExpires(GameSpellEffect effect, int[] RestoreVars, bool noMessages);
 		bool CheckBeginCast(GameLiving selectedTarget);

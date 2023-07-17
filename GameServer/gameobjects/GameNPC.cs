@@ -117,9 +117,9 @@ namespace DOL.GS
 			}
 		}
 
-		public virtual LanguageDataObject.eTranslationIdentifier TranslationIdentifier
+		public virtual LanguageDataObject.ETranslationIdentifier TranslationIdentifier
 		{
-			get { return LanguageDataObject.eTranslationIdentifier.eNPC; }
+			get { return LanguageDataObject.ETranslationIdentifier.NPC; }
 		}
 
 		/// <summary>
@@ -207,7 +207,7 @@ namespace DOL.GS
 		/// Auto set stats based on DB entry, npcTemplate, and level.
 		/// </summary>
 		/// <param name="dbMob">Mob DB entry to load stats from, retrieved from DB if null</param>
-		public virtual void AutoSetStats(Mob dbMob = null)
+		public virtual void AutoSetStats(DbMobs dbMob = null)
 		{
 			// Don't set stats for mobs until their level is set
 			if (Level < 1)
@@ -228,11 +228,11 @@ namespace DOL.GS
 			}
 			else
 			{
-				Mob mob = dbMob;
+				DbMobs mob = dbMob;
 
 				if (mob == null && !string.IsNullOrEmpty(InternalID))
 					// This should only happen when a GM command changes level on a mob with no npcTemplate,
-					mob = GameServer.Database.FindObjectByKey<Mob>(InternalID);
+					mob = GameServer.Database.FindObjectByKey<DbMobs>(InternalID);
 
 				if (mob != null)
 				{
@@ -1065,13 +1065,13 @@ namespace DOL.GS
 		/// <param name="obj">template to load from</param>
 		public override void LoadFromDatabase(DataObject obj)
 		{
-			if (obj is not Mob)
+			if (obj is not DbMobs)
 				return;
 
 			base.LoadFromDatabase(obj);
 
 			m_loadedFromScript = false;
-			Mob dbMob = (Mob)obj;
+			DbMobs dbMob = (DbMobs)obj;
 			NPCTemplate = NpcTemplateMgr.GetTemplate(dbMob.NPCTemplateID);
 			TranslationId = dbMob.TranslationId;
 			Name = dbMob.Name;
@@ -1194,7 +1194,7 @@ namespace DOL.GS
 
 			if (InternalID != null)
 			{
-				Mob mob = GameServer.Database.FindObjectByKey<Mob>(InternalID);
+				DbMobs mob = GameServer.Database.FindObjectByKey<DbMobs>(InternalID);
 				if (mob != null)
 					GameServer.Database.DeleteObject(mob);
 			}
@@ -1216,15 +1216,15 @@ namespace DOL.GS
 			if (Brain is IControlledBrain)
 				return;
 
-			Mob mob = null;
+			DbMobs mob = null;
 
 			if (InternalID != null)
-				mob = GameServer.Database.FindObjectByKey<Mob>(InternalID);
+				mob = GameServer.Database.FindObjectByKey<DbMobs>(InternalID);
 
 			if (mob == null)
 			{
 				if (LoadedFromScript == false)
-					mob = new Mob();
+					mob = new DbMobs();
 				else
 					return;
 			}
@@ -2606,7 +2606,7 @@ namespace DOL.GS
 		/// <summary>
 		/// The ambient texts
 		/// </summary>
-		public IList<MobXAmbientBehaviour> ambientTexts;
+		public IList<DbMobXAmbientBehaviors> ambientTexts;
 
 		/// <summary>
 		/// This function is called from the ObjectInteractRequestHandler
@@ -3423,9 +3423,9 @@ namespace DOL.GS
 			
 			if (XPGainerList.Keys.Count == 0) return;
 
-			ItemTemplate[] lootTemplates = LootMgr.GetLoot(this, killer);
+			DbItemTemplates[] lootTemplates = LootMgr.GetLoot(this, killer);
 
-			foreach (ItemTemplate lootTemplate in lootTemplates)
+			foreach (DbItemTemplates lootTemplate in lootTemplates)
 			{
 				if (lootTemplate == null) continue;
 				GameStaticItem loot = null;
@@ -3489,10 +3489,10 @@ namespace DOL.GS
 				{
 					InventoryItem invitem;
 
-					if (lootTemplate is ItemUnique)
+					if (lootTemplate is DbItemUnique)
 					{
 						GameServer.Database.AddObject(lootTemplate);
-						invitem = GameInventoryItem.Create(lootTemplate as ItemUnique);
+						invitem = GameInventoryItem.Create(lootTemplate as DbItemUnique);
 					}
 					else
 						invitem = GameInventoryItem.Create(lootTemplate);
@@ -4269,7 +4269,7 @@ namespace DOL.GS
 		{
 			if (IsSilent || ambientTexts == null || ambientTexts.Count == 0) return;
 			if (trigger == eAmbientTrigger.interact && living == null) return; // Do not trigger interact messages with a corpse
-			List<MobXAmbientBehaviour> mxa = (from i in ambientTexts where i.Trigger == trigger.ToString() select i).ToList();
+			List<DbMobXAmbientBehaviors> mxa = (from i in ambientTexts where i.Trigger == trigger.ToString() select i).ToList();
 			if (mxa.Count == 0) return;
 
 			// grab random sentence

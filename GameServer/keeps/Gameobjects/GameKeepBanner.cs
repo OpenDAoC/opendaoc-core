@@ -59,8 +59,8 @@ namespace DOL.GS.Keeps
 			set { m_component = value; }
 		}
 
-		protected DBKeepPosition m_position;
-		public DBKeepPosition Position
+		protected DbKeepPositions m_position;
+		public DbKeepPositions Position
 		{
 			get { return m_position; }
 			set { m_position = value; }
@@ -130,7 +130,7 @@ namespace DOL.GS.Keeps
 			base.DeleteFromDatabase();
 		}
 
-		public virtual void LoadFromPosition(DBKeepPosition pos, GameKeepComponent component)
+		public virtual void LoadFromPosition(DbKeepPositions pos, GameKeepComponent component)
 		{
 			if (pos == null || component == null) return;
 			
@@ -164,7 +164,7 @@ namespace DOL.GS.Keeps
 				log.Warn($"LoadFromPosition(): There is already a Banner with TemplateID {this.TemplateID} on KeepID {component.Keep.KeepID}, not adding Banner for KeepPosition_ID {pos.ObjectId} on KeepComponent_ID {component.InternalID}");
 		}
 
-		public void MoveToPosition(DBKeepPosition position)
+		public void MoveToPosition(DbKeepPositions position)
 		{
 			PositionMgr.LoadKeepItemPosition(position, this);
 			int zAdd = 1000;

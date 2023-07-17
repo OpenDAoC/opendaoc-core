@@ -52,7 +52,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
 			ChatUtil.SendDebugMessage(client, $"Delve objectType={objectType}, objectID={objectId}, extraID={extraId}");
 
-			ItemTemplate item = null;
+			DbItemTemplates item = null;
 			InventoryItem invItem = null;
 
 			var snapSkills = client.Player.GetAllUsableSkills();
@@ -363,7 +363,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 								if (!(q is RewardQuest))
 									return; // this is not new quest
 
-								List<ItemTemplate> rewards = null;
+								List<DbItemTemplates> rewards = null;
 								if (index < 8)
 									rewards = (q as RewardQuest).Rewards.BasicItems;
 								else
@@ -380,7 +380,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 							{
 								DataQuest dq = null;
 
-								foreach (DBDataQuest d in GameObject.DataQuestCache)
+								foreach (DbDataQuest d in GameObject.DataQuestCache)
 								{
 									if (d.ID == questID - DataQuest.DATAQUEST_CLIENTOFFSET)
 									{
@@ -391,7 +391,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
 								if (dq != null && dq.StartType == DataQuest.eStartType.RewardQuest)
 								{
-									List<ItemTemplate> rewards = null;
+									List<DbItemTemplates> rewards = null;
 									if (index < 8)
 										rewards = dq.FinalRewards;
 									else
@@ -492,7 +492,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
 							DataQuest dq = null;
 							questID = (ushort)(objectId >> 4);
-							foreach (DBDataQuest d in GameObject.DataQuestCache)
+							foreach (DbDataQuest d in GameObject.DataQuestCache)
 							{
 								if (d.ID == questID)
 								{
@@ -503,7 +503,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
 							if (dq != null && dq.StartType == DataQuest.eStartType.RewardQuest)
 							{
-								List<ItemTemplate> rewards = null;
+								List<DbItemTemplates> rewards = null;
 								if (index < 8)
 									rewards = dq.FinalRewards;
 								else
@@ -1247,7 +1247,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		{
 			WriteUsableClasses(output, item.Template, client);
 		}
-		public void WriteUsableClasses(IList<string> output, ItemTemplate item, GameClient client)
+		public void WriteUsableClasses(IList<string> output, DbItemTemplates item, GameClient client)
 		{
 			if (Util.IsEmpty(item.AllowedClasses, true))
 				return;
@@ -1273,7 +1273,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		{
 			WriteClassicShieldInfos(output, item.Template, client);
 		}
-		public void WriteClassicShieldInfos(IList<string> output, ItemTemplate item, GameClient client)
+		public void WriteClassicShieldInfos(IList<string> output, DbItemTemplates item, GameClient client)
 		{
 			double itemDPS = item.DPS_AF / 10.0;
 			double clampedDPS = Math.Min(itemDPS, 1.2 + 0.3 * client.Player.Level);
@@ -1360,7 +1360,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
 		}
 
-		public void WriteMagicalBonuses(IList<string> output, ItemTemplate item, GameClient client, bool shortInfo)
+		public void WriteMagicalBonuses(IList<string> output, DbItemTemplates item, GameClient client, bool shortInfo)
 		{
 			WriteMagicalBonuses(output, GameInventoryItem.Create(item), client, shortInfo);
 		}
@@ -1772,7 +1772,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 			WriteHorseInfo(list, item.Template, client, horseName);
 		}
 		
-		protected void WriteHorseInfo(IList<string> list, ItemTemplate item, GameClient client, string horseName)
+		protected void WriteHorseInfo(IList<string> list, DbItemTemplates item, GameClient client, string horseName)
 		{
 			list.Add(" ");
 			list.Add(" ");
@@ -1804,7 +1804,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 			list.Add(LanguageMgr.GetTranslation(client.Account.Language, "DetailDisplayHandler.WriteHorseInfo.Food"));
 		}
 
-		protected void WritePoisonInfo(IList<string> list, ItemTemplate item, GameClient client)
+		protected void WritePoisonInfo(IList<string> list, DbItemTemplates item, GameClient client)
 		{
 			WritePoisonInfo(list, GameInventoryItem.Create(item), client);
 		}
@@ -1853,7 +1853,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 		/// <param name="list"></param>
 		/// <param name="item"></param>
 		/// <param name="client"></param>
-		private static void WritePotionInfo(IList<string> list, ItemTemplate item, GameClient client)
+		private static void WritePotionInfo(IList<string> list, DbItemTemplates item, GameClient client)
 		{
 			WritePotionInfo(list, GameInventoryItem.Create(item), client);
 		}

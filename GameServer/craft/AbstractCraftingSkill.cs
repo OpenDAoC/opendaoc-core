@@ -133,7 +133,7 @@ namespace DOL.GS
 			//player.CraftTimer.Start(craftingTime * 1000);
 		}
 
-		protected virtual void StopCraftingCurrentItem(GamePlayer player, ItemTemplate itemToCraft)
+		protected virtual void StopCraftingCurrentItem(GamePlayer player, DbItemTemplates itemToCraft)
 		{
 			//player.CraftTimer.Stop();
 			player.craftComponent.StopCraft();
@@ -205,7 +205,7 @@ namespace DOL.GS
 
 			foreach (var ingredient in recipe.Ingredients)
 			{
-				ItemTemplate material = ingredient.Material;
+				DbItemTemplates material = ingredient.Material;
 
 				switch (material.Model)
 				{
@@ -263,7 +263,7 @@ namespace DOL.GS
 			{
 				foreach (var ingredient in recipe.Ingredients)
 				{
-					ItemTemplate material = ingredient.Material;
+					DbItemTemplates material = ingredient.Material;
 
 					totalPrice += material.Price * ingredient.Count;
 
@@ -320,7 +320,7 @@ namespace DOL.GS
 		{
 			foreach (var ingredient in recipe.Ingredients)
 			{
-				ItemTemplate template = ingredient.Material;
+				DbItemTemplates template = ingredient.Material;
 
 				switch (template.Model)
 				{
@@ -377,7 +377,7 @@ namespace DOL.GS
 			{
 				foreach (var ingredient in recipe.Ingredients)
 				{
-					ItemTemplate template = ingredient.Material;
+					DbItemTemplates template = ingredient.Material;
 
 					bool result = false;
 					int count = ingredient.Count;
@@ -512,7 +512,7 @@ namespace DOL.GS
 				}
 				else
 				{
-					ItemUnique unique = new ItemUnique(product);
+					DbItemUnique unique = new DbItemUnique(product);
 					GameServer.Database.AddObject(unique);
 					newItem = GameInventoryItem.Create(unique);
 					newItem.Quality = GetQuality(player, recipe.Level);

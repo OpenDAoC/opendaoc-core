@@ -48,7 +48,7 @@ namespace DOL.GS
 		{
 		}
 
-		public LaunchQuestHib(GamePlayer questingPlayer, DBQuest dbQuest) : base(questingPlayer, dbQuest)
+		public LaunchQuestHib(GamePlayer questingPlayer, DbQuests dbQuest) : base(questingPlayer, dbQuest)
 		{
 		}
 

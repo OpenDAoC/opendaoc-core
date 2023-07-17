@@ -78,7 +78,7 @@ namespace DOL.GS.Commands
                         if (player == null)
                             player = client.Player;
 
-                        var character = DOLDB<DOLCharacters>.SelectObject(DB.Column("Name").IsEqualTo(args[2]));
+                        var character = DOLDB<DbCoreCharacters>.SelectObject(DB.Column("Name").IsEqualTo(args[2]));
 
                         if (character != null)
                         {
@@ -2148,7 +2148,7 @@ namespace DOL.GS.Commands
                         {
                             string characterNames = string.Empty;
 
-                            foreach (DOLCharacters acctChar in targetClient.Account.Characters)
+                            foreach (DbCoreCharacters acctChar in targetClient.Account.Characters)
                             {
                                 if (acctChar != null)
                                     characterNames += acctChar.Name + " " + acctChar.LastName + "\n";

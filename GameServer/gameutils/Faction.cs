@@ -31,7 +31,7 @@ namespace DOL.GS
 		/// load faction from DB
 		/// </summary>
 		/// <param name="dbfaction"></param>
-		public void LoadFromDatabase(DBFaction dbfaction)
+		public void LoadFromDatabase(DbFactions dbfaction)
 		{
 			m_name = dbfaction.Name;
 			m_id = dbfaction.ID;
@@ -56,10 +56,10 @@ namespace DOL.GS
 		public void SaveAggroToFaction(string charID)
 		{
 			if (charID == null) return;
-			var dbfactionAggroLevel = DOLDB<DBFactionAggroLevel>.SelectObject(DB.Column("CharacterID").IsEqualTo(charID).And(DB.Column("FactionID").IsEqualTo(ID)));
+			var dbfactionAggroLevel = DOLDB<DbFactionAggro>.SelectObject(DB.Column("CharacterID").IsEqualTo(charID).And(DB.Column("FactionID").IsEqualTo(ID)));
 			if (dbfactionAggroLevel == null)
 			{
-				dbfactionAggroLevel = new DBFactionAggroLevel();
+				dbfactionAggroLevel = new DbFactionAggro();
 				dbfactionAggroLevel.AggroLevel = (int)m_playerxFaction[charID];
 				dbfactionAggroLevel.CharacterID = charID;
 				dbfactionAggroLevel.FactionID = this.ID;

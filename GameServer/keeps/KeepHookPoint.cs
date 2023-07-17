@@ -22,7 +22,7 @@ namespace DOL.GS.Keeps
 			this.Heading = component.Heading;
 		}
 
-		public GameKeepHookPoint(DBKeepHookPoint dbhookPoint, GameKeepComponent component)
+		public GameKeepHookPoint(DbKeepHookPoints dbhookPoint, GameKeepComponent component)
 		{
 			double angle = component.Keep.Heading * ((Math.PI * 2) / 360); // angle*2pi/360;
 			switch (component.ComponentHeading)

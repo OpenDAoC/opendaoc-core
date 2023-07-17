@@ -239,7 +239,7 @@ namespace DOL.GS
 		/// <summary>
 		/// Set stats according to necro pet server properties.
 		/// </summary>
-		public override void AutoSetStats(Mob dbMob = null)
+		public override void AutoSetStats(DbMobs dbMob = null)
 		{
 			int levelMinusOne = Level - 1;
 

@@ -8,7 +8,7 @@ namespace DOL.GS.RealmAbilities
 
     public class AtlasOF_MajesticWill : TimedRealmAbility
     {
-        public AtlasOF_MajesticWill(DBAbility dba, int level) : base(dba, level) { }
+        public AtlasOF_MajesticWill(DbAbilities dba, int level) : base(dba, level) { }
         
         int m_duration = 60000; // 30s
 

@@ -13,7 +13,7 @@ namespace DOL.GS.RealmAbilities
 {
 	public class AtlasOF_Grapple : TimedRealmAbility, ISpellCastingAbilityHandler
     {
-		public AtlasOF_Grapple(DBAbility dba, int level) : base(dba, level) { }
+		public AtlasOF_Grapple(DbAbilities dba, int level) : base(dba, level) { }
 
         // ISpellCastingAbilityHandler
         public Spell Spell { get { return m_spell; } }

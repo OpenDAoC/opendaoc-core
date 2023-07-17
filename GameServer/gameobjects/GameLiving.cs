@@ -4399,7 +4399,7 @@ namespace DOL.GS
 		/// </summary>
 		/// <param name="item"></param>
 		/// <returns>true if living has ability to use item</returns>
-		public virtual bool HasAbilityToUseItem(ItemTemplate item)
+		public virtual bool HasAbilityToUseItem(DbItemTemplates item)
 		{
 			return GameServer.ServerRules.CheckAbilityToUseItem(this, item);
 		}

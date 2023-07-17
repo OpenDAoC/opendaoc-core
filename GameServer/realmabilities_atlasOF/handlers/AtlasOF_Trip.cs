@@ -11,7 +11,7 @@ namespace DOL.GS.RealmAbilities
 {
 	public class AtlasOF_Trip : TimedRealmAbility, ISpellCastingAbilityHandler
     {
-		public AtlasOF_Trip(DBAbility dba, int level) : base(dba, level) { }
+		public AtlasOF_Trip(DbAbilities dba, int level) : base(dba, level) { }
 
         // ISpellCastingAbilityHandler
         public Spell Spell { get { return m_spell; } }

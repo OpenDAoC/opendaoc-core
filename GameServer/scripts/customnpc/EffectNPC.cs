@@ -1010,7 +1010,7 @@ namespace DOL.GS {
             castplayer.Enqueue(player);
 
             player.Inventory.RemoveItem(item);
-            ItemUnique unique = new ItemUnique(item.Template);
+            DbItemUnique unique = new DbItemUnique(item.Template);
             unique.Color = color;
             unique.ObjectId = "Unique" + System.Guid.NewGuid().ToString();
             unique.Id_nb = "Unique" + System.Guid.NewGuid().ToString();
@@ -1020,11 +1020,11 @@ namespace DOL.GS {
             }
             if (GameServer.Database.ExecuteNonQuery("SELECT Id_nb FROM itemunique WHERE Id_nb = 'unique.Id_nb'"))
             {
-                unique.Id_nb = IDGenerator.GenerateID();
+                unique.Id_nb = IdGenerator.GenerateId();
             }
             GameServer.Database.AddObject(unique);
 
-            InventoryItem newInventoryItem = GameInventoryItem.Create<ItemUnique>(unique);
+            InventoryItem newInventoryItem = GameInventoryItem.Create<DbItemUnique>(unique);
             if(item.IsCrafted)
                 newInventoryItem.IsCrafted = true;
             if(item.Creator != "")
@@ -1113,9 +1113,9 @@ namespace DOL.GS {
 
 
             player.Inventory.RemoveItem(item);
-            ItemUnique unique = new ItemUnique(item.Template);
+            DbItemUnique unique = new DbItemUnique(item.Template);
             unique.Effect = effect;
-            unique.Id_nb = IDGenerator.GenerateID();
+            unique.Id_nb = IdGenerator.GenerateId();
             unique.ObjectId = "Unique" + System.Guid.NewGuid().ToString();
             if (GameServer.Database.ExecuteNonQuery("SELECT ItemUnique_ID FROM itemunique WHERE ItemUnique_ID = 'unique.ObjectId'"))
             {
@@ -1123,11 +1123,11 @@ namespace DOL.GS {
             }
             if (GameServer.Database.ExecuteNonQuery("SELECT Id_nb FROM itemunique WHERE Id_nb = 'unique.Id_nb'"))
             {
-                unique.Id_nb = IDGenerator.GenerateID();
+                unique.Id_nb = IdGenerator.GenerateId();
             }
             GameServer.Database.AddObject(unique);
 
-            InventoryItem newInventoryItem = GameInventoryItem.Create<ItemUnique>(unique);
+            InventoryItem newInventoryItem = GameInventoryItem.Create<DbItemUnique>(unique);
             if(item.IsCrafted)
                 newInventoryItem.IsCrafted = true;
             if(item.Creator != "")

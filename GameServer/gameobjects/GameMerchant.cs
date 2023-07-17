@@ -102,7 +102,7 @@ namespace DOL.GS
 			int pagenumber = item_slot / MerchantTradeItems.MAX_ITEM_IN_TRADEWINDOWS;
 			int slotnumber = item_slot % MerchantTradeItems.MAX_ITEM_IN_TRADEWINDOWS;
 
-			ItemTemplate template = this.TradeItems.GetItem(pagenumber, (eMerchantWindowSlot)slotnumber);
+			DbItemTemplates template = this.TradeItems.GetItem(pagenumber, (eMerchantWindowSlot)slotnumber);
 			if (template == null) return;
 
 			//Calculate the amout of items
@@ -157,7 +157,7 @@ namespace DOL.GS
 			//Get the template
 			int slotnumber = item_slot % MerchantTradeItems.MAX_ITEM_IN_TRADEWINDOWS;
 
-			ItemTemplate template = this.TradeItems.GetItem(pagenumber, (eMerchantWindowSlot)slotnumber);
+			DbItemTemplates template = this.TradeItems.GetItem(pagenumber, (eMerchantWindowSlot)slotnumber);
 			if (template == null) return;
 
 			//Calculate the amout of items
@@ -222,7 +222,7 @@ namespace DOL.GS
 			int pagenumber = item_slot / MerchantTradeItems.MAX_ITEM_IN_TRADEWINDOWS;
 			int slotnumber = item_slot % MerchantTradeItems.MAX_ITEM_IN_TRADEWINDOWS;
 
-			ItemTemplate template = TradeItems.GetItem(pagenumber, (eMerchantWindowSlot)slotnumber);
+			DbItemTemplates template = TradeItems.GetItem(pagenumber, (eMerchantWindowSlot)slotnumber);
 			if (template == null) return;
 
 			//Calculate the amout of items
@@ -371,8 +371,8 @@ namespace DOL.GS
 		public override void LoadFromDatabase(DataObject merchantobject)
 		{
 			base.LoadFromDatabase(merchantobject);
-			if (!(merchantobject is Mob)) return;
-			Mob merchant = (Mob)merchantobject;
+			if (!(merchantobject is DbMobs)) return;
+			DbMobs merchant = (DbMobs)merchantobject;
 			if (merchant.ItemsListTemplateID != null && merchant.ItemsListTemplateID.Length > 0)
 				m_tradeItems = new MerchantTradeItems(merchant.ItemsListTemplateID);
 		}
@@ -382,11 +382,11 @@ namespace DOL.GS
 		/// </summary>
 		public override void SaveIntoDatabase()
 		{
-			Mob merchant = null;
+			DbMobs merchant = null;
 			if (InternalID != null)
-				merchant = GameServer.Database.FindObjectByKey<Mob>(InternalID);
+				merchant = GameServer.Database.FindObjectByKey<DbMobs>(InternalID);
 			if (merchant == null)
-				merchant = new Mob();
+				merchant = new DbMobs();
 
 			merchant.Name = Name;
 			merchant.Guild = GuildName;
@@ -442,7 +442,7 @@ namespace DOL.GS
 		{
 			if (InternalID != null)
 			{
-				Mob merchant = GameServer.Database.FindObjectByKey<Mob>(InternalID);
+				DbMobs merchant = GameServer.Database.FindObjectByKey<DbMobs>(InternalID);
 				if (merchant != null)
 					GameServer.Database.DeleteObject(merchant);
 			}
@@ -520,7 +520,7 @@ namespace DOL.GS
 			int pagenumber = item_slot / MerchantTradeItems.MAX_ITEM_IN_TRADEWINDOWS;
 			int slotnumber = item_slot % MerchantTradeItems.MAX_ITEM_IN_TRADEWINDOWS;
 
-			ItemTemplate template = this.TradeItems.GetItem(pagenumber, (eMerchantWindowSlot)slotnumber);
+			DbItemTemplates template = this.TradeItems.GetItem(pagenumber, (eMerchantWindowSlot)slotnumber);
 			if (template == null) return;
 
 			//Calculate the amout of items
@@ -584,7 +584,7 @@ namespace DOL.GS
 	public abstract class GameItemCurrencyMerchant : GameMerchant
 	{
 		public virtual string MoneyKey { get { return null; } }
-		protected ItemTemplate m_itemTemplate = null;
+		protected DbItemTemplates m_itemTemplate = null;
 		protected WorldInventoryItem m_moneyItem = null;
 		protected static readonly Dictionary<String, int> m_currencyValues = null;
 
@@ -617,7 +617,7 @@ namespace DOL.GS
 		{
 			if (MoneyKey != null)
 			{
-				m_itemTemplate = GameServer.Database.FindObjectByKey<ItemTemplate>(MoneyKey);
+				m_itemTemplate = GameServer.Database.FindObjectByKey<DbItemTemplates>(MoneyKey);
 
 				if (m_itemTemplate != null)
 					m_moneyItem = WorldInventoryItem.CreateFromTemplate(m_itemTemplate);
@@ -688,7 +688,7 @@ namespace DOL.GS
 			int pagenumber = item_slot / MerchantTradeItems.MAX_ITEM_IN_TRADEWINDOWS;
 			int slotnumber = item_slot % MerchantTradeItems.MAX_ITEM_IN_TRADEWINDOWS;
 
-			ItemTemplate template = this.TradeItems.GetItem(pagenumber, (eMerchantWindowSlot)slotnumber);
+			DbItemTemplates template = this.TradeItems.GetItem(pagenumber, (eMerchantWindowSlot)slotnumber);
 			if (template == null) return;
 
 			//Calculate the amout of items
@@ -844,7 +844,7 @@ namespace DOL.GS
 			int pagenumber = itemSlot / MerchantTradeItems.MAX_ITEM_IN_TRADEWINDOWS;
 			int slotnumber = itemSlot % MerchantTradeItems.MAX_ITEM_IN_TRADEWINDOWS;
 
-			ItemTemplate template = this.TradeItems.GetItem(pagenumber, (eMerchantWindowSlot)slotnumber);
+			DbItemTemplates template = this.TradeItems.GetItem(pagenumber, (eMerchantWindowSlot)slotnumber);
 			if (template == null) return;
 
 			//Calculate the amout of items
@@ -943,7 +943,7 @@ namespace DOL.GS
 			int pagenumber = item_slot / MerchantTradeItems.MAX_ITEM_IN_TRADEWINDOWS;
 			int slotnumber = item_slot % MerchantTradeItems.MAX_ITEM_IN_TRADEWINDOWS;
 
-			ItemTemplate template = this.TradeItems.GetItem(pagenumber, (eMerchantWindowSlot)slotnumber);
+			DbItemTemplates template = this.TradeItems.GetItem(pagenumber, (eMerchantWindowSlot)slotnumber);
 			if (template == null) return;
 
 			//Calculate the amout of items

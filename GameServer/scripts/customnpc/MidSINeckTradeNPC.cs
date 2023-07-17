@@ -58,7 +58,7 @@ namespace DOL.GS
             SayTo(player, message);
             player.Inventory.RemoveItem(item);
             
-            var newNeckTp = GameServer.Database.FindObjectByKey<ItemTemplate>("Beaded Resisting Stones");
+            var newNeckTp = GameServer.Database.FindObjectByKey<DbItemTemplates>("Beaded Resisting Stones");
             var newNeck = GameInventoryItem.Create(newNeckTp);
 
             if (player.Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, newNeck)) return true;

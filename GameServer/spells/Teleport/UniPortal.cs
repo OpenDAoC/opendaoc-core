@@ -15,9 +15,9 @@ namespace DOL.GS.Spells
 	[SpellHandlerAttribute("UniPortal")]
 	public class UniPortal : SpellHandler
 	{
-		private Teleport m_destination;
+		private DbTeleports m_destination;
 
-		public UniPortal(GameLiving caster, Spell spell, SpellLine spellLine, Teleport destination)
+		public UniPortal(GameLiving caster, Spell spell, SpellLine spellLine, DbTeleports destination)
 			: base(caster, spell, spellLine) 
 		{
 			m_destination = destination;
@@ -65,9 +65,9 @@ namespace DOL.GS.Spells
 	[SpellHandlerAttribute("UniPortalKeep")]
 	public class UniPortalKeep : SpellHandler
 	{
-		private DBKeepDoorTeleport m_destination;
+		private DbKeepDoorTeleports m_destination;
 
-		public UniPortalKeep(GameLiving caster, Spell spell, SpellLine spellLine, DBKeepDoorTeleport destination)
+		public UniPortalKeep(GameLiving caster, Spell spell, SpellLine spellLine, DbKeepDoorTeleports destination)
 			: base(caster, spell, spellLine)
 		{
 			m_destination = destination;

@@ -18,12 +18,12 @@ namespace DOL.GS
 
 		private GameMythirian() { }
 
-		public GameMythirian(ItemTemplate template)
+		public GameMythirian(DbItemTemplates template)
 			: base(template)
 		{
 		}
 
-		public GameMythirian(ItemUnique template)
+		public GameMythirian(DbItemUnique template)
 			: base(template)
 		{
 		}

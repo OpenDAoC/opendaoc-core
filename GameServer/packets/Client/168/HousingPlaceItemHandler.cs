@@ -286,7 +286,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 							// create an outdoor item to represent the item being placed
 							var oitem = new OutdoorItem
 											{
-												BaseItem = GameServer.Database.FindObjectByKey<ItemTemplate>(orgitem.Id_nb),
+												BaseItem = GameServer.Database.FindObjectByKey<DbItemTemplates>(orgitem.Id_nb),
 												Model = orgitem.Model,
 												Position = (byte)_position,
 												Rotation = (byte)rotation
@@ -294,7 +294,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
 							//add item in db
 							pos = GetFirstFreeSlot(house.OutdoorItems.Keys);
-							DBHouseOutdoorItem odbitem = oitem.CreateDBOutdoorItem(housenumber);
+							DbHouseOutdoorItems odbitem = oitem.CreateDBOutdoorItem(housenumber);
 							oitem.DatabaseItem = odbitem;
 
 							GameServer.Database.AddObject(odbitem);
@@ -404,11 +404,11 @@ namespace DOL.GS.PacketHandler.Client.v168
 								}
 								else
 								{
-									iitem.BaseItem = GameServer.Database.FindObjectByKey<ItemTemplate>(orgitem.Id_nb);
+									iitem.BaseItem = GameServer.Database.FindObjectByKey<DbItemTemplates>(orgitem.Id_nb);
 								}
 							}
 
-							DBHouseIndoorItem idbitem = iitem.CreateDBIndoorItem(housenumber);
+							DbHouseIndoorItems idbitem = iitem.CreateDBIndoorItem(housenumber);
 							iitem.DatabaseItem = idbitem;
 							GameServer.Database.AddObject(idbitem);
 
@@ -556,7 +556,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 							}
 							else if (house.GetHookpointLocation((uint)_position) != null)
 							{
-								var point = new DBHouseHookpointItem
+								var point = new DbHouseHookPointItems
 												{
 													HouseNumber = house.HouseNumber,
 													ItemTemplateID = orgitem.Id_nb,
@@ -564,7 +564,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 												};
 
 								// If we already have soemthing here, do not place more
-								foreach (var hpitem in DOLDB<DBHouseHookpointItem>.SelectObjects(DB.Column("HouseNumber").IsEqualTo(house.HouseNumber)))
+								foreach (var hpitem in DOLDB<DbHouseHookPointItems>.SelectObjects(DB.Column("HouseNumber").IsEqualTo(house.HouseNumber)))
 								{
 									if (hpitem.HookpointID == point.HookpointID)
 									{
@@ -712,7 +712,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 							}
 
 							// If we already have soemthing here, do not place more
-							foreach (var hpitem in DOLDB<DBHouseHookpointItem>.SelectObjects(DB.Column("HouseNumber").IsEqualTo(house.HouseNumber)))
+							foreach (var hpitem in DOLDB<DbHouseHookPointItems>.SelectObjects(DB.Column("HouseNumber").IsEqualTo(house.HouseNumber)))
 							{
 								if (hpitem.HookpointID == _position)
 								{
@@ -863,7 +863,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 			if (player.CurrentHouse == null)
 				return;
 
-			var a = new HouseHookpointOffset
+			var a = new DbHouseHookPointOffset
 			{
 				HouseModel = player.CurrentHouse.Model,
 				HookpointID = _position,

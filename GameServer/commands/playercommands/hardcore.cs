@@ -52,7 +52,7 @@ namespace DOL.GS.GameEvents
             
             if (player.DeathCount > 0 && player.HCFlag)
             {
-                DOLCharacters cha = DOLDB<DOLCharacters>.SelectObject(DB.Column("Name").IsEqualTo(player.Name));
+                DbCoreCharacters cha = DOLDB<DbCoreCharacters>.SelectObject(DB.Column("Name").IsEqualTo(player.Name));
                 if (cha != null)
                 {
                     Log.Warn("[HARDCORE] player " + player.Name + " has " + player.DeathCount + " deaths and has been removed from the database.");
@@ -189,11 +189,11 @@ namespace DOL.GS.Commands
         {
             IList<string> output = new List<string>();
             IList<HCCharacter> hcCharacters = new List<HCCharacter>();
-            IList<DOLCharacters> characters = GameServer.Database.SelectObjects<DOLCharacters>(DB.Column("HCFlag").IsEqualTo(1)).OrderByDescending(x => x.Level).Take(50).ToList();
+            IList<DbCoreCharacters> characters = GameServer.Database.SelectObjects<DbCoreCharacters>(DB.Column("HCFlag").IsEqualTo(1)).OrderByDescending(x => x.Level).Take(50).ToList();
             
             output.Add("Top 50 Hardcore characters:\n");
             
-            foreach (DOLCharacters c in characters)
+            foreach (DbCoreCharacters c in characters)
             {
                 if (c == null)
                     continue;

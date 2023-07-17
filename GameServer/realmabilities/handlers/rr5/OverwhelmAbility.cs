@@ -16,7 +16,7 @@ namespace DOL.GS.RealmAbilities
         public const double BONUS = 0.15; // 15% bonus
         public const int EFFECT = 1564;
 
-        public OverwhelmAbility(DBAbility dba, int level) : base(dba, level) { }
+        public OverwhelmAbility(DbAbilities dba, int level) : base(dba, level) { }
 
         /// <summary>
         /// Action

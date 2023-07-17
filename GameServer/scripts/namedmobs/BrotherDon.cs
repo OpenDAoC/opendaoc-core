@@ -6,11 +6,11 @@ namespace DOL.GS.Scripts
 {
     public class BrotherDon : GameNPC
     {
-        private static ItemTemplate _wolfPeltCloak = null;
+        private static DbItemTemplates _wolfPeltCloak = null;
         protected const string wolfPeltCloak = "wolf_pelt_cloak";
         public BrotherDon()
         {
-            _wolfPeltCloak = GameServer.Database.FindObjectByKey<ItemTemplate>(wolfPeltCloak);
+            _wolfPeltCloak = GameServer.Database.FindObjectByKey<DbItemTemplates>(wolfPeltCloak);
         }
 
         public override void Notify(DOLEvent e, object sender, EventArgs args)

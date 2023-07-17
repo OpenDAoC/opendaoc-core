@@ -72,9 +72,9 @@ namespace DOL.GS
 			}
 		}
 
-        public virtual LanguageDataObject.eTranslationIdentifier TranslationIdentifier
+        public virtual LanguageDataObject.ETranslationIdentifier TranslationIdentifier
         {
-            get { return LanguageDataObject.eTranslationIdentifier.eObject; }
+            get { return LanguageDataObject.ETranslationIdentifier.Object; }
         }
 
         /// <summary>
@@ -175,7 +175,7 @@ namespace DOL.GS
 
 		public override void LoadFromDatabase(DataObject obj)
 		{
-			WorldObject item = obj as WorldObject;
+			DbWorldObjects item = obj as DbWorldObjects;
 			base.LoadFromDatabase(obj);
 			
 			m_loadedFromScript = false;
@@ -244,16 +244,16 @@ namespace DOL.GS
 		/// </summary>
 		public override void SaveIntoDatabase()
 		{
-			WorldObject obj = null;
+			DbWorldObjects obj = null;
 			if (InternalID != null)
 			{
-				obj = (WorldObject)GameServer.Database.FindObjectByKey<WorldObject>(InternalID);
+				obj = (DbWorldObjects)GameServer.Database.FindObjectByKey<DbWorldObjects>(InternalID);
 			}
 			if (obj == null)
 			{
 				if (LoadedFromScript == false)
 				{
-					obj = new WorldObject();
+					obj = new DbWorldObjects();
 				}
 				else
 				{
@@ -299,7 +299,7 @@ namespace DOL.GS
 		{
 			if(InternalID != null)
 			{
-				WorldObject obj = (WorldObject) GameServer.Database.FindObjectByKey<WorldObject>(InternalID);
+				DbWorldObjects obj = (DbWorldObjects) GameServer.Database.FindObjectByKey<DbWorldObjects>(InternalID);
 				if(obj != null)
 				  GameServer.Database.DeleteObject(obj);
 			}

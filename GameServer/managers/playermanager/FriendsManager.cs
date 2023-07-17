@@ -84,7 +84,7 @@ namespace DOL.GS.Friends
 			var offlineFriends = new FriendStatus[0];
 			if (friends.Any())
 			{
-				offlineFriends = Database.SelectObjects<DOLCharacters>(DB.Column("Name").IsIn(friends))
+				offlineFriends = Database.SelectObjects<DbCoreCharacters>(DB.Column("Name").IsIn(friends))
 					.Select(chr => new FriendStatus(chr.Name, chr.Level, chr.Class, chr.LastPlayed)).ToArray();
 			}
 
@@ -156,7 +156,7 @@ namespace DOL.GS.Friends
 				Player.Out.SendAddFriends(new[] { Friend });
 				Player.SerializedFriendsList = this[Player];
 
-				var offlineFriend = Database.SelectObjects<DOLCharacters>(DB.Column("Name").IsEqualTo(Friend)).FirstOrDefault();
+				var offlineFriend = Database.SelectObjects<DbCoreCharacters>(DB.Column("Name").IsEqualTo(Friend)).FirstOrDefault();
 
 				if (offlineFriend != null)
 				{

@@ -4,7 +4,7 @@ namespace DOL.GS.RealmAbilities
 {
     public class AtlasOF_Bladedance : TimedRealmAbility, ISpellCastingAbilityHandler
     {
-        public AtlasOF_Bladedance(DBAbility dba, int level) : base(dba, level) { }
+        public AtlasOF_Bladedance(DbAbilities dba, int level) : base(dba, level) { }
 
         // ISpellCastingAbilityHandler
         public Spell Spell { get { return m_spell; } }

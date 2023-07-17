@@ -30,7 +30,7 @@ namespace DOL.GS
 		GameRelicPad m_returnRelicPad = null;
 		DateTime m_lastCapturedDate = DateTime.Now;
 		ECSGameTimer m_currentCarrierTimer;
-		DBRelic m_dbRelic;
+		DbRelics m_dbRelic;
 		eRelicType m_relicType;
 		ECSGameTimer m_returnRelicTimer;
 		long m_timeRelicOnGround = 0;
@@ -138,7 +138,7 @@ namespace DOL.GS
 		public GameRelic() : base() { m_saveInDB = true; }
 
 
-		public GameRelic(DBRelic obj)
+		public GameRelic(DbRelics obj)
 			: this()
 		{
 			LoadFromDatabase(obj);
@@ -501,7 +501,7 @@ namespace DOL.GS
 		public override void LoadFromDatabase(DataObject obj)
 		{
 			InternalID = obj.ObjectId;
-			m_dbRelic = obj as DBRelic;
+			m_dbRelic = obj as DbRelics;
 			CurrentRegionID = (ushort)m_dbRelic.Region;
 			X = m_dbRelic.X;
 			Y = m_dbRelic.Y;
@@ -525,8 +525,8 @@ namespace DOL.GS
 			Level = 99;
 
 			//generate itemtemplate for inventoryitem
-			ItemTemplate m_itemTemp;
-			m_itemTemp = new ItemTemplate();
+			DbItemTemplates m_itemTemp;
+			m_itemTemp = new DbItemTemplates();
 			m_itemTemp.Name = Name;
 			m_itemTemp.Object_Type = (int)eObjectType.Magical;
 			m_itemTemp.Model = Model;

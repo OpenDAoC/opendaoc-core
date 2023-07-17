@@ -16,7 +16,7 @@ namespace DOL.Tests.Integration.Database.MySQL
 		{
 		}
 
-		public static SQLObjectDatabase Database { get; set; }
+		public static SqlObjectDatabase Database { get; set; }
 		public static string ConnectionString { get; set; }
 
 		[OneTimeSetUp]
@@ -25,7 +25,7 @@ namespace DOL.Tests.Integration.Database.MySQL
 			var CodeBase = new FileInfo(new Uri(Assembly.GetExecutingAssembly().Location).LocalPath).Directory;
 			ConnectionString = "Server=localhost;Port=3306;Database=test_dol_database;User ID=root;Password=;Treat Tiny As Boolean=False";
 
-			Database = (SQLObjectDatabase)ObjectDatabase.GetObjectDatabase(ConnectionType.DATABASE_MYSQL, ConnectionString);
+			Database = (SqlObjectDatabase)ObjectDatabase.GetObjectDatabase(EConnectionType.DATABASE_MYSQL, ConnectionString);
 
 			Console.WriteLine("DB Configured : {0}, {1}", Database.ConnectionType, ConnectionString);
 

@@ -8,7 +8,7 @@ namespace DOL.GS.RealmAbilities
 
     public class AtlasOF_TrueSight : TimedRealmAbility
     {
-        public AtlasOF_TrueSight(DBAbility dba, int level) : base(dba, level) { }
+        public AtlasOF_TrueSight(DbAbilities dba, int level) : base(dba, level) { }
         
         int m_duration = 60000; // 60s
 

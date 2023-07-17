@@ -380,7 +380,7 @@ namespace DOL.GS.Spells
         public EssenceFlareSpellHandler(GameLiving caster, Spell spell, SpellLine line)
             : base(caster, spell, line)
         {
-            ItemTemplate template = GameServer.Database.FindObjectByKey<ItemTemplate>("Meschgift");
+            DbItemTemplates template = GameServer.Database.FindObjectByKey<DbItemTemplates>("Meschgift");
             if (template != null)
             {
                 items.Add(GameInventoryItem.Create(template));

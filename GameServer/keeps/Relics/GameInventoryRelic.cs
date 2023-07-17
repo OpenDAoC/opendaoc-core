@@ -22,12 +22,12 @@ namespace DOL.GS
 		{
 		}
 
-		public GameInventoryRelic(ItemTemplate template)
+		public GameInventoryRelic(DbItemTemplates template)
 			: base(template)
 		{
 		}
 
-		public GameInventoryRelic(ItemUnique template)
+		public GameInventoryRelic(DbItemUnique template)
 			: base(template)
 		{
 		}

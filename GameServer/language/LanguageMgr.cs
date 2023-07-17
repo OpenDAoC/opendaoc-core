@@ -33,7 +33,7 @@ namespace DOL.Language
                 language = DefaultLanguage;
             }
 
-            LanguageDataObject result = GetLanguageDataObject(language, translationId, LanguageDataObject.eTranslationIdentifier.eSystem);
+            LanguageDataObject result = GetLanguageDataObject(language, translationId, LanguageDataObject.ETranslationIdentifier.System);
             if (result == null)
             {
                 translation = GetTranslationErrorText(language, translationId);
@@ -96,7 +96,7 @@ namespace DOL.Language
         /// <summary>
         /// Holds all translations (object translations and system sentence translations).
         /// </summary>
-        private static IDictionary<string, IDictionary<LanguageDataObject.eTranslationIdentifier, IList<LanguageDataObject>>> m_translations;
+        private static IDictionary<string, IDictionary<LanguageDataObject.ETranslationIdentifier, IList<LanguageDataObject>>> m_translations;
 
         /// <summary>
         /// Give a way to change or relocate the lang files
@@ -140,7 +140,7 @@ namespace DOL.Language
         /// <summary>
         /// Returns the translations collection. MODIFY AT YOUR OWN RISK!!!
         /// </summary>
-        public static IDictionary<string, IDictionary<LanguageDataObject.eTranslationIdentifier, IList<LanguageDataObject>>> Translations
+        public static IDictionary<string, IDictionary<LanguageDataObject.ETranslationIdentifier, IList<LanguageDataObject>>> Translations
         {
             get { return m_translations; }
         }
@@ -153,7 +153,7 @@ namespace DOL.Language
         /// <returns></returns>
         public static bool Init()
         {
-            m_translations = new Dictionary<string, IDictionary<LanguageDataObject.eTranslationIdentifier, IList<LanguageDataObject>>>();
+            m_translations = new Dictionary<string, IDictionary<LanguageDataObject.ETranslationIdentifier, IList<LanguageDataObject>>>();
             return LoadTranslations();
         }
 
@@ -329,10 +329,10 @@ namespace DOL.Language
                 log.Info("[Language-Manager] Loading object translations...");
 
             IList<LanguageDataObject> lngObjs = new List<LanguageDataObject>();
-			Util.AddRange(lngObjs, (IList<LanguageDataObject>)GameServer.Database.SelectAllObjects<DBLanguageArea>());
-			Util.AddRange(lngObjs, (IList<LanguageDataObject>)GameServer.Database.SelectAllObjects<DBLanguageGameObject>());
-			Util.AddRange(lngObjs, (IList<LanguageDataObject>)GameServer.Database.SelectAllObjects<DBLanguageNPC>());
-			Util.AddRange(lngObjs, (IList<LanguageDataObject>)GameServer.Database.SelectAllObjects<DBLanguageZone>());
+			Util.AddRange(lngObjs, (IList<LanguageDataObject>)GameServer.Database.SelectAllObjects<DbLanguageAreas>());
+			Util.AddRange(lngObjs, (IList<LanguageDataObject>)GameServer.Database.SelectAllObjects<DbLanguageGameObjects>());
+			Util.AddRange(lngObjs, (IList<LanguageDataObject>)GameServer.Database.SelectAllObjects<DbLanguageNpcs>());
+			Util.AddRange(lngObjs, (IList<LanguageDataObject>)GameServer.Database.SelectAllObjects<DbLanguageZones>());
 
             foreach (LanguageDataObject lngObj in lngObjs)
                 RegisterLanguageDataObject(lngObj);
@@ -431,7 +431,7 @@ namespace DOL.Language
         #endregion Initialization
 
         #region GetLanguageDataObject
-        public static LanguageDataObject GetLanguageDataObject(string language, string translationId, LanguageDataObject.eTranslationIdentifier translationIdentifier)
+        public static LanguageDataObject GetLanguageDataObject(string language, string translationId, LanguageDataObject.ETranslationIdentifier translationIdentifier)
         {
             if (Util.IsEmpty(language) || Util.IsEmpty(translationId))
                 return null;
@@ -662,7 +662,7 @@ namespace DOL.Language
                 {
                     if (!m_translations.ContainsKey(obj.Language))
                     {
-                        IDictionary<LanguageDataObject.eTranslationIdentifier, IList<LanguageDataObject>> col = new Dictionary<LanguageDataObject.eTranslationIdentifier, IList<LanguageDataObject>>();
+                        IDictionary<LanguageDataObject.ETranslationIdentifier, IList<LanguageDataObject>> col = new Dictionary<LanguageDataObject.ETranslationIdentifier, IList<LanguageDataObject>>();
                         IList<LanguageDataObject> objs = new List<LanguageDataObject>();
                         objs.Add(obj);
                         col.Add(obj.TranslationIdentifier, objs);
@@ -671,7 +671,7 @@ namespace DOL.Language
                     }
                     else if (m_translations[obj.Language] == null)
                     {
-                        IDictionary<LanguageDataObject.eTranslationIdentifier, IList<LanguageDataObject>> col = new Dictionary<LanguageDataObject.eTranslationIdentifier, IList<LanguageDataObject>>();
+                        IDictionary<LanguageDataObject.ETranslationIdentifier, IList<LanguageDataObject>> col = new Dictionary<LanguageDataObject.ETranslationIdentifier, IList<LanguageDataObject>>();
                         IList<LanguageDataObject> objs = new List<LanguageDataObject>();
                         objs.Add(obj);
                         col.Add(obj.TranslationIdentifier, objs);
@@ -680,7 +680,7 @@ namespace DOL.Language
                     }
                     else if (!m_translations[obj.Language].ContainsKey(obj.TranslationIdentifier))
                     {
-                        IDictionary<LanguageDataObject.eTranslationIdentifier, IList<LanguageDataObject>> col = new Dictionary<LanguageDataObject.eTranslationIdentifier, IList<LanguageDataObject>>();
+                        IDictionary<LanguageDataObject.ETranslationIdentifier, IList<LanguageDataObject>> col = new Dictionary<LanguageDataObject.ETranslationIdentifier, IList<LanguageDataObject>>();
                         IList<LanguageDataObject> objs = new List<LanguageDataObject>();
                         objs.Add(obj);
                         m_translations[obj.Language].Add(obj.TranslationIdentifier, objs);

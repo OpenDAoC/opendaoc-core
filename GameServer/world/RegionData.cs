@@ -47,7 +47,7 @@ namespace DOL.GS
 		/// <summary>
 		/// The region mobs
 		/// </summary>
-		public Mob[] Mobs;
+		public DbMobs[] Mobs;
 		/// <summary>
 		/// The class type of this region, blank for default
 		/// </summary>

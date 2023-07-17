@@ -3767,7 +3767,7 @@ namespace DOL.GS.Spells
 		#endregion
 
 		#region saved effects
-		public virtual PlayerXEffect GetSavedEffect(GameSpellEffect effect)
+		public virtual DbPlayerXEffects GetSavedEffect(GameSpellEffect effect)
 		{
 			return null;
 		}

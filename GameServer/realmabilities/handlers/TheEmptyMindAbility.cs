@@ -13,7 +13,7 @@ namespace DOL.GS.RealmAbilities
 {
 	public class TheEmptyMindAbility : TimedRealmAbility
 	{
-		public TheEmptyMindAbility(DBAbility dba, int level) : base(dba, level) { }
+		public TheEmptyMindAbility(DbAbilities dba, int level) : base(dba, level) { }
 
 		public override void Execute(GameLiving living)
 		{

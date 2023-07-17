@@ -14,7 +14,7 @@ namespace DOL.Tests.Integration.Database.MySQL
 			Database = MySQLDBSetUp.Database;
 		}
 		
-		protected override SQLObjectDatabase GetDatabaseV2 { get { return (SQLObjectDatabase)ObjectDatabase.GetObjectDatabase(ConnectionType.DATABASE_MYSQL, MySQLDBSetUp.ConnectionString); } }
+		protected override SqlObjectDatabase GetDatabaseV2 { get { return (SqlObjectDatabase)ObjectDatabase.GetObjectDatabase(EConnectionType.DATABASE_MYSQL, MySQLDBSetUp.ConnectionString); } }
 	
 		[Test]
 		public void TestTableWithBrokenPrimaryKey()

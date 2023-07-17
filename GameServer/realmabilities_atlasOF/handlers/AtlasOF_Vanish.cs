@@ -8,7 +8,7 @@ namespace DOL.GS.RealmAbilities
 
     public class AtlasOF_Vanish : TimedRealmAbility
     {
-        public AtlasOF_Vanish(DBAbility dba, int level) : base(dba, level) { }
+        public AtlasOF_Vanish(DbAbilities dba, int level) : base(dba, level) { }
         
         int m_duration = 30000; // 30s
 

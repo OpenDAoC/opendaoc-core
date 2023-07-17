@@ -133,17 +133,17 @@ namespace DOL.GS.Quests
 		/// </summary>
 		/// <param name="player">Level of Generated Item</param>
 		/// <returns>A Generated NPC Item</returns>
-		public static ItemTemplate GenerateNPCItem(GamePlayer player)
+		public static DbItemTemplates GenerateNPCItem(GamePlayer player)
 		{
 			int mediumCraftingLevel = player.GetCraftingSkillValue(player.CraftingPrimarySkill) + 20;
 			int lowLevel = mediumCraftingLevel - 20;
 			int highLevel = mediumCraftingLevel + 20;
 
-			var craftitem = DOLDB<DBCraftedItem>.SelectObjects(DB.Column("CraftingSkillType").IsEqualTo((int)player.CraftingPrimarySkill)
+			var craftitem = DOLDB<DbCraftedItems>.SelectObjects(DB.Column("CraftingSkillType").IsEqualTo((int)player.CraftingPrimarySkill)
 				.And(DB.Column("CraftingLevel").IsGreatherThan(lowLevel).And(DB.Column("CraftingLevel").IsLessThan(highLevel))));
 			int craftrnd = Util.Random(craftitem.Count);
 
-			ItemTemplate template = GameServer.Database.FindObjectByKey<ItemTemplate>(craftitem[craftrnd].Id_nb);
+			DbItemTemplates template = GameServer.Database.FindObjectByKey<DbItemTemplates>(craftitem[craftrnd].Id_nb);
 			return template;
 		}
 
@@ -164,7 +164,7 @@ namespace DOL.GS.Quests
 				return false;
 			}
 
-			ItemTemplate taskItem = GenerateNPCItem(player);
+			DbItemTemplates taskItem = GenerateNPCItem(player);
 
 			if (taskItem == null)
 			{

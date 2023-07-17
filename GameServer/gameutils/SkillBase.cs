@@ -47,7 +47,7 @@ namespace DOL.GS
 		protected static readonly Dictionary<string, List<Tuple<string, byte, int, int>>> m_specsAbilities = new();
 
 		// Ability Cache Dict KeyName => DBAbility Object (to instanciate)
-		protected static readonly Dictionary<string, DBAbility> m_abilityIndex = new();
+		protected static readonly Dictionary<string, DbAbilities> m_abilityIndex = new();
 
 		// class id => realm abilitykey list
 		protected static readonly Dictionary<int, IList<string>> m_classRealmAbilities = new();
@@ -201,7 +201,7 @@ namespace DOL.GS
 				if (log.IsInfoEnabled)
 					log.Info("Loading Spell Lines X Spells Relation...");
 
-				IList<DBLineXSpell> dbox = GameServer.Database.SelectAllObjects<DBLineXSpell>();
+				IList<DbLineXSpells> dbox = GameServer.Database.SelectAllObjects<DbLineXSpells>();
 
 				int count = 0;
 
@@ -210,7 +210,7 @@ namespace DOL.GS
 					// Clean cache
 					m_lineSpells.Clear();
 
-					foreach (DBLineXSpell lxs in dbox)
+					foreach (DbLineXSpells lxs in dbox)
 					{
 						try
 						{
@@ -327,7 +327,7 @@ namespace DOL.GS
 				foreach (string lineName in m_spellLineIndex.Keys)
 				{
 					// Get SpellLine X Spell relation
-					var spells = DOLDB<DBLineXSpell>.SelectObjects(DB.Column("LineName").IsEqualTo(lineName));
+					var spells = DOLDB<DbLineXSpells>.SelectObjects(DB.Column("LineName").IsEqualTo(lineName));
 
 					// Load them if any records.
 					if (spells != null)
@@ -335,7 +335,7 @@ namespace DOL.GS
 						if (!m_lineSpells.ContainsKey(lineName))
 							m_lineSpells.Add(lineName, new List<Spell>());
 
-						foreach (DBLineXSpell lxs in spells)
+						foreach (DbLineXSpells lxs in spells)
 						{
 							try
 							{
@@ -398,14 +398,14 @@ namespace DOL.GS
 				if (log.IsInfoEnabled)
 					log.Info("Loading Abilities...");
 
-				IList<DBAbility> abilities = GameServer.Database.SelectAllObjects<DBAbility>();
+				IList<DbAbilities> abilities = GameServer.Database.SelectAllObjects<DbAbilities>();
 
 				if (abilities != null)
 				{
 					// Clean Cache
 					m_abilityIndex.Clear();
 
-					foreach (DBAbility dba in abilities)
+					foreach (DbAbilities dba in abilities)
 					{
 						try
 						{
@@ -452,18 +452,18 @@ namespace DOL.GS
 				if (log.IsInfoEnabled)
 					log.Info("Loading class to realm ability associations...");
 
-				IList<ClassXRealmAbility> classxra = GameServer.Database.SelectAllObjects<ClassXRealmAbility>();
+				IList<DbClassXRealmAbility> classxra = GameServer.Database.SelectAllObjects<DbClassXRealmAbility>();
 
 				if (classxra != null)
 				{
-					foreach (ClassXRealmAbility cxra in classxra)
+					foreach (DbClassXRealmAbility cxra in classxra)
 					{
 						if (!m_classRealmAbilities.ContainsKey(cxra.CharClass))
 							m_classRealmAbilities.Add(cxra.CharClass, new List<string>());
 
 						try
 						{
-							DBAbility dba = m_abilityIndex[cxra.AbilityKey];
+							DbAbilities dba = m_abilityIndex[cxra.AbilityKey];
 
 							if (!m_classRealmAbilities[cxra.CharClass].Contains(dba.KeyName))
 								m_classRealmAbilities[cxra.CharClass].Add(dba.KeyName);
@@ -499,7 +499,7 @@ namespace DOL.GS
 			m_syncLockUpdates.EnterWriteLock();
 			try
 			{
-				IList<DBSpecialization> specs = GameServer.Database.SelectAllObjects<DBSpecialization>();
+				IList<DbSpecializations> specs = GameServer.Database.SelectAllObjects<DbSpecializations>();
 
 				int count = 0;
 
@@ -520,7 +520,7 @@ namespace DOL.GS
 					// Clear Style ID Cache (Utils...)
 					m_styleIndex.Clear();
 
-					foreach (DBSpecialization spec in specs)
+					foreach (DbSpecializations spec in specs)
 					{
 						StringBuilder str = new("Specialization ");
 						str.AppendFormat("{0} - ", spec.KeyName);
@@ -550,7 +550,7 @@ namespace DOL.GS
 							if (!m_specsAbilities.ContainsKey(spec.KeyName))
 								m_specsAbilities.Add(spec.KeyName, new List<Tuple<string, byte, int, int>>());
 
-							foreach (DBSpecXAbility specx in spec.AbilityConstraints)
+							foreach (DbSpecXAbilities specx in spec.AbilityConstraints)
 							{
 
 								try
@@ -695,7 +695,7 @@ namespace DOL.GS
 					log.Info("Loading Class Specialization's Career...");
 
 				//Retrieve from DB
-				IList<ClassXSpecialization> dbo = GameServer.Database.SelectAllObjects<ClassXSpecialization>();
+				IList<DbClassXSpecialization> dbo = GameServer.Database.SelectAllObjects<DbClassXSpecialization>();
 				Dictionary<int, StringBuilder> summary = new();
 
 				if (dbo != null)
@@ -703,7 +703,7 @@ namespace DOL.GS
 					// clear
 					m_specsByClass.Clear();
 
-					foreach (ClassXSpecialization career in dbo)
+					foreach (DbClassXSpecialization career in dbo)
 					{
 						if (!m_specsByClass.ContainsKey(career.ClassID))
 						{
@@ -1378,11 +1378,11 @@ namespace DOL.GS
 			try
 			{
 				// http://camelot.allakhazam.com/Start_Stats.html
-				IList<Race> races;
+				IList<DbRaces> races;
 
 				try
 				{
-					races = GameServer.Database.SelectAllObjects<Race>();
+					races = GameServer.Database.SelectAllObjects<DbRaces>();
 				}
 				catch
 				{
@@ -1395,7 +1395,7 @@ namespace DOL.GS
 
 					m_raceResists.Clear();
 
-					foreach (Race race in races)
+					foreach (DbRaces race in races)
 					{
 						m_raceResists.Add(race.ID, new int[10]);
 						m_raceResists[race.ID][0] = race.ResistBody;
@@ -2188,7 +2188,7 @@ namespace DOL.GS
 		/// <returns></returns>
 		public static List<RealmAbility> GetClassRealmAbilities(int classID)
 		{
-			List<DBAbility> ras = new();
+			List<DbAbilities> ras = new();
 			m_syncLockUpdates.EnterReadLock();
 			try
 			{
@@ -2293,7 +2293,7 @@ namespace DOL.GS
 		public static Ability GetAbility(string keyname, int level)
 		{
 			m_syncLockUpdates.EnterReadLock();
-			DBAbility dbab = null;
+			DbAbilities dbab = null;
 			try
 			{
 				if (m_abilityIndex.ContainsKey(keyname))
@@ -3067,7 +3067,7 @@ namespace DOL.GS
 		private static Ability GetNewAbilityInstance(string keyname, int level)
 		{
 			Ability ab = null;
-			DBAbility dba = null;
+			DbAbilities dba = null;
 			m_syncLockUpdates.EnterReadLock();
 			try
 			{
@@ -3090,7 +3090,7 @@ namespace DOL.GS
 			return ab;
 		}
 
-		private static Ability GetNewAbilityInstance(DBAbility dba)
+		private static Ability GetNewAbilityInstance(DbAbilities dba)
 		{
 			// try instanciating ability
 			Ability ab = null;

@@ -42,7 +42,7 @@ namespace DOL.GS.Scripts
             {
                 case "DE":
                     {
-                        var translation = (DBLanguageNPC)LanguageMgr.GetTranslation(player.Client.Account.Language, this);
+                        var translation = (DbLanguageNpcs)LanguageMgr.GetTranslation(player.Client.Account.Language, this);
 
                         if (translation != null)
                         {

@@ -39,10 +39,10 @@ namespace DOL.GS.Commands
                 return;
             }
 
-            (item.Template as ItemTemplate).AllowUpdate = true;
-            (item.Template as ItemTemplate).Dirty = true;
+            (item.Template as DbItemTemplates).AllowUpdate = true;
+            (item.Template as DbItemTemplates).Dirty = true;
 
-            ItemTemplate temp = GameServer.Database.FindObjectByKey<ItemTemplate>(idnb);
+            DbItemTemplates temp = GameServer.Database.FindObjectByKey<DbItemTemplates>(idnb);
             
             if (temp == null)
             {
@@ -61,7 +61,7 @@ namespace DOL.GS.Commands
             item.Price = ReturnSalvage.MSRP;
             
             GameServer.Database.SaveObject(item.Template);
-            GameServer.Database.UpdateInCache<ItemTemplate>(item.Template.Id_nb);
+            GameServer.Database.UpdateInCache<DbItemTemplates>(item.Template.Id_nb);
             client.Out.SendInventoryItemsUpdate(new InventoryItem[] { item });
 
             DisplayMessage(client, $"{item.Name} price changed from {oldprice} to {item.Price}!");

@@ -17,8 +17,8 @@ namespace DOL.Tests.Integration.Server
 
 		protected GamePlayer CreateMockGamePlayer()
 		{
-			DOLCharacters character= null;
-			var account = GameServer.Database.SelectAllObjects<Account>().FirstOrDefault();
+			DbCoreCharacters character= null;
+			var account = GameServer.Database.SelectAllObjects<DbAccounts>().FirstOrDefault();
 			Assert.IsNotNull(account);
 
 			foreach (var charact in account.Characters)

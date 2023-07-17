@@ -25,7 +25,7 @@ public abstract class WeeklyQuest : BaseQuest
     {
     }
 
-    public WeeklyQuest(GamePlayer questingPlayer, DBQuest dbQuest) : base(questingPlayer, dbQuest)
+    public WeeklyQuest(GamePlayer questingPlayer, DbQuests dbQuest) : base(questingPlayer, dbQuest)
     {
     }
     

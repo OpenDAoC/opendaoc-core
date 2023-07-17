@@ -66,7 +66,7 @@ namespace DOL.GS
 		/// </summary>
 		/// <param name="dba"></param>
 		/// <param name="level"></param>
-		protected SpellLineAbstractAbility(DBAbility dba, int level)
+		protected SpellLineAbstractAbility(DbAbilities dba, int level)
 			: base(dba, level)
 		{
 		}

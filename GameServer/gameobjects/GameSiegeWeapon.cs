@@ -654,8 +654,8 @@ namespace DOL.GS
 		public override void LoadFromDatabase(DataObject obj)
 		{
 			base.LoadFromDatabase(obj);
-			if (!(obj is ItemTemplate)) return;
-			ItemTemplate item = (ItemTemplate)obj;
+			if (!(obj is DbItemTemplates)) return;
+			DbItemTemplates item = (DbItemTemplates)obj;
             this.TranslationId = item.TranslationId;
 			this.Name = item.Name;
             this.ExamineArticle = item.ExamineArticle;
