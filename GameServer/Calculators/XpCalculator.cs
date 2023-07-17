@@ -8,7 +8,7 @@ namespace DOL.GS.PropertyCalc
 	/// Calculator for XP % bonus
 	/// </summary>
 	[PropertyCalculator(EProperty.XpPoints)]
-	public class XpPointsCalculator : PropertyCalculator
+	public class XpCalculator : PropertyCalculator
 	{
 		public override int CalcValue(GameLiving living, EProperty property)
 		{

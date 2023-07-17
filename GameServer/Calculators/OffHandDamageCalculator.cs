@@ -12,7 +12,7 @@ namespace DOL.GS.PropertyCalc
 	/// BuffBonusMultCategory1 unused
 	/// </summary>
 	[PropertyCalculator(EProperty.OffhandDamage)]
-	public class OffhandDamageCalculator : PropertyCalculator
+	public class OffHandDamageCalculator : PropertyCalculator
 	{
 		public override int CalcValue(GameLiving living, EProperty property)
 		{

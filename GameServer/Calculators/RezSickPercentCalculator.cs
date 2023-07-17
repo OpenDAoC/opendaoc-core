@@ -12,7 +12,7 @@ namespace DOL.GS.PropertyCalc
 	/// BuffBonusMultCategory1 unused
 	/// </summary>
 	[PropertyCalculator(EProperty.ResIllnessReduction)]
-	public class ResSickPercentCalculator : PropertyCalculator
+	public class RezSickPercentCalculator : PropertyCalculator
 	{
 		public override int CalcValue(GameLiving living, EProperty property)
 		{

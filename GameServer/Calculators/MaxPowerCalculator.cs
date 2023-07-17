@@ -12,9 +12,9 @@ namespace DOL.GS.PropertyCalc
 	/// BuffBonusMultCategory1 unused
 	/// </summary>
 	[PropertyCalculator(EProperty.MaxMana)]
-	public class MaxManaCalculator : PropertyCalculator
+	public class MaxPowerCalculator : PropertyCalculator
 	{
-		public MaxManaCalculator() {}
+		public MaxPowerCalculator() {}
 
 		public override int CalcValue(GameLiving living, EProperty property) 
 		{

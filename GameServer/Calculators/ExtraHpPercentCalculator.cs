@@ -12,7 +12,7 @@ namespace DOL.GS.PropertyCalc
 	/// BuffBonusMultCategory1 unused
 	/// </summary>
 	[PropertyCalculator(EProperty.ExtraHP)]
-	public class ExtraHPPercentCalculator : PropertyCalculator
+	public class ExtraHpPercentCalculator : PropertyCalculator
 	{
 		public override int CalcValue(GameLiving living, EProperty property)
 		{

@@ -14,9 +14,9 @@ namespace DOL.GS.PropertyCalc
 	/// BuffBonusMultCategory1 used after all buffs/debuffs
 	/// </summary>
 	[PropertyCalculator(EProperty.DPS)]
-	public class DPSCalculator : PropertyCalculator
+	public class DpsCalculator : PropertyCalculator
 	{
-		public DPSCalculator() {}
+		public DpsCalculator() {}
 
 		public override int CalcValue(GameLiving living, EProperty property)
 		{
