@@ -20,7 +20,7 @@ namespace DOL.GS.Spells
 	{
         public override void CreateECSEffect(ECSGameEffectInitParams initParams)
         {
-            new DiseaseECSGameEffect(initParams);
+            new DiseaseEcsEffect(initParams);
         }
 
         /// <summary>

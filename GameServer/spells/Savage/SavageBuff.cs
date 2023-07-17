@@ -17,7 +17,7 @@ namespace DOL.GS.Spells
 
 		public override void CreateECSEffect(ECSGameEffectInitParams initParams)
 		{
-			new SavageBuffECSGameEffect(initParams);
+			new SavageBuffEcsEffect(initParams);
 		}
 
 		public override bool CheckBeginCast(GameLiving selectedTarget)

@@ -412,7 +412,7 @@ namespace DOL.AI.Brain
 						GamePlayer playerOwner = GetPlayerOwner();
 
 						if (playerOwner != null)
-							new InterceptECSGameEffect(new ECSGameEffectInitParams(Body, 0, 1), Body, playerOwner);
+							new InterceptEcsEffect(new ECSGameEffectInitParams(Body, 0, 1), Body, playerOwner);
 
 						break;
 					}
@@ -422,7 +422,7 @@ namespace DOL.AI.Brain
 
 						if (playerOwner != null)
 						{
-							GuardAbilityHandler.CheckExistingEffectsOnTarget(Body, playerOwner, false, out bool foundOurEffect, out GuardECSGameEffect existingEffectFromAnotherSource);
+							GuardAbilityHandler.CheckExistingEffectsOnTarget(Body, playerOwner, false, out bool foundOurEffect, out GuardEcsEffect existingEffectFromAnotherSource);
 
 							if (foundOurEffect)
 								break;
@@ -438,7 +438,7 @@ namespace DOL.AI.Brain
 						GamePlayer playerOwner = GetPlayerOwner();
 
 						if (playerOwner != null)
-							new ProtectECSGameEffect(new ECSGameEffectInitParams(playerOwner, 0, 1), null, playerOwner);
+							new ProtectEcsEffect(new ECSGameEffectInitParams(playerOwner, 0, 1), null, playerOwner);
 
 						break;
 					}

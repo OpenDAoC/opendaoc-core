@@ -46,7 +46,7 @@ namespace DOL.GS.SkillHandler
 			if (targetObject == null)
 			{
 				//foreach (InterceptEffect intercept in player.EffectList.GetAllOfType<InterceptEffect>())
-				foreach (InterceptECSGameEffect intercept in player.effectListComponent.GetAbilityEffects().Where(e => e.EffectType == eEffect.Intercept))
+				foreach (InterceptEcsEffect intercept in player.effectListComponent.GetAbilityEffects().Where(e => e.EffectType == eEffect.Intercept))
 				{
 					if (intercept.InterceptSource != player)
 						continue;
@@ -68,7 +68,7 @@ namespace DOL.GS.SkillHandler
 
 			// check if someone is already intercepting for that target
 			//foreach (InterceptEffect intercept in interceptTarget.EffectList.GetAllOfType<InterceptEffect>())
-			foreach (InterceptECSGameEffect intercept in interceptTarget.effectListComponent.GetAbilityEffects().Where(e => e.EffectType == eEffect.Intercept))
+			foreach (InterceptEcsEffect intercept in interceptTarget.effectListComponent.GetAbilityEffects().Where(e => e.EffectType == eEffect.Intercept))
 			{
 				if (intercept.InterceptTarget != interceptTarget)
 					continue;
@@ -81,7 +81,7 @@ namespace DOL.GS.SkillHandler
 
 			// cancel all intercepts by this player
 			//foreach (InterceptEffect intercept in player.EffectList.GetAllOfType<InterceptEffect>())
-			foreach (InterceptECSGameEffect intercept in player.effectListComponent.GetAbilityEffects().Where(e => e.EffectType == eEffect.Intercept))
+			foreach (InterceptEcsEffect intercept in player.effectListComponent.GetAbilityEffects().Where(e => e.EffectType == eEffect.Intercept))
 			{
 				if (intercept.InterceptSource != player)
 					continue;
@@ -91,7 +91,7 @@ namespace DOL.GS.SkillHandler
 			player.DisableSkill(ab, REUSE_TIMER);
 
 			//new InterceptEffect().Start(player, interceptTarget);
-			new InterceptECSGameEffect(new ECSGameEffectInitParams(player, 0, 1), player, (GameLiving)player.TargetObject);
+			new InterceptEcsEffect(new ECSGameEffectInitParams(player, 0, 1), player, (GameLiving)player.TargetObject);
 		}
 	}
 }

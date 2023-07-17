@@ -103,9 +103,9 @@ namespace DOL.GS
 		/// Create a necromancer shade effect for this player.
 		/// </summary>
 		/// <returns></returns>
-		public override ShadeECSGameEffect CreateShadeEffect()
+		public override ShadeEcsEffect CreateShadeEffect()
 		{
-			return new NecromancerShadeECSGameEffect(new ECSGameEffectInitParams(Player, 0, 1));
+			return new NecroShadeEcsEffect(new ECSGameEffectInitParams(Player, 0, 1));
 		}
 
 		/// <summary>

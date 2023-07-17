@@ -14,7 +14,7 @@ namespace DOL.GS.SkillHandler
 		public void Execute(Ability ab, GamePlayer player)
 		{
 
-			RapidFireECSGameEffect rapidFire = (RapidFireECSGameEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.RapidFire);
+			RapidFireEcsEffect rapidFire = (RapidFireEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.RapidFire);
 			if (rapidFire!=null)
 			{
 				EffectService.RequestImmediateCancelEffect(rapidFire, false);
@@ -27,11 +27,11 @@ namespace DOL.GS.SkillHandler
                 return;
 			}
 
-			SureShotECSGameEffect sureShot = (SureShotECSGameEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.SureShot);
+			SureShotEcsEffect sureShot = (SureShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.SureShot);
 			if (sureShot != null)
 				EffectService.RequestImmediateCancelEffect(sureShot);
 
-			TrueShotECSGameEffect trueshot = (TrueShotECSGameEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.TrueShot);
+			TrueShotEcsEffect trueshot = (TrueShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, eEffect.TrueShot);
 			if (trueshot != null)
 				EffectService.RequestImmediateCancelEffect(trueshot, false);
 
@@ -42,7 +42,7 @@ namespace DOL.GS.SkillHandler
 				return;
 			}
 
-			new RapidFireECSGameEffect(new ECSGameEffectInitParams(player, 0, 1));
+			new RapidFireEcsEffect(new ECSGameEffectInitParams(player, 0, 1));
 		}
 	}
 }

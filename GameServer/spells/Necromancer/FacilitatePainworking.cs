@@ -18,7 +18,7 @@ namespace DOL.GS.Spells
         }
 		public override void CreateECSEffect(ECSGameEffectInitParams initParams)
 		{
-			new FacilitatePainworkingECSGameEffect(initParams);
+			new FacilitatePainworkingEcsEffect(initParams);
 		}
 		protected override GameSpellEffect CreateSpellEffect(GameLiving target, double effectiveness)
         {

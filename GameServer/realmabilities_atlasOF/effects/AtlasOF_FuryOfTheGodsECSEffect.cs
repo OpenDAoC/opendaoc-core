@@ -2,7 +2,7 @@ using DOL.GS.PacketHandler;
 
 namespace DOL.GS.Effects
 {
-    public class AtlasOF_FuryOfTheGodsECSEffect : DamageAddECSEffect
+    public class AtlasOF_FuryOfTheGodsECSEffect : DamageAddEcsEffect
     {
         public AtlasOF_FuryOfTheGodsECSEffect(ECSGameEffectInitParams initParams)
             : base(initParams)

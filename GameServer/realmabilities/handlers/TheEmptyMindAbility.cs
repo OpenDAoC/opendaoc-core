@@ -34,7 +34,7 @@ namespace DOL.GS.RealmAbilities
             int effectiveness = GetEffectiveness();
 
 			//new TheEmptyMindEffect(effectiveness, GetDuration()).Start(living);
-			new StatBuffECSEffect(new ECSGameEffectInitParams(living, 30000, 1, CreateSpell(living)));
+			new StatBuffEcsEffect(new ECSGameEffectInitParams(living, 30000, 1, CreateSpell(living)));
 			DisableSkill(living);
 		}
 

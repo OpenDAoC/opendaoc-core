@@ -19,7 +19,7 @@ namespace DOL.GS.Spells
 
 		public override void CreateECSEffect(ECSGameEffectInitParams initParams)
 		{
-			new DamageOverTimeECSGameEffect(initParams);
+			new DamageOverTimeEcsEffect(initParams);
 		}
 
 		/// <summary>

@@ -1026,7 +1026,7 @@ namespace DOL.GS
                 IsOnHorse = false;
 
             GameEventMgr.RemoveAllHandlersForObject(m_inventory);
-            EntityManager.Remove(EntityManager.EntityType.Player, this);
+            EntityMgr.Remove(EntityMgr.EntityType.Player, this);
 
             if (CraftTimer != null)
             {
@@ -7195,9 +7195,9 @@ namespace DOL.GS
 
             IsSwimming = false;
 
-            if (PredatorManager.PlayerIsActive(this))
+            if (PredatorMgr.PlayerIsActive(this))
             {
-                PredatorManager.RemoveActivePlayer(this);
+                PredatorMgr.RemoveActivePlayer(this);
             }
 
             if (HCFlag)
@@ -10095,7 +10095,7 @@ namespace DOL.GS
                     return false;
                 }
 
-                new SprintECSGameEffect(new ECSGameEffectInitParams(this, 0, 1, null));
+                new SprintEcsEffect(new ECSGameEffectInitParams(this, 0, 1, null));
                 return true;
             }
             else
@@ -12408,7 +12408,7 @@ namespace DOL.GS
 
             if (goStealth)
             {
-                new StealthECSGameEffect(new ECSGameEffectInitParams(this, 0, 1));
+                new StealthEcsEffect(new ECSGameEffectInitParams(this, 0, 1));
             }
             else
             {
@@ -13761,12 +13761,12 @@ namespace DOL.GS
 
         #region Shade
 
-        protected ShadeECSGameEffect m_ShadeEffect = null;
+        protected ShadeEcsEffect m_ShadeEffect = null;
 
         /// <summary>
         /// The shade effect of this player
         /// </summary>
-        public ShadeECSGameEffect ShadeEffect
+        public ShadeEcsEffect ShadeEffect
         {
             get { return m_ShadeEffect; }
             set { m_ShadeEffect = value; }
@@ -13788,7 +13788,7 @@ namespace DOL.GS
         /// Create a shade effect for this player.
         /// </summary>
         /// <returns></returns>
-        protected virtual ShadeECSGameEffect CreateShadeEffect()
+        protected virtual ShadeEcsEffect CreateShadeEffect()
         {
             return CharacterClass.CreateShadeEffect();
         }
@@ -15212,7 +15212,7 @@ namespace DOL.GS
 
             LoadFromDatabase(dbChar);
             CreateStatistics();
-            EntityManager.Add(EntityManager.EntityType.Player, this);
+            EntityMgr.Add(EntityMgr.EntityType.Player, this);
 
             m_combatTimer = new ECSGameTimer(this, new ECSGameTimer.ECSTimerCallback(_ =>
             {

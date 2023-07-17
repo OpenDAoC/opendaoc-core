@@ -43,7 +43,7 @@ namespace DOL.GS.Spells
 
 		public override void CreateECSEffect(ECSGameEffectInitParams initParams)
 		{
-			new PetECSGameEffect(initParams);
+			new PetEcsEffect(initParams);
 		}
 
 		/// <summary>
@@ -224,7 +224,7 @@ namespace DOL.GS.Spells
 
 			foreach (var ability in pet.effectListComponent.GetAbilityEffects())
 			{
-				if (ability is InterceptECSGameEffect interceptEffect && interceptEffect.InterceptSource == pet && interceptEffect.InterceptTarget == petOwner)
+				if (ability is InterceptEcsEffect interceptEffect && interceptEffect.InterceptSource == pet && interceptEffect.InterceptTarget == petOwner)
 					interceptEffect.Cancel(false);
 			}
 

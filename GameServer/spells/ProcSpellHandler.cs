@@ -24,7 +24,7 @@ namespace DOL.GS.Spells
 
 		public override void CreateECSEffect(ECSGameEffectInitParams initParams)
 		{
-			new ProcECSGameEffect(initParams);
+			new ProcEcsEffect(initParams);
 		}
 
 		/// <summary>

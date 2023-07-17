@@ -15,7 +15,7 @@ namespace DOL.GS.Spells
 	{
 		public override void CreateECSEffect(ECSGameEffectInitParams initParams)
 		{
-			new AmnesiaECSEffect(initParams);
+			new AmnesiaEcsEffect(initParams);
 		}
 		
 		/// <summary>

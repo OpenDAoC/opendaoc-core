@@ -1417,7 +1417,7 @@ namespace DOL.GS
 		/// </summary>
 		public void CancelEngageEffect()
 		{
-			EngageECSGameEffect effect = (EngageECSGameEffect)EffectListService.GetEffectOnTarget(this, eEffect.Engage);
+			EngageEcsEffect effect = (EngageEcsEffect)EffectListService.GetEffectOnTarget(this, eEffect.Engage);
 
 			if (effect != null)
 				effect.Cancel(false);
@@ -1720,7 +1720,7 @@ namespace DOL.GS
 				
 				if (IsEngaging)
 				{
-					EngageECSGameEffect engage = (EngageECSGameEffect) EffectListService.GetEffectOnTarget(this, eEffect.Engage);
+					EngageEcsEffect engage = (EngageEcsEffect) EffectListService.GetEffectOnTarget(this, eEffect.Engage);
 
 					if (engage != null && attackComponent.AttackState && engage.EngageTarget == ad.Attacker)
 					{
@@ -1973,12 +1973,12 @@ namespace DOL.GS
                     (oProcEffect.SpellHandler as OffensiveProcSpellHandler).EventHandler(ad);
                 }
             }
-			DirtyTricksECSGameEffect dt = (DirtyTricksECSGameEffect)EffectListService.GetAbilityEffectOnTarget(this, eEffect.DirtyTricks);
+			DirtyTricksEcsEffect dt = (DirtyTricksEcsEffect)EffectListService.GetAbilityEffectOnTarget(this, eEffect.DirtyTricks);
 			if (dt != null)
             {
 				dt.EventHandler(ad);
             }
-			TripleWieldECSGameEffect tw = (TripleWieldECSGameEffect)EffectListService.GetAbilityEffectOnTarget(this, eEffect.TripleWield);
+			TripleWieldEcsEffect tw = (TripleWieldEcsEffect)EffectListService.GetAbilityEffectOnTarget(this, eEffect.TripleWield);
 			if (tw != null)
             {
 				tw.EventHandler(ad);
@@ -2087,7 +2087,7 @@ namespace DOL.GS
 
 					for (int i = 0; i < effects.Count; i++)
 					{
-						AblativeArmorECSGameEffect effect = effects[i] as AblativeArmorECSGameEffect;
+						AblativeArmorEcsEffect effect = effects[i] as AblativeArmorEcsEffect;
 
 						if (effect == null)
 							continue;

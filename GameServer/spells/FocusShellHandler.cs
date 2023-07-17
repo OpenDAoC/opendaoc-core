@@ -14,7 +14,7 @@ namespace DOL.GS.Spells
 	{
 		public override void CreateECSEffect(ECSGameEffectInitParams initParams)
 		{
-			new FocusECSEffect(initParams);
+			new FocusEcsEffect(initParams);
 		}
 		
 		private GamePlayer FSTarget = null;

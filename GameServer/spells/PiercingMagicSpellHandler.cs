@@ -11,7 +11,7 @@ namespace DOL.GS.Spells
     {
         public override void CreateECSEffect(ECSGameEffectInitParams initParams)
         {
-            new PiercingMagicECSGameEffect(initParams);
+            new PiercingMagicEcsEffect(initParams);
         }
         // constructor
         public PiercingMagicSpellHandler(GameLiving caster, Spell spell, SpellLine line) : base(caster, spell, line)

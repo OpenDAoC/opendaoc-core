@@ -258,7 +258,7 @@ namespace DOL.GS.Spells
 			//set the time when casting to can not quickcast during a minimum time
 			if (m_caster is GamePlayer)
 			{
-				QuickCastECSGameEffect quickcast = (QuickCastECSGameEffect)EffectListService.GetAbilityEffectOnTarget(m_caster, eEffect.QuickCast);
+				QuickCastEcsEffect quickcast = (QuickCastEcsEffect)EffectListService.GetAbilityEffectOnTarget(m_caster, eEffect.QuickCast);
 				if (quickcast != null && Spell.CastTime > 0)
 				{
 					m_caster.TempProperties.setProperty(GamePlayer.QUICK_CAST_CHANGE_TICK, m_caster.CurrentRegion.Time);

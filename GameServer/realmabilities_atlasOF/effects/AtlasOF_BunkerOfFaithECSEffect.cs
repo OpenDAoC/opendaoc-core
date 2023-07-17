@@ -1,6 +1,6 @@
 namespace DOL.GS.Effects
 {
-    public class BunkerOfFaithECSEffect : StatBuffECSEffect
+    public class BunkerOfFaithECSEffect : StatBuffEcsEffect
     {
         public override ushort Icon => 4242;
         public override string Name => "Bunker of Faith";

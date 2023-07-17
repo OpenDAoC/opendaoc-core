@@ -15,7 +15,7 @@ namespace DOL.GS.Spells
 	{
         public override void CreateECSEffect(ECSGameEffectInitParams initParams)
         {
-            new NearsightECSGameEffect(initParams);
+            new NearsightEcsEffect(initParams);
         }
 
         public override void ApplyEffectOnTarget(GameLiving target, double effectiveness)

@@ -339,7 +339,7 @@ namespace DOL.AI.Brain
                     }
                 }
 
-                foreach (ProtectECSGameEffect protect in player.effectListComponent.GetAbilityEffects().Where(e => e.EffectType == eEffect.Protect))
+                foreach (ProtectEcsEffect protect in player.effectListComponent.GetAbilityEffects().Where(e => e.EffectType == eEffect.Protect))
                 {
                     if (aggroAmount <= 0)
                         break;

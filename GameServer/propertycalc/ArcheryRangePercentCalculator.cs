@@ -33,7 +33,7 @@ namespace DOL.GS.PropertyCalc
 			if (living.rangeAttackComponent.RangedAttackType == eRangedAttackType.Long)
 			{
 				ra = 50;
-				TrueShotECSGameEffect effect = (TrueShotECSGameEffect)EffectListService.GetAbilityEffectOnTarget(living, eEffect.TrueShot);
+				TrueShotEcsEffect effect = (TrueShotEcsEffect)EffectListService.GetAbilityEffectOnTarget(living, eEffect.TrueShot);
 				if (effect != null)
 					EffectService.RequestImmediateCancelEffect(effect, false);
 			}

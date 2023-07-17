@@ -13,7 +13,7 @@ namespace DOL.GS.Spells
 	{
         public override void CreateECSEffect(ECSGameEffectInitParams initParams)
         {
-            new BladeturnECSGameEffect(initParams);
+            new BladeturnEcsEffect(initParams);
         }
 
         /// <summary>

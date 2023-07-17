@@ -18,7 +18,7 @@ namespace DOL.GS.Spells
 
         public override void CreateECSEffect(ECSGameEffectInitParams initParams)
         {
-			new StatDebuffECSEffect(initParams);
+			new StatDebuffEcsEffect(initParams);
         }
 
         /// <summary>

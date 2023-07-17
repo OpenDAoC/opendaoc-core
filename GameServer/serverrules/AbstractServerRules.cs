@@ -16,8 +16,9 @@ using DOL.GS.Quests;
 using DOL.GS.Scripts;
 using DOL.GS.ServerProperties;
 using DOL.Language;
-using log4net;
 using ECS.Debug;
+using log4net;
+
 namespace DOL.GS.ServerRules
 {
 	public abstract class AbstractServerRules : IServerRules
@@ -1870,9 +1871,9 @@ namespace DOL.GS.ServerRules
 						ConquestService.ConquestManager.AddContributor(lp);
 				}
 
-				if (PredatorManager.PlayerIsActive(killedPlayer))
+				if (PredatorMgr.PlayerIsActive(killedPlayer))
 				{
-					var reward = PredatorManager.CheckForPredatorEffort(killedPlayer, expGainPlayer);
+					var reward = PredatorMgr.CheckForPredatorEffort(killedPlayer, expGainPlayer);
 					if (reward > 0)
 					{
 						killedPlayer.Out.SendMessage($"Your hunt fails, but your prey did not escape unharmed.", eChatType.CT_Important, eChatLoc.CL_SystemWindow);

@@ -41,9 +41,9 @@ namespace DOL.GS.Scripts
             {
                 //if player is in PredatorManager.ActivePlayers, view current target
                 //else return message w/ error
-                if (!PredatorManager.PlayerIsActive(client.Player))
+                if (!PredatorMgr.PlayerIsActive(client.Player))
                 {
-                    if (PredatorManager.QueuedPlayers.Contains(client.Player))
+                    if (PredatorMgr.QueuedPlayers.Contains(client.Player))
                     {
                         client.Out.SendMessage("You are queued to join the hunt soon!", eChatType.CT_Important,
                             eChatLoc.CL_SystemWindow);   
@@ -57,7 +57,7 @@ namespace DOL.GS.Scripts
                     return;
                 }
 
-                client.Out.SendCustomTextWindow("Your Prey", PredatorManager.GetActivePrey(client.Player));
+                client.Out.SendCustomTextWindow("Your Prey", PredatorMgr.GetActivePrey(client.Player));
             }
             else if (args[1] == "join")
             {
@@ -88,30 +88,30 @@ namespace DOL.GS.Scripts
                     return;
                 }
                 
-                PredatorManager.QueuePlayer(client.Player);
+                PredatorMgr.QueuePlayer(client.Player);
 
             }
             else if (args[1] == "reset" && client.Account.PrivLevel > 1)
             {
-                PredatorManager.FullReset();
+                PredatorMgr.FullReset();
             }
             else if (args[1] == "insert" && client.Account.PrivLevel > 1)
             {
-                PredatorManager.InsertQueuedPlayers();  
+                PredatorMgr.InsertQueuedPlayers();  
             }
             else if (args[1] == "status" && client.Account.PrivLevel > 1)
             {
-                client.Out.SendCustomTextWindow("Active Hunts", PredatorManager.GetStatus());
+                client.Out.SendCustomTextWindow("Active Hunts", PredatorMgr.GetStatus());
             }
             else if (args[1] == "abandon")
             {
-                if (!PredatorManager.PlayerIsActive(client.Player))
+                if (!PredatorMgr.PlayerIsActive(client.Player))
                 {
                     client.Out.SendMessage("You are not a part of the hunt.", eChatType.CT_Important,
                         eChatLoc.CL_SystemWindow);
                     return;
                 }
-                PredatorManager.DisqualifyPlayer(client.Player);
+                PredatorMgr.DisqualifyPlayer(client.Player);
             }
             else
             {

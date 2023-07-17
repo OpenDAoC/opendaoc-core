@@ -20,7 +20,7 @@ namespace DOL.GS.Spells
 	{
 		public override void CreateECSEffect(ECSGameEffectInitParams initParams)
 		{
-			new DamageAddECSEffect(initParams);
+			new DamageAddEcsEffect(initParams);
 		}
 
 		/// <summary>
@@ -146,7 +146,7 @@ namespace DOL.GS.Spells
 	{
 		public override void CreateECSEffect(ECSGameEffectInitParams initParams)
 		{
-			new DamageShieldECSEffect(initParams);
+			new DamageShieldEcsEffect(initParams);
 		}
 
 		/// <summary>

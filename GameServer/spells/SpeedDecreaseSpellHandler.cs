@@ -16,7 +16,7 @@ namespace DOL.GS.Spells
 		{
 			if (crit)
 				initParams.Effectiveness *= 2; //critical hit effectiveness needs to be set after duration is calculated to prevent double duration
-			new StatDebuffECSEffect(initParams);
+			new StatDebuffEcsEffect(initParams);
 		}
 
         /// <summary>

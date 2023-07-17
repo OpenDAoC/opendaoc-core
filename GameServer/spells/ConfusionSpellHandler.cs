@@ -19,7 +19,7 @@ namespace DOL.GS.Spells
 
 		public override void CreateECSEffect(ECSGameEffectInitParams initParams)
 		{
-			new ConfusionECSGameEffect(initParams);
+			new ConfusionEcsEffect(initParams);
 		}
 
 		public override void FinishSpellCast(GameLiving target)

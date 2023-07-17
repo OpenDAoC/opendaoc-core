@@ -17,7 +17,7 @@ namespace DOL.GS.Spells
 	{
 		public override void CreateECSEffect(ECSGameEffectInitParams initParams)
 		{
-			new StatDebuffECSEffect(initParams);
+			new StatDebuffEcsEffect(initParams);
 		}
 		
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);

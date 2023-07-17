@@ -3,7 +3,7 @@ using DOL.GS.Spells;
 
 namespace DOL.GS.Effects
 {
-    public class AtlasOF_HailOfBlowsECSEffect : StatBuffECSEffect
+    public class AtlasOF_HailOfBlowsECSEffect : StatBuffEcsEffect
     {
         public AtlasOF_HailOfBlowsECSEffect(ECSGameEffectInitParams initParams)
             : base(initParams)

@@ -76,7 +76,7 @@ namespace DOL.GS.SkillHandler
 			player.DisableSkill(ab, REUSE_TIMER);
 
 			//new BerserkEffect().Start(player);
-			new BerserkECSGameEffect(new ECSGameEffectInitParams(player, DURATION, 1, null));
+			new BerserkEcsEffect(new ECSGameEffectInitParams(player, DURATION, 1, null));
 		}                       
     }
 }

@@ -38,7 +38,7 @@ namespace DOL.AI
 		/// <returns>true if started</returns>
 		public virtual bool Start()
 		{
-			return EntityManager.Add(EntityManager.EntityType.Brain, this);
+			return EntityMgr.Add(EntityMgr.EntityType.Brain, this);
 		}
 
 		/// <summary>
@@ -47,7 +47,7 @@ namespace DOL.AI
 		/// <returns>true if stopped</returns>
 		public virtual bool Stop()
 		{
-			return EntityManager.Remove(EntityManager.EntityType.Brain, this);
+			return EntityMgr.Remove(EntityMgr.EntityType.Brain, this);
 		}
 
 		/// <summary>

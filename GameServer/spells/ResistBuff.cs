@@ -22,7 +22,7 @@ namespace DOL.GS.Spells
 
         public override void CreateECSEffect(ECSGameEffectInitParams initParams)
         {
-			new StatBuffECSEffect(initParams);
+			new StatBuffEcsEffect(initParams);
         }
 
         protected override void SendUpdates(GameLiving target)

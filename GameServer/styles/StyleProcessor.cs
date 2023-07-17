@@ -232,7 +232,7 @@ namespace DOL.GS.Styles
 						if (living.IsEngaging)
 						{
 							// Cancel engage effect if exist.
-							EngageECSGameEffect effect = (EngageECSGameEffect)EffectListService.GetEffectOnTarget(living, eEffect.Engage);
+							EngageEcsEffect effect = (EngageEcsEffect)EffectListService.GetEffectOnTarget(living, eEffect.Engage);
 
 							if (effect != null)
 								effect.Cancel(false);

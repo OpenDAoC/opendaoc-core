@@ -38,13 +38,13 @@ namespace DOL.GS.Scripts
             if (args[1] == "clear")
             {
                 if (client.Account.PrivLevel < 3) return;
-                BountyManager.ResetBounty();
+                BountyMgr.ResetBounty();
                 return;
             }
 
             if (args[1] == "list")
             {
-                client.Out.SendCustomTextWindow("Active Bounties", BountyManager.GetTextList(client.Player));
+                client.Out.SendCustomTextWindow("Active Bounties", BountyMgr.GetTextList(client.Player));
                 return;
             }
 
@@ -128,7 +128,7 @@ namespace DOL.GS.Scripts
                     return;
                 }
 
-                BountyManager.AddBounty(player, killerPlayer, amount);
+                BountyMgr.AddBounty(player, killerPlayer, amount);
             }
             else
             {

@@ -1,6 +1,6 @@
 ﻿namespace DOL.GS.Effects
 {
-    public class AtlasOF_RainOfBaseECSEffect : DamageAddECSEffect
+    public class AtlasOF_RainOfBaseECSEffect : DamageAddEcsEffect
     {
         public AtlasOF_RainOfBaseECSEffect(ECSGameEffectInitParams initParams) : base(initParams) { }
 

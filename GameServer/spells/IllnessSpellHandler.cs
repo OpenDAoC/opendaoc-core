@@ -31,7 +31,7 @@ namespace DOL.GS.Spells
                 }
             }
 
-			new ResurrectionIllnessECSGameEffect(initParams);
+			new ResurrectionIllnessEcsEffect(initParams);
 		}
 
 		/// <summary>

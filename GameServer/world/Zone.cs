@@ -335,7 +335,7 @@ namespace DOL.GS
 
             LightConcurrentLinkedList<SubZoneObject>.Node node = new(subZoneObject);
             ObjectChangingSubZone objectChangingSubZone = new(node, objectType, this, subZone);
-            EntityManager.Add(EntityManager.EntityType.ObjectChangingSubZone, objectChangingSubZone);
+            EntityMgr.Add(EntityMgr.EntityType.ObjectChangingSubZone, objectChangingSubZone);
         }
 
         /// <summary>
@@ -454,21 +454,21 @@ namespace DOL.GS
                     SubZone newSubZone = newZone.GetSubZone(newZone.GetSubZoneIndex(gameObject.X, gameObject.Y));
 
                     if (!subZoneObject.IsChangingSubZone)
-                        EntityManager.Add(EntityManager.EntityType.ObjectChangingSubZone, new ObjectChangingSubZone(node, objectType, newZone, newSubZone));
+                        EntityMgr.Add(EntityMgr.EntityType.ObjectChangingSubZone, new ObjectChangingSubZone(node, objectType, newZone, newSubZone));
 
                     return SubZoneRelocationReason.DIFFERENT_ZONE;
                 }
                 else if (objectSubZoneIndex != subZoneIndex)
                 {
                     if (!subZoneObject.IsChangingSubZone)
-                        EntityManager.Add(EntityManager.EntityType.ObjectChangingSubZone, new ObjectChangingSubZone(node, objectType, this, _subZones[objectSubZoneIndex]));
+                        EntityMgr.Add(EntityMgr.EntityType.ObjectChangingSubZone, new ObjectChangingSubZone(node, objectType, this, _subZones[objectSubZoneIndex]));
 
                     return SubZoneRelocationReason.DIFFERENT_SUBZONE_IN_ZONE;
                 }
             }
             else if (!subZoneObject.IsChangingSubZone)
             {
-                EntityManager.Add(EntityManager.EntityType.ObjectChangingSubZone, new ObjectChangingSubZone(node, objectType, null, null));
+                EntityMgr.Add(EntityMgr.EntityType.ObjectChangingSubZone, new ObjectChangingSubZone(node, objectType, null, null));
                 return SubZoneRelocationReason.INVALID_OBJECT_OR_DIFFERENT_REGION;
             }
 
