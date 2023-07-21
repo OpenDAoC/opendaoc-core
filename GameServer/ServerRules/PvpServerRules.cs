@@ -16,7 +16,7 @@ namespace DOL.GS.ServerRules
 	/// Set of rules for "PvP" server type.
 	/// </summary>
 	[ServerRules(EGameServerType.GST_PvP)]
-	public class PvPServerRules : AbstractServerRules
+	public class PvpServerRules : AbstractServerRules
 	{
 		public override string RulesDescription()
 		{
@@ -75,11 +75,11 @@ namespace DOL.GS.ServerRules
 			if (player.TempProperties.getProperty<object>(KILLED_BY_PLAYER_PROP, null) != null)
 			{
 				player.TempProperties.removeProperty(KILLED_BY_PLAYER_PROP);
-				StartImmunityTimer(player, ServerProperties.Properties.TIMER_KILLED_BY_PLAYER * 1000);//When Killed by a Player
+				StartImmunityTimer(player, ServerProperties.ServerProperties.TIMER_KILLED_BY_PLAYER * 1000);//When Killed by a Player
 			}
 			else
 			{
-				StartImmunityTimer(player, ServerProperties.Properties.TIMER_KILLED_BY_MOB * 1000);//When Killed by a Mob
+				StartImmunityTimer(player, ServerProperties.ServerProperties.TIMER_KILLED_BY_MOB * 1000);//When Killed by a Mob
 			}
 		}
 
@@ -96,7 +96,7 @@ namespace DOL.GS.ServerRules
 			// is teleporting within the same region
 			if (source.RegionID == destination.RegionID)
 			{
-				StartImmunityTimer(player, ServerProperties.Properties.TIMER_PVP_TELEPORT * 1000);
+				StartImmunityTimer(player, ServerProperties.ServerProperties.TIMER_PVP_TELEPORT * 1000);
 			}
 		}
 

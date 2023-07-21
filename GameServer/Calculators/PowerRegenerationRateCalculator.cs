@@ -31,8 +31,8 @@ namespace DOL.GS.PropertyCalc
 
 			// tolakram - there is no difference per tic between combat and non combat
 
-			if (regen != 0 && ServerProperties.Properties.MANA_REGEN_RATE != 1)
-				regen *= ServerProperties.Properties.MANA_REGEN_RATE;
+			if (regen != 0 && ServerProperties.ServerProperties.MANA_REGEN_RATE != 1)
+				regen *= ServerProperties.ServerProperties.MANA_REGEN_RATE;
 
 			double decimals = regen - (int)regen;
 			if (UtilCollection.ChanceDouble(decimals)) 

@@ -56,7 +56,7 @@ namespace DOL.GS
 		public static string GetString(long money)
 		{
 			if (money == 0)
-				return LanguageMgr.GetTranslation(Properties.SERV_LANGUAGE, "Money.GetString.Text1");
+				return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "Money.GetString.Text1");
 
 			int copper = GetCopper(money);
 			int silver = GetSilver(money);
@@ -69,35 +69,35 @@ namespace DOL.GS
 			{
 				res.Append(mithril);
 				res.Append(" ");
-				res.Append(LanguageMgr.GetTranslation(Properties.SERV_LANGUAGE, "Money.GetString.Text2"));
+				res.Append(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "Money.GetString.Text2"));
 				res.Append(" ");
 			}
 			if (platin != 0)
 			{
 				res.Append(platin);
 				res.Append(" ");
-				res.Append(LanguageMgr.GetTranslation(Properties.SERV_LANGUAGE, "Money.GetString.Text3"));
+				res.Append(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "Money.GetString.Text3"));
 				res.Append(" ");
 			}
 			if (gold != 0)
 			{
 				res.Append(gold);
 				res.Append(" ");
-				res.Append(LanguageMgr.GetTranslation(Properties.SERV_LANGUAGE, "Money.GetString.Text4"));
+				res.Append(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "Money.GetString.Text4"));
 				res.Append(" ");
 			}
 			if (silver != 0)
 			{
 				res.Append(silver);
 				res.Append(" ");
-				res.Append(LanguageMgr.GetTranslation(Properties.SERV_LANGUAGE, "Money.GetString.Text5"));
+				res.Append(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "Money.GetString.Text5"));
 				res.Append(" ");
 			}
 			if (copper != 0)
 			{
 				res.Append(copper);
 				res.Append(" ");
-				res.Append(LanguageMgr.GetTranslation(Properties.SERV_LANGUAGE, "Money.GetString.Text6"));
+				res.Append(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "Money.GetString.Text6"));
 				res.Append(" ");
 			}
 
@@ -111,7 +111,7 @@ namespace DOL.GS
 		public static string GetShortString(long money)
 		{
 			if (money == 0)
-				return LanguageMgr.GetTranslation(Properties.SERV_LANGUAGE, "Money.GetString.Text1");
+				return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "Money.GetString.Text1");
 
 			int copper = GetCopper(money);
 			int silver = GetSilver(money);

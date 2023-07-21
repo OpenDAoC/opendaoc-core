@@ -16,7 +16,7 @@ namespace DOL.GS.Keeps
 
 		protected override void SetModel()
 		{
-			if (!ServerProperties.Properties.AUTOMODEL_GUARDS_LOADED_FROM_DB && !LoadedFromScript)
+			if (!ServerProperties.ServerProperties.AUTOMODEL_GUARDS_LOADED_FROM_DB && !LoadedFromScript)
 			{
 				return;
 			}
@@ -82,7 +82,7 @@ namespace DOL.GS.Keeps
 
 		protected override void SetName()
 		{
-			Name = LanguageMgr.GetTranslation(Properties.SERV_LANGUAGE, "SetGuardName.Hastener");
+			Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Hastener");
 			return;
 		}
 	}

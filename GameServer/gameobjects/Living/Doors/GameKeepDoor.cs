@@ -218,7 +218,7 @@ namespace DOL.GS.Keeps
 					name = "Postern Door";
 				}
 
-				if (ServerProperties.Properties.ENABLE_DEBUG)
+				if (ServerProperties.ServerProperties.ENABLE_DEBUG)
 				{
 					name += " ( C:" + ComponentID + " T:" + TemplateID + ")";
 
@@ -332,7 +332,7 @@ namespace DOL.GS.Keeps
 				cl.Out.SendMessage(message, eChatType.CT_Important, eChatLoc.CL_SystemWindow);
 			}*/
 			
-			if (Properties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(Properties.DISCORD_RVR_WEBHOOK_ID)))
+			if (ServerProperties.ServerProperties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(ServerProperties.ServerProperties.DISCORD_RVR_WEBHOOK_ID)))
 			{
 				GameRelicPad.BroadcastDiscordRelic(message, Realm, Component.Keep.Name);
 			}
@@ -345,7 +345,7 @@ namespace DOL.GS.Keeps
 			if (attackData.DamageType == EDamageType.GM)
 				return;
 
-			int toughness = Properties.SET_KEEP_DOOR_TOUGHNESS;
+			int toughness = ServerProperties.ServerProperties.SET_KEEP_DOOR_TOUGHNESS;
 			int baseDamage = attackData.Damage;
 			int styleDamage = attackData.StyleDamage;
 			int criticalDamage = 0;
@@ -354,7 +354,7 @@ namespace DOL.GS.Keeps
 
 			if (Component.Keep is GameKeepTower)
 			{
-				toughness = Properties.SET_TOWER_DOOR_TOUGHNESS;
+				toughness = ServerProperties.ServerProperties.SET_TOWER_DOOR_TOUGHNESS;
 			}
 
 			if (Component.Keep.KeepID == 11) //Reduce toughness for Thid CK
@@ -369,7 +369,7 @@ namespace DOL.GS.Keeps
 			}
 			else if (source is GameNPC)
 			{
-				if (!Properties.DOORS_ALLOWPETATTACK)
+				if (!ServerProperties.ServerProperties.DOORS_ALLOWPETATTACK)
 				{
 					baseDamage = 0;
 					styleDamage = 0;
@@ -388,13 +388,13 @@ namespace DOL.GS.Keeps
 							// special considerations for pet spam classes
 							if (player.CharacterClass.ID == (int)ECharacterClass.Theurgist || player.CharacterClass.ID == (int)ECharacterClass.Animist)
 							{
-								baseDamage = (int)(baseDamage * Properties.PET_SPAM_DAMAGE_MULTIPLIER);
-								styleDamage = (int)(styleDamage * Properties.PET_SPAM_DAMAGE_MULTIPLIER);
+								baseDamage = (int)(baseDamage * ServerProperties.ServerProperties.PET_SPAM_DAMAGE_MULTIPLIER);
+								styleDamage = (int)(styleDamage * ServerProperties.ServerProperties.PET_SPAM_DAMAGE_MULTIPLIER);
 							}
 							else
 							{
-								baseDamage = (int)(baseDamage * Properties.PET_DAMAGE_MULTIPLIER);
-								styleDamage = (int)(styleDamage * Properties.PET_DAMAGE_MULTIPLIER);
+								baseDamage = (int)(baseDamage * ServerProperties.ServerProperties.PET_DAMAGE_MULTIPLIER);
+								styleDamage = (int)(styleDamage * ServerProperties.ServerProperties.PET_DAMAGE_MULTIPLIER);
 							}
 						}
 					}

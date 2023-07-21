@@ -97,8 +97,8 @@ namespace DOL.GS.PropertyCalc
 			if (regen < 0)
 				regen = 0;
 
-			if (regen != 0 && ServerProperties.Properties.ENDURANCE_REGEN_RATE != 1)
-				regen *= ServerProperties.Properties.ENDURANCE_REGEN_RATE;
+			if (regen != 0 && ServerProperties.ServerProperties.ENDURANCE_REGEN_RATE != 1)
+				regen *= ServerProperties.ServerProperties.ENDURANCE_REGEN_RATE;
 
 			double decimals = regen - (int)regen;
 			if (UtilCollection.ChanceDouble(decimals))

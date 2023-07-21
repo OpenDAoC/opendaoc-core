@@ -29,19 +29,19 @@ namespace DOL.GS.Keeps
 			{
 				case ERealm.None:
 				case ERealm.Albion:
-					Name = LanguageMgr.GetTranslation(Properties.SERV_LANGUAGE, "SetGuardName.Cleric");
+					Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Cleric");
 					break;
 				case ERealm.Midgard:
-					Name = LanguageMgr.GetTranslation(Properties.SERV_LANGUAGE, "SetGuardName.Healer");
+					Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Healer");
 					break;
 				case ERealm.Hibernia:
-					Name = LanguageMgr.GetTranslation(Properties.SERV_LANGUAGE, "SetGuardName.Druid");
+					Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Druid");
 					break;
 			}
 
 			if (Realm == ERealm.None)
 			{
-				Name = LanguageMgr.GetTranslation(Properties.SERV_LANGUAGE, "SetGuardName.Renegade", Name);
+				Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Renegade", Name);
 			}
 		}
 	}

@@ -9,7 +9,7 @@ namespace DOL.GS
 		public AlchemySkill()
 		{
 			Icon = 0x04;
-			Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, 
+			Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, 
                 "Crafting.Name.Alchemy");
 			eSkill = eCraftingSkill.Alchemy;
 		}

@@ -536,9 +536,9 @@ namespace DOL.GS
 			if (article == 0)
 			{
 				if (firstLetterUppercase)
-					return LanguageMgr.GetTranslation(ServerProperties.Properties.DB_LANGUAGE, "GameObject.GetName.Article1", Name);
+					return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.DB_LANGUAGE, "GameObject.GetName.Article1", Name);
 				else
-					return LanguageMgr.GetTranslation(ServerProperties.Properties.DB_LANGUAGE, "GameObject.GetName.Article2", Name);
+					return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.DB_LANGUAGE, "GameObject.GetName.Article2", Name);
 			}
 			else
 			{
@@ -546,16 +546,16 @@ namespace DOL.GS
 				if (m_vowels.IndexOf(Name[0]) != -1)
 				{
 					if (firstLetterUppercase)
-						return LanguageMgr.GetTranslation(ServerProperties.Properties.DB_LANGUAGE, "GameObject.GetName.Article3", Name);
+						return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.DB_LANGUAGE, "GameObject.GetName.Article3", Name);
 					else
-						return LanguageMgr.GetTranslation(ServerProperties.Properties.DB_LANGUAGE, "GameObject.GetName.Article4", Name);
+						return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.DB_LANGUAGE, "GameObject.GetName.Article4", Name);
 				}
 				else
 				{
 					if (firstLetterUppercase)
-						return LanguageMgr.GetTranslation(ServerProperties.Properties.DB_LANGUAGE, "GameObject.GetName.Article5", Name);
+						return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.DB_LANGUAGE, "GameObject.GetName.Article5", Name);
 					else
-						return LanguageMgr.GetTranslation(ServerProperties.Properties.DB_LANGUAGE, "GameObject.GetName.Article6", Name);
+						return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.DB_LANGUAGE, "GameObject.GetName.Article6", Name);
 				}
 			}
 		}
@@ -584,19 +584,19 @@ namespace DOL.GS
 			{
 				default: // Subjective
 					if (firstLetterUppercase)
-						return LanguageMgr.GetTranslation(ServerProperties.Properties.DB_LANGUAGE, "GameObject.GetPronoun.Pronoun1");
+						return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.DB_LANGUAGE, "GameObject.GetPronoun.Pronoun1");
 					else
-						return LanguageMgr.GetTranslation(ServerProperties.Properties.DB_LANGUAGE, "GameObject.GetPronoun.Pronoun2");
+						return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.DB_LANGUAGE, "GameObject.GetPronoun.Pronoun2");
 				case 1: // Possessive
 					if (firstLetterUppercase)
-						return LanguageMgr.GetTranslation(ServerProperties.Properties.DB_LANGUAGE, "GameObject.GetPronoun.Pronoun3");
+						return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.DB_LANGUAGE, "GameObject.GetPronoun.Pronoun3");
 					else
-						return LanguageMgr.GetTranslation(ServerProperties.Properties.DB_LANGUAGE, "GameObject.GetPronoun.Pronoun4");
+						return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.DB_LANGUAGE, "GameObject.GetPronoun.Pronoun4");
 				case 2: // Objective
 					if (firstLetterUppercase)
-						return LanguageMgr.GetTranslation(ServerProperties.Properties.DB_LANGUAGE, "GameObject.GetPronoun.Pronoun5");
+						return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.DB_LANGUAGE, "GameObject.GetPronoun.Pronoun5");
 					else
-						return LanguageMgr.GetTranslation(ServerProperties.Properties.DB_LANGUAGE, "GameObject.GetPronoun.Pronoun6");
+						return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.DB_LANGUAGE, "GameObject.GetPronoun.Pronoun6");
 			}
 		}
 

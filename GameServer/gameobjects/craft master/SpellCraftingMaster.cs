@@ -27,7 +27,7 @@ namespace DOL.GS
 		{
 			get
 			{
-                return LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SpellCraftingMaster.GuildOrder");
+                return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SpellCraftingMaster.GuildOrder");
             }
 		}
 
@@ -35,7 +35,7 @@ namespace DOL.GS
 		{
 			get
 			{
-                return LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SpellCraftingMaster.AcceptedByOrderName");
+                return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SpellCraftingMaster.AcceptedByOrderName");
             }
 		}
 
@@ -48,7 +48,7 @@ namespace DOL.GS
 		{
 			get
 			{
-                return LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SpellCraftingMaster.InitialEntersentence");
+                return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SpellCraftingMaster.InitialEntersentence");
             }
 		}
 	}

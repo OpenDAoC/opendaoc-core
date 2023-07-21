@@ -62,7 +62,7 @@ namespace DOL.GS.Commands
 		{
 			foreach (GamePlayer p in GetTargets(player))
 			{
-				if (GameServer.ServerRules.IsAllowedToUnderstand(p, player) || ((eBroadcastType)ServerProperties.Properties.BROADCAST_TYPE == eBroadcastType.Server))
+				if (GameServer.ServerRules.IsAllowedToUnderstand(p, player) || ((eBroadcastType)ServerProperties.ServerProperties.BROADCAST_TYPE == eBroadcastType.Server))
 				{
 					p.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Scripts.Players.Broadcast.Message", player.Name, message), EChatType.CT_Broadcast, EChatLoc.CL_ChatWindow);
 				}
@@ -73,7 +73,7 @@ namespace DOL.GS.Commands
 		private ArrayList GetTargets(GamePlayer player)
 		{
 			ArrayList list = new ArrayList();
-			eBroadcastType type = (eBroadcastType)ServerProperties.Properties.BROADCAST_TYPE;
+			eBroadcastType type = (eBroadcastType)ServerProperties.ServerProperties.BROADCAST_TYPE;
 			switch (type)
 			{
 				case eBroadcastType.Area:

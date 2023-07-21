@@ -17,7 +17,7 @@ namespace DOL.GS.Commands
 
         public void OnCommand(GameClient client, string[] args)
         {
-            if (ServerProperties.Properties.DISABLED_COMMANDS.Contains("/rearrange"))
+            if (ServerProperties.ServerProperties.DISABLED_COMMANDS.Contains("/rearrange"))
                 return;
 
             if (IsSpammingCommand(client.Player, "rearrange"))

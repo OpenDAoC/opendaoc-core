@@ -169,7 +169,7 @@ namespace DOL.GS
 
 		public static void AddAuditEntry(int type, int subType, string oldValue, string newValue)
 		{
-            if (!ServerProperties.Properties.ENABLE_AUDIT_LOG)
+            if (!ServerProperties.ServerProperties.ENABLE_AUDIT_LOG)
                 return;
 
 			// create the transaction
@@ -202,7 +202,7 @@ namespace DOL.GS
 
 		public static void AddAuditEntry(GameClient client, int type, int subType, string oldValue, string newValue)
 		{
-            if(!ServerProperties.Properties.ENABLE_AUDIT_LOG)
+            if(!ServerProperties.ServerProperties.ENABLE_AUDIT_LOG)
                 return;
 
 			// create the transaction

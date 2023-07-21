@@ -131,7 +131,7 @@ namespace DOL.GS
 					return;
 				}
 
-				if (!this.IsWithinRadius(player, GS.ServerProperties.Properties.WORLD_PICKUP_DISTANCE)) // tested
+				if (!this.IsWithinRadius(player, GS.ServerProperties.ServerProperties.WORLD_PICKUP_DISTANCE)) // tested
 				{
 					player.Out.SendMessage(
 						LanguageMgr.GetTranslation(player.Client.Account.Language,
@@ -200,7 +200,7 @@ namespace DOL.GS
 					return;
 				}
 
-				if (!this.IsWithinRadius(player, GS.ServerProperties.Properties.WORLD_PICKUP_DISTANCE)) // tested
+				if (!this.IsWithinRadius(player, GS.ServerProperties.ServerProperties.WORLD_PICKUP_DISTANCE)) // tested
 				{
 					player.Out.SendMessage(
 						LanguageMgr.GetTranslation(player.Client.Account.Language,
@@ -329,7 +329,7 @@ namespace DOL.GS
 				return;
 			}
 
-			if (!this.IsWithinRadius(player, GS.ServerProperties.Properties.WORLD_PICKUP_DISTANCE)) // tested
+			if (!this.IsWithinRadius(player, GS.ServerProperties.ServerProperties.WORLD_PICKUP_DISTANCE)) // tested
 			{
 				player.Out.SendMessage(
 					LanguageMgr.GetTranslation(player.Client.Account.Language, "GameMerchant.OnPlayerSell.TooFarAway",
@@ -380,7 +380,7 @@ namespace DOL.GS
 			int itemCount = Math.Max(1, item.Count);
 			int packSize = Math.Max(1, item.PackSize);
 
-			long val = item.Price * itemCount / packSize * ServerProperties.Properties.ITEM_SELL_RATIO / 100;
+			long val = item.Price * itemCount / packSize * ServerProperties.ServerProperties.ITEM_SELL_RATIO / 100;
 
 			if (item.Price == 1 && val == 0)
 				val = item.Price * itemCount / packSize;
@@ -566,7 +566,7 @@ namespace DOL.GS
 					m_moneyItem = WorldInventoryItem.CreateFromTemplate(m_itemTemplate);
 
 				// Don't waste memory on an item template we won't use.
-				if (ServerProperties.Properties.BP_EXCHANGE_ALLOW == false)
+				if (ServerProperties.ServerProperties.BP_EXCHANGE_ALLOW == false)
 					m_itemTemplate = null;
 			}
 		}
@@ -576,8 +576,8 @@ namespace DOL.GS
 		/// </summary>
 		static GameItemCurrencyGuardMerchant()
         {
-			if (ServerProperties.Properties.CURRENCY_EXCHANGE_ALLOW == true)
-				foreach (string sCurrencyValue in ServerProperties.Properties.CURRENCY_EXCHANGE_VALUES.Split(';'))
+			if (ServerProperties.ServerProperties.CURRENCY_EXCHANGE_ALLOW == true)
+				foreach (string sCurrencyValue in ServerProperties.ServerProperties.CURRENCY_EXCHANGE_VALUES.Split(';'))
 				{
 					string[] asVal = sCurrencyValue.Split('|');
 
@@ -713,7 +713,7 @@ namespace DOL.GS
 	public class GameAtlasGuardMerchant : GameItemCurrencyGuardMerchant
 	{
 		//Atlas Orbs itemtemplate = token_many
-		public override string MoneyKey { get; } = ServerProperties.Properties.ALT_CURRENCY_ID; // remember to set this in server properties
+		public override string MoneyKey { get; } = ServerProperties.ServerProperties.ALT_CURRENCY_ID; // remember to set this in server properties
 
 		public override void OnPlayerBuy(GamePlayer player, int item_slot, int number)
 		{
@@ -736,7 +736,7 @@ namespace DOL.GS
 			//Calculate the value of items
 			long totalValue;
 
-			if (ServerProperties.Properties.ORBS_FIRE_SALE)
+			if (ServerProperties.ServerProperties.ORBS_FIRE_SALE)
 			{
 				totalValue = 0;
 			}

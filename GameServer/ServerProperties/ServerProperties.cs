@@ -12,7 +12,7 @@ namespace DOL.GS.ServerProperties
 	/// The abstract ServerProperty class that also defines the
 	/// static Init and Load methods for other properties that inherit
 	/// </summary>
-	public abstract class Properties
+	public abstract class ServerProperties
 	{
 		/// <summary>
 		/// Defines a logger for this class.

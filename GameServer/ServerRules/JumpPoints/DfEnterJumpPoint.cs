@@ -1,9 +1,7 @@
 using System;
-
 using DOL.Database;
-using DOL.GS.Keeps;
-using DOL.GS.PacketHandler;
 using DOL.Events;
+using DOL.GS.PacketHandler;
 using JNogueira.Discord.Webhook.Client;
 
 namespace DOL.GS.ServerRules
@@ -11,7 +9,7 @@ namespace DOL.GS.ServerRules
 	/// <summary>
 	/// Handles DF entrance jump point allowing only one realm to enter on Normal server type.
 	/// </summary>
-	public class DFEnterJumpPoint : IJumpPointHandler
+	public class DfEnterJumpPoint : IJumpPointHandler
 	{
 		/// <summary>
 		/// Decides whether player can jump to the target point.
@@ -29,7 +27,7 @@ namespace DOL.GS.ServerRules
             }
 			if (GameServer.Instance.Configuration.ServerType != EGameServerType.GST_Normal)
 				return true;
-			if (ServerProperties.Properties.ALLOW_ALL_REALMS_DF)
+			if (ServerProperties.ServerProperties.ALLOW_ALL_REALMS_DF)
 				return true;
 			if (player.Realm == PreviousOwner && LastRealmSwapTick + GracePeriod >= GameLoop.GameLoopTime)
 				return true;
@@ -136,9 +134,9 @@ namespace DOL.GS.ServerRules
 				}
 			}
 			
-			if (ServerProperties.Properties.DISCORD_ACTIVE && !string.IsNullOrEmpty(ServerProperties.Properties.DISCORD_RVR_WEBHOOK_ID))
+			if (ServerProperties.ServerProperties.DISCORD_ACTIVE && !string.IsNullOrEmpty(ServerProperties.ServerProperties.DISCORD_RVR_WEBHOOK_ID))
 			{
-				var client = new DiscordWebhookClient(ServerProperties.Properties.DISCORD_RVR_WEBHOOK_ID);
+				var client = new DiscordWebhookClient(ServerProperties.ServerProperties.DISCORD_RVR_WEBHOOK_ID);
 
 				// Create your DiscordMessage with all parameters of your message.
 				var discordMessage = new DiscordMessage(

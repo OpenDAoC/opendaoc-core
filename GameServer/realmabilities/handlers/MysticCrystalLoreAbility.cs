@@ -21,7 +21,7 @@ namespace DOL.GS.RealmAbilities
 			if (CheckPreconditions(living, DEAD | SITTING | MEZZED | STUNNED | INCOMBAT)) return;
 
 			int heal = 0;
-			if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+			if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
 			{
 				switch (Level)
 				{
@@ -64,7 +64,7 @@ namespace DOL.GS.RealmAbilities
 
 		public override void AddEffectsInfo(IList<string> list)
 		{
-			if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+			if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
 			{
 				list.Add("Level 1: Value: 25%");
 				list.Add("Level 2: Value: 40%");

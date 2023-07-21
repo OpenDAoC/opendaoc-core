@@ -11,7 +11,7 @@ namespace DOL.GS
     public class LootGeneratorExpOrb : LootGeneratorBase
     {
 
-        private static string _currencyID = ServerProperties.Properties.ALT_CURRENCY_ID;
+        private static string _currencyID = ServerProperties.ServerProperties.ALT_CURRENCY_ID;
         private static DbItemTemplates m_token_many = GameServer.Database.FindObjectByKey<DbItemTemplates>(_currencyID);
 
         /// <summary>

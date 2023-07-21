@@ -22,7 +22,7 @@ namespace DOL.GS.Scripts
         /// </summary>
         public virtual int ArosDifficulty
         {
-            get { return ServerProperties.Properties.SET_DIFFICULTY_ON_EPIC_ENCOUNTERS; }
+            get { return ServerProperties.ServerProperties.SET_DIFFICULTY_ON_EPIC_ENCOUNTERS; }
         }
         /// <summary>
         /// Announcements for Bomb, BigBomb, Debuff and Death.

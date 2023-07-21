@@ -88,7 +88,7 @@ namespace DOL.GS
             
             Faction = FactionMgr.GetFactionByID(31);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(31));
-            RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+            RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 
             MoranBrain sBrain = new MoranBrain();
             MoranBrain._aggroStart = true;

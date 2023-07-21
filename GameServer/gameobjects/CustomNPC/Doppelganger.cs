@@ -41,7 +41,7 @@ namespace DOL.GS
         /// </summary>
         public override int RealmPointsValue
         {
-            get { return Properties.DOPPELGANGER_REALM_POINTS; }
+            get { return ServerProperties.ServerProperties.DOPPELGANGER_REALM_POINTS; }
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace DOL.GS
         /// </summary>
         public override int BountyPointsValue
         {
-            get { return Properties.DOPPELGANGER_BOUNTY_POINTS; }
+            get { return ServerProperties.ServerProperties.DOPPELGANGER_BOUNTY_POINTS; }
         }
 
         protected const ushort doppelModel = 2248;

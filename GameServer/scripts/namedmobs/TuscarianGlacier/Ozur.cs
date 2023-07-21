@@ -20,12 +20,12 @@ namespace DOL.GS.Scripts
 
         public virtual int OzurDifficulty
         {
-            get { return ServerProperties.Properties.SET_DIFFICULTY_ON_EPIC_ENCOUNTERS; }
+            get { return ServerProperties.ServerProperties.SET_DIFFICULTY_ON_EPIC_ENCOUNTERS; }
         }
 
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
 
         public override bool AddToWorld()
@@ -39,7 +39,7 @@ namespace DOL.GS.Scripts
             Piety = npcTemplate.Piety;
             Intelligence = npcTemplate.Intelligence;
             Empathy = npcTemplate.Empathy;
-            RespawnInterval = ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+            RespawnInterval = ServerProperties.ServerProperties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 
             Name = "Council Ozur";
             Model = 918;

@@ -27,7 +27,7 @@ namespace DOL.GS
         /// </summary>
         public virtual int DragonDifficulty
         {
-            get { return ServerProperties.Properties.SET_DIFFICULTY_ON_EPIC_ENCOUNTERS; }
+            get { return ServerProperties.ServerProperties.SET_DIFFICULTY_ON_EPIC_ENCOUNTERS; }
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace DOL.GS
         protected String m_glareAnnounce;
         protected String[] m_deathAnnounce;
 
-        private int Reward = Properties.EPICBOSS_ORBS;
+        private int Reward = ServerProperties.ServerProperties.EPICBOSS_ORBS;
 
         /// <summary>
         /// Creates a new instance of GameDragon.
@@ -372,13 +372,13 @@ namespace DOL.GS
             String message = String.Format("{0} has been slain by a force of {1} warriors!", Name, numPlayers);
             NewsMgr.CreateNews(message, killer.Realm, eNewsType.PvE, true);
 
-            if (Properties.GUILD_MERIT_ON_DRAGON_KILL > 0)
+            if (ServerProperties.ServerProperties.GUILD_MERIT_ON_DRAGON_KILL > 0)
             {
                 foreach (GamePlayer player in GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE))
                 {
                     if (player.IsEligibleToGiveMeritPoints)
                     {
-                        GuildEventHandler.MeritForNPCKilled(player, this, Properties.GUILD_MERIT_ON_DRAGON_KILL);
+                        GuildEventHandler.MeritForNPCKilled(player, this, ServerProperties.ServerProperties.GUILD_MERIT_ON_DRAGON_KILL);
                     }
                 }
             }

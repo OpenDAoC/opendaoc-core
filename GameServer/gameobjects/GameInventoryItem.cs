@@ -266,7 +266,7 @@ namespace DOL.GS {
             {
                 GamePlayer player = owner as GamePlayer;
 
-                if (ConditionPercent > 70 && UtilCollection.Chance(ServerProperties.Properties.ITEM_CONDITION_LOSS_CHANCE))
+                if (ConditionPercent > 70 && UtilCollection.Chance(ServerProperties.ServerProperties.ITEM_CONDITION_LOSS_CHANCE))
                 {
                     int oldPercent = ConditionPercent;
                     double con = GamePlayer.GetConLevel(player.Level, Level);
@@ -310,7 +310,7 @@ namespace DOL.GS {
             {
                 GamePlayer player = owner as GamePlayer;
 
-                if (ConditionPercent > 70 && UtilCollection.Chance(ServerProperties.Properties.ITEM_CONDITION_LOSS_CHANCE))
+                if (ConditionPercent > 70 && UtilCollection.Chance(ServerProperties.ServerProperties.ITEM_CONDITION_LOSS_CHANCE))
                 {
                     int oldPercent = ConditionPercent;
                     double con = GamePlayer.GetConLevel(player.Level, Level);
@@ -1787,7 +1787,7 @@ namespace DOL.GS {
             }
 
             delve.Add("");
-            delve.Add("   Value/Price: " + Money.GetShortString(Price) + " / " + Money.GetShortString((long)(Price * (long)ServerProperties.Properties.ITEM_SELL_RATIO * .01)));
+            delve.Add("   Value/Price: " + Money.GetShortString(Price) + " / " + Money.GetShortString((long)(Price * (long)ServerProperties.ServerProperties.ITEM_SELL_RATIO * .01)));
             delve.Add("Count/MaxCount: " + Count + " / " + MaxCount);
             delve.Add("        Weight: " + (Weight / 10.0f) + "lbs");
             delve.Add("       Quality: " + Quality + "%");

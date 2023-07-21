@@ -89,7 +89,7 @@ namespace DOL.GS
 			GreenMawAdd.GreenMawRedCount = 0;
 			GreenMawAdd2.GreenMawOrangeCount = 0;
 
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_QUEST_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_QUEST_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			GreenMawBrain sbrain = new GreenMawBrain();
 			SetOwnBrain(sbrain);
 			LoadedFromScript = false;//load from database

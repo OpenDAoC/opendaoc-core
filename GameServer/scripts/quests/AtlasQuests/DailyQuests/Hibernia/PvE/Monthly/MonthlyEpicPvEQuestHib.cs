@@ -65,7 +65,7 @@ namespace DOL.GS.MonthlyQuest.Hibernia
 		[ScriptLoadedEvent]
 		public static void ScriptLoaded(CoreEvent e, object sender, EventArgs args)
 		{
-			if (!ServerProperties.Properties.LOAD_QUESTS)
+			if (!ServerProperties.ServerProperties.LOAD_QUESTS)
 				return;
 			
 

@@ -37,7 +37,7 @@ namespace DOL.GS.RealmAbilities
 				list.Add("");
 				for (int i = 1; i <= MaxLevel; i++)
 				{
-					list.Add(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "RAStatEnhancer.DelveInfo.Info1", i, GetAmountForLevel(i)));
+					list.Add(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "RAStatEnhancer.DelveInfo.Info1", i, GetAmountForLevel(i)));
 				}
 				return list;
 			}

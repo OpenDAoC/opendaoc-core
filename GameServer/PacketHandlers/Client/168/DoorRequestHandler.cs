@@ -22,7 +22,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 			var doorState = (byte) packet.ReadByte();
 			int doorType = doorID / 100000000;
 
-			int radius = Properties.WORLD_PICKUP_DISTANCE * 4;
+			int radius = ServerProperties.ServerProperties.WORLD_PICKUP_DISTANCE * 4;
 			int zoneDoor = doorID / 1000000;
 
 			string debugText = "";
@@ -43,7 +43,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 			}
 
 			// debug text
-			if (client.Account.PrivLevel > 1 || Properties.ENABLE_DEBUG)
+			if (client.Account.PrivLevel > 1 || ServerProperties.ServerProperties.ENABLE_DEBUG)
 			{
 				if (doorType == 7)
 				{

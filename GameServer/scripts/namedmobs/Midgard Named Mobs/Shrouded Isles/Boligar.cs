@@ -70,7 +70,7 @@ namespace DOL.GS
 			Faction = FactionMgr.GetFactionByID(163);
 			Faction.AddFriendFaction(FactionMgr.GetFactionByID(163));
 
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			BoligarBrain sbrain = new BoligarBrain();
 			SetOwnBrain(sbrain);
 			LoadedFromScript = false;//load from database

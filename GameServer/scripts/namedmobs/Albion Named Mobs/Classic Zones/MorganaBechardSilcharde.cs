@@ -162,7 +162,7 @@ namespace DOL.AI.Brain
 					player.Out.SendSpellEffectAnimation(Body, Body, 9103, 0, false, 1);
 			}
 			CanRemoveMorgana = true;
-			int resetTimer = Properties.SET_EPIC_QUEST_ENCOUNTER_RESPAWNINTERVAL * 60000;//1h to reset encounter
+			int resetTimer = ServerProperties.SET_EPIC_QUEST_ENCOUNTER_RESPAWNINTERVAL * 60000;//1h to reset encounter
 			new ECSGameTimer(Body, new ECSGameTimer.ECSTimerCallback(RestartMorgana), resetTimer);//reset whole encounter here
 			return 0;
         }

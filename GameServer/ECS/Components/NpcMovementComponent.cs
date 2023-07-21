@@ -38,7 +38,7 @@ namespace DOL.GS
         public bool IsMovingOnPath => IsSet(MovementType.ON_PATH);
         public bool IsNearSpawn => Owner.IsWithinRadius(Owner.SpawnPoint, 25);
         public bool IsAtTargetPosition => IsTargetPositionValid && TargetPosition.X == Owner.X && TargetPosition.Y == Owner.Y && TargetPosition.Z == Owner.Z;
-        public bool CanRoam => ServerProperties.Properties.ALLOW_ROAM && RoamingRange != 0 && string.IsNullOrWhiteSpace(PathID);
+        public bool CanRoam => ServerProperties.ServerProperties.ALLOW_ROAM && RoamingRange != 0 && string.IsNullOrWhiteSpace(PathID);
 
         public NpcMovementComponent(GameNPC npcOwner) : base(npcOwner)
         {
@@ -338,7 +338,7 @@ namespace DOL.GS
         private int FollowTick()
         {
             if (Owner.IsCasting)
-                return ServerProperties.Properties.GAMENPC_FOLLOWCHECK_TIME;
+                return ServerProperties.ServerProperties.GAMENPC_FOLLOWCHECK_TIME;
 
             GameLiving followLiving = FollowTarget as GameLiving;
 
@@ -397,7 +397,7 @@ namespace DOL.GS
                         targetPosition = new(newX, newY, newZ);
                         double followSpeed = Math.Max(Math.Min(MaxSpeed, Owner.GetDistance(targetPosition) * FOLLOW_SPEED_SCALAR), 50);
                         PathTo(targetPosition, (short) followSpeed);
-                        return ServerProperties.Properties.GAMENPC_FOLLOWCHECK_TIME;
+                        return ServerProperties.ServerProperties.GAMENPC_FOLLOWCHECK_TIME;
                     }
                 }
             }
@@ -415,7 +415,7 @@ namespace DOL.GS
                     UpdateMovement(null, 0);
 
                 TurnTo(FollowTarget);
-                return ServerProperties.Properties.GAMENPC_FOLLOWCHECK_TIME;
+                return ServerProperties.ServerProperties.GAMENPC_FOLLOWCHECK_TIME;
             }
 
             diffX = diffX / distance * minAllowedFollowDistance;
@@ -430,7 +430,7 @@ namespace DOL.GS
             else
                 PathTo(targetPosition, MaxSpeed);
 
-            return ServerProperties.Properties.GAMENPC_FOLLOWCHECK_TIME;
+            return ServerProperties.ServerProperties.GAMENPC_FOLLOWCHECK_TIME;
         }
 
         private void OnArrival()

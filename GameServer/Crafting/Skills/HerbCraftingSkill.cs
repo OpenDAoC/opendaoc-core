@@ -8,7 +8,7 @@ namespace DOL.GS
 		public HerbCraftingSkill()
 		{
 			Icon = 0x0A;
-			Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "Crafting.Name.Herbcrafting");
+			Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "Crafting.Name.Herbcrafting");
 			eSkill = eCraftingSkill.HerbalCrafting;
 		}
 

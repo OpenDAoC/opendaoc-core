@@ -191,17 +191,17 @@ namespace DOL.GS
 
 		private static bool _IsLoggingEnabled(eInventoryActionType type)
 		{
-			if (!ServerProperties.Properties.LOG_INVENTORY)
+			if (!ServerProperties.ServerProperties.LOG_INVENTORY)
 				return false;
 
 			switch (type)
 			{
-				case eInventoryActionType.Trade: return ServerProperties.Properties.LOG_INVENTORY_TRADE;
-				case eInventoryActionType.Loot: return ServerProperties.Properties.LOG_INVENTORY_LOOT;
-				case eInventoryActionType.Craft: return ServerProperties.Properties.LOG_INVENTORY_CRAFT;
-				case eInventoryActionType.Merchant: return ServerProperties.Properties.LOG_INVENTORY_MERCHANT;
-				case eInventoryActionType.Quest: return ServerProperties.Properties.LOG_INVENTORY_QUEST;
-				case eInventoryActionType.Other: return ServerProperties.Properties.LOG_INVENTORY_OTHER;
+				case eInventoryActionType.Trade: return ServerProperties.ServerProperties.LOG_INVENTORY_TRADE;
+				case eInventoryActionType.Loot: return ServerProperties.ServerProperties.LOG_INVENTORY_LOOT;
+				case eInventoryActionType.Craft: return ServerProperties.ServerProperties.LOG_INVENTORY_CRAFT;
+				case eInventoryActionType.Merchant: return ServerProperties.ServerProperties.LOG_INVENTORY_MERCHANT;
+				case eInventoryActionType.Quest: return ServerProperties.ServerProperties.LOG_INVENTORY_QUEST;
+				case eInventoryActionType.Other: return ServerProperties.ServerProperties.LOG_INVENTORY_OTHER;
 			}
 			return false;
 		}

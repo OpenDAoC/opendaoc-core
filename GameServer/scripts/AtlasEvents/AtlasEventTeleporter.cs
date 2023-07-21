@@ -60,9 +60,9 @@ namespace DOL.GS.Scripts
 			switch(str)
 			{
 				case "fight":
-					if (t.Level != ServerProperties.Properties.EVENT_LVCAP)
+					if (t.Level != ServerProperties.ServerProperties.EVENT_LVCAP)
 					{
-						t.Out.SendMessage("You must be level " + ServerProperties.Properties.EVENT_LVCAP + " to enter the event, speak with my colleague!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
+						t.Out.SendMessage("You must be level " + ServerProperties.ServerProperties.EVENT_LVCAP + " to enter the event, speak with my colleague!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 						return false;
 					}
 					
@@ -81,7 +81,7 @@ namespace DOL.GS.Scripts
 						int randY = UtilCollection.Random(216000, 227000);
 						int z = 6000;
 						
-						t.StartInvulnerabilityTimer(ServerProperties.Properties.TIMER_PVP_TELEPORT*1000,null);
+						t.StartInvulnerabilityTimer(ServerProperties.ServerProperties.TIMER_PVP_TELEPORT*1000,null);
 						t.MoveTo(27, randX, randY, z, t.Heading);
 						
 					}
@@ -96,7 +96,7 @@ namespace DOL.GS.Scripts
 							{
 								log.Info("Enemies in range: " + GetEnemyCountInArea(groupMember, 2750));
 								log.Info("Distance > 5k");
-								t.StartInvulnerabilityTimer(ServerProperties.Properties.TIMER_PVP_TELEPORT*1000,null);
+								t.StartInvulnerabilityTimer(ServerProperties.ServerProperties.TIMER_PVP_TELEPORT*1000,null);
 								t.MoveTo(groupMember.CurrentRegionID, groupMember.X, groupMember.Y, groupMember.Z, groupMember.Heading);
 								return true;
 							}
@@ -107,7 +107,7 @@ namespace DOL.GS.Scripts
 						int randY = UtilCollection.Random(204000, 216000);
 						int z = 9000;
 						
-						t.StartInvulnerabilityTimer(ServerProperties.Properties.TIMER_PVP_TELEPORT*1000,null);
+						t.StartInvulnerabilityTimer(ServerProperties.ServerProperties.TIMER_PVP_TELEPORT*1000,null);
 						t.MoveTo(27, randX, randY, z, t.Heading);
 
 					}

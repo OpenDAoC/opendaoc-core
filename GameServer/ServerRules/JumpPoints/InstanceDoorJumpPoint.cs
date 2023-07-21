@@ -1,7 +1,4 @@
-﻿
-using DOL.Database;
-using DOL.GS.PacketHandler;
-using DOL.GS.Quests;
+﻿using DOL.Database;
 
 namespace DOL.GS.ServerRules
 {

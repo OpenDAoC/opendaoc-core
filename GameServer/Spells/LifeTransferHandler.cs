@@ -141,7 +141,7 @@ namespace DOL.GS.Spells
             {
                 GamePlayer joueur_a_considerer = (m_caster is NecromancerPet ? ((m_caster as NecromancerPet).Brain as IControlledBrain).GetPlayerOwner() : m_caster as GamePlayer);
 
-                int POURCENTAGE_SOIN_RP = ServerProperties.Properties.HEAL_PVP_DAMAGE_VALUE_RP; // ...% de bonus RP pour les soins effectués
+                int POURCENTAGE_SOIN_RP = ServerProperties.ServerProperties.HEAL_PVP_DAMAGE_VALUE_RP; // ...% de bonus RP pour les soins effectués
                 long Bonus_RP_Soin = Convert.ToInt64((double)healedrp * POURCENTAGE_SOIN_RP / 100);
 
                 if (Bonus_RP_Soin >= 1)

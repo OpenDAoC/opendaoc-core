@@ -34,12 +34,12 @@ namespace DOL.GS
 
 		public override string GUILD_ORDER
 		{
-            get { return LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "BasicCraftingMaster.GuildOrder"); }
+            get { return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "BasicCraftingMaster.GuildOrder"); }
 		}
 
 		public override string ACCEPTED_BY_ORDER_NAME
 		{
-            get { return LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "BasicCraftingMaster.AcceptedByOrderName"); }
+            get { return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "BasicCraftingMaster.AcceptedByOrderName"); }
 		}
 		public override string InitialEntersentence
 		{

@@ -96,19 +96,19 @@ namespace DOL.GS.PacketHandler
 			if (updateItems == null)
 				updateItems = new Dictionary<int, InventoryItem>();
 
-			if (updateItems.Count <= ServerProperties.Properties.MAX_ITEMS_PER_PACKET)
+			if (updateItems.Count <= ServerProperties.ServerProperties.MAX_ITEMS_PER_PACKET)
 			{
 				SendInventoryItemsPartialUpdate(updateItems, windowType);
 				return;
 			}
 
-			var items = new Dictionary<int, InventoryItem>(ServerProperties.Properties.MAX_ITEMS_PER_PACKET);
+			var items = new Dictionary<int, InventoryItem>(ServerProperties.ServerProperties.MAX_ITEMS_PER_PACKET);
 
 			foreach (var item in updateItems)
 			{
 				items.Add(item.Key, item.Value);
 
-				if (items.Count >= ServerProperties.Properties.MAX_ITEMS_PER_PACKET)
+				if (items.Count >= ServerProperties.ServerProperties.MAX_ITEMS_PER_PACKET)
 				{
 					SendInventoryItemsPartialUpdate(items, windowType);
 					items.Clear();
@@ -384,7 +384,7 @@ namespace DOL.GS.PacketHandler
 
             if (item.SellPrice > 0)
             {
-				if (ServerProperties.Properties.CONSIGNMENT_USE_BP)
+				if (ServerProperties.ServerProperties.CONSIGNMENT_USE_BP)
                     name += "[" + item.SellPrice.ToString() + " BP]";
                 else
                     name += "[" + Money.GetShortString(item.SellPrice) + "]";

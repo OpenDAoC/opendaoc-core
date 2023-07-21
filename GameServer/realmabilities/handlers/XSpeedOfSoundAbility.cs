@@ -31,7 +31,7 @@ namespace DOL.GS.RealmAbilities
 				return;
 			}
 
-			if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+			if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
 			{
 				switch (Level)
 				{

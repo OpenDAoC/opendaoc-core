@@ -93,7 +93,7 @@ namespace DOL.GS
 			Piety = npcTemplate.Piety;
 			Intelligence = npcTemplate.Intelligence;
 			Empathy = npcTemplate.Empathy;
-			RespawnInterval = ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			Faction = FactionMgr.GetFactionByID(206);
 			Faction.AddFriendFaction(FactionMgr.GetFactionByID(187));
 			IsCloakHoodUp = true;

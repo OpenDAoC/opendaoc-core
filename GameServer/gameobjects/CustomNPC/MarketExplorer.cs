@@ -36,7 +36,7 @@ namespace DOL.GS
 				player.ActiveInventoryObject = null;
 			}
 
-			if (ServerProperties.Properties.MARKET_ENABLE)
+			if (ServerProperties.ServerProperties.MARKET_ENABLE)
 			{
 				player.ActiveInventoryObject = this;
 				player.Out.SendMarketExplorerWindow();
@@ -149,7 +149,7 @@ namespace DOL.GS
                     {
 						if (GetRealmOfLot(item.OwnerLot) != player.Realm)
                         {
-							if (ServerProperties.Properties.MARKET_ENABLE_LOG)
+							if (ServerProperties.ServerProperties.MARKET_ENABLE_LOG)
 							{
 								log.DebugFormat("Not adding item '{0}' to the return search since its from different realm.", item.Name);
 							}
@@ -164,7 +164,7 @@ namespace DOL.GS
 					index++;
 				}
 
-				if (ServerProperties.Properties.MARKET_ENABLE_LOG)
+				if (ServerProperties.ServerProperties.MARKET_ENABLE_LOG)
 				{
 					log.DebugFormat("Current list find size is '{0}'.", list.Count);
 				}
@@ -188,7 +188,7 @@ namespace DOL.GS
 				player.TempProperties.setProperty(EXPLORER_ITEM_LIST, list);
 			} else
             {
-				if (ServerProperties.Properties.MARKET_ENABLE_LOG)
+				if (ServerProperties.ServerProperties.MARKET_ENABLE_LOG)
 				{
 					log.DebugFormat("There is something wrong with the returned search ...");
 				}

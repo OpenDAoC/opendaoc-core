@@ -103,7 +103,7 @@ namespace DOL.GS
 			Empathy = npcTemplate.Empathy;
 			SpawnExecutioners();
 
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_QUEST_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_QUEST_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			SisterBlytheBrain sbrain = new SisterBlytheBrain();
 			SetOwnBrain(sbrain);
 			base.AddToWorld();

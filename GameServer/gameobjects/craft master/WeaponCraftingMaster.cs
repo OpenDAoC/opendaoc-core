@@ -30,7 +30,7 @@ namespace DOL.GS
 		{
 			get
 			{
-                return LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "WeaponCraftingMaster.GuildOrder");
+                return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "WeaponCraftingMaster.GuildOrder");
             }
 		}
 
@@ -38,7 +38,7 @@ namespace DOL.GS
 		{
 			get
 			{
-                return LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "WeaponCraftingMaster.AcceptedByOrderName");
+                return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "WeaponCraftingMaster.AcceptedByOrderName");
             }
 		}
 
@@ -51,7 +51,7 @@ namespace DOL.GS
 		{
 			get
 			{
-                return LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "WeaponCraftingMaster.InitialEntersentence");
+                return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "WeaponCraftingMaster.InitialEntersentence");
             }
 		}
 	}

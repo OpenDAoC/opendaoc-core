@@ -31,7 +31,7 @@ namespace DOL.GS.GameEvents
 		public static void OnScriptCompiled(CoreEvent e, object sender, EventArgs args)
 		{
 			// Desactivated
-			if (ServerProperties.Properties.STATSAVE_INTERVAL == -1)
+			if (ServerProperties.ServerProperties.STATSAVE_INTERVAL == -1)
 				return;
 			
 			// try
@@ -57,7 +57,7 @@ namespace DOL.GS.GameEvents
 			// 		log.Warn(ex.GetType().Name + " ProcessCpuUsedCounter won't be available: " + ex.Message);
 			// }
 			// 1 min * INTERVAL
-			m_statFrequency *= ServerProperties.Properties.STATSAVE_INTERVAL;
+			m_statFrequency *= ServerProperties.ServerProperties.STATSAVE_INTERVAL;
 			lock (typeof(StatSave))
 			{
 				m_timer = new Timer(new TimerCallback(SaveStats), null, INITIAL_DELAY, Timeout.Infinite);

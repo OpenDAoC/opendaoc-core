@@ -46,20 +46,20 @@ namespace DOL.GS.Spells
 				}
 			}
 
-			foreach (GameNPC npc in Caster.CurrentRegion.GetNPCsInRadius(Caster.GroundTarget.X, Caster.GroundTarget.Y, Caster.GroundTarget.Z, (ushort)Properties.TURRET_AREA_CAP_RADIUS, true))
+			foreach (GameNPC npc in Caster.CurrentRegion.GetNPCsInRadius(Caster.GroundTarget.X, Caster.GroundTarget.Y, Caster.GroundTarget.Z, (ushort)ServerProperties.ServerProperties.TURRET_AREA_CAP_RADIUS, true))
 			{
 				if (npc.Brain is TurretFnfBrain)
 					nCount++;
 			}
 
-			if (nCount >= Properties.TURRET_AREA_CAP_COUNT)
+			if (nCount >= ServerProperties.ServerProperties.TURRET_AREA_CAP_COUNT)
 			{
                 if (Caster is GamePlayer)
                     MessageToCaster(LanguageMgr.GetTranslation((Caster as GamePlayer).Client, "SummonAnimistFnF.CheckBeginCast.TurretAreaCap"), EChatType.CT_SpellResisted);
                 return false;
 			}
 
-			if (Caster.PetCount >= Properties.TURRET_PLAYER_CAP_COUNT)
+			if (Caster.PetCount >= ServerProperties.ServerProperties.TURRET_PLAYER_CAP_COUNT)
 			{
                 if (Caster is GamePlayer)
                     MessageToCaster(LanguageMgr.GetTranslation((Caster as GamePlayer).Client, "SummonAnimistFnF.CheckBeginCast.TurretPlayerCap"), EChatType.CT_SpellResisted);

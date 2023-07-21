@@ -146,7 +146,7 @@ namespace DOL.GS
                         && p.CheckStyleStun(s)) // Make sure we don't spam stun styles like Brutalize
                         return s;
 
-            if (UtilCollection.Chance(Properties.GAMENPC_CHANCES_TO_STYLE))
+            if (UtilCollection.Chance(ServerProperties.ServerProperties.GAMENPC_CHANCES_TO_STYLE))
             {
                 // All of the remaining lists are randomly picked from,
                 // as this creates more variety with each combat result.

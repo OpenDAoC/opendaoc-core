@@ -41,7 +41,7 @@ namespace DOL.GS
         }
         public virtual int MaldaharTheGlimmerPrinceDifficulty
         {
-            get { return ServerProperties.Properties.SET_DIFFICULTY_ON_EPIC_ENCOUNTERS; }
+            get { return ServerProperties.ServerProperties.SET_DIFFICULTY_ON_EPIC_ENCOUNTERS; }
         }
         public override double AttackDamage(InventoryItem weapon)
         {
@@ -76,7 +76,7 @@ namespace DOL.GS
             BodyType = 8;
             Faction = FactionMgr.GetFactionByID(83);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(83));
-            RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
+            RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
 
             MaldaharBrain sBrain = new MaldaharBrain();
             SetOwnBrain(sBrain);

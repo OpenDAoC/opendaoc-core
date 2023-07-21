@@ -22,7 +22,7 @@ namespace DOL.GS
 		{
 			get
 			{
-                return LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SiegecraftingMaster.GuildOrder");
+                return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SiegecraftingMaster.GuildOrder");
             }
 		}
 
@@ -30,7 +30,7 @@ namespace DOL.GS
 		{
 			get
 			{
-                return LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SiegecraftingMaster.AcceptedByOrderName");
+                return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SiegecraftingMaster.AcceptedByOrderName");
             }
 		}
 
@@ -49,7 +49,7 @@ namespace DOL.GS
 		{
 			get
 			{
-                return LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SiegecraftingMaster.InitialEntersentence");
+                return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SiegecraftingMaster.InitialEntersentence");
             }
 		}
 	}

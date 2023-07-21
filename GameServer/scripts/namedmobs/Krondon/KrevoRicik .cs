@@ -74,7 +74,7 @@ namespace DOL.GS
 			MaxSpeedBase = 250;
 			MaxDistance = 3500;
 			TetherRange = 3800;
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 
 			Faction = FactionMgr.GetFactionByID(8);
 			Faction.AddFriendFaction(FactionMgr.GetFactionByID(8));
@@ -214,7 +214,7 @@ namespace DOL.GS
 			Name = "forgoten ghost";
 			Size = (byte)(UtilCollection.Random(50, 70));
 			MaxSpeedBase = 250;
-			RespawnInterval = ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 
 			Faction = FactionMgr.GetFactionByID(8);
 			Faction.AddFriendFaction(FactionMgr.GetFactionByID(8));

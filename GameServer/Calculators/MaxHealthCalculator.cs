@@ -54,8 +54,8 @@ namespace DOL.GS.PropertyCalc
 
 				if (gameKeep != null)
 				{
-					int baseHealth = gameKeep.BaseLevel * Properties.KEEP_COMPONENTS_BASE_HEALTH;
-					baseHealth += (int)(baseHealth * (gameKeep.Level - 1) * Properties.KEEP_COMPONENTS_HEALTH_UPGRADE_MODIFIER);
+					int baseHealth = gameKeep.BaseLevel * ServerProperties.ServerProperties.KEEP_COMPONENTS_BASE_HEALTH;
+					baseHealth += (int)(baseHealth * (gameKeep.Level - 1) * ServerProperties.ServerProperties.KEEP_COMPONENTS_HEALTH_UPGRADE_MODIFIER);
 					return baseHealth;
 				}
 
@@ -68,10 +68,10 @@ namespace DOL.GS.PropertyCalc
 				if (gameKeep != null)
 				{
 					if (gameKeep.IsRelic)
-						return Properties.RELIC_DOORS_HEALTH;
+						return ServerProperties.ServerProperties.RELIC_DOORS_HEALTH;
 
-					int baseHealth = gameKeep.BaseLevel * Properties.KEEP_DOORS_BASE_HEALTH;
-					baseHealth += (int)(baseHealth * (gameKeep.Level - 1) * Properties.KEEP_DOORS_HEALTH_UPGRADE_MODIFIER);
+					int baseHealth = gameKeep.BaseLevel * ServerProperties.ServerProperties.KEEP_DOORS_BASE_HEALTH;
+					baseHealth += (int)(baseHealth * (gameKeep.Level - 1) * ServerProperties.ServerProperties.KEEP_DOORS_HEALTH_UPGRADE_MODIFIER);
 					return baseHealth;
 				}
 
@@ -172,9 +172,9 @@ namespace DOL.GS.PropertyCalc
 
 				// first adjust hitpoints based on base CON
 
-				if (basecon != ServerProperties.Properties.GAMENPC_BASE_CON)
+				if (basecon != ServerProperties.ServerProperties.GAMENPC_BASE_CON)
 				{
-					hp = Math.Max(1, hp + ((basecon - ServerProperties.Properties.GAMENPC_BASE_CON) * ServerProperties.Properties.GAMENPC_HP_GAIN_PER_CON));
+					hp = Math.Max(1, hp + ((basecon - ServerProperties.ServerProperties.GAMENPC_BASE_CON) * ServerProperties.ServerProperties.GAMENPC_HP_GAIN_PER_CON));
 				}
 
 				// Now adjust for buffs
@@ -223,9 +223,9 @@ namespace DOL.GS.PropertyCalc
 
 				// first adjust hitpoints based on base CON
 
-				if (basecon != ServerProperties.Properties.GAMENPC_BASE_CON && living.Level >= 10)
+				if (basecon != ServerProperties.ServerProperties.GAMENPC_BASE_CON && living.Level >= 10)
 				{
-					hp = Math.Max(1, hp + ((basecon - ServerProperties.Properties.GAMENPC_BASE_CON) * ServerProperties.Properties.GAMENPC_HP_GAIN_PER_CON));
+					hp = Math.Max(1, hp + ((basecon - ServerProperties.ServerProperties.GAMENPC_BASE_CON) * ServerProperties.ServerProperties.GAMENPC_HP_GAIN_PER_CON));
 				}
 
 				// Now adjust for buffs

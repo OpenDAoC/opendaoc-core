@@ -123,7 +123,7 @@ namespace DOL.GS
 		{
 			get
 			{
-				return ServerProperties.Properties.LOSMGR_QUERY_TIMEOUT;
+				return ServerProperties.ServerProperties.LOSMGR_QUERY_TIMEOUT;
 			}
 		}
 		
@@ -134,7 +134,7 @@ namespace DOL.GS
 		{
 			get
 			{
-				return ServerProperties.Properties.LOSMGR_PLAYER_VS_PLAYER_CACHE_TIMEOUT;
+				return ServerProperties.ServerProperties.LOSMGR_PLAYER_VS_PLAYER_CACHE_TIMEOUT;
 			}
 		}
 		
@@ -145,7 +145,7 @@ namespace DOL.GS
 		{
 			get
 			{
-				return ServerProperties.Properties.LOSMGR_PLAYER_VS_ENVIRONMENT_CACHE_TIMEOUT;
+				return ServerProperties.ServerProperties.LOSMGR_PLAYER_VS_ENVIRONMENT_CACHE_TIMEOUT;
 			}
 		}
 		
@@ -156,7 +156,7 @@ namespace DOL.GS
 		{
 			get
 			{
-				return ServerProperties.Properties.LOSMGR_ENVIRONMENT_VS_ENVIRONMENT_CACHE_TIMEOUT;
+				return ServerProperties.ServerProperties.LOSMGR_ENVIRONMENT_VS_ENVIRONMENT_CACHE_TIMEOUT;
 			}
 		}
 		
@@ -167,7 +167,7 @@ namespace DOL.GS
 		{
 			get
 			{
-				return ServerProperties.Properties.LOSMGR_PLAYER_CHECK_FREQUENCY;
+				return ServerProperties.ServerProperties.LOSMGR_PLAYER_CHECK_FREQUENCY;
 			}
 		}
 
@@ -178,7 +178,7 @@ namespace DOL.GS
 		{
 			get
 			{
-				return ServerProperties.Properties.LOSMGR_PLAYER_VS_PLAYER_RANGE_THRESHOLD;
+				return ServerProperties.ServerProperties.LOSMGR_PLAYER_VS_PLAYER_RANGE_THRESHOLD;
 			}
 		}
 
@@ -189,7 +189,7 @@ namespace DOL.GS
 		{
 			get
 			{
-				return ServerProperties.Properties.LOSMGR_PLAYER_VS_ENVIRONMENT_RANGE_THRESHOLD;
+				return ServerProperties.ServerProperties.LOSMGR_PLAYER_VS_ENVIRONMENT_RANGE_THRESHOLD;
 			}
 		}
 
@@ -200,7 +200,7 @@ namespace DOL.GS
 		{
 			get
 			{
-				return ServerProperties.Properties.LOSMGR_ENVIRONMENT_VS_ENVIRONMENT_RANGE_THRESHOLD;
+				return ServerProperties.ServerProperties.LOSMGR_ENVIRONMENT_VS_ENVIRONMENT_RANGE_THRESHOLD;
 			}
 		}
 		
@@ -211,7 +211,7 @@ namespace DOL.GS
 		{
 			get
 			{
-				return ServerProperties.Properties.LOSMGR_MAX_CONTAMINATION_RADIUS;
+				return ServerProperties.ServerProperties.LOSMGR_MAX_CONTAMINATION_RADIUS;
 			}
 		}
 		
@@ -222,7 +222,7 @@ namespace DOL.GS
 		{
 			get
 			{
-				return ServerProperties.Properties.LOSMGR_NPC_CONTAMINATION_RADIUS;
+				return ServerProperties.ServerProperties.LOSMGR_NPC_CONTAMINATION_RADIUS;
 			}
 		}
 		
@@ -233,7 +233,7 @@ namespace DOL.GS
 		{
 			get
 			{
-				return ServerProperties.Properties.LOSMGR_PET_CONTAMINATION_RADIUS;
+				return ServerProperties.ServerProperties.LOSMGR_PET_CONTAMINATION_RADIUS;
 			}
 		}
 		
@@ -244,7 +244,7 @@ namespace DOL.GS
 		{
 			get
 			{
-				return ServerProperties.Properties.LOSMGR_PLAYER_CONTAMINATION_RADIUS;
+				return ServerProperties.ServerProperties.LOSMGR_PLAYER_CONTAMINATION_RADIUS;
 			}
 		}
 		
@@ -255,7 +255,7 @@ namespace DOL.GS
 		{
 			get
 			{
-				return ServerProperties.Properties.LOSMGR_GUARD_CONTAMINATION_RADIUS;
+				return ServerProperties.ServerProperties.LOSMGR_GUARD_CONTAMINATION_RADIUS;
 			}
 		}
 		
@@ -266,7 +266,7 @@ namespace DOL.GS
 		{
 			get
 			{
-				return ServerProperties.Properties.LOSMGR_CONTAMINATION_ZFACTOR;
+				return ServerProperties.ServerProperties.LOSMGR_CONTAMINATION_ZFACTOR;
 			}
 		}
 
@@ -277,7 +277,7 @@ namespace DOL.GS
 		{
 			get
 			{
-				return ServerProperties.Properties.LOSMGR_CLEANUP_ENTRIES;
+				return ServerProperties.ServerProperties.LOSMGR_CLEANUP_ENTRIES;
 			}
 		}
 		
@@ -288,7 +288,7 @@ namespace DOL.GS
 		{
 			get
 			{
-				return ServerProperties.Properties.LOSMGR_CLEANUP_FREQUENCY;
+				return ServerProperties.ServerProperties.LOSMGR_CLEANUP_FREQUENCY;
 			}
 		}
 
@@ -299,7 +299,7 @@ namespace DOL.GS
 		{
 			get
 			{
-				return ServerProperties.Properties.LOSMGR_DEBUG_LEVEL;
+				return ServerProperties.ServerProperties.LOSMGR_DEBUG_LEVEL;
 			}
 		}
 		
@@ -934,7 +934,7 @@ namespace DOL.GS
 		/// <returns>True is this is related to a Player</returns>
 		private bool isObjectFromPlayer(GameObject obj)
 		{
-			return (obj is GameNPC && ((GameNPC)obj).Brain is IControlledBrain && ServerProperties.Properties.ALWAYS_CHECK_PET_LOS && ((IControlledBrain)((GameNPC)obj).Brain).GetPlayerOwner() != null)
+			return (obj is GameNPC && ((GameNPC)obj).Brain is IControlledBrain && ServerProperties.ServerProperties.ALWAYS_CHECK_PET_LOS && ((IControlledBrain)((GameNPC)obj).Brain).GetPlayerOwner() != null)
 			   || obj is GamePlayer;
 		}
 		

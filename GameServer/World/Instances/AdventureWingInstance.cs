@@ -176,8 +176,8 @@ namespace DOL.GS
             	foreach (GameNPC mob in GetMobsInsideInstance(true))
             	{
             		// there is still something => standard autoclosure + break;
-	            	log.Warn("Instance now empty, will destroy instance " + Description + ", ID: " + ID + ", type=" + GetType().ToString() + ". In " + ServerProperties.Properties.ADVENTUREWING_TIME_TO_DESTROY + " min.");
-	            	this.BeginAutoClosureCountdown(ServerProperties.Properties.ADVENTUREWING_TIME_TO_DESTROY);
+	            	log.Warn("Instance now empty, will destroy instance " + Description + ", ID: " + ID + ", type=" + GetType().ToString() + ". In " + ServerProperties.ServerProperties.ADVENTUREWING_TIME_TO_DESTROY + " min.");
+	            	this.BeginAutoClosureCountdown(ServerProperties.ServerProperties.ADVENTUREWING_TIME_TO_DESTROY);
                 	
                 	return;
             	}

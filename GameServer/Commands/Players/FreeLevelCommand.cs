@@ -41,13 +41,13 @@ namespace DOL.GS.Commands
 			switch (client.Player.Realm)
 			{
 				case ERealm.Albion:
-					t = client.Player.LastFreeLeveled.AddDays(DOL.GS.ServerProperties.Properties.FREELEVEL_DAYS_ALBION) - DateTime.Now;
+					t = client.Player.LastFreeLeveled.AddDays(DOL.GS.ServerProperties.ServerProperties.FREELEVEL_DAYS_ALBION) - DateTime.Now;
 					break;
 				case ERealm.Midgard:
-					t = client.Player.LastFreeLeveled.AddDays(DOL.GS.ServerProperties.Properties.FREELEVEL_DAYS_MIDGARD) - DateTime.Now;
+					t = client.Player.LastFreeLeveled.AddDays(DOL.GS.ServerProperties.ServerProperties.FREELEVEL_DAYS_MIDGARD) - DateTime.Now;
 					break;
 				case ERealm.Hibernia:
-					t = client.Player.LastFreeLeveled.AddDays(DOL.GS.ServerProperties.Properties.FREELEVEL_DAYS_HIBERNIA) - DateTime.Now;
+					t = client.Player.LastFreeLeveled.AddDays(DOL.GS.ServerProperties.ServerProperties.FREELEVEL_DAYS_HIBERNIA) - DateTime.Now;
 					Console.WriteLine("derp");
 					break;
 			}

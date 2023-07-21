@@ -81,7 +81,7 @@ namespace DOL.GS.RealmAbilities
 		[ScriptLoadedEvent]
 		public static void OnScriptLoaded(CoreEvent e, object sender, EventArgs args)
 		{
-            if (!ServerProperties.Properties.LOAD_ARROW_SUMMONING)
+            if (!ServerProperties.ServerProperties.LOAD_ARROW_SUMMONING)
                 return;            
             
             DbItemTemplates arrow_summoning1 = GameServer.Database.FindObjectByKey<DbItemTemplates>("arrow_summoning1");

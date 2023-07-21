@@ -86,13 +86,13 @@ namespace DOL.GS
 				if (!mob.Name.ToLower().Equals(mob.Name))
 				{
 					//Named mob, more cash !
-					maxcount = (int)Math.Round(maxcount*ServerProperties.Properties.LOOTGENERATOR_AURULITE_NAMED_COUNT);
+					maxcount = (int)Math.Round(maxcount*ServerProperties.ServerProperties.LOOTGENERATOR_AURULITE_NAMED_COUNT);
 				}
 				
 				// add to loot
-				if(maxcount > 0 && UtilCollection.Chance(ServerProperties.Properties.LOOTGENERATOR_AURULITE_BASE_CHANCE+Math.Max(10, killedcon))) {
+				if(maxcount > 0 && UtilCollection.Chance(ServerProperties.ServerProperties.LOOTGENERATOR_AURULITE_BASE_CHANCE+Math.Max(10, killedcon))) {
 					// Add to fixed to prevent overrides with loottemplate
-					loot.AddFixed(aurulite, (int)Math.Ceiling(maxcount*ServerProperties.Properties.LOOTGENERATOR_AURULITE_AMOUNT_RATIO));
+					loot.AddFixed(aurulite, (int)Math.Ceiling(maxcount*ServerProperties.ServerProperties.LOOTGENERATOR_AURULITE_AMOUNT_RATIO));
 				}
 				
 			}

@@ -32,12 +32,12 @@ namespace DOL.GS.Commands
             string message = string.Join(" ", args, 1, args.Length - 1);
 
             var lastLFGTick = client.Player.TempProperties.getProperty<long>(lfgTimeoutString);
-            var slowModeLength = Properties.LFG_SLOWMODE_LENGTH * 1000;
+            var slowModeLength = ServerProperties.ServerProperties.LFG_SLOWMODE_LENGTH * 1000;
 			
             if ((GameLoop.GameLoopTime - lastLFGTick) < slowModeLength && client.Account.PrivLevel == 1) // 60 secs
             {
                 // Message: You must wait {0} seconds before using this command again.
-                ChatUtil.SendSystemMessage(client, "PLCommands.LFG.List.Wait", Properties.LFG_SLOWMODE_LENGTH - (GameLoop.GameLoopTime - lastLFGTick) / 1000);
+                ChatUtil.SendSystemMessage(client, "PLCommands.LFG.List.Wait", ServerProperties.ServerProperties.LFG_SLOWMODE_LENGTH - (GameLoop.GameLoopTime - lastLFGTick) / 1000);
                 return;
             }
             
@@ -55,7 +55,7 @@ namespace DOL.GS.Commands
                 }
             }
 
-            if (Properties.DISCORD_ACTIVE) WebhookMessage.LogChatMessage(player, EChatType.CT_LFG, message);
+            if (ServerProperties.ServerProperties.DISCORD_ACTIVE) WebhookMessage.LogChatMessage(player, EChatType.CT_LFG, message);
             
             if (player.Client.Account.PrivLevel == 1)
             {

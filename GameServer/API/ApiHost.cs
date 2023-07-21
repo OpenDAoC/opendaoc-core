@@ -178,7 +178,7 @@ namespace DOL.GS.API
 
             #region Misc
 
-            api.MapGet("/bread", () => Properties.BREAD);
+            api.MapGet("/bread", () => ServerProperties.ServerProperties.BREAD);
 
             api.MapGet("/utils/discordstatus/{accountName}", (string accountName) =>
             {
@@ -190,7 +190,7 @@ namespace DOL.GS.API
             {
                 var dict = new Dictionary<string, int>()
                 {
-                    { "max_players", Properties.MAX_PLAYERS }
+                    { "max_players", ServerProperties.ServerProperties.MAX_PLAYERS }
                 };
                 return Results.Ok(dict);
             });

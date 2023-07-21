@@ -61,7 +61,7 @@ namespace DOL.GS
 			Intelligence = npcTemplate.Intelligence;
 			Empathy = npcTemplate.Empathy;
 
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_QUEST_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_QUEST_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			YdeniaBrain sbrain = new YdeniaBrain();
 			SetOwnBrain(sbrain);
 			base.AddToWorld();

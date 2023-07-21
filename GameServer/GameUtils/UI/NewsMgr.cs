@@ -31,7 +31,7 @@ namespace DOL.GS
 				}
 			}
 
-			if (ServerProperties.Properties.RECORD_NEWS)
+			if (ServerProperties.ServerProperties.RECORD_NEWS)
 			{
 				DbNews news = new DbNews();
 				news.Type = (byte)type;

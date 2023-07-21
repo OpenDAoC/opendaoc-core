@@ -68,7 +68,7 @@ namespace DOL.GS
 			Empathy = npcTemplate.Empathy;
 			DremcisFuiloltairBrain.CanSpawnStag = false;
 
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			DremcisFuiloltairBrain sbrain = new DremcisFuiloltairBrain();
 			SetOwnBrain(sbrain);
 			LoadedFromScript = false;//load from database

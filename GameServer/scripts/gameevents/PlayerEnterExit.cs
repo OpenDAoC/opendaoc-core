@@ -38,7 +38,7 @@ namespace DOL.GS.GameEvents
 		/// <param name="arguments"></param>
 		private static void PlayerEntered(CoreEvent e, object sender, EventArgs arguments)
 		{
-			if (ServerProperties.Properties.SHOW_LOGINS == false)
+			if (ServerProperties.ServerProperties.SHOW_LOGINS == false)
 				return;
 
 			GamePlayer player = sender as GamePlayer;
@@ -68,8 +68,8 @@ namespace DOL.GS.GameEvents
 
 				EChatType chatType = EChatType.CT_System;
 
-				if (Enum.IsDefined(typeof(EChatType), ServerProperties.Properties.SHOW_LOGINS_CHANNEL))
-					chatType = (EChatType)ServerProperties.Properties.SHOW_LOGINS_CHANNEL;
+				if (Enum.IsDefined(typeof(EChatType), ServerProperties.ServerProperties.SHOW_LOGINS_CHANNEL))
+					chatType = (EChatType)ServerProperties.ServerProperties.SHOW_LOGINS_CHANNEL;
 
 				pclient.Out.SendMessage(message, chatType, EChatLoc.CL_SystemWindow);
 			}
@@ -83,7 +83,7 @@ namespace DOL.GS.GameEvents
 		/// <param name="arguments"></param>
 		private static void PlayerQuit(CoreEvent e, object sender, EventArgs arguments)
 		{
-			if (ServerProperties.Properties.SHOW_LOGINS == false)
+			if (ServerProperties.ServerProperties.SHOW_LOGINS == false)
 				return;
 
 			GamePlayer player = sender as GamePlayer;
@@ -113,8 +113,8 @@ namespace DOL.GS.GameEvents
 
 				EChatType chatType = EChatType.CT_System;
 
-				if (Enum.IsDefined(typeof(EChatType), ServerProperties.Properties.SHOW_LOGINS_CHANNEL))
-					chatType = (EChatType)ServerProperties.Properties.SHOW_LOGINS_CHANNEL;
+				if (Enum.IsDefined(typeof(EChatType), ServerProperties.ServerProperties.SHOW_LOGINS_CHANNEL))
+					chatType = (EChatType)ServerProperties.ServerProperties.SHOW_LOGINS_CHANNEL;
 
 				pclient.Out.SendMessage(message, chatType, EChatLoc.CL_SystemWindow);
 			}

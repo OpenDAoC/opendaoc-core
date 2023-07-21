@@ -92,7 +92,7 @@ namespace DOL.GS
             Intelligence = npcTemplate.Intelligence;
             Faction = FactionMgr.GetFactionByID(187);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(187));
-            RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
+            RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
             SpecialInnocent.InnocentCount = 0;
 
             GameNpcInventoryTemplate template = new GameNpcInventoryTemplate();

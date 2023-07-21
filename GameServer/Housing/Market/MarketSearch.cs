@@ -507,7 +507,7 @@ namespace DOL.GS
 			int count = 0;
 			m_searchHasError = false;
 
-			if (ServerProperties.Properties.MARKET_ENABLE_LOG && search.page == 0)
+			if (ServerProperties.ServerProperties.MARKET_ENABLE_LOG && search.page == 0)
 			{
 				log.DebugFormat("MarketSearch: [{0}:{1}] SEARCHING MARKET: {2}", m_searchPlayer.Name, m_searchPlayer.Client.Account.Name, search);
 			}
@@ -515,7 +515,7 @@ namespace DOL.GS
 			foreach (InventoryItem item in inventoryItems)
 			{
 				
-				if (ServerProperties.Properties.MARKET_ENABLE_LOG)
+				if (ServerProperties.ServerProperties.MARKET_ENABLE_LOG)
 				{
 					log.DebugFormat("Analyzing cached item {0} to see if it fits search criteria.", item.Name);
 				}
@@ -638,18 +638,18 @@ namespace DOL.GS
 				if (search.damageType > 0 && CheckForDamageType(item, search.damageType) == false)
 					continue;
 
-				if (ServerProperties.Properties.MARKET_ENABLE_LOG)
+				if (ServerProperties.ServerProperties.MARKET_ENABLE_LOG)
 				{
 					log.DebugFormat("Adding item '{0}' to the list of search ...", item.Name);
 				}
 				
 				items.Add(item);
 
-				if (++count >= ServerProperties.Properties.MARKET_SEARCH_LIMIT)
+				if (++count >= ServerProperties.ServerProperties.MARKET_SEARCH_LIMIT)
 					break;
 			}
 
-			if (ServerProperties.Properties.MARKET_ENABLE_LOG)
+			if (ServerProperties.ServerProperties.MARKET_ENABLE_LOG)
 			{
 				log.DebugFormat("Returning '{0}' items from search.", items.Count);
 			}
@@ -660,7 +660,7 @@ namespace DOL.GS
 		protected virtual bool CheckSlot(InventoryItem item, int slot)
 		{
 		
-			if (ServerProperties.Properties.MARKET_ENABLE_LOG)
+			if (ServerProperties.ServerProperties.MARKET_ENABLE_LOG)
 			{
 				log.DebugFormat("Market Explorer Search for items on slot '{0}' and for item '{1}'", slot, item.Name);
 				log.DebugFormat("Market Explorer Search current item '{0}' as itemType '{1}' comparing with '{2}'.", item.Name, item.Item_Type, (int)eInventorySlot.ArmsArmor);

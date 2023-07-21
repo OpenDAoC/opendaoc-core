@@ -111,7 +111,7 @@ namespace DOL.GS
                     string error = string.Empty;
   
                     // Default Classtype
-                    string classtype = ServerProperties.Properties.GAMENPC_DEFAULT_CLASSTYPE;
+                    string classtype = ServerProperties.ServerProperties.GAMENPC_DEFAULT_CLASSTYPE;
                     
                     // load template if any
                     INpcTemplate template = null;

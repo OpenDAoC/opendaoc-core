@@ -48,7 +48,7 @@ namespace DOL.GS.RealmAbilities
 
 		public override int GetAmountForLevel(int level)
 		{
-			if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+			if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
 			{
 				switch (level)
 				{
@@ -84,7 +84,7 @@ namespace DOL.GS.RealmAbilities
 
 		public override int GetAmountForLevel(int level)
 		{
-			if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+			if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
 			{
 				switch (level)
 				{

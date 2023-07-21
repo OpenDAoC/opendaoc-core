@@ -30,7 +30,7 @@ namespace DOL.GS
 		{
 			get
 			{
-                return LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "ArmorCraftingMaster.GuildOrder");
+                return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "ArmorCraftingMaster.GuildOrder");
             }
 		}
 
@@ -38,7 +38,7 @@ namespace DOL.GS
 		{
 			get
 			{
-                return LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "ArmorCraftingMaster.AcceptedByOrderName");
+                return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "ArmorCraftingMaster.AcceptedByOrderName");
             }
 		}
 
@@ -51,7 +51,7 @@ namespace DOL.GS
 		{
 			get
 			{
-                return LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "ArmorCraftingMaster.InitialEntersentence");
+                return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "ArmorCraftingMaster.InitialEntersentence");
             }
 		}
 	}

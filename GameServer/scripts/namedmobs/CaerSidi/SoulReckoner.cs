@@ -27,7 +27,7 @@ namespace DOL.GS
         }
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
 
         public override int MaxHealth
@@ -73,7 +73,7 @@ namespace DOL.GS
             Empathy = npcTemplate.Empathy;
 
             MeleeDamageType = EDamageType.Spirit;
-            RespawnInterval = ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
+            RespawnInterval = ServerProperties.ServerProperties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
             ReckonedSoul.SoulCount = 0;
             SoulReckonerBrain adds = new SoulReckonerBrain();
             SetOwnBrain(adds);

@@ -36,7 +36,7 @@ namespace DOL.GS
 
 		protected int ReturnRelicInterval
 		{
-			get { return ServerProperties.Properties.RELIC_RETURN_TIME * 1000; }
+			get { return ServerProperties.ServerProperties.RELIC_RETURN_TIME * 1000; }
 		}
 
 		/// <summary>
@@ -236,9 +236,9 @@ namespace DOL.GS
 
 				log.DebugFormat("keep {0}", keep);
 				
-				if (m_currentRelicPad.GetEnemiesOnPad() < Properties.RELIC_PLAYERS_REQUIRED_ON_PAD)
+				if (m_currentRelicPad.GetEnemiesOnPad() < ServerProperties.ServerProperties.RELIC_PLAYERS_REQUIRED_ON_PAD)
 				{
-					player.Out.SendMessage($"You must have {Properties.RELIC_PLAYERS_REQUIRED_ON_PAD} players nearby the pad before taking a relic.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
+					player.Out.SendMessage($"You must have {ServerProperties.ServerProperties.RELIC_PLAYERS_REQUIRED_ON_PAD} players nearby the pad before taking a relic.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 					return;
 				}
 			}

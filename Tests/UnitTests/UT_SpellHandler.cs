@@ -457,7 +457,7 @@ namespace DOL.Tests.Unit.Gameserver
         [Test]
         public void CalculateToHitChance_TargetIsNPCLevel50SourceIsLevel50PlayerAndSpellLevelIs40_Return80()
         {
-            GS.ServerProperties.Properties.PVE_SPELL_CONHITPERCENT = 10;
+            GS.ServerProperties.ServerProperties.PVE_SPELL_CONHITPERCENT = 10;
             var spell = NewFakeSpell();
             spell.Level = 40;
             var source = NewFakePlayer();

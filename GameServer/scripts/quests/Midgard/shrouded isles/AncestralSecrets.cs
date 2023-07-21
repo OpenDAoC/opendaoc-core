@@ -75,7 +75,7 @@ namespace DOL.GS.Quests.Hibernia
 		[ScriptLoadedEvent]
 		public static void ScriptLoaded(CoreEvent e, object sender, EventArgs args)
 		{
-			if (!ServerProperties.Properties.LOAD_QUESTS)
+			if (!ServerProperties.ServerProperties.LOAD_QUESTS)
 				return;
 
 			#region defineNPCs
@@ -344,7 +344,7 @@ namespace DOL.GS.Quests.Hibernia
 			AncestralKeeper.CurrentRegionID = 151;
 			AncestralKeeper.Size = 140;
 			AncestralKeeper.Level = 65;
-			AncestralKeeper.ScalingFactor = ServerProperties.Properties.NECK_BOSS_SCALING;
+			AncestralKeeper.ScalingFactor = ServerProperties.ServerProperties.NECK_BOSS_SCALING;
 			AncestralKeeper.X = player.X;
 			AncestralKeeper.Y = player.Y;
 			AncestralKeeper.Z = player.Z;

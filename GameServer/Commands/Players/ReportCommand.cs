@@ -18,7 +18,7 @@ namespace DOL.GS.Commands
 		
 		public void OnCommand(GameClient client, string[] args)
 		{
-			if (ServerProperties.Properties.DISABLE_BUG_REPORTS)
+			if (ServerProperties.ServerProperties.DISABLE_BUG_REPORTS)
 			{
 				DisplayMessage(client, "Bug reporting has been disabled for this server!");
 				return;
@@ -42,12 +42,12 @@ namespace DOL.GS.Commands
 			string message = string.Join(" ", args, 1, args.Length - 1);
 			DbBugReports report = new DbBugReports();
 
-			if (ServerProperties.Properties.MAX_BUGREPORT_QUEUE > 0)
+			if (ServerProperties.ServerProperties.MAX_BUGREPORT_QUEUE > 0)
 			{
 				//Andraste
 				var reports = GameServer.Database.SelectAllObjects<DbBugReports>();
 				bool found = false; int i = 0;
-				for (i = 0; i < ServerProperties.Properties.MAX_BUGREPORT_QUEUE; i++)
+				for (i = 0; i < ServerProperties.ServerProperties.MAX_BUGREPORT_QUEUE; i++)
 				{
 					found = false;
 					foreach (DbBugReports rep in reports) if (rep.ID == i) found = true;
@@ -72,13 +72,13 @@ namespace DOL.GS.Commands
 			GameServer.Database.AddObject(report);
 			client.Player.Out.SendMessage("Report submitted, if this is not a bug report it will be ignored!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 
-			if (ServerProperties.Properties.BUG_REPORT_EMAIL_ADDRESSES.Trim() != "")
+			if (ServerProperties.ServerProperties.BUG_REPORT_EMAIL_ADDRESSES.Trim() != "")
 			{
 				if (client.Account.Mail == "")
 					client.Player.Out.SendMessage("If you enter your email address for your account with /email command, your bug reports will send an email to the staff!", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 				else
 				{
-					Mail.MailMgr.SendMail(ServerProperties.Properties.BUG_REPORT_EMAIL_ADDRESSES, GameServer.Instance.Configuration.ServerName + " bug report " + report.ID, report.Message, report.Submitter, client.Account.Mail);
+					Mail.MailMgr.SendMail(ServerProperties.ServerProperties.BUG_REPORT_EMAIL_ADDRESSES, GameServer.Instance.Configuration.ServerName + " bug report " + report.ID, report.Message, report.Submitter, client.Account.Mail);
 				}
 			}
 		}

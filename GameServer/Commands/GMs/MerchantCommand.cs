@@ -87,12 +87,12 @@ namespace DOL.GS.Commands
 						merchant.Heading = client.Player.Heading;
 						merchant.Level = 1;
 						merchant.Realm = client.Player.Realm;
-						merchant.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "GMCommands.Merchant.NewName");
+						merchant.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "GMCommands.Merchant.NewName");
 						merchant.Model = 9;
 						//Fill the living variables
 						merchant.CurrentSpeed = 0;
 						merchant.MaxSpeedBase = 200;
-						merchant.GuildName = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "GMCommands.Merchant.NewGuildName");
+						merchant.GuildName = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "GMCommands.Merchant.NewGuildName");
 						merchant.Size = 50;
 						merchant.AddToWorld();
 						merchant.SaveIntoDatabase();

@@ -286,7 +286,7 @@ namespace DOL.GS
         /// </summary>
         public bool IsAnonymous
         {
-            get { return DBCharacter != null ? DBCharacter.IsAnonymous && (ServerProperties.Properties.ANON_MODIFIER != -1) : false; }
+            get { return DBCharacter != null ? DBCharacter.IsAnonymous && (ServerProperties.ServerProperties.ANON_MODIFIER != -1) : false; }
             set
             {
                 var old = IsAnonymous;
@@ -306,12 +306,12 @@ namespace DOL.GS
         /// <summary>
         /// Is this player PvP enabled
         /// </summary>
-        public virtual bool IsPvP { get { return GameServer.Instance.Configuration.ServerType == eGameServerType.GST_PvP || (this.CurrentRegionID == 27 && Properties.EVENT_PVP); }}
+        public virtual bool IsPvP { get { return GameServer.Instance.Configuration.ServerType == eGameServerType.GST_PvP || (this.CurrentRegionID == 27 && ServerProperties.ServerProperties.EVENT_PVP); }}
 
         /// <summary>
         /// Can this player use cross realm items
         /// </summary>
-        public virtual bool CanUseCrossRealmItems { get { return ServerProperties.Properties.ALLOW_CROSS_REALM_ITEMS; }}
+        public virtual bool CanUseCrossRealmItems { get { return ServerProperties.ServerProperties.ALLOW_CROSS_REALM_ITEMS; }}
 
         protected bool m_canUseSlashLevel = false;
         public bool CanUseSlashLevel { get { return m_canUseSlashLevel; }}
@@ -828,7 +828,7 @@ namespace DOL.GS
 
             if (Client.Account.PrivLevel > 1) // GMs can always insta quit
                 bInstaQuit = true;
-            else if (ServerProperties.Properties.DISABLE_QUIT_TIMER && Client.Player.InCombat == false)  // Players can only insta quit if they aren't in combat
+            else if (ServerProperties.ServerProperties.DISABLE_QUIT_TIMER && Client.Player.InCombat == false)  // Players can only insta quit if they aren't in combat
                 bInstaQuit = true;
 
             if (bInstaQuit == false)
@@ -1108,7 +1108,7 @@ namespace DOL.GS
                 log.ErrorFormat("Cannot cancel all effects - {0}", e);
             }
 
-            if (Properties.ACTIVATE_TEMP_PROPERTIES_MANAGER_CHECKUP)
+            if (ServerProperties.ServerProperties.ACTIVATE_TEMP_PROPERTIES_MANAGER_CHECKUP)
             {
                 try
                 {
@@ -1120,7 +1120,7 @@ namespace DOL.GS
                             continue;
 
                         int occurences = 0;
-                        registeredTempProp = UtilCollection.SplitCSV(Properties.TEMPPROPERTIES_TO_REGISTER).ToList();
+                        registeredTempProp = UtilCollection.SplitCSV(ServerProperties.ServerProperties.TEMPPROPERTIES_TO_REGISTER).ToList();
                         occurences = (from j in registeredTempProp where property.Contains(j) select j).Count();
 
                         if (occurences == 0)
@@ -1133,13 +1133,13 @@ namespace DOL.GS
 
                         if (long.TryParse(propertyValue.ToString(), out long longresult))
                         {
-                            if (Properties.ACTIVATE_TEMP_PROPERTIES_MANAGER_CHECKUP_DEBUG)
+                            if (ServerProperties.ServerProperties.ACTIVATE_TEMP_PROPERTIES_MANAGER_CHECKUP_DEBUG)
                                 log.Debug("On Disconnection found and was saved: " + property + " with value: " + propertyValue.ToString() + " for player: " + Name);
 
                             TempPropertiesMgr.TempPropContainerList.Add(new TempPropertiesMgr.TempPropContainer(DBCharacter.ObjectId, property, propertyValue.ToString()));
                             TempProperties.removeProperty(property);
                         }
-                        else if (Properties.ACTIVATE_TEMP_PROPERTIES_MANAGER_CHECKUP_DEBUG)
+                        else if (ServerProperties.ServerProperties.ACTIVATE_TEMP_PROPERTIES_MANAGER_CHECKUP_DEBUG)
                             log.Debug("On Disconnection found but was not saved (not a long value): " + property + " with value: " + propertyValue.ToString() + " for player: " + Name);
                     }
                 }
@@ -1169,7 +1169,7 @@ namespace DOL.GS
                     Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GamePlayer.Quit.CantQuitMount"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
                     return false;
                 }
-                if (IsMoving && !ServerProperties.Properties.DISABLE_QUIT_TIMER)
+                if (IsMoving && !ServerProperties.ServerProperties.DISABLE_QUIT_TIMER)
                 {
                     Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GamePlayer.Quit.CantQuitStanding"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
                     return false;
@@ -1657,7 +1657,7 @@ namespace DOL.GS
                         break;
                     }
 
-                    if (Properties.EVENT_THIDRANKI && player.CurrentRegionID == 252)
+                    if (ServerProperties.ServerProperties.EVENT_THIDRANKI && player.CurrentRegionID == 252)
                     {
                         switch (player.Realm)
                         {
@@ -1704,7 +1704,7 @@ namespace DOL.GS
                 }
                 default:
                 {
-                    if (!ServerProperties.Properties.DISABLE_TUTORIAL)
+                    if (!ServerProperties.ServerProperties.DISABLE_TUTORIAL)
                     {
                         //Tutorial
                         if (BindRegion == 27)
@@ -1841,7 +1841,7 @@ namespace DOL.GS
 
             if (Realm != ERealm.None)
             {
-                if (Level >= ServerProperties.Properties.PVE_EXP_LOSS_LEVEL && !HCFlag)
+                if (Level >= ServerProperties.ServerProperties.PVE_EXP_LOSS_LEVEL && !HCFlag)
                 {
                     // actual lost exp, needed for 2nd stage deaths
                     long lostExp = Experience;
@@ -1879,7 +1879,7 @@ namespace DOL.GS
                 }
             }
 
-            if (Level >= ServerProperties.Properties.PVE_CON_LOSS_LEVEL)
+            if (Level >= ServerProperties.ServerProperties.PVE_CON_LOSS_LEVEL)
             {
                 int deathConLoss = TempProperties.getProperty<int>(DEATH_CONSTITUTION_LOSS_PROPERTY); // get back constitution lost at death
                 if (deathConLoss > 0)
@@ -1899,7 +1899,7 @@ namespace DOL.GS
             StartEnduranceRegeneration();
             LastDeathPvP = false;
 
-            var maxChargeItems = ServerProperties.Properties.MAX_CHARGE_ITEMS;
+            var maxChargeItems = ServerProperties.ServerProperties.MAX_CHARGE_ITEMS;
             /*
             foreach (var item in this.Inventory.EquippedItems)
             {
@@ -2049,7 +2049,7 @@ namespace DOL.GS
                 applyRezSick = false;
                 TempProperties.removeProperty(RESURRECT_REZ_SICK_EFFECTIVENESS);
             }
-            else if (player.Level < ServerProperties.Properties.RESS_SICKNESS_LEVEL)
+            else if (player.Level < ServerProperties.ServerProperties.RESS_SICKNESS_LEVEL)
             {
                 applyRezSick = false;
             }
@@ -2367,22 +2367,22 @@ namespace DOL.GS
                 switch (Realm)
                 {
                     case ERealm.Albion:
-                        if (ServerProperties.Properties.FREELEVEL_DAYS_ALBION == -1)
+                        if (ServerProperties.ServerProperties.FREELEVEL_DAYS_ALBION == -1)
                             return 1;
                         else
-                            freelevel_days = ServerProperties.Properties.FREELEVEL_DAYS_ALBION;
+                            freelevel_days = ServerProperties.ServerProperties.FREELEVEL_DAYS_ALBION;
                         break;
                     case ERealm.Midgard:
-                        if (ServerProperties.Properties.FREELEVEL_DAYS_MIDGARD == -1)
+                        if (ServerProperties.ServerProperties.FREELEVEL_DAYS_MIDGARD == -1)
                             return 1;
                         else
-                            freelevel_days = ServerProperties.Properties.FREELEVEL_DAYS_MIDGARD;
+                            freelevel_days = ServerProperties.ServerProperties.FREELEVEL_DAYS_MIDGARD;
                         break;
                     case ERealm.Hibernia:
-                        if (ServerProperties.Properties.FREELEVEL_DAYS_HIBERNIA == -1)
+                        if (ServerProperties.ServerProperties.FREELEVEL_DAYS_HIBERNIA == -1)
                             return 1;
                         else
-                            freelevel_days = ServerProperties.Properties.FREELEVEL_DAYS_HIBERNIA;
+                            freelevel_days = ServerProperties.ServerProperties.FREELEVEL_DAYS_HIBERNIA;
                         break;
                 }
 
@@ -2833,7 +2833,7 @@ namespace DOL.GS
             int hp2 = hp1 * constitution / 10000;
             int hp3 = 0;
             if (ChampionLevel >= 1)
-                hp3 = ServerProperties.Properties.HPS_PER_CHAMPIONLEVEL * ChampionLevel;
+                hp3 = ServerProperties.ServerProperties.HPS_PER_CHAMPIONLEVEL * ChampionLevel;
             double hp4 = 20 + hp1 / 50 + hp2 + hp3;
             if (GetModified(EProperty.ExtraHP) > 0)
                 hp4 += Math.Round(hp4 * (double)GetModified(EProperty.ExtraHP) / 100);
@@ -3495,7 +3495,7 @@ namespace DOL.GS
         public virtual int RespecSingle(Specialization specLine)
         {
             int specPoints = RespecSingleLine(specLine); // Wipe skills and styles.
-            if (!ServerProperties.Properties.FREE_RESPEC)
+            if (!ServerProperties.ServerProperties.FREE_RESPEC)
                 RespecAmountSingleSkill--; // Decriment players respecs available.
             if (Level == 20 || Level == 40)
             {
@@ -3512,7 +3512,7 @@ namespace DOL.GS
                 RemoveAbility(ab.KeyName);
 
             m_realmAbilities.Clear();
-            if (!ServerProperties.Properties.FREE_RESPEC && useRespecPoint)
+            if (!ServerProperties.ServerProperties.FREE_RESPEC && useRespecPoint)
                 RespecAmountRealmSkill--;
             return any;
         }
@@ -3552,8 +3552,8 @@ namespace DOL.GS
             // If BD subpet spells scaled and capped by BD spec, respecing a spell line
             //	requires re-scaling the spells for all subpets from that line.
             if (CharacterClass is CharacterClassBoneDancer
-                && DOL.GS.ServerProperties.Properties.PET_SCALE_SPELL_MAX_LEVEL > 0
-                && DOL.GS.ServerProperties.Properties.PET_CAP_BD_MINION_SPELL_SCALING_BY_SPEC
+                && DOL.GS.ServerProperties.ServerProperties.PET_SCALE_SPELL_MAX_LEVEL > 0
+                && DOL.GS.ServerProperties.ServerProperties.PET_CAP_BD_MINION_SPELL_SCALING_BY_SPEC
                 && ControlledBrain is IControlledBrain brain && brain.Body is GameSummonedPet pet
                 && pet.ControlledNpcList != null)
                 foreach (ABrain subBrain in pet.ControlledNpcList)
@@ -4360,19 +4360,19 @@ namespace DOL.GS
             if (modify)
             {
                 //rp rate modifier
-                double modifier = ServerProperties.Properties.RP_RATE;
+                double modifier = ServerProperties.ServerProperties.RP_RATE;
                 if (modifier != -1)
                     amount = (long)(amount * modifier);
 
                 //[StephenxPimente]: Zone Bonus Support
-                if (ServerProperties.Properties.ENABLE_ZONE_BONUSES)
+                if (ServerProperties.ServerProperties.ENABLE_ZONE_BONUSES)
                 {
                     int zoneBonus = (((int)amount * ZoneBonus.GetRPBonus(this)) / 100);
                     if (zoneBonus > 0)
                     {
-                        Out.SendMessage(ZoneBonus.GetBonusMessage(this, (int)(zoneBonus * ServerProperties.Properties.RP_RATE), ZoneBonus.eZoneBonusType.RP),
+                        Out.SendMessage(ZoneBonus.GetBonusMessage(this, (int)(zoneBonus * ServerProperties.ServerProperties.RP_RATE), ZoneBonus.eZoneBonusType.RP),
                             EChatType.CT_Important, EChatLoc.CL_SystemWindow);
-                        GainRealmPoints((long)(zoneBonus * ServerProperties.Properties.RP_RATE), false, false, false);
+                        GainRealmPoints((long)(zoneBonus * ServerProperties.ServerProperties.RP_RATE), false, false, false);
                     }
                 }
 
@@ -4520,19 +4520,19 @@ namespace DOL.GS
             if (modify)
             {
                 //bp rate modifier
-                double modifier = ServerProperties.Properties.BP_RATE;
+                double modifier = ServerProperties.ServerProperties.BP_RATE;
                 if (modifier != -1)
                     amount = (long)(amount * modifier);
 
                 //[StephenxPimente]: Zone Bonus Support
-                if (ServerProperties.Properties.ENABLE_ZONE_BONUSES)
+                if (ServerProperties.ServerProperties.ENABLE_ZONE_BONUSES)
                 {
                     int zoneBonus = (((int)amount * ZoneBonus.GetBPBonus(this)) / 100);
                     if (zoneBonus > 0)
                     {
-                        Out.SendMessage(ZoneBonus.GetBonusMessage(this, (int)(zoneBonus * ServerProperties.Properties.BP_RATE), ZoneBonus.eZoneBonusType.BP),
+                        Out.SendMessage(ZoneBonus.GetBonusMessage(this, (int)(zoneBonus * ServerProperties.ServerProperties.BP_RATE), ZoneBonus.eZoneBonusType.BP),
                             EChatType.CT_Important, EChatLoc.CL_SystemWindow);
-                        GainBountyPoints((long)(zoneBonus * ServerProperties.Properties.BP_RATE), false, false, false);
+                        GainBountyPoints((long)(zoneBonus * ServerProperties.ServerProperties.BP_RATE), false, false, false);
                     }
                 }
 
@@ -5270,12 +5270,12 @@ namespace DOL.GS
 
                 baseXp = expTotal;
                 //[StephenxPimentel] - Zone Bonus XP Support
-                if (ServerProperties.Properties.ENABLE_ZONE_BONUSES)
+                if (ServerProperties.ServerProperties.ENABLE_ZONE_BONUSES)
                 {
                     long zoneBonus = expTotal * ZoneBonus.GetXPBonus(this) / 100;
                     if (zoneBonus > 0)
                     {
-                        long tmpBonus = (long)(zoneBonus * ServerProperties.Properties.XP_RATE);
+                        long tmpBonus = (long)(zoneBonus * ServerProperties.ServerProperties.XP_RATE);
                         Out.SendMessage(ZoneBonus.GetBonusMessage(this, (int)tmpBonus, ZoneBonus.eZoneBonusType.XP),
                             EChatType.CT_Important, EChatLoc.CL_SystemWindow);
                         GainExperience(EXpSource.Other, tmpBonus, 0, 0, 0, 0, false, false, false);
@@ -5288,9 +5288,9 @@ namespace DOL.GS
                 RealmLoyaltyBonus = (long) (expTotal * (numCurrentLoyalDays / 30.0) * .25);
 
                 if (this.CurrentRegion.IsRvR)
-                    expTotal = (long)(expTotal * ServerProperties.Properties.RvR_XP_RATE);
+                    expTotal = (long)(expTotal * ServerProperties.ServerProperties.RvR_XP_RATE);
                 else
-                    expTotal = (long)(expTotal * ServerProperties.Properties.XP_RATE);
+                    expTotal = (long)(expTotal * ServerProperties.ServerProperties.XP_RATE);
 
                 // [Freya] Nidel: ToA Xp Bonus
                 long xpBonus = GetModified(EProperty.XpPoints);
@@ -5299,7 +5299,7 @@ namespace DOL.GS
                     expTotal += (expTotal * xpBonus) / 100;
                 }
 
-                long hardXPCap = (long)(GameServer.ServerRules.GetExperienceForLiving(Level) * ServerProperties.Properties.XP_HARDCAP_PERCENT / 100);
+                long hardXPCap = (long)(GameServer.ServerRules.GetExperienceForLiving(Level) * ServerProperties.ServerProperties.XP_HARDCAP_PERCENT / 100);
 
                 if (expTotal > hardXPCap)
                     expTotal = hardXPCap;
@@ -5322,10 +5322,10 @@ namespace DOL.GS
             long guildBonus = 0;
             if (this.Guild != null && !this.Guild.IsStartingGuild && this.Guild.GuildBonusType == GuildUtil.EGuildBonusType.Experience && xpSource == EXpSource.NPC)
             {
-                guildBonus = (long)Math.Ceiling((double)expTotal * ServerProperties.Properties.GUILD_BUFF_XP / 100);
+                guildBonus = (long)Math.Ceiling((double)expTotal * ServerProperties.ServerProperties.GUILD_BUFF_XP / 100);
             }else if (this.Guild != null && this.Guild.IsStartingGuild && xpSource == EXpSource.NPC)
             {
-                guildBonus = (long)Math.Ceiling((double)expTotal * ServerProperties.Properties.GUILD_BUFF_XP / 200);
+                guildBonus = (long)Math.Ceiling((double)expTotal * ServerProperties.ServerProperties.GUILD_BUFF_XP / 200);
             }
 
             expTotal += guildBonus;
@@ -5795,12 +5795,12 @@ namespace DOL.GS
             }
 
             // Level up pets and subpets
-            if (DOL.GS.ServerProperties.Properties.PET_LEVELS_WITH_OWNER &&
+            if (DOL.GS.ServerProperties.ServerProperties.PET_LEVELS_WITH_OWNER &&
                 ControlledBrain is ControlledNpcBrain brain && brain.Body is GameSummonedPet pet)
             {
                 if (pet.SetPetLevel())
                 {
-                    if (DOL.GS.ServerProperties.Properties.PET_SCALE_SPELL_MAX_LEVEL > 0 && pet.Spells.Count > 0)
+                    if (DOL.GS.ServerProperties.ServerProperties.PET_SCALE_SPELL_MAX_LEVEL > 0 && pet.Spells.Count > 0)
                         pet.SortSpells();
 
                     brain.UpdatePetWindow();
@@ -5811,7 +5811,7 @@ namespace DOL.GS
                     foreach (ABrain subBrain in pet.ControlledNpcList)
                         if (subBrain != null && subBrain.Body is GameSummonedPet subPet)
                             if (subPet.SetPetLevel()) // Levels up subpet
-                                if (DOL.GS.ServerProperties.Properties.PET_SCALE_SPELL_MAX_LEVEL > 0)
+                                if (DOL.GS.ServerProperties.ServerProperties.PET_SCALE_SPELL_MAX_LEVEL > 0)
                                     subPet.SortSpells();
             }
 
@@ -6971,7 +6971,7 @@ namespace DOL.GS
                 playerMessage = "[HC Lv" + Level + "] " + playerMessage;
                 publicMessage = "[HC Lv" + Level + "] " + publicMessage;
 
-                if (Properties.DISCORD_ACTIVE && !string.IsNullOrEmpty(Properties.DISCORD_WEBHOOK_ID))
+                if (ServerProperties.ServerProperties.DISCORD_ACTIVE && !string.IsNullOrEmpty(ServerProperties.ServerProperties.DISCORD_WEBHOOK_ID))
                 {
                     BroadcastDeathOnDiscord(publicMessage, Name, LastName, CharacterClass.Name, Level, PlayedTime);
                 }
@@ -7030,7 +7030,7 @@ namespace DOL.GS
                     (player != killer) && (
                         (killer != null && killer is GamePlayer && GameServer.ServerRules.IsSameRealm((GamePlayer)killer, player, true))
                         || (GameServer.ServerRules.IsSameRealm(this, player, true))
-                        || (ServerProperties.Properties.DEATH_MESSAGES_ALL_REALMS && (killer is GamePlayer || killer is GameKeepGuard))) //Only show Player/Guard kills if shown to all realms
+                        || (ServerProperties.ServerProperties.DEATH_MESSAGES_ALL_REALMS && (killer is GamePlayer || killer is GameKeepGuard))) //Only show Player/Guard kills if shown to all realms
                 )
                     if (player == this)
                         player.Out.SendMessage(playerMessage, messageType, EChatLoc.CL_SystemWindow);
@@ -7116,7 +7116,7 @@ namespace DOL.GS
                             Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GamePlayer.Die.DeadRVR"), EChatType.CT_YouDied, EChatLoc.CL_SystemWindow);
                             xpLossPercent = 0;
                             m_deathtype = EDeathType.PvP;
-                            if (ServerProperties.Properties.PVP_DEATH_CON_LOSS)
+                            if (ServerProperties.ServerProperties.PVP_DEATH_CON_LOSS)
                             {
                                 conpenalty = 3;
                                 TempProperties.setProperty(DEATH_CONSTITUTION_LOSS_PROPERTY, conpenalty);
@@ -7126,7 +7126,7 @@ namespace DOL.GS
                 }
                 else
                 {
-                    if (Level >= ServerProperties.Properties.PVE_EXP_LOSS_LEVEL)
+                    if (Level >= ServerProperties.ServerProperties.PVE_EXP_LOSS_LEVEL)
                     {
                         Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GamePlayer.Die.LoseExperience"), EChatType.CT_YouDied, EChatLoc.CL_SystemWindow);
                         // if this is the first death in level, you lose only half the penalty
@@ -7149,7 +7149,7 @@ namespace DOL.GS
                         TempProperties.setProperty(DEATH_EXP_LOSS_PROPERTY, xpLoss);
                     }
 
-                    if (Level >= ServerProperties.Properties.PVE_CON_LOSS_LEVEL)
+                    if (Level >= ServerProperties.ServerProperties.PVE_CON_LOSS_LEVEL)
                     {
                         int conLoss = DeathCount;
                         if (conLoss > 3)
@@ -7242,7 +7242,7 @@ namespace DOL.GS
                 int baseContribution = enemy.RealmPointsValue / 2; //todo turn it into a server prop?
 
                 if (activeConquest != null && this.GetDistance(new Point2D(activeConquest.Keep.X, activeConquest.Keep.Y)) <=
-                    ServerProperties.Properties.MAX_CONQUEST_RANGE)
+                    ServerProperties.ServerProperties.MAX_CONQUEST_RANGE)
                 {
                     //TODO: add something here
                     if (Group != null)
@@ -8423,7 +8423,7 @@ namespace DOL.GS
 
             if (spell != null)
             {
-                if (ActiveBuffCharges >= Properties.MAX_CHARGE_ITEMS
+                if (ActiveBuffCharges >= ServerProperties.ServerProperties.MAX_CHARGE_ITEMS
                     && SelfBuffChargeIDs.Contains(spell.ID)
                     && effectListComponent.GetSpellEffects().FirstOrDefault(x => x.SpellHandler.Spell.ID == spell.ID) == null)
                 {
@@ -8836,7 +8836,7 @@ namespace DOL.GS
             if (IsIgnoring(source))
                 return true;
 
-            if (Properties.EVENT_CROSS_REALM_SAY)
+            if (ServerProperties.ServerProperties.EVENT_CROSS_REALM_SAY)
             {
                 foreach (AbstractArea area in source.CurrentAreas)
                 {
@@ -8847,7 +8847,7 @@ namespace DOL.GS
                 }
             }
 
-            if (GameServer.ServerRules.IsAllowedToUnderstand(source, this) || Properties.ENABLE_DEBUG)
+            if (GameServer.ServerRules.IsAllowedToUnderstand(source, this) || ServerProperties.ServerProperties.ENABLE_DEBUG)
                 Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GamePlayer.SayReceive.Says", source.GetName(0, false), str),
                     EChatType.CT_Say, EChatLoc.CL_ChatWindow);
             else
@@ -9438,7 +9438,7 @@ namespace DOL.GS
                 SaveIntoDatabase();
                 Quit(true);
                 //now ban him
-                if (ServerProperties.Properties.BAN_HACKERS)
+                if (ServerProperties.ServerProperties.BAN_HACKERS)
                 {
                     DBBannedAccount b = new DBBannedAccount();
                     b.Author = "SERVER";
@@ -11127,7 +11127,7 @@ namespace DOL.GS
                 return;
             }
 
-            if (floorObject is not GameBoat && !checkRange && !floorObject.IsWithinRadius(this, Properties.WORLD_PICKUP_DISTANCE, true))
+            if (floorObject is not GameBoat && !checkRange && !floorObject.IsWithinRadius(this, ServerProperties.ServerProperties.WORLD_PICKUP_DISTANCE, true))
             {
                 Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GamePlayer.PickupObject.ObjectTooFarAway", floorObject.Name), EChatType.CT_System, EChatLoc.CL_SystemWindow);
                 return;
@@ -13130,7 +13130,7 @@ namespace DOL.GS
         {
             get
             {
-                double speed = Properties.CRAFTING_SPEED;
+                double speed = ServerProperties.ServerProperties.CRAFTING_SPEED;
                 var craftSpeedBonus = false;
                 ushort[] keepIDs = {50, 75, 100, 57, 111, 198}; // beno bled crauch and the strength relic keeps in each realm
 
@@ -13142,12 +13142,12 @@ namespace DOL.GS
 
                 if (Guild != null && Guild.GuildBonusType == GuildUtil.EGuildBonusType.CraftingHaste)
                 {
-                    speed *= (1.0 + Properties.GUILD_BUFF_CRAFTING * .01);
+                    speed *= (1.0 + ServerProperties.ServerProperties.GUILD_BUFF_CRAFTING * .01);
                 }
 
-                if (CurrentRegion.IsCapitalCity && Properties.CAPITAL_CITY_CRAFTING_SPEED_BONUS > 0)
+                if (CurrentRegion.IsCapitalCity && ServerProperties.ServerProperties.CAPITAL_CITY_CRAFTING_SPEED_BONUS > 0)
                 {
-                    return speed * Properties.CAPITAL_CITY_CRAFTING_SPEED_BONUS;
+                    return speed * ServerProperties.ServerProperties.CAPITAL_CITY_CRAFTING_SPEED_BONUS;
                 } 
                 else if (CurrentZone.IsOF && m_currentAreas.Count > 0)
                 {
@@ -13164,7 +13164,7 @@ namespace DOL.GS
                     }
                     if (craftSpeedBonus)
                     {
-                        speed = speed * Properties.KEEP_CRAFTING_SPEED_BONUS;
+                        speed = speed * ServerProperties.ServerProperties.KEEP_CRAFTING_SPEED_BONUS;
                     }
                 }
                 //log.Warn($"Crafting speed bonus {craftSpeedBonus} for {Name} in {CurrentZone.Description} - crafting speed {Math.Round(speed*100)}%");
@@ -13184,7 +13184,7 @@ namespace DOL.GS
             {
                 if (CurrentRegion.IsCapitalCity)
                 {
-                    return Properties.CAPITAL_CITY_CRAFTING_SKILL_GAIN_BONUS;
+                    return ServerProperties.ServerProperties.CAPITAL_CITY_CRAFTING_SKILL_GAIN_BONUS;
                 }
 
                 return 0;
@@ -13347,9 +13347,9 @@ namespace DOL.GS
                             {
                                 if (IsCraftingSkillDefined(Convert.ToInt32(values[0])))
                                 {
-                                    if (DOL.GS.ServerProperties.Properties.CRAFTING_MAX_SKILLS)
+                                    if (DOL.GS.ServerProperties.ServerProperties.CRAFTING_MAX_SKILLS)
                                     {
-                                        m_craftingSkills.Add((eCraftingSkill)Convert.ToInt32(values[0]), DOL.GS.ServerProperties.Properties.CRAFTING_MAX_SKILLS_AMOUNT);
+                                        m_craftingSkills.Add((eCraftingSkill)Convert.ToInt32(values[0]), DOL.GS.ServerProperties.ServerProperties.CRAFTING_MAX_SKILLS_AMOUNT);
                                     }
                                     else
                                     {
@@ -13367,9 +13367,9 @@ namespace DOL.GS
                         {
                             if(IsCraftingSkillDefined(Convert.ToInt32(values[0])))
                             {
-                                if (DOL.GS.ServerProperties.Properties.CRAFTING_MAX_SKILLS)
+                                if (DOL.GS.ServerProperties.ServerProperties.CRAFTING_MAX_SKILLS)
                                 {
-                                    m_craftingSkills.Add((eCraftingSkill)Convert.ToInt32(values[0]), DOL.GS.ServerProperties.Properties.CRAFTING_MAX_SKILLS_AMOUNT);
+                                    m_craftingSkills.Add((eCraftingSkill)Convert.ToInt32(values[0]), DOL.GS.ServerProperties.ServerProperties.CRAFTING_MAX_SKILLS_AMOUNT);
                                 }
                                 else
                                 {
@@ -14576,9 +14576,9 @@ namespace DOL.GS
                 get
                 {
                     if (m_level <= 35)
-                        return ServerProperties.Properties.MOUNT_UNDER_LEVEL_35_SPEED;
+                        return ServerProperties.ServerProperties.MOUNT_UNDER_LEVEL_35_SPEED;
                     else
-                        return ServerProperties.Properties.MOUNT_OVER_LEVEL_35_SPEED;
+                        return ServerProperties.ServerProperties.MOUNT_OVER_LEVEL_35_SPEED;
                 }
             }
 
@@ -14823,7 +14823,7 @@ namespace DOL.GS
 
             if (source != EXpSource.GM && source != EXpSource.Quest)
             {
-                double modifier = ServerProperties.Properties.CL_XP_RATE;
+                double modifier = ServerProperties.ServerProperties.CL_XP_RATE;
 
                 // 1 CLXP point per 333K normal XP
                 if (this.CurrentRegion.IsRvR)

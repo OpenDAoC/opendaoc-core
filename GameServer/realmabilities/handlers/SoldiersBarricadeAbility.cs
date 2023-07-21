@@ -67,7 +67,7 @@ namespace DOL.GS.RealmAbilities
 
 		protected virtual int GetArmorFactorAmount()
         {
-            if (ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+            if (ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
             {
                 switch (Level)
                 {

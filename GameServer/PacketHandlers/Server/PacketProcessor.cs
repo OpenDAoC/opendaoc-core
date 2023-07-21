@@ -331,7 +331,7 @@ namespace DOL.GS.PacketHandler
 								buf[2], (m_client.Account != null) ? m_client.Account.Name : m_client.TcpEndpoint, buf.Length);
 						log.Error(Marshal.ToHexDump(desc, buf) + "\n" + Environment.StackTrace);
 
-						if (Properties.IGNORE_TOO_LONG_OUTCOMING_PACKET)
+						if (ServerProperties.ServerProperties.IGNORE_TOO_LONG_OUTCOMING_PACKET)
 						{
 							log.Error("ALERT: Oversize packet detected and discarded.");
 							m_client.Out.SendMessage("ALERT: Error sending an update to your client. Oversize packet detected and discarded. Please /report this issue!", EChatType.CT_Staff, EChatLoc.CL_SystemWindow);

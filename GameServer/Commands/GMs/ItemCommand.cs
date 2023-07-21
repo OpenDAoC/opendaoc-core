@@ -1544,7 +1544,7 @@ namespace DOL.GS.Commands
 								calculated = false;
 							}
 
-							if (ServerProperties.Properties.USE_SALVAGE_PER_REALM)
+							if (ServerProperties.ServerProperties.USE_SALVAGE_PER_REALM)
 							{
 								whereClause = whereClause.And(DB.Column("Realm").IsEqualTo((int)ERealm.None).Or(DB.Column("Realm").IsEqualTo(item.Realm)));
 							}
@@ -1564,7 +1564,7 @@ namespace DOL.GS.Commands
 								{
 									list.Add("SalvageYield ID " + item.SalvageYieldID + " specified but not found!");
 								}
-								else if (ServerProperties.Properties.USE_NEW_SALVAGE)
+								else if (ServerProperties.ServerProperties.USE_NEW_SALVAGE)
 								{
 									list.Add("Calculated Values (USE_NEW_SALVAGE = True)");
 								}

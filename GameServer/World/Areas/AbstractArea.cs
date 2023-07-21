@@ -203,7 +203,7 @@ namespace DOL.GS
                     EChatType.CT_System, EChatLoc.CL_SystemWindow);
 
 				//Changed by Apo 9. August 2010: Areas never send an screen description, but we will support it with an server property
-                if (ServerProperties.Properties.DISPLAY_AREA_ENTER_SCREEN_DESC)
+                if (ServerProperties.ServerProperties.DISPLAY_AREA_ENTER_SCREEN_DESC)
                     player.Out.SendMessage(screenDescription, EChatType.CT_ScreenCenterSmaller, EChatLoc.CL_SystemWindow);
 			}
 			if (Sound != 0)

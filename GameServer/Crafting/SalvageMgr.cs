@@ -739,7 +739,7 @@ namespace DOL.GS
 			if (rawMaterial == null)
 				return 0;
 
-			if (ServerProperties.Properties.USE_NEW_SALVAGE)
+			if (ServerProperties.ServerProperties.USE_NEW_SALVAGE)
 			{
 				maxCount = GetCountForSalvage(item, rawMaterial);
 			}

@@ -26,7 +26,7 @@ namespace DOL.GS.RealmAbilities
 				player.Out.SendMessage("You already an effect of that type!", EChatType.CT_SpellResisted, EChatLoc.CL_SystemWindow);
 				return;
 			}
-			if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+			if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
 			{
 				switch (Level)
 				{

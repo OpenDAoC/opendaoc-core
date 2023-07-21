@@ -29,7 +29,7 @@ namespace DOL.GS.RealmAbilities
 			int duration = 0;
 			double speedBonus = 1;
 
-			if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+			if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
 			{
 				switch (Level)
 				{
@@ -102,7 +102,7 @@ namespace DOL.GS.RealmAbilities
 
 		public override void AddEffectsInfo(IList<string> list)
 		{
-			if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+			if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
 			{
 				list.Add("Level 1: Normal Speed");
 				list.Add("Level 2: Speed 1");

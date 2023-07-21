@@ -32,7 +32,7 @@ namespace DOL.GS
 		public Group(GameLiving leader)
 		{
 			LivingLeader = leader;
-			m_groupMembers = new ReaderWriterList<GameLiving>(ServerProperties.Properties.GROUP_MAX_MEMBER);
+			m_groupMembers = new ReaderWriterList<GameLiving>(ServerProperties.ServerProperties.GROUP_MAX_MEMBER);
 		}
 		
 		/// <summary>
@@ -170,7 +170,7 @@ namespace DOL.GS
 		/// <returns>true if added successfully</returns>
 		public virtual bool AddMember(GameLiving living) 
 		{
-			if (!m_groupMembers.FreezeWhile<bool>(l => { if (l.Count >= ServerProperties.Properties.GROUP_MAX_MEMBER || l.Count >= (byte.MaxValue - 1))
+			if (!m_groupMembers.FreezeWhile<bool>(l => { if (l.Count >= ServerProperties.ServerProperties.GROUP_MAX_MEMBER || l.Count >= (byte.MaxValue - 1))
 															return false;
 													
 														if (l.Contains(living))

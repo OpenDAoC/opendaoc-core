@@ -67,7 +67,7 @@ namespace DOL.GS
 			// disable the quest for launch
 			return;
 			
-			if (!ServerProperties.Properties.LOAD_QUESTS)
+			if (!ServerProperties.ServerProperties.LOAD_QUESTS)
 				return;
 
 			#region defineNPCs

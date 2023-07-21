@@ -89,7 +89,7 @@ namespace DOL.GS
 
 			VisibleActiveWeaponSlots = 34;
 			MeleeDamageType = EDamageType.Crush;
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			QueenCliodnaBrain sbrain = new QueenCliodnaBrain();
 			SetOwnBrain(sbrain);
 			LoadedFromScript = false;//load from database

@@ -1,8 +1,6 @@
-﻿
+﻿using System.Collections.Generic;
 using DOL.Database;
 using DOL.GS.PacketHandler;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace DOL.GS.ServerRules
 {

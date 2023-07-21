@@ -17,7 +17,7 @@ namespace DOL.GS.Commands
 				return;
 			}
 
-			if (ServerProperties.Properties.EVENT_DISABLE_XP && client.Account.PrivLevel == 1)
+			if (ServerProperties.ServerProperties.EVENT_DISABLE_XP && client.Account.PrivLevel == 1)
 			{
 				client.Out.SendMessage("This command is disabled during the event.", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 				return;

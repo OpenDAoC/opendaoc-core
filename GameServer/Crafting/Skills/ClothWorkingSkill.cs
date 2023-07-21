@@ -7,7 +7,7 @@ namespace DOL.GS
 		public ClothWorkingSkill()
 		{
 			Icon = 0x08;
-			Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "Crafting.Name.Clothworking");
+			Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "Crafting.Name.Clothworking");
 			eSkill = eCraftingSkill.ClothWorking;
 		}
 

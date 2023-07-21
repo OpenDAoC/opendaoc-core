@@ -1209,12 +1209,12 @@ namespace DOL.GS
 		/// <summary>
 		/// How long does an interrupt last?
 		/// </summary>
-		public virtual int SpellInterruptDuration => ServerProperties.Properties.SPELL_INTERRUPT_DURATION;
+		public virtual int SpellInterruptDuration => ServerProperties.ServerProperties.SPELL_INTERRUPT_DURATION;
 
 		/// <summary>
 		/// Additional interrupt time if interrupted again
 		/// </summary>
-		public virtual int SpellInterruptRecastAgain => ServerProperties.Properties.SPELL_INTERRUPT_AGAIN;
+		public virtual int SpellInterruptRecastAgain => ServerProperties.ServerProperties.SPELL_INTERRUPT_AGAIN;
 
 		public virtual bool InterruptChance(GameLiving attacker)
 		{
@@ -1501,8 +1501,8 @@ namespace DOL.GS
 
 				if( evadeChance < 0.01 )
 					evadeChance = 0.01;
-				else if( evadeChance > ServerProperties.Properties.EVADE_CAP && ad.Attacker is GamePlayer && ad.Target is GamePlayer )
-					evadeChance = ServerProperties.Properties.EVADE_CAP; //50% evade cap RvR only; http://www.camelotherald.com/more/664.shtml
+				else if( evadeChance > ServerProperties.ServerProperties.EVADE_CAP && ad.Attacker is GamePlayer && ad.Target is GamePlayer )
+					evadeChance = ServerProperties.ServerProperties.EVADE_CAP; //50% evade cap RvR only; http://www.camelotherald.com/more/664.shtml
 				else if( evadeChance > 0.995 )
 					evadeChance = 0.995;
 				
@@ -1619,8 +1619,8 @@ namespace DOL.GS
 
 					if ( parryChance < 0.01 )
 						parryChance = 0.01;
-					else if( parryChance > ServerProperties.Properties.PARRY_CAP && ad.Attacker is GamePlayer && ad.Target is GamePlayer )
-						parryChance = ServerProperties.Properties.PARRY_CAP;
+					else if( parryChance > ServerProperties.ServerProperties.PARRY_CAP && ad.Attacker is GamePlayer && ad.Target is GamePlayer )
+						parryChance = ServerProperties.ServerProperties.PARRY_CAP;
 					else if( parryChance > 0.995 )
 						parryChance = 0.995;
 				}
@@ -1708,8 +1708,8 @@ namespace DOL.GS
 
 				if (blockChance < 0.01)
 					blockChance = 0.01;
-				else if (blockChance > ServerProperties.Properties.BLOCK_CAP && ad.Attacker is GamePlayer)
-					blockChance = ServerProperties.Properties.BLOCK_CAP;
+				else if (blockChance > ServerProperties.ServerProperties.BLOCK_CAP && ad.Attacker is GamePlayer)
+					blockChance = ServerProperties.ServerProperties.BLOCK_CAP;
 				
 				if (shieldSize == 1 && blockChance > .8)
 					blockChance = 0.8;

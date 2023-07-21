@@ -141,7 +141,7 @@ namespace DOL.GS.ServerRules
 		{
 			if (client.Account.PrivLevel > 1)
 				return true;
-			if (ServerProperties.Properties.ALLOW_ALL_REALMS)
+			if (ServerProperties.ServerProperties.ALLOW_ALL_REALMS)
 				return true;
 			return false;
 		}
@@ -158,10 +158,10 @@ namespace DOL.GS.ServerRules
 
 			if (source?.CurrentRegionID == 27 || target?.CurrentRegionID == 27)
             {
-                if (Properties.EVENT_PVP) { return false; }
+                if (ServerProperties.ServerProperties.EVENT_PVP) { return false; }
             }
 
-			if (Properties.EVENT_CROSS_REALM_GROUPS) return true;
+			if (ServerProperties.ServerProperties.EVENT_CROSS_REALM_GROUPS) return true;
 
 			return true;
 		}
@@ -172,7 +172,7 @@ namespace DOL.GS.ServerRules
 			if (source == null) 
 				return false;
 
-			if (ServerProperties.Properties.ALLOW_CROSS_REALM_GUILDS == false && guild.Realm != ERealm.None && source.Realm != guild.Realm)
+			if (ServerProperties.ServerProperties.ALLOW_CROSS_REALM_GUILDS == false && guild.Realm != ERealm.None && source.Realm != guild.Realm)
 			{
 				return false;
 			}
@@ -227,7 +227,7 @@ namespace DOL.GS.ServerRules
 		{
 			if(source == null || target == null) return false;
 			
-			if(Properties.EVENT_CROSS_REALM_GROUPS) return true;
+			if(ServerProperties.ServerProperties.EVENT_CROSS_REALM_GROUPS) return true;
 
 			if (source.CurrentRegionID == 27) return true;
 
@@ -285,7 +285,7 @@ namespace DOL.GS.ServerRules
 		/// <returns></returns>
 		public override bool IsAllowedToCraft(GamePlayer player, DbItemTemplates item)
 		{
-			return player.Realm == (ERealm)item.Realm || (item.Realm == 0 && ServerProperties.Properties.ALLOW_CRAFT_NOREALM_ITEMS);
+			return player.Realm == (ERealm)item.Realm || (item.Realm == 0 && ServerProperties.ServerProperties.ALLOW_CRAFT_NOREALM_ITEMS);
 		}
 
 		/// <summary>
@@ -354,7 +354,7 @@ namespace DOL.GS.ServerRules
 		{
 			if (IsSameRealm(source, target, true))
 				return target.Name;
-			if (Properties.EVENT_PVP && source.CurrentRegionID == 27)
+			if (ServerProperties.ServerProperties.EVENT_PVP && source.CurrentRegionID == 27)
 				return target.Name;
 
 			return source.RaceToTranslatedName(target.Race, target.Gender);
@@ -370,7 +370,7 @@ namespace DOL.GS.ServerRules
 		{
 			if (IsSameRealm(source, target, true))
 				return target.LastName;
-			if (Properties.EVENT_PVP && source.CurrentRegionID == 27)
+			if (ServerProperties.ServerProperties.EVENT_PVP && source.CurrentRegionID == 27)
 				return target.LastName;
 
 			return target.RealmRankTitle(source.Client.Account.Language);
@@ -386,7 +386,7 @@ namespace DOL.GS.ServerRules
 		{
 			if (IsSameRealm(source, target, true))
 				return target.GuildName;
-			if (Properties.EVENT_PVP && source.CurrentRegionID == 27)
+			if (ServerProperties.ServerProperties.EVENT_PVP && source.CurrentRegionID == 27)
 				return target.RealmRankTitle(source.Client.Account.Language);
 			return string.Empty;
 		}

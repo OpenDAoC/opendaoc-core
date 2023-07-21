@@ -143,7 +143,7 @@ namespace DOL.GS.Commands
 	                            PrivLevel = (uint)EPrivLevel.Player,
 	                            Realm = (int)ERealm.None,
 	                            CreationDate = DateTime.Now,
-	                            Language = ServerProperties.Properties.SERV_LANGUAGE
+	                            Language = ServerProperties.ServerProperties.SERV_LANGUAGE
 	                        };
 	                        
 	                        GameServer.Database.AddObject(account);

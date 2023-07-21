@@ -47,14 +47,14 @@ namespace DOL.GS.PropertyCalc
                 if (speed > horseSpeed)
                     horseSpeed = 1.0;
 
-                if (ServerProperties.Properties.ENABLE_PVE_SPEED)
+                if (ServerProperties.ServerProperties.ENABLE_PVE_SPEED)
                 {
                     // OF zones technically aren't in a RvR region and will allow the bonus to be applied.
                     if (speed == 1 && !player.InCombat && !player.IsStealthed && !player.CurrentRegion.IsRvR)
                         speed *= 1.25; // New run speed is 125% when no buff.
                 }
 
-                if (player.IsOverencumbered && player.Client.Account.PrivLevel < 2 && ServerProperties.Properties.ENABLE_ENCUMBERANCE_SPEED_LOSS)
+                if (player.IsOverencumbered && player.Client.Account.PrivLevel < 2 && ServerProperties.ServerProperties.ENABLE_ENCUMBERANCE_SPEED_LOSS)
                 {
                     double Enc = player.Encumberance; // Calculating player.Encumberance is a bit slow with all those locks, don't call it much.
 

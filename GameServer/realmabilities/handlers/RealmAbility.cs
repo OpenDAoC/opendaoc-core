@@ -85,7 +85,7 @@ namespace DOL.GS.RealmAbilities
 
 		public override int CostForUpgrade(int level)
 		{
-			if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+			if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
 			{
 				switch(level)
 				{
@@ -132,7 +132,7 @@ namespace DOL.GS.RealmAbilities
 			for (int i = 1; i <= MaxLevel; i++)
 			{
 				int reUseTime = GetReUseDelay(i);
-				list.Add(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "RealmAbility.AddReUseDelayInfo.Every", i, ((reUseTime == 0) ? "always" : FormatTimespan(reUseTime))));
+				list.Add(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "RealmAbility.AddReUseDelayInfo.Every", i, ((reUseTime == 0) ? "always" : FormatTimespan(reUseTime))));
 			}
 		}
 
@@ -144,7 +144,7 @@ namespace DOL.GS.RealmAbilities
 		{
 			get
 			{
-				if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+				if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
 				{
 					return 5;
 				}
@@ -399,7 +399,7 @@ namespace DOL.GS.RealmAbilities
 
 		public override int CostForUpgrade(int level)
 		{
-			if (ServerProperties.Properties.USE_NEW_PASSIVES_RAS_SCALING)
+			if (ServerProperties.ServerProperties.USE_NEW_PASSIVES_RAS_SCALING)
 			{
 				switch (level)
 				{
@@ -431,7 +431,7 @@ namespace DOL.GS.RealmAbilities
 
 		public override bool CheckRequirement(GamePlayer player)
 		{
-			if (ServerProperties.Properties.USE_NEW_PASSIVES_RAS_SCALING)
+			if (ServerProperties.ServerProperties.USE_NEW_PASSIVES_RAS_SCALING)
 			{
 				return Level <= 9;
 			}
@@ -445,7 +445,7 @@ namespace DOL.GS.RealmAbilities
 		{
 			get
 			{
-				if (ServerProperties.Properties.USE_NEW_PASSIVES_RAS_SCALING)
+				if (ServerProperties.ServerProperties.USE_NEW_PASSIVES_RAS_SCALING)
 				{
 					return 9;
 				}

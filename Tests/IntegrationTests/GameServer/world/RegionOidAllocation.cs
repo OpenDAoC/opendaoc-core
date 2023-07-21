@@ -59,7 +59,7 @@ namespace DOL.Tests.Integration.Server
 //					Console.Out.WriteLine("add "+i);
 					GameNPC mob = mobs[i];
 					Assert.IsTrue(mob.AddToWorld(), "failed to add {0} to the world", mob.Name);
-					Assert.IsTrue(mob.ObjectID > 0 && mob.ObjectID <= DOL.GS.ServerProperties.Properties.REGION_MAX_OBJECTS, "{0} oid={1}", mob.Name, mob.ObjectID);
+					Assert.IsTrue(mob.ObjectID > 0 && mob.ObjectID <= DOL.GS.ServerProperties.ServerProperties.REGION_MAX_OBJECTS, "{0} oid={1}", mob.Name, mob.ObjectID);
 				}
 				
 				for (int i = count-x; i >= 0; i--)

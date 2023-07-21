@@ -26,7 +26,7 @@ namespace DOL.GS
         }
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
         public override int AttackRange
         {
@@ -81,7 +81,7 @@ namespace DOL.GS
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(140));
             MaxSpeedBase = 250;
             Flags = eFlags.FLYING;
-            RespawnInterval =ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
+            RespawnInterval =ServerProperties.ServerProperties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
 
             TorstBrain sbrain = new TorstBrain();
             SetOwnBrain(sbrain);
@@ -449,7 +449,7 @@ namespace DOL.GS
 
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
 
         public override int AttackRange
@@ -501,7 +501,7 @@ namespace DOL.GS
             Faction = FactionMgr.GetFactionByID(140);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(140));
             Flags = eFlags.FLYING;
-            RespawnInterval = ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
+            RespawnInterval = ServerProperties.ServerProperties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
 
             HurikaBrain sbrain = new HurikaBrain();
             SetOwnBrain(sbrain);
@@ -718,7 +718,7 @@ namespace DOL.GS
         }
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
         public override int MaxHealth
         {

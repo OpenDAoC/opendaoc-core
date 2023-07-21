@@ -67,7 +67,7 @@ namespace DOL.GS
 			Intelligence = npcTemplate.Intelligence;
 			Empathy = npcTemplate.Empathy;
 
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			BasiliusBrain sbrain = new BasiliusBrain();
 			SetOwnBrain(sbrain);
 			LoadedFromScript = false;//load from database

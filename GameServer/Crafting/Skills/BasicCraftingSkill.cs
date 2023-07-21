@@ -11,7 +11,7 @@ namespace DOL.GS
 		public BasicCraftingSkill()
 		{
 			Icon = 0x0F;
-            Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "Crafting.Name.BasicCrafting");
+            Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "Crafting.Name.BasicCrafting");
             eSkill = eCraftingSkill.BasicCrafting;
 		}
 

@@ -42,17 +42,17 @@ namespace DOL.GS.RealmAbilities
         public override void AddEffectsInfo(IList<string> list)
         {
         	//TODO Translate
-        	if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+        	if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
         	{
-	            list.Add(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SecondWindAbility.AddEffectsInfo.Info1"));
-	            list.Add(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SecondWindAbility.AddEffectsInfo.Info4"));
-	            list.Add(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SecondWindAbility.AddEffectsInfo.Info5"));
+	            list.Add(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SecondWindAbility.AddEffectsInfo.Info1"));
+	            list.Add(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SecondWindAbility.AddEffectsInfo.Info4"));
+	            list.Add(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SecondWindAbility.AddEffectsInfo.Info5"));
         	}
         	else
         	{
-	            list.Add(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SecondWindAbility.AddEffectsInfo.Info1"));
-	            list.Add(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SecondWindAbility.AddEffectsInfo.Info4"));
-	            list.Add(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SecondWindAbility.AddEffectsInfo.Info5"));
+	            list.Add(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SecondWindAbility.AddEffectsInfo.Info1"));
+	            list.Add(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SecondWindAbility.AddEffectsInfo.Info4"));
+	            list.Add(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SecondWindAbility.AddEffectsInfo.Info5"));
         	}
         }
 

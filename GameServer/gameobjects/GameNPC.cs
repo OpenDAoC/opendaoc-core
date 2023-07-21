@@ -250,11 +250,11 @@ namespace DOL.GS
 					if (Level > 1)
 					{
 						int levelMinusOne = Level - 1;
-						Strength = (short) (Properties.MOB_AUTOSET_STR_BASE + levelMinusOne * Properties.MOB_AUTOSET_STR_MULTIPLIER);
-						Constitution = (short) (Properties.MOB_AUTOSET_CON_BASE + levelMinusOne * Properties.MOB_AUTOSET_CON_MULTIPLIER);
-						Quickness = (short) (Properties.MOB_AUTOSET_QUI_BASE + levelMinusOne * Properties.MOB_AUTOSET_QUI_MULTIPLIER);
-						Dexterity = (short) (Properties.MOB_AUTOSET_DEX_BASE + levelMinusOne * Properties.MOB_AUTOSET_DEX_MULTIPLIER);
-						Intelligence = (short) (Properties.MOB_AUTOSET_INT_BASE + levelMinusOne * Properties.MOB_AUTOSET_INT_MULTIPLIER);
+						Strength = (short) (ServerProperties.ServerProperties.MOB_AUTOSET_STR_BASE + levelMinusOne * ServerProperties.ServerProperties.MOB_AUTOSET_STR_MULTIPLIER);
+						Constitution = (short) (ServerProperties.ServerProperties.MOB_AUTOSET_CON_BASE + levelMinusOne * ServerProperties.ServerProperties.MOB_AUTOSET_CON_MULTIPLIER);
+						Quickness = (short) (ServerProperties.ServerProperties.MOB_AUTOSET_QUI_BASE + levelMinusOne * ServerProperties.ServerProperties.MOB_AUTOSET_QUI_MULTIPLIER);
+						Dexterity = (short) (ServerProperties.ServerProperties.MOB_AUTOSET_DEX_BASE + levelMinusOne * ServerProperties.ServerProperties.MOB_AUTOSET_DEX_MULTIPLIER);
+						Intelligence = (short) (ServerProperties.ServerProperties.MOB_AUTOSET_INT_BASE + levelMinusOne * ServerProperties.ServerProperties.MOB_AUTOSET_INT_MULTIPLIER);
 					}
 				}
 			}
@@ -2464,7 +2464,7 @@ namespace DOL.GS
 		/// <returns></returns>
 		public override string GetPronoun(int form, bool capitalize)
 		{
-			String language = ServerProperties.Properties.DB_LANGUAGE;
+			String language = ServerProperties.ServerProperties.DB_LANGUAGE;
 
 			switch (Gender)
 			{
@@ -2797,7 +2797,7 @@ namespace DOL.GS
 			FireAmbientSentence(eAmbientTrigger.fighting, target);
 		}
 
-		private int scalingFactor = Properties.GAMENPC_SCALING;
+		private int scalingFactor = ServerProperties.ServerProperties.GAMENPC_SCALING;
 		private int orbsReward = 0;
 		
 		public override double GetWeaponSkill(InventoryItem weapon)
@@ -3208,7 +3208,7 @@ namespace DOL.GS
 				if (m_respawnInterval > 0 || m_respawnInterval < 0)
 					return m_respawnInterval;
 
-				int minutes = UtilCollection.Random(ServerProperties.Properties.NPC_MIN_RESPAWN_INTERVAL, ServerProperties.Properties.NPC_MIN_RESPAWN_INTERVAL + 5);
+				int minutes = UtilCollection.Random(ServerProperties.ServerProperties.NPC_MIN_RESPAWN_INTERVAL, ServerProperties.ServerProperties.NPC_MIN_RESPAWN_INTERVAL + 5);
 
 				if (Name != Name.ToLower())
 				{
@@ -3226,7 +3226,7 @@ namespace DOL.GS
 				}
 				else
 				{
-					int add = (Level - 65) + ServerProperties.Properties.NPC_MIN_RESPAWN_INTERVAL;
+					int add = (Level - 65) + ServerProperties.ServerProperties.NPC_MIN_RESPAWN_INTERVAL;
 					return (minutes + add) * 60000;
 				}
 			}
@@ -3435,7 +3435,7 @@ namespace DOL.GS
 					//GamePlayer killerPlayer = killer as GamePlayer;
 
 					//[StephenxPimentel] - Zone Bonus XP Support
-					if (ServerProperties.Properties.ENABLE_ZONE_BONUSES)
+					if (ServerProperties.ServerProperties.ENABLE_ZONE_BONUSES)
 					{
 						GamePlayer killerPlayer = killer as GamePlayer;
 						if (killer is GameNPC)
@@ -3448,9 +3448,9 @@ namespace DOL.GS
 						int zoneBonus = (((int)value * ZoneBonus.GetCoinBonus(killerPlayer) / 100));
 						if (zoneBonus > 0)
 						{
-							long amount = (long)(zoneBonus * ServerProperties.Properties.MONEY_DROP);
+							long amount = (long)(zoneBonus * ServerProperties.ServerProperties.MONEY_DROP);
 							killerPlayer.AddMoney(amount,
-												  ZoneBonus.GetBonusMessage(killerPlayer, (int)(zoneBonus * ServerProperties.Properties.MONEY_DROP), ZoneBonus.eZoneBonusType.COIN),
+												  ZoneBonus.GetBonusMessage(killerPlayer, (int)(zoneBonus * ServerProperties.ServerProperties.MONEY_DROP), ZoneBonus.eZoneBonusType.COIN),
 												  EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 							InventoryLogging.LogInventoryAction(this, killerPlayer, eInventoryActionType.Loot, amount);
 						}

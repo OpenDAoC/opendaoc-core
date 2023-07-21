@@ -455,7 +455,7 @@ namespace DOL.GS.Keeps
         /// <param name="guard">The guard object</param>
         private static void SetGuardModel(GameKeepGuard guard)
         {
-            if (!ServerProperties.Properties.AUTOMODEL_GUARDS_LOADED_FROM_DB && !guard.LoadedFromScript)
+            if (!ServerProperties.ServerProperties.AUTOMODEL_GUARDS_LOADED_FROM_DB && !guard.LoadedFromScript)
             {
                 return;
             }
@@ -1011,13 +1011,13 @@ namespace DOL.GS.Keeps
             }
             if (guard is FrontierHastener)
             {
-                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Hastener");
+                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Hastener");
                 guard.TranslationId = "SetGuardName.Hastener";
                 return;
             }
             if (guard is GateKeeperIn || guard is GateKeeperOut)
             {
-                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Gatekeeper");
+                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Gatekeeper");
                 guard.TranslationId = "SetGuardName.Gatekeeper";
                 return;
             }
@@ -1025,13 +1025,13 @@ namespace DOL.GS.Keeps
             {
                 if (guard.Component == null)
                 {
-                    guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Commander", guard.CurrentZone.Description);
+                    guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Commander", guard.CurrentZone.Description);
                     guard.TranslationId = "SetGuardName.Commander";
                     return;
                 }
                 else if (guard.IsTowerGuard)
                 {
-                    guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.TowerCaptain");
+                    guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.TowerCaptain");
                     guard.TranslationId = "SetGuardName.TowerCaptain";
                     return;
                 }
@@ -1052,12 +1052,12 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.IsPortalKeepGuard || guard.Level == 255)
                             {
-                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.BowmanCommander");
+                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.BowmanCommander");
                                 guard.TranslationId = "SetGuardName.BowmanCommander";
                             }
                             else
                             {
-                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Scout");
+                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Scout");
                                 guard.TranslationId = "SetGuardName.Scout";
                             }
                         }
@@ -1065,12 +1065,12 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.IsPortalKeepGuard || guard.Level == 255)
                             {
-                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.MasterWizard");
+                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.MasterWizard");
                                 guard.TranslationId = "SetGuardName.MasterWizard";
                             }
                             else
                             {
-                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Wizard");
+                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Wizard");
                                 guard.TranslationId = "SetGuardName.Wizard";
                             }
                         }
@@ -1078,49 +1078,49 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.IsPortalKeepGuard || guard.Level == 255)
                             {
-                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.KnightCommander");
+                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.KnightCommander");
                                 guard.TranslationId = "SetGuardName.KnightCommander";
                             }
                             else
                             {
                                 if (guard.Gender == EGender.Male)
                                 {
-                                    guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Armsman");
+                                    guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Armsman");
                                     guard.TranslationId = "SetGuardName.Armsman";
                                 }
                                 else
                                 {
-                                    guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Armswoman");
+                                    guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Armswoman");
                                     guard.TranslationId = "SetGuardName.Armswoman";
                                 }
                             }
                         }
                         else if (guard is GuardHealer)
                         {
-                            guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Cleric");
+                            guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Cleric");
                             guard.TranslationId = "SetGuardName.Cleric";
                         }
                         else if (guard is KeepLord && guard.Component != null && guard.Component.Keep != null)
                         {
                             if (guard.Gender == EGender.Male)
                             {
-                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Lord", GetKeepShortName(guard.Component.Keep.Name));
+                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Lord", GetKeepShortName(guard.Component.Keep.Name));
                                 guard.TranslationId = "SetGuardName.Lord";
                             }
                             else
                             {
-                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Lady", GetKeepShortName(guard.Component.Keep.Name));
+                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Lady", GetKeepShortName(guard.Component.Keep.Name));
                                 guard.TranslationId = "SetGuardName.Lady";
                             }
                         }
                         else if (guard is GuardStealther)
                         {
-                            guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Infiltrator");
+                            guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Infiltrator");
                             guard.TranslationId = "SetGuardName.Infiltrator";
                         }
                         else if (guard is MissionMaster)
                         {
-                            guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.CaptainCommander");
+                            guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.CaptainCommander");
                             guard.TranslationId = "SetGuardName.CaptainCommander";
                         }
                         break;
@@ -1136,12 +1136,12 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.IsPortalKeepGuard || guard.Level == 255)
                             {
-                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.NordicHunter");
+                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.NordicHunter");
                                 guard.TranslationId = "SetGuardName.NordicHunter";
                             }
                             else
                             {
-                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Hunter");
+                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Hunter");
                                 guard.TranslationId = "SetGuardName.Hunter";
                             }
                         }
@@ -1149,12 +1149,12 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.IsPortalKeepGuard || guard.Level == 255)
                             {
-                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.MasterRunes");
+                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.MasterRunes");
                                 guard.TranslationId = "SetGuardName.MasterRunes";
                             }
                             else
                             {
-                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Runemaster");
+                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Runemaster");
                                 guard.TranslationId = "SetGuardName.Runemaster";
                             }
                         }
@@ -1162,33 +1162,33 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.IsPortalKeepGuard || guard.Level == 255)
                             {
-                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.NordicJarl");
+                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.NordicJarl");
                                 guard.TranslationId = "SetGuardName.NordicJarl";
                             }
                             else
                             {
-                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Huscarl");
+                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Huscarl");
                                 guard.TranslationId = "SetGuardName.Huscarl";
                             }
                         }
                         else if (guard is GuardHealer)
                         {
-                            guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Healer");
+                            guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Healer");
                             guard.TranslationId = "SetGuardName.Healer";
                         }
                         else if (guard is KeepLord)
                         {
-                            guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Jarl", GetKeepShortName(guard.Component.Keep.Name));
+                            guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Jarl", GetKeepShortName(guard.Component.Keep.Name));
                             guard.TranslationId = "SetGuardName.Jarl";
                         }
                         else if (guard is GuardStealther)
                         {
-                            guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Shadowblade");
+                            guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Shadowblade");
                             guard.TranslationId = "SetGuardName.Shadowblade";
                         }
                         else if (guard is MissionMaster)
                         {
-                            guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.HersirCommander");
+                            guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.HersirCommander");
                             guard.TranslationId = "SetGuardName.HersirCommander";
                         }
                         break;
@@ -1203,12 +1203,12 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.IsPortalKeepGuard || guard.Level == 255)
                             {
-                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.MasterRanger");
+                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.MasterRanger");
                                 guard.TranslationId = "SetGuardName.MasterRanger";
                             }
                             else
                             {
-                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Ranger");
+                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Ranger");
                                 guard.TranslationId = "SetGuardName.Ranger";
                             }
                         }
@@ -1216,12 +1216,12 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.IsPortalKeepGuard || guard.Level == 255)
                             {
-                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.MasterEldritch");
+                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.MasterEldritch");
                                 guard.TranslationId = "SetGuardName.MasterEldritch";
                             }
                             else
                             {
-                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Eldritch");
+                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Eldritch");
                                 guard.TranslationId = "SetGuardName.Eldritch";
                             }
                         }
@@ -1229,41 +1229,41 @@ namespace DOL.GS.Keeps
                         {
                             if (guard.IsPortalKeepGuard || guard.Level == 255)
                             {
-                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Champion");
+                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Champion");
                                 guard.TranslationId = "SetGuardName.Champion";
                             }
                             else
                             {
-                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Guardian");
+                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Guardian");
                                 guard.TranslationId = "SetGuardName.Guardian";
                             }
                         }
                         else if (guard is GuardHealer)
                         {
-                            guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Druid");
+                            guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Druid");
                             guard.TranslationId = "SetGuardName.Druid";
                         }
                         else if (guard is KeepLord)
                         {
                             if (guard.Gender == EGender.Male)
                             {
-                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Chieftain", GetKeepShortName(guard.Component.Keep.Name));
+                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Chieftain", GetKeepShortName(guard.Component.Keep.Name));
                                 guard.TranslationId = "SetGuardName.Chieftain";
                             }
                             else
                             {
-                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Chieftess", GetKeepShortName(guard.Component.Keep.Name));
+                                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Chieftess", GetKeepShortName(guard.Component.Keep.Name));
                                 guard.TranslationId = "SetGuardName.Chieftess";
                             }
                         }
                         else if (guard is GuardStealther)
                         {
-                            guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Nightshade");
+                            guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Nightshade");
                             guard.TranslationId = "SetGuardName.Nightshade";
                         }
                         else if (guard is MissionMaster)
                         {
-                            guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.ChampionCommander");
+                            guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.ChampionCommander");
                             guard.TranslationId = "SetGuardName.ChampionCommander";
                         }
                         break;
@@ -1274,7 +1274,7 @@ namespace DOL.GS.Keeps
 
             if (guard.Realm == ERealm.None)
             {
-                guard.Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "SetGuardName.Renegade", guard.Name);
+                guard.Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Renegade", guard.Name);
             }
         }
 
@@ -1469,14 +1469,14 @@ namespace DOL.GS.Keeps
             {
                 guard.Strength = (short)(20 + (guard.Level * 8));
                 guard.Dexterity = (short)(guard.Level * 2);
-                guard.Constitution = (short)(DOL.GS.ServerProperties.Properties.GAMENPC_BASE_CON);
+                guard.Constitution = (short)(DOL.GS.ServerProperties.ServerProperties.GAMENPC_BASE_CON);
                 guard.Quickness = 60;
             }
             else if (guard is GuardRelicKeepFighter)
             {
                 guard.Strength = (short)(20 + (guard.Level * 9));
                 guard.Dexterity = (short)(guard.Level * 2);
-                guard.Constitution = (short)(DOL.GS.ServerProperties.Properties.GAMENPC_BASE_CON);
+                guard.Constitution = (short)(DOL.GS.ServerProperties.ServerProperties.GAMENPC_BASE_CON);
                 guard.Quickness = 60;
             }
             else if (guard is GuardCaster)
@@ -1484,7 +1484,7 @@ namespace DOL.GS.Keeps
                 guard.Strength = (short)(20 + (guard.Level * 4));
                 //guard.Strength = (short)(20 + (guard.Level * 6));
                 guard.Dexterity = (short)(guard.Level);
-                guard.Constitution = (short)(DOL.GS.ServerProperties.Properties.GAMENPC_BASE_CON - 5);
+                guard.Constitution = (short)(DOL.GS.ServerProperties.ServerProperties.GAMENPC_BASE_CON - 5);
                 guard.Quickness = 40;
             }
             else if (guard.IsPortalKeepGuard || guard.Level == 255)
@@ -1503,7 +1503,7 @@ namespace DOL.GS.Keeps
                 guard.Strength = (short)(20 + (guard.Level * 5));
                 //guard.Strength = (short)(20 + (guard.Level * 7));
                 guard.Dexterity = (short)(guard.Level);
-                guard.Constitution = (short)(DOL.GS.ServerProperties.Properties.GAMENPC_BASE_CON);
+                guard.Constitution = (short)(DOL.GS.ServerProperties.ServerProperties.GAMENPC_BASE_CON);
                 guard.Quickness = 40;
             }
         }

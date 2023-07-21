@@ -68,7 +68,7 @@ namespace DOL.GS.RealmAbilities
 
 		public override void AddEffectsInfo(IList<string> list)
 		{
-			if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+			if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
 			{
 				list.Add("Level 1: Adds 10 DPS");
 				list.Add("Level 2: Adds 15 DPS");
@@ -99,7 +99,7 @@ namespace DOL.GS.RealmAbilities
 
         protected virtual double GetDamageAddAmount()
         {
-            if (ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+            if (ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
             {
                 switch (Level)
                 {

@@ -135,7 +135,7 @@ namespace DOL.GS
 
                             foreach (GameNPC npc in GetNPCsInRadius(400))
                             { 
-                                if (npc.Name == LanguageMgr.GetTranslation(ServerProperties.Properties.DB_LANGUAGE, "GameStableMaster.ReceiveItem.HorseName"))
+                                if (npc.Name == LanguageMgr.GetTranslation(ServerProperties.ServerProperties.DB_LANGUAGE, "GameStableMaster.ReceiveItem.HorseName"))
                                 {
                                     mount.Model = npc.Model;
                                     mount.Name = npc.Name;

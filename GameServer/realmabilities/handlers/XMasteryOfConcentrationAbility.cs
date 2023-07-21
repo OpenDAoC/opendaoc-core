@@ -66,7 +66,7 @@ namespace DOL.GS.RealmAbilities
         
         public virtual int GetAmountForLevel(int level)
 		{
-        	if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+        	if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
         	{
         		switch(level)
         		{

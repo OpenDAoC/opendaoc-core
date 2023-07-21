@@ -47,7 +47,7 @@ namespace DOL.GS.PlayerClass
 			switch (skill.KeyName)
 			{
 				case Specs.RecurveBow:
-					if (ServerProperties.Properties.ALLOW_OLD_ARCHERY == true)
+					if (ServerProperties.ServerProperties.ALLOW_OLD_ARCHERY == true)
 					{
 						if (skill.Level < 3)
 						{

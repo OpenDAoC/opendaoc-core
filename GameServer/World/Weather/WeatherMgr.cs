@@ -32,17 +32,17 @@ namespace DOL.GS
 		/// <summary>
 		/// Default Weather Check Timer Interval
 		/// </summary>
-		private int DefaultTimerInterval { get { return Math.Max(1000, ServerProperties.Properties.WEATHER_CHECK_INTERVAL); } }
+		private int DefaultTimerInterval { get { return Math.Max(1000, ServerProperties.ServerProperties.WEATHER_CHECK_INTERVAL); } }
 		
 		/// <summary>
 		/// Default Weather Chance
 		/// </summary>
-		private int DefaultWeatherChance { get { return Math.Min(99, ServerProperties.Properties.WEATHER_CHANCE); } }
+		private int DefaultWeatherChance { get { return Math.Min(99, ServerProperties.ServerProperties.WEATHER_CHANCE); } }
 		
 		/// <summary>
 		/// Log Weather Change to Info Logger
 		/// </summary>
-		private bool EventLogWeather { get { return ServerProperties.Properties.WEATHER_LOG_EVENTS; } }
+		private bool EventLogWeather { get { return ServerProperties.ServerProperties.WEATHER_LOG_EVENTS; } }
 		
 		/// <summary>
 		/// Dictionary of Regions to be handled.

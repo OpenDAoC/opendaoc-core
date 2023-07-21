@@ -53,7 +53,7 @@ namespace DOL.GS.PacketHandler.Client.v168
                 {
                     if ((EPrivLevel)client.Account.PrivLevel == EPrivLevel.Player)
                     {
-                        if (Properties.BAN_HACKERS)
+                        if (ServerProperties.ServerProperties.BAN_HACKERS)
                         {
                             client.BanAccount(string.Format("Autoban bad CharName '{0}'", pakdata.CharName));
                         }
@@ -115,7 +115,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
             if (!accountName.StartsWith(client.Account.Name)) // TODO more correctly check, client send accountName as account-S, -N, -H (if it not fit in 20, then only account)
             {
-                if (Properties.BAN_HACKERS)
+                if (ServerProperties.ServerProperties.BAN_HACKERS)
                 {
                     client.BanAccount($"Autoban wrong Account '{accountName}'");
                 }
@@ -152,7 +152,7 @@ namespace DOL.GS.PacketHandler.Client.v168
                 {
                     if ((EPrivLevel)client.Account.PrivLevel == EPrivLevel.Player)
                     {
-                        if (Properties.BAN_HACKERS)
+                        if (ServerProperties.ServerProperties.BAN_HACKERS)
                         {
                             client.BanAccount($"Autoban bad CharName '{pakdata.CharName}'");
                         }
@@ -464,7 +464,7 @@ namespace DOL.GS.PacketHandler.Client.v168
             }
 
             // Is class disabled ?
-            List<string> disabledClasses = UtilCollection.SplitCSV(Properties.DISABLED_CLASSES);
+            List<string> disabledClasses = UtilCollection.SplitCSV(ServerProperties.ServerProperties.DISABLED_CLASSES);
             var occurences =
                 (from j in disabledClasses
                     where j == ch.Class.ToString()
@@ -482,7 +482,7 @@ namespace DOL.GS.PacketHandler.Client.v168
             }
 
             // check if race disabled
-            List<string> disabledRaces = UtilCollection.SplitCSV(Properties.DISABLED_RACES);
+            List<string> disabledRaces = UtilCollection.SplitCSV(ServerProperties.ServerProperties.DISABLED_RACES);
             occurences =
                 (from j in disabledRaces
                     where j == ch.Race.ToString()
@@ -507,7 +507,7 @@ namespace DOL.GS.PacketHandler.Client.v168
                     log.Error($"{client.Account.Name} tried to create a character with wrong class ID: {ch.Class}, realm:{ch.Realm}");
                 }
 
-                if (Properties.BAN_HACKERS)
+                if (ServerProperties.ServerProperties.BAN_HACKERS)
                 {
                     client.BanAccount($"Autoban character create class: id:{ch.Class} realm:{ch.Realm} name:{ch.Name} account:{account.Name}");
                     client.Disconnect();
@@ -567,7 +567,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
             if (pdata.CustomMode == 1 || pdata.CustomMode == 2 || pdata.CustomMode == 3)
             {
-                if (Properties.ALLOW_CUSTOMIZE_FACE_AFTER_CREATION)
+                if (ServerProperties.ServerProperties.ALLOW_CUSTOMIZE_FACE_AFTER_CREATION)
                 {
                     character.EyeSize = (byte)pdata.EyeSize;
                     character.LipSize = (byte)pdata.LipSize;
@@ -616,7 +616,7 @@ namespace DOL.GS.PacketHandler.Client.v168
                             {
                                 if ((EPrivLevel)client.Account.PrivLevel == EPrivLevel.Player)
                                 {
-                                    if (Properties.BAN_HACKERS)
+                                    if (ServerProperties.ServerProperties.BAN_HACKERS)
                                     {
                                         client.BanAccount($"Autoban Hack char update : Wrong allowed points:{points}");
                                     }
@@ -632,7 +632,7 @@ namespace DOL.GS.PacketHandler.Client.v168
                                 return true;
                             }
 
-                            if (Properties.ALLOW_CUSTOMIZE_STATS_AFTER_CREATION)
+                            if (ServerProperties.ServerProperties.ALLOW_CUSTOMIZE_STATS_AFTER_CREATION)
                             {
                                 // Set Stats, valid is ok.
                                 character.Strength = stats[EStat.STR];
@@ -674,7 +674,7 @@ namespace DOL.GS.PacketHandler.Client.v168
                 {
                     if (client.Account.PrivLevel == 1 && ((pdata.CreationModel >> 11) & 3) == 0)
                     {
-                        if (Properties.BAN_HACKERS) // Player size must be > 0 (from 1 to 3)
+                        if (ServerProperties.ServerProperties.BAN_HACKERS) // Player size must be > 0 (from 1 to 3)
                         {
                             client.BanAccount($"Autoban Hack char update : zero character size in model:{newModel}");
                             client.Disconnect();
@@ -686,7 +686,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
                     character.CustomisationStep = 2; // disable config button
 
-                    if (Properties.ALLOW_CUSTOMIZE_FACE_AFTER_CREATION)
+                    if (ServerProperties.ServerProperties.ALLOW_CUSTOMIZE_FACE_AFTER_CREATION)
                     {
                         if (pdata.CreationModel != character.CreationModel)
                         {
@@ -722,7 +722,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
                 if (type == 1 || type == 3) // face changes
                 {
-                    if (Properties.ALLOW_CUSTOMIZE_FACE_AFTER_CREATION || character.CustomisationStep == 3)
+                    if (ServerProperties.ServerProperties.ALLOW_CUSTOMIZE_FACE_AFTER_CREATION || character.CustomisationStep == 3)
                     {
                         character.EyeSize = (byte)pdata.EyeSize;
                         character.LipSize = (byte)pdata.LipSize;
@@ -774,7 +774,7 @@ namespace DOL.GS.PacketHandler.Client.v168
                                     log.InfoFormat("Stats above MaxStartingBonusPoints for {0}", character.Name);
                                     if ((EPrivLevel)client.Account.PrivLevel == EPrivLevel.Player && character.Level == 1)
                                     {
-                                        if (Properties.BAN_HACKERS)
+                                        if (ServerProperties.ServerProperties.BAN_HACKERS)
                                         {
                                             client.BanAccount(string.Format("Autoban Hack char update : Wrong allowed points:{0}", points));
                                         }
@@ -790,7 +790,7 @@ namespace DOL.GS.PacketHandler.Client.v168
                                     return true;
                                 }
 
-                                if (Properties.ALLOW_CUSTOMIZE_STATS_AFTER_CREATION || character.CustomisationStep == 3)
+                                if (ServerProperties.ServerProperties.ALLOW_CUSTOMIZE_STATS_AFTER_CREATION || character.CustomisationStep == 3)
                                 {
                                     // Set Stats, valid is ok.
                                     character.Strength = stats[EStat.STR];
@@ -834,7 +834,7 @@ namespace DOL.GS.PacketHandler.Client.v168
                 {
                     if (client.Account.PrivLevel == 1 && ((pdata.CreationModel >> 11) & 3) == 0)
                     {
-                        if (Properties.BAN_HACKERS) // Player size must be > 0 (from 1 to 3)
+                        if (ServerProperties.ServerProperties.BAN_HACKERS) // Player size must be > 0 (from 1 to 3)
                         {
                             client.BanAccount(string.Format("Autoban Hack char update : zero character size in model:{0}", newModel));
                             client.Disconnect();
@@ -845,7 +845,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
                     character.CustomisationStep = 2; // disable config button
 
-                    if (Properties.ALLOW_CUSTOMIZE_FACE_AFTER_CREATION)
+                    if (ServerProperties.ServerProperties.ALLOW_CUSTOMIZE_FACE_AFTER_CREATION)
                     {
                         if (pdata.CreationModel != character.CreationModel)
                         {
@@ -913,7 +913,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
                         GameEventMgr.Notify(DatabaseEvent.CharacterDeleted, null, new CharacterEventArgs(character, client));
 
-						if (Properties.BACKUP_DELETED_CHARACTERS)
+						if (ServerProperties.ServerProperties.BACKUP_DELETED_CHARACTERS)
 						{
 							var backupCharacter = new DbCoreCharactersBackup(character);
 							UtilCollection.ForEach(backupCharacter.CustomParams, param => GameServer.Database.AddObject(param));

@@ -80,7 +80,7 @@ namespace DOL.GS.ServerRules
 				return false;
 			}
 
-			GameClient.EClientVersion min = (GameClient.EClientVersion)Properties.CLIENT_VERSION_MIN;
+			GameClient.EClientVersion min = (GameClient.EClientVersion)ServerProperties.ServerProperties.CLIENT_VERSION_MIN;
 			if (min != GameClient.EClientVersion.VersionNotChecked && client.Version < min)
 			{
 				client.IsConnected = false;
@@ -89,7 +89,7 @@ namespace DOL.GS.ServerRules
 				return false;
 			}
 
-			GameClient.EClientVersion max = (GameClient.EClientVersion)Properties.CLIENT_VERSION_MAX;
+			GameClient.EClientVersion max = (GameClient.EClientVersion)ServerProperties.ServerProperties.CLIENT_VERSION_MAX;
 			if (max != GameClient.EClientVersion.VersionNotChecked && client.Version > max)
 			{
 				client.IsConnected = false;
@@ -98,9 +98,9 @@ namespace DOL.GS.ServerRules
 				return false;
 			}
 
-			if (Properties.CLIENT_TYPE_MAX > -1)
+			if (ServerProperties.ServerProperties.CLIENT_TYPE_MAX > -1)
 			{
-				GameClient.EClientType type = (GameClient.EClientType)Properties.CLIENT_TYPE_MAX;
+				GameClient.EClientType type = (GameClient.EClientType)ServerProperties.ServerProperties.CLIENT_TYPE_MAX;
 				if ((int)client.ClientType > (int)type)
 				{
 					client.IsConnected = false;
@@ -137,9 +137,9 @@ namespace DOL.GS.ServerRules
 
 			DbAccounts account = GameServer.Database.FindObjectByKey<DbAccounts>(username);
 
-			if (Properties.MAX_PLAYERS > 0 && string.IsNullOrEmpty(Properties.QUEUE_API_URI))
+			if (ServerProperties.ServerProperties.MAX_PLAYERS > 0 && string.IsNullOrEmpty(ServerProperties.ServerProperties.QUEUE_API_URI))
 			{
-				if (WorldMgr.GetAllClients().Count >= Properties.MAX_PLAYERS)
+				if (WorldMgr.GetAllClients().Count >= ServerProperties.ServerProperties.MAX_PLAYERS)
 				{
 					// GMs are still allowed to enter server
 					if (account == null || (account.PrivLevel == 1 && account.Status <= 0))
@@ -154,7 +154,7 @@ namespace DOL.GS.ServerRules
 				}
 			}
 
-			if (Properties.STAFF_LOGIN)
+			if (ServerProperties.ServerProperties.STAFF_LOGIN)
 			{
 				if (account == null || account.PrivLevel == 1)
 				{
@@ -167,7 +167,7 @@ namespace DOL.GS.ServerRules
 				}
 			}
 			
-			if (Properties.TESTER_LOGIN)
+			if (ServerProperties.ServerProperties.TESTER_LOGIN)
 			{
 				if (account == null || !account.IsTester && account.PrivLevel == 1)
 				{
@@ -180,7 +180,7 @@ namespace DOL.GS.ServerRules
 				}
 			}
 			
-			if (Properties.FORCE_DISCORD_LINK)
+			if (ServerProperties.ServerProperties.FORCE_DISCORD_LINK)
 			{
 				if (account == null || account.PrivLevel == 1 && account.DiscordID is (null or ""))
 				{
@@ -193,7 +193,7 @@ namespace DOL.GS.ServerRules
 				}
 			}
 
-			if (!Properties.ALLOW_DUAL_LOGINS)
+			if (!ServerProperties.ServerProperties.ALLOW_DUAL_LOGINS)
 			{
 				if ((account == null || account.PrivLevel == 1) && client.TcpEndpointAddress != "not connected")
 				{
@@ -227,7 +227,7 @@ namespace DOL.GS.ServerRules
 		/// <param name="args"></param>
 		public virtual void OnGameEntered(CoreEvent e, object sender, EventArgs args)
 		{
-			StartImmunityTimer((GamePlayer)sender, ServerProperties.Properties.TIMER_GAME_ENTERED * 1000);
+			StartImmunityTimer((GamePlayer)sender, ServerProperties.ServerProperties.TIMER_GAME_ENTERED * 1000);
 		}
 
 		/// <summary>
@@ -238,7 +238,7 @@ namespace DOL.GS.ServerRules
 		/// <param name="args"></param>
 		public virtual void OnRegionChanged(CoreEvent e, object sender, EventArgs args)
 		{
-			StartImmunityTimer((GamePlayer)sender, ServerProperties.Properties.TIMER_REGION_CHANGED * 1000);
+			StartImmunityTimer((GamePlayer)sender, ServerProperties.ServerProperties.TIMER_REGION_CHANGED * 1000);
 		}
 
 		/// <summary>
@@ -250,7 +250,7 @@ namespace DOL.GS.ServerRules
 		public virtual void OnReleased(CoreEvent e, object sender, EventArgs args)
 		{
 			GamePlayer player = (GamePlayer)sender;
-			StartImmunityTimer(player, ServerProperties.Properties.TIMER_KILLED_BY_MOB * 1000);//When Killed by a Mob
+			StartImmunityTimer(player, ServerProperties.ServerProperties.TIMER_KILLED_BY_MOB * 1000);//When Killed by a Mob
 		}
 
 		/// <summary>
@@ -605,9 +605,9 @@ namespace DOL.GS.ServerRules
 			// zones checks:
 			// white list: always allows
 			string currentRegion = player.CurrentRegion.ID.ToString();
-			if (ServerProperties.Properties.ALLOW_PERSONNAL_MOUNT_IN_REGIONS.Contains(currentRegion))
+			if (ServerProperties.ServerProperties.ALLOW_PERSONNAL_MOUNT_IN_REGIONS.Contains(currentRegion))
 			{
-				var regions = ServerProperties.Properties.ALLOW_PERSONNAL_MOUNT_IN_REGIONS.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+				var regions = ServerProperties.ServerProperties.ALLOW_PERSONNAL_MOUNT_IN_REGIONS.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
 				foreach (var region in regions)
 					if (region == currentRegion)
 						return string.Empty;
@@ -709,7 +709,7 @@ namespace DOL.GS.ServerRules
 				return true;
 
 			// on some servers we may wish for dropped items to be used by all realms regardless of what is set in the db
-			if (!ServerProperties.Properties.ALLOW_CROSS_REALM_ITEMS)
+			if (!ServerProperties.ServerProperties.ALLOW_CROSS_REALM_ITEMS)
 			{
 				if (item.Realm != 0 && item.Realm != (int)living.Realm)
 					return false;
@@ -727,7 +727,7 @@ namespace DOL.GS.ServerRules
 			{
 				int armorAbility = -1;
 
-				if (ServerProperties.Properties.ALLOW_CROSS_REALM_ITEMS && item.Item_Type != (int)EEquipmentItems.HEAD)
+				if (ServerProperties.ServerProperties.ALLOW_CROSS_REALM_ITEMS && item.Item_Type != (int)EEquipmentItems.HEAD)
 				{
 					switch (player.Realm) // Choose based on player rather than item region
 					{
@@ -782,7 +782,7 @@ namespace DOL.GS.ServerRules
 
 				//alb
 				case EObjectType.CrushingWeapon:
-					if (ServerProperties.Properties.ALLOW_CROSS_REALM_ITEMS)
+					if (ServerProperties.ServerProperties.ALLOW_CROSS_REALM_ITEMS)
 						switch (living.Realm)
 						{
 							case ERealm.Albion: abilityCheck = Abilities.Weapon_Crushing; break;
@@ -793,7 +793,7 @@ namespace DOL.GS.ServerRules
 					else abilityCheck = Abilities.Weapon_Crushing;
 					break;
 				case EObjectType.SlashingWeapon:
-					if (ServerProperties.Properties.ALLOW_CROSS_REALM_ITEMS)
+					if (ServerProperties.ServerProperties.ALLOW_CROSS_REALM_ITEMS)
 						switch (living.Realm)
 						{
 							case ERealm.Albion: abilityCheck = Abilities.Weapon_Slashing; break;
@@ -804,18 +804,18 @@ namespace DOL.GS.ServerRules
 					else abilityCheck = Abilities.Weapon_Slashing;
 					break;
 				case EObjectType.ThrustWeapon:
-					if (ServerProperties.Properties.ALLOW_CROSS_REALM_ITEMS && living.Realm == ERealm.Hibernia)
+					if (ServerProperties.ServerProperties.ALLOW_CROSS_REALM_ITEMS && living.Realm == ERealm.Hibernia)
 						abilityCheck = Abilities.Weapon_Piercing;
 					else
 						abilityCheck = Abilities.Weapon_Thrusting;
 					break;
 				case EObjectType.TwoHandedWeapon:
-					if (ServerProperties.Properties.ALLOW_CROSS_REALM_ITEMS && living.Realm == ERealm.Hibernia)
+					if (ServerProperties.ServerProperties.ALLOW_CROSS_REALM_ITEMS && living.Realm == ERealm.Hibernia)
 						abilityCheck = Abilities.Weapon_LargeWeapons;
 					else abilityCheck = Abilities.Weapon_TwoHanded;
 					break;
 				case EObjectType.PolearmWeapon:
-					if (ServerProperties.Properties.ALLOW_CROSS_REALM_ITEMS)
+					if (ServerProperties.ServerProperties.ALLOW_CROSS_REALM_ITEMS)
 						switch (living.Realm)
 						{
 							case ERealm.Albion: abilityCheck = Abilities.Weapon_Polearms; break;
@@ -834,7 +834,7 @@ namespace DOL.GS.ServerRules
 
 				//mid
 				case EObjectType.Sword:
-					if (ServerProperties.Properties.ALLOW_CROSS_REALM_ITEMS)
+					if (ServerProperties.ServerProperties.ALLOW_CROSS_REALM_ITEMS)
 						switch (living.Realm)
 						{
 							case ERealm.Albion: abilityCheck = Abilities.Weapon_Slashing; break;
@@ -845,7 +845,7 @@ namespace DOL.GS.ServerRules
 					else abilityCheck = Abilities.Weapon_Swords; 
 					break;
 				case EObjectType.Hammer:
-					if (ServerProperties.Properties.ALLOW_CROSS_REALM_ITEMS)
+					if (ServerProperties.ServerProperties.ALLOW_CROSS_REALM_ITEMS)
 						switch (living.Realm)
 						{
 							case ERealm.Albion: abilityCheck = Abilities.Weapon_Crushing; break;
@@ -857,7 +857,7 @@ namespace DOL.GS.ServerRules
 					break;
 				case EObjectType.LeftAxe:
 				case EObjectType.Axe:
-					if (ServerProperties.Properties.ALLOW_CROSS_REALM_ITEMS)
+					if (ServerProperties.ServerProperties.ALLOW_CROSS_REALM_ITEMS)
 						switch (living.Realm)
 						{
 							case ERealm.Albion: abilityCheck = Abilities.Weapon_Slashing; break;
@@ -868,7 +868,7 @@ namespace DOL.GS.ServerRules
 					else abilityCheck = Abilities.Weapon_Axes; 
 					break;
 				case EObjectType.Spear:
-					if (ServerProperties.Properties.ALLOW_CROSS_REALM_ITEMS)
+					if (ServerProperties.ServerProperties.ALLOW_CROSS_REALM_ITEMS)
 						switch (living.Realm)
 						{
 							case ERealm.Albion: abilityCheck = Abilities.Weapon_Polearms; break;
@@ -889,7 +889,7 @@ namespace DOL.GS.ServerRules
 					otherCheck = new string[] { Abilities.Weapon_RecurvedBows, Abilities.Weapon_Archery };
 					break;
 				case EObjectType.Blades:
-					if (ServerProperties.Properties.ALLOW_CROSS_REALM_ITEMS)
+					if (ServerProperties.ServerProperties.ALLOW_CROSS_REALM_ITEMS)
 						switch (living.Realm)
 						{
 							case ERealm.Albion: abilityCheck = Abilities.Weapon_Slashing; break;
@@ -900,7 +900,7 @@ namespace DOL.GS.ServerRules
 					else abilityCheck = Abilities.Weapon_Blades; 
 					break;
 				case EObjectType.Blunt:
-					if (ServerProperties.Properties.ALLOW_CROSS_REALM_ITEMS)
+					if (ServerProperties.ServerProperties.ALLOW_CROSS_REALM_ITEMS)
 						switch (living.Realm)
 						{
 							case ERealm.Albion: abilityCheck = Abilities.Weapon_Crushing; break;
@@ -911,16 +911,16 @@ namespace DOL.GS.ServerRules
 					else abilityCheck = Abilities.Weapon_Blunt;
 					break;
 				case EObjectType.Piercing:
-					if (ServerProperties.Properties.ALLOW_CROSS_REALM_ITEMS && living.Realm == ERealm.Albion)
+					if (ServerProperties.ServerProperties.ALLOW_CROSS_REALM_ITEMS && living.Realm == ERealm.Albion)
 						abilityCheck = Abilities.Weapon_Thrusting;
 					else abilityCheck = Abilities.Weapon_Piercing;
 					break;
 				case EObjectType.LargeWeapons:
-					if (ServerProperties.Properties.ALLOW_CROSS_REALM_ITEMS && living.Realm == ERealm.Albion)
+					if (ServerProperties.ServerProperties.ALLOW_CROSS_REALM_ITEMS && living.Realm == ERealm.Albion)
 						abilityCheck = Abilities.Weapon_TwoHanded;
 					else abilityCheck = Abilities.Weapon_LargeWeapons; break;
 				case EObjectType.CelticSpear:
-					if (ServerProperties.Properties.ALLOW_CROSS_REALM_ITEMS)
+					if (ServerProperties.ServerProperties.ALLOW_CROSS_REALM_ITEMS)
 						switch (living.Realm)
 						{
 							case ERealm.Albion: abilityCheck = Abilities.Weapon_Polearms; break;
@@ -1350,18 +1350,18 @@ namespace DOL.GS.ServerRules
 			and it will also let higher level players (the 35-50s who tend to hit this clamp more often) to gain experience faster.
 			 */
 			long expCap = (long) (GameServer.ServerRules.GetExperienceForLiving(living.Level) *
-				ServerProperties.Properties.XP_CAP_PERCENT / 100);
+				ServerProperties.ServerProperties.XP_CAP_PERCENT / 100);
 
 			if (player != null)
 			{
 				expCap = (long) (GameServer.ServerRules.GetExperienceForLiving(player.Level) *
-					ServerProperties.Properties.XP_CAP_PERCENT / 100);
+					ServerProperties.ServerProperties.XP_CAP_PERCENT / 100);
 
 				if (player.Group != null && isGroupInRange)
 				{
 					// Optional group cap can be set different from standard player cap
 					expCap = (long) (GameServer.ServerRules.GetExperienceForLiving(player.Level) *
-						ServerProperties.Properties.XP_GROUP_CAP_PERCENT / 100);
+						ServerProperties.ServerProperties.XP_GROUP_CAP_PERCENT / 100);
 				}
 			}
 
@@ -1413,7 +1413,7 @@ namespace DOL.GS.ServerRules
 			#region Camp Bonus
 
 			// average max camp bonus is somewhere between 50 and 60%
-			double fullCampBonus = ServerProperties.Properties.MAX_CAMP_BONUS;
+			double fullCampBonus = ServerProperties.ServerProperties.MAX_CAMP_BONUS;
 			if (killer.CurrentZone.IsDungeon)
 				fullCampBonus = 1; //dungeon gives +100% camp xp
 
@@ -1541,7 +1541,7 @@ namespace DOL.GS.ServerRules
 					*/
 					//Console.WriteLine($"Soft xp cap: {softXPCap} getexp: {GameServer.ServerRules.GetExperienceForLiving(Level)}");
 					long softXPCap = (long) (GameServer.ServerRules.GetExperienceForLiving(living.Level) *
-						ServerProperties.Properties.XP_CAP_PERCENT / 100);
+						ServerProperties.ServerProperties.XP_CAP_PERCENT / 100);
 					player.Out.SendMessage(
 						$"Base XP: {baseXP.ToString("N0", format)} | Solo Cap : {softXPCap.ToString("N0", format)} | %Cap: {((double) ((baseXP) / (softXPCap)) * 100).ToString("0.##")}%",
 						EChatType.CT_System, EChatLoc.CL_SystemWindow);
@@ -1753,7 +1753,7 @@ namespace DOL.GS.ServerRules
 		/// <param name="killer">killer</param>
 		public virtual void OnPlayerKilled(GamePlayer killedPlayer, GameObject killer)
 		{
-			if (ServerProperties.Properties.ENABLE_WARMAPMGR && killer is GamePlayer && killer.CurrentRegion.ID == 163)
+			if (ServerProperties.ServerProperties.ENABLE_WARMAPMGR && killer is GamePlayer && killer.CurrentRegion.ID == 163)
 				WarMapMgr.AddFight((byte)killer.CurrentZone.ID, killer.X, killer.Y, (byte)killer.Realm, (byte)killedPlayer.Realm);
 			
 			HybridDictionary XPGainerList = new HybridDictionary();
@@ -1767,7 +1767,7 @@ namespace DOL.GS.ServerRules
 
 			killedPlayer.LastDeathRealmPoints = 0;
 			// "player has been killed recently"
-			if (killedPlayer.DeathTime + Properties.RP_WORTH_SECONDS > killedPlayer.PlayedTime)
+			if (killedPlayer.DeathTime + ServerProperties.ServerProperties.RP_WORTH_SECONDS > killedPlayer.PlayedTime)
 			{
 				foreach (DictionaryEntry gainer in XPGainerList)
 				{
@@ -1812,12 +1812,12 @@ namespace DOL.GS.ServerRules
 			}
 			
 			long playerExpValue = killedPlayer.ExperienceValue;
-			playerExpValue = (long)(playerExpValue * ServerProperties.Properties.XP_RATE);
+			playerExpValue = (long)(playerExpValue * ServerProperties.ServerProperties.XP_RATE);
 			int playerRPValue = killedPlayer.RealmPointsValue;
 			int playerBPValue = 0;
 
 			bool BG = false;
-			if (!ServerProperties.Properties.ALLOW_BPS_IN_BGS)
+			if (!ServerProperties.ServerProperties.ALLOW_BPS_IN_BGS)
 			{
 				foreach (AbstractGameKeep keep in GameServer.KeepManager.GetKeepsOfRegion(killedPlayer.CurrentRegionID))
 				{
@@ -2000,7 +2000,7 @@ namespace DOL.GS.ServerRules
 				// TODO: pets take 25% and owner gets 75%
 				long xpReward = (long)(playerExpValue * damagePercent); // exp for damage percent
 
-				long expCap = (long)(living.ExperienceValue * ServerProperties.Properties.XP_PVP_CAP_PERCENT / 100);
+				long expCap = (long)(living.ExperienceValue * ServerProperties.ServerProperties.XP_PVP_CAP_PERCENT / 100);
 
 				switch (expGainPlayer?.GetConLevel(killedPlayer))
 				{
@@ -2190,7 +2190,7 @@ namespace DOL.GS.ServerRules
                 }
             }
 
-            if (ServerProperties.Properties.LOG_PVP_KILLS && playerKillers.Count > 0)
+            if (ServerProperties.ServerProperties.LOG_PVP_KILLS && playerKillers.Count > 0)
 			{
 				try
 				{
@@ -2564,16 +2564,16 @@ namespace DOL.GS.ServerRules
 		{
 			int value = 0;
 
-			if (Properties.EVENT_THIDRANKI)
+			if (ServerProperties.ServerProperties.EVENT_THIDRANKI)
 			{
 				value = 125;
 			}
 			else if (keep is GameKeep)
 			{
-				value = Properties.KEEP_RP_BASE + (keep.BaseLevel - 50) * Properties.KEEP_RP_MULTIPLIER;
+				value = ServerProperties.ServerProperties.KEEP_RP_BASE + (keep.BaseLevel - 50) * ServerProperties.ServerProperties.KEEP_RP_MULTIPLIER;
 			}
 
-			value += ((keep.Level - Properties.STARTING_KEEP_LEVEL) * Properties.UPGRADE_MULTIPLIER);
+			value += ((keep.Level - ServerProperties.ServerProperties.STARTING_KEEP_LEVEL) * ServerProperties.ServerProperties.UPGRADE_MULTIPLIER);
 
 			return value;
 		}
@@ -2806,7 +2806,7 @@ namespace DOL.GS.ServerRules
 
 			try
 			{
-				string defaultClassType = ServerProperties.Properties.GAMENPC_DEFAULT_CLASSTYPE;
+				string defaultClassType = ServerProperties.ServerProperties.GAMENPC_DEFAULT_CLASSTYPE;
 
 				if (npcTemplate == null || string.IsNullOrEmpty(npcTemplate.ClassType))
 				{

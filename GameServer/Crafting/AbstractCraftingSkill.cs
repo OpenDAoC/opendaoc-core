@@ -694,7 +694,7 @@ namespace DOL.GS
 
 			craftingTime = (int)(craftingTime * mod);
 
-			var maxCraftingTime = Properties.MAX_CRAFT_TIME;
+			var maxCraftingTime = ServerProperties.ServerProperties.MAX_CRAFT_TIME;
 
 			if (craftingTime < 1)
 				craftingTime = 1;

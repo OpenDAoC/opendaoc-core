@@ -34,7 +34,7 @@ namespace Core.GS.Events
 		[ScriptLoadedEvent]
 		public static void OnScriptCompiled(CoreEvent e, object sender, EventArgs args)
 		{
-			if (!DOL.GS.ServerProperties.Properties.DISABLE_APPEALSYSTEM)
+			if (!DOL.GS.ServerProperties.ServerProperties.DISABLE_APPEALSYSTEM)
 			{
 
 				//Register and load the DB.
@@ -50,7 +50,7 @@ namespace Core.GS.Events
 		[ScriptUnloadedEvent]
 		public static void OnScriptUnloaded(CoreEvent e, object sender, EventArgs args)
 		{
-			if (!DOL.GS.ServerProperties.Properties.DISABLE_APPEALSYSTEM)
+			if (!DOL.GS.ServerProperties.ServerProperties.DISABLE_APPEALSYSTEM)
 			{
 				GameEventMgr.RemoveHandler(GamePlayerEvent.GameEntered, new CoreEventHandler(PlayerEnter));
 				GameEventMgr.RemoveHandler(GamePlayerEvent.Quit, new CoreEventHandler(PlayerQuit));

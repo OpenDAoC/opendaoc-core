@@ -140,7 +140,7 @@ namespace DOL.GS.Quests
 			{
 				EnemyKilledEventArgs gArgs = (EnemyKilledEventArgs)args;
 				GameLiving target = gArgs.Target;
-				if (ServerProperties.Properties.TASK_GIVE_RANDOM_ITEM == false)
+				if (ServerProperties.ServerProperties.TASK_GIVE_RANDOM_ITEM == false)
 				{
 					if (((KillTask)player.Task).MobName == target.Name)
 					{
@@ -253,7 +253,7 @@ namespace DOL.GS.Quests
 					}
 				}
 			}
-			else if (e == GamePlayerEvent.GiveItem && ServerProperties.Properties.TASK_GIVE_RANDOM_ITEM == true)
+			else if (e == GamePlayerEvent.GiveItem && ServerProperties.ServerProperties.TASK_GIVE_RANDOM_ITEM == true)
 			{
 				GiveItemEventArgs gArgs = (GiveItemEventArgs)args;
 				GameLiving target = gArgs.Target as GameLiving;

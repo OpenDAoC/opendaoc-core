@@ -149,7 +149,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
 			Console.WriteLine(search);
 
-			if (ServerProperties.Properties.MARKET_ENABLE_LOG)
+			if (ServerProperties.ServerProperties.MARKET_ENABLE_LOG)
 			{
 			
 				log.DebugFormat(" ");

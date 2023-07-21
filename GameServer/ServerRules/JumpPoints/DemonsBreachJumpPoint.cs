@@ -1,9 +1,5 @@
-using System;
-
 using DOL.Database;
-using DOL.GS.Keeps;
 using DOL.GS.PacketHandler;
-using DOL.Events;
 using DOL.Language;
 
 namespace DOL.GS.ServerRules

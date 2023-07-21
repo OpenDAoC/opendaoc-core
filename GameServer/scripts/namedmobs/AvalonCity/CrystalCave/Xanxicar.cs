@@ -73,7 +73,7 @@ namespace DOL.GS
 			Piety = npcTemplate.Piety;
 			Intelligence = npcTemplate.Intelligence;
 			Empathy = npcTemplate.Empathy;
-			RespawnInterval = Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 
 			Faction = FactionMgr.GetFactionByID(10);
 			Faction.AddFriendFaction(FactionMgr.GetFactionByID(10));
@@ -142,13 +142,13 @@ namespace DOL.GS
 			String message = String.Format("{0} has been slain by a force of {1} warriors!", Name, numPlayers);
 			NewsMgr.CreateNews(message, killer.Realm, eNewsType.PvE, true);
 
-			if (Properties.GUILD_MERIT_ON_DRAGON_KILL > 0)
+			if (ServerProperties.ServerProperties.GUILD_MERIT_ON_DRAGON_KILL > 0)
 			{
 				foreach (GamePlayer player in GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE))
 				{
 					if (player.IsEligibleToGiveMeritPoints)
 					{
-						GuildEventHandler.MeritForNPCKilled(player, this, Properties.GUILD_MERIT_ON_DRAGON_KILL);
+						GuildEventHandler.MeritForNPCKilled(player, this, ServerProperties.ServerProperties.GUILD_MERIT_ON_DRAGON_KILL);
 					}
 				}
 			}

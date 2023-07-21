@@ -2302,7 +2302,7 @@ namespace DOL.GS.SalvageCalc
                         break;
                 }
 
-                Yield.Count = (int) (Yield.Count * Properties.SALVAGE_YIELD_MULTIPLIER);
+                Yield.Count = (int) (Yield.Count * ServerProperties.ServerProperties.SALVAGE_YIELD_MULTIPLIER);
 
                 #region AtlasROGs
                 

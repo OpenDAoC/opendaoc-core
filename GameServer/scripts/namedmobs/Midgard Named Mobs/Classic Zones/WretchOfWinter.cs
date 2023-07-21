@@ -53,7 +53,7 @@ namespace DOL.GS
         public override short Strength { get => base.Strength; set => base.Strength = 300; }
         public override bool AddToWorld()
 		{
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			Model = 470;
 			Name = "Wretch of Winter";
 			Size = 250;
@@ -192,7 +192,7 @@ namespace DOL.GS
 		public override short Strength { get => base.Strength; set => base.Strength = 300; }
 		public override bool AddToWorld()
 		{
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			Model = 453;
 			Name = "Wretch of Winter";
 			Size = 250;
@@ -331,7 +331,7 @@ namespace DOL.GS
 		public override short Strength { get => base.Strength; set => base.Strength = 330; }
 		public override bool AddToWorld()
 		{
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			Model = 577;
 			Name = "Wretch of Winter";
 			Size = 250;
@@ -469,7 +469,7 @@ namespace DOL.GS
 		public override short Strength { get => base.Strength; set => base.Strength = 330; }
 		public override bool AddToWorld()
 		{
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			Model = 1770;
 			Name = "Wretch of Winter";
 			Size = 250;
@@ -600,7 +600,7 @@ namespace DOL.GS
 		public override short Strength { get => base.Strength; set => base.Strength = 300; }
 		public override bool AddToWorld()
 		{
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			Model = 460;
 			Name = "Wretch of Winter";
 			Size = 250;
@@ -731,7 +731,7 @@ namespace DOL.GS
 		public override short Strength { get => base.Strength; set => base.Strength = 300; }
 		public override bool AddToWorld()
 		{
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			Model = 126;
 			Name = "Wretch of Winter";
 			Size = 250;
@@ -862,7 +862,7 @@ namespace DOL.GS
 		public override short Strength { get => base.Strength; set => base.Strength = 300; }
 		public override bool AddToWorld()
 		{
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			Model = 440;
 			Name = "Wretch of Winter";
 			Size = 250;
@@ -993,7 +993,7 @@ namespace DOL.GS
 		public override short Strength { get => base.Strength; set => base.Strength = 400; }
 		public override bool AddToWorld()
 		{
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			Model = 441;
 			Name = "Wretch of Winter";
 			Size = 250;
@@ -1124,7 +1124,7 @@ namespace DOL.GS
 		public override short Strength { get => base.Strength; set => base.Strength = 400; }
 		public override bool AddToWorld()
 		{
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			Model = 466;
 			Name = "Wretch of Winter";
 			Size = 250;

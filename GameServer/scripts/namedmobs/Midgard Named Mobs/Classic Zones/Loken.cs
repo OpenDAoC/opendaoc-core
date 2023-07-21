@@ -93,7 +93,7 @@ namespace DOL.GS
 			Empathy = npcTemplate.Empathy;
 			SpawnWolfs();
 
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_QUEST_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_QUEST_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			LokenBrain sbrain = new LokenBrain();
 			SetOwnBrain(sbrain);
 			base.AddToWorld();

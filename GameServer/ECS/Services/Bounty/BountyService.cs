@@ -9,7 +9,7 @@ namespace DOL.GS
         private static BountyMgr BountyManager = new();
 
         // private static long _updateInterval = 10000; // 10secs
-        private static long _updateInterval = ServerProperties.Properties.BOUNTY_CHECK_INTERVAL * 1000;
+        private static long _updateInterval = ServerProperties.ServerProperties.BOUNTY_CHECK_INTERVAL * 1000;
 
         private static long _lastUpdate;
 

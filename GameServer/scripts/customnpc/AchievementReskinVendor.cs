@@ -16,7 +16,7 @@ public class AchievementReskinVendor : GameNPC
     public string TempModelPrice = "TempModelPrice";
     public string currencyName = "Orbs";
     
-    private string _currencyID = ServerProperties.Properties.ALT_CURRENCY_ID;
+    private string _currencyID = ServerProperties.ServerProperties.ALT_CURRENCY_ID;
 
     private int Chance;
     private Random rnd = new Random();

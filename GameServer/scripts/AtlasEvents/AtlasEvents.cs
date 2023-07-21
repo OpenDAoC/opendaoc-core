@@ -43,9 +43,9 @@ namespace DOL.GS.GameEvents
 				log.Info("Atlas Event initialized");
 		}
 		
-		public static int EventLvCap = ServerProperties.Properties.EVENT_LVCAP;
-		public static int EventRPCap = ServerProperties.Properties.EVENT_RPCAP;
-		public static int SoloPop = ServerProperties.Properties.EVENT_SOLO_POP;
+		public static int EventLvCap = ServerProperties.ServerProperties.EVENT_LVCAP;
+		public static int EventRPCap = ServerProperties.ServerProperties.EVENT_RPCAP;
+		public static int SoloPop = ServerProperties.ServerProperties.EVENT_SOLO_POP;
 		
 		/// <summary>
 		/// Unregister Character Creation Events
@@ -82,7 +82,7 @@ namespace DOL.GS.GameEvents
 			DbCoreCharacters ch = chArgs.Character;
 
 			//moving and binding newly created characters to the BG event zone
-			if (ServerProperties.Properties.EVENT_THIDRANKI)
+			if (ServerProperties.ServerProperties.EVENT_THIDRANKI)
 			{
 				switch (ch.Realm)
 				{
@@ -113,7 +113,7 @@ namespace DOL.GS.GameEvents
 			}
 
 			//moving and binding newly created characters to the PVP event zone
-			if (ServerProperties.Properties.EVENT_TUTORIAL)
+			if (ServerProperties.ServerProperties.EVENT_TUTORIAL)
 			{
 				ch.Xpos = 342521;
 				ch.Ypos = 385230;
@@ -130,7 +130,7 @@ namespace DOL.GS.GameEvents
 		{
 			GamePlayer p = sender as GamePlayer;
 
-			if (p.CurrentRegionID == 27 && Properties.EVENT_PVP && WorldMgr.GetAllClientsCount() < SoloPop)
+			if (p.CurrentRegionID == 27 && ServerProperties.ServerProperties.EVENT_PVP && WorldMgr.GetAllClientsCount() < SoloPop)
 			{
 				switch (p.Realm)
 				{
@@ -157,7 +157,7 @@ namespace DOL.GS.GameEvents
 				return;
 
 			// BG event RP cap check
-			if (ServerProperties.Properties.EVENT_THIDRANKI && p.RealmPoints > EventRPCap)
+			if (ServerProperties.ServerProperties.EVENT_THIDRANKI && p.RealmPoints > EventRPCap)
 			{
 				switch (p.Realm)
 				{
@@ -174,7 +174,7 @@ namespace DOL.GS.GameEvents
 			}
 			
 			// in case we ever have a RP cap with the PVP event
-			if (ServerProperties.Properties.EVENT_TUTORIAL && p.RealmPoints > EventRPCap)
+			if (ServerProperties.ServerProperties.EVENT_TUTORIAL && p.RealmPoints > EventRPCap)
 			{
 				p.MoveTo(27, 342521, 385230, 5410, 1756);
 			}
@@ -204,7 +204,7 @@ namespace DOL.GS.GameEvents
 			}
 			
 			// BG event login checks
-			if (ServerProperties.Properties.EVENT_THIDRANKI && p.CurrentRegionID != 252)
+			if (ServerProperties.ServerProperties.EVENT_THIDRANKI && p.CurrentRegionID != 252)
 			{
 				switch (p.Realm)
 				{
@@ -231,7 +231,7 @@ namespace DOL.GS.GameEvents
 			}
 
 			// PVP event login checks
-			if (ServerProperties.Properties.EVENT_TUTORIAL)
+			if (ServerProperties.ServerProperties.EVENT_TUTORIAL)
 			{
 				p.MoveTo(27, 342521, 385230, 5410, 1756);
 				

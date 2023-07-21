@@ -37,7 +37,7 @@ namespace DOL.AI.Brain
                 if (player.EffectList.GetOfType<NecromancerShadeEffect>() != null)
                     continue;
 
-                if (GS.ServerProperties.Properties.FNF_TURRETS_REQUIRE_LOS_TO_AGGRO)
+                if (GS.ServerProperties.ServerProperties.FNF_TURRETS_REQUIRE_LOS_TO_AGGRO)
                     player.Out.SendCheckLOS(Body, player, new CheckLOSResponse(LosCheckForAggroCallback));
                 else
                     AddToAggroList(player, 0);
@@ -55,7 +55,7 @@ namespace DOL.AI.Brain
                 if (npc is GameTaxi or GameTrainingDummy)
                     continue;
 
-                if (GS.ServerProperties.Properties.FNF_TURRETS_REQUIRE_LOS_TO_AGGRO)
+                if (GS.ServerProperties.ServerProperties.FNF_TURRETS_REQUIRE_LOS_TO_AGGRO)
                 {
                     if (npc.Brain is ControlledNpcBrain theirControlledNpcBrain && theirControlledNpcBrain.GetPlayerOwner() is GamePlayer theirOwner)
                     {

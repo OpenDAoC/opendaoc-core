@@ -27,7 +27,7 @@ namespace DOL.GS.Commands
 				return;
 			
 			// If anonymous mode is disabled from the 'serverproperty' table
-			if (client.Account.PrivLevel == 1 && ServerProperties.Properties.ANON_MODIFIER == -1)
+			if (client.Account.PrivLevel == 1 && ServerProperties.ServerProperties.ANON_MODIFIER == -1)
 			{
 				// Message: Anonymous mode is currently disabled.
 				ChatUtil.SendSystemMessage(client, "PLCommands.Anonymous.Err.Disabled", null);

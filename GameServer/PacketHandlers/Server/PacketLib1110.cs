@@ -30,7 +30,7 @@ namespace DOL.GS.PacketHandler
         /// This can be controlled through server propertiers !
         /// </summary>
 		public virtual bool ForceTooltipUpdate {
-			get { return ServerProperties.Properties.USE_NEW_TOOLTIP_FORCEDUPDATE; }
+			get { return ServerProperties.ServerProperties.USE_NEW_TOOLTIP_FORCEDUPDATE; }
 		}
 
         /// <summary>

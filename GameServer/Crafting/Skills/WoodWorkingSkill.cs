@@ -7,7 +7,7 @@ namespace DOL.GS
 		public WoodWorkingSkill()
 		{
 			Icon = 0x0E;
-			Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "Crafting.Name.Woodworking");
+			Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "Crafting.Name.Woodworking");
 			eSkill = eCraftingSkill.WoodWorking;
 		}
 

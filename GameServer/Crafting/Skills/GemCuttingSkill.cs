@@ -7,7 +7,7 @@ namespace DOL.GS
 		public GemCuttingSkill()
 		{
 			Icon = 0x09;
-			Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "Crafting.Name.Gemcutting");
+			Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "Crafting.Name.Gemcutting");
 			eSkill = eCraftingSkill.GemCutting;
 		}
 

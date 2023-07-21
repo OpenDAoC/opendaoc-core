@@ -45,7 +45,7 @@ namespace DOL.GS.Spells
 		/// </summary>
 		public override bool CheckBeginCast(GameLiving selectedTarget)
 		{
-			if (Caster.PetCount >= ServerProperties.Properties.THEURGIST_PET_CAP)
+			if (Caster.PetCount >= ServerProperties.ServerProperties.THEURGIST_PET_CAP)
 			{
 				MessageToCaster("You have too many controlled creatures!", EChatType.CT_SpellResisted);
 				return false;

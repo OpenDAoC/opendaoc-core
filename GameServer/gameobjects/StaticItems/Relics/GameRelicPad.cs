@@ -155,7 +155,7 @@ namespace DOL.GS
 					avatarUrl = "https://cdn.discordapp.com/attachments/879754382231613451/977721735153606686/relic_hib.png";
 					break;
 			}
-			var client = new DiscordWebhookClient(ServerProperties.Properties.DISCORD_RVR_WEBHOOK_ID);
+			var client = new DiscordWebhookClient(ServerProperties.ServerProperties.DISCORD_RVR_WEBHOOK_ID);
 			// Create your DiscordMessage with all parameters of your message.
 			var discordMessage = new DiscordMessage(
 				"",
@@ -182,7 +182,7 @@ namespace DOL.GS
 			if (relic.CurrentCarrier != null && returning == false)
 			{
 				/* Sending broadcast */
-				string message = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "GameRelicPad.MountRelic.Stored", relic.CurrentCarrier.Name, GlobalConstants.RealmToName((ERealm)relic.CurrentCarrier.Realm), relic.Name, Name);
+				string message = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "GameRelicPad.MountRelic.Stored", relic.CurrentCarrier.Name, GlobalConstants.RealmToName((ERealm)relic.CurrentCarrier.Realm), relic.Name, Name);
 				foreach (GameClient cl in WorldMgr.GetAllPlayingClients())
 				{
 					if (cl.Player.ObjectState != eObjectState.Active) continue;
@@ -191,7 +191,7 @@ namespace DOL.GS
 				}
 				NewsMgr.CreateNews(message, relic.CurrentCarrier.Realm, eNewsType.RvRGlobal, false);
 				
-				if (ServerProperties.Properties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(ServerProperties.Properties.DISCORD_RVR_WEBHOOK_ID)))
+				if (ServerProperties.ServerProperties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(ServerProperties.ServerProperties.DISCORD_RVR_WEBHOOK_ID)))
 				{
 					BroadcastDiscordRelic(message, relic.CurrentCarrier.Realm, relic.Name);
 				}
@@ -259,7 +259,7 @@ namespace DOL.GS
 
 			if (relic.CurrentCarrier != null)
 			{
-				string message = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "GameRelicPad.RemoveRelic.Removed", relic.CurrentCarrier.Name, GlobalConstants.RealmToName((ERealm)relic.CurrentCarrier.Realm), relic.Name, Name);
+				string message = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "GameRelicPad.RemoveRelic.Removed", relic.CurrentCarrier.Name, GlobalConstants.RealmToName((ERealm)relic.CurrentCarrier.Realm), relic.Name, Name);
 				foreach (GameClient cl in WorldMgr.GetAllPlayingClients())
 				{
 					if (cl.Player.ObjectState != eObjectState.Active) continue;
@@ -267,7 +267,7 @@ namespace DOL.GS
 				}
 				NewsMgr.CreateNews(message, relic.CurrentCarrier.Realm, eNewsType.RvRGlobal, false);
 				
-				if (ServerProperties.Properties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(ServerProperties.Properties.DISCORD_RVR_WEBHOOK_ID)))
+				if (ServerProperties.ServerProperties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(ServerProperties.ServerProperties.DISCORD_RVR_WEBHOOK_ID)))
 				{
 					BroadcastDiscordRelic(message, relic.CurrentCarrier.Realm, relic.Name);
 				}

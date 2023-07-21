@@ -74,7 +74,7 @@ namespace DOL.GS
 			TetherRange = 2600;
 			SpawnAdds();
 
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			CronwortBrain sbrain = new CronwortBrain();
 			SetOwnBrain(sbrain);
 			LoadedFromScript = false;//load from database

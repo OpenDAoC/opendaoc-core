@@ -31,7 +31,7 @@ namespace DOL.GS
 		{
 			get
 			{
-                return LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "TailorsMaster.GuildOrder");
+                return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "TailorsMaster.GuildOrder");
             }
 		}
 
@@ -39,7 +39,7 @@ namespace DOL.GS
 		{
 			get
 			{
-                return LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "TailorsMaster.AcceptedByOrderName");
+                return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "TailorsMaster.AcceptedByOrderName");
             }
 		}
 
@@ -52,7 +52,7 @@ namespace DOL.GS
 		{
 			get
 			{
-                return LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "TailorsMaster.InitialEntersentence");
+                return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "TailorsMaster.InitialEntersentence");
             }
 		}
 	}

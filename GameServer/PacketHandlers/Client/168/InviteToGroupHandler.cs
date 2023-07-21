@@ -48,7 +48,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 					return 0;
 				}
                 
-                if (player.Group != null && player.Group.MemberCount >= ServerProperties.Properties.GROUP_MAX_MEMBER)
+                if (player.Group != null && player.Group.MemberCount >= ServerProperties.ServerProperties.GROUP_MAX_MEMBER)
 				{
 					ChatUtil.SendSystemMessage(player, "The group is full.");
 					return 0;

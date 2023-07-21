@@ -65,7 +65,7 @@ namespace DOL.Tests.Unit.Gameserver
             var material = new DbItemTemplates() { Price = 100 };
             var ingredients = new List<Ingredient>() { new Ingredient(count, material) };
             var recipe = new RecipeMgr(product, ingredients);
-            GS.ServerProperties.Properties.CRAFTING_SELLBACK_PERCENT = 95;
+            GS.ServerProperties.ServerProperties.CRAFTING_SELLBACK_PERCENT = 95;
 
             recipe.SetRecommendedProductPriceInDB();
 

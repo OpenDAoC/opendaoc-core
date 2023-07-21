@@ -297,7 +297,7 @@ namespace DOL.GS
 				double randNum = UtilCollection.CryptoNextDouble();
 				double fumbleChance = Attacker.ChanceToFumble;
 
-				bool overrideRNG = ServerProperties.Properties.OVERRIDE_DECK_RNG;
+				bool overrideRNG = ServerProperties.ServerProperties.OVERRIDE_DECK_RNG;
 
 				if (Attacker is GamePlayer p)
 				{

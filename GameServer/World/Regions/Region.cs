@@ -213,8 +213,8 @@ namespace DOL.GS
             m_Areas = new Dictionary<ushort, IArea>();
             List<string> list = null;
 
-            if (ServerProperties.Properties.DEBUG_LOAD_REGIONS != string.Empty)
-                list = UtilCollection.SplitCSV(ServerProperties.Properties.DEBUG_LOAD_REGIONS, true);
+            if (ServerProperties.ServerProperties.DEBUG_LOAD_REGIONS != string.Empty)
+                list = UtilCollection.SplitCSV(ServerProperties.ServerProperties.DEBUG_LOAD_REGIONS, true);
 
             if (list != null && list.Count > 0)
             {
@@ -230,7 +230,7 @@ namespace DOL.GS
                 }
             }
 
-            list = UtilCollection.SplitCSV(ServerProperties.Properties.DISABLED_REGIONS, true);
+            list = UtilCollection.SplitCSV(ServerProperties.ServerProperties.DISABLED_REGIONS, true);
             foreach (string region in list)
             {
                 if (region.ToString() == ID.ToString())
@@ -240,7 +240,7 @@ namespace DOL.GS
                 }
             }
 
-            list = UtilCollection.SplitCSV(ServerProperties.Properties.DISABLED_EXPANSIONS, true);
+            list = UtilCollection.SplitCSV(ServerProperties.ServerProperties.DISABLED_EXPANSIONS, true);
             foreach (string expansion in list)
             {
                 if (expansion.ToString() == m_regionData.Expansion.ToString())
@@ -678,8 +678,8 @@ namespace DOL.GS
         /// <param name="count">The size of new objects array, limited by MAXOBJECTS</param>
         public virtual void PreAllocateRegionSpace(int count)
         {
-            if (count > Properties.REGION_MAX_OBJECTS)
-                count = Properties.REGION_MAX_OBJECTS;
+            if (count > ServerProperties.ServerProperties.REGION_MAX_OBJECTS)
+                count = ServerProperties.ServerProperties.REGION_MAX_OBJECTS;
             lock (ObjectsSyncLock)
             {
                 if (m_objects.Length > count) return;
@@ -727,7 +727,7 @@ namespace DOL.GS
                     string error = string.Empty;
   
                     // Default Classtype
-                    string classtype = ServerProperties.Properties.GAMENPC_DEFAULT_CLASSTYPE;
+                    string classtype = ServerProperties.ServerProperties.GAMENPC_DEFAULT_CLASSTYPE;
                     
                     // load template if any
                     INpcTemplate template = null;
@@ -737,7 +737,7 @@ namespace DOL.GS
                     }
                     
 
-                    if (Properties.USE_NPCGUILDSCRIPTS && mob.Guild.Length > 0 && mob.Realm >= 0 && mob.Realm <= (int)ERealm._Last)
+                    if (ServerProperties.ServerProperties.USE_NPCGUILDSCRIPTS && mob.Guild.Length > 0 && mob.Realm >= 0 && mob.Realm <= (int)ERealm._Last)
                     {
                         Type type = ScriptMgr.FindNPCGuildScriptClass(mob.Guild, (ERealm)mob.Realm);
                         if (type != null)
@@ -982,7 +982,7 @@ namespace DOL.GS
                             objID = 0;
 
                         }
-                        else if (objectsRef.Length >= Properties.REGION_MAX_OBJECTS)
+                        else if (objectsRef.Length >= ServerProperties.ServerProperties.REGION_MAX_OBJECTS)
                         {
 
                             // no available slot
@@ -998,8 +998,8 @@ namespace DOL.GS
                             int size = (int)(m_objects.Length * 1.20);
                             if (size < m_objects.Length + 256)
                                 size = m_objects.Length + 256;
-                            if (size > Properties.REGION_MAX_OBJECTS)
-                                size = Properties.REGION_MAX_OBJECTS;
+                            if (size > ServerProperties.ServerProperties.REGION_MAX_OBJECTS)
+                                size = ServerProperties.ServerProperties.REGION_MAX_OBJECTS;
                             objectsRef = new GameObject[size]; // grow the array by 20%, at least 256
                             Array.Copy(m_objects, objectsRef, m_objects.Length);
                             objID = m_objects.Length; // new object adds right behind the last object in old array

@@ -42,7 +42,7 @@ namespace DOL.GS
 		[ScriptLoadedEvent]
         public static void OnScriptCompiled(CoreEvent e, object sender, EventArgs args)
         {
-            if (ServerProperties.Properties.ENABLE_MINOTAUR_RELICS)
+            if (ServerProperties.ServerProperties.ENABLE_MINOTAUR_RELICS)
             {
                 if (log.IsDebugEnabled)
                     log.Debug("Minotaur Relics manager initialized");

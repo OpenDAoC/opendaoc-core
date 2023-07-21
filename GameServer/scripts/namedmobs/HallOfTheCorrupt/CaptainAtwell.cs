@@ -116,7 +116,7 @@ namespace DOL.GS
             Empathy = npcTemplate.Empathy;
             Faction = FactionMgr.GetFactionByID(187);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(187));
-            RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
+            RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
             BodyType = (ushort)NpcTemplateMgr.EBodyType.Humanoid;
 
             SwitchWeapon(EActiveWeaponSlot.TwoHanded);
@@ -150,7 +150,7 @@ namespace DOL.GS
                 HOC.Level = 65;
                 HOC.Size = 50;
                 HOC.CurrentRegionID = 277; //hall of the corrupt
-                HOC.RespawnInterval = ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
+                HOC.RespawnInterval = ServerProperties.ServerProperties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
                 HOC.Faction = FactionMgr.GetFactionByID(187);
                 HOC.Faction.AddFriendFaction(FactionMgr.GetFactionByID(187));
 

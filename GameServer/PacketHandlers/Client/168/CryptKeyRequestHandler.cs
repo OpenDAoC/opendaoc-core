@@ -39,7 +39,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 				// if the DataSize is above 7 then the RC4 key is bundled
 				if (packet.DataSize > 7)
 				{
-					if (Properties.CLIENT_ENABLE_ENCRYPTION_RC4)
+					if (ServerProperties.ServerProperties.CLIENT_ENABLE_ENCRYPTION_RC4)
 					{
 						var length = packet.ReadIntLowEndian();
 						var key = new byte[length];

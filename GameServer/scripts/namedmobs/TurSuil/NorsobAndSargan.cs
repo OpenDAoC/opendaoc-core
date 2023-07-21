@@ -101,7 +101,7 @@ namespace DOL.GS
 			MaxSpeedBase = 250;
 			MaxDistance = 2500;
 			TetherRange = 1800;
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 
 			GameNpcInventoryTemplate template = new GameNpcInventoryTemplate();
 			template.AddNPCEquipment(eInventorySlot.RightHandWeapon, 446, 0, 0, 0);
@@ -248,7 +248,7 @@ namespace DOL.GS
 			MaxSpeedBase = 250;
 			MaxDistance = 2500;
 			TetherRange = 1800;
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 
 			GameNpcInventoryTemplate template = new GameNpcInventoryTemplate();
 			template.AddNPCEquipment(eInventorySlot.RightHandWeapon, 1, 0, 0, 0);

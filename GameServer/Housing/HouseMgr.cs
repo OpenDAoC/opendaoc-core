@@ -21,7 +21,7 @@ namespace DOL.GS.Housing
 		private static AuxECSGameTimer CheckRentTimer = null;
 		private static Dictionary<ushort, Dictionary<int, House>> _houseList;
 		private static Dictionary<ushort, int> _idList;
-		private static int TimerInterval = Properties.RENT_CHECK_INTERVAL * 60 * 1000;
+		private static int TimerInterval = ServerProperties.ServerProperties.RENT_CHECK_INTERVAL * 60 * 1000;
 
 		protected enum ELotSpawnType
 		{
@@ -728,22 +728,22 @@ namespace DOL.GS.Housing
 				switch (model % 4)
 				{
 					case 0:
-						return Properties.HOUSING_RENT_MANSION;
+						return ServerProperties.ServerProperties.HOUSING_RENT_MANSION;
 					case 1:
-						return Properties.HOUSING_RENT_COTTAGE;
+						return ServerProperties.ServerProperties.HOUSING_RENT_COTTAGE;
 					case 2:
-						return Properties.HOUSING_RENT_HOUSE;
+						return ServerProperties.ServerProperties.HOUSING_RENT_HOUSE;
 					case 3:
-						return Properties.HOUSING_RENT_VILLA;
+						return ServerProperties.ServerProperties.HOUSING_RENT_VILLA;
 				}
 			}
 
-			return Properties.HOUSING_RENT_COTTAGE;
+			return ServerProperties.ServerProperties.HOUSING_RENT_COTTAGE;
 		}
 
 		public static int CheckRents(AuxECSGameTimer timer)
 		{
-			if (Properties.RENT_DUE_DAYS == 0)
+			if (ServerProperties.ServerProperties.RENT_DUE_DAYS == 0)
 				return 0;
 
 			Console.WriteLine("[Housing] Starting timed rent check");
@@ -769,7 +769,7 @@ namespace DOL.GS.Housing
 					long rent = GetRentByModel(house.Model);
 
 					// Does this house need to pay rent?
-					if (rent > 0L && diff.Days >= Properties.RENT_DUE_DAYS)
+					if (rent > 0L && diff.Days >= ServerProperties.ServerProperties.RENT_DUE_DAYS)
 					{					
 						long lockboxAmount = house.KeptMoney;
 						long consignmentAmount = 0;

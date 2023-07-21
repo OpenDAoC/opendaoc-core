@@ -9,7 +9,7 @@ namespace DOL.GS
 			: base()
 		{
 			Icon = 0x03;
-			Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "Crafting.Name.Siegecraft");
+			Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "Crafting.Name.Siegecraft");
 			eSkill = eCraftingSkill.SiegeCrafting;
 		}
 		public override string CRAFTER_TITLE_PREFIX

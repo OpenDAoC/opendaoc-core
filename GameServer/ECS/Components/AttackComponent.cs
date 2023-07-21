@@ -356,7 +356,7 @@ namespace DOL.GS
 
                 if (bowWeapon)
                 {
-                    if (Properties.ALLOW_OLD_ARCHERY)
+                    if (ServerProperties.ServerProperties.ALLOW_OLD_ARCHERY)
                     {
                         //Draw Time formulas, there are very many ...
                         //Formula 2: y = iBowDelay * ((100 - ((iQuickness - 50) / 5 + iMasteryofArcheryLevel * 3)) / 100)
@@ -422,7 +422,7 @@ namespace DOL.GS
                     if (owner.ActiveWeaponSlot == EActiveWeaponSlot.Distance)
                     {
                         // Old archery uses archery speed, but new archery uses casting speed
-                        if (Properties.ALLOW_OLD_ARCHERY)
+                        if (ServerProperties.ServerProperties.ALLOW_OLD_ARCHERY)
                             speed *= 1.0 - owner.GetModified(EProperty.ArcherySpeed) * 0.01;
                         else
                             speed *= 1.0 - owner.GetModified(EProperty.CastingSpeed) * 0.01;
@@ -540,7 +540,7 @@ namespace DOL.GS
             else
             {
                 double effectiveness = 1.00;
-                double damage = (1.0 + owner.Level / Properties.PVE_MOB_DAMAGE_F1 + owner.Level * owner.Level / Properties.PVE_MOB_DAMAGE_F2) * NpcWeaponSpeed() * 0.1;
+                double damage = (1.0 + owner.Level / ServerProperties.ServerProperties.PVE_MOB_DAMAGE_F1 + owner.Level * owner.Level / ServerProperties.ServerProperties.PVE_MOB_DAMAGE_F2) * NpcWeaponSpeed() * 0.1;
 
                 if (weapon == null
                     || weapon.SlotPosition == Slot.RIGHTHAND
@@ -554,7 +554,7 @@ namespace DOL.GS
                         || weapon.Object_Type == (int)EObjectType.RecurvedBow
                         || weapon.Object_Type == (int)EObjectType.CompositeBow)
                     {
-                        if (ServerProperties.Properties.ALLOW_OLD_ARCHERY)
+                        if (ServerProperties.ServerProperties.ALLOW_OLD_ARCHERY)
                             effectiveness += owner.GetModified(EProperty.RangedDamage) * 0.01;
                         else
                             effectiveness += owner.GetModified(EProperty.SpellDamage) * 0.01;
@@ -685,7 +685,7 @@ namespace DOL.GS
 
                 if (player.ActiveWeaponSlot == EActiveWeaponSlot.Distance)
                 {
-                    if (ServerProperties.Properties.ALLOW_OLD_ARCHERY == false)
+                    if (ServerProperties.ServerProperties.ALLOW_OLD_ARCHERY == false)
                     {
                         if ((ECharacterClass) player.CharacterClass.ID == ECharacterClass.Scout ||
                             (ECharacterClass) player.CharacterClass.ID == ECharacterClass.Hunter ||
@@ -1113,7 +1113,7 @@ namespace DOL.GS
                                         foreach (GameNPC obj in extraTargets)
                                         {
                                             if (obj != ad.Target)
-                                                LivingMakeAttack(action, obj, attackWeapon, null, 1, Properties.SPELL_INTERRUPT_DURATION, false);
+                                                LivingMakeAttack(action, obj, attackWeapon, null, 1, ServerProperties.ServerProperties.SPELL_INTERRUPT_DURATION, false);
                                         }
                                     }
                                 }
@@ -1290,7 +1290,7 @@ namespace DOL.GS
                     weaponForSpecModifier.Object_Type = weapon.Object_Type;
                     weaponForSpecModifier.SlotPosition = weapon.SlotPosition;
 
-                    if (owner is GamePlayer && owner.Realm == ERealm.Albion && Properties.ENABLE_ALBION_ADVANCED_WEAPON_SPEC &&
+                    if (owner is GamePlayer && owner.Realm == ERealm.Albion && ServerProperties.ServerProperties.ENABLE_ALBION_ADVANCED_WEAPON_SPEC &&
                         (GameServer.ServerRules.IsObjectTypesEqual((EObjectType) weapon.Object_Type, EObjectType.TwoHandedWeapon) ||
                         GameServer.ServerRules.IsObjectTypesEqual((EObjectType) weapon.Object_Type, EObjectType.PolearmWeapon)))
                     {
@@ -1376,9 +1376,9 @@ namespace DOL.GS
                 if (owner is GamePlayer || (owner is GameNPC npcOwner && npcOwner.Brain is IControlledBrain && owner.Realm != 0))
                 {
                     if (target is GamePlayer)
-                        ad.Damage = (int) (ad.Damage * Properties.PVP_MELEE_DAMAGE);
+                        ad.Damage = (int) (ad.Damage * ServerProperties.ServerProperties.PVP_MELEE_DAMAGE);
                     else if (target is GameNPC)
-                        ad.Damage = (int) (ad.Damage * Properties.PVE_MELEE_DAMAGE);
+                        ad.Damage = (int) (ad.Damage * ServerProperties.ServerProperties.PVE_MELEE_DAMAGE);
                 }
 
                 // Conversion.
@@ -1917,7 +1917,7 @@ namespace DOL.GS
                 if (ad.Target is GamePlayer blockTarg && blockTarg.UseDetailedCombatLog)
                     blockTarg.Out.SendMessage($"your block%: {Math.Round(blockChance, 2)} rand: {blockOutput}", EChatType.CT_DamageAdd, EChatLoc.CL_SystemWindow);
 
-                if (blockDouble == null || Properties.OVERRIDE_DECK_RNG)
+                if (blockDouble == null || ServerProperties.ServerProperties.OVERRIDE_DECK_RNG)
                 {
                     if (blockChance > ranBlockNum)
                         return true;
@@ -2022,7 +2022,7 @@ namespace DOL.GS
             if (guard.GuardTarget is GamePlayer blockTarg && blockTarg.UseDetailedCombatLog)
                 blockTarg.Out.SendMessage($"Chance to be guarded: {guardchance} rand: {blockOutput} GuardSuccess? {guardchance > blockOutput}", EChatType.CT_DamageAdd, EChatLoc.CL_SystemWindow);
 
-            if (blockDouble == null || Properties.OVERRIDE_DECK_RNG)
+            if (blockDouble == null || ServerProperties.ServerProperties.OVERRIDE_DECK_RNG)
             {
                 if (guardchance > ranBlockNum)
                 {
@@ -2284,7 +2284,7 @@ namespace DOL.GS
                     if (ad.Target is GamePlayer evadeTarg && evadeTarg.UseDetailedCombatLog)
                         evadeTarg.Out.SendMessage($"your evade%: {Math.Round(evadeChance, 2)} rand: {evadeOutput}", EChatType.CT_DamageAdd, EChatLoc.CL_SystemWindow);
 
-                    if (evadeDouble == null || Properties.OVERRIDE_DECK_RNG)
+                    if (evadeDouble == null || ServerProperties.ServerProperties.OVERRIDE_DECK_RNG)
                     {
                         if (evadeChance > randomEvadeNum)
                             return EAttackResult.Evaded;
@@ -2318,7 +2318,7 @@ namespace DOL.GS
                         if (ad.Target is GamePlayer parryTarg && parryTarg.UseDetailedCombatLog)
                             parryTarg.Out.SendMessage($"your parry%: {Math.Round(parryChance, 2)} rand: {parryOutput}", EChatType.CT_DamageAdd, EChatLoc.CL_SystemWindow);
 
-                        if (parryDouble == null || Properties.OVERRIDE_DECK_RNG)
+                        if (parryDouble == null || ServerProperties.ServerProperties.OVERRIDE_DECK_RNG)
                         {
                             if (parryChance > ranParryNum)
                                 return EAttackResult.Parried;
@@ -2357,7 +2357,7 @@ namespace DOL.GS
 
             if (missChance > 0)
             {
-                double rand = !Properties.OVERRIDE_DECK_RNG && playerAttacker != null ? playerAttacker.RandomNumberDeck.GetPseudoDouble() : UtilCollection.CryptoNextDouble();
+                double rand = !ServerProperties.ServerProperties.OVERRIDE_DECK_RNG && playerAttacker != null ? playerAttacker.RandomNumberDeck.GetPseudoDouble() : UtilCollection.CryptoNextDouble();
 
                 if (ad.Attacker is GamePlayer misser && misser.UseDetailedCombatLog)
                 {
@@ -2807,7 +2807,7 @@ namespace DOL.GS
 
             // Experimental miss rate adjustment for number of attackers.
             if ((owner is GamePlayer && ad.Attacker is GamePlayer) == false)
-                missChance -= Math.Max(0, Attackers.Count - 1) * Properties.MISSRATE_REDUCTION_PER_ATTACKERS;
+                missChance -= Math.Max(0, Attackers.Count - 1) * ServerProperties.ServerProperties.MISSRATE_REDUCTION_PER_ATTACKERS;
 
             // Weapon and armor bonuses.
             int armorBonus = 0;
@@ -2900,14 +2900,14 @@ namespace DOL.GS
             {
                 var p = owner as GameEpicBoss;
                 return AttackDamage(weapon) * ((double) p.Empathy / 100) *
-                       ServerProperties.Properties.SET_EPIC_ENCOUNTER_WEAPON_DAMAGE_CAP;
+                       ServerProperties.ServerProperties.SET_EPIC_ENCOUNTER_WEAPON_DAMAGE_CAP;
             } ///////////////////////////remove until here if errors appear
               
             if (owner is GameDragon) //damage cap for dragon encounter
             {
                 var p = owner as GameDragon;
                 return AttackDamage(weapon) * ((double) p.Empathy / 100) *
-                       ServerProperties.Properties.SET_EPIC_ENCOUNTER_WEAPON_DAMAGE_CAP;
+                       ServerProperties.ServerProperties.SET_EPIC_ENCOUNTER_WEAPON_DAMAGE_CAP;
             } 
 
             if (owner is GamePlayer)
@@ -2962,7 +2962,7 @@ namespace DOL.GS
                                                             weapon.Object_Type == (int) EObjectType.RecurvedBow ||
                                                             weapon.Object_Type == (int) EObjectType.CompositeBow))
                     {
-                        if (Properties.ALLOW_OLD_ARCHERY)
+                        if (ServerProperties.ServerProperties.ALLOW_OLD_ARCHERY)
                         {
                             result += p.GetModified(EProperty.RangedDamage) * 0.01;
                         }

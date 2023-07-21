@@ -71,7 +71,7 @@ namespace DOL.GS
 			Size = 100;
 			Level = (byte)UtilCollection.Random(66,68);
 
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			ShredclawBrain sbrain = new ShredclawBrain();
 			SetOwnBrain(sbrain);
 			LoadedFromScript = false;//load from database

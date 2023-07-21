@@ -35,7 +35,7 @@ namespace DOL.GS.RealmAbilities
 
         public override int GetReUseDelay(int level)
 		{
-			if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+			if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
 			{
 				switch (level)
 				{
@@ -81,8 +81,8 @@ namespace DOL.GS.RealmAbilities
 	            list.Add(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "ConcentrationAbility.AddEffectsInfo.Info5"));
 			}*/
 			
-			list.Add(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "ConcentrationAbility.AddEffectsInfo.Info4"));
-			list.Add(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "ConcentrationAbility.AddEffectsInfo.Info5"));
+			list.Add(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "ConcentrationAbility.AddEffectsInfo.Info4"));
+			list.Add(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "ConcentrationAbility.AddEffectsInfo.Info5"));
 		}
 	}
 }

@@ -30,7 +30,7 @@ namespace DOL.GS.Commands
     {
         public void OnCommand(GameClient client, string[] args)
         {
-            if (ServerProperties.Properties.DISABLE_APPEALSYSTEM)
+            if (ServerProperties.ServerProperties.DISABLE_APPEALSYSTEM)
             {
                 AppealMgr.MessageToClient(client, LanguageMgr.GetTranslation(client.Account.Language, "Scripts.Players.Appeal.SystemDisabled"));
                 return;

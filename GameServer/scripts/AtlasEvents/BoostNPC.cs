@@ -18,8 +18,8 @@ namespace DOL.GS.Scripts
     public class BoostNPC : GameNPC
     {
         private static new readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-        public static int EventLVCap = Properties.EVENT_LVCAP;
-        public static int realmPoints = Properties.EVENT_START_RP;
+        public static int EventLVCap = ServerProperties.ServerProperties.EVENT_LVCAP;
+        public static int realmPoints = ServerProperties.ServerProperties.EVENT_START_RP;
 
         public override bool AddToWorld()
 		{
@@ -124,7 +124,7 @@ namespace DOL.GS.Scripts
                 case "realm level":
                     if (player.RealmPoints < realmPoints)
                     {
-                        var rate = Properties.RP_RATE;
+                        var rate = ServerProperties.ServerProperties.RP_RATE;
                         var realmPointsToGive = Math.Floor((realmPoints - player.RealmPoints)/rate);
                         player.CanGenerateNews = false;
                         player.GainRealmPoints((long)realmPointsToGive);

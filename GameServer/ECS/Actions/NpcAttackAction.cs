@@ -25,7 +25,7 @@ namespace DOL.GS
             _npcOwner = npcOwner;
             _isGuardArcher = _npcOwner is GuardArcher;
 
-            if (Properties.ALWAYS_CHECK_PET_LOS && npcOwner.Brain is IControlledBrain npcOwnerBrain)
+            if (ServerProperties.ServerProperties.ALWAYS_CHECK_PET_LOS && npcOwner.Brain is IControlledBrain npcOwnerBrain)
             {
                 _npcOwnerOwner = npcOwnerBrain.GetPlayerOwner();
                 new ECSGameTimer(_npcOwner, new ECSGameTimer.ECSTimerCallback(CheckLos), 1);

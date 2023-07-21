@@ -592,7 +592,7 @@ namespace DOL.GS
 
 				//---------------------------------------------------------------
 				//Try to init Server Properties
-				if (!InitComponent(Properties.InitProperties, "Server Properties Lookup"))
+				if (!InitComponent(ServerProperties.ServerProperties.InitProperties, "Server Properties Lookup"))
 					return false;
 
 				//---------------------------------------------------------------
@@ -773,14 +773,14 @@ namespace DOL.GS
 					return false;
 
 				//Load the quest managers if enabled
-				if (Properties.LOAD_QUESTS)
+				if (ServerProperties.ServerProperties.LOAD_QUESTS)
 				{
 					if (!InitComponent(QuestMgr.Init(), "Quest Manager"))
 						return false;
 				}
 				else
 				{
-					log.InfoFormat("Not Loading Quest Manager : Obeying Server Property <load_quests> - {0}", Properties.LOAD_QUESTS);
+					log.InfoFormat("Not Loading Quest Manager : Obeying Server Property <load_quests> - {0}", ServerProperties.ServerProperties.LOAD_QUESTS);
 				}
 
 				//---------------------------------------------------------------
@@ -821,10 +821,10 @@ namespace DOL.GS
 				m_status = EGameServerStatus.GSS_Open;
 				StartupTime = DateTime.Now;
 
-				if (Properties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(Properties.DISCORD_WEBHOOK_ID)))
+				if (ServerProperties.ServerProperties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(ServerProperties.ServerProperties.DISCORD_WEBHOOK_ID)))
 				{
 
-					var client = new DiscordWebhookClient(Properties.DISCORD_WEBHOOK_ID);
+					var client = new DiscordWebhookClient(ServerProperties.ServerProperties.DISCORD_WEBHOOK_ID);
 					
  					var message = new DiscordMessage(
  						"",
@@ -847,7 +847,7 @@ namespace DOL.GS
 				if (log.IsInfoEnabled)
 					log.Info("GameServer is now open for connections!");
 
-				if (Properties.ATLAS_API)
+				if (ServerProperties.ServerProperties.ATLAS_API)
 				{
 					var webserver = new DOL.GS.API.ApiHost();
 					log.Info("Game WebAPI open for connections.");
@@ -874,7 +874,7 @@ namespace DOL.GS
 			try
 			{
 				using var newsClient = new HttpClient();
-				var url = Properties.PATCH_NOTES_URL;
+				var url = ServerProperties.ServerProperties.PATCH_NOTES_URL;
 				var newsResult = await newsClient.GetStringAsync(url);
 				news.Add(newsResult);
 				log.Debug("Patch notes updated.");

@@ -23,7 +23,7 @@ namespace DOL.GS
 			int minLoot = 2 + ((lvl * lvl * lvl) >> 3);
 
 			long moneyCount = minLoot + UtilCollection.Random(minLoot >> 1);
-			moneyCount = (long)((double)moneyCount * ServerProperties.Properties.MONEY_DROP);
+			moneyCount = (long)((double)moneyCount * ServerProperties.ServerProperties.MONEY_DROP);
 
 			DbItemTemplates money = new DbItemTemplates();
 			money.Model = 488;

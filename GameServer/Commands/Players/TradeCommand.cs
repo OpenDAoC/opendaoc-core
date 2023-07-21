@@ -30,12 +30,12 @@ namespace DOL.GS.Commands
 			}
 			
 			var lastTradeTick = client.Player.TempProperties.getProperty<long>(tradeTimeoutString);
-			var slowModeLength = Properties.TRADE_SLOWMODE_LENGTH * 1000;
+			var slowModeLength = ServerProperties.ServerProperties.TRADE_SLOWMODE_LENGTH * 1000;
 			
 			if ((GameLoop.GameLoopTime - lastTradeTick) < slowModeLength && client.Account.PrivLevel == 1) // 60 secs
 			{
 				// Message: You must wait {0} seconds before using this command again.
-				ChatUtil.SendSystemMessage(client, "PLCommands.Trade.List.Wait", Properties.TRADE_SLOWMODE_LENGTH - (GameLoop.GameLoopTime - lastTradeTick) / 1000);
+				ChatUtil.SendSystemMessage(client, "PLCommands.Trade.List.Wait", ServerProperties.ServerProperties.TRADE_SLOWMODE_LENGTH - (GameLoop.GameLoopTime - lastTradeTick) / 1000);
 				return;
 			}
 			
@@ -55,7 +55,7 @@ namespace DOL.GS.Commands
 				}
 			}
 			
-			if (Properties.DISCORD_ACTIVE) WebhookMessage.LogChatMessage(player, EChatType.CT_Trade, message);
+			if (ServerProperties.ServerProperties.DISCORD_ACTIVE) WebhookMessage.LogChatMessage(player, EChatType.CT_Trade, message);
 			
 			if (player.Client.Account.PrivLevel == 1)
 			{

@@ -51,8 +51,8 @@ public class PredatorMgr
 
     private static int minPredatorReward;
     private static int maxPredatorReward;
-    private static double rewardScalar = Properties.PREDATOR_REWARD_MULTIPLIER;
-    private static long OutOfBoundsTimeout = Properties.OUT_OF_BOUNDS_TIMEOUT;
+    private static double rewardScalar = ServerProperties.ServerProperties.PREDATOR_REWARD_MULTIPLIER;
+    private static long OutOfBoundsTimeout = ServerProperties.ServerProperties.OUT_OF_BOUNDS_TIMEOUT;
 
     private static string TimeoutTickKey = "TimeoutStartTick";
 
@@ -109,10 +109,10 @@ public class PredatorMgr
         
         if (DisqualifiedPlayers.Keys.Contains(player))
         {
-            if (DisqualifiedPlayers[player] + Properties.PREDATOR_ABUSE_TIMEOUT * 60000 >=
+            if (DisqualifiedPlayers[player] + ServerProperties.ServerProperties.PREDATOR_ABUSE_TIMEOUT * 60000 >=
                 GameLoop.GameLoopTime)
             {
-                long timeLeft = Math.Abs(Properties.PREDATOR_ABUSE_TIMEOUT * 60000 + DisqualifiedPlayers[player] -
+                long timeLeft = Math.Abs(ServerProperties.ServerProperties.PREDATOR_ABUSE_TIMEOUT * 60000 + DisqualifiedPlayers[player] -
                                          GameLoop.GameLoopTime);
                 player.Out.SendMessage("You recently abandoned the hunt. " +
                                        "Your body needs " + TimeSpan.FromMilliseconds(timeLeft).Minutes + "m "
@@ -171,7 +171,7 @@ public class PredatorMgr
         player.PredatorTimeoutTimer.Callback = new ECSGameTimer.ECSTimerCallback(TimeoutTimerCallback);
         player.PredatorTimeoutTimer.Start(1000);
         
-        player.Out.SendMessage($"You are outside of a valid hunting zone and will be removed from the pool in {Properties.OUT_OF_BOUNDS_TIMEOUT} seconds.", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
+        player.Out.SendMessage($"You are outside of a valid hunting zone and will be removed from the pool in {ServerProperties.ServerProperties.OUT_OF_BOUNDS_TIMEOUT} seconds.", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
     }
     
     public static void StopTimeoutCountdownFor(GamePlayer player)

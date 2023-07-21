@@ -44,7 +44,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
 				if (totalConMoney > 0)
 				{
-					if (ServerProperties.Properties.CONSIGNMENT_USE_BP)
+					if (ServerProperties.ServerProperties.CONSIGNMENT_USE_BP)
 					{
 						client.Player.Out.SendMessage("You withdraw " + totalConMoney.ToString() + " BountyPoints from your Merchant.", EChatType.CT_Important, EChatLoc.CL_ChatWindow);
 						client.Player.BountyPoints += totalConMoney;
@@ -59,7 +59,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
 					conMerchant.TotalMoney -= totalConMoney;
 
-					if (ServerProperties.Properties.MARKET_ENABLE_LOG)
+					if (ServerProperties.ServerProperties.MARKET_ENABLE_LOG)
 					{
 						log.DebugFormat("CM: [{0}:{1}] withdraws {2} from CM on lot {3}.", client.Player.Name, client.Account.Name, totalConMoney, conMerchant.HouseNumber);
 					}

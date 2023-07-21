@@ -178,7 +178,7 @@ namespace DOL.AI.Brain
 		/// </summary>
 		public virtual int MistressDifficulty
 		{
-			get { return GS.ServerProperties.Properties.SET_DIFFICULTY_ON_EPIC_ENCOUNTERS; }
+			get { return GS.ServerProperties.ServerProperties.SET_DIFFICULTY_ON_EPIC_ENCOUNTERS; }
 		}
 
 		public override void Think()

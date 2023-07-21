@@ -25,7 +25,7 @@ namespace DOL.GS.RealmAbilities
 
 			int poolValue = 0;
 			
-			if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+			if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
 			{
 	            switch (Level)
 	            {

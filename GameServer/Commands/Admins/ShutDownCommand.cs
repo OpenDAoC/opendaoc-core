@@ -97,14 +97,14 @@ namespace DOL.GS.Commands
 			}
 
 			// At least 1 hour
-			if (Properties.HOURS_UPTIME_BETWEEN_SHUTDOWN <= 0) return;
+			if (ServerProperties.ServerProperties.HOURS_UPTIME_BETWEEN_SHUTDOWN <= 0) return;
 			
 			if (m_shuttingDown)
 				return;
 
 			TimeSpan uptime = TimeSpan.FromMilliseconds(GameServer.Instance.TickCount);
 
-			if (uptime.TotalHours >= Properties.HOURS_UPTIME_BETWEEN_SHUTDOWN && DateTime.Now.Hour == AUTOMATEDSHUTDOWN_HOURTOSHUTDOWN)
+			if (uptime.TotalHours >= ServerProperties.ServerProperties.HOURS_UPTIME_BETWEEN_SHUTDOWN && DateTime.Now.Hour == AUTOMATEDSHUTDOWN_HOURTOSHUTDOWN)
 			{
 				m_counter = AUTOMATEDSHUTDOWN_SHUTDOWNWARNINGMINUTES * 60;
 
@@ -132,7 +132,7 @@ namespace DOL.GS.Commands
 			}
 			else
 			{
-				log.Info("Uptime = " + uptime.TotalHours.ToString("N1") + ", restart uptime = " + Properties.HOURS_UPTIME_BETWEEN_SHUTDOWN.ToString() +
+				log.Info("Uptime = " + uptime.TotalHours.ToString("N1") + ", restart uptime = " + ServerProperties.ServerProperties.HOURS_UPTIME_BETWEEN_SHUTDOWN.ToString() +
 				         " | Current hour = " + DateTime.Now.Hour.ToString() + ", restart hour = " + AUTOMATEDSHUTDOWN_HOURTOSHUTDOWN.ToString() );
 			}
 		}
@@ -295,9 +295,9 @@ namespace DOL.GS.Commands
 					}
 				}
 				
-				if (secs == 119 && GameServer.Instance.ServerStatus != EGameServerStatus.GSS_Closed && Properties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(Properties.DISCORD_WEBHOOK_ID))) // 2 mins remaining
+				if (secs == 119 && GameServer.Instance.ServerStatus != EGameServerStatus.GSS_Closed && ServerProperties.ServerProperties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(ServerProperties.ServerProperties.DISCORD_WEBHOOK_ID))) // 2 mins remaining
 				{
-						var discordClient = new DiscordWebhookClient(Properties.DISCORD_WEBHOOK_ID);
+						var discordClient = new DiscordWebhookClient(ServerProperties.ServerProperties.DISCORD_WEBHOOK_ID);
 						// var discordClient = new DiscordWebhookClient("https://discord.com/api/webhooks/928723074898075708/cyZbVefc0gc__9c2wq3DwVxOBFIT45VyK-1-z7tT_uXDd--WcHrY1lw1y9H6wPg6SEyM");
 					
 						var message = new DiscordMessage(
@@ -477,9 +477,9 @@ namespace DOL.GS.Commands
 					}
 				}
 				
-				if (secs == 119 && GameServer.Instance.ServerStatus != EGameServerStatus.GSS_Closed && Properties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(Properties.DISCORD_WEBHOOK_ID))) // 2 mins remaining
+				if (secs == 119 && GameServer.Instance.ServerStatus != EGameServerStatus.GSS_Closed && ServerProperties.ServerProperties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(ServerProperties.ServerProperties.DISCORD_WEBHOOK_ID))) // 2 mins remaining
 				{
-						var discordClient = new DiscordWebhookClient(Properties.DISCORD_WEBHOOK_ID);
+						var discordClient = new DiscordWebhookClient(ServerProperties.ServerProperties.DISCORD_WEBHOOK_ID);
 						// var discordClient = new DiscordWebhookClient("https://discord.com/api/webhooks/928723074898075708/cyZbVefc0gc__9c2wq3DwVxOBFIT45VyK-1-z7tT_uXDd--WcHrY1lw1y9H6wPg6SEyM");
 					
 						var message = new DiscordMessage(
@@ -605,10 +605,10 @@ namespace DOL.GS.Commands
 							log.Info("Shutdown aborted. Server still accepting incoming connections!");
 						}
 						
-						if (Properties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(Properties.DISCORD_WEBHOOK_ID)))
+						if (ServerProperties.ServerProperties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(ServerProperties.ServerProperties.DISCORD_WEBHOOK_ID)))
 						{
 
-							var discordClient = new DiscordWebhookClient(Properties.DISCORD_WEBHOOK_ID);
+							var discordClient = new DiscordWebhookClient(ServerProperties.ServerProperties.DISCORD_WEBHOOK_ID);
 							// var discordClient = new DiscordWebhookClient("https://discord.com/api/webhooks/928723074898075708/cyZbVefc0gc__9c2wq3DwVxOBFIT45VyK-1-z7tT_uXDd--WcHrY1lw1y9H6wPg6SEyM");
 					
 							var message = new DiscordMessage(
@@ -790,10 +790,10 @@ namespace DOL.GS.Commands
 				ChatUtil.SendServerMessage(m_client, "AdminCommands.Shutdown.Msg.AttentionShutdown", m_counter / 60, date.ToString("HH:mm \"GMT\" zzz"));
 			}
 
-			if (Properties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(Properties.DISCORD_WEBHOOK_ID)))
+			if (ServerProperties.ServerProperties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(ServerProperties.ServerProperties.DISCORD_WEBHOOK_ID)))
 			{
 
-				var discordClient = new DiscordWebhookClient(Properties.DISCORD_WEBHOOK_ID);
+				var discordClient = new DiscordWebhookClient(ServerProperties.ServerProperties.DISCORD_WEBHOOK_ID);
 				// var discordClient = new DiscordWebhookClient("https://discord.com/api/webhooks/928723074898075708/cyZbVefc0gc__9c2wq3DwVxOBFIT45VyK-1-z7tT_uXDd--WcHrY1lw1y9H6wPg6SEyM");
 					
 				var message = new DiscordMessage(

@@ -62,7 +62,7 @@ namespace DOL.GS.WeeklyQuests.Albion
 		[ScriptLoadedEvent]
 		public static void ScriptLoaded(CoreEvent e, object sender, EventArgs args)
 		{
-			if (!ServerProperties.Properties.LOAD_QUESTS)
+			if (!ServerProperties.ServerProperties.LOAD_QUESTS)
 				return;
 
 			#region defineNPCs
@@ -349,7 +349,7 @@ namespace DOL.GS.WeeklyQuests.Albion
 
 		public override void FinishQuest()
 		{
-			int reward = ServerProperties.Properties.WEEKLY_RVR_REWARD;
+			int reward = ServerProperties.ServerProperties.WEEKLY_RVR_REWARD;
 			
 			m_questPlayer.ForceGainExperience((m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel)/5);
 			m_questPlayer.AddMoney(Money.GetMoney(0,0,m_questPlayer.Level * 5,32,UtilCollection.Random(50)), "You receive {0} as a reward.");

@@ -52,7 +52,7 @@ namespace DOL.GS.GameEvents
 				if (currentRealm == ERealm.None || currentRealm == ERealm.Door)
 					continue;
 				
-				CheckGuild(currentRealm,LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, string.Format("Guild.StartupGuild.{0}", GlobalConstants.RealmToName(currentRealm))));
+				CheckGuild(currentRealm,LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, string.Format("Guild.StartupGuild.{0}", GlobalConstants.RealmToName(currentRealm))));
 			}
 		}
 		
@@ -89,7 +89,7 @@ namespace DOL.GS.GameEvents
 			DbAccounts account = chArgs.GameClient.Account;
 			
 
-			var guildname = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, string.Format("Guild.StartupGuild.{0}", GlobalConstants.RealmToName((ERealm)ch.Realm)));
+			var guildname = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, string.Format("Guild.StartupGuild.{0}", GlobalConstants.RealmToName((ERealm)ch.Realm)));
 			ch.GuildID = GuildMgr.GuildNameToGuildID(guildname);
 
 			if (ch.GuildID != "")
@@ -109,11 +109,11 @@ namespace DOL.GS.GameEvents
 			{
 				GuildUtil newguild = GuildMgr.CreateGuild(currentRealm, guildName);
 				newguild.Ranks[8].OcHear = true;
-				newguild.Motd = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE,"Guild.StartupGuild.Motd");
-				newguild.Omotd = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE,"Guild.StartupGuild.Omotd");
+				newguild.Motd = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE,"Guild.StartupGuild.Motd");
+				newguild.Omotd = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE,"Guild.StartupGuild.Omotd");
 				newguild.GuildBonusType = GuildUtil.EGuildBonusType.Experience;
 				newguild.BonusStartTime = DateTime.Now;
-				newguild.Ranks[8].Title =  LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE,"Guild.StartupGuild.Title");
+				newguild.Ranks[8].Title =  LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE,"Guild.StartupGuild.Title");
 				newguild.Ranks[8].Invite = true;
 				newguild.IsStartingGuild = true;
 			}

@@ -83,7 +83,7 @@ namespace DOL.GS.DatabaseUpdate
         {
             log.Info("Updating the LanguageSystem table (this can take a few minutes)...");
 
-            if (GameServer.Database.GetObjectCount<DBLanguageSystem>() < 1 && ServerProperties.Properties.USE_DBLANGUAGE)
+            if (GameServer.Database.GetObjectCount<DBLanguageSystem>() < 1 && ServerProperties.ServerProperties.USE_DBLANGUAGE)
             {
                 var objs = GameServer.Database.SelectAllObjects<language>();
                 if (objs.Count > 0)

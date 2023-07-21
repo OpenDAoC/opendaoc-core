@@ -22,7 +22,7 @@ namespace DOL.GS.Commands
 			if (IsSpammingCommand(client.Player, "checkappeal"))
 				return;
 
-			if (ServerProperties.Properties.DISABLE_APPEALSYSTEM)
+			if (ServerProperties.ServerProperties.DISABLE_APPEALSYSTEM)
 			{
 				//AppealMgr.MessageToClient(client, LanguageMgr.GetTranslation(client.Account.Language, "Scripts.Players.Appeal.SystemDisabled"));
 				client.Out.SendMessage("The /appeal system has moved to Discord. Use the #appeal channel on our Discord to be assisted on urgent matters.",EChatType.CT_Staff,EChatLoc.CL_SystemWindow);

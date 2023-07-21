@@ -149,9 +149,9 @@ namespace DOL.GS
 				// proper name
 
 				if (firstLetterUppercase)
-					return LanguageMgr.GetTranslation(ServerProperties.Properties.DB_LANGUAGE, "GameStaticItem.GetName.Article1", Name);
+					return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.DB_LANGUAGE, "GameStaticItem.GetName.Article1", Name);
 				else
-					return LanguageMgr.GetTranslation(ServerProperties.Properties.DB_LANGUAGE, "GameStaticItem.GetName.Article2", Name);
+					return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.DB_LANGUAGE, "GameStaticItem.GetName.Article2", Name);
 			}
 			else
 			{

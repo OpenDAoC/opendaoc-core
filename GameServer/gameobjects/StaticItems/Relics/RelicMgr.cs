@@ -306,16 +306,16 @@ namespace DOL.GS
 					switch (GetDaysSinceCapture(rel))
 					{
 						case <1:
-							bonus += ServerProperties.Properties.RELIC_OWNING_BONUS*0.01 * 2;
+							bonus += ServerProperties.ServerProperties.RELIC_OWNING_BONUS*0.01 * 2;
 							break;
 						case <3:
-							bonus += ServerProperties.Properties.RELIC_OWNING_BONUS*0.01 * 1.5;
+							bonus += ServerProperties.ServerProperties.RELIC_OWNING_BONUS*0.01 * 1.5;
 							break;
 						case < 7:
-							bonus += ServerProperties.Properties.RELIC_OWNING_BONUS * 0.01;
+							bonus += ServerProperties.ServerProperties.RELIC_OWNING_BONUS * 0.01;
 							break;
 						default:
-							bonus += ServerProperties.Properties.RELIC_OWNING_BONUS*0.01 * 0.5;
+							bonus += ServerProperties.ServerProperties.RELIC_OWNING_BONUS*0.01 * 0.5;
 							break;
 					}
 				}

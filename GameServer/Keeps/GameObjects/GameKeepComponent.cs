@@ -69,7 +69,7 @@ namespace DOL.GS.Keeps
 		{
 			get
 			{
-				if (Properties.ALLOW_TOWER_CLIMB)
+				if (ServerProperties.ServerProperties.ALLOW_TOWER_CLIMB)
 				{
 					if (Skin == (int)eComponentSkin.Wall || Skin == (int)eComponentSkin.NewSkinClimbingWall || Skin == (int)eComponentSkin.Tower || Skin == (int)eComponentSkin.NewSkinTower && !Keep.IsPortalKeep) return true;
 				}
@@ -337,7 +337,7 @@ namespace DOL.GS.Keeps
 								if (obj != null)
 									obj.LoadFromPosition(position, this);
 
-								if (ServerProperties.Properties.ENABLE_DEBUG)
+								if (ServerProperties.ServerProperties.ENABLE_DEBUG)
 								{
 									if (obj is GameLiving living)
 										living.Name += " is living, component " + obj.Component.ID;
@@ -470,7 +470,7 @@ namespace DOL.GS.Keeps
 			if (attackData.DamageType == EDamageType.GM)
 				return;
 
-			int toughness = Properties.SET_STRUCTURES_TOUGHNESS;
+			int toughness = ServerProperties.ServerProperties.SET_STRUCTURES_TOUGHNESS;
 			int baseDamage = attackData.Damage;
 			int styleDamage = attackData.StyleDamage;
 			int criticalDamage = 0;
@@ -484,7 +484,7 @@ namespace DOL.GS.Keeps
 			}
 			else if (source is GameNPC)
 			{
-				if (!Properties.STRUCTURES_ALLOWPETATTACK)
+				if (!ServerProperties.ServerProperties.STRUCTURES_ALLOWPETATTACK)
 				{
 					baseDamage = 0;
 					styleDamage = 0;
@@ -503,13 +503,13 @@ namespace DOL.GS.Keeps
 							// special considerations for pet spam classes
 							if (player.CharacterClass.ID == (int)ECharacterClass.Theurgist || player.CharacterClass.ID == (int)ECharacterClass.Animist)
 							{
-								baseDamage = (int)(baseDamage * Properties.PET_SPAM_DAMAGE_MULTIPLIER);
-								styleDamage = (int)(styleDamage * Properties.PET_SPAM_DAMAGE_MULTIPLIER);
+								baseDamage = (int)(baseDamage * ServerProperties.ServerProperties.PET_SPAM_DAMAGE_MULTIPLIER);
+								styleDamage = (int)(styleDamage * ServerProperties.ServerProperties.PET_SPAM_DAMAGE_MULTIPLIER);
 							}
 							else
 							{
-								baseDamage = (int)(baseDamage * Properties.PET_DAMAGE_MULTIPLIER);
-								styleDamage = (int)(styleDamage * Properties.PET_DAMAGE_MULTIPLIER);
+								baseDamage = (int)(baseDamage * ServerProperties.ServerProperties.PET_DAMAGE_MULTIPLIER);
+								styleDamage = (int)(styleDamage * ServerProperties.ServerProperties.PET_DAMAGE_MULTIPLIER);
 							}
 						}
 					}
@@ -524,7 +524,7 @@ namespace DOL.GS.Keeps
 		public override void Die(GameObject killer)
 		{
 			base.Die(killer);
-			if (Keep is GameKeepTower && Properties.CLIENT_VERSION_MIN >= (int)GameClient.EClientVersion.Version175)
+			if (Keep is GameKeepTower && ServerProperties.ServerProperties.CLIENT_VERSION_MIN >= (int)GameClient.EClientVersion.Version175)
 			{
 				if (IsRaized == false)
 				{

@@ -16,7 +16,7 @@ namespace DOL.GS.Commands
 
 		public void OnCommand(GameClient client, string[] args)
 		{
-			var targetLevel = ServerProperties.Properties.SLASH_LEVEL_TARGET;
+			var targetLevel = ServerProperties.ServerProperties.SLASH_LEVEL_TARGET;
 
 			if (args.Length < 2)
 			{
@@ -127,7 +127,7 @@ namespace DOL.GS.Commands
 		{
 			if (response == 1)
 			{
-				int targetLevel = ServerProperties.Properties.SLASH_LEVEL_TARGET;
+				int targetLevel = ServerProperties.ServerProperties.SLASH_LEVEL_TARGET;
 
 				if( targetLevel < 1 || targetLevel > 50 )
 					targetLevel = 20;

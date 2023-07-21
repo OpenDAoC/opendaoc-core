@@ -33,7 +33,7 @@ namespace DOL.GS
 		/// Constructs an empty GameInventoryItem
 		/// that will disappear from the world after a certain amount of time
 		/// </summary>
-		public WorldInventoryItem() : base(ServerProperties.Properties.WORLD_ITEM_DECAY_TIME)
+		public WorldInventoryItem() : base(ServerProperties.ServerProperties.WORLD_ITEM_DECAY_TIME)
 		{
 		}
 

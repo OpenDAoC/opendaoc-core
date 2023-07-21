@@ -17,7 +17,7 @@ public class Realm
 
     public string GetDFOwner()
     {
-        return GlobalConstants.RealmToName(DFEnterJumpPoint.DarknessFallOwner);
+        return GlobalConstants.RealmToName(DfEnterJumpPoint.DarknessFallOwner);
     }
 
     private static string RealmIDtoString(int realm)

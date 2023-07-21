@@ -29,7 +29,7 @@ namespace DOL.GS.Scripts
 
 			Faction = FactionMgr.GetFactionByID(779);
 			Faction.AddFriendFaction(FactionMgr.GetFactionByID(187));
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 
 			BodyType = 1;
 			ScalingFactor = 40;

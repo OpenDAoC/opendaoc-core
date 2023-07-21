@@ -57,8 +57,8 @@ namespace DOL.GS.PropertyCalc
 					regen /= 2.0;
 			}
             
-			if (regen != 0 && ServerProperties.Properties.HEALTH_REGEN_RATE != 1)
-				regen *= ServerProperties.Properties.HEALTH_REGEN_RATE;
+			if (regen != 0 && ServerProperties.ServerProperties.HEALTH_REGEN_RATE != 1)
+				regen *= ServerProperties.ServerProperties.HEALTH_REGEN_RATE;
 
 			if (living.IsSitting && living is GamePlayer)
 				regen *= 1.75;

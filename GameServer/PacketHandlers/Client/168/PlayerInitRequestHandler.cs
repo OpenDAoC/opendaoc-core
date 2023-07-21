@@ -100,9 +100,9 @@ namespace DOL.GS.PacketHandler.Client.v168
 					SendGuildMessagesToPlayer(player);
 				}
 				SendHouseRentRemindersToPlayer(player);
-				if (player.Level > 1 && ServerProperties.Properties.MOTD != "")
+				if (player.Level > 1 && ServerProperties.ServerProperties.MOTD != "")
 				{
-					player.Out.SendMessage(ServerProperties.Properties.MOTD, EChatType.CT_System, EChatLoc.CL_SystemWindow);
+					player.Out.SendMessage(ServerProperties.ServerProperties.MOTD, EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				}
 				else if (player.Level == 1)
 				{
@@ -112,7 +112,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 				
 
 
-				if (ServerProperties.Properties.ENABLE_DEBUG)
+				if (ServerProperties.ServerProperties.ENABLE_DEBUG)
 					player.Out.SendMessage("Server is running in DEBUG mode!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 
 				// player.Out.SendPlayerFreeLevelUpdate();
@@ -127,7 +127,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 				//                        eChatLoc.CL_SystemWindow);
 
 
-				if (ServerProperties.Properties.TELEPORT_LOGIN_NEAR_ENEMY_KEEP)
+				if (ServerProperties.ServerProperties.TELEPORT_LOGIN_NEAR_ENEMY_KEEP)
 				{
 					CheckIfPlayerLogsNearEnemyKeepAndMoveIfNecessary(player);
 
@@ -135,7 +135,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 					CheckIfPlayerLogsNearKeepUnderAttackAndMoveIfNecessary(player);
 				}
 
-				if (ServerProperties.Properties.TELEPORT_LOGIN_BG_LEVEL_EXCEEDED)
+				if (ServerProperties.ServerProperties.TELEPORT_LOGIN_BG_LEVEL_EXCEEDED)
 				{
 					CheckBGLevelCapForPlayerAndMoveIfNecessary(player);
 				}
@@ -162,7 +162,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
 				if (updateTempProperties)
 				{
-					if (ServerProperties.Properties.ACTIVATE_TEMP_PROPERTIES_MANAGER_CHECKUP)
+					if (ServerProperties.ServerProperties.ACTIVATE_TEMP_PROPERTIES_MANAGER_CHECKUP)
 					{
 						try
 						{
@@ -175,7 +175,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 								{
 									player.TempProperties.setProperty(container.TempPropString, longresult);
 
-									if (ServerProperties.Properties.ACTIVATE_TEMP_PROPERTIES_MANAGER_CHECKUP_DEBUG)
+									if (ServerProperties.ServerProperties.ACTIVATE_TEMP_PROPERTIES_MANAGER_CHECKUP_DEBUG)
 										Log.Debug("Container " + container.TempPropString + " with value " + container.Value + " for player " + player.Name + " was removed from container list, tempproperties added");
 								}
 									TempPropertiesMgr.TempPropContainerList.TryRemove(container);
@@ -237,7 +237,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 				}
 
 				int gracePeriodInMinutes = 0;
-				Int32.TryParse(ServerProperties.Properties.RVR_LINK_DEATH_RELOG_GRACE_PERIOD, out gracePeriodInMinutes);
+				Int32.TryParse(ServerProperties.ServerProperties.RVR_LINK_DEATH_RELOG_GRACE_PERIOD, out gracePeriodInMinutes);
 				AbstractGameKeep keep = GameServer.KeepManager.GetKeepCloseToSpot(player.CurrentRegionID, player, WorldMgr.VISIBILITY_DISTANCE);
 				if (keep != null && player.Client.Account.PrivLevel == 1 && GameServer.KeepManager.IsEnemy(keep, player))
 				{
@@ -269,7 +269,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 			private static void CheckIfPlayerLogsNearKeepUnderAttackAndMoveIfNecessary(GamePlayer player)
 			{
 				int gracePeriodInMinutes = 0;
-				Int32.TryParse(ServerProperties.Properties.RVR_LINK_DEATH_RELOG_GRACE_PERIOD, out gracePeriodInMinutes);
+				Int32.TryParse(ServerProperties.ServerProperties.RVR_LINK_DEATH_RELOG_GRACE_PERIOD, out gracePeriodInMinutes);
 				AbstractGameKeep keep = GameServer.KeepManager.GetKeepCloseToSpot(player.CurrentRegionID, player, WorldMgr.VISIBILITY_DISTANCE);
 				if (keep != null && keep.InCombat && player.Client.Account.PrivLevel == 1 && !GameServer.KeepManager.IsEnemy(keep, player))
 				{
@@ -303,8 +303,8 @@ namespace DOL.GS.PacketHandler.Client.v168
 
 				if (house != null)
 				{
-					TimeSpan due = (house.LastPaid.AddDays(ServerProperties.Properties.RENT_DUE_DAYS).AddHours(1) - DateTime.Now);
-					if ((due.Days <= 0 || due.Days < ServerProperties.Properties.RENT_DUE_DAYS) && house.KeptMoney < HouseMgr.GetRentByModel(house.Model))
+					TimeSpan due = (house.LastPaid.AddDays(ServerProperties.ServerProperties.RENT_DUE_DAYS).AddHours(1) - DateTime.Now);
+					if ((due.Days <= 0 || due.Days < ServerProperties.ServerProperties.RENT_DUE_DAYS) && house.KeptMoney < HouseMgr.GetRentByModel(house.Model))
 					{
 						//Sending reminder as Text Window as the Help window wasnt properly popping up on the client
 						var message = new List<string>();
@@ -319,8 +319,8 @@ namespace DOL.GS.PacketHandler.Client.v168
 					House ghouse = HouseMgr.GetGuildHouseByPlayer(player);
 					if (ghouse != null)
 					{
-						TimeSpan due = (ghouse.LastPaid.AddDays(ServerProperties.Properties.RENT_DUE_DAYS).AddHours(1) - DateTime.Now);
-						if ((due.Days <= 0 || due.Days < ServerProperties.Properties.RENT_DUE_DAYS) && ghouse.KeptMoney < HouseMgr.GetRentByModel(ghouse.Model))
+						TimeSpan due = (ghouse.LastPaid.AddDays(ServerProperties.ServerProperties.RENT_DUE_DAYS).AddHours(1) - DateTime.Now);
+						if ((due.Days <= 0 || due.Days < ServerProperties.ServerProperties.RENT_DUE_DAYS) && ghouse.KeptMoney < HouseMgr.GetRentByModel(ghouse.Model))
 						{
 							//Sending reminder as Text Window as the Help window wasnt properly popping up on the client
 							var guildmessage = new List<string>();

@@ -20,8 +20,8 @@ namespace DOL.GS
             GameLoop.CurrentServiceTick = SERVICE_NAME;
             Diagnostics.StartPerfCounter(SERVICE_NAME);
 
-            long fullCycle = ServerProperties.Properties.MAX_CONQUEST_TASK_DURATION * 60000; //ServerProperties.Properties.MAX_CONQUEST_INTERVAL
-            long tallyCycle = ServerProperties.Properties.CONQUEST_TALLY_INTERVAL * 1000; //multiply by 000 to accomodate for second input
+            long fullCycle = ServerProperties.ServerProperties.MAX_CONQUEST_TASK_DURATION * 60000; //ServerProperties.Properties.MAX_CONQUEST_INTERVAL
+            long tallyCycle = ServerProperties.ServerProperties.CONQUEST_TALLY_INTERVAL * 1000; //multiply by 000 to accomodate for second input
             long subCycle = fullCycle / 6;
 
             var ActiveObjective = ConquestManager.ActiveObjective;
@@ -52,18 +52,18 @@ namespace DOL.GS
 
         public static bool IsOverHalfwayDone()
         {
-            long fullCycle = ServerProperties.Properties.MAX_CONQUEST_TASK_DURATION * 60000; //ServerProperties.Properties.MAX_CONQUEST_INTERVAL
+            long fullCycle = ServerProperties.ServerProperties.MAX_CONQUEST_TASK_DURATION * 60000; //ServerProperties.Properties.MAX_CONQUEST_INTERVAL
             return (ConquestManager.LastConquestStartTime + (fullCycle / 2)) < GameLoop.GameLoopTime;
         }
 
         public static long GetTicksUntilContributionReset()
         {
-            return ConquestManager.LastConquestWindowStart + (ServerProperties.Properties.MAX_CONQUEST_TASK_DURATION * 60000 / 6) - GameLoop.GameLoopTime;
+            return ConquestManager.LastConquestWindowStart + (ServerProperties.ServerProperties.MAX_CONQUEST_TASK_DURATION * 60000 / 6) - GameLoop.GameLoopTime;
         }
 
         public static long GetTicksUntilNextAward()
         {
-            return ConquestManager.ActiveObjective.LastRolloverTick + ServerProperties.Properties.CONQUEST_TALLY_INTERVAL * 1000 - GameLoop.GameLoopTime;
+            return ConquestManager.ActiveObjective.LastRolloverTick + ServerProperties.ServerProperties.CONQUEST_TALLY_INTERVAL * 1000 - GameLoop.GameLoopTime;
         }
     }
 }

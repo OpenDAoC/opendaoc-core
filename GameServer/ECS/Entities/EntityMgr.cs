@@ -26,14 +26,14 @@ namespace DOL.GS
 
         private static Dictionary<EntityType, dynamic> _entityArrays = new()
         {
-            { EntityType.Player, new EntityArray<GamePlayer>(ServerProperties.Properties.MAX_PLAYERS) },
-            { EntityType.Brain, new EntityArray<ABrain>(ServerProperties.Properties.MAX_ENTITIES) },
+            { EntityType.Player, new EntityArray<GamePlayer>(ServerProperties.ServerProperties.MAX_PLAYERS) },
+            { EntityType.Brain, new EntityArray<ABrain>(ServerProperties.ServerProperties.MAX_ENTITIES) },
             { EntityType.Effect, new EntityArray<ECSGameEffect>(250) },
             { EntityType.AttackComponent, new EntityArray<AttackComponent>(1250) },
             { EntityType.CastingComponent, new EntityArray<CastingComponent>(1250) },
             { EntityType.EffectListComponent, new EntityArray<EffectListComponent>(3000) },
             { EntityType.CraftComponent, new EntityArray<CraftComponent>(100) },
-            { EntityType.ObjectChangingSubZone, new EntityArray<ObjectChangingSubZone>(ServerProperties.Properties.MAX_ENTITIES) },
+            { EntityType.ObjectChangingSubZone, new EntityArray<ObjectChangingSubZone>(ServerProperties.ServerProperties.MAX_ENTITIES) },
             { EntityType.Timer, new EntityArray<ECSGameTimer>(500) },
             { EntityType.AuxTimer, new EntityArray<AuxECSGameTimer>(250) }
         };

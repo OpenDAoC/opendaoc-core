@@ -100,7 +100,7 @@ namespace DOL.AI.Brain
 		/// </summary>
 		public override int ThinkInterval
 		{
-			get { return GS.ServerProperties.Properties.PET_THINK_INTERVAL; }
+			get { return GS.ServerProperties.ServerProperties.PET_THINK_INTERVAL; }
 		}
 
 		#region Control
@@ -758,11 +758,11 @@ namespace DOL.AI.Brain
 					String spellTarget = spell.Target.ToUpper();
 					int bodyPercent = Body.HealthPercent;
 					//underhill ally heals at half the normal threshold 'will heal seriously injured groupmates'
-					int healThreshold = this.Body.Name.Contains("underhill") ? GS.ServerProperties.Properties.NPC_HEAL_THRESHOLD / 2 : GS.ServerProperties.Properties.NPC_HEAL_THRESHOLD;
+					int healThreshold = this.Body.Name.Contains("underhill") ? GS.ServerProperties.ServerProperties.NPC_HEAL_THRESHOLD / 2 : GS.ServerProperties.ServerProperties.NPC_HEAL_THRESHOLD;
 
 					if (Body.Name.Contains("empyrean"))
 					{
-						healThreshold = this.Body.Name.Contains("empyrean") ? GS.ServerProperties.Properties.CHARMED_NPC_HEAL_THRESHOLD : GS.ServerProperties.Properties.NPC_HEAL_THRESHOLD;
+						healThreshold = this.Body.Name.Contains("empyrean") ? GS.ServerProperties.ServerProperties.CHARMED_NPC_HEAL_THRESHOLD : GS.ServerProperties.ServerProperties.NPC_HEAL_THRESHOLD;
 					}
 
 					if (spellTarget == "SELF")

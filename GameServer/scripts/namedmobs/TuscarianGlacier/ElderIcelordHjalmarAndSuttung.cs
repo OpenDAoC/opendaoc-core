@@ -30,7 +30,7 @@ namespace DOL.GS
 
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
 
         public override int AttackRange
@@ -327,7 +327,7 @@ namespace DOL.GS
 
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
 
         public override int AttackRange
@@ -575,7 +575,7 @@ namespace DOL.GS
 
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * Strength / 50 * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * Strength / 50 * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
 
         protected int Show_Effect(ECSGameTimer timer)
@@ -770,7 +770,7 @@ namespace DOL.AI.Brain
         public static bool Spawn_Boss = false;
         public override void Think()
         {
-            int respawn = GS.ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;
+            int respawn = GS.ServerProperties.ServerProperties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;
             if (Body.IsAlive)
             {
                 if (Suttung.SuttungCount == 1 || Hjalmar.HjalmarCount == 1)//one of them is up

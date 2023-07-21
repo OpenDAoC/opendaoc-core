@@ -329,7 +329,7 @@ namespace DOL.GS
 		/// </summary>
 		public virtual bool OnAddItem(GamePlayer player, InventoryItem item)
 		{
-			if (ServerProperties.Properties.MARKET_ENABLE_LOG)
+			if (ServerProperties.ServerProperties.MARKET_ENABLE_LOG)
 			{
 				log.DebugFormat("CM: {0}:{1} adding '{2}' to consignment merchant on lot {3}.", player.Name, player.Client.Account.Name, item.Name, HouseNumber);
 			}
@@ -341,7 +341,7 @@ namespace DOL.GS
 		/// </summary>
 		public virtual bool OnRemoveItem(GamePlayer player, InventoryItem item)
 		{
-			if (ServerProperties.Properties.MARKET_ENABLE_LOG)
+			if (ServerProperties.ServerProperties.MARKET_ENABLE_LOG)
 			{
 				log.DebugFormat("CM: {0}:{1} removing '{2}' from consignment merchant on lot {3}.", player.Name, player.Client.Account.Name, item.Name, HouseNumber);
 			}
@@ -396,7 +396,7 @@ namespace DOL.GS
 				ChatUtil.SendDebugMessage(player, item.Name + " SellPrice=" + price + ", OwnerLot=" + item.OwnerLot + ", OwnerID=" + item.OwnerID);
 				player.Out.SendMessage("Price set!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 
-				if (ServerProperties.Properties.MARKET_ENABLE_LOG)
+				if (ServerProperties.ServerProperties.MARKET_ENABLE_LOG)
 				{
 					log.DebugFormat("CM: {0}:{1} set sell price of '{2}' to {3} for consignment merchant on lot {4}.", player.Name, player.Client.Account.Name, item.Name, item.SellPrice, HouseNumber);
 				}
@@ -447,9 +447,9 @@ namespace DOL.GS
 			if (player.TargetObject is MarketExplorer)
 			{
 				player.TempProperties.setProperty(CONSIGNMENT_BUY_ITEM, fromClientSlot);
-				if (ServerProperties.Properties.MARKET_FEE_PERCENT > 0)
+				if (ServerProperties.ServerProperties.MARKET_FEE_PERCENT > 0)
 				{
-					player.Out.SendCustomDialog("Buying directly from the Market Explorer costs an additional " +  ServerProperties.Properties.MARKET_FEE_PERCENT + "% fee. Do you want to buy this Item?", new CustomDialogResponse(BuyMarketResponse));
+					player.Out.SendCustomDialog("Buying directly from the Market Explorer costs an additional " +  ServerProperties.ServerProperties.MARKET_FEE_PERCENT + "% fee. Do you want to buy this Item?", new CustomDialogResponse(BuyMarketResponse));
 				}
 				else
 				{
@@ -531,9 +531,9 @@ namespace DOL.GS
 				int sellPrice = item.SellPrice;
 				int purchasePrice = sellPrice;
 
-				if (usingMarketExplorer && ServerProperties.Properties.MARKET_FEE_PERCENT > 0)
+				if (usingMarketExplorer && ServerProperties.ServerProperties.MARKET_FEE_PERCENT > 0)
 				{
-					purchasePrice += ((purchasePrice * ServerProperties.Properties.MARKET_FEE_PERCENT) / 100);
+					purchasePrice += ((purchasePrice * ServerProperties.ServerProperties.MARKET_FEE_PERCENT) / 100);
 				}
 
 				lock (player.Inventory)
@@ -545,7 +545,7 @@ namespace DOL.GS
 						return;
 					}
 
-					if (ServerProperties.Properties.CONSIGNMENT_USE_BP)
+					if (ServerProperties.ServerProperties.CONSIGNMENT_USE_BP)
 					{
 						if (player.BountyPoints < purchasePrice)
 						{
@@ -570,7 +570,7 @@ namespace DOL.GS
 						return;
 					}
 
-					if (ServerProperties.Properties.CONSIGNMENT_USE_BP)
+					if (ServerProperties.ServerProperties.CONSIGNMENT_USE_BP)
 					{
 						ChatUtil.SendMerchantMessage(player, "GameMerchant.OnPlayerBuy.BoughtBP", item.GetName(1, false), purchasePrice);
 						player.BountyPoints -= purchasePrice;
@@ -591,7 +591,7 @@ namespace DOL.GS
 
 					TotalMoney += sellPrice;
 
-					if (ServerProperties.Properties.MARKET_ENABLE_LOG)
+					if (ServerProperties.ServerProperties.MARKET_ENABLE_LOG)
 					{
 						log.DebugFormat("CM: {0}:{1} purchased '{2}' for {3} from consignment merchant on lot {4}.", player.Name, player.Client.Account.Name, item.Name, purchasePrice, HouseNumber);
 					}
@@ -699,7 +699,7 @@ namespace DOL.GS
                 long amount = m_totalMoney;
                 player.Out.SendConsignmentMerchantMoney(amount);
 
-				if (ServerProperties.Properties.CONSIGNMENT_USE_BP)
+				if (ServerProperties.ServerProperties.CONSIGNMENT_USE_BP)
                 {
                     player.Out.SendMessage("Your merchant currently holds " + amount + " BountyPoints.", EChatType.CT_Important, EChatLoc.CL_ChatWindow);
                 }
@@ -762,7 +762,7 @@ namespace DOL.GS
 			{
 				item.OwnerLot = (ushort)HouseNumber;
 				MarketCache.AddItem(item);
-				if (ServerProperties.Properties.MARKET_ENABLE_LOG)
+				if (ServerProperties.ServerProperties.MARKET_ENABLE_LOG)
 				{
 					log.DebugFormat("CM: Fixed OwnerLot for item '{0}' on CM for lot {1}", item.Name, HouseNumber);
 				}

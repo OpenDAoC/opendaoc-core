@@ -35,7 +35,7 @@ namespace DOL.GS.Scripts
 			BodyType = 6;
 			MeleeDamageType = EDamageType.Slash;
 			Faction = FactionMgr.GetFactionByID(779);
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 
 			// right hand
 			VisibleActiveWeaponSlots = (byte) EActiveWeaponSlot.Standard;			

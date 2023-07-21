@@ -23,7 +23,7 @@ namespace DOL.GS.RealmAbilities
         {
             if (CheckPreconditions(living, DEAD | SITTING)) return;
             
-            if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+            if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
             {
             	int seconds = 0;
             	switch(Level)
@@ -183,7 +183,7 @@ namespace DOL.GS.RealmAbilities
 
         public override int GetReUseDelay(int level)
         {
-        	if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+        	if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
         	{
         		switch(level)
         		{
@@ -205,10 +205,10 @@ namespace DOL.GS.RealmAbilities
 
         public override void AddEffectsInfo(IList<string> list)
         {
-            list.Add(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "PurgeAbility.AddEffectsInfo.Info1"));
+            list.Add(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "PurgeAbility.AddEffectsInfo.Info1"));
             list.Add("");
-            list.Add(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "PurgeAbility.AddEffectsInfo.Info2"));
-            list.Add(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "PurgeAbility.AddEffectsInfo.Info3"));
+            list.Add(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "PurgeAbility.AddEffectsInfo.Info2"));
+            list.Add(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "PurgeAbility.AddEffectsInfo.Info3"));
         }
     }
 }

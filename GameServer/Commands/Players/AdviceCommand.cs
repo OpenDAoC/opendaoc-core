@@ -39,12 +39,12 @@ namespace DOL.GS.Commands
 				return;
 			
 			var lastAdviceTick = client.Player.TempProperties.getProperty<long>(advTimeoutString);
-			var slowModeLength = Properties.ADVICE_SLOWMODE_LENGTH * 1000;
+			var slowModeLength = ServerProperties.ServerProperties.ADVICE_SLOWMODE_LENGTH * 1000;
 			
 			if ((GameLoop.GameLoopTime - lastAdviceTick) < slowModeLength && client.Account.PrivLevel == 1) // 60 secs
 			{
 				// Message: You must wait {0} seconds before using this command again.
-				ChatUtil.SendSystemMessage(client, "PLCommands.Advice.List.Wait", Properties.ADVICE_SLOWMODE_LENGTH - (GameLoop.GameLoopTime - lastAdviceTick) / 1000);
+				ChatUtil.SendSystemMessage(client, "PLCommands.Advice.List.Wait", ServerProperties.ServerProperties.ADVICE_SLOWMODE_LENGTH - (GameLoop.GameLoopTime - lastAdviceTick) / 1000);
 				return;
 			}
 
@@ -104,7 +104,7 @@ namespace DOL.GS.Commands
 				}
 
 			}
-			if (Properties.DISCORD_ACTIVE) WebhookMessage.LogChatMessage(client.Player, EChatType.CT_Advise, msg);
+			if (ServerProperties.ServerProperties.DISCORD_ACTIVE) WebhookMessage.LogChatMessage(client.Player, EChatType.CT_Advise, msg);
 
 			if (client.Account.PrivLevel == 1)
 			{

@@ -70,7 +70,7 @@ namespace DOL.GS.Quests.Albion
 		[ScriptLoadedEvent]
 		public static void ScriptLoaded(CoreEvent e, object sender, EventArgs args)
 		{
-			if (!ServerProperties.Properties.LOAD_QUESTS)
+			if (!ServerProperties.ServerProperties.LOAD_QUESTS)
 				return;
 			
 
@@ -733,7 +733,7 @@ namespace DOL.GS.Quests.Albion
 		[ScriptUnloadedEvent]
 		public static void ScriptUnloaded(CoreEvent e, object sender, EventArgs args)
 		{
-			if (!ServerProperties.Properties.LOAD_QUESTS)
+			if (!ServerProperties.ServerProperties.LOAD_QUESTS)
 				return;
 			//if not loaded, don't worry
 			if (Roben == null)

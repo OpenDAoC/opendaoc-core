@@ -141,10 +141,10 @@ namespace DOL.GS.PacketHandler
 				{
 					string personalizedStory = BehaviorUtils.GetPersonalizedMessage(quest.Story, player);
 
-					if (personalizedStory.Length > ServerProperties.Properties.MAX_REWARDQUEST_DESCRIPTION_LENGTH)
+					if (personalizedStory.Length > ServerProperties.ServerProperties.MAX_REWARDQUEST_DESCRIPTION_LENGTH)
 					{
-						pak.WriteShort((ushort)ServerProperties.Properties.MAX_REWARDQUEST_DESCRIPTION_LENGTH);
-						pak.WriteStringBytes(personalizedStory.Substring(0, ServerProperties.Properties.MAX_REWARDQUEST_DESCRIPTION_LENGTH));
+						pak.WriteShort((ushort)ServerProperties.ServerProperties.MAX_REWARDQUEST_DESCRIPTION_LENGTH);
+						pak.WriteStringBytes(personalizedStory.Substring(0, ServerProperties.ServerProperties.MAX_REWARDQUEST_DESCRIPTION_LENGTH));
 					}
 					else
 					{
@@ -154,10 +154,10 @@ namespace DOL.GS.PacketHandler
 				}
 				else
 				{
-					if (quest.Conclusion.Length > (ushort)ServerProperties.Properties.MAX_REWARDQUEST_DESCRIPTION_LENGTH)
+					if (quest.Conclusion.Length > (ushort)ServerProperties.ServerProperties.MAX_REWARDQUEST_DESCRIPTION_LENGTH)
 					{
-						pak.WriteShort((ushort)ServerProperties.Properties.MAX_REWARDQUEST_DESCRIPTION_LENGTH);
-						pak.WriteStringBytes(quest.Conclusion.Substring(0, (ushort)ServerProperties.Properties.MAX_REWARDQUEST_DESCRIPTION_LENGTH));
+						pak.WriteShort((ushort)ServerProperties.ServerProperties.MAX_REWARDQUEST_DESCRIPTION_LENGTH);
+						pak.WriteStringBytes(quest.Conclusion.Substring(0, (ushort)ServerProperties.ServerProperties.MAX_REWARDQUEST_DESCRIPTION_LENGTH));
 					}
 					else
 					{

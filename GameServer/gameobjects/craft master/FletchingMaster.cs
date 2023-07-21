@@ -30,7 +30,7 @@ namespace DOL.GS
 		{
 			get
 			{
-                return LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "FletchingMaster.GuildOrder");
+                return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "FletchingMaster.GuildOrder");
             }
 		}
 
@@ -38,7 +38,7 @@ namespace DOL.GS
 		{
 			get
 			{
-                return LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "FletchingMaster.AcceptedByOrderName");
+                return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "FletchingMaster.AcceptedByOrderName");
             }
 		}
 
@@ -51,7 +51,7 @@ namespace DOL.GS
 		{
 			get 
 			{ 
-                return LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "FletchingMaster.InitialEntersentence");
+                return LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "FletchingMaster.InitialEntersentence");
             }
 		}
 	}

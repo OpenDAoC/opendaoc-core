@@ -12,7 +12,7 @@ namespace DOL.GS.Commands
     {
         public void OnCommand(GameClient client, string[] args)
         {
-            if (!ServerProperties.Properties.ENABLE_CORPSESUMONNER)
+            if (!ServerProperties.ServerProperties.ENABLE_CORPSESUMONNER)
             {
                 client.Player.Out.SendMessage("This command is currently disable!", EChatType.CT_System,
                     EChatLoc.CL_ChatWindow);

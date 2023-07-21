@@ -419,7 +419,7 @@ namespace DOL.GS
 				// Check if the tradepartner has also agreed to the trade
 				if (!m_partnerWindow.m_tradeAccept) return false;
 
-				bool logTrade = ServerProperties.Properties.LOG_TRADES;
+				bool logTrade = ServerProperties.ServerProperties.LOG_TRADES;
 				if (m_owner.Client.Account.PrivLevel > 1 || partner.Client.Account.PrivLevel > 1)
 					logTrade = true;
 

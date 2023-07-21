@@ -188,7 +188,7 @@ namespace DOL.GS.Keeps
 				if (!player.IsAlive) continue;
 				if (GameServer.ServerRules.IsSameRealm(player, this, true))
 				{
-					if (player.HealthPercent < Properties.KEEP_HEAL_THRESHOLD)
+					if (player.HealthPercent < ServerProperties.ServerProperties.KEEP_HEAL_THRESHOLD)
 					{
 						target = player;
 						break;
@@ -203,7 +203,7 @@ namespace DOL.GS.Keeps
 					if (npc is GameSiegeWeapon) continue;
 					if (GameServer.ServerRules.IsSameRealm(npc, this, true))
 					{
-						if (npc.HealthPercent < Properties.KEEP_HEAL_THRESHOLD)
+						if (npc.HealthPercent < ServerProperties.ServerProperties.KEEP_HEAL_THRESHOLD)
 						{
 							target = npc;
 							break;
@@ -383,7 +383,7 @@ namespace DOL.GS.Keeps
 			if (guard.Component.Keep.Guild == null) return;
 
 			int inArea = guard.GetEnemyCountInArea();
-			string message = LanguageMgr.GetTranslation(Properties.SERV_LANGUAGE, "GameKeepGuard.GuardSpam.Killed", guard.Name, guard.Component.Keep.Name, inArea);
+			string message = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "GameKeepGuard.GuardSpam.Killed", guard.Name, guard.Component.Keep.Name, inArea);
 			KeepGuildMgr.SendMessageToGuild(message, guard.Component.Keep.Guild);
 		}
 
@@ -513,7 +513,7 @@ namespace DOL.GS.Keeps
 					string text = "";
 					if (Component.Keep.Level > 1 && Component.Keep.Level < 250 && GameServer.ServerRules.IsSameRealm(player, this, true))
 						text = LanguageMgr.GetTranslation(player.Client.Account.Language, "GameKeepGuard.GetExamineMessages.Upgraded", GetPronoun(0, true), Component.Keep.Level);
-					if (Properties.USE_KEEP_BALANCING && Component.Keep.Region == 163 && !(Component.Keep is GameKeepTower))
+					if (ServerProperties.ServerProperties.USE_KEEP_BALANCING && Component.Keep.Region == 163 && !(Component.Keep is GameKeepTower))
 						text += LanguageMgr.GetTranslation(player.Client.Account.Language, "GameKeepGuard.GetExamineMessages.Balancing", GetPronoun(0, true), (Component.Keep.BaseLevel - 50).ToString());
 					if (text != "")
 						list.Add(text);
@@ -537,8 +537,8 @@ namespace DOL.GS.Keeps
 					{
 						// Subjective
 						if (Gender == GS.EGender.Male)
-							s = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "GameKeepGuard.GetPronoun.He");
-						else s = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "GameKeepGuard.GetPronoun.She");
+							s = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "GameKeepGuard.GetPronoun.He");
+						else s = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "GameKeepGuard.GetPronoun.She");
 						if (!firstLetterUppercase)
 							s = s.ToLower();
 						break;
@@ -547,8 +547,8 @@ namespace DOL.GS.Keeps
 					{
 						// Possessive
 						if (Gender == EGender.Male)
-							s = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "GameKeepGuard.GetPronoun.His");
-						else s = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "GameKeepGuard.GetPronoun.Hers");
+							s = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "GameKeepGuard.GetPronoun.His");
+						else s = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "GameKeepGuard.GetPronoun.Hers");
 						if (!firstLetterUppercase)
 							s = s.ToLower();
 						break;
@@ -557,8 +557,8 @@ namespace DOL.GS.Keeps
 					{
 						// Objective
 						if (Gender == EGender.Male)
-							s = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "GameKeepGuard.GetPronoun.Him");
-						else s = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "GameKeepGuard.GetPronoun.Her");
+							s = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "GameKeepGuard.GetPronoun.Him");
+						else s = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "GameKeepGuard.GetPronoun.Her");
 						if (!firstLetterUppercase)
 							s = s.ToLower();
 						break;
@@ -794,7 +794,7 @@ namespace DOL.GS.Keeps
 		{
 			if (Realm == ERealm.None)
 			{
-				Name = LanguageMgr.GetTranslation(Properties.SERV_LANGUAGE, "SetGuardName.Renegade", Name);
+				Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Renegade", Name);
 			}
 		}
 
@@ -865,11 +865,11 @@ namespace DOL.GS.Keeps
 
 		public override void AutoSetStats(DbMobs dbMob = null)
 		{
-			Strength = (short) (Properties.GUARD_AUTOSET_STR_BASE + Level * Properties.GUARD_AUTOSET_STR_MULTIPLIER);
-			Constitution = (short) (Properties.GUARD_AUTOSET_CON_BASE + Level * Properties.GUARD_AUTOSET_CON_MULTIPLIER);
-			Dexterity = (short) (Properties.GUARD_AUTOSET_DEX_BASE + Level * Properties.GUARD_AUTOSET_DEX_MULTIPLIER);
-			Quickness = (short) (Properties.GUARD_AUTOSET_QUI_BASE + Level * Properties.GUARD_AUTOSET_QUI_MULTIPLIER);
-			Intelligence = (short) (Properties.GUARD_AUTOSET_INT_BASE + Level * Properties.GUARD_AUTOSET_INT_MULTIPLIER);
+			Strength = (short) (ServerProperties.ServerProperties.GUARD_AUTOSET_STR_BASE + Level * ServerProperties.ServerProperties.GUARD_AUTOSET_STR_MULTIPLIER);
+			Constitution = (short) (ServerProperties.ServerProperties.GUARD_AUTOSET_CON_BASE + Level * ServerProperties.ServerProperties.GUARD_AUTOSET_CON_MULTIPLIER);
+			Dexterity = (short) (ServerProperties.ServerProperties.GUARD_AUTOSET_DEX_BASE + Level * ServerProperties.ServerProperties.GUARD_AUTOSET_DEX_MULTIPLIER);
+			Quickness = (short) (ServerProperties.ServerProperties.GUARD_AUTOSET_QUI_BASE + Level * ServerProperties.ServerProperties.GUARD_AUTOSET_QUI_MULTIPLIER);
+			Intelligence = (short) (ServerProperties.ServerProperties.GUARD_AUTOSET_INT_BASE + Level * ServerProperties.ServerProperties.GUARD_AUTOSET_INT_MULTIPLIER);
 		}
 
 		private void SetRealm()
@@ -919,8 +919,8 @@ namespace DOL.GS.Keeps
 
 		protected virtual void SetRespawnTime()
 		{
-			int iVariance = 1000 * Math.Abs(Properties.GUARD_RESPAWN_VARIANCE);
-			int iRespawn = 60 * ((Math.Abs(Properties.GUARD_RESPAWN) * 1000) +
+			int iVariance = 1000 * Math.Abs(ServerProperties.ServerProperties.GUARD_RESPAWN_VARIANCE);
+			int iRespawn = 60 * ((Math.Abs(ServerProperties.ServerProperties.GUARD_RESPAWN) * 1000) +
 				(UtilCollection.Random(-iVariance, iVariance)));
 
 			RespawnInterval = (iRespawn > 1000) ? iRespawn : 1000; // Make sure we don't end up with an impossibly low respawn interval.
@@ -963,7 +963,7 @@ namespace DOL.GS.Keeps
 
 		protected virtual void SetModel()
 		{
-			if (!Properties.AUTOMODEL_GUARDS_LOADED_FROM_DB && !LoadedFromScript)
+			if (!ServerProperties.ServerProperties.AUTOMODEL_GUARDS_LOADED_FROM_DB && !LoadedFromScript)
 			{
 				return;
 			}

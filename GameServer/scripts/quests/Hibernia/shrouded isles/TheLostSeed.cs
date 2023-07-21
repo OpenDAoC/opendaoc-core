@@ -73,7 +73,7 @@ namespace DOL.GS.Quests.Hibernia
 		[ScriptLoadedEvent]
 		public static void ScriptLoaded(CoreEvent e, object sender, EventArgs args)
 		{
-			if (!ServerProperties.Properties.LOAD_QUESTS)
+			if (!ServerProperties.ServerProperties.LOAD_QUESTS)
 				return;
 
 			#region defineNPCs
@@ -317,7 +317,7 @@ namespace DOL.GS.Quests.Hibernia
 			Feairna_Athar.CurrentRegionID = 181;
 			Feairna_Athar.Size = 100;
 			Feairna_Athar.Level = 65;
-			Feairna_Athar.ScalingFactor = ServerProperties.Properties.NECK_BOSS_SCALING;
+			Feairna_Athar.ScalingFactor = ServerProperties.ServerProperties.NECK_BOSS_SCALING;
 			Feairna_Athar.X = 288348;
 			Feairna_Athar.Y = 319950;
 			Feairna_Athar.Z = 2328;

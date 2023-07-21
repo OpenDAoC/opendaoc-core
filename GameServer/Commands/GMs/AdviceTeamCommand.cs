@@ -38,7 +38,7 @@ namespace DOL.GS.Commands
 				}
 
 			}
-			if (Properties.DISCORD_ACTIVE) WebhookMessage.LogChatMessage(client.Player, EChatType.CT_Advise, msg);
+			if (ServerProperties.ServerProperties.DISCORD_ACTIVE) WebhookMessage.LogChatMessage(client.Player, EChatType.CT_Advise, msg);
 
 		}
 

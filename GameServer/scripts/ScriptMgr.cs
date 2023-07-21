@@ -160,7 +160,7 @@ namespace DOL.GS
 			m_gameCommands.Clear();
 
 			//build array of disabled commands
-			string[] disabledarray = ServerProperties.Properties.DISABLED_COMMANDS.Split(';');
+			string[] disabledarray = ServerProperties.ServerProperties.DISABLED_COMMANDS.Split(';');
 
 			foreach (var script in GameServerScripts)
 			{
@@ -365,7 +365,7 @@ namespace DOL.GS
 			pars[0] = myCommand.m_cmd;
 
 			//Log the command usage
-			if (client.Account == null || ((ServerProperties.Properties.LOG_ALL_GM_COMMANDS && client.Account.PrivLevel > 1) || myCommand.m_lvl > 1))
+			if (client.Account == null || ((ServerProperties.ServerProperties.LOG_ALL_GM_COMMANDS && client.Account.PrivLevel > 1) || myCommand.m_lvl > 1))
 			{
 				string commandText = String.Join(" ", pars);
 				string targetName = "(no target)";

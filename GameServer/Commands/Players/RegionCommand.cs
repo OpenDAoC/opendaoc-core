@@ -61,7 +61,7 @@ namespace DOL.GS.Commands
 				}
 			}
 
-			if (Properties.DISCORD_ACTIVE) WebhookMessage.LogChatMessage(player, EChatType.CT_Broadcast, message);
+			if (ServerProperties.ServerProperties.DISCORD_ACTIVE) WebhookMessage.LogChatMessage(player, EChatType.CT_Broadcast, message);
 		}
 
 	}

@@ -237,7 +237,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 			client.Player.LastPositionUpdatePoint.Y = realY;
 			client.Player.LastPositionUpdatePoint.Z = realZ;
 
-			int tolerance = ServerProperties.Properties.CPS_TOLERANCE;
+			int tolerance = ServerProperties.ServerProperties.CPS_TOLERANCE;
 
 			if (client.Player.Steed != null && client.Player.Steed.MaxSpeed > 0)
 				tolerance += client.Player.Steed.MaxSpeed;
@@ -251,7 +251,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 				client.Player.IsJumping = false;
 			}
 
-			if (client.Player.IsAllowedToFly == false && (coordsPerSec > tolerance || jumpDetect > ServerProperties.Properties.JUMP_TOLERANCE))
+			if (client.Player.IsAllowedToFly == false && (coordsPerSec > tolerance || jumpDetect > ServerProperties.ServerProperties.JUMP_TOLERANCE))
 			{
 				bool isHackDetected = true;
 
@@ -260,7 +260,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 					// check to see if CPS time tolerance is exceeded
 					int lastCPSTick = client.Player.TempProperties.getProperty<int>(LASTCPSTICK, 0);
 
-					if (environmentTick - lastCPSTick > ServerProperties.Properties.CPS_TIME_TOLERANCE)
+					if (environmentTick - lastCPSTick > ServerProperties.ServerProperties.CPS_TIME_TOLERANCE)
 					{
 						isHackDetected = false;
 					}
@@ -286,9 +286,9 @@ namespace DOL.GS.PacketHandler.Client.v168
 					{
 						GameServer.Instance.LogCheatAction(builder.ToString());
 
-						if (ServerProperties.Properties.ENABLE_MOVEDETECT)
+						if (ServerProperties.ServerProperties.ENABLE_MOVEDETECT)
 						{
-							if (ServerProperties.Properties.BAN_HACKERS && false) // banning disabled until this technique is proven accurate
+							if (ServerProperties.ServerProperties.BAN_HACKERS && false) // banning disabled until this technique is proven accurate
 							{
 								DbBans b = new DbBans();
 								b.Author = "SERVER";
@@ -451,13 +451,13 @@ namespace DOL.GS.PacketHandler.Client.v168
 							{
 								client.Out.SendMessage("SH: Logging SH cheat.", EChatType.CT_Damaged, EChatLoc.CL_SystemWindow);
 
-								if (SHcount >= ServerProperties.Properties.SPEEDHACK_TOLERANCE)
+								if (SHcount >= ServerProperties.ServerProperties.SPEEDHACK_TOLERANCE)
 									client.Out.SendMessage("SH: Player would have been banned!", EChatType.CT_Damaged, EChatLoc.CL_SystemWindow);
 							}
 
-							if ((client.Account.PrivLevel == 1) && SHcount >= ServerProperties.Properties.SPEEDHACK_TOLERANCE)
+							if ((client.Account.PrivLevel == 1) && SHcount >= ServerProperties.ServerProperties.SPEEDHACK_TOLERANCE)
 							{
-								if (ServerProperties.Properties.BAN_HACKERS)
+								if (ServerProperties.ServerProperties.BAN_HACKERS)
 								{
 									DbBans b = new DbBans();
 									b.Author = "SERVER";
@@ -529,7 +529,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 				builder.Append(client.TcpEndpointAddress);
 				GameServer.Instance.LogCheatAction(builder.ToString());
 				{
-					if (ServerProperties.Properties.BAN_HACKERS)
+					if (ServerProperties.ServerProperties.BAN_HACKERS)
 					{
 						DbBans b = new DbBans();
 						b.Author = "SERVER";
@@ -951,7 +951,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 			client.Player.Y = (int)newPlayerY;
 			client.Player.Z = (int)newPlayerZ;
 
-			int tolerance = ServerProperties.Properties.CPS_TOLERANCE;
+			int tolerance = ServerProperties.ServerProperties.CPS_TOLERANCE;
 
 			if (client.Player.Steed != null && client.Player.Steed.MaxSpeed > 0)
 			{
@@ -969,7 +969,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 				client.Player.IsJumping = false;
 			}
 
-			if (!client.Player.IsAllowedToFly && (coordsPerSec > tolerance || jumpDetect > ServerProperties.Properties.JUMP_TOLERANCE))
+			if (!client.Player.IsAllowedToFly && (coordsPerSec > tolerance || jumpDetect > ServerProperties.ServerProperties.JUMP_TOLERANCE))
 			{
 				bool isHackDetected = true;
 
@@ -978,7 +978,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 					// check to see if CPS time tolerance is exceeded
 					int lastCPSTick = client.Player.TempProperties.getProperty<int>(LASTCPSTICK, 0);
 
-					if (environmentTick - lastCPSTick > ServerProperties.Properties.CPS_TIME_TOLERANCE)
+					if (environmentTick - lastCPSTick > ServerProperties.ServerProperties.CPS_TIME_TOLERANCE)
 					{
 						isHackDetected = false;
 					}
@@ -1004,9 +1004,9 @@ namespace DOL.GS.PacketHandler.Client.v168
 					{
 						GameServer.Instance.LogCheatAction(builder.ToString());
 
-						if (ServerProperties.Properties.ENABLE_MOVEDETECT)
+						if (ServerProperties.ServerProperties.ENABLE_MOVEDETECT)
 						{
-							if (ServerProperties.Properties.BAN_HACKERS && false) // banning disabled until this technique is proven accurate
+							if (ServerProperties.ServerProperties.BAN_HACKERS && false) // banning disabled until this technique is proven accurate
 							{
 								DbBans b = new DbBans();
 								b.Author = "SERVER";
@@ -1145,7 +1145,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 				builder.Append(client.TcpEndpointAddress);
 				GameServer.Instance.LogCheatAction(builder.ToString());
 				{
-					if (ServerProperties.Properties.BAN_HACKERS)
+					if (ServerProperties.ServerProperties.BAN_HACKERS)
 					{
 						DbBans b = new DbBans();
 						b.Author = "SERVER";

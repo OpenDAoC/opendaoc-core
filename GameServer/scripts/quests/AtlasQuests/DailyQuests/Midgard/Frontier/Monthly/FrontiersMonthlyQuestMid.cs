@@ -65,7 +65,7 @@ namespace DOL.GS.MonthlyQuest.Midgard
 		[ScriptLoadedEvent]
 		public static void ScriptLoaded(CoreEvent e, object sender, EventArgs args)
 		{
-			if (!ServerProperties.Properties.LOAD_QUESTS)
+			if (!ServerProperties.ServerProperties.LOAD_QUESTS)
 				return;
 
 			#region defineNPCs
@@ -370,7 +370,7 @@ namespace DOL.GS.MonthlyQuest.Midgard
 
 		public override void FinishQuest()
 		{
-			int reward = ServerProperties.Properties.MONTHLY_RVR_REWARD;
+			int reward = ServerProperties.ServerProperties.MONTHLY_RVR_REWARD;
 			
 			if (m_questPlayer.Inventory.IsSlotsFree(3, eInventorySlot.FirstBackpack, eInventorySlot.LastBackpack))
 			{

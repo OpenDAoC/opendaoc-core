@@ -94,7 +94,7 @@ namespace DOL.GS
 			{
 				GamePlayer player = (GamePlayer)source;
 
-                if (item.Name.ToLower().StartsWith(LanguageMgr.GetTranslation(ServerProperties.Properties.DB_LANGUAGE, "GameStableMaster.ReceiveItem.TicketTo")) && item.Item_Type == 40)
+                if (item.Name.ToLower().StartsWith(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.DB_LANGUAGE, "GameStableMaster.ReceiveItem.TicketTo")) && item.Item_Type == 40)
 				{
 					foreach (GameNPC npc in GetNPCsInRadius(1500))
 					{
@@ -105,7 +105,7 @@ namespace DOL.GS
 						}
 					}
 
-                    String destination = item.Name.Substring(LanguageMgr.GetTranslation(ServerProperties.Properties.DB_LANGUAGE, "GameStableMaster.ReceiveItem.TicketTo").Length);
+                    String destination = item.Name.Substring(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.DB_LANGUAGE, "GameStableMaster.ReceiveItem.TicketTo").Length);
 					PathPointUtil path = MovementMgr.LoadPath(item.Id_nb);
 					//PathPoint path = MovementMgr.Instance.LoadPath(this.Name + "=>" + destination);
                     if ((path != null) && ((Math.Abs(path.X - this.X)) < 500) && ((Math.Abs(path.Y - this.Y)) < 500))

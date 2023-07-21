@@ -245,36 +245,36 @@ namespace DOL.GS
 
 			if (Name.ToUpper() == "GREATER NECROSERVANT")
 			{
-				Strength = Properties.NECRO_GREATER_PET_STR_BASE;
-				Constitution = (short) (Properties.NECRO_GREATER_PET_CON_BASE + m_summonConBonus);
-				Dexterity = Properties.NECRO_GREATER_PET_DEX_BASE;
-				Quickness = Properties.NECRO_GREATER_PET_QUI_BASE;
-				Intelligence = Properties.NECRO_GREATER_PET_INT_BASE;
+				Strength = ServerProperties.ServerProperties.NECRO_GREATER_PET_STR_BASE;
+				Constitution = (short) (ServerProperties.ServerProperties.NECRO_GREATER_PET_CON_BASE + m_summonConBonus);
+				Dexterity = ServerProperties.ServerProperties.NECRO_GREATER_PET_DEX_BASE;
+				Quickness = ServerProperties.ServerProperties.NECRO_GREATER_PET_QUI_BASE;
+				Intelligence = ServerProperties.ServerProperties.NECRO_GREATER_PET_INT_BASE;
 
 				if (Level > 1)
 				{
-					Strength += (short) Math.Round(levelMinusOne * Properties.NECRO_GREATER_PET_STR_MULTIPLIER);
-					Constitution += (short) Math.Round(levelMinusOne * Properties.NECRO_GREATER_PET_CON_MULTIPLIER);
-					Dexterity += (short) Math.Round(levelMinusOne * Properties.NECRO_GREATER_PET_DEX_MULTIPLIER);
-					Quickness += (short) Math.Round(levelMinusOne * Properties.NECRO_GREATER_PET_QUI_MULTIPLIER);
-					Intelligence += (short) Math.Round(levelMinusOne * Properties.NECRO_GREATER_PET_INT_MULTIPLIER);
+					Strength += (short) Math.Round(levelMinusOne * ServerProperties.ServerProperties.NECRO_GREATER_PET_STR_MULTIPLIER);
+					Constitution += (short) Math.Round(levelMinusOne * ServerProperties.ServerProperties.NECRO_GREATER_PET_CON_MULTIPLIER);
+					Dexterity += (short) Math.Round(levelMinusOne * ServerProperties.ServerProperties.NECRO_GREATER_PET_DEX_MULTIPLIER);
+					Quickness += (short) Math.Round(levelMinusOne * ServerProperties.ServerProperties.NECRO_GREATER_PET_QUI_MULTIPLIER);
+					Intelligence += (short) Math.Round(levelMinusOne * ServerProperties.ServerProperties.NECRO_GREATER_PET_INT_MULTIPLIER);
 				}
 			}
 			else
 			{
-				Strength = Properties.NECRO_PET_STR_BASE;
-				Constitution = (short) (Properties.NECRO_PET_CON_BASE + m_summonConBonus);
-				Dexterity = Properties.NECRO_PET_DEX_BASE;
-				Quickness = Properties.NECRO_PET_QUI_BASE;
-				Intelligence = Properties.NECRO_PET_INT_BASE;
+				Strength = ServerProperties.ServerProperties.NECRO_PET_STR_BASE;
+				Constitution = (short) (ServerProperties.ServerProperties.NECRO_PET_CON_BASE + m_summonConBonus);
+				Dexterity = ServerProperties.ServerProperties.NECRO_PET_DEX_BASE;
+				Quickness = ServerProperties.ServerProperties.NECRO_PET_QUI_BASE;
+				Intelligence = ServerProperties.ServerProperties.NECRO_PET_INT_BASE;
 
 				if (Level > 1)
 				{
-					Strength += (short) Math.Round(levelMinusOne * Properties.NECRO_PET_STR_MULTIPLIER);
-					Constitution += (short) Math.Round(levelMinusOne * Properties.NECRO_PET_CON_MULTIPLIER);
-					Dexterity += (short) Math.Round(levelMinusOne * Properties.NECRO_PET_DEX_MULTIPLIER);
-					Quickness += (short) Math.Round(levelMinusOne * Properties.NECRO_PET_QUI_MULTIPLIER);
-					Intelligence += (short) Math.Round(levelMinusOne * Properties.NECRO_PET_INT_MULTIPLIER);
+					Strength += (short) Math.Round(levelMinusOne * ServerProperties.ServerProperties.NECRO_PET_STR_MULTIPLIER);
+					Constitution += (short) Math.Round(levelMinusOne * ServerProperties.ServerProperties.NECRO_PET_CON_MULTIPLIER);
+					Dexterity += (short) Math.Round(levelMinusOne * ServerProperties.ServerProperties.NECRO_PET_DEX_MULTIPLIER);
+					Quickness += (short) Math.Round(levelMinusOne * ServerProperties.ServerProperties.NECRO_PET_QUI_MULTIPLIER);
+					Intelligence += (short) Math.Round(levelMinusOne * ServerProperties.ServerProperties.NECRO_PET_INT_MULTIPLIER);
 				}
 			}
 

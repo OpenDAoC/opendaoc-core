@@ -25,7 +25,7 @@ public class Utils
 
         if (!_cache.TryGetValue(_discordRequiredKey, out bool discordRequired))
         {
-            discordRequired = Properties.FORCE_DISCORD_LINK;
+            discordRequired = ServerProperties.ServerProperties.FORCE_DISCORD_LINK;
             _cache.Set(_discordRequiredKey, discordRequired, DateTime.Now.AddMinutes(1));
         }
 

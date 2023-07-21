@@ -26,7 +26,7 @@ namespace DOL.GS.Scripts
         
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
         public override bool HasAbility(string keyName)
         {         
@@ -57,7 +57,7 @@ namespace DOL.GS.Scripts
 			MaxDistance = 0;
 			TetherRange = 0;
 			RoamingRange = 0;
-            RespawnInterval = ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
+            RespawnInterval = ServerProperties.ServerProperties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
 
             INpcTemplate npcTemplate = NpcTemplateMgr.GetTemplate(60166180);
 			LoadTemplate(npcTemplate);

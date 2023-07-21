@@ -18,7 +18,7 @@ namespace DOL.GS.Scripts
 		private static int freeLootLevelOffset = 2;
 		private int playerRewardOffset = 6;
 		
-		private static string _currencyID = ServerProperties.Properties.ALT_CURRENCY_ID;
+		private static string _currencyID = ServerProperties.ServerProperties.ALT_CURRENCY_ID;
         public override bool AddToWorld()
         {
             Model = 2026;

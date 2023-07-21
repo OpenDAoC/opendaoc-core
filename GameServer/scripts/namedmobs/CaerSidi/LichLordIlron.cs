@@ -35,7 +35,7 @@ namespace DOL.GS.Scripts
         
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
 
         public override int AttackRange
@@ -58,7 +58,7 @@ namespace DOL.GS.Scripts
             MaxDistance = 1500;
             TetherRange = 2000;
             RoamingRange = 400;
-            RespawnInterval = ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
+            RespawnInterval = ServerProperties.ServerProperties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
             Faction = FactionMgr.GetFactionByID(64);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(64));
 

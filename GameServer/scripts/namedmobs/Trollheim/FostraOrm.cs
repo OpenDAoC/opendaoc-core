@@ -62,7 +62,7 @@ namespace DOL.GS
 
 			Faction = FactionMgr.GetFactionByID(150);
 			Faction.AddFriendFaction(FactionMgr.GetFactionByID(150));
-			RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+			RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 			FostraOrmBrain sbrain = new FostraOrmBrain();
 			SetOwnBrain(sbrain);
 			LoadedFromScript = false;//load from database

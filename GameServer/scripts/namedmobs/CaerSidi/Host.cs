@@ -119,7 +119,7 @@ namespace DOL.GS
                 {
                     GameNPC RealHost = ChooseHost[UtilCollection.Random(0, ChooseHost.Count - 1)];
                     RealHost.PackageID = "HostReal";
-                    RealHost.OrbsReward = Properties.EPICBOSS_ORBS;
+                    RealHost.OrbsReward = ServerProperties.ServerProperties.EPICBOSS_ORBS;
                     set_realhost = true;
                 }
             }
@@ -137,7 +137,7 @@ namespace DOL.GS
 
         public void RespawnChecker()
         {
-            int time = Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000miliseconds        
+            int time = ServerProperties.ServerProperties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000miliseconds        
             new ECSGameTimer(this, new ECSGameTimer.ECSTimerCallback(RespawnTime), time);
         }
 
@@ -228,7 +228,7 @@ namespace DOL.GS
 
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * Strength / 150  * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * Strength / 150  * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
 
         public override int AttackRange

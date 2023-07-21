@@ -22,8 +22,8 @@ public class BountyMgr
     private static int minBountyReward;
     private static int maxBountyReward;
 
-    private static long bountyDuration = Properties.BOUNTY_DURATION * 60000; // 60000ms = 1 minute
-    private static double bountyRate = Properties.BOUNTY_PAYOUT_RATE;
+    private static long bountyDuration = ServerProperties.ServerProperties.BOUNTY_DURATION * 60000; // 60000ms = 1 minute
+    private static double bountyRate = ServerProperties.ServerProperties.BOUNTY_PAYOUT_RATE;
 
     [ScriptLoadedEvent]
     public static void OnScriptLoaded(CoreEvent e, object sender, EventArgs args)
@@ -35,8 +35,8 @@ public class BountyMgr
 
     public BountyMgr()
     {
-        minBountyReward = Properties.BOUNTY_MIN_REWARD;
-        maxBountyReward = Properties.BOUNTY_MAX_REWARD;
+        minBountyReward = ServerProperties.ServerProperties.BOUNTY_MIN_REWARD;
+        maxBountyReward = ServerProperties.ServerProperties.BOUNTY_MAX_REWARD;
         ActiveBounties = new HybridDictionary();
         PlayerBounties = new List<BountyPoster>();
         ResetBounty();

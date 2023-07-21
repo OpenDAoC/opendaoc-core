@@ -146,8 +146,8 @@ namespace DOL.Mail
 			SmtpClient.EnableSsl = m_ssl;
 			SmtpClient.Credentials = new NetworkCredential(m_username, m_password);
 
-			if (DOL.GS.ServerProperties.Properties.LOG_EMAIL_ADDRESSES != "")
-				SendLogs(DOL.GS.ServerProperties.Properties.LOG_EMAIL_ADDRESSES);
+			if (DOL.GS.ServerProperties.ServerProperties.LOG_EMAIL_ADDRESSES != "")
+				SendLogs(DOL.GS.ServerProperties.ServerProperties.LOG_EMAIL_ADDRESSES);
 
 			if (m_enable)
 			{

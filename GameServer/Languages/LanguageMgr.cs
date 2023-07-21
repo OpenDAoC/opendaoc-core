@@ -119,7 +119,7 @@ namespace DOL.Language
         /// </summary>
         public static string DefaultLanguage
         {
-            get { return GS.ServerProperties.Properties.SERV_LANGUAGE; } // EN by default.
+            get { return GS.ServerProperties.ServerProperties.SERV_LANGUAGE; } // EN by default.
         }
 
         /// <summary>
@@ -201,14 +201,14 @@ namespace DOL.Language
                 return false;
             }
 
-            if (DOL.GS.ServerProperties.Properties.USE_DBLANGUAGE)
+            if (DOL.GS.ServerProperties.ServerProperties.USE_DBLANGUAGE)
             {
                 int newEntries = 0;
                 int updatedEntries = 0;
 
                 IList<DBLanguageSystem> dbos = GameServer.Database.SelectAllObjects<DBLanguageSystem>();
 
-                if (GS.ServerProperties.Properties.UPDATE_EXISTING_DB_SYSTEM_SENTENCES_FROM_FILES)
+                if (GS.ServerProperties.ServerProperties.UPDATE_EXISTING_DB_SYSTEM_SENTENCES_FROM_FILES)
                 {
                     foreach (string[] sentence in fileSentences)
                     {

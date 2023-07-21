@@ -77,7 +77,7 @@ namespace DOL.GS
 		public SpellCraftingSkill()
 		{
 			Icon = 0x0D;
-			Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, 
+			Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, 
 				"Crafting.Name.Evocation");
 			eSkill = eCraftingSkill.SpellCrafting;
 		}

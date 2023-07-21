@@ -9,7 +9,7 @@ namespace DOL.GS
 		public LeatherWorkingSkill()
 		{
 			Icon = 0x07;
-			Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "Crafting.Name.Leathercrafting");
+			Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "Crafting.Name.Leathercrafting");
 			eSkill = eCraftingSkill.LeatherCrafting;
 		}
 

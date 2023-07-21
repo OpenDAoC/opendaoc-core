@@ -31,7 +31,7 @@ namespace DOL.GS.Quests
         /// </summary>
         protected static int
             CHECK_TASK_DELAY =
-                ServerProperties.Properties.TASK_PAUSE_TICKS; // moved to server properties to avoid tasks overruns...
+                ServerProperties.ServerProperties.TASK_PAUSE_TICKS; // moved to server properties to avoid tasks overruns...
 
         /// <summary>
         /// Chance of npc having task for player

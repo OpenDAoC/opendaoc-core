@@ -50,7 +50,7 @@ namespace DOL.GS.Spells
                 list.Add("Power cost: " + Spell.Power.ToString("0;0'%'"));
 
                 //Cast
-                list.Add(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "DelveInfo.CastingTime", (Spell.CastTime * 0.001).ToString("0.0## sec;-0.0## sec;'instant'")));
+                list.Add(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "DelveInfo.CastingTime", (Spell.CastTime * 0.001).ToString("0.0## sec;-0.0## sec;'instant'")));
                 return list;
             }
         }
@@ -98,7 +98,7 @@ namespace DOL.GS.Spells
                 list.Add("Power cost: " + Spell.Power.ToString("0;0'%'"));
                 
                 //Cast
-                list.Add(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "DelveInfo.CastingTime", (Spell.CastTime * 0.001).ToString("0.0## sec;-0.0## sec;'instant'")));
+                list.Add(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "DelveInfo.CastingTime", (Spell.CastTime * 0.001).ToString("0.0## sec;-0.0## sec;'instant'")));
                 return list;
             }
         }
@@ -179,7 +179,7 @@ namespace DOL.GS.Spells
                 list.Add("Power cost: " + Spell.Power.ToString("0;0'%'"));
 
                 //Cast
-                list.Add(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "DelveInfo.CastingTime", (Spell.CastTime * 0.001).ToString("0.0## sec;-0.0## sec;'instant'")));
+                list.Add(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "DelveInfo.CastingTime", (Spell.CastTime * 0.001).ToString("0.0## sec;-0.0## sec;'instant'")));
                 return list;
             }
         }

@@ -42,11 +42,11 @@ namespace DOL.GS.Keeps
 			string message = "";
 			if (keep.Realm != ERealm.None)
 			{
-				message = string.Format(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "PlayerManager.BroadcastCapture.Captured", GlobalConstants.RealmToName((ERealm)keep.Realm), keep.Name));
+				message = string.Format(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "PlayerManager.BroadcastCapture.Captured", GlobalConstants.RealmToName((ERealm)keep.Realm), keep.Name));
 			}
 			else
 			{
-                message = string.Format(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "PlayerManager.BroadcastCapture.CapturedR0", GlobalConstants.RealmToName((ERealm)keep.Realm), keep.Name));
+                message = string.Format(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "PlayerManager.BroadcastCapture.CapturedR0", GlobalConstants.RealmToName((ERealm)keep.Realm), keep.Name));
 			}
 
 			/*
@@ -68,7 +68,7 @@ namespace DOL.GS.Keeps
 			BroadcastKeepTakeMessage(message, keep.Realm);
 			NewsMgr.CreateNews(message, keep.Realm, eNewsType.RvRGlobal, false);
 
-			if (ServerProperties.Properties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(ServerProperties.Properties.DISCORD_RVR_WEBHOOK_ID)))
+			if (ServerProperties.ServerProperties.DISCORD_ACTIVE && (!string.IsNullOrEmpty(ServerProperties.ServerProperties.DISCORD_RVR_WEBHOOK_ID)))
 			{
 				BroadcastDiscordRvR(message, keep.Realm, keep.Name);
 			}
@@ -82,7 +82,7 @@ namespace DOL.GS.Keeps
 		/// <param name="realm">The raizing realm</param>
 		public static void BroadcastRaize(AbstractGameKeep keep, ERealm realm)
 		{
-			string message = string.Format(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "PlayerManager.BroadcastRaize.Razed", keep.Name, GlobalConstants.RealmToName(realm)));
+			string message = string.Format(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "PlayerManager.BroadcastRaize.Razed", keep.Name, GlobalConstants.RealmToName(realm)));
 			BroadcastMessage(message, ERealm.None);
 			NewsMgr.CreateNews(message, keep.Realm, eNewsType.RvRGlobal, false);
 		}
@@ -94,7 +94,7 @@ namespace DOL.GS.Keeps
 		public static void BroadcastClaim(AbstractGameKeep keep)
 		{
 
-			string claimMessage = string.Format(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE,
+			string claimMessage = string.Format(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE,
 				"PlayerManager.BroadcastClaim.Claimed", keep.Guild.Name, keep.Name));
 			
 			BroadcastMessage(claimMessage, (ERealm)keep.Realm);
@@ -112,7 +112,7 @@ namespace DOL.GS.Keeps
 		public static void BroadcastRelease(AbstractGameKeep keep)
 		{
 			string lostClaimMessage = string.Format(LanguageMgr.GetTranslation(
-				ServerProperties.Properties.SERV_LANGUAGE, "PlayerManager.BroadcastRelease.LostControl",
+				ServerProperties.ServerProperties.SERV_LANGUAGE, "PlayerManager.BroadcastRelease.LostControl",
 				keep.Guild.Name, keep.Name));
 			
 			BroadcastMessage(lostClaimMessage, (ERealm)keep.Realm);
@@ -199,7 +199,7 @@ namespace DOL.GS.Keeps
 					avatarUrl = "https://cdn.discordapp.com/attachments/919610633656369214/928728400523296768/keep_mid.png";
 					break;
 			}
-			var client = new DiscordWebhookClient(ServerProperties.Properties.DISCORD_RVR_WEBHOOK_ID);
+			var client = new DiscordWebhookClient(ServerProperties.ServerProperties.DISCORD_RVR_WEBHOOK_ID);
 
 			// Create your DiscordMessage with all parameters of your message.
 			var discordMessage = new DiscordMessage(
@@ -271,7 +271,7 @@ namespace DOL.GS.Keeps
 							return false;
 						if (player.Group.Leader != player)
 							return false;
-						if (player.Group.MemberCount < ServerProperties.Properties.CLAIM_NUM)
+						if (player.Group.MemberCount < ServerProperties.ServerProperties.CLAIM_NUM)
 							return false;
 						if (!player.GuildRank.Claim)
 							return false;

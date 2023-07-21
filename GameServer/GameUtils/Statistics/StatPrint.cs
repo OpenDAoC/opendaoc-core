@@ -160,7 +160,7 @@ namespace DOL.GS.GameEvents
 				{
 					if (m_timer != null)
 					{
-						m_timer.Change(ServerProperties.Properties.STATPRINT_FREQUENCY, 0);
+						m_timer.Change(ServerProperties.ServerProperties.STATPRINT_FREQUENCY, 0);
 					}
 				}
 			}

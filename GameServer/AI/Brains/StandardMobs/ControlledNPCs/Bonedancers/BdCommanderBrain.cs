@@ -253,7 +253,7 @@ namespace DOL.AI.Brain
 			// TODO: Move 'CommanderPet.Taunting' to the brain.
 			if (Body is CommanderPet commanderPet)
 			{
-				int tauntScale = GS.ServerProperties.Properties.PET_BD_COMMANDER_TAUNT_VALUE;
+				int tauntScale = GS.ServerProperties.ServerProperties.PET_BD_COMMANDER_TAUNT_VALUE;
 
 				if (commanderPet.Taunting && tauntScale > 100)
 					damage = (int)(damage * tauntScale / 100.0);

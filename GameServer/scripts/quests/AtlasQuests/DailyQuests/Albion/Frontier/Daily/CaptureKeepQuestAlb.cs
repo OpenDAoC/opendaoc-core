@@ -61,7 +61,7 @@ namespace DOL.GS.DailyQuest.Albion
 		[ScriptLoadedEvent]
 		public static void ScriptLoaded(CoreEvent e, object sender, EventArgs args)
 		{
-			if (!ServerProperties.Properties.LOAD_QUESTS)
+			if (!ServerProperties.ServerProperties.LOAD_QUESTS)
 				return;
 			
 
@@ -348,7 +348,7 @@ namespace DOL.GS.DailyQuest.Albion
 
 		public override void FinishQuest()
 		{
-			int reward = ServerProperties.Properties.DAILY_RVR_REWARD;
+			int reward = ServerProperties.ServerProperties.DAILY_RVR_REWARD;
 			
 			m_questPlayer.ForceGainExperience((m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel)/5);
 			m_questPlayer.AddMoney(Money.GetMoney(0,0,m_questPlayer.Level*2,0,UtilCollection.Random(50)), "You receive {0} as a reward.");

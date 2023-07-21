@@ -36,7 +36,7 @@ namespace DOL.GS {
         public string DisplayedItem = "EffectDisplay";
         public string TempEffectId = "TempEffectID";
         public string TempColorId = "TempColorID";
-        private string _currencyID = ServerProperties.Properties.ALT_CURRENCY_ID;
+        private string _currencyID = ServerProperties.ServerProperties.ALT_CURRENCY_ID;
 
 
 

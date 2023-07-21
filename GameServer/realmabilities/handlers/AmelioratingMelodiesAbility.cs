@@ -57,7 +57,7 @@ namespace DOL.GS.RealmAbilities
 		/// </summary>
 		public override void AddEffectsInfo(IList<string> list)
 		{
-			if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+			if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
 			{
 				list.Add("Level 1: Heals 100 / tick");
 				list.Add("Level 2: Heals 175 / tick");
@@ -83,7 +83,7 @@ namespace DOL.GS.RealmAbilities
 
 		protected virtual int GetHealAmountPerTick()
         {
-            if (ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+            if (ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
             {
                 switch (Level)
                 {

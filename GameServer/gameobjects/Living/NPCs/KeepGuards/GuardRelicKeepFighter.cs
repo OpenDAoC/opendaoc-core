@@ -42,7 +42,7 @@ namespace DOL.GS.Keeps
         public static void GuardRelicSpam(GameKeepGuard guard)
         {
             int inArea = guard.GetEnemyCountInArea();
-            string message = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "GameKeepGuard.GuardRelicSpam.Killed", guard.Component.Keep.Name, guard.Name, inArea);
+            string message = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "GameKeepGuard.GuardRelicSpam.Killed", guard.Component.Keep.Name, guard.Name, inArea);
             KeepPlayerMgr.BroadcastMessage(message, guard.Realm);
         }
 

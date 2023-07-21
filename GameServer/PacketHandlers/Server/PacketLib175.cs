@@ -506,7 +506,7 @@ namespace DOL.GS.PacketHandler
         {
             //[Freya] Nidel: Can use realm button in character selection screen
 
-            if (ServerProperties.Properties.ALLOW_ALL_REALMS || m_gameClient.Account.PrivLevel > (int)EPrivLevel.Player)
+            if (ServerProperties.ServerProperties.ALLOW_ALL_REALMS || m_gameClient.Account.PrivLevel > (int)EPrivLevel.Player)
             {
                 SendLoginGranted(1);
             }

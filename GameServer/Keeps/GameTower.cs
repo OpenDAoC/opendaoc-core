@@ -56,9 +56,9 @@ namespace DOL.GS.Keeps
 				return false;
 			}
 
-			if (player.Group.MemberCount < ServerProperties.Properties.CLAIM_NUM / 2)
+			if (player.Group.MemberCount < ServerProperties.ServerProperties.CLAIM_NUM / 2)
 			{
-				player.Out.SendMessage("You need " + ServerProperties.Properties.CLAIM_NUM / 2 + " players to claim.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
+				player.Out.SendMessage("You need " + ServerProperties.ServerProperties.CLAIM_NUM / 2 + " players to claim.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				return false;
 			}
 
@@ -71,7 +71,7 @@ namespace DOL.GS.Keeps
 		/// <returns></returns>
 		public override int CalculRP()
 		{
-			return ServerProperties.Properties.TOWER_RP_CLAIM_MULTIPLIER * DifficultyLevel;
+			return ServerProperties.ServerProperties.TOWER_RP_CLAIM_MULTIPLIER * DifficultyLevel;
 		}
 	}
 }

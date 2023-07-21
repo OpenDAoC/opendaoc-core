@@ -255,7 +255,7 @@ namespace DOL.AI.Brain
 			{
 				target.LastAttackTickPvP = GameLoop.GameLoopTime;
 				target.LastAttackedByEnemyTickPvP = GameLoop.GameLoopTime;
-				target.StartInterruptTimer(GS.ServerProperties.Properties.SPELL_INTERRUPT_DURATION, ad.AttackType, ad.Attacker);
+				target.StartInterruptTimer(GS.ServerProperties.ServerProperties.SPELL_INTERRUPT_DURATION, ad.AttackType, ad.Attacker);
 			}
 		}		
 	}

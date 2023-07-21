@@ -60,10 +60,10 @@ namespace DOL.GS.PacketHandler
 
 				if (offer)
 				{
-					if (quest.Story.Length > (ushort)ServerProperties.Properties.MAX_REWARDQUEST_DESCRIPTION_LENGTH)
+					if (quest.Story.Length > (ushort)ServerProperties.ServerProperties.MAX_REWARDQUEST_DESCRIPTION_LENGTH)
 					{
-						pak.WriteShort((ushort)ServerProperties.Properties.MAX_REWARDQUEST_DESCRIPTION_LENGTH);
-						pak.WriteStringBytes(quest.Story.Substring(0, (ushort)ServerProperties.Properties.MAX_REWARDQUEST_DESCRIPTION_LENGTH));
+						pak.WriteShort((ushort)ServerProperties.ServerProperties.MAX_REWARDQUEST_DESCRIPTION_LENGTH);
+						pak.WriteStringBytes(quest.Story.Substring(0, (ushort)ServerProperties.ServerProperties.MAX_REWARDQUEST_DESCRIPTION_LENGTH));
 					}
 					else
 					{
@@ -73,10 +73,10 @@ namespace DOL.GS.PacketHandler
 				}
 				else
 				{
-					if (quest.Conclusion.Length > (ushort)ServerProperties.Properties.MAX_REWARDQUEST_DESCRIPTION_LENGTH)
+					if (quest.Conclusion.Length > (ushort)ServerProperties.ServerProperties.MAX_REWARDQUEST_DESCRIPTION_LENGTH)
 					{
-						pak.WriteShort((ushort)ServerProperties.Properties.MAX_REWARDQUEST_DESCRIPTION_LENGTH);
-						pak.WriteStringBytes(quest.Conclusion.Substring(0, (ushort)ServerProperties.Properties.MAX_REWARDQUEST_DESCRIPTION_LENGTH));
+						pak.WriteShort((ushort)ServerProperties.ServerProperties.MAX_REWARDQUEST_DESCRIPTION_LENGTH);
+						pak.WriteStringBytes(quest.Conclusion.Substring(0, (ushort)ServerProperties.ServerProperties.MAX_REWARDQUEST_DESCRIPTION_LENGTH));
 					}
 					else
 					{

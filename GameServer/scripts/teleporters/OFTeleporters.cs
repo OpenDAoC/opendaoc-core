@@ -65,7 +65,7 @@ namespace DOL.GS.Scripts
     public class OFTeleporter : GameNPC
     {
         //Re-Port every 45 seconds.
-        private int ReportInterval = ServerProperties.Properties.OF_REPORT_INTERVAL;
+        private int ReportInterval = ServerProperties.ServerProperties.OF_REPORT_INTERVAL;
 
         //RvR medallions
         private const string HadrianID = "hadrian_necklace";

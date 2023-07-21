@@ -427,12 +427,12 @@ namespace DOL.GS
 		/// <returns></returns>
 		public override bool AddToWorld()
 		{
-			if (!string.IsNullOrEmpty(ServerProperties.Properties.DISABLED_CLASSES))
+			if (!string.IsNullOrEmpty(ServerProperties.ServerProperties.DISABLED_CLASSES))
 			{
 				if (disabled_classes == null)
 				{
 					// creation of disabled_classes list.
-					disabled_classes = UtilCollection.SplitCSV(ServerProperties.Properties.DISABLED_CLASSES).ToList();
+					disabled_classes = UtilCollection.SplitCSV(ServerProperties.ServerProperties.DISABLED_CLASSES).ToList();
 				}
 
 				if (disabled_classes.Contains(TrainedClass.ToString()))

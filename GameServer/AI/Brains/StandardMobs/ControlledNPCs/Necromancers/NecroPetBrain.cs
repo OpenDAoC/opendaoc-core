@@ -526,7 +526,7 @@ namespace DOL.AI.Brain
         /// </summary>
         private void DebugMessageToOwner(string message)
         {
-            if (GS.ServerProperties.Properties.ENABLE_DEBUG)
+            if (GS.ServerProperties.ServerProperties.ENABLE_DEBUG)
             {
                 long tick = GameLoop.GetCurrentTime();
                 long seconds = tick / 1000;

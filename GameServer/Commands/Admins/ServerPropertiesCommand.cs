@@ -18,7 +18,7 @@ namespace DOL.GS.Commands
 				DisplayMessage(client, LanguageMgr.GetTranslation(client.Account.Language, "AdminCommands.ServerProperties.DataBaseXML"));
 				return;
 			}
-			ServerProperties.Properties.Refresh();
+			ServerProperties.ServerProperties.Refresh();
 			DisplayMessage(client, LanguageMgr.GetTranslation(client.Account.Language, "AdminCommands.ServerProperties.PropertiesRefreshed"));
 		}
 	}

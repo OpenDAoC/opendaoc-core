@@ -181,7 +181,7 @@ public class StandardMobState_Roaming : StandardMobState
 
         if (!_brain.Body.IsCasting)
         {
-            if (_lastRoamTick + ROAM_COOLDOWN <= GameLoop.GameLoopTime && UtilCollection.Chance(DOL.GS.ServerProperties.Properties.GAMENPC_RANDOMWALK_CHANCE))
+            if (_lastRoamTick + ROAM_COOLDOWN <= GameLoop.GameLoopTime && UtilCollection.Chance(DOL.GS.ServerProperties.ServerProperties.GAMENPC_RANDOMWALK_CHANCE))
             {
                 _brain.Body.Roam();
                 _brain.Body.FireAmbientSentence(GameNPC.eAmbientTrigger.roaming, _brain.Body);

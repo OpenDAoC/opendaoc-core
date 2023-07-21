@@ -11,7 +11,7 @@ public class ConquestObjective
     public long LastRolloverTick = 0;
     public long StartTick;
 
-    private int _realmPointTickAward = ServerProperties.Properties.SUBTICK_RP_AWARD;
+    private int _realmPointTickAward = ServerProperties.ServerProperties.SUBTICK_RP_AWARD;
 
     public SubObjective ObjectiveOne;
     public SubObjective ObjectiveTwo;

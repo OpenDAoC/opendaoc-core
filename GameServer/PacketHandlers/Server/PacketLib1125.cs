@@ -573,7 +573,7 @@ namespace DOL.GS.PacketHandler
 					pak.WriteShortLowEndian(item.OwnerLot);//lot
 					pak.WriteIntLowEndian((uint)item.SellPrice);
 
-					if (ServerProperties.Properties.CONSIGNMENT_USE_BP)
+					if (ServerProperties.ServerProperties.CONSIGNMENT_USE_BP)
 					{
 						string bpPrice = "";
 						if (item.SellPrice > 0)

@@ -56,7 +56,7 @@ namespace DOL.GS.GameEvents
 		[GameServerStartedEvent]
 		public static void OnScriptCompiled(CoreEvent e, object sender, EventArgs args)
 		{
-            if(Properties.SERVERLISTUPDATE_ENABLED)
+            if(ServerProperties.ServerProperties.SERVERLISTUPDATE_ENABLED)
 			    Init();
 		}
 		
@@ -66,7 +66,7 @@ namespace DOL.GS.GameEvents
 		[GameServerStoppedEvent]
 		public static void OnScriptUnloaded(CoreEvent e, object sender, EventArgs args)
 		{
-            if (Properties.SERVERLISTUPDATE_ENABLED)
+            if (ServerProperties.ServerProperties.SERVERLISTUPDATE_ENABLED)
                 Stop();
 		}
 
@@ -122,8 +122,8 @@ namespace DOL.GS.GameEvents
 			string ClientCount = WorldMgr.GetAllPlayingClientsCount().ToString();
 			
 			//Set up our URI to be passed to the WebClient.
-			string Updater = UrlEncode(UpdateURL + "&username=" + Properties.SERVER_LIST_UPDATE_USER + 
-                "&password=" + Properties.SERVER_LIST_UPDATE_PASS + "&totalclients=" + ClientCount + "&version=" + ScriptVersion);
+			string Updater = UrlEncode(UpdateURL + "&username=" + ServerProperties.ServerProperties.SERVER_LIST_UPDATE_USER + 
+                "&password=" + ServerProperties.ServerProperties.SERVER_LIST_UPDATE_PASS + "&totalclients=" + ClientCount + "&version=" + ScriptVersion);
 
 			if (!ListUpdater(Updater))
 			{
@@ -202,12 +202,12 @@ namespace DOL.GS.GameEvents
 		{
 			string[] failed = new string[6];
 			int count = 0;
-            if (string.IsNullOrEmpty(Properties.SERVER_LIST_UPDATE_USER))
+            if (string.IsNullOrEmpty(ServerProperties.ServerProperties.SERVER_LIST_UPDATE_USER))
 			{
 				failed[count] = "Username";
 				count++;
 			}
-			if (string.IsNullOrEmpty(Properties.SERVER_LIST_UPDATE_PASS))
+			if (string.IsNullOrEmpty(ServerProperties.ServerProperties.SERVER_LIST_UPDATE_PASS))
 			{
 				failed[count] = "Password";
 				count++;

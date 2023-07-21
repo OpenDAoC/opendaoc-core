@@ -169,7 +169,7 @@ namespace DOL.GS
                 {
                     RandomTarget = null;//reset picked player
                     PlayersInRoom.Clear();
-                    int time = ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000miliseconds 
+                    int time = ServerProperties.ServerProperties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000miliseconds 
                     new ECSGameTimer(this, new ECSGameTimer.ECSTimerCallback(DoRespawnNow), time);
                     log.Debug("Starting respawn time for final caer sidi encounter, will respawn in " + time / 60000 + " minutes!");
                     start_respawn_check = true;
@@ -379,7 +379,7 @@ namespace DOL.GS
         }
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
         public override int AttackRange
         {

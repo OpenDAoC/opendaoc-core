@@ -68,9 +68,9 @@ namespace DOL.GS
                 };
 
                 if (secondaryCraftingSkills.Contains(RequiredCraftingSkill))
-                    pricetoset = Math.Abs((long)(totalPrice * 2 * Properties.CRAFTING_SECONDARYCRAFT_SELLBACK_PERCENT) / 100);
+                    pricetoset = Math.Abs((long)(totalPrice * 2 * ServerProperties.ServerProperties.CRAFTING_SECONDARYCRAFT_SELLBACK_PERCENT) / 100);
                 else
-                    pricetoset = Math.Abs(totalPrice * 2 * Properties.CRAFTING_SELLBACK_PERCENT / 100);
+                    pricetoset = Math.Abs(totalPrice * 2 * ServerProperties.ServerProperties.CRAFTING_SELLBACK_PERCENT / 100);
 
                 if (pricetoset > 0 && product.Price != pricetoset)
                 {
@@ -134,7 +134,7 @@ namespace DOL.GS
             }
             finally
             {
-                if (Properties.CRAFTING_ADJUST_PRODUCT_PRICE)
+                if (ServerProperties.ServerProperties.CRAFTING_ADJUST_PRODUCT_PRICE)
                     recipe.SetRecommendedProductPriceInDB();
                 recipeCache[recipeDatabaseID] = recipe;
             }

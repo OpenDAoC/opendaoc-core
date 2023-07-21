@@ -106,7 +106,7 @@ namespace DOL.GS.Commands
 			}
 			
 			long changeTime = client.Player.CurrentRegion.Time - Tick;
-			if (changeTime < ServerProperties.Properties.EMOTE_DELAY && Tick > 0)
+			if (changeTime < ServerProperties.ServerProperties.EMOTE_DELAY && Tick > 0)
 			{
 				string message = LanguageMgr.GetTranslation(client.Account.Language, "Scripts.Players.Emotes.Message" + UtilCollection.Random(1,4).ToString());
 				client.Player.Out.SendMessage(message, EChatType.CT_System, EChatLoc.CL_SystemWindow);

@@ -90,7 +90,7 @@ namespace DOL.GS.GameEvents
 				// get the first entry according to Tutorial Enabling.
 				foreach (var location in availableLocation)
 				{
-					if (ServerProperties.Properties.EVENT_THIDRANKI || ServerProperties.Properties.EVENT_PVP)
+					if (ServerProperties.ServerProperties.EVENT_THIDRANKI || ServerProperties.ServerProperties.EVENT_PVP)
 						continue;
 					
 					dbStartupLocation = location;

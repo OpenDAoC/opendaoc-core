@@ -102,7 +102,7 @@ namespace DOL.GS
             Gender = EGender.Female;
             Faction = FactionMgr.GetFactionByID(187);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(187));
-            RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
+            RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
 
             GameNpcInventoryTemplate template = new GameNpcInventoryTemplate();
             template.AddNPCEquipment(eInventorySlot.TorsoArmor, 58, 43, 0, 0);//modelID,color,effect,extension

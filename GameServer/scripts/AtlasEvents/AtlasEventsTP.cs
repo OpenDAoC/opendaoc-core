@@ -16,9 +16,9 @@ namespace DOL.GS.Scripts
     public class AtlasEventTP : GameNPC
 	{
 		private static new readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-		public static int EventRPCap = ServerProperties.Properties.EVENT_RPCAP;
-		public static int EventLVCap = ServerProperties.Properties.EVENT_LVCAP;
-		public static int SoloPop = ServerProperties.Properties.EVENT_SOLO_POP;
+		public static int EventRPCap = ServerProperties.ServerProperties.EVENT_RPCAP;
+		public static int EventLVCap = ServerProperties.ServerProperties.EVENT_LVCAP;
+		public static int SoloPop = ServerProperties.ServerProperties.EVENT_SOLO_POP;
 
 		public static int TeleportDelay = 40000; //value in milliseconds
         public override bool AddToWorld()
@@ -110,7 +110,7 @@ namespace DOL.GS.Scripts
 						int randY = UtilCollection.Random(216000, 227000);
 						int z = 6000;
 
-						t.StartInvulnerabilityTimer(ServerProperties.Properties.TIMER_PVP_TELEPORT * 1000, null);
+						t.StartInvulnerabilityTimer(ServerProperties.ServerProperties.TIMER_PVP_TELEPORT * 1000, null);
 						t.MoveTo(27, randX, randY, z, t.Heading);
 
 					}

@@ -628,11 +628,11 @@ namespace DOL.GS
 
 		public void LoadPlayer(int accountindex)
 		{
-			LoadPlayer(accountindex, Properties.PLAYER_CLASS);
+			LoadPlayer(accountindex, ServerProperties.ServerProperties.PLAYER_CLASS);
 		} 
 		public void LoadPlayer(DbCoreCharacters coreChar)
 		{
-			LoadPlayer(coreChar, Properties.PLAYER_CLASS);
+			LoadPlayer(coreChar, ServerProperties.ServerProperties.PLAYER_CLASS);
 		}
 
 		public void LoadPlayer(int accountindex, string playerClass)
@@ -710,7 +710,7 @@ namespace DOL.GS
 				if (m_player != null)
 				{
 					//<**loki**>
-					if (Properties.KICK_IDLE_PLAYER_STATUS)
+					if (ServerProperties.ServerProperties.KICK_IDLE_PLAYER_STATUS)
 					{
 						//Time playing
 						var connectedtime = DateTime.Now.Subtract(m_account.LastLogin).TotalMinutes;
@@ -725,7 +725,7 @@ namespace DOL.GS
 						//If match
 						if (check)
 						{
-							if (connectedtime > Properties.KICK_IDLE_PLAYER_TIME)
+							if (connectedtime > ServerProperties.ServerProperties.KICK_IDLE_PLAYER_TIME)
 							{
 								//Kick player
 								m_player.Out.SendPlayerQuit(true);

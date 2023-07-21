@@ -432,7 +432,7 @@ namespace DOL.GS.SpamMob
                     if (spell.Target.ToLower() == "self")
                     {
                         // if we have a self heal and health is less than 75% then heal, otherwise return false to try another spell or do nothing
-                        if (Body.HealthPercent < DOL.GS.ServerProperties.Properties.NPC_HEAL_THRESHOLD)
+                        if (Body.HealthPercent < DOL.GS.ServerProperties.ServerProperties.NPC_HEAL_THRESHOLD)
                         {
                             Body.TargetObject = Body;
                         }
@@ -440,7 +440,7 @@ namespace DOL.GS.SpamMob
                     }
 
                     // Chance to heal self when dropping below 30%, do NOT spam it.
-                    if (Body.HealthPercent < (DOL.GS.ServerProperties.Properties.NPC_HEAL_THRESHOLD / 2.0)
+                    if (Body.HealthPercent < (DOL.GS.ServerProperties.ServerProperties.NPC_HEAL_THRESHOLD / 2.0)
                         && UtilCollection.Chance(10) && spell.Target.ToLower() != "pet")
                     {
                         Body.TargetObject = Body;
@@ -449,7 +449,7 @@ namespace DOL.GS.SpamMob
 
                     if (Body.ControlledBrain != null && Body.ControlledBrain.Body != null
                         && Body.GetDistanceTo(Body.ControlledBrain.Body) <= spell.Range
-                        && Body.ControlledBrain.Body.HealthPercent < DOL.GS.ServerProperties.Properties.NPC_HEAL_THRESHOLD
+                        && Body.ControlledBrain.Body.HealthPercent < DOL.GS.ServerProperties.ServerProperties.NPC_HEAL_THRESHOLD
                         && spell.Target.ToLower() != "self")
                     {
                         Body.TargetObject = Body.ControlledBrain.Body;

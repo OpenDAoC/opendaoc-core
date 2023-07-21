@@ -40,7 +40,7 @@ namespace DOL.GS
                 GamePlayer playerKiller = killer as GamePlayer;
                 int amount = UtilCollection.Random(Level / 10, Level * 2 / 10);
                 int baseChance = 80;
-                double carapaceChance = Properties.CARAPACE_DROPCHANCE;
+                double carapaceChance = ServerProperties.ServerProperties.CARAPACE_DROPCHANCE;
                 int realmLoyalty = 0;
                 double numCurrentLoyalDays = LoyaltyMgr.GetPlayerRealmLoyalty(playerKiller)?.Days ?? 0;
 

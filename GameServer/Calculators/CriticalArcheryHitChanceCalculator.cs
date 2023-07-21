@@ -31,7 +31,7 @@ namespace DOL.GS.PropertyCalc
 			}
 			if (living is GameSummonedPet gamePet)
 			{
-				if (ServerProperties.Properties.EXPAND_WILD_MINION && gamePet.Brain is IControlledBrain playerBrain
+				if (ServerProperties.ServerProperties.EXPAND_WILD_MINION && gamePet.Brain is IControlledBrain playerBrain
 					&& playerBrain.GetPlayerOwner() is GamePlayer player
 					&& player.GetAbility<RealmAbilities.AtlasOF_WildMinionAbility>() is RealmAbilities.AtlasOF_WildMinionAbility ab)
 					chance += ab.Amount;

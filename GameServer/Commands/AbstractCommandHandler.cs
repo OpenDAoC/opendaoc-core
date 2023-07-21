@@ -19,7 +19,7 @@ namespace DOL.GS.Commands
 		/// <returns></returns>
 		public bool IsSpammingCommand(GamePlayer player, string commandName)
 		{
-			return IsSpammingCommand(player, commandName, ServerProperties.Properties.COMMAND_SPAM_DELAY);
+			return IsSpammingCommand(player, commandName, ServerProperties.ServerProperties.COMMAND_SPAM_DELAY);
 		}
 
 		/// <summary>

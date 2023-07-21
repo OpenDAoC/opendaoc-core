@@ -9,7 +9,7 @@ namespace DOL.GS {
 
         private static DbItemTemplates beadTemplate = null;
         
-        private static string _currencyID = ServerProperties.Properties.ALT_CURRENCY_ID;
+        private static string _currencyID = ServerProperties.ServerProperties.ALT_CURRENCY_ID;
 
         public static void GenerateROG(GameLiving living)
         {

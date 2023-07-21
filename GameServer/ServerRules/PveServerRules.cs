@@ -9,7 +9,7 @@ namespace DOL.GS.ServerRules
 	/// Set of rules for "PvE" server type.
 	/// </summary>
 	[ServerRules(EGameServerType.GST_PvE)]
-	public class PvEServerRules : AbstractServerRules
+	public class PveServerRules : AbstractServerRules
 	{
 		public override string RulesDescription()
 		{
@@ -130,7 +130,7 @@ namespace DOL.GS.ServerRules
 		/// <returns></returns>
 		public override bool IsAllowedToCraft(GamePlayer player, DbItemTemplates item)
 		{
-			return player.Realm == (ERealm)item.Realm || (item.Realm == 0 && ServerProperties.Properties.ALLOW_CRAFT_NOREALM_ITEMS);
+			return player.Realm == (ERealm)item.Realm || (item.Realm == 0 && ServerProperties.ServerProperties.ALLOW_CRAFT_NOREALM_ITEMS);
 		}
 
 		public override bool IsAllowedCharsInAllRealms(GameClient client)

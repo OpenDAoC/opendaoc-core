@@ -161,7 +161,7 @@ namespace DOL.GS.PacketHandler
 				pak.WriteShort((ushort)keep.KeepID);
 				pak.WriteByte(flag);//0-Info,1-KeepTargetLevel,2-KeepLordType,4-Release
 				pak.WriteByte((byte)1); //Keep Lord Type: always melee, type is no longer used
-				pak.WriteByte((byte)ServerProperties.Properties.MAX_KEEP_LEVEL);
+				pak.WriteByte((byte)ServerProperties.ServerProperties.MAX_KEEP_LEVEL);
 				pak.WriteByte((byte)keep.Level);
 				SendTCP(pak);
 			}
@@ -176,7 +176,7 @@ namespace DOL.GS.PacketHandler
 				pak.WriteByte(component.HealthPercent);
 
 				pak.WriteByte(component.Keep.EffectiveLevel(component.Keep.Level));
-				pak.WriteByte(component.Keep.EffectiveLevel((byte)ServerProperties.Properties.MAX_KEEP_LEVEL));
+				pak.WriteByte(component.Keep.EffectiveLevel((byte)ServerProperties.ServerProperties.MAX_KEEP_LEVEL));
 				//guild
 				pak.WriteByte((byte)1); //Keep Type: always melee here, type is no longer used
 

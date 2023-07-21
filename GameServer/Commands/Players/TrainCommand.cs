@@ -40,7 +40,7 @@ namespace DOL.GS.Commands
 			// no longer used since 1.105, except if we explicitely want
 			if (client.Version >= GameClient.EClientVersion.Version1105)
 			{
-				if (!ServerProperties.Properties.CUSTOM_TRAIN)
+				if (!ServerProperties.ServerProperties.CUSTOM_TRAIN)
 				{
 					client.Out.SendTrainerWindow();
 					return;
@@ -49,7 +49,7 @@ namespace DOL.GS.Commands
 
 			GameTrainer trainer = client.Player.TargetObject as GameTrainer;
 			// Make sure the player is at a trainer.
-			if (!DOL.GS.ServerProperties.Properties.ALLOW_TRAIN_ANYWHERE && client.Account.PrivLevel == (int)EPrivLevel.Player && (trainer == null || trainer.CanTrain(client.Player) == false))
+			if (!DOL.GS.ServerProperties.ServerProperties.ALLOW_TRAIN_ANYWHERE && client.Account.PrivLevel == (int)EPrivLevel.Player && (trainer == null || trainer.CanTrain(client.Player) == false))
 			{
 				client.Out.SendMessage("You have to be at your trainer to use this command.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				return;

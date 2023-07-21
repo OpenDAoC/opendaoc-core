@@ -123,7 +123,7 @@ namespace DOL.GS.Commands
 						keep.DBKeep = new DbKeeps(createInfo);
 						keep.Name = keepName;
 						keep.KeepID = (ushort)keepID;
-						keep.Level = (byte)ServerProperties.Properties.STARTING_KEEP_LEVEL;
+						keep.Level = (byte)ServerProperties.ServerProperties.STARTING_KEEP_LEVEL;
 						keep.BaseLevel = 50;
 						keep.Realm = client.Player.Realm;
 						keep.Region = client.Player.CurrentRegionID;

@@ -35,7 +35,7 @@ namespace DOL.GS.Keeps
 				case ERealm.Albion:
 					if (IsPortalKeepGuard)
 					{
-						Name = LanguageMgr.GetTranslation(Properties.SERV_LANGUAGE, "SetGuardName.KnightCommander");
+						Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.KnightCommander");
 					}
 					else
 					{
@@ -46,19 +46,19 @@ namespace DOL.GS.Keeps
 					break;
 				case ERealm.Midgard:
 					if (IsPortalKeepGuard)
-						Name = LanguageMgr.GetTranslation(Properties.SERV_LANGUAGE, "SetGuardName.NordicJarl");
+						Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.NordicJarl");
 					else Name = "Huscarl Commander";
 					break;
 				case ERealm.Hibernia:
 					if (IsPortalKeepGuard)
-						Name = LanguageMgr.GetTranslation(Properties.SERV_LANGUAGE, "SetGuardName.Champion");
+						Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Champion");
 					else Name = "Champion Commander";
 					break;
 			}
 
 			if (Realm == ERealm.None)
 			{
-				Name = LanguageMgr.GetTranslation(Properties.SERV_LANGUAGE, "SetGuardName.Renegade", Name);
+				Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "SetGuardName.Renegade", Name);
 			}
 		}
 	}

@@ -282,7 +282,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 						{
 							//check autocreate ...
 
-							if (GameServer.Instance.Configuration.AutoAccountCreation && Properties.ALLOW_AUTO_ACCOUNT_CREATION)
+							if (GameServer.Instance.Configuration.AutoAccountCreation && ServerProperties.ServerProperties.ALLOW_AUTO_ACCOUNT_CREATION)
 							{
 								// autocreate account
 								if (string.IsNullOrEmpty(password))
@@ -304,7 +304,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 								foreach (DbAccounts ac in allAccByIp)
 								{
 									ts = DateTime.Now - ac.CreationDate;
-									if (ts.TotalMinutes < Properties.TIME_BETWEEN_ACCOUNT_CREATION_SAMEIP && totalacc > 1)
+									if (ts.TotalMinutes < ServerProperties.ServerProperties.TIME_BETWEEN_ACCOUNT_CREATION_SAMEIP && totalacc > 1)
 									{
 										Log.Warn("Account creation: too many from same IP within set minutes - " + userName + " : " + ipAddress);
 
@@ -317,7 +317,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
 									totalacc++;
 								}
-								if (totalacc >= Properties.TOTAL_ACCOUNTS_ALLOWED_SAMEIP)
+								if (totalacc >= ServerProperties.ServerProperties.TOTAL_ACCOUNTS_ALLOWED_SAMEIP)
 								{
 									Log.Warn("Account creation: too many accounts created from same ip - " + userName + " : " + ipAddress);
 
@@ -329,10 +329,10 @@ namespace DOL.GS.PacketHandler.Client.v168
 								}
 
 								// per timeslice - for preventing account bombing via different ip
-								if (Properties.TIME_BETWEEN_ACCOUNT_CREATION > 0)
+								if (ServerProperties.ServerProperties.TIME_BETWEEN_ACCOUNT_CREATION > 0)
 								{
 									ts = DateTime.Now - m_lastAccountCreateTime;
-									if (ts.TotalMinutes < Properties.TIME_BETWEEN_ACCOUNT_CREATION)
+									if (ts.TotalMinutes < ServerProperties.ServerProperties.TIME_BETWEEN_ACCOUNT_CREATION)
 									{
 										Log.Warn("Account creation: time between account creation too small - " + userName + " : " + ipAddress);
 
@@ -354,7 +354,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 								playerAccount.LastLogin = DateTime.Now;
 								playerAccount.LastLoginIP = ipAddress;
 								playerAccount.LastClientVersion = ((int)client.Version).ToString();
-								playerAccount.Language = Properties.SERV_LANGUAGE;
+								playerAccount.Language = ServerProperties.ServerProperties.SERV_LANGUAGE;
 								playerAccount.PrivLevel = 1;
 
 								if (Log.IsInfoEnabled)
@@ -402,14 +402,14 @@ namespace DOL.GS.PacketHandler.Client.v168
 							}
 
 							// QUEUE SERVICE :^)
-							if (!playerAccount.IsTester && playerAccount.PrivLevel == 1 && !string.IsNullOrEmpty(Properties.QUEUE_API_URI))
+							if (!playerAccount.IsTester && playerAccount.PrivLevel == 1 && !string.IsNullOrEmpty(ServerProperties.ServerProperties.QUEUE_API_URI))
                             {
 								var data = new Dictionary<string, string>()
                                 {
 									{ "name", playerAccount.Name }
                                 };
 								var payload = new FormUrlEncodedContent(data);
-								var webRequest = new HttpRequestMessage(HttpMethod.Post, Properties.QUEUE_API_URI + "/api/v1/whitelist/check")
+								var webRequest = new HttpRequestMessage(HttpMethod.Post, ServerProperties.ServerProperties.QUEUE_API_URI + "/api/v1/whitelist/check")
 								{
 									Content = payload
 								};
@@ -435,7 +435,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 							playerAccount.LastClientVersion = ((int)client.Version).ToString();
 							if (string.IsNullOrEmpty(playerAccount.Language))
 							{
-								playerAccount.Language = Properties.SERV_LANGUAGE;
+								playerAccount.Language = ServerProperties.ServerProperties.SERV_LANGUAGE;
 							}
 
 							GameServer.Database.SaveObject(playerAccount);

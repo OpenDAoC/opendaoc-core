@@ -10,7 +10,7 @@ public class PredatorService
 
     private static long _updateInterval = 3000; // 3secs
     private static long _messageBroadcastInterval = 15000; // 15secs
-    private static long _insertInterval = ServerProperties.Properties.QUEUED_PLAYER_INSERT_INTERVAL * 1000;
+    private static long _insertInterval = ServerProperties.ServerProperties.QUEUED_PLAYER_INSERT_INTERVAL * 1000;
 
     private static long _lastUpdate;
     private static long _lastInsert;

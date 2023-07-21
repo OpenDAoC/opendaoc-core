@@ -22,7 +22,7 @@ namespace DOL.GS.RealmAbilities
                 player.Out.SendMessage("You already have an effect of that type!", EChatType.CT_SpellResisted, EChatLoc.CL_SystemWindow);
             }
 			
-			if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+			if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
 			{
 	            switch (Level)
 	            {

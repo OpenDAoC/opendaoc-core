@@ -1248,7 +1248,7 @@ namespace DOL.GS.Items
 		[GameServerStartedEvent]
 		public static void OnServerStartup(CoreEvent e, object sender, EventArgs args)
 		{
-			if (!ServerProperties.Properties.LOAD_BUFF_TOKENS)
+			if (!ServerProperties.ServerProperties.LOAD_BUFF_TOKENS)
 				return;
 			
 			DbItemTemplates item;
@@ -1606,7 +1606,7 @@ namespace DOL.GS.Items
 		[GameServerStartedEvent]
 		public static void OnServerStartup(CoreEvent e, object sender, EventArgs args)
 		{
-			if (!ServerProperties.Properties.LOAD_BUFF_TOKENS)
+			if (!ServerProperties.ServerProperties.LOAD_BUFF_TOKENS)
 				return;
 			
 			DbItemTemplates item;

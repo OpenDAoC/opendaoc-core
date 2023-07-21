@@ -78,7 +78,7 @@ namespace DOL.GS
             Empathy = npcTemplate.Empathy;
 
             OrganicEnergyMechanismBrain sBrain = new OrganicEnergyMechanismBrain();
-            RespawnInterval = ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
+            RespawnInterval = ServerProperties.ServerProperties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
             Faction = FactionMgr.GetFactionByID(96);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(96));
             SetOwnBrain(sBrain);
@@ -412,7 +412,7 @@ namespace DOL.GS
         }
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
         public override int MaxHealth
         {

@@ -27,7 +27,7 @@ namespace DOL.GS
 
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
         public override int AttackRange
         {
@@ -68,7 +68,7 @@ namespace DOL.GS
             Empathy = npcTemplate.Empathy;
             Faction = FactionMgr.GetFactionByID(140);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(140));
-            RespawnInterval = ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
+            RespawnInterval = ServerProperties.ServerProperties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000; //1min is 60000 miliseconds
 
             JailerBrain sbrain = new JailerBrain();
             SetOwnBrain(sbrain);
@@ -97,7 +97,7 @@ namespace DOL.GS
                 TG.CurrentRegionID = 160; //tuscaran glacier
                 TG.MeleeDamageType = EDamageType.Crush;
                 TG.RespawnInterval =
-                    ServerProperties.Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL *
+                    ServerProperties.ServerProperties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL *
                     60000; //1min is 60000 miliseconds
                 TG.Faction = FactionMgr.GetFactionByID(140);
                 TG.Faction.AddFriendFaction(FactionMgr.GetFactionByID(140));
@@ -294,7 +294,7 @@ namespace DOL.GS
         }
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
 
         public override int AttackRange

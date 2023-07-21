@@ -18,9 +18,9 @@ namespace DOL.GS.Scripts
         private int amount;
         private GamePlayer killerPlayer;
 
-        private int minBountyReward = Properties.BOUNTY_MIN_REWARD;
-        private int maxBountyReward = Properties.BOUNTY_MAX_REWARD;
-        private int minLoyalty = Properties.BOUNTY_MIN_LOYALTY;
+        private int minBountyReward = ServerProperties.ServerProperties.BOUNTY_MIN_REWARD;
+        private int maxBountyReward = ServerProperties.ServerProperties.BOUNTY_MAX_REWARD;
+        private int minLoyalty = ServerProperties.ServerProperties.BOUNTY_MIN_LOYALTY;
 
         public void OnCommand(GameClient client, string[] args)
         {

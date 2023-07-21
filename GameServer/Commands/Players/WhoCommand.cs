@@ -331,7 +331,7 @@ namespace DOL.GS.Commands
 			{
 				result.Append(" <Admin>");
 			}
-			if (ServerProperties.Properties.ALLOW_CHANGE_LANGUAGE)
+			if (ServerProperties.ServerProperties.ALLOW_CHANGE_LANGUAGE)
 			{
 				result.Append(" <" + player.Client.Account.Language + ">");
 			}

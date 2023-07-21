@@ -29,7 +29,7 @@ namespace DOL.GS
                 if (player == null)
                     return;
 
-                if (player.LastWorldUpdate + Properties.WORLD_PLAYER_UPDATE_INTERVAL >= tick ||
+                if (player.LastWorldUpdate + ServerProperties.ServerProperties.WORLD_PLAYER_UPDATE_INTERVAL >= tick ||
                     player.Client.ClientState != GameClient.EClientState.Playing ||
                     player.ObjectState != GameObject.eObjectState.Active)
                 {
@@ -56,16 +56,16 @@ namespace DOL.GS
 
         private static void UpdateWorld(GamePlayer player, long tick)
         {
-            if (Properties.WORLD_NPC_UPDATE_INTERVAL > 0)
+            if (ServerProperties.ServerProperties.WORLD_NPC_UPDATE_INTERVAL > 0)
                 UpdateNpcs(player, tick);
 
-            if (Properties.WORLD_OBJECT_UPDATE_INTERVAL > 0)
+            if (ServerProperties.ServerProperties.WORLD_OBJECT_UPDATE_INTERVAL > 0)
                 UpdateItems(player, tick);
 
-            if (Properties.WORLD_OBJECT_UPDATE_INTERVAL > 0)
+            if (ServerProperties.ServerProperties.WORLD_OBJECT_UPDATE_INTERVAL > 0)
                 UpdateDoors(player, tick);
 
-            if (Properties.WORLD_OBJECT_UPDATE_INTERVAL > 0)
+            if (ServerProperties.ServerProperties.WORLD_OBJECT_UPDATE_INTERVAL > 0)
                 UpdateHouses(player, tick);
 
             player.LastWorldUpdate = tick;
@@ -90,7 +90,7 @@ namespace DOL.GS
                         continue;
 
                     // We have a NPC in cache that is not in vincinity.
-                    if (!npcsInRange.Contains(npc) && (tick - objEntry.Value) >= Properties.WORLD_NPC_UPDATE_INTERVAL)
+                    if (!npcsInRange.Contains(npc) && (tick - objEntry.Value) >= ServerProperties.ServerProperties.WORLD_NPC_UPDATE_INTERVAL)
                     {
                         // Update him out of view.
                         if (npc.IsVisibleTo(player))
@@ -117,7 +117,7 @@ namespace DOL.GS
 
                     if (player.Client.GameObjectUpdateArray.TryGetValue(new Tuple<ushort, ushort>(npc.CurrentRegionID, (ushort) npc.ObjectID), out long lastUpdate))
                     {
-                        if ((tick - lastUpdate) >= Properties.WORLD_NPC_UPDATE_INTERVAL)
+                        if ((tick - lastUpdate) >= ServerProperties.ServerProperties.WORLD_NPC_UPDATE_INTERVAL)
                             player.Client.Out.SendObjectUpdate(npc);
                     }
                     else
@@ -146,7 +146,7 @@ namespace DOL.GS
                     Tuple<ushort, ushort> objKey = objEntry.Key;
 
                     // We have an item in cache that is not in vincinity.
-                    if (WorldMgr.GetRegion(objKey.Item1).GetObject(objKey.Item2) is GameStaticItem item && !itemsInRange.Contains(item) && (tick - objEntry.Value) >= Properties.WORLD_OBJECT_UPDATE_INTERVAL)
+                    if (WorldMgr.GetRegion(objKey.Item1).GetObject(objKey.Item2) is GameStaticItem item && !itemsInRange.Contains(item) && (tick - objEntry.Value) >= ServerProperties.ServerProperties.WORLD_OBJECT_UPDATE_INTERVAL)
                         player.Client.GameObjectUpdateArray.TryRemove(objKey, out _);
                 }
             }
@@ -166,7 +166,7 @@ namespace DOL.GS
 
                     if (player.Client.GameObjectUpdateArray.TryGetValue(new Tuple<ushort, ushort>(item.CurrentRegionID, (ushort) item.ObjectID), out long lastUpdate))
                     {
-                        if ((tick - lastUpdate) >= Properties.WORLD_OBJECT_UPDATE_INTERVAL)
+                        if ((tick - lastUpdate) >= ServerProperties.ServerProperties.WORLD_OBJECT_UPDATE_INTERVAL)
                             player.Client.Out.SendObjectCreate(item);
                     }
                     else
@@ -195,7 +195,7 @@ namespace DOL.GS
                     Tuple<ushort, ushort> objKey = objEntry.Key;
 
                     // We have a door in cache that is not in vincinity.
-                    if (WorldMgr.GetRegion(objKey.Item1).GetObject(objKey.Item2) is GameDoorBase door && !doorsInRange.Contains(door) && (tick - objEntry.Value) >= Properties.WORLD_OBJECT_UPDATE_INTERVAL)
+                    if (WorldMgr.GetRegion(objKey.Item1).GetObject(objKey.Item2) is GameDoorBase door && !doorsInRange.Contains(door) && (tick - objEntry.Value) >= ServerProperties.ServerProperties.WORLD_OBJECT_UPDATE_INTERVAL)
                         player.Client.GameObjectUpdateArray.TryRemove(objKey, out _);
                 }
             }
@@ -215,7 +215,7 @@ namespace DOL.GS
 
                     if (player.Client.GameObjectUpdateArray.TryGetValue(new Tuple<ushort, ushort>(door.CurrentRegionID, (ushort) door.ObjectID), out long lastUpdate))
                     {
-                        if ((tick - lastUpdate) >= Properties.WORLD_OBJECT_UPDATE_INTERVAL)
+                        if ((tick - lastUpdate) >= ServerProperties.ServerProperties.WORLD_OBJECT_UPDATE_INTERVAL)
                             player.SendDoorUpdate(door);
                     }
                     else
@@ -248,7 +248,7 @@ namespace DOL.GS
                     House house = HouseMgr.GetHouse(houseKey.Item1, houseKey.Item2);
 
                     // We have a House in cache that is not in vincinity.
-                    if (!houses.Contains(house) && (tick - houseEntry.Value) >= (Properties.WORLD_OBJECT_UPDATE_INTERVAL >> 2))
+                    if (!houses.Contains(house) && (tick - houseEntry.Value) >= (ServerProperties.ServerProperties.WORLD_OBJECT_UPDATE_INTERVAL >> 2))
                         player.Client.HouseUpdateArray.TryRemove(houseKey, out _);
                 }
             }
@@ -267,7 +267,7 @@ namespace DOL.GS
 
                     if (player.Client.HouseUpdateArray.TryGetValue(new Tuple<ushort, ushort>(house.RegionID, (ushort) house.HouseNumber), out long lastUpdate))
                     {
-                        if ((tick - lastUpdate) >= Properties.WORLD_OBJECT_UPDATE_INTERVAL)
+                        if ((tick - lastUpdate) >= ServerProperties.ServerProperties.WORLD_OBJECT_UPDATE_INTERVAL)
                             player.Client.Out.SendHouseOccupied(house, house.IsOccupied);
                     }
                     else

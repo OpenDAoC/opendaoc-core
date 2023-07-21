@@ -19,7 +19,7 @@ namespace DOL.GS.Keeps
 		[GameServerStartedEvent]
 		public static void OnServerStarted(CoreEvent e, object sender, EventArgs args)
 		{
-			if (ServerProperties.Properties.LOAD_HOOKPOINTS)
+			if (ServerProperties.ServerProperties.LOAD_HOOKPOINTS)
 			{
 				/*string name,byte gold,byte silver,byte copper,ushort icon,string objectType,ushort flag*/
 				HookPointInventory.RedHPInventory.AddFirstFreeSlot(new HookPointItem("Melee Guard", 67, 2624, "DOL.GS.Keeps.GuardFighter", 0));
@@ -320,7 +320,7 @@ namespace DOL.GS.Keeps
 				(hookPointObj as GameKeepGuard).RefreshTemplate();
 			}
 
-			if (ServerProperties.Properties.ENABLE_DEBUG)
+			if (ServerProperties.ServerProperties.ENABLE_DEBUG)
 				hookPointObj.Name += " hookpoint " + hookpoint.ID.ToString();
 
 			if (hookPointObj is GameNPC)

@@ -91,7 +91,7 @@ namespace DOL.GS.Scripts
 
             // demon
             BodyType = 2;
-            RespawnInterval = Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+            RespawnInterval = ServerProperties.ServerProperties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
             Faction = FactionMgr.GetFactionByID(191);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(191));
 
@@ -104,7 +104,7 @@ namespace DOL.GS.Scripts
 
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
         public override int AttackRange
         {
@@ -276,12 +276,12 @@ namespace DOL.GS.Scripts
             String message = String.Format("{0} has been slain by a force of {1} warriors!", Name, numPlayers);
             NewsMgr.CreateNews(message, killer.Realm, eNewsType.PvE, true);
 
-            if (Properties.GUILD_MERIT_ON_LEGION_KILL <= 0) return;
+            if (ServerProperties.ServerProperties.GUILD_MERIT_ON_LEGION_KILL <= 0) return;
             foreach (GamePlayer player in GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE))
             {
                 if (player.IsEligibleToGiveMeritPoints)
                 {
-                    GuildEventHandler.MeritForNPCKilled(player, this, Properties.GUILD_MERIT_ON_LEGION_KILL);
+                    GuildEventHandler.MeritForNPCKilled(player, this, ServerProperties.ServerProperties.GUILD_MERIT_ON_LEGION_KILL);
                 }
             }
         }
@@ -849,7 +849,7 @@ namespace DOL.GS
         }
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
         public override int MaxHealth
         {
@@ -891,7 +891,7 @@ namespace DOL.GS
             Intelligence = npcTemplate.Intelligence;
 
             BehemothBrain sBrain = new BehemothBrain();
-            RespawnInterval = Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+            RespawnInterval = ServerProperties.ServerProperties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
             SetOwnBrain(sBrain);
             sBrain.AggroLevel = 100;
             sBrain.AggroRange = 500;

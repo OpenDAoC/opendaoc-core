@@ -39,7 +39,7 @@ namespace DOL.GS.RealmAbilities
 				list.Add("");
 				for (int i = 1; i <= MaxLevel; i++)
 				{
-                    list.Add(LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, "RAPropertyEnhancer.DelveInfo.Info1", i, GetAmountForLevel(i), ValueUnit));
+                    list.Add(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, "RAPropertyEnhancer.DelveInfo.Info1", i, GetAmountForLevel(i), ValueUnit));
                 }
 				return list;
 			}
@@ -140,7 +140,7 @@ namespace DOL.GS.RealmAbilities
 
 		public override int CostForUpgrade(int level)
 		{
-			if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+			if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
 			{
 				switch(level)
 				{
@@ -162,7 +162,7 @@ namespace DOL.GS.RealmAbilities
 		{
 			get
 			{
-				if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+				if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
 				{
 					return 5;
 				}

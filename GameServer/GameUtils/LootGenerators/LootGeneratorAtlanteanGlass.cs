@@ -85,10 +85,10 @@ namespace DOL.GS
 				if (!mob.Name.ToLower().Equals(mob.Name))
 				{
 					//Named mob, more cash !
-					maxcount = (int)Math.Round(maxcount*ServerProperties.Properties.LOOTGENERATOR_ATLANTEANGLASS_NAMED_COUNT);
+					maxcount = (int)Math.Round(maxcount*ServerProperties.ServerProperties.LOOTGENERATOR_ATLANTEANGLASS_NAMED_COUNT);
 				}
 				
-				if(maxcount > 0 && UtilCollection.Chance(ServerProperties.Properties.LOOTGENERATOR_ATLANTEANGLASS_BASE_CHANCE+Math.Max(10, killedcon)))
+				if(maxcount > 0 && UtilCollection.Chance(ServerProperties.ServerProperties.LOOTGENERATOR_ATLANTEANGLASS_BASE_CHANCE+Math.Max(10, killedcon)))
 					loot.AddFixed(atlanteanGlass, maxcount);
 			}
 			catch

@@ -9,7 +9,7 @@ namespace DOL.GS
         public TailoringSkill()
         {
             Icon = 0x0B;
-            Name = LanguageMgr.GetTranslation(ServerProperties.Properties.SERV_LANGUAGE, 
+            Name = LanguageMgr.GetTranslation(ServerProperties.ServerProperties.SERV_LANGUAGE, 
                 "Crafting.Name.Tailoring");
             eSkill = eCraftingSkill.Tailoring;
         }
@@ -44,7 +44,7 @@ namespace DOL.GS
                 }
 
                 player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Crafting.CheckTool.NotHaveTools", recipe.Product.Name), EChatType.CT_System, EChatLoc.CL_SystemWindow);
-                player.Out.SendMessage(LanguageMgr.GetTranslation(ServerProperties.Properties.DB_LANGUAGE, "Crafting.CheckTool.FindForge"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
+                player.Out.SendMessage(LanguageMgr.GetTranslation(ServerProperties.ServerProperties.DB_LANGUAGE, "Crafting.CheckTool.FindForge"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 
 				if (player.Client.Account.PrivLevel > 1)
 					return true;

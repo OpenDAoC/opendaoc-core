@@ -37,7 +37,7 @@ namespace DOL.GS.RealmAbilities
 			effectiveness = 0;
 			owner = living;
 
-			if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+			if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
 			{
 				switch (Level)
 				{
@@ -209,7 +209,7 @@ namespace DOL.GS.RealmAbilities
 
 		public override void AddEffectsInfo(IList<string> list)
 		{
-			if(ServerProperties.Properties.USE_NEW_ACTIVES_RAS_SCALING)
+			if(ServerProperties.ServerProperties.USE_NEW_ACTIVES_RAS_SCALING)
 			{
 				list.Add("Trap that deals the following damage in an 350 radius");
 				list.Add("Level 1: 300 Damage");

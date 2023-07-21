@@ -38,8 +38,8 @@ namespace DOL.GS.Keeps
 		public static void SendLevelChangeMessage(AbstractGameKeep keep)
 		{
 			string message = "Your guild's keep " + keep.Name + " is now level " + keep.Level;
-			if (keep.Level != ServerProperties.Properties.MAX_KEEP_LEVEL)
-				message += ", it is on the way to level " + ServerProperties.Properties.MAX_KEEP_LEVEL.ToString();
+			if (keep.Level != ServerProperties.ServerProperties.MAX_KEEP_LEVEL)
+				message += ", it is on the way to level " + ServerProperties.ServerProperties.MAX_KEEP_LEVEL.ToString();
 			SendMessageToGuild(message, keep.Guild);
 		}
 
@@ -49,7 +49,7 @@ namespace DOL.GS.Keeps
             string changeleveltext = "";
             int nextlevel = 0;
 
-            byte maxlevel = (byte)ServerProperties.Properties.MAX_KEEP_LEVEL;
+            byte maxlevel = (byte)ServerProperties.ServerProperties.MAX_KEEP_LEVEL;
 
             if (keep.Level < maxlevel)
             {

@@ -9,9 +9,9 @@ namespace DOL.GS;
 
 public class SubObjective
 {
-    private ushort FlagCaptureRadius = ServerProperties.Properties.FLAG_CAPTURE_RADIUS; //how far away can we capture flag from
-    private static int FlagCaptureTime = ServerProperties.Properties.FLAG_CAPTURE_TIME; //how long to capture flag
-    uint fullCycleTime = (uint) ServerProperties.Properties.MAX_CONQUEST_TASK_DURATION;
+    private ushort FlagCaptureRadius = ServerProperties.ServerProperties.FLAG_CAPTURE_RADIUS; //how far away can we capture flag from
+    private static int FlagCaptureTime = ServerProperties.ServerProperties.FLAG_CAPTURE_TIME; //how long to capture flag
+    uint fullCycleTime = (uint) ServerProperties.ServerProperties.MAX_CONQUEST_TASK_DURATION;
 
     private int ObjectiveNumber = 0;
     

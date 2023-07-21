@@ -126,7 +126,7 @@ namespace DOL.GS.Keeps
 			Component.Keep.Guards.Add(Database.UniqueID.IdGenerator.GenerateId(), guard);
 			guard.AddToWorld();
 
-			if (ServerProperties.Properties.ENABLE_DEBUG)
+			if (ServerProperties.ServerProperties.ENABLE_DEBUG)
 			{
 				guard.Name += " PatrolID " + PatrolID;
 			}

@@ -446,7 +446,7 @@ namespace DOL.GS.Spells
 
 					string hitWeapon = "";
 
-					switch (ServerProperties.Properties.SERV_LANGUAGE)
+					switch (ServerProperties.ServerProperties.SERV_LANGUAGE)
 					{
 						case "EN":
 							if (weapon != null)
@@ -603,7 +603,7 @@ namespace DOL.GS.Spells
                 ad.Modifier += resist;
                 ad.Damage = (int)damage;
                 ad.Damage = Math.Min(ad.Damage, (int)(player.attackComponent.UnstyledDamageCap(weapon) * effectiveness));
-                ad.Damage = (int)((double)ad.Damage * ServerProperties.Properties.PVP_MELEE_DAMAGE);
+                ad.Damage = (int)((double)ad.Damage * ServerProperties.ServerProperties.PVP_MELEE_DAMAGE);
                 if (ad.Damage == 0) ad.AttackResult = DOL.GS.EAttackResult.Missed;
                 ad.CriticalDamage = player.attackComponent.GetMeleeCriticalDamage(ad, null, weapon);
             }

@@ -40,8 +40,8 @@ namespace DOL.GS
 
 			// BD subpet spells can be scaled with the BD's spec as a cap, so when a BD
 			//	trains, we have to re-scale spells for subpets from that spec.
-			if (DOL.GS.ServerProperties.Properties.PET_SCALE_SPELL_MAX_LEVEL > 0
-				&& DOL.GS.ServerProperties.Properties.PET_CAP_BD_MINION_SPELL_SCALING_BY_SPEC
+			if (DOL.GS.ServerProperties.ServerProperties.PET_SCALE_SPELL_MAX_LEVEL > 0
+				&& DOL.GS.ServerProperties.ServerProperties.PET_CAP_BD_MINION_SPELL_SCALING_BY_SPEC
 				&& player.ControlledBrain != null && player.ControlledBrain.Body is GameSummonedPet pet
 				&& pet.ControlledNpcList != null)
 					foreach (ABrain subBrain in pet.ControlledNpcList)

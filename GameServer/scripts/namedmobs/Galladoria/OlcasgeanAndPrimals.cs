@@ -336,7 +336,7 @@ namespace DOL.GS
         }
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
         public override int MaxHealth
         {
@@ -392,13 +392,13 @@ namespace DOL.GS
             String message = String.Format("{0} has been slain by a force of {1} warriors!", Name, numPlayers);
             NewsMgr.CreateNews(message, killer.Realm, eNewsType.PvE, true);
 
-            if (Properties.GUILD_MERIT_ON_DRAGON_KILL > 0)
+            if (ServerProperties.ServerProperties.GUILD_MERIT_ON_DRAGON_KILL > 0)
             {
                 foreach (GamePlayer player in GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE))
                 {
                     if (player.IsEligibleToGiveMeritPoints)
                     {
-                        GuildEventHandler.MeritForNPCKilled(player, this, Properties.GUILD_MERIT_ON_DRAGON_KILL);
+                        GuildEventHandler.MeritForNPCKilled(player, this, ServerProperties.ServerProperties.GUILD_MERIT_ON_DRAGON_KILL);
                     }
                 }
             }
@@ -478,7 +478,7 @@ namespace DOL.GS
             CurrentRegionID = 191;         
 
             Flags = (GameNPC.eFlags)156;
-            RespawnInterval = Properties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+            RespawnInterval = ServerProperties.ServerProperties.SET_SI_EPIC_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
             OIBrain.startevent = false;
             OIBrain.DeadPrimalsCount = 0;
             OlcasgeanBrain.setbossflags = false;
@@ -881,7 +881,7 @@ namespace DOL.GS
         }
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
         public override int MaxHealth
         {
@@ -937,13 +937,13 @@ namespace DOL.GS
             String message = String.Format("{0} has been slain by a force of {1} warriors!", Name, numPlayers);
             NewsMgr.CreateNews(message, killer.Realm, eNewsType.PvE, true);
 
-            if (Properties.GUILD_MERIT_ON_DRAGON_KILL > 0)
+            if (ServerProperties.ServerProperties.GUILD_MERIT_ON_DRAGON_KILL > 0)
             {
                 foreach (GamePlayer player in GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE))
                 {
                     if (player.IsEligibleToGiveMeritPoints)
                     {
-                        GuildEventHandler.MeritForNPCKilled(player, this, Properties.GUILD_MERIT_ON_DRAGON_KILL);
+                        GuildEventHandler.MeritForNPCKilled(player, this, ServerProperties.ServerProperties.GUILD_MERIT_ON_DRAGON_KILL);
                     }
                 }
             }
@@ -1600,7 +1600,7 @@ namespace DOL.GS
         }
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
         public override bool HasAbility(string keyName)
         {
@@ -1944,7 +1944,7 @@ namespace DOL.GS
         }
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
         public override bool HasAbility(string keyName)
         {
@@ -2344,7 +2344,7 @@ namespace DOL.GS
         }
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * Strength / 100 * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
         public override bool HasAbility(string keyName)
         {
@@ -3393,7 +3393,7 @@ namespace DOL.GS
         }
         public override double AttackDamage(InventoryItem weapon)
         {
-            return base.AttackDamage(weapon) * Strength / 250 * ServerProperties.Properties.EPICS_DMG_MULTIPLIER;
+            return base.AttackDamage(weapon) * Strength / 250 * ServerProperties.ServerProperties.EPICS_DMG_MULTIPLIER;
         }
         public override bool AddToWorld()
         {

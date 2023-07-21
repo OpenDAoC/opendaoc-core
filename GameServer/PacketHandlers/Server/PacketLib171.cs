@@ -385,13 +385,13 @@ namespace DOL.GS.PacketHandler
 				switch (player.Realm)
 				{
 					case ERealm.Albion:
-						time = (ushort)((ServerProperties.Properties.FREELEVEL_DAYS_ALBION * 24 * 60) - t.TotalMinutes);
+						time = (ushort)((ServerProperties.ServerProperties.FREELEVEL_DAYS_ALBION * 24 * 60) - t.TotalMinutes);
 						break;
 					case ERealm.Midgard:
-						time = (ushort)((ServerProperties.Properties.FREELEVEL_DAYS_MIDGARD * 24 * 60) - t.TotalMinutes);
+						time = (ushort)((ServerProperties.ServerProperties.FREELEVEL_DAYS_MIDGARD * 24 * 60) - t.TotalMinutes);
 						break;
 					case ERealm.Hibernia:
-						time = (ushort)((ServerProperties.Properties.FREELEVEL_DAYS_HIBERNIA * 24 * 60) - t.TotalMinutes);
+						time = (ushort)((ServerProperties.ServerProperties.FREELEVEL_DAYS_HIBERNIA * 24 * 60) - t.TotalMinutes);
 						break;
 				}
 

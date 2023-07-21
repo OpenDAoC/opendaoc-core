@@ -18,7 +18,7 @@ namespace DOL.GS
         }
         public virtual int YarDifficulty
         {
-            get { return ServerProperties.Properties.SET_DIFFICULTY_ON_EPIC_ENCOUNTERS / 100; }
+            get { return ServerProperties.ServerProperties.SET_DIFFICULTY_ON_EPIC_ENCOUNTERS / 100; }
         }
         public override int GetResist(EDamageType damageType)
         {
@@ -80,7 +80,7 @@ namespace DOL.GS
             
             Faction = FactionMgr.GetFactionByID(154);
             Faction.AddFriendFaction(FactionMgr.GetFactionByID(154));
-            RespawnInterval = ServerProperties.Properties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
+            RespawnInterval = ServerProperties.ServerProperties.SET_EPIC_GAME_ENCOUNTER_RESPAWNINTERVAL * 60000;//1min is 60000 miliseconds
 
             YarBrain sBrain = new YarBrain();
             SetOwnBrain(sBrain);

@@ -41,7 +41,7 @@ namespace DOL.GS.Commands
 		{
 			if (args.Length < 2)
 			{
-				if (ServerProperties.Properties.FREE_RESPEC || client.Player.Level < 50)
+				if (ServerProperties.ServerProperties.FREE_RESPEC || client.Player.Level < 50)
 				{
 					DisplayMessage(client, "Target any trainer and use:");
 					DisplayMessage(client, "/respec ALL to respec all skills");
@@ -124,7 +124,7 @@ namespace DOL.GS.Commands
                         {
                             // Check for full respecs.
                             if ( client.Player.RespecAmountAllSkill < 1
-                                && !ServerProperties.Properties.FREE_RESPEC)
+                                && !ServerProperties.ServerProperties.FREE_RESPEC)
                             {
                                 DisplayMessage(client, "You don't seem to have any full skill respecs available.");
                                 return;
@@ -155,7 +155,7 @@ namespace DOL.GS.Commands
                         if (/*client.Player.Level >= 50 || */TimeSpan.FromSeconds(client.Player.PlayedTimeSinceLevel).Hours > 24)
                         {
                             if (client.Player.RespecAmountRealmSkill < 1
-                                && !ServerProperties.Properties.FREE_RESPEC)
+                                && !ServerProperties.ServerProperties.FREE_RESPEC)
                             {
                                 DisplayMessage(client, "You don't seem to have any realm skill respecs available.");
                                 return;
@@ -181,7 +181,7 @@ namespace DOL.GS.Commands
 						{
 							// Check for single-line respecs.
 							if (client.Player.RespecAmountSingleSkill < 1
-							&& !ServerProperties.Properties.FREE_RESPEC)
+							&& !ServerProperties.ServerProperties.FREE_RESPEC)
 							{
 								DisplayMessage(client, "You don't seem to have any single-line respecs available.");
 								return;

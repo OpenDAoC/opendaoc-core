@@ -86,7 +86,7 @@ public class LostStoneofArawn : BaseQuest
     [ScriptLoadedEvent]
     public static void ScriptLoaded(CoreEvent e, object sender, EventArgs args)
     {
-        if (!ServerProperties.Properties.LOAD_QUESTS)
+        if (!ServerProperties.ServerProperties.LOAD_QUESTS)
             return;
 
 
@@ -319,7 +319,7 @@ public class LostStoneofArawn : BaseQuest
         Nyaegha.CurrentRegionID = 51;
         Nyaegha.Size = 150;
         Nyaegha.Level = 65;
-        Nyaegha.ScalingFactor = ServerProperties.Properties.NECK_BOSS_SCALING;
+        Nyaegha.ScalingFactor = ServerProperties.ServerProperties.NECK_BOSS_SCALING;
         Nyaegha.X = 348381;
         Nyaegha.Y = 479838;
         Nyaegha.Z = 3320;

@@ -76,9 +76,9 @@ namespace DOL.GS
 			// the level of the player, so let's deal with that first.
 			if (text.ToLower() == "battlegrounds")
 			{
-				if (!ServerProperties.Properties.BG_ZONES_OPENED && player.Client.Account.PrivLevel == (uint)EPrivLevel.Player)
+				if (!ServerProperties.ServerProperties.BG_ZONES_OPENED && player.Client.Account.PrivLevel == (uint)EPrivLevel.Player)
 				{
-					SayTo(player, ServerProperties.Properties.BG_ZONES_CLOSED_MESSAGE);
+					SayTo(player, ServerProperties.ServerProperties.BG_ZONES_CLOSED_MESSAGE);
 				}
 				else
 				{

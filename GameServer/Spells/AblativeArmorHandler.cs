@@ -113,7 +113,7 @@ namespace DOL.GS.Spells
 				else if (Spell.CastTime > 0)
 					list.Add(LanguageMgr.GetTranslation((Caster as GamePlayer).Client, "DelveInfo.CastingTime", (Spell.CastTime * 0.001).ToString("0.0## sec;-0.0## sec;'instant'")));
 
-				if (ServerProperties.Properties.SERV_LANGUAGE != "DE")
+				if (ServerProperties.ServerProperties.SERV_LANGUAGE != "DE")
 				{
 					//SpellType
 					list.Add(GetAblativeType());

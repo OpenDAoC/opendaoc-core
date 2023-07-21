@@ -301,9 +301,9 @@ namespace DOL.GS
 			log.Debug("loading mobs from DB...");
 
 			var mobList = new List<DbMobs>();
-			if (ServerProperties.Properties.DEBUG_LOAD_REGIONS != string.Empty)
+			if (ServerProperties.ServerProperties.DEBUG_LOAD_REGIONS != string.Empty)
 			{
-				foreach (string loadRegion in UtilCollection.SplitCSV(ServerProperties.Properties.DEBUG_LOAD_REGIONS, true))
+				foreach (string loadRegion in UtilCollection.SplitCSV(ServerProperties.ServerProperties.DEBUG_LOAD_REGIONS, true))
 				{
 					mobList.AddRange(CoreDb<DbMobs>.SelectObjects(DB.Column("Region").IsEqualTo(loadRegion)));
 				}
@@ -490,7 +490,7 @@ namespace DOL.GS
 					log.Info("Total Bind Points: " + bindpoints);
 				}
 
-				m_dayIncrement = Math.Max(0, Math.Min(1000, ServerProperties.Properties.WORLD_DAY_INCREMENT)); // increments > 1000 do not render smoothly on clients
+				m_dayIncrement = Math.Max(0, Math.Min(1000, ServerProperties.ServerProperties.WORLD_DAY_INCREMENT)); // increments > 1000 do not render smoothly on clients
 				m_dayStartTick = (int)GameLoop.GetCurrentTime() - (int)(DAY / Math.Max(1, m_dayIncrement) / 2); // set start time to 12pm
 				m_dayResetTimer = new Timer(new TimerCallback(DayReset), null, DAY / Math.Max(1, m_dayIncrement) / 2, DAY / Math.Max(1, m_dayIncrement));
 
