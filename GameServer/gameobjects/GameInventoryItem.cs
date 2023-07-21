@@ -435,7 +435,7 @@ namespace DOL.GS {
                         break;
                     case 31052:
                         // regen barrel
-                        WritePotionInfo(delve, AllRegenBuff.RegenList, player.Client);
+                        WritePotionInfo(delve, AllRegenBuffHandler.RegenList, player.Client);
                         break;
                     case 31053:
                         // summon merchant

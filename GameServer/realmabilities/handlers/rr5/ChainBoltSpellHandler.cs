@@ -5,7 +5,7 @@ namespace DOL.GS.Spells
     /// Spell Handler for firing bolts
     /// </summary>
     [SpellHandlerAttribute("ChainBolt")]
-    public class ChainBoltSpellHandler : BoltSpellHandler
+    public class ChainBoltSpellHandler : BoltHandler
     {
         public ChainBoltSpellHandler(GameLiving caster, Spell spell, SpellLine spellLine) : base(caster, spell, spellLine) { }
 

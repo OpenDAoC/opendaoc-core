@@ -164,10 +164,10 @@ namespace DOL.GS
                         ecsList.AddRange(playerEffects.Skip(playerEffects.Count - AllStatsBarrel.BuffList.Count));
                     }
                     //fix for Regen Pot not showing all icons when used
-                    else if (e is ECSGameSpellEffect regenEffect && AllRegenBuff.RegenList.Contains(regenEffect.SpellHandler.Spell.ID))
+                    else if (e is ECSGameSpellEffect regenEffect && AllRegenBuffHandler.RegenList.Contains(regenEffect.SpellHandler.Spell.ID))
                     {
                         List<ECSGameEffect> playerEffects = e.Owner.effectListComponent.GetAllEffects();
-                        ecsList.AddRange(playerEffects.Skip(playerEffects.Count - AllRegenBuff.RegenList.Count));
+                        ecsList.AddRange(playerEffects.Skip(playerEffects.Count - AllRegenBuffHandler.RegenList.Count));
                     }
                     else
                         ecsList.Add(e);

@@ -83,7 +83,7 @@ namespace DOL.GS.Spells
 	/// 
 	/// </summary>
 	[SpellHandlerAttribute("SiegeDirectDamage")]
-	public class SiegeDirectDamageSpellHandler : DirectDamageSpellHandler
+	public class SiegeDirectDamageSpellHandler : DirectDmgHandler
 	{
 
 		/// <summary>

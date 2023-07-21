@@ -284,7 +284,7 @@ namespace DOL.GS
 
 			if (spell != null)
 			{
-				UniPortal portalHandler = new UniPortal(this, spell, spellLine, destination);
+				UniPortalHandler portalHandler = new UniPortalHandler(this, spell, spellLine, destination);
 				portalHandler.StartSpell(player);
 				return;
 			}

@@ -2065,7 +2065,7 @@ namespace DOL.GS
 
 				attackComponent.AddAttacker( ad.Attacker );
 
-				if (ad.SpellHandler == null || (ad.SpellHandler != null && ad.SpellHandler is not DoTSpellHandler))
+				if (ad.SpellHandler == null || (ad.SpellHandler != null && ad.SpellHandler is not DotHandler))
 				{
 					if (ad.Attacker.Realm == 0 || Realm == 0)
 					{
@@ -2092,13 +2092,13 @@ namespace DOL.GS
 						if (effect == null)
 							continue;
 
-						AblativeArmorSpellHandler ablativeArmorSpellHandler = effect.SpellHandler as AblativeArmorSpellHandler;
+						AblativeArmorHandler ablativeArmorSpellHandler = effect.SpellHandler as AblativeArmorHandler;
 
 						if (!ablativeArmorSpellHandler.MatchingDamageType(ref ad))
 							continue;
 
 						int ablativeHp = effect.RemainingValue;
-						double absorbPercent = AblativeArmorSpellHandler.ValidateSpellDamage((int)effect.SpellHandler.Spell.Damage);
+						double absorbPercent = AblativeArmorHandler.ValidateSpellDamage((int)effect.SpellHandler.Spell.Damage);
 						int damageAbsorbed = (int)(0.01 * absorbPercent * (ad.Damage + ad.CriticalDamage));
 
 						if (damageAbsorbed > ablativeHp)
@@ -2107,7 +2107,7 @@ namespace DOL.GS
 						ablativeHp -= damageAbsorbed;
 						ad.Damage -= damageAbsorbed;
 
-						(effect.SpellHandler as AblativeArmorSpellHandler).OnDamageAbsorbed(ad, damageAbsorbed);
+						(effect.SpellHandler as AblativeArmorHandler).OnDamageAbsorbed(ad, damageAbsorbed);
 
 						if (ad.Target is GamePlayer)
 							(ad.Target as GamePlayer).Out.SendMessage(LanguageMgr.GetTranslation((ad.Target as GamePlayer).Client, "AblativeArmor.Target", damageAbsorbed), EChatType.CT_Spell, EChatLoc.CL_SystemWindow);
@@ -2147,7 +2147,7 @@ namespace DOL.GS
 					{
 						var dSEffect = dSEffects[i];
 
-						((DamageShieldSpellHandler)dSEffect.SpellHandler).EventHandler(null, this, new AttackedByEnemyEventArgs(ad));
+						((DamageShieldHandler)dSEffect.SpellHandler).EventHandler(null, this, new AttackedByEnemyEventArgs(ad));
 					}
 				}
 			}
@@ -2202,8 +2202,8 @@ namespace DOL.GS
 					removeMez = true;
                 }
 				// Non-Damaging, non-resisted spells that break mez.
-				else if (ad.SpellHandler is NearsightSpellHandler || ad.SpellHandler is AmnesiaSpellHandler || ad.SpellHandler is DiseaseSpellHandler
-						 || ad.SpellHandler is SpeedDecreaseSpellHandler || ad.SpellHandler is StunSpellHandler || ad.SpellHandler is ConfusionSpellHandler
+				else if (ad.SpellHandler is NearsightHandler || ad.SpellHandler is AmnesiaHandler || ad.SpellHandler is DiseaseHandler
+						 || ad.SpellHandler is SpeedDecreaseHandler || ad.SpellHandler is StunSpellHandler || ad.SpellHandler is ConfusionHandler
 						 || ad.SpellHandler is AbstractResistDebuff) 
 				{
 					removeMez = true;

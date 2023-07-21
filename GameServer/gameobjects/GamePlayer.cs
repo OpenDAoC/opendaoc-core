@@ -8111,7 +8111,7 @@ namespace DOL.GS
                                                     if (spellHandler is AllStatsBarrel)
                                                         target = this;
 
-                                                    if (spellHandler is AllRegenBuff)
+                                                    if (spellHandler is AllRegenBuffHandler)
                                                         target = this;
 
                                                     // Tobz: make sure we have the appropriate target for our charge spell,

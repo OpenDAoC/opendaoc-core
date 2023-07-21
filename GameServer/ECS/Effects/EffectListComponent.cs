@@ -178,8 +178,8 @@ namespace DOL.GS
                                             existingEffect is AblativeArmorEcsEffect existingAblativeEffect)
                                         {
                                             // 'Damage' represents the absorption% per hit.
-                                            if (newSpell.Value * AblativeArmorSpellHandler.ValidateSpellDamage((int)newSpell.Damage) >
-                                                existingAblativeEffect.RemainingValue *  AblativeArmorSpellHandler.ValidateSpellDamage((int)existingSpell.Damage))
+                                            if (newSpell.Value * AblativeArmorHandler.ValidateSpellDamage((int)newSpell.Damage) >
+                                                existingAblativeEffect.RemainingValue *  AblativeArmorHandler.ValidateSpellDamage((int)existingSpell.Damage))
                                             {
                                                 EffectService.RequestCancelEffect(existingEffect);
                                                 addEffect = true;

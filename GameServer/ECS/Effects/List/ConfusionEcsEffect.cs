@@ -70,16 +70,16 @@ namespace DOL.GS
                     }
                 }
 
-                (SpellHandler as ConfusionSpellHandler).targetList.Clear();
+                (SpellHandler as ConfusionHandler).targetList.Clear();
                 foreach (GamePlayer target in npc.GetPlayersInRadius(1000))
                 {
                     if (doAttackFriend)
-                        (SpellHandler as ConfusionSpellHandler).targetList.Add(target);
+                        (SpellHandler as ConfusionHandler).targetList.Add(target);
                     else
                     {
                         //this should prevent mobs from attacking friends.
                         if (GameServer.ServerRules.IsAllowedToAttack(npc, target, true))
-                            (SpellHandler as ConfusionSpellHandler).targetList.Add(target);
+                            (SpellHandler as ConfusionHandler).targetList.Add(target);
                     }
                 }
 
@@ -90,22 +90,22 @@ namespace DOL.GS
                         continue;
 
                     if (doAttackFriend)
-                        (SpellHandler as ConfusionSpellHandler).targetList.Add(target);
+                        (SpellHandler as ConfusionHandler).targetList.Add(target);
                     else
                     {
                         //this should prevent mobs from attacking friends.
                         if (GameServer.ServerRules.IsAllowedToAttack(npc, target, true) && !GameServer.ServerRules.IsSameRealm(npc, target, true))
-                            (SpellHandler as ConfusionSpellHandler).targetList.Add(target);
+                            (SpellHandler as ConfusionHandler).targetList.Add(target);
                     }
                 }
 
                 //targetlist should be full, start effect pulse.
-                if ((SpellHandler as ConfusionSpellHandler).targetList.Count > 0)
+                if ((SpellHandler as ConfusionHandler).targetList.Count > 0)
                 {
                     npc.StopAttack();
                     npc.StopCurrentSpellcast();
 
-                    GameLiving target = (SpellHandler as ConfusionSpellHandler).targetList[UtilCollection.Random((SpellHandler as ConfusionSpellHandler).targetList.Count - 1)] as GameLiving;
+                    GameLiving target = (SpellHandler as ConfusionHandler).targetList[UtilCollection.Random((SpellHandler as ConfusionHandler).targetList.Count - 1)] as GameLiving;
                     npc.StartAttack(target);
                 }
             }
@@ -122,13 +122,13 @@ namespace DOL.GS
 
         public override void OnEffectPulse()
         {
-            if ((SpellHandler as ConfusionSpellHandler).targetList.Count > 0)
+            if ((SpellHandler as ConfusionHandler).targetList.Count > 0)
             {
                 GameNPC npc = Owner as GameNPC;
                 npc.StopAttack();
                 npc.StopCurrentSpellcast();
 
-                GameLiving target = (SpellHandler as ConfusionSpellHandler).targetList[UtilCollection.Random((SpellHandler as ConfusionSpellHandler).targetList.Count - 1)] as GameLiving;
+                GameLiving target = (SpellHandler as ConfusionHandler).targetList[UtilCollection.Random((SpellHandler as ConfusionHandler).targetList.Count - 1)] as GameLiving;
 
                 npc.StartAttack(target);
             }

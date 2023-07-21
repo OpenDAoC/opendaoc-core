@@ -135,7 +135,7 @@ namespace DOL.GS
                     SpellHandler = newSpellHandler;
 
                 // Why?
-                if (SpellHandler is SummonNecromancerPet necroPetHandler)
+                if (SpellHandler is SummonNecroPetHandler necroPetHandler)
                     necroPetHandler.SetConAndHitsBonus();
             }
         }

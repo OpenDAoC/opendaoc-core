@@ -58,10 +58,10 @@ namespace DOL.GS.RealmAbilities
 
 				foreach (GameSpellEffect effect in living.EffectList.GetAllOfType<GameSpellEffect>())
 				{
-					if (effect.SpellHandler is DoTSpellHandler ||
-						effect.SpellHandler is StyleBleeding ||
+					if (effect.SpellHandler is DotHandler ||
+						effect.SpellHandler is StyleBleedingHandler ||
 							effect.SpellHandler is AbstractCCSpellHandler ||
-							effect.SpellHandler is SpeedDecreaseSpellHandler)
+							effect.SpellHandler is SpeedDecreaseHandler)
 					{
 						effect.Cancel(false);
 					}
