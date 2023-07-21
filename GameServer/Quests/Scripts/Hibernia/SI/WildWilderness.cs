@@ -1,10 +1,10 @@
-﻿using DOL.Database;
+﻿using System;
+using System.Reflection;
+using DOL.Database;
 using DOL.Events;
 using DOL.GS.PacketHandler;
-using log4net;
-using System;
-using System.Reflection;
 using DOL.GS.Trainer;
+using log4net;
 
 namespace DOL.GS.Quests.Hibernia
 {
