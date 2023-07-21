@@ -9,7 +9,7 @@ namespace DOL.GS.SkillHandler
     /// Handler for Quick Cast Ability clicks
 	/// </summary>
 	[SkillHandlerAttribute(Abilities.Quickcast)]
-	public class QuickCastAbilityHandler : IAbilityActionHandler
+	public class QuickCastHandler : IAbilityActionHandler
 	{
 		/// <summary>
 		/// The ability disable duration in milliseconds

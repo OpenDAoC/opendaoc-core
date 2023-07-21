@@ -12,7 +12,7 @@ namespace DOL.GS.SkillHandler
 	/// Handler for Flurry Ability clicks
 	/// </summary>
 	[SkillHandlerAttribute(Abilities.Flurry)]
-	public class FlurryAbilityHandler : IAbilityActionHandler
+	public class FlurryHandler : IAbilityActionHandler
 	{
 		/// <summary>
 		/// Defines a logger for this class.

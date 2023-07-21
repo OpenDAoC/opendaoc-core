@@ -11,7 +11,7 @@ namespace DOL.GS.SkillHandler
     /// Handler for Guard ability clicks
     /// </summary>
     [SkillHandler(Abilities.Guard)]
-    public class GuardAbilityHandler : IAbilityActionHandler
+    public class GuardHandler : IAbilityActionHandler
     {
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 

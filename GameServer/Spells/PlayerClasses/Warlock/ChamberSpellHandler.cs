@@ -262,7 +262,7 @@ namespace DOL.GS.Spells
 				if (quickcast != null && Spell.CastTime > 0)
 				{
 					m_caster.TempProperties.setProperty(GamePlayer.QUICK_CAST_CHANGE_TICK, m_caster.CurrentRegion.Time);
-					m_caster.DisableSkill(SkillBase.GetAbility(Abilities.Quickcast), QuickCastAbilityHandler.DISABLE_DURATION);
+					m_caster.DisableSkill(SkillBase.GetAbility(Abilities.Quickcast), QuickCastHandler.DISABLE_DURATION);
 					quickcast.Cancel(false);
 				}
 			}

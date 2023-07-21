@@ -7,7 +7,7 @@ namespace DOL.GS.SkillHandler
 	/// <summary>
 	/// Abstract Vampiir Ability using Level Based Ability to enable stat changing with Ratio Preset.
 	/// </summary>
-	public abstract class VampiirAbility : LevelBasedStatChangingAbility
+	public abstract class VampiirAbility : LvlBasedStatChangingAbility
 	{
 		/// <summary>
 		/// Multiplier for Ability Level to adjust Stats for given Ability 

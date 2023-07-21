@@ -8,7 +8,7 @@ namespace DOL.GS.SkillHandler
     /// Handler for Rampage Shout
     /// </summary>
     [SkillHandlerAttribute(Abilities.Rampage)]
-    public class RampageAbilityHandler : SpellCastingAbilityHandler
+    public class RampageHandler : SpellCastingHandler
     {
 		public override long Preconditions
 		{

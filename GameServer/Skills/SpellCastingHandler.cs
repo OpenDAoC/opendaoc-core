@@ -4,7 +4,7 @@ using DOL.Language;
 
 namespace DOL.GS.SkillHandler
 {
-	public class SpellCastingAbilityHandler : IAbilityActionHandler, ISpellCastingAbilityHandler
+	public class SpellCastingHandler : IAbilityActionHandler, ISpellCastingAbilityHandler
 	{
 		protected AbilityUtil m_ability = null;
 		public AbilityUtil Ability

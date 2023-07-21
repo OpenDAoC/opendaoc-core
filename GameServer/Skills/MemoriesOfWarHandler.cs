@@ -9,9 +9,9 @@ namespace DOL.GS.SkillHandler
 	//(spell damage reduction only) as they progress towards level 50. At each level beyond 41 they gain 2% extra
 	//resistance per level. At level 50, they will have the full 20% benefit.
 	[SkillHandlerAttribute(Abilities.MemoriesOfWar)]
-	public class MemoriesOfWar : StatChangingAbility
+	public class MemoriesOfWarHandler : StatChangingAbility
 	{
-		public MemoriesOfWar(DbAbilities dba, int level)
+		public MemoriesOfWarHandler(DbAbilities dba, int level)
 			: base(dba, level, new EProperty[] {
 							EProperty.Resist_Body,
 							EProperty.Resist_Cold,

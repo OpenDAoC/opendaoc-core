@@ -1010,7 +1010,7 @@ namespace DOL.GS
                             if (camouflage != null)
                                 EffectService.RequestImmediateCancelEffect(camouflage, false);
 
-                            playerOwner.DisableSkill(SkillBase.GetAbility(Abilities.Camouflage), CamouflageSpecHandler.DISABLE_DURATION);
+                            playerOwner.DisableSkill(SkillBase.GetAbility(Abilities.Camouflage), CamouflageHandler.DISABLE_DURATION);
                         }
 
                         // Multiple Hit check.
@@ -1961,7 +1961,7 @@ namespace DOL.GS
                 !guardSource.IsAlive ||
                 guardSource.IsSitting ||
                 stealthStyle ||
-                !guard.GuardSource.IsWithinRadius(guard.GuardTarget, GuardAbilityHandler.GUARD_DISTANCE))
+                !guard.GuardSource.IsWithinRadius(guard.GuardTarget, GuardHandler.GUARD_DISTANCE))
                 return false;
 
             InventoryItem leftHand = guard.GuardSource.Inventory.GetItem(eInventorySlot.LeftHandWeapon);
@@ -2192,7 +2192,7 @@ namespace DOL.GS
             {
                 if (intercept == null && inter != null && inter.InterceptTarget == owner && !inter.InterceptSource.IsStunned && !inter.InterceptSource.IsMezzed
                     && !inter.InterceptSource.IsSitting && inter.InterceptSource.ObjectState == GameObject.eObjectState.Active && inter.InterceptSource.IsAlive
-                    && owner.IsWithinRadius(inter.InterceptSource, InterceptAbilityHandler.INTERCEPT_DISTANCE)) // && Util.Chance(inter.InterceptChance))
+                    && owner.IsWithinRadius(inter.InterceptSource, InterceptHandler.INTERCEPT_DISTANCE)) // && Util.Chance(inter.InterceptChance))
                 {
                     int chance = (owner is GamePlayer own) ? own.RandomNumberDeck.GetInt() : UtilCollection.Random(100);
 

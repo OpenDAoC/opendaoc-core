@@ -81,7 +81,7 @@ namespace DOL.GS
 
             if (Owner == GuardSource)
             {
-                if (!GuardSource.IsWithinRadius(GuardTarget, GuardAbilityHandler.GUARD_DISTANCE))
+                if (!GuardSource.IsWithinRadius(GuardTarget, GuardHandler.GUARD_DISTANCE))
                 {
                     playerSource?.Out.SendMessage(LanguageMgr.GetTranslation(playerSource.Client, "Effects.GuardEffect.YouAreNowGuardingYBut", GuardTarget.GetName(0, false)), EChatType.CT_System, EChatLoc.CL_SystemWindow);
                     playerTarget?.Out.SendMessage(LanguageMgr.GetTranslation(playerTarget.Client, "Effects.GuardEffect.XIsNowGuardingYouBut", GuardSource.GetName(0, true)), EChatType.CT_System, EChatLoc.CL_SystemWindow);

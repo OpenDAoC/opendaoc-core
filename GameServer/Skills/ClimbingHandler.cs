@@ -10,7 +10,7 @@ namespace DOL.GS.SkillHandler
 	/// Handler for Fury shout
 	/// </summary>
 	[SkillHandlerAttribute(Abilities.ClimbSpikes)]
-	public class ClimbingAbilityHandler : SpellCastingAbilityHandler
+	public class ClimbingAbilityHandler : SpellCastingHandler
 	{
 		private static int spellid = -1;
 		

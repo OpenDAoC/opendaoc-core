@@ -110,7 +110,7 @@ namespace DOL.GS
 
 			if (Owner == InterceptSource)
 			{
-				if (!InterceptSource.IsWithinRadius(InterceptTarget, InterceptAbilityHandler.INTERCEPT_DISTANCE))
+				if (!InterceptSource.IsWithinRadius(InterceptTarget, InterceptHandler.INTERCEPT_DISTANCE))
 				{
 					if (InterceptSource is GamePlayer)
 						((GamePlayer)InterceptSource).Out.SendMessage(LanguageMgr.GetTranslation(((GamePlayer)InterceptSource).Client, "Effects.InterceptEffect.YouAttemtInterceptYBut", InterceptTarget.GetName(0, false)), EChatType.CT_System, EChatLoc.CL_SystemWindow);

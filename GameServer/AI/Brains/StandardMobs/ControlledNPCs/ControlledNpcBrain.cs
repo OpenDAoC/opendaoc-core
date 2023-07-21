@@ -422,13 +422,13 @@ namespace DOL.AI.Brain
 
 						if (playerOwner != null)
 						{
-							GuardAbilityHandler.CheckExistingEffectsOnTarget(Body, playerOwner, false, out bool foundOurEffect, out GuardEcsEffect existingEffectFromAnotherSource);
+							GuardHandler.CheckExistingEffectsOnTarget(Body, playerOwner, false, out bool foundOurEffect, out GuardEcsEffect existingEffectFromAnotherSource);
 
 							if (foundOurEffect)
 								break;
 
 							if (existingEffectFromAnotherSource == null)
-								GuardAbilityHandler.CancelOurEffectThenAddOnTarget(Body, playerOwner);
+								GuardHandler.CancelOurEffectThenAddOnTarget(Body, playerOwner);
 						}
 
 						break;

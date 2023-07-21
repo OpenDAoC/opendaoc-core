@@ -72,7 +72,7 @@ namespace DOL.GS.Effects
 			m_guardTarget = guardTarget;
 			m_owner = m_guardSource;
 
-			if (!guardSource.IsWithinRadius(guardTarget, GuardAbilityHandler.GUARD_DISTANCE))
+			if (!guardSource.IsWithinRadius(guardTarget, GuardHandler.GUARD_DISTANCE))
 			{
 				if(guardSource is GamePlayer)
 					((GamePlayer)guardSource).Out.SendMessage(LanguageMgr.GetTranslation(((GamePlayer)guardSource).Client, "Effects.GuardEffect.YouAreNowGuardingYBut", guardTarget.GetName(0, false)), EChatType.CT_System, EChatLoc.CL_SystemWindow);

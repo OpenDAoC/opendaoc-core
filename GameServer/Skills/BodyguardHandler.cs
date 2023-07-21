@@ -11,7 +11,7 @@ namespace DOL.GS.SkillHandler
     /// Handler for Guard ability clicks
     /// </summary>
     [SkillHandler(Abilities.Bodyguard)]
-    public class BodyguardAbilityHandler : IAbilityActionHandler
+    public class BodyguardHandler : IAbilityActionHandler
     {
         /// <summary>
         /// Defines a logger for this class.

@@ -12,7 +12,7 @@ namespace DOL.GS.SkillHandler
 	/// Handler for Vampiir Bolt clicks
 	/// </summary>
 	[SkillHandler(Abilities.VampiirBolt)]
-	public class VampiirBoltAbilityHandler : SpellCastingAbilityHandler
+	public class VampiirBoltHandler : SpellCastingHandler
 	{
 		public override long Preconditions
 		{

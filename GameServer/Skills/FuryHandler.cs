@@ -8,7 +8,7 @@ namespace DOL.GS.SkillHandler
     /// Handler for Fury shout
     /// </summary>
     [SkillHandlerAttribute(Abilities.Fury)]
-    public class FuryAbilityHandler : SpellCastingAbilityHandler
+    public class FuryHandler : SpellCastingHandler
     {
 		public override long Preconditions
 		{

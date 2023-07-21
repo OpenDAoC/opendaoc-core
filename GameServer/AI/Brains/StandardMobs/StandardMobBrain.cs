@@ -357,7 +357,7 @@ namespace DOL.AI.Brain
                         || !protectSource.InCombat)
                         continue;
 
-                    if (!living.IsWithinRadius(protectSource, ProtectAbilityHandler.PROTECT_DISTANCE))
+                    if (!living.IsWithinRadius(protectSource, ProtectHandler.PROTECT_DISTANCE))
                         continue;
 
                     // P I: prevents 10% of aggro amount

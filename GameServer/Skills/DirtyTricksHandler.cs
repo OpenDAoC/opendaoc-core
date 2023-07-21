@@ -14,7 +14,7 @@ namespace DOL.GS.SkillHandler
 	/// Handler for Sprint Ability clicks
 	/// </summary>
 	[SkillHandlerAttribute(Abilities.DirtyTricks)]
-	public class DirtyTricksAbilityHandler : IAbilityActionHandler
+	public class DirtyTricksHandler : IAbilityActionHandler
 	{
 		/// <summary>
 		/// Defines a logger for this class.

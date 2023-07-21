@@ -75,7 +75,7 @@ namespace DOL.GS
 			
 			if (Owner == ProtectSource)
 			{
-				if (!ProtectSource.IsWithinRadius(ProtectTarget, ProtectAbilityHandler.PROTECT_DISTANCE))
+				if (!ProtectSource.IsWithinRadius(ProtectTarget, ProtectHandler.PROTECT_DISTANCE))
 				{
 					ProtectSource.Out.SendMessage(LanguageMgr.GetTranslation(ProtectSource.Client, "Effects.ProtectEffect.YouProtectingYBut", ProtectTarget.GetName(0, false)), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 					ProtectTarget.Out.SendMessage(LanguageMgr.GetTranslation(ProtectTarget.Client, "Effects.ProtectEffect.XProtectingYouBut", ProtectSource.GetName(0, true)), EChatType.CT_System, EChatLoc.CL_SystemWindow);

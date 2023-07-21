@@ -8,7 +8,7 @@ namespace DOL.GS.SkillHandler
 	/// Handler for Sprint Ability clicks
 	/// </summary>
 	[SkillHandlerAttribute(Abilities.Sprint)]
-	public class SprintAbilityHandler : IAbilityActionHandler
+	public class SprintHandler : IAbilityActionHandler
 	{
 		public void Execute(AbilityUtil ab, GamePlayer player)
 		{

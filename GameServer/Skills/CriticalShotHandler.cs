@@ -9,7 +9,7 @@ namespace DOL.GS.SkillHandler
 	/// Handler for Critical Shot ability
 	/// </summary>
 	[SkillHandlerAttribute(Abilities.Critical_Shot)]
-	public class CriticalShotAbilityHandler : IAbilityActionHandler
+	public class CriticalShotHandler : IAbilityActionHandler
 	{
 		public void Execute(AbilityUtil ab, GamePlayer player)
 		{

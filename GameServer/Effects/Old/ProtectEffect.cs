@@ -72,7 +72,7 @@ namespace DOL.GS.Effects
 			m_protectSource.EffectList.Add(this);
 			m_protectTarget.EffectList.Add(this);
 
-			if (!protectSource.IsWithinRadius(protectTarget, ProtectAbilityHandler.PROTECT_DISTANCE))
+			if (!protectSource.IsWithinRadius(protectTarget, ProtectHandler.PROTECT_DISTANCE))
 			{
 				protectSource.Out.SendMessage(LanguageMgr.GetTranslation(protectSource.Client, "Effects.ProtectEffect.YouProtectingYBut", protectTarget.GetName(0, false)), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				protectTarget.Out.SendMessage(LanguageMgr.GetTranslation(protectTarget.Client, "Effects.ProtectEffect.XProtectingYouBut", protectSource.GetName(0, true)), EChatType.CT_System, EChatLoc.CL_SystemWindow);

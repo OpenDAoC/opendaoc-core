@@ -8,7 +8,7 @@ namespace DOL.GS.SkillHandler
     /// Handler for Sprint Ability clicks
     /// </summary>
     [SkillHandlerAttribute(Abilities.MetalGuard)]
-    public class MetalGuardAbilityHandler : SpellCastingAbilityHandler
+    public class MetalGuardHandler : SpellCastingHandler
     {
 		public override long Preconditions
 		{

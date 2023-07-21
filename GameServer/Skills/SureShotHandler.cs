@@ -9,7 +9,7 @@ namespace DOL.GS.SkillHandler
 	/// Handler for Sure Shot ability
 	/// </summary>
 	[SkillHandlerAttribute(Abilities.SureShot)]
-	public class SureShotAbilityHandler : IAbilityActionHandler
+	public class SureShotHandler : IAbilityActionHandler
 	{
 		public void Execute(AbilityUtil ab, GamePlayer player)
 		{

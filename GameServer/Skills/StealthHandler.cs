@@ -12,7 +12,7 @@ namespace DOL.GS.SkillHandler
 	/// Handler for Stealth Spec clicks
 	/// </summary>
 	[SkillHandlerAttribute(Specs.Stealth)]
-	public class StealthSpecHandler : ISpecActionHandler
+	public class StealthHandler : ISpecActionHandler
 	{
 		/// <summary>
 		/// Executes the stealth ability

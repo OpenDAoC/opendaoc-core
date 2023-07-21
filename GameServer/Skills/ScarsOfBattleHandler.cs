@@ -4,9 +4,9 @@ using DOL.Database;
 namespace DOL.GS.SkillHandler
 {
 	[SkillHandlerAttribute(Abilities.ScarsOfBattle)]
-	public class ScarsOfBattle : StatChangingAbility
+	public class ScarsOfBattleHandler : StatChangingAbility
 	{
-		public ScarsOfBattle(DbAbilities dba, int level)
+		public ScarsOfBattleHandler(DbAbilities dba, int level)
 			: base(dba, 1, EProperty.MaxHealth)
 		{
 		}

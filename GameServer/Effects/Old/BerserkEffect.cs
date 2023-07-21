@@ -15,7 +15,7 @@ namespace DOL.GS.Effects
 		/// Creates a new berserk effect
 		/// </summary>
 		public BerserkEffect()
-			: base(BerserkAbilityHandler.DURATION)
+			: base(BerserkHandler.DURATION)
 		{
 		}
 

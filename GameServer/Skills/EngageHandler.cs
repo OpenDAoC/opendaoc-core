@@ -11,7 +11,7 @@ namespace DOL.GS.SkillHandler
 	/// Handler for Sprint Ability clicks
 	/// </summary>
 	[SkillHandlerAttribute(Abilities.Engage)]
-	public class EngageAbilityHandler : IAbilityActionHandler
+	public class EngageHandler : IAbilityActionHandler
 	{
 		/// <summary>
 		/// Defines a logger for this class.
@@ -79,7 +79,7 @@ namespace DOL.GS.SkillHandler
 			}
 
 			// You cannot engage a mob that was attacked within the last 5 seconds...
-			if (target.LastAttackedByEnemyTick > GameLoop.GameLoopTime - EngageAbilityHandler.ENGAGE_ATTACK_DELAY_TICK)
+			if (target.LastAttackedByEnemyTick > GameLoop.GameLoopTime - EngageHandler.ENGAGE_ATTACK_DELAY_TICK)
 			{
                 player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Skill.Ability.Engage.TargetAttackedRecently", target.GetName(0, true)), EChatType.CT_System, EChatLoc.CL_SystemWindow);
                 return;

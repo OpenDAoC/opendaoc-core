@@ -9,7 +9,7 @@ namespace DOL.GS.SkillHandler
 	/// Handler for Rapid Fire ability
 	/// </summary>
 	[SkillHandlerAttribute(Abilities.RapidFire)]
-	public class RapidFireAbilityHandler : IAbilityActionHandler
+	public class RapidFireHandler : IAbilityActionHandler
 	{
 		public void Execute(AbilityUtil ab, GamePlayer player)
 		{

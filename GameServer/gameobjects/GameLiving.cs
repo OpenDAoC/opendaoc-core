@@ -1724,13 +1724,13 @@ namespace DOL.GS
 
 					if (engage != null && attackComponent.AttackState && engage.EngageTarget == ad.Attacker)
 					{
-						if (engage.EngageTarget.LastAttackedByEnemyTick > GameLoop.GameLoopTime - EngageAbilityHandler.ENGAGE_ATTACK_DELAY_TICK)
+						if (engage.EngageTarget.LastAttackedByEnemyTick > GameLoop.GameLoopTime - EngageHandler.ENGAGE_ATTACK_DELAY_TICK)
 							player?.Out.SendMessage(engage.EngageTarget.GetName(0, true) + " has been attacked recently and you are unable to engage.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
-						else if (Endurance < EngageAbilityHandler.ENGAGE_DURATION_LOST)
+						else if (Endurance < EngageHandler.ENGAGE_DURATION_LOST)
 							engage.Cancel(false);
 						else
 						{
-							Endurance -= EngageAbilityHandler.ENGAGE_DURATION_LOST;
+							Endurance -= EngageHandler.ENGAGE_DURATION_LOST;
 							player?.Out.SendMessage("You concentrate on blocking the blow!", EChatType.CT_Skill, EChatLoc.CL_SystemWindow);
 
 							if (blockChance < .95)

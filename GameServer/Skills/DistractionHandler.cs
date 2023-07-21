@@ -14,7 +14,7 @@ namespace DOL.GS.SkillHandler
 	/// Handler for Sprint Ability clicks
 	/// </summary>
 	[SkillHandlerAttribute(Abilities.Distraction)]
-	public class DistractionAbilityHandler : IAbilityActionHandler
+	public class DistractionHandler : IAbilityActionHandler
 	{
 		/// <summary>
 		/// Defines a logger for this class.

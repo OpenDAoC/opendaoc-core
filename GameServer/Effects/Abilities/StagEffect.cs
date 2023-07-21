@@ -43,7 +43,7 @@ namespace DOL.GS.Effects
 		/// Creates a new stag effect
 		/// </summary>
 		public StagEffect(int level)
-			: base(StagAbilityHandler.DURATION)
+			: base(StagHandler.DURATION)
 		{
 			m_level = level;
 		}

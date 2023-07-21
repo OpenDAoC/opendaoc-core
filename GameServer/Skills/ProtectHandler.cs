@@ -11,7 +11,7 @@ namespace DOL.GS.SkillHandler
 	/// Handler for protect ability clicks
 	/// </summary>
 	[SkillHandlerAttribute(Abilities.Protect)]
-	public class ProtectAbilityHandler : IAbilityActionHandler
+	public class ProtectHandler : IAbilityActionHandler
 	{
 		/// <summary>
 		/// Defines a logger for this class.

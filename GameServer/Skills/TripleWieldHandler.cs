@@ -1,16 +1,19 @@
+using System;
+using System.Collections;
 using System.Reflection;
 using DOL.GS.PacketHandler;
 using DOL.GS.Effects;
+using DOL.Events;
 using log4net;
 using DOL.Language;
 
 namespace DOL.GS.SkillHandler
 {
 	/// <summary>
-	/// Handler for Sprint Ability clicks
+	/// Handler for Triple Wield clicks
 	/// </summary>
-	[SkillHandlerAttribute(Abilities.Berserk)]
-	public class BerserkAbilityHandler : IAbilityActionHandler
+	[SkillHandler(Abilities.Triple_Wield)]
+	public class TripleWieldHandler : IAbilityActionHandler
 	{
 		/// <summary>
 		/// Defines a logger for this class.
@@ -18,26 +21,21 @@ namespace DOL.GS.SkillHandler
 		private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
 		/// <summary>
-		/// The reuse time in milliseconds for berserk ability
+		/// The ability reuse time in seconds
 		/// </summary>
-		protected const int REUSE_TIMER = 60000 * 7; // clait: 10 minutes [og: 7]
+		protected const int REUSE_TIMER = 7 * 60;
 
 		/// <summary>
-		/// The effect duration in milliseconds
+		/// The ability effect duration in seconds
 		/// </summary>
-		public const int DURATION = 20000;
+		public const int DURATION = 30;
 
-		/// <summary>
-		/// Execute the ability
-		/// </summary>
-		/// <param name="ab">The ability executed</param>
-		/// <param name="player">The player that used the ability</param>
 		public void Execute(AbilityUtil ab, GamePlayer player)
 		{
 			if (player == null)
 			{
 				if (log.IsWarnEnabled)
-					log.Warn("Could not retrieve player in BerserkAbilityHandler.");
+					log.Warn("Could not retrieve player in TripleWieldAbilityHandler.");
 				return;
 			}
 
@@ -56,27 +54,20 @@ namespace DOL.GS.SkillHandler
                 player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Skill.Ability.CannotUseStunned"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
                 return;
             }
-			if (player.IsSitting)
-			{
+            if (player.IsSitting)
+            {
                 player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Skill.Ability.CannotUseStanding"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
-				return;
+                return;
+            }
+			TripleWieldEcsEffect tw = (TripleWieldEcsEffect)EffectListService.GetAbilityEffectOnTarget(player, EEffect.TripleWield);
+			if (tw != null)
+			{
+                player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Skill.Ability.CannotUseAlreadyActive"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
+                return;
 			}
+			new TripleWieldEcsEffect(new ECSGameEffectInitParams(player, DURATION * 1000, 1));
 
-			//Cancel old berserk effects on player
-			//BerserkEffect berserk = player.EffectList.GetOfType<BerserkEffect>();
-			//if (berserk!=null)
-			//{
-			//	berserk.Cancel(false);
-			//	return;
-			//}
-			ECSGameEffect berserk = EffectListService.GetEffectOnTarget(player, EEffect.Berserk);
-			if (berserk != null)
-				EffectService.RequestImmediateCancelEffect(berserk);
-
-			player.DisableSkill(ab, REUSE_TIMER);
-
-			//new BerserkEffect().Start(player);
-			new BerserkEcsEffect(new ECSGameEffectInitParams(player, DURATION, 1, null));
-		}                       
-    }
+			player.DisableSkill(ab, REUSE_TIMER * 1000);
+		}
+	}
 }

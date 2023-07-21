@@ -28,6 +28,7 @@ using DOL.GS.Utils;
 using DOL.Language;
 using JNogueira.Discord.Webhook.Client;
 using log4net;
+using BodyguardHandler = DOL.GS.SkillHandler.BodyguardHandler;
 
 namespace DOL.GS
 {
@@ -15421,7 +15422,7 @@ namespace DOL.GS
                 GamePlayer guard = bodyguardEffect.GuardSource;
                 GamePlayer guardee = this;
 
-                return (guard.IsAlive && guard.IsWithinRadius(guardee, BodyguardAbilityHandler.BODYGUARD_DISTANCE) &&
+                return (guard.IsAlive && guard.IsWithinRadius(guardee, BodyguardHandler.BODYGUARD_DISTANCE) &&
                         !guard.IsCasting && guardee.IsStandingStill)
                     ? guard
                     : null;

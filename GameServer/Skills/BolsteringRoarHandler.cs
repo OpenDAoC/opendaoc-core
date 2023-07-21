@@ -10,7 +10,7 @@ namespace DOL.GS.SkillHandler
     /// Handler for Sprint Ability clicks
     /// </summary>
     [SkillHandlerAttribute(Abilities.BolsteringRoar)]
-    public class BolsteringRoarAbilityHandler : SpellCastingAbilityHandler
+    public class BolsteringRoarHandler : SpellCastingHandler
     {
 		public override long Preconditions
 		{

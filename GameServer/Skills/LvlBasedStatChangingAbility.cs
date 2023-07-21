@@ -8,7 +8,7 @@ namespace DOL.GS.SkillHandler
 	/// Ability which Level is based on Owner Level instead of Skill Level
 	/// Each time Level is modified, it's enforced to User's Level if Applicable
 	/// </summary>
-	public class LevelBasedStatChangingAbility : StatChangingAbility
+	public class LvlBasedStatChangingAbility : StatChangingAbility
 	{
 		/// <summary>
 		/// Override Level Setter/Getter to Report Living Level instead of Skill Level.
@@ -50,7 +50,7 @@ namespace DOL.GS.SkillHandler
 			base.Activate(living, sendUpdates);
 		}
 		
-		public LevelBasedStatChangingAbility(DbAbilities dba, int level, EProperty property)
+		public LvlBasedStatChangingAbility(DbAbilities dba, int level, EProperty property)
 			: base(dba, level, property)
 		{
 		}

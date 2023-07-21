@@ -74,7 +74,7 @@ namespace DOL.GS.Effects
             m_guardSource.EffectList.Add(this);
             m_guardTarget.EffectList.Add(this);
 
-			if (!guardSource.IsWithinRadius(guardTarget, BodyguardAbilityHandler.BODYGUARD_DISTANCE))
+			if (!guardSource.IsWithinRadius(guardTarget, BodyguardHandler.BODYGUARD_DISTANCE))
 			{
 				guardSource.Out.SendMessage(LanguageMgr.GetTranslation(guardSource.Client, "Effects.BodyguardEffect.NowBGXButSC", guardTarget.GetName(0, false)), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				guardTarget.Out.SendMessage(LanguageMgr.GetTranslation(guardTarget.Client, "Effects.BodyguardEffect.XNowBGYouButSC", guardSource.GetName(0, true)), EChatType.CT_System, EChatLoc.CL_SystemWindow);

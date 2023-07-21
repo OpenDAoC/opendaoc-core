@@ -186,18 +186,18 @@ namespace DOL.GS.Spells
 								{
 									// Engage raised block change to 85% if attacker is engageTarget and player is in attackstate
 									// You cannot engage a mob that was attacked within the last X seconds...
-									if (engage.EngageTarget.LastAttackedByEnemyTick > GameLoop.GameLoopTime - EngageAbilityHandler.ENGAGE_ATTACK_DELAY_TICK)
+									if (engage.EngageTarget.LastAttackedByEnemyTick > GameLoop.GameLoopTime - EngageHandler.ENGAGE_ATTACK_DELAY_TICK)
 									{
 										if (engage.Owner is GamePlayer)
 											(engage.Owner as GamePlayer).Out.SendMessage(engage.EngageTarget.GetName(0, true) + " has been attacked recently and you are unable to engage.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 									}  // Check if player has enough endurance left to engage
-									else if (engage.Owner.Endurance < EngageAbilityHandler.ENGAGE_DURATION_LOST)
+									else if (engage.Owner.Endurance < EngageHandler.ENGAGE_DURATION_LOST)
 									{
 										engage.Cancel(false); // if player ran out of endurance cancel engage effect
 									}
 									else
 									{
-										engage.Owner.Endurance -= EngageAbilityHandler.ENGAGE_DURATION_LOST;
+										engage.Owner.Endurance -= EngageHandler.ENGAGE_DURATION_LOST;
 										if (engage.Owner is GamePlayer)
 											(engage.Owner as GamePlayer).Out.SendMessage("You concentrate on blocking the blow!", EChatType.CT_Skill, EChatLoc.CL_SystemWindow);
 

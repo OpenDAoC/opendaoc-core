@@ -13,7 +13,7 @@ namespace DOL.GS.SkillHandler
 	/// Handler for Stag Ability clicks
 	/// </summary>
 	[SkillHandler(Abilities.Stag)]
-	public class StagAbilityHandler : IAbilityActionHandler
+	public class StagHandler : IAbilityActionHandler
 	{
 		/// <summary>
 		/// Defines a logger for this class.

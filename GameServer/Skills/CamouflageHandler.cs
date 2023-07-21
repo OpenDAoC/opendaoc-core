@@ -9,7 +9,7 @@ namespace DOL.GS.SkillHandler
 	/// Handler for Stealth Spec clicks
 	/// </summary>
 	[SkillHandlerAttribute(Abilities.Camouflage)]
-	public class CamouflageSpecHandler : IAbilityActionHandler
+	public class CamouflageHandler : IAbilityActionHandler
 	{
 		public const int DISABLE_DURATION = 300000; //atlas 5min cooldown
 
