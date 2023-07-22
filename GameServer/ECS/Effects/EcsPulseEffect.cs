@@ -3,7 +3,7 @@ using DOL.GS.Effects;
 
 namespace DOL.GS
 {
-    public class ECSPulseEffect : ECSGameSpellEffect, IConcentrationEffect
+    public class EcsPulseEffect : EcsGameSpellEffect, IConcentrationEffect
     {
         string IConcentrationEffect.Name => Name;
         ushort IConcentrationEffect.Icon => Icon;
@@ -17,7 +17,7 @@ namespace DOL.GS
             get { return "Pulse: " + SpellHandler.Spell.Name; }
         }
 
-        public ECSPulseEffect(GameLiving owner, ISpellHandler handler, int duration, int pulseFreq, double effectiveness, ushort icon, bool cancelEffect = false)
+        public EcsPulseEffect(GameLiving owner, ISpellHandler handler, int duration, int pulseFreq, double effectiveness, ushort icon, bool cancelEffect = false)
             : base (new ECSGameEffectInitParams(owner, duration, effectiveness, handler))
         {
             PulseFreq = pulseFreq;

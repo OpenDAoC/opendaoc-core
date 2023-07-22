@@ -266,7 +266,7 @@ namespace DOL.GS.RealmAbilities
 				return;
 
 			//GameSpellEffect mez = SpellHandler.FindEffectOnTarget(aeplayer, "Mesmerize");
-			ECSGameEffect mez = EffectListService.GetEffectOnTarget(target, EEffect.Mez);
+			EcsGameEffect mez = EffectListService.GetEffectOnTarget(target, EEffect.Mez);
 			if (mez != null)
 				EffectService.RequestCancelEffect(mez);
 				//mez.Cancel(false);

@@ -1,7 +1,7 @@
 
 namespace DOL.GS.Effects
 {
-    public class OfRaSoldiersBarricadeEcsEffect : ECSGameAbilityEffect
+    public class OfRaSoldiersBarricadeEcsEffect : EcsGameAbilityEffect
     {
         public OfRaSoldiersBarricadeEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams)

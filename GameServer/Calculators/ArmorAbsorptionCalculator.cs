@@ -15,7 +15,7 @@ namespace DOL.GS.PropertyCalc
 			int hardCap = 50;
 			if (living is GameSummonedPet)
 			{
-				buffBonus += living.effectListComponent.GetAllEffects().Count(e => e is ECSGameSpellEffect spellEffect && spellEffect.SpellHandler.Spell.IsBuff) * 4;
+				buffBonus += living.effectListComponent.GetAllEffects().Count(e => e is EcsGameSpellEffect spellEffect && spellEffect.SpellHandler.Spell.IsBuff) * 4;
 			}
 			return Math.Min(hardCap, (buffBonus - debuffMalus + itemBonus + abilityBonus));
 		}

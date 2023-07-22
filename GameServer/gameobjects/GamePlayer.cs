@@ -7905,7 +7905,7 @@ namespace DOL.GS
                                 // vampiir ~
                                 GameSpellEffect effects = SpellHandler.FindEffectOnTarget(this, "VampiirSpeedEnhancement");
                                 //GameSpellEffect effect = SpellHandler.FindEffectOnTarget(this, "SpeedEnhancement");
-                                ECSGameEffect effect = EffectListService.GetEffectOnTarget(this, EEffect.MovementSpeedBuff);
+                                EcsGameEffect effect = EffectListService.GetEffectOnTarget(this, EEffect.MovementSpeedBuff);
                                 if (effects != null)
                                     effects.Cancel(false);
                                 if (effect != null)
@@ -7938,7 +7938,7 @@ namespace DOL.GS
                     case Slot.RANGED:
                         bool newAttack = false;
                         ///Volley TempProperties to not allow shot during volley and cancel aim animation
-                        ECSGameEffect volley = EffectListService.GetEffectOnTarget(this, EEffect.Volley);//check if player got volley
+                        EcsGameEffect volley = EffectListService.GetEffectOnTarget(this, EEffect.Volley);//check if player got volley
                        /* var IsReadyToFire = TempProperties.getProperty<bool>("volley_IsReadyToFire");
                         if(!IsReadyToFire && volley != null)
                         {
@@ -10277,7 +10277,7 @@ namespace DOL.GS
         /// </summary>
         public override void SetGroundTarget(int groundX, int groundY, int groundZ)
         {
-            ECSGameEffect volley = EffectListService.GetEffectOnTarget(this, EEffect.Volley);//volley check for gt
+            EcsGameEffect volley = EffectListService.GetEffectOnTarget(this, EEffect.Volley);//volley check for gt
             if (volley != null)
             {
                 Out.SendMessage("You can't change ground target under volley effect!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
@@ -15316,7 +15316,7 @@ namespace DOL.GS
             //GameSpellEffect evade = SpellHandler.FindEffectOnTarget(this, "EvadeBuff");
             //if (evade == null)
             //	evade = SpellHandler.FindEffectOnTarget(this, "SavageEvadeBuff");
-            ECSGameEffect evade = EffectListService.GetEffectOnTarget(this, EEffect.SavageBuff, ESpellType.SavageEvadeBuff);
+            EcsGameEffect evade = EffectListService.GetEffectOnTarget(this, EEffect.SavageBuff, ESpellType.SavageEvadeBuff);
 
             if (HasAbility(Abilities.Advanced_Evade) || HasAbility(Abilities.Enhanced_Evade) || EffectList.GetOfType<NfRaCombatAwarenessEffect>() != null || EffectList.GetOfType<NfRaRuneOfUtterAgilityEffect>() != null)
                 evadeChance = GetModified(EProperty.EvadeChance);
@@ -15372,7 +15372,7 @@ namespace DOL.GS
             //GameSpellEffect parry = SpellHandler.FindEffectOnTarget(this, "ParryBuff");
             //if (parry == null)
             //	parry = SpellHandler.FindEffectOnTarget(this, "SavageParryBuff");
-            ECSGameEffect parry = EffectListService.GetEffectOnTarget(this, EEffect.SavageBuff, ESpellType.SavageParryBuff);
+            EcsGameEffect parry = EffectListService.GetEffectOnTarget(this, EEffect.SavageBuff, ESpellType.SavageParryBuff);
 
             if ((HasSpecialization(Specs.Parry) || parry != null) && (ActiveWeapon != null))
                 parryChance = GetModified(EProperty.ParryChance);

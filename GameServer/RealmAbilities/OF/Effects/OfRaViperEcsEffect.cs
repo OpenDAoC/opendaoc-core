@@ -3,7 +3,7 @@ using DOL.GS.Spells;
 
 namespace DOL.GS.Effects
 {
-    public class OfRaViperEcsEffect : ECSGameAbilityEffect
+    public class OfRaViperEcsEffect : EcsGameAbilityEffect
     {
         public new SpellHandler SpellHandler;
         public OfRaViperEcsEffect(ECSGameEffectInitParams initParams)

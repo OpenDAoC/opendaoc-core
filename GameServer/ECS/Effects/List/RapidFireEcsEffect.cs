@@ -3,7 +3,7 @@ using DOL.Language;
 
 namespace DOL.GS
 {
-    public class RapidFireEcsEffect : ECSGameAbilityEffect
+    public class RapidFireEcsEffect : EcsGameAbilityEffect
     {
         public RapidFireEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams)

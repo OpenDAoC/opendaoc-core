@@ -4,7 +4,7 @@ using DOL.Language;
 
 namespace DOL.GS
 {
-    public class TripleWieldEcsEffect : ECSGameAbilityEffect
+    public class TripleWieldEcsEffect : EcsGameAbilityEffect
     {
         public TripleWieldEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams)

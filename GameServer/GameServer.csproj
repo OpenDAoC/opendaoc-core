@@ -49,6 +49,9 @@
     <TranslationFiles Include=".\Languages\**\*.txt" />
     <APIDocs Include=".\API\Docs\*" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MinotaurRelics\Protectors\" />
+  </ItemGroup>
   <Target Name="CopyFiles" AfterTargets="AfterBuild">
     <Copy SourceFiles="@(TranslationFiles)" DestinationFiles="@(TranslationFiles->'$(MSBuildProjectDirectory)\..\$(Configuration)\languages\%(RecursiveDir)%(Filename)%(Extension)')" />
     <Copy SourceFiles="@(APIDocs)" DestinationFiles="@(APIDocs->'$(MSBuildProjectDirectory)\..\$(Configuration)\wwwroot\docs\%(RecursiveDir)%(Filename)%(Extension)')" />

@@ -3,7 +3,7 @@ using DOL.GS.Spells;
 
 namespace DOL.GS
 {
-    public class DiseaseEcsEffect : ECSGameSpellEffect
+    public class DiseaseEcsEffect : EcsGameSpellEffect
     {
         public DiseaseEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams) { }

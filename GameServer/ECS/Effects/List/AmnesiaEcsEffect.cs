@@ -1,6 +1,6 @@
 ﻿namespace DOL.GS
 {
-    public class AmnesiaEcsEffect : ECSGameSpellEffect
+    public class AmnesiaEcsEffect : EcsGameSpellEffect
     {
         public AmnesiaEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams) { }

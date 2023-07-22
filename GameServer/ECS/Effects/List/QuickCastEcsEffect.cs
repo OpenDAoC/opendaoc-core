@@ -3,7 +3,7 @@ using DOL.Language;
 
 namespace DOL.GS
 {
-    public class QuickCastEcsEffect : ECSGameAbilityEffect
+    public class QuickCastEcsEffect : EcsGameAbilityEffect
     {
         public QuickCastEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams)

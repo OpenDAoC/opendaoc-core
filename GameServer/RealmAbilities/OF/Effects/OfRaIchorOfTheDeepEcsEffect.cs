@@ -3,7 +3,7 @@ using DOL.GS.Spells;
 
 namespace DOL.GS.Effects
 {
-    public class OfRaIchorOfTheDeepEcsEffect : ECSGameAbilityEffect
+    public class OfRaIchorOfTheDeepEcsEffect : EcsGameAbilityEffect
     {
         public new SpellHandler SpellHandler;
         public OfRaIchorOfTheDeepEcsEffect(ECSGameEffectInitParams initParams)

@@ -181,7 +181,7 @@ namespace DOL.GS.Spells
             {
                 if (target != null && (!target.IsAlive))
                 {
-                    ECSGameSpellEffect effect = EffectListService.GetSpellEffectOnTarget(target, EEffect.Mez);
+                    EcsGameSpellEffect effect = EffectListService.GetSpellEffectOnTarget(target, EEffect.Mez);
 
                     if (effect != null)
                     {
@@ -202,7 +202,7 @@ namespace DOL.GS.Spells
                     return;
             }
 
-            ECSGameEffect mezz = EffectListService.GetEffectOnTarget(target, EEffect.Mez);
+            EcsGameEffect mezz = EffectListService.GetEffectOnTarget(target, EEffect.Mez);
 
             if (mezz != null)
             {
@@ -210,7 +210,7 @@ namespace DOL.GS.Spells
                 return;
             }
 
-            if (EffectListService.GetEffectOnTarget(target, EEffect.MezImmunity) is ECSImmunityEffect immunity)
+            if (EffectListService.GetEffectOnTarget(target, EEffect.MezImmunity) is EcsImmunityEffect immunity)
             {
                 MessageToCaster(immunity.Owner.GetName(0, true) + " can't have that effect again yet!!!", EChatType.CT_SpellPulse);
                 return;
@@ -235,7 +235,7 @@ namespace DOL.GS.Spells
 
                 if (target != null && (!target.IsAlive)) 
                 {
-                    ECSGameSpellEffect effect = EffectListService.GetSpellEffectOnTarget(target, EEffect.Mez);
+                    EcsGameSpellEffect effect = EffectListService.GetSpellEffectOnTarget(target, EEffect.Mez);
 
                     if (effect != null)
                     {

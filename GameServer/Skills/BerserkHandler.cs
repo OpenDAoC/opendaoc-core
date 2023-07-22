@@ -69,7 +69,7 @@ namespace DOL.GS.SkillHandler
 			//	berserk.Cancel(false);
 			//	return;
 			//}
-			ECSGameEffect berserk = EffectListService.GetEffectOnTarget(player, EEffect.Berserk);
+			EcsGameEffect berserk = EffectListService.GetEffectOnTarget(player, EEffect.Berserk);
 			if (berserk != null)
 				EffectService.RequestImmediateCancelEffect(berserk);
 

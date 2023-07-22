@@ -28,7 +28,7 @@ namespace DOL.GS
         {
             { EntityType.Player, new EntityArray<GamePlayer>(ServerProperties.ServerProperties.MAX_PLAYERS) },
             { EntityType.Brain, new EntityArray<ABrain>(ServerProperties.ServerProperties.MAX_ENTITIES) },
-            { EntityType.Effect, new EntityArray<ECSGameEffect>(250) },
+            { EntityType.Effect, new EntityArray<EcsGameEffect>(250) },
             { EntityType.AttackComponent, new EntityArray<AttackComponent>(1250) },
             { EntityType.CastingComponent, new EntityArray<CastingComponent>(1250) },
             { EntityType.EffectListComponent, new EntityArray<EffectListComponent>(3000) },

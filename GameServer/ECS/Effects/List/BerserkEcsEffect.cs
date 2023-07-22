@@ -3,7 +3,7 @@ using DOL.Language;
 
 namespace DOL.GS
 {
-    public class BerserkEcsEffect : ECSGameAbilityEffect
+    public class BerserkEcsEffect : EcsGameAbilityEffect
     {
         public BerserkEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams)

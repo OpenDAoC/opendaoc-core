@@ -5,7 +5,7 @@ using DOL.Language;
 
 namespace DOL.GS
 {
-    public class SprintEcsEffect : ECSGameAbilityEffect
+    public class SprintEcsEffect : EcsGameAbilityEffect
 	{
         public SprintEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams) 

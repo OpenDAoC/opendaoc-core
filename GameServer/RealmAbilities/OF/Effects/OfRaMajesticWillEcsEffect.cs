@@ -2,7 +2,7 @@ using DOL.GS.Spells;
 
 namespace DOL.GS.Effects
 {
-    public class OfRaMajesticWillEcsEffect : ECSGameAbilityEffect
+    public class OfRaMajesticWillEcsEffect : EcsGameAbilityEffect
     {
         public new SpellHandler SpellHandler;
         public OfRaMajesticWillEcsEffect(ECSGameEffectInitParams initParams)

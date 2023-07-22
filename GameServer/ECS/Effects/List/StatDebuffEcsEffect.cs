@@ -6,7 +6,7 @@ using DOL.GS.Spells;
 
 namespace DOL.GS
 {
-    public class StatDebuffEcsEffect : ECSGameSpellEffect
+    public class StatDebuffEcsEffect : EcsGameSpellEffect
     {
         public StatDebuffEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams)
@@ -21,7 +21,7 @@ namespace DOL.GS
             //if our debuff is already on the target, do not reapply effect
             if (Owner.effectListComponent.Effects.ContainsKey(EffectType))
             {
-                List<ECSGameSpellEffect> effects = Owner.effectListComponent.GetSpellEffects(EffectType);
+                List<EcsGameSpellEffect> effects = Owner.effectListComponent.GetSpellEffects(EffectType);
                 foreach (var e in effects)
                 {
                     if (e.SpellHandler.Spell.ID == SpellHandler.Spell.ID && IsBuffActive)

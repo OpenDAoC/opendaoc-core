@@ -926,7 +926,7 @@ namespace DOL.AI.Brain
 				return true;
 			else
 			{
-				ECSGameSpellEffect root = EffectListService.GetSpellEffectOnTarget(living, EEffect.MovementSpeedDebuff);
+				EcsGameSpellEffect root = EffectListService.GetSpellEffectOnTarget(living, EEffect.MovementSpeedDebuff);
 
 				if (root != null && root.SpellHandler.Spell.Value == 99)
 					return true;
@@ -1086,7 +1086,7 @@ namespace DOL.AI.Brain
 			{
 				foreach (GameLiving living in m_buffedTargets)
 				{
-					foreach (ECSGameEffect effect in living.effectListComponent.GetAllEffects().Where(x => x.SpellHandler.Caster == Body))
+					foreach (EcsGameEffect effect in living.effectListComponent.GetAllEffects().Where(x => x.SpellHandler.Caster == Body))
 						EffectService.RequestCancelEffect(effect);
 				}
 

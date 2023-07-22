@@ -123,9 +123,9 @@ namespace DOL.GS.Spells
 						//GameSpellEffect Matter = FindEffectOnTarget(player, "MatterResistBuff");
 						//GameSpellEffect Cold = FindEffectOnTarget(player, "ColdResistBuff");
 						//GameSpellEffect Heat = FindEffectOnTarget(player, "HeatResistBuff");
-						ECSGameEffect Matter = EffectListService.GetEffectOnTarget(player, EEffect.MatterResistBuff);
-						ECSGameEffect Cold = EffectListService.GetEffectOnTarget(player, EEffect.ColdResistBuff);
-						ECSGameEffect Heat = EffectListService.GetEffectOnTarget(player, EEffect.HeatResistBuff);
+						EcsGameEffect Matter = EffectListService.GetEffectOnTarget(player, EEffect.MatterResistBuff);
+						EcsGameEffect Cold = EffectListService.GetEffectOnTarget(player, EEffect.ColdResistBuff);
+						EcsGameEffect Heat = EffectListService.GetEffectOnTarget(player, EEffect.HeatResistBuff);
 						if (Matter != null || Cold != null || Heat != null)
 						{
 							MessageToCaster(target.Name + " already has this effect", EChatType.CT_SpellResisted);
@@ -141,9 +141,9 @@ namespace DOL.GS.Spells
 						//GameSpellEffect Body = FindEffectOnTarget(player, "BodyResistBuff");
 						//GameSpellEffect Spirit = FindEffectOnTarget(player, "SpiritResistBuff");
 						//GameSpellEffect Energy = FindEffectOnTarget(player, "EnergyResistBuff");
-						ECSGameEffect Body = EffectListService.GetEffectOnTarget(player, EEffect.BodyResistBuff);
-						ECSGameEffect Spirit = EffectListService.GetEffectOnTarget(player, EEffect.SpiritResistBuff);
-						ECSGameEffect Energy = EffectListService.GetEffectOnTarget(player, EEffect.EnergyResistBuff);
+						EcsGameEffect Body = EffectListService.GetEffectOnTarget(player, EEffect.BodyResistBuff);
+						EcsGameEffect Spirit = EffectListService.GetEffectOnTarget(player, EEffect.SpiritResistBuff);
+						EcsGameEffect Energy = EffectListService.GetEffectOnTarget(player, EEffect.EnergyResistBuff);
 						if (Body != null || Spirit != null || Energy != null)
 						{
 							MessageToCaster(target.Name + " already has this effect", EChatType.CT_SpellResisted);

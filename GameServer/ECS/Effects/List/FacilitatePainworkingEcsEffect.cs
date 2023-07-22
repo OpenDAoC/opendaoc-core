@@ -1,6 +1,6 @@
 ﻿namespace DOL.GS
 {
-    public class FacilitatePainworkingEcsEffect : ECSGameSpellEffect
+    public class FacilitatePainworkingEcsEffect : EcsGameSpellEffect
     {
         public FacilitatePainworkingEcsEffect(ECSGameEffectInitParams initParams) : base(initParams) { }
 

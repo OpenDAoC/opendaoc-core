@@ -11,7 +11,7 @@ namespace DOL.GS
     /// <summary>
     /// Spell-Based Effect
     /// </summary>
-    public class ECSGameSpellEffect : ECSGameEffect, IConcentrationEffect
+    public class EcsGameSpellEffect : EcsGameEffect, IConcentrationEffect
     {
         public new ISpellHandler SpellHandler;
         string IConcentrationEffect.Name => Name;
@@ -22,7 +22,7 @@ namespace DOL.GS
         public override string Name => SpellHandler.Spell.Name;
         public override bool HasPositiveEffect => SpellHandler != null && SpellHandler.HasPositiveEffect;
 
-        public ECSGameSpellEffect(ECSGameEffectInitParams initParams) : base(initParams)
+        public EcsGameSpellEffect(ECSGameEffectInitParams initParams) : base(initParams)
         {
             SpellHandler = initParams.SpellHandler;
             Spell spell = SpellHandler.Spell;
@@ -45,7 +45,7 @@ namespace DOL.GS
                 PulseFreq = 650;
             }
 
-            if (this is not ECSImmunityEffect and not ECSPulseEffect)
+            if (this is not EcsImmunityEffect and not EcsPulseEffect)
                 EffectService.RequestStartEffect(this);
         }
 
@@ -73,7 +73,7 @@ namespace DOL.GS
                     if ((EffectType == EEffect.Stun && SpellHandler.Caster is GameSummonedPet) || SpellHandler is IrresistibleStunHandler)
                         return;
 
-                    new ECSImmunityEffect(Owner, SpellHandler, ImmunityDuration, (int)PulseFreq, Effectiveness, Icon);
+                    new EcsImmunityEffect(Owner, SpellHandler, ImmunityDuration, (int)PulseFreq, Effectiveness, Icon);
                 }
                 else if (Owner is GameNPC)
                 {

@@ -2161,7 +2161,7 @@ namespace DOL.GS
             //http://daoc.catacombs.com/forum.cfm?ThreadKey=511&DefMessage=681444&forum=DAOCMainForum#Defense
 
             InterceptEcsEffect intercept = null;
-            ECSGameSpellEffect bladeturn = null;
+            EcsGameSpellEffect bladeturn = null;
             // ML effects
             GameSpellEffect phaseshift = null;
             GameSpellEffect grapple = null;
@@ -2181,7 +2181,7 @@ namespace DOL.GS
             if (EffectListService.GetAbilityEffectOnTarget(owner, EEffect.Berserk) != null)
                 defenseDisabled = true;
 
-            if (EffectListService.GetSpellEffectOnTarget(owner, EEffect.Bladeturn) is ECSGameSpellEffect bladeturnEffect)
+            if (EffectListService.GetSpellEffectOnTarget(owner, EEffect.Bladeturn) is EcsGameSpellEffect bladeturnEffect)
             {
                 if (bladeturn == null)
                     bladeturn = bladeturnEffect;
@@ -2742,7 +2742,7 @@ namespace DOL.GS
 
                 int critMin;
                 int critMax;
-                ECSGameEffect berserk = EffectListService.GetEffectOnTarget(owner, EEffect.Berserk);
+                EcsGameEffect berserk = EffectListService.GetEffectOnTarget(owner, EEffect.Berserk);
 
                 if (berserk != null)
                 {

@@ -1,6 +1,6 @@
 ﻿namespace DOL.GS
 {
-    public class DamageAddEcsEffect : ECSGameSpellEffect
+    public class DamageAddEcsEffect : EcsGameSpellEffect
     {
         public DamageAddEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams) { }

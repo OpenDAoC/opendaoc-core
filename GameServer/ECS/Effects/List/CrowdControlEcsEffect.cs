@@ -6,7 +6,7 @@ using DOL.GS.Spells;
 
 namespace DOL.GS
 {
-    public abstract class CrowdControlEcsEffect : ECSGameSpellEffect
+    public abstract class CrowdControlEcsEffect : EcsGameSpellEffect
     {
         public CrowdControlEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams) { }

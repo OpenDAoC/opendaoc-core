@@ -3,7 +3,7 @@ using DOL.Language;
 
 namespace DOL.GS
 {
-    public class DirtyTricksEcsEffect : ECSGameAbilityEffect
+    public class DirtyTricksEcsEffect : EcsGameAbilityEffect
     {
         public DirtyTricksEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams)
@@ -57,7 +57,7 @@ namespace DOL.GS
 
 namespace DOL.GS
 {
-    public class DirtyTricksDetrimentalECSGameEffect : ECSGameAbilityEffect
+    public class DirtyTricksDetrimentalECSGameEffect : EcsGameAbilityEffect
     {
         public DirtyTricksDetrimentalECSGameEffect(ECSGameEffectInitParams initParams)
             : base(initParams)

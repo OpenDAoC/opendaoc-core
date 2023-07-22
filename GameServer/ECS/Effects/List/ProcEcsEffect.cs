@@ -2,7 +2,7 @@
 
 namespace DOL.GS
 {
-    public class ProcEcsEffect : ECSGameSpellEffect
+    public class ProcEcsEffect : EcsGameSpellEffect
     {
         public ProcEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams) { }

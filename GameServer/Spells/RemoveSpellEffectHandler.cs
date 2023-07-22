@@ -55,7 +55,7 @@ namespace DOL.GS.Spells
 			{
 				//GameSpellEffect effect = target.FindEffectOnTarget(toRemove);
 				EEffect.TryParse(toRemove, out EEffect effectType);
-				ECSGameEffect effect = EffectListService.GetEffectOnTarget(target, effectType);
+				EcsGameEffect effect = EffectListService.GetEffectOnTarget(target, effectType);
 				if (toRemove == "Mesmerize")
 					effect = EffectListService.GetEffectOnTarget(target, EEffect.Mez);
 				if (effect != null)

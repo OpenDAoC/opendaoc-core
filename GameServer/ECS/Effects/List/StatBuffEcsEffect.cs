@@ -3,7 +3,7 @@ using DOL.GS.Spells;
 
 namespace DOL.GS
 {
-    public class StatBuffEcsEffect : ECSGameSpellEffect
+    public class StatBuffEcsEffect : EcsGameSpellEffect
     {        
         public StatBuffEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams) { }

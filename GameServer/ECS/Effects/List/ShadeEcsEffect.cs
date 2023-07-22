@@ -2,7 +2,7 @@
 
 namespace DOL.GS
 {
-    public class ShadeEcsEffect : ECSGameAbilityEffect
+    public class ShadeEcsEffect : EcsGameAbilityEffect
     {
         public ShadeEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams)

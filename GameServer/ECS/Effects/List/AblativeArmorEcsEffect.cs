@@ -1,6 +1,6 @@
 ﻿namespace DOL.GS
 {
-    public class AblativeArmorEcsEffect : ECSGameSpellEffect
+    public class AblativeArmorEcsEffect : EcsGameSpellEffect
     {
         public int RemainingValue { get; set; }
 

@@ -10,7 +10,7 @@ using DOL.Language;
 
 namespace DOL.GS.Effects
 {
-    public class OfRaVolleyEcsEffect : ECSGameAbilityEffect
+    public class OfRaVolleyEcsEffect : EcsGameAbilityEffect
     {
         private class WeaponActionData
         {
@@ -118,7 +118,7 @@ namespace DOL.GS.Effects
 
         private int TooTired(ECSGameTimer timer)
         {
-            ECSGameEffect volley = EffectListService.GetEffectOnTarget(OwnerPlayer, EEffect.Volley);
+            EcsGameEffect volley = EffectListService.GetEffectOnTarget(OwnerPlayer, EEffect.Volley);
 
             if (volley == null || !OwnerPlayer.IsAlive)
                 return 0;
@@ -133,7 +133,7 @@ namespace DOL.GS.Effects
 
         private int ReadyToShoot(ECSGameTimer timer)
         {
-            ECSGameEffect volley = EffectListService.GetEffectOnTarget(OwnerPlayer, EEffect.Volley);
+            EcsGameEffect volley = EffectListService.GetEffectOnTarget(OwnerPlayer, EEffect.Volley);
 
             if (volley == null || !OwnerPlayer.IsAlive)
                 return 0;
@@ -310,7 +310,7 @@ namespace DOL.GS.Effects
 
             if (_isReadyToShoot)
             {
-                ECSGameEffect volley = EffectListService.GetEffectOnTarget(OwnerPlayer, EEffect.Volley);
+                EcsGameEffect volley = EffectListService.GetEffectOnTarget(OwnerPlayer, EEffect.Volley);
 
                 if (volley != null)
                     LaunchVolley(player);

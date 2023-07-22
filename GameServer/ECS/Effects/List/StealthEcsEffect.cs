@@ -5,7 +5,7 @@ using DOL.Language;
 
 namespace DOL.GS
 {
-    public class StealthEcsEffect : ECSGameAbilityEffect
+    public class StealthEcsEffect : EcsGameAbilityEffect
     {
         public StealthEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams)
@@ -35,7 +35,7 @@ namespace DOL.GS
             }
 
             // Cancel pulse effects.
-            List<ECSPulseEffect> effects = OwnerPlayer.effectListComponent.GetAllPulseEffects();
+            List<EcsPulseEffect> effects = OwnerPlayer.effectListComponent.GetAllPulseEffects();
 
             for (int i = 0; i < effects.Count; i++)
                 EffectService.RequestImmediateCancelConcEffect(effects[i]);

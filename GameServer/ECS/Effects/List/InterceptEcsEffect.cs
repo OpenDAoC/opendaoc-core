@@ -7,7 +7,7 @@ using DOL.Language;
 
 namespace DOL.GS
 {
-    public class InterceptEcsEffect : ECSGameAbilityEffect
+    public class InterceptEcsEffect : EcsGameAbilityEffect
     {
         public InterceptEcsEffect(ECSGameEffectInitParams initParams, GameLiving interceptSource, GameLiving interceptTarget)
             : base(initParams)

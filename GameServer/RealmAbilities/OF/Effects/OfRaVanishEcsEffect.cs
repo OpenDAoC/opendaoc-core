@@ -2,7 +2,7 @@ using DOL.GS.Spells;
 
 namespace DOL.GS.Effects
 {
-    public class OfRaVanishEcsEffect : ECSGameAbilityEffect
+    public class OfRaVanishEcsEffect : EcsGameAbilityEffect
     {
         public new SpellHandler SpellHandler;
         public OfRaVanishEcsEffect(ECSGameEffectInitParams initParams)

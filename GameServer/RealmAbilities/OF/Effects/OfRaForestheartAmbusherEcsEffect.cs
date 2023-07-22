@@ -2,7 +2,7 @@ using DOL.GS.Spells;
 
 namespace DOL.GS.Effects
 {
-    public class OfRaForestheartAmbusherEcsEffect : ECSGameAbilityEffect
+    public class OfRaForestheartAmbusherEcsEffect : EcsGameAbilityEffect
     {
         public OfRaForestheartAmbusherEcsEffect(ECSGameEffectInitParams initParams) : base(initParams)
         {

@@ -1,7 +1,7 @@
 
 namespace DOL.GS.Effects
 {
-    public class OfRaMasteryOfConcentrationEcsEffect : ECSGameAbilityEffect
+    public class OfRaMasteryOfConcentrationEcsEffect : EcsGameAbilityEffect
     {
         public OfRaMasteryOfConcentrationEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams)

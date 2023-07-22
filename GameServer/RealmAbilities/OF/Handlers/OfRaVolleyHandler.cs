@@ -108,7 +108,7 @@ namespace DOL.GS.RealmAbilities
                 return;
             }
 
-            ECSGameEffect volley = EffectListService.GetEffectOnTarget(_player, EEffect.Volley);
+            EcsGameEffect volley = EffectListService.GetEffectOnTarget(_player, EEffect.Volley);
 
             if (volley != null)
             {

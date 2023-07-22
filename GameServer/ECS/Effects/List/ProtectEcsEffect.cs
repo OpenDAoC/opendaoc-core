@@ -6,7 +6,7 @@ using DOL.Language;
 
 namespace DOL.GS
 {
-    public class ProtectEcsEffect : ECSGameAbilityEffect
+    public class ProtectEcsEffect : EcsGameAbilityEffect
     {
         public ProtectEcsEffect(ECSGameEffectInitParams initParams, GamePlayer protectSource, GamePlayer protectTarget)
             : base(initParams)

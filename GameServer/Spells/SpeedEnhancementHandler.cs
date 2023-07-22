@@ -231,7 +231,7 @@ namespace DOL.GS.Spells
 				return;
 			
 			//GameSpellEffect speed = SpellHandler.FindEffectOnTarget(living, this);
-			ECSGameEffect speed = EffectListService.GetEffectOnTarget(living, EEffect.MovementSpeedBuff);
+			EcsGameEffect speed = EffectListService.GetEffectOnTarget(living, EEffect.MovementSpeedBuff);
 			if (speed != null)
 				EffectService.RequestImmediateCancelEffect(speed);
 				//speed.Cancel(false);

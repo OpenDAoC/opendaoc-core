@@ -2,7 +2,7 @@ using DOL.GS.Spells;
 
 namespace DOL.GS.Effects
 {
-    public class OfRaTrueSightEcsEffect : ECSGameAbilityEffect
+    public class OfRaTrueSightEcsEffect : EcsGameAbilityEffect
     {
         public new SpellHandler SpellHandler;
         public OfRaTrueSightEcsEffect(ECSGameEffectInitParams initParams)

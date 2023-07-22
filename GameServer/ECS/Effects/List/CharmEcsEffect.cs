@@ -7,7 +7,7 @@ using DOL.Language;
 
 namespace DOL.GS
 {
-    public class CharmEcsEffect : ECSGameSpellEffect
+    public class CharmEcsEffect : EcsGameSpellEffect
     {
         public CharmEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams) { }
@@ -155,7 +155,7 @@ namespace DOL.GS
                 }
             }
 
-            ECSPulseEffect song = EffectListService.GetPulseEffectOnTarget(casterPlayer, SpellHandler.Spell);
+            EcsPulseEffect song = EffectListService.GetPulseEffectOnTarget(casterPlayer, SpellHandler.Spell);
 
             if (charmMob != null && song != null)
                 EffectService.RequestImmediateCancelConcEffect(song);

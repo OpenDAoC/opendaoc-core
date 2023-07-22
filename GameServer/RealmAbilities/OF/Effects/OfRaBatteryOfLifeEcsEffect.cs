@@ -5,7 +5,7 @@ using DOL.GS.Spells;
 
 namespace DOL.GS.Effects
 {
-    public class OfRaBatteryOfLifeEcsEffect : ECSGameAbilityEffect
+    public class OfRaBatteryOfLifeEcsEffect : EcsGameAbilityEffect
     {
         public new SpellHandler SpellHandler;
         public OfRaBatteryOfLifeEcsEffect(ECSGameEffectInitParams initParams)

@@ -2,7 +2,7 @@ using System;
 
 namespace DOL.GS.Effects
 {
-    public class OfRaWhirlingDervishEcsEffect : ECSGameAbilityEffect
+    public class OfRaWhirlingDervishEcsEffect : EcsGameAbilityEffect
     {
         public OfRaWhirlingDervishEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams)

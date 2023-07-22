@@ -22,7 +22,7 @@ namespace DOL.GS
     /// <summary>
     /// Base class for all Effects
     /// </summary>
-    public class ECSGameEffect : IManagedEntity
+    public class EcsGameEffect : IManagedEntity
     {
         //public ISpellHandler SpellHandler;
         //Based on GameLoop expire tick
@@ -80,9 +80,9 @@ namespace DOL.GS
         /// Duration of the immunity effect, in milliseconds. Defaults to 60s.
         public int ImmunityDuration = 60000;
 
-        public ECSGameEffect() { }
+        public EcsGameEffect() { }
 
-        public ECSGameEffect(ECSGameEffectInitParams initParams)
+        public EcsGameEffect(ECSGameEffectInitParams initParams)
         {
             Owner = initParams.Target;
             Duration = initParams.Duration;

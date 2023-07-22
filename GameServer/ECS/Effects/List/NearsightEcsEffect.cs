@@ -2,7 +2,7 @@ using DOL.GS.Spells;
 
 namespace DOL.GS
 {
-    public class NearsightEcsEffect : ECSGameSpellEffect
+    public class NearsightEcsEffect : EcsGameSpellEffect
     {
         public NearsightEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams)

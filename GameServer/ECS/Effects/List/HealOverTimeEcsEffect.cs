@@ -2,7 +2,7 @@
 
 namespace DOL.GS
 {
-    public class HealOverTimeEcsEffect : ECSGameSpellEffect
+    public class HealOverTimeEcsEffect : EcsGameSpellEffect
     {
         public HealOverTimeEcsEffect(ECSGameEffectInitParams initParams) : base(initParams) 
         {

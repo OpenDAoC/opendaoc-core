@@ -3,12 +3,12 @@ using DOL.GS.Spells;
 
 namespace DOL.GS
 {
-    public class ECSImmunityEffect : ECSGameSpellEffect
+    public class EcsImmunityEffect : EcsGameSpellEffect
     {
         public override ushort Icon { get { return SpellHandler.Spell.Icon; } }
         public override string Name { get { return SpellHandler.Spell.Name; } }
 
-        public ECSImmunityEffect(GameLiving owner, ISpellHandler handler, int duration, int pulseFreq, double effectiveness, ushort icon, bool cancelEffect = false)
+        public EcsImmunityEffect(GameLiving owner, ISpellHandler handler, int duration, int pulseFreq, double effectiveness, ushort icon, bool cancelEffect = false)
             : base(new ECSGameEffectInitParams(owner, duration, effectiveness, handler))
         {
             // Some of this is already done in the base constructor and should be cleaned up
@@ -47,7 +47,7 @@ namespace DOL.GS
             }
         }
     }
-    public class NPCECSStunImmunityEffect : ECSGameEffect
+    public class NPCECSStunImmunityEffect : EcsGameEffect
     {
         private int timesStunned = 1;
         public NPCECSStunImmunityEffect(ECSGameEffectInitParams initParams) : base()
@@ -66,7 +66,7 @@ namespace DOL.GS
         }
     }
 
-    public class NPCECSMezImmunityEffect : ECSGameEffect
+    public class NPCECSMezImmunityEffect : EcsGameEffect
     {
         private int timesStunned = 1;
         public NPCECSMezImmunityEffect(ECSGameEffectInitParams initParams) : base()

@@ -3,7 +3,7 @@ using DOL.Language;
 
 namespace DOL.GS
 {
-    public class CamouflageEcsEffect : ECSGameAbilityEffect
+    public class CamouflageEcsEffect : EcsGameAbilityEffect
     {
         public CamouflageEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams)

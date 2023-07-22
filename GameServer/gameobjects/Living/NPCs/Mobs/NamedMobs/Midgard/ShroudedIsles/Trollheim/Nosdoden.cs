@@ -1191,7 +1191,7 @@ namespace DOL.AI.Brain
 						var effects = Body.effectListComponent.GetAllPulseEffects();
 						for (int i = 0; i < effects.Count; i++)
 						{
-							ECSPulseEffect effect = effects[i];
+							EcsPulseEffect effect = effects[i];
 							if (effect == null)
 								continue;
 

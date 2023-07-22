@@ -91,7 +91,7 @@ namespace DOL.GS.Spells
 			GameEventMgr.AddHandler(effect.Owner, GameLivingEvent.AttackedByEnemy, new CoreEventHandler(OnAttacked));
 			// Cancels mezz on the effect owner, if applied
 			//GameSpellEffect mezz = SpellHandler.FindEffectOnTarget(effect.Owner, "Mesmerize");
-			ECSGameEffect mezz = EffectListService.GetEffectOnTarget(effect.Owner, EEffect.Mez);
+			EcsGameEffect mezz = EffectListService.GetEffectOnTarget(effect.Owner, EEffect.Mez);
 			if (mezz != null)
 				EffectService.RequestImmediateCancelEffect(mezz);
 				//mezz.Cancel(false);
@@ -128,7 +128,7 @@ namespace DOL.GS.Spells
 				case EAttackResult.HitStyle:
 				case EAttackResult.HitUnstyled:
 					//GameSpellEffect effect = FindEffectOnTarget(living, this);
-					ECSGameEffect effect = EffectListService.GetEffectOnTarget(living, EEffect.MovementSpeedDebuff);
+					EcsGameEffect effect = EffectListService.GetEffectOnTarget(living, EEffect.MovementSpeedDebuff);
 					if (effect != null)
 						EffectService.RequestImmediateCancelEffect(effect);
 						//effect.Cancel(false);

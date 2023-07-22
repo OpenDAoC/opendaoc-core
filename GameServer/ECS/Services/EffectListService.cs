@@ -47,11 +47,11 @@ namespace DOL.GS
                 return;
             }
 
-            List<ECSGameEffect> effects = new(10);
+            List<EcsGameEffect> effects = new(10);
 
             lock (effectListComponent.EffectsLock)
             {
-                List<List<ECSGameEffect>> currentEffects = effectListComponent.Effects.Values.ToList();
+                List<List<EcsGameEffect>> currentEffects = effectListComponent.Effects.Values.ToList();
 
                 for (int i = 0; i < currentEffects.Count; i++)
                     effects.AddRange(currentEffects[i]);
@@ -59,7 +59,7 @@ namespace DOL.GS
 
             for (int j = 0; j < effects.Count; j++)
             {
-                ECSGameEffect e = effects[j];
+                EcsGameEffect e = effects[j];
 
                 if (e is null)
                     continue;
@@ -72,7 +72,7 @@ namespace DOL.GS
 
                 // TEMP - A lot of the code below assumes effects come from spells but many effects come from abilities (Sprint, Stealth, RAs, etc)
                 // This will need a better refactor later but for now this prevents crashing while working on porting over non-spell based effects to our system.
-                if (e is ECSGameAbilityEffect)
+                if (e is EcsGameAbilityEffect)
                 {
                     if (e.NextTick != 0 && tick > e.NextTick)
                         e.OnEffectPulse();
@@ -82,7 +82,7 @@ namespace DOL.GS
 
                     continue;
                 }
-                else if (e is ECSGameSpellEffect effect)
+                else if (e is EcsGameSpellEffect effect)
                 {
                     if (tick > effect.ExpireTick && (!effect.IsConcentrationEffect() || effect.SpellHandler.Spell.IsFocus))
                     {
@@ -129,7 +129,7 @@ namespace DOL.GS
                         }
                     }
 
-                    if (effect is not ECSImmunityEffect && effect.EffectType != EEffect.Pulse && effect.SpellHandler.Spell.SpellType == ESpellType.SpeedDecrease)
+                    if (effect is not EcsImmunityEffect && effect.EffectType != EEffect.Pulse && effect.SpellHandler.Spell.SpellType == ESpellType.SpeedDecrease)
                     {
                         if (tick > effect.NextTick)
                         {
@@ -161,7 +161,7 @@ namespace DOL.GS
                             effect.SpellHandler.Spell.SpellType != ESpellType.EnduranceRegenBuff ? ServerProperties.ServerProperties.BUFF_RANGE > 0 ? ServerProperties.ServerProperties.BUFF_RANGE : 5000 : 1500)
                             && !effect.IsDisabled)
                         {
-                            ECSGameSpellEffect disabled = null;
+                            EcsGameSpellEffect disabled = null;
                             if (effect.Owner.effectListComponent.GetSpellEffects(effect.EffectType).Count > 1)
                                 disabled = effect.Owner.effectListComponent.GetBestDisabledSpellEffect(effect.EffectType);
 
@@ -176,8 +176,8 @@ namespace DOL.GS
                             && effect.IsDisabled)
                         {
                             //Check if this effect is better than currently enabled effects. Enable this effect and disable other effect if true.
-                            ECSGameSpellEffect enabled = null;
-                            effect.Owner.effectListComponent.Effects.TryGetValue(effect.EffectType, out List<ECSGameEffect> sameEffectTypeEffects);
+                            EcsGameSpellEffect enabled = null;
+                            effect.Owner.effectListComponent.Effects.TryGetValue(effect.EffectType, out List<EcsGameEffect> sameEffectTypeEffects);
                             bool isBest = false;
 
                             if (sameEffectTypeEffects.Count == 1)
@@ -186,7 +186,7 @@ namespace DOL.GS
                             {
                                 foreach (var tmpEff in sameEffectTypeEffects)
                                 {
-                                    if (tmpEff is ECSGameSpellEffect eff)
+                                    if (tmpEff is EcsGameSpellEffect eff)
                                     {
                                         //Check only against enabled spells
                                         if (!eff.IsDisabled)
@@ -213,71 +213,71 @@ namespace DOL.GS
             }
         }
 
-        public static ECSGameEffect GetEffectOnTarget(GameLiving target, EEffect effectType, ESpellType spellType = ESpellType.Null)
+        public static EcsGameEffect GetEffectOnTarget(GameLiving target, EEffect effectType, ESpellType spellType = ESpellType.Null)
         {
             lock (target.effectListComponent.EffectsLock)
             {
-                target.effectListComponent.Effects.TryGetValue(effectType, out List<ECSGameEffect> effects);
+                target.effectListComponent.Effects.TryGetValue(effectType, out List<EcsGameEffect> effects);
 
                 if (effects != null && spellType == ESpellType.Null)
                     return effects.FirstOrDefault();
                 else if (effects != null)
-                    return effects.OfType<ECSGameSpellEffect>().Where(e => e.SpellHandler.Spell.SpellType == spellType).FirstOrDefault();
+                    return effects.OfType<EcsGameSpellEffect>().Where(e => e.SpellHandler.Spell.SpellType == spellType).FirstOrDefault();
                 else
                     return null;
             }
         }
 
-        public static ECSGameSpellEffect GetSpellEffectOnTarget(GameLiving target, EEffect effectType, ESpellType spellType = ESpellType.Null)
+        public static EcsGameSpellEffect GetSpellEffectOnTarget(GameLiving target, EEffect effectType, ESpellType spellType = ESpellType.Null)
         {
             if (target == null)
                 return null;
 
             lock (target.effectListComponent.EffectsLock)
             {
-                target.effectListComponent.Effects.TryGetValue(effectType, out List<ECSGameEffect> effects);
+                target.effectListComponent.Effects.TryGetValue(effectType, out List<EcsGameEffect> effects);
 
                 if (effects != null)
-                    return effects.OfType<ECSGameSpellEffect>().Where(e => e != null && (spellType == ESpellType.Null || e.SpellHandler.Spell.SpellType == spellType)).FirstOrDefault();
+                    return effects.OfType<EcsGameSpellEffect>().Where(e => e != null && (spellType == ESpellType.Null || e.SpellHandler.Spell.SpellType == spellType)).FirstOrDefault();
                 else
                     return null;
             }
         }
 
-        public static ECSGameAbilityEffect GetAbilityEffectOnTarget(GameLiving target, EEffect effectType)
+        public static EcsGameAbilityEffect GetAbilityEffectOnTarget(GameLiving target, EEffect effectType)
         {
             lock (target.effectListComponent.EffectsLock)
             {
-                target.effectListComponent.Effects.TryGetValue(effectType, out List<ECSGameEffect> effects);
+                target.effectListComponent.Effects.TryGetValue(effectType, out List<EcsGameEffect> effects);
 
                 if (effects != null)
-                    return (ECSGameAbilityEffect) effects.Where(e => e is ECSGameAbilityEffect).FirstOrDefault();
+                    return (EcsGameAbilityEffect) effects.Where(e => e is EcsGameAbilityEffect).FirstOrDefault();
                 else
                     return null;
             }
         }
 
-        public static ECSImmunityEffect GetImmunityEffectOnTarget(GameLiving target, EEffect effectType)
+        public static EcsImmunityEffect GetImmunityEffectOnTarget(GameLiving target, EEffect effectType)
         {
             lock (target.effectListComponent.EffectsLock)
             {
-                target.effectListComponent.Effects.TryGetValue(effectType, out List<ECSGameEffect> effects);
+                target.effectListComponent.Effects.TryGetValue(effectType, out List<EcsGameEffect> effects);
 
                 if (effects != null)
-                    return (ECSImmunityEffect) effects.Where(e => e is ECSImmunityEffect).FirstOrDefault();
+                    return (EcsImmunityEffect) effects.Where(e => e is EcsImmunityEffect).FirstOrDefault();
                 else
                     return null;
             }
         }
 
-        public static ECSPulseEffect GetPulseEffectOnTarget(GameLiving target, Spell spell)
+        public static EcsPulseEffect GetPulseEffectOnTarget(GameLiving target, Spell spell)
         {
             lock (target.effectListComponent.EffectsLock)
             {
-                target.effectListComponent.Effects.TryGetValue(EEffect.Pulse, out List<ECSGameEffect> effects);
+                target.effectListComponent.Effects.TryGetValue(EEffect.Pulse, out List<EcsGameEffect> effects);
 
                 if (effects != null)
-                    return (ECSPulseEffect) effects.Where(e => e is ECSPulseEffect && e.SpellHandler.Spell == spell).FirstOrDefault();
+                    return (EcsPulseEffect) effects.Where(e => e is EcsPulseEffect && e.SpellHandler.Spell == spell).FirstOrDefault();
                 else
                     return null;
             }
@@ -288,7 +288,7 @@ namespace DOL.GS
             if (target == null || target.effectListComponent == null)
                 return false;
 
-            ECSGameEffect effectToCancel;
+            EcsGameEffect effectToCancel;
 
             lock (target.effectListComponent.EffectsLock)
             {

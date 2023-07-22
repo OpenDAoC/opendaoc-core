@@ -5,7 +5,7 @@ using DOL.Language;
 
 namespace DOL.GS
 {
-    public class GuardEcsEffect : ECSGameAbilityEffect
+    public class GuardEcsEffect : EcsGameAbilityEffect
     {
         public GuardEcsEffect(ECSGameEffectInitParams initParams, GameLiving guardSource, GameLiving guardTarget) : base(initParams)
         {
@@ -98,7 +98,7 @@ namespace DOL.GS
 
         public override void OnStopEffect()
         {
-            ECSGameEffect otherGuard = null;
+            EcsGameEffect otherGuard = null;
 
             if (GuardSource == Owner)
             {

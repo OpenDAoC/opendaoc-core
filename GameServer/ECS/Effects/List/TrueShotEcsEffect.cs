@@ -2,7 +2,7 @@
 
 namespace DOL.GS
 {
-    public class TrueShotEcsEffect : ECSGameAbilityEffect
+    public class TrueShotEcsEffect : EcsGameAbilityEffect
     {
         public TrueShotEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams)

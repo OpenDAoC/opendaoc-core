@@ -3140,14 +3140,14 @@ namespace DOL.GS.Commands
 				}
 			}
 
-			List<ECSGameEffect> allEffects = targetMob.effectListComponent.GetAllEffects();
+			List<EcsGameEffect> allEffects = targetMob.effectListComponent.GetAllEffects();
 
 			if (allEffects.Count > 0)
 			{
 				text.Add("");
 				text.Add("Effect List:");
 
-				foreach (ECSGameEffect effect in allEffects)
+				foreach (EcsGameEffect effect in allEffects)
 				{
 					long remaining = effect.IsConcentrationEffect() ? -1 : effect.GetRemainingTimeForClient();
 					text.Add($"{effect.Name}  (remaining: {remaining})  (source: {(effect.SpellHandler == null ? targetMob.Name : effect.SpellHandler.Caster.Name)})");

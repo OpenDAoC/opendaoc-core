@@ -35,7 +35,7 @@ namespace DOL.GS.SkillHandler
 			if (trueshot != null)
 				EffectService.RequestImmediateCancelEffect(trueshot, false);
 
-			ECSGameEffect volley = EffectListService.GetEffectOnTarget(player, EEffect.Volley);
+			EcsGameEffect volley = EffectListService.GetEffectOnTarget(player, EEffect.Volley);
 			if (volley != null)
 			{
 				player.Out.SendMessage("You can't use "+ab.Name+" while Volley is active!", EChatType.CT_System, EChatLoc.CL_SystemWindow);

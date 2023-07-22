@@ -453,7 +453,7 @@ namespace DOL.GS.Spells
                 // Make sure the pet is in the same zone
                 if (target.CurrentRegion != Caster.CurrentRegion)
                 {
-	                ECSPulseEffect song = EffectListService.GetPulseEffectOnTarget(Caster as GamePlayer, Spell);
+	                EcsPulseEffect song = EffectListService.GetPulseEffectOnTarget(Caster as GamePlayer, Spell);
 	                if (song != null && song.SpellHandler.Spell.InstrumentRequirement == 0 && song.SpellHandler.Spell.CastTime == 0)
 	                {
 		                EffectService.RequestImmediateCancelConcEffect(song);
@@ -527,7 +527,7 @@ namespace DOL.GS.Spells
                 //concEffect.Cancel(false);
 
             //GameSpellEffect charm = FindEffectOnTarget(npc.Body, this);
-            List<ECSGameEffect> charm = new List<ECSGameEffect>();
+            List<EcsGameEffect> charm = new List<EcsGameEffect>();
             npc.Body?.effectListComponent?.Effects?.TryGetValue(EEffect.Charm, out charm);
             
             if (charm?.Count == 0)// == null)

@@ -27,7 +27,7 @@ namespace DOL.GS.SkillHandler
                 player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Skill.Ability.Stealth.CannotUseInCombat"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
                 return;
 			}
-			ECSGameEffect volley = EffectListService.GetEffectOnTarget(player, EEffect.Volley);
+			EcsGameEffect volley = EffectListService.GetEffectOnTarget(player, EEffect.Volley);
 			if (volley != null)
 			{
 				player.Out.SendMessage("You can't stealth while you have active Volley!", EChatType.CT_System, EChatLoc.CL_SystemWindow);

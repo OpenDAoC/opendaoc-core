@@ -328,7 +328,7 @@ namespace DOL.GS.Spells
 
 				for (int i = 0; i < effects.Count; i++)
 				{
-					ECSPulseEffect effect = effects[i];
+					EcsPulseEffect effect = effects[i];
 					if (effect == null)
 						continue;
 
@@ -411,14 +411,14 @@ namespace DOL.GS.Spells
 		public virtual void CreateECSEffect(ECSGameEffectInitParams initParams)
 		{
 			// Base function should be empty once all effects are moved to their own effect class.
-			new ECSGameSpellEffect(initParams);
+			new EcsGameSpellEffect(initParams);
 		}
 
 		public virtual void CreateECSPulseEffect(GameLiving target, double effectiveness)
 		{
 			int freq = Spell != null ? Spell.Frequency : 0;
 
-			new ECSPulseEffect(target, this, CalculateEffectDuration(target, effectiveness), freq, effectiveness, Spell.Icon);
+			new EcsPulseEffect(target, this, CalculateEffectDuration(target, effectiveness), freq, effectiveness, Spell.Icon);
 		}
 
 
@@ -549,7 +549,7 @@ namespace DOL.GS.Spells
 			{
 				if (m_caster.ActivePulseSpells.TryRemove(m_spell.SpellType, out Spell _))
 				{
-					ECSPulseEffect effect = EffectListService.GetPulseEffectOnTarget(m_caster, m_spell);
+					EcsPulseEffect effect = EffectListService.GetPulseEffectOnTarget(m_caster, m_spell);
 					EffectService.RequestImmediateCancelConcEffect(effect);
 
 					if (m_spell.InstrumentRequirement == 0)
@@ -1579,9 +1579,9 @@ namespace DOL.GS.Spells
 			{
 				if (!PulseSpellGroupsIgnoringOtherPulseSpells.Contains(m_spell.Group))
 				{
-					IEnumerable<ECSPulseEffect> effects = m_caster.effectListComponent.GetAllPulseEffects().Where(x => !PulseSpellGroupsIgnoringOtherPulseSpells.Contains(x.SpellHandler.Spell.Group));
+					IEnumerable<EcsPulseEffect> effects = m_caster.effectListComponent.GetAllPulseEffects().Where(x => !PulseSpellGroupsIgnoringOtherPulseSpells.Contains(x.SpellHandler.Spell.Group));
 
-					foreach (ECSPulseEffect effect in effects)
+					foreach (EcsPulseEffect effect in effects)
 						EffectService.RequestImmediateCancelConcEffect(effect);
 				}
 
@@ -2538,7 +2538,7 @@ namespace DOL.GS.Spells
 				return false;
 			return true;
 		}
-		public virtual bool IsOverwritable(ECSGameSpellEffect compare)
+		public virtual bool IsOverwritable(EcsGameSpellEffect compare)
 		{
 			if (Spell.EffectGroup != 0 || compare.SpellHandler.Spell.EffectGroup != 0)
 				return Spell.EffectGroup == compare.SpellHandler.Spell.EffectGroup;
@@ -2740,7 +2740,7 @@ namespace DOL.GS.Spells
 
 			if (m_caster.effectListComponent.ContainsEffectForEffectType(EEffect.PiercingMagic))
 			{
-				ECSGameEffect effect = m_caster.effectListComponent.GetSpellEffects().FirstOrDefault(e => e.EffectType == EEffect.PiercingMagic);
+				EcsGameEffect effect = m_caster.effectListComponent.GetSpellEffects().FirstOrDefault(e => e.EffectType == EEffect.PiercingMagic);
 
 				if (effect != null)
 					hitChance += (int)effect.SpellHandler.Spell.Value;
@@ -2749,7 +2749,7 @@ namespace DOL.GS.Spells
 			// Check for active RAs.
 			if (m_caster.effectListComponent.ContainsEffectForEffectType(EEffect.MajesticWill))
 			{
-				ECSGameEffect effect = m_caster.effectListComponent.GetAllEffects().FirstOrDefault(e => e.EffectType == EEffect.MajesticWill);
+				EcsGameEffect effect = m_caster.effectListComponent.GetAllEffects().FirstOrDefault(e => e.EffectType == EEffect.MajesticWill);
 
 				if (effect != null)
 					hitChance += (int)effect.Effectiveness * 5;

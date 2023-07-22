@@ -1,6 +1,6 @@
 ﻿namespace DOL.GS
 {
-    public class ResurrectionIllnessEcsEffect : ECSGameSpellEffect
+    public class ResurrectionIllnessEcsEffect : EcsGameSpellEffect
     {
         public ResurrectionIllnessEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams) { }

@@ -3,7 +3,7 @@ using DOL.GS.Spells;
 
 namespace DOL.GS
 {
-    public class DamageOverTimeEcsEffect : ECSGameSpellEffect
+    public class DamageOverTimeEcsEffect : EcsGameSpellEffect
     {
         public DamageOverTimeEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams) 

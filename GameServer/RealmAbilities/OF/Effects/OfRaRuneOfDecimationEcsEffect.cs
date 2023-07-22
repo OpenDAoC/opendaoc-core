@@ -4,7 +4,7 @@ using DOL.GS.PacketHandler;
 
 namespace DOL.GS.Effects
 {
-    public class OfRaRuneOfDecimationEcsEffect : ECSGameSpellEffect
+    public class OfRaRuneOfDecimationEcsEffect : EcsGameSpellEffect
     {
         public OfRaRuneOfDecimationEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams)

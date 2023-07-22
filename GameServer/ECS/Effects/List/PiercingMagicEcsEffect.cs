@@ -1,6 +1,6 @@
 ﻿namespace DOL.GS
 {
-    public class PiercingMagicEcsEffect : ECSGameSpellEffect
+    public class PiercingMagicEcsEffect : EcsGameSpellEffect
     {
         public PiercingMagicEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams)

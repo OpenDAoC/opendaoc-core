@@ -4,7 +4,7 @@ using DOL.GS.Spells;
 
 namespace DOL.GS
 {
-    public class ConfusionEcsEffect : ECSGameSpellEffect
+    public class ConfusionEcsEffect : EcsGameSpellEffect
     {
         public ConfusionEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams) 

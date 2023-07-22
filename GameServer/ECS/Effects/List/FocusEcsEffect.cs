@@ -1,6 +1,6 @@
 ﻿namespace DOL.GS
 {
-    public class FocusEcsEffect : ECSGameSpellEffect
+    public class FocusEcsEffect : EcsGameSpellEffect
     {
         public FocusEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams) { }

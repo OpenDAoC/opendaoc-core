@@ -1,6 +1,6 @@
 namespace DOL.GS
 {
-    public class BladeturnEcsEffect : ECSGameSpellEffect
+    public class BladeturnEcsEffect : EcsGameSpellEffect
     {
         public BladeturnEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams) { }

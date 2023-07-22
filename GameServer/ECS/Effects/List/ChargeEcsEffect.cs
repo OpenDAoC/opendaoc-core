@@ -4,7 +4,7 @@ using DOL.Language;
 
 namespace DOL.GS
 {
-    public class ChargeEcsEffect : ECSGameAbilityEffect
+    public class ChargeEcsEffect : EcsGameAbilityEffect
     {
         public ChargeEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams)

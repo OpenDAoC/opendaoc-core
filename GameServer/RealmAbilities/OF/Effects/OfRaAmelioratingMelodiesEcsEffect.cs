@@ -3,7 +3,7 @@ using DOL.GS.PacketHandler;
 
 namespace DOL.GS.Effects
 {
-    public class OfRaAmelioratingMelodiesEcsEffect : ECSGameAbilityEffect
+    public class OfRaAmelioratingMelodiesEcsEffect : EcsGameAbilityEffect
     {
         private const int m_range = 1500;
         private int m_heal;

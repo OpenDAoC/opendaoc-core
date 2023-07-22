@@ -2,7 +2,7 @@ using System.Linq;
 
 namespace DOL.GS.Effects
 {
-    public class OfRaSpeedOfSoundEcsEffect : ECSGameAbilityEffect
+    public class OfRaSpeedOfSoundEcsEffect : EcsGameAbilityEffect
     {
         public OfRaSpeedOfSoundEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams)

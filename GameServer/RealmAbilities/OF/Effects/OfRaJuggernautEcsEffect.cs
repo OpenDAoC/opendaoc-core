@@ -2,7 +2,7 @@ using DOL.AI.Brain;
 
 namespace DOL.GS.Effects
 {
-    public class OfRaJuggernautEcsEffect : ECSGameAbilityEffect
+    public class OfRaJuggernautEcsEffect : EcsGameAbilityEffect
     {
         public OfRaJuggernautEcsEffect(ECSGameEffectInitParams initParams) : base(initParams)
         {

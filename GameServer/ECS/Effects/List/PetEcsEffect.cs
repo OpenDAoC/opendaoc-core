@@ -1,6 +1,6 @@
 ﻿namespace DOL.GS
 {
-    public class PetEcsEffect : ECSGameSpellEffect
+    public class PetEcsEffect : EcsGameSpellEffect
     {
         public PetEcsEffect(ECSGameEffectInitParams initParams)
             : base(initParams) { }
