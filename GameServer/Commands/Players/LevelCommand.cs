@@ -63,7 +63,7 @@ namespace DOL.GS.Commands
 				}
 				
 				
-				if (client.Player.TargetObject is not (GameTrainer or AtlasTrainer))
+				if (client.Player.TargetObject is not (GameTrainer or MasterTrainer))
 				{
 					client.Player.Out.SendMessage("You need to be at your trainer to use this command.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 					return;
@@ -101,9 +101,9 @@ namespace DOL.GS.Commands
 						return;
 					}
 					
-					BattlegroundEventLoot.GenerateArmor(client.Player);
-					BattlegroundEventLoot.GenerateWeaponsForClass((ECharacterClass)client.Player.CharacterClass.ID, client.Player);
-					BattlegroundEventLoot.GenerateGems(client.Player);
+					BgEventQuartermaster.GenerateArmor(client.Player);
+					BgEventQuartermaster.GenerateWeaponsForClass((ECharacterClass)client.Player.CharacterClass.ID, client.Player);
+					BgEventQuartermaster.GenerateGems(client.Player);
 					
 					var slashlevelgear = new AccountXCustomParam();
 					slashlevelgear.Name = client.Account.Name;

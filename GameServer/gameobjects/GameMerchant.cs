@@ -833,7 +833,7 @@ namespace DOL.GS
 	}
 
 	// checks for achievement completion at realm level
-	public class GameAtlasMerchant : GameItemCurrencyMerchant
+	public class GameServerMerchant : GameItemCurrencyMerchant
 	{
 		public override string MoneyKey { get; } = ServerProperties.ServerProperties.ALT_CURRENCY_ID; // remember to set this in server properties
 

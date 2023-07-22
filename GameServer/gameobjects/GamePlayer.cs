@@ -12150,11 +12150,11 @@ namespace DOL.GS
                     if (quest is Quests.MonthlyQuest mq)
                         mq.SaveQuestParameters();
 
-                    if (quest is LaunchQuestAlb lqa)
+                    if (quest is LaunchAlb1Quest lqa)
                         lqa.SaveQuestParameters();
-                    if (quest is LaunchQuestHib lqh)
+                    if (quest is LaunchHib1Quest lqh)
                         lqh.SaveQuestParameters();
-                    if (quest is LaunchQuestMid lqm)
+                    if (quest is LaunchMid1Quest lqm)
                         lqm.SaveQuestParameters();
                     if(quest is Quests.AtlasQuest aq)
                         aq.SaveQuestParameters();
@@ -12771,11 +12771,11 @@ namespace DOL.GS
                     if (quest is Quests.MonthlyQuest mq)
                         mq.LoadQuestParameters();
 
-                    if (quest is LaunchQuestAlb lqa)
+                    if (quest is LaunchAlb1Quest lqa)
                         lqa.LoadQuestParameters();
-                    if (quest is LaunchQuestHib lqh)
+                    if (quest is LaunchHib1Quest lqh)
                         lqh.LoadQuestParameters();
-                    if (quest is LaunchQuestMid lqm)
+                    if (quest is LaunchMid1Quest lqm)
                         lqm.LoadQuestParameters();
                     if(quest is Quests.AtlasQuest aq)
                         aq.LoadQuestParameters();
