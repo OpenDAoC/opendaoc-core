@@ -1,13 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace DOL.GS.Relics
 {
 	/// <summary>
 	/// Class representing a relic pad.
 	/// </summary>
-	/// <author>Aredhel</author>
 	public class RelicPad : GameObject
 	{
 		/// <summary>
