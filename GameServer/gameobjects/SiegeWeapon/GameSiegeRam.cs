@@ -1,4 +1,5 @@
 
+using Core.GS.RealmAbilities;
 using DOL.GS.Keeps;
 using DOL.GS.PacketHandler;
 
@@ -270,7 +271,7 @@ namespace DOL.GS
 
 				foreach (GamePlayer player in CurrentRiders)
 				{
-					RealmAbilities.RAPropertyEnhancer ab = player.GetAbility<RealmAbilities.AtlasOF_LifterAbility>();
+					RaPropertyEnhancer ab = player.GetAbility<RealmAbilities.OfRaLifterHandler>();
 
 					if (ab != null)
 						speed *= 1 + ab.Amount / 100;

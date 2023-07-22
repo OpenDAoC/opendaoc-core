@@ -1,6 +1,4 @@
-﻿// Tolakram, July 2010 - This represents a data driven quest that can be added and removed at runtime.  
-
-using System;
+﻿using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Reflection;

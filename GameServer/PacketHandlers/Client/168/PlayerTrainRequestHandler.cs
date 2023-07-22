@@ -129,7 +129,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 				else if (skillIndex >= 100)
 				{
 					// Realm Abilities
-					var raList = SkillBase.GetClassRealmAbilities(client.Player.CharacterClass.ID).Where(ra => !(ra is RR5RealmAbility));
+					var raList = SkillBase.GetClassRealmAbilities(client.Player.CharacterClass.ID).Where(ra => !(ra is Rr5RealmAbility));
 					if (skillIndex < raList.Count() + 100)
 					{
 						RealmAbility ra = raList.ElementAtOrDefault(skillIndex - 100);
@@ -255,7 +255,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 			if (amounts != null && amounts.Count > 0)
 			{
 				// Realm Abilities
-				var raList = SkillBase.GetClassRealmAbilities(client.Player.CharacterClass.ID).Where(ra => !(ra is RR5RealmAbility));
+				var raList = SkillBase.GetClassRealmAbilities(client.Player.CharacterClass.ID).Where(ra => !(ra is Rr5RealmAbility));
 				foreach (var kv in amounts)
 				{
 					RealmAbility ra = raList.ElementAtOrDefault((int)kv.Key);

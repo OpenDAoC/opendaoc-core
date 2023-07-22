@@ -89,7 +89,7 @@ namespace DOL.GS.Spells
 				ISpellHandler spellhandler2 = null;
 				ChamberSpellHandler chamber = (ChamberSpellHandler)effect.SpellHandler;
 				GameSpellEffect PhaseShift = SpellHandler.FindEffectOnTarget(Target, "Phaseshift");
-				SelectiveBlindnessEffect SelectiveBlindness = Caster.EffectList.GetOfType<SelectiveBlindnessEffect>();
+				NfRaSelectiveBlindnessEffect selectiveBlindness = Caster.EffectList.GetOfType<NfRaSelectiveBlindnessEffect>();
 				spellhandler = ScriptMgr.CreateSpellHandler(caster, chamber.PrimarySpell, chamber.PrimarySpellLine);
 
 				#region Pre-checks
@@ -161,9 +161,9 @@ namespace DOL.GS.Spells
 				{
 					MessageToCaster(Target.Name + " is Phaseshifted and can't be attacked!", EChatType.CT_System); return false;
 				}
-				if (SelectiveBlindness != null)
+				if (selectiveBlindness != null)
 				{
-					GameLiving EffectOwner = SelectiveBlindness.EffectSource;
+					GameLiving EffectOwner = selectiveBlindness.EffectSource;
 					if (EffectOwner == Target)
 					{
 						if (m_caster is GamePlayer)

@@ -50,7 +50,7 @@ namespace DOL.GS.Spells
 			}
 
 			// Is Shield Disarm ?
-			ShieldTripDisarmEffect shieldDisarm = Caster.EffectList.GetOfType<ShieldTripDisarmEffect>();
+			NfRaShieldTripDisarmEffect shieldDisarm = Caster.EffectList.GetOfType<NfRaShieldTripDisarmEffect>();
 			if (shieldDisarm != null)
 			{
 				MessageToCaster("You're disarmed and can't cast a spell", EChatType.CT_System);
@@ -58,10 +58,10 @@ namespace DOL.GS.Spells
 			}
 
 			// Is Mentalist RA5L ?
-			SelectiveBlindnessEffect SelectiveBlindness = Caster.EffectList.GetOfType<SelectiveBlindnessEffect>();
-			if (SelectiveBlindness != null)
+			NfRaSelectiveBlindnessEffect selectiveBlindness = Caster.EffectList.GetOfType<NfRaSelectiveBlindnessEffect>();
+			if (selectiveBlindness != null)
 			{
-				GameLiving EffectOwner = SelectiveBlindness.EffectSource;
+				GameLiving EffectOwner = selectiveBlindness.EffectSource;
 				if(EffectOwner==selectedTarget)
 				{
 					if (m_caster is GamePlayer)

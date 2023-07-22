@@ -622,7 +622,7 @@ namespace DOL.GS
                     return;
                 }
 
-                long vanishTimeout = player.TempProperties.getProperty<long>(VanishEffect.VANISH_BLOCK_ATTACK_TIME_KEY);
+                long vanishTimeout = player.TempProperties.getProperty<long>(NfRaVanishEffect.VANISH_BLOCK_ATTACK_TIME_KEY);
                 if (vanishTimeout > 0 && vanishTimeout > GameLoop.GameLoopTime)
                 {
                     player.Out.SendMessage(
@@ -632,7 +632,7 @@ namespace DOL.GS
                     return;
                 }
 
-                long VanishTick = player.TempProperties.getProperty<long>(VanishEffect.VANISH_BLOCK_ATTACK_TIME_KEY);
+                long VanishTick = player.TempProperties.getProperty<long>(NfRaVanishEffect.VANISH_BLOCK_ATTACK_TIME_KEY);
                 long changeTime = GameLoop.GameLoopTime - VanishTick;
                 if (changeTime < 30000 && VanishTick > 0)
                 {
@@ -1231,10 +1231,10 @@ namespace DOL.GS
                 effectiveness *= 2;
 
             // Apply Mentalist RA5L.
-            SelectiveBlindnessEffect SelectiveBlindness = owner.EffectList.GetOfType<SelectiveBlindnessEffect>();
-            if (SelectiveBlindness != null)
+            NfRaSelectiveBlindnessEffect selectiveBlindness = owner.EffectList.GetOfType<NfRaSelectiveBlindnessEffect>();
+            if (selectiveBlindness != null)
             {
-                GameLiving EffectOwner = SelectiveBlindness.EffectSource;
+                GameLiving EffectOwner = selectiveBlindness.EffectSource;
                 if (EffectOwner == ad.Target)
                 {
                     if (owner is GamePlayer)
@@ -1585,7 +1585,7 @@ namespace DOL.GS
             if (ad.Attacker is GamePlayer)
             {
                 GamePlayer attacker = ad.Attacker as GamePlayer;
-                if (attacker.HasAbilityType(typeof(AtlasOF_PreventFlight)) && UtilCollection.Chance(35))
+                if (attacker.HasAbilityType(typeof(OfRaPreventFlightHandler)) && UtilCollection.Chance(35))
                 {
                     if (owner.IsObjectInFront(ad.Target, 120) && ad.Target.IsMoving)
                     {
@@ -2047,7 +2047,7 @@ namespace DOL.GS
             // Not implemented.
             result = EAttackResult.Any;
             return false;
-            DashingDefenseEffect dashing = null;
+            NfRaDashingDefenseEffect dashing = null;
 
             if (dashing == null ||
                 dashing.GuardSource.ObjectState != GameObject.eObjectState.Active ||
@@ -2058,7 +2058,7 @@ namespace DOL.GS
                 stealthStyle)
                 return false;
 
-            if (!dashing.GuardSource.IsWithinRadius(dashing.GuardTarget, DashingDefenseEffect.GUARD_DISTANCE))
+            if (!dashing.GuardSource.IsWithinRadius(dashing.GuardTarget, NfRaDashingDefenseEffect.GUARD_DISTANCE))
                 return false;
 
             InventoryItem leftHand = dashing.GuardSource.Inventory.GetItem(eInventorySlot.LeftHandWeapon);

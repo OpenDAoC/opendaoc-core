@@ -16,7 +16,7 @@ namespace DOL.GS.Behaviour
             //this.addActionMethod = questType.GetMethod("AddBehaviour", BindingFlags.Static | BindingFlags.Public | BindingFlags.FlattenHierarchy);            
         }                
 
-        public void AddBehavior(QuestBehaviour questPart)
+        public void AddBehavior(QuestBehavior questPart)
         {            
             //addActionMethod.Invoke(null, new object[] { questPart });
         }        

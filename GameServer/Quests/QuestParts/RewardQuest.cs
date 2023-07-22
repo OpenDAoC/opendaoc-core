@@ -12,7 +12,6 @@ namespace DOL.GS.Quests
 	/// A quest type with basic and optional item rewards using
 	/// the enhanced quest dialog.
 	/// </summary>
-	/// <author>Aredhel</author>
 	public class RewardQuest : BaseQuest
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);

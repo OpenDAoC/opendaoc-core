@@ -598,10 +598,10 @@ namespace DOL.GS.Spells
 			// Apply Mentalist RA5L.
 			if (Spell.Range > 0)
 			{
-				SelectiveBlindnessEffect SelectiveBlindness = Caster.EffectList.GetOfType<SelectiveBlindnessEffect>();
-				if (SelectiveBlindness != null)
+				NfRaSelectiveBlindnessEffect selectiveBlindness = Caster.EffectList.GetOfType<NfRaSelectiveBlindnessEffect>();
+				if (selectiveBlindness != null)
 				{
-					GameLiving EffectOwner = SelectiveBlindness.EffectSource;
+					GameLiving EffectOwner = selectiveBlindness.EffectSource;
 					if(EffectOwner==selectedTarget)
 					{
 						if (m_caster is GamePlayer && !quiet)
@@ -1335,12 +1335,12 @@ namespace DOL.GS.Spells
 				return 0;*/
 
 			//1.108 - Valhallas Blessing now has a 75% chance to not use power.
-			ValhallasBlessingEffect ValhallasBlessing = m_caster.EffectList.GetOfType<ValhallasBlessingEffect>();
-			if (ValhallasBlessing != null && UtilCollection.Chance(75))
+			NfRaValhallasBlessingEffect valhallasBlessing = m_caster.EffectList.GetOfType<NfRaValhallasBlessingEffect>();
+			if (valhallasBlessing != null && UtilCollection.Chance(75))
 				return 0;
 
 			//patch 1.108 increases the chance to not use power to 50%.
-			FungalUnionEffect FungalUnion = m_caster.EffectList.GetOfType<FungalUnionEffect>();
+			NfRaFungalUnionEffect FungalUnion = m_caster.EffectList.GetOfType<NfRaFungalUnionEffect>();
 			{
 				if (FungalUnion != null && UtilCollection.Chance(50))
 					return 0;
@@ -1698,10 +1698,10 @@ namespace DOL.GS.Spells
 							if (GameServer.ServerRules.IsAllowedToAttack(Caster, player, true))
 							{
 								// Apply Mentalist RA5L
-								SelectiveBlindnessEffect SelectiveBlindness = Caster.EffectList.GetOfType<SelectiveBlindnessEffect>();
-								if (SelectiveBlindness != null)
+								NfRaSelectiveBlindnessEffect selectiveBlindness = Caster.EffectList.GetOfType<NfRaSelectiveBlindnessEffect>();
+								if (selectiveBlindness != null)
 								{
-									GameLiving EffectOwner = SelectiveBlindness.EffectSource;
+									GameLiving EffectOwner = selectiveBlindness.EffectSource;
 									if (EffectOwner == player)
 									{
 										if (Caster is GamePlayer player1)
@@ -1843,10 +1843,10 @@ namespace DOL.GS.Spells
 						{
 							if (GameServer.ServerRules.IsAllowedToAttack(Caster, player, true))
 							{
-								SelectiveBlindnessEffect SelectiveBlindness = Caster.EffectList.GetOfType<SelectiveBlindnessEffect>();
-								if (SelectiveBlindness != null)
+								NfRaSelectiveBlindnessEffect selectiveBlindness = Caster.EffectList.GetOfType<NfRaSelectiveBlindnessEffect>();
+								if (selectiveBlindness != null)
 								{
-									GameLiving EffectOwner = SelectiveBlindness.EffectSource;
+									GameLiving EffectOwner = selectiveBlindness.EffectSource;
 									if (EffectOwner == player)
 									{
 										if (Caster is GamePlayer player1)
@@ -1879,10 +1879,10 @@ namespace DOL.GS.Spells
 							// Apply Mentalist RA5L
 							if (Spell.Range > 0)
 							{
-								SelectiveBlindnessEffect SelectiveBlindness = Caster.EffectList.GetOfType<SelectiveBlindnessEffect>();
-								if (SelectiveBlindness != null)
+								NfRaSelectiveBlindnessEffect selectiveBlindness = Caster.EffectList.GetOfType<NfRaSelectiveBlindnessEffect>();
+								if (selectiveBlindness != null)
 								{
-									GameLiving EffectOwner = SelectiveBlindness.EffectSource;
+									GameLiving EffectOwner = selectiveBlindness.EffectSource;
 									if (EffectOwner == target)
 									{
 										if (Caster is GamePlayer player)

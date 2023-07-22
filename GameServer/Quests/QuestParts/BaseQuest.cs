@@ -1,12 +1,3 @@
-/*
- * Author:		Gandulf Kohlweiss
- * Date:
- * Directory: /scripts/quests/
- *
- * Description:
- *  Brief Walkthrough:
- */
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,7 +20,6 @@ using log4net;
 
 namespace DOL.GS.Quests
 {
-
 	/// <summary>
 	/// BaseQuest provides some helper classes for writing quests and
 	/// integrates a new QuestPart Based QuestSystem.
@@ -40,8 +30,7 @@ namespace DOL.GS.Quests
 		/// Defines a logger for this class.
 		/// </summary>
 		private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-
-
+		
 		/// <summary>
 		/// DO NOT USE, always true.
 		/// Tolakram - this is not used anymore due to the fact items were saved based on the same setting
@@ -112,7 +101,7 @@ namespace DOL.GS.Quests
 			{
 				for (int i = questParts.Count - 1; i >= 0; i--)
 				{
-					RemoveBehaviour((QuestBehaviour)questParts[i]);
+					RemoveBehaviour((QuestBehavior)questParts[i]);
 				}
 			}
 			questParts = null;
@@ -125,7 +114,7 @@ namespace DOL.GS.Quests
 		/// this will not remove the questPart from the quest.
 		/// </summary>
 		/// <param name="questPart">QuestPart to remove handlers from</param>
-		protected static void UnRegisterBehaviour(QuestBehaviour questPart)
+		protected static void UnRegisterBehaviour(QuestBehavior questPart)
 		{
 			if (questPart.Triggers == null)
 				return;
@@ -140,7 +129,7 @@ namespace DOL.GS.Quests
 		/// be added as InteractQuestPart as NotifyQuestPart or both and also register the needed event handler.
 		/// </summary>
 		/// <param name="questPart">QuestPart to be added</param>
-		public static void AddBehaviour(QuestBehaviour questPart)
+		public static void AddBehaviour(QuestBehavior questPart)
 		{
 			if (questParts == null)
 				questParts = new ArrayList();
@@ -155,7 +144,7 @@ namespace DOL.GS.Quests
 		/// Remove the given questpart from the quest and also unregister the handlers
 		/// </summary>
 		/// <param name="questPart">QuestPart to be removed</param>
-		public static void RemoveBehaviour(QuestBehaviour questPart)
+		public static void RemoveBehaviour(QuestBehavior questPart)
 		{
 			if (questParts == null)
 				return;
@@ -185,7 +174,7 @@ namespace DOL.GS.Quests
 			if (questParts == null)
 				return;
 
-			foreach (QuestBehaviour questPart in questParts)
+			foreach (QuestBehavior questPart in questParts)
 			{
 				questPart.Notify(e, sender, args);
 			}

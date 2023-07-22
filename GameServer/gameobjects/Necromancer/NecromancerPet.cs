@@ -137,19 +137,19 @@ namespace DOL.GS
 						{
 							case EProperty.Strength:
 								baseBonus = Strength;
-								augRaBonus = AtlasRAHelpers.GetStatEnhancerAmountForLevel(playerOwner != null ? AtlasRAHelpers.GetAugStrLevel(playerOwner) : 0);
+								augRaBonus = OfRaHelpers.GetStatEnhancerAmountForLevel(playerOwner != null ? OfRaHelpers.GetAugStrLevel(playerOwner) : 0);
 								break;
 							case EProperty.Dexterity:
 								baseBonus = Dexterity;
-								augRaBonus = AtlasRAHelpers.GetStatEnhancerAmountForLevel(playerOwner != null ? AtlasRAHelpers.GetAugDexLevel(playerOwner) : 0);
+								augRaBonus = OfRaHelpers.GetStatEnhancerAmountForLevel(playerOwner != null ? OfRaHelpers.GetAugDexLevel(playerOwner) : 0);
 								break;
 							case EProperty.Quickness:
 								baseBonus = Quickness;
-								augRaBonus = AtlasRAHelpers.GetStatEnhancerAmountForLevel(playerOwner != null ? AtlasRAHelpers.GetAugQuiLevel(playerOwner) : 0);
+								augRaBonus = OfRaHelpers.GetStatEnhancerAmountForLevel(playerOwner != null ? OfRaHelpers.GetAugQuiLevel(playerOwner) : 0);
 								break;
 							case EProperty.Intelligence:
 								baseBonus = Intelligence;
-								augRaBonus = AtlasRAHelpers.GetStatEnhancerAmountForLevel(playerOwner != null ? AtlasRAHelpers.GetAugAcuityLevel(playerOwner) : 0);
+								augRaBonus = OfRaHelpers.GetStatEnhancerAmountForLevel(playerOwner != null ? OfRaHelpers.GetAugAcuityLevel(playerOwner) : 0);
 								break;
 						}
 
@@ -201,7 +201,7 @@ namespace DOL.GS
 						
 						int totalBonus = conBonus + hitsBonus;
 
-						AtlasOF_ToughnessAbility toughness = playerOwner?.GetAbility<AtlasOF_ToughnessAbility>();
+						OfRaToughnessHandler toughness = playerOwner?.GetAbility<OfRaToughnessHandler>();
 						double toughnessMod = toughness != null ? 1 + toughness.GetAmountForLevel(toughness.Level) * 0.01 : 1;
 
 						return (int)(totalBonus * toughnessMod);

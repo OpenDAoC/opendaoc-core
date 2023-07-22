@@ -23,20 +23,20 @@ namespace DOL.GS.Quests
             this.addActionMethod = questType.GetMethod("AddBehaviour", BindingFlags.Static | BindingFlags.Public | BindingFlags.FlattenHierarchy);            
         }                
 
-        public void AddBehaviour(QuestBehaviour questPart)
+        public void AddBehaviour(QuestBehavior questPart)
         {            
             addActionMethod.Invoke(null, new object[] { questPart });
         }        
 
-        public QuestBehaviour CreateBehaviour(GameNPC npc)
+        public QuestBehavior CreateBehaviour(GameNPC npc)
         {
-            QuestBehaviour questPart =  new QuestBehaviour(questType, npc);            
+            QuestBehavior questPart =  new QuestBehavior(questType, npc);            
             return questPart;
         }
 
-        public QuestBehaviour CreateBehaviour(GameNPC npc, int maxExecutions)
+        public QuestBehavior CreateBehaviour(GameNPC npc, int maxExecutions)
         {
-            QuestBehaviour questPart = new QuestBehaviour(questType, npc,maxExecutions);
+            QuestBehavior questPart = new QuestBehavior(questType, npc,maxExecutions);
             return questPart;
         }
     }

@@ -30,7 +30,7 @@ namespace DOL.GS.Spells
 				OnSpellResisted(target);
 				return;
 			}
-			if (target.EffectList.GetOfType<ChargeEffect>() != null)
+			if (target.EffectList.GetOfType<NfRaChargeEffect>() != null)
 			{
 				MessageToCaster(target.Name + " is moving to fast for this spell to have any effect!", EChatType.CT_SpellResisted);
 				return;

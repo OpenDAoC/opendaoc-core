@@ -26,14 +26,14 @@ namespace DOL.GS.PropertyCalc
 			if (living is GamePlayer archer && volley != null)
 			{
 				chance += 10;
-				if (archer.GetAbility<RealmAbilities.AtlasOF_FalconsEye>() is RealmAbilities.AtlasOF_FalconsEye falcon_eye)
+				if (archer.GetAbility<RealmAbilities.OfRaFalconsEyeHandler>() is RealmAbilities.OfRaFalconsEyeHandler falcon_eye)
 					chance += falcon_eye.Amount;
 			}
 			if (living is GameSummonedPet gamePet)
 			{
 				if (ServerProperties.ServerProperties.EXPAND_WILD_MINION && gamePet.Brain is IControlledBrain playerBrain
 					&& playerBrain.GetPlayerOwner() is GamePlayer player
-					&& player.GetAbility<RealmAbilities.AtlasOF_WildMinionAbility>() is RealmAbilities.AtlasOF_WildMinionAbility ab)
+					&& player.GetAbility<RealmAbilities.OfRaWildMinionHandler>() is RealmAbilities.OfRaWildMinionHandler ab)
 					chance += ab.Amount;
 			}
 			else // not a pet

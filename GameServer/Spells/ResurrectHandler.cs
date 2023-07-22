@@ -118,7 +118,7 @@ namespace DOL.GS.Spells
 						// Reset PR cooldown if it wasnt accepted.
 						if (IsPerfectRecovery() && Ability != null)
                         {
-							AtlasOF_PerfectRecovery PRAbility = Ability as AtlasOF_PerfectRecovery;
+							OfRaPerfectRecoveryHandler PRAbility = Ability as OfRaPerfectRecoveryHandler;
 							PRAbility.OnRezDeclined(Caster as GamePlayer);
 						}
 					}
@@ -191,7 +191,7 @@ namespace DOL.GS.Spells
 				//player.Notify(GamePlayerEvent.Revive, player, new RevivedEventArgs(Caster, Spell));
 
 				//Lifeflight add this should make it so players who have been ressurected don't take damage for 5 seconds
-				RezDmgImmunityEffect rezImmune = new RezDmgImmunityEffect();
+				NfRaRezDmgImmunityEffect rezImmune = new NfRaRezDmgImmunityEffect();
                 rezImmune.Start(player);
 
 				IList<GameObject> attackers;

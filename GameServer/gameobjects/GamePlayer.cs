@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using Core.GS.GameUtils;
 using Core.GS.Players.Loyalty;
+using Core.GS.RealmAbilities;
 using DOL.AI;
 using DOL.AI.Brain;
 using DOL.Database;
@@ -2740,7 +2741,7 @@ namespace DOL.GS
                     {
                         #region Calculation : AtlasOF_LongWind
                         // --- [START] --- AtlasOF_EtherealBond --------------------------------------------------------
-                        AtlasOF_LongWindAbility raLongWind = GetAbility<AtlasOF_LongWindAbility>();
+                        OfRaLongWindHandler raLongWind = GetAbility<OfRaLongWindHandler>();
                         if (raLongWind != null)
                         {
                             longwind -= (raLongWind.GetAmountForLevel(CalculateSkillLevel(raLongWind)) * 5 / 100);
@@ -2889,7 +2890,7 @@ namespace DOL.GS
 
             #region Calculation : AtlasOF_EtheralBond
             // --- [START] --- AtlasOF_EtherealBond --------------------------------------------------------
-            AtlasOF_EtherealBondAbility raEtherealBond = GetAbility<AtlasOF_EtherealBondAbility>();
+            OfRaEtherealBondHandler raEtherealBond = GetAbility<OfRaEtherealBondHandler>();
             if (raEtherealBond != null)
             {
                 if (raEtherealBond.Level > 0)
@@ -4236,7 +4237,7 @@ namespace DOL.GS
         public virtual int RealmSpecialtyPoints
         {
             get { return GameServer.ServerRules.GetPlayerRealmPointsTotal(this) 
-                         - GetRealmAbilities().Where(ab => !(ab is RR5RealmAbility))
+                         - GetRealmAbilities().Where(ab => !(ab is Rr5RealmAbility))
                              .Sum(ab => Enumerable.Range(0, ab.Level).Sum(i => ab.CostForUpgrade(i))); }
         }
 
@@ -6065,7 +6066,7 @@ namespace DOL.GS
 
             if (effectListComponent.ContainsEffectForEffectType(EEffect.Volley))
             {
-                AtlasOF_VolleyECSEffect volley = (AtlasOF_VolleyECSEffect)EffectListService.GetEffectOnTarget(this, EEffect.Volley);
+                OfRaVolleyEcsEffect volley = (OfRaVolleyEcsEffect)EffectListService.GetEffectOnTarget(this, EEffect.Volley);
 
                 if (volley != null)
                     volley.OnPlayerSwitchedWeapon();
@@ -10181,7 +10182,7 @@ namespace DOL.GS
 
             if (effectListComponent.ContainsEffectForEffectType(EEffect.Volley))
             {
-                AtlasOF_VolleyECSEffect volley = (AtlasOF_VolleyECSEffect)EffectListService.GetEffectOnTarget(this, EEffect.Volley);
+                OfRaVolleyEcsEffect volley = (OfRaVolleyEcsEffect)EffectListService.GetEffectOnTarget(this, EEffect.Volley);
 
                 if (volley != null)
                     volley.OnPlayerMoved();
@@ -10324,7 +10325,7 @@ namespace DOL.GS
             get
             {
                 double enc = (double)Strength;
-                RAPropertyEnhancer ab = GetAbility<AtlasOF_LifterAbility>();
+                RaPropertyEnhancer ab = GetAbility<OfRaLifterHandler>();
                 if (ab != null)
                     enc *= 1 + ((double)ab.Amount / 100);
 
@@ -12572,7 +12573,7 @@ namespace DOL.GS
                 return false;
             if (!IsAlive)
                 return false;
-            if (enemy.EffectList.GetOfType<VanishEffect>() != null)
+            if (enemy.EffectList.GetOfType<NfRaVanishEffect>() != null)
                 return false;
             if (this.Client.Account.PrivLevel > 1)
                 return true;
@@ -12582,7 +12583,7 @@ namespace DOL.GS
             if (this.effectListComponent.ContainsEffectForEffectType(EEffect.TrueSight))
                 return true;
 
-            if (HasAbilityType(typeof(AtlasOF_SeeHidden)) 
+            if (HasAbilityType(typeof(OfRaSeeHiddenHandler)) 
                 && ( enemy.CharacterClass is ClassMinstrel 
                      || enemy.CharacterClass is ClassRanger
                      || enemy.CharacterClass is ClassHunter
@@ -15317,7 +15318,7 @@ namespace DOL.GS
             //	evade = SpellHandler.FindEffectOnTarget(this, "SavageEvadeBuff");
             ECSGameEffect evade = EffectListService.GetEffectOnTarget(this, EEffect.SavageBuff, ESpellType.SavageEvadeBuff);
 
-            if (HasAbility(Abilities.Advanced_Evade) || HasAbility(Abilities.Enhanced_Evade) || EffectList.GetOfType<CombatAwarenessEffect>() != null || EffectList.GetOfType<RuneOfUtterAgilityEffect>() != null)
+            if (HasAbility(Abilities.Advanced_Evade) || HasAbility(Abilities.Enhanced_Evade) || EffectList.GetOfType<NfRaCombatAwarenessEffect>() != null || EffectList.GetOfType<NfRaRuneOfUtterAgilityEffect>() != null)
                 evadeChance = GetModified(EProperty.EvadeChance);
             else if (evade != null || HasAbility(Abilities.Evade))
             {
@@ -15375,7 +15376,7 @@ namespace DOL.GS
 
             if ((HasSpecialization(Specs.Parry) || parry != null) && (ActiveWeapon != null))
                 parryChance = GetModified(EProperty.ParryChance);
-            else if (EffectList.GetOfType<BladeBarrierEffect>() != null)
+            else if (EffectList.GetOfType<NfRaBladeBarrierEffect>() != null)
                 parryChance = GetModified(EProperty.ParryChance);
 
             if (parryChance > 0)

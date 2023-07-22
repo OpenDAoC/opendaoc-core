@@ -555,7 +555,7 @@ namespace DOL.GS.Spells
 
 		public override void ApplyEffectOnTarget(GameLiving target, double effectiveness)
 		{
-			foreach (JuggernautEffect jg in target.EffectList.GetAllOfType<JuggernautEffect>())
+			foreach (NfRaJuggernautEffect jg in target.EffectList.GetAllOfType<NfRaJuggernautEffect>())
 			{
 				if (jg != null)
 				{

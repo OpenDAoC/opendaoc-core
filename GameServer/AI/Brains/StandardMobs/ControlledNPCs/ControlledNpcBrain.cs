@@ -448,7 +448,7 @@ namespace DOL.AI.Brain
 							GameServer.ServerRules.IsAllowedToAttack(Body, target, true) &&
 							!Body.IsWithinRadius(target, 500))
 						{
-							ChargeAbility charge = Body.GetAbility<ChargeAbility>();
+							NfRaChargeHandler charge = Body.GetAbility<NfRaChargeHandler>();
 
 							if (charge != null && Body.GetSkillDisabledDuration(charge) <= 0)
 								charge.Execute(Body);

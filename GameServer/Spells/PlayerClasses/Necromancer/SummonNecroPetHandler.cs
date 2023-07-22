@@ -29,7 +29,7 @@ namespace DOL.GS.Spells
 			// Check current item bonuses for constitution and hits (including cap increases) of the caster.
 			// Bonus from Aug.Con is applied as well. Thoughness is applied later on.
 			int hitsCap = MaxHealthCalculator.GetItemBonusCap(Caster) + MaxHealthCalculator.GetItemBonusCapIncrease(Caster);
-			int conFromRa = AtlasRAHelpers.GetStatEnhancerAmountForLevel(Caster is GamePlayer playerOwner  ? AtlasRAHelpers.GetAugConLevel(playerOwner) : 0);
+			int conFromRa = OfRaHelpers.GetStatEnhancerAmountForLevel(Caster is GamePlayer playerOwner  ? OfRaHelpers.GetAugConLevel(playerOwner) : 0);
 
 			m_summonConBonus = Caster.GetModifiedFromItems(EProperty.Constitution) + conFromRa;
 			m_summonHitsBonus = Math.Min(Caster.ItemBonus[(int)EProperty.MaxHealth], hitsCap);
@@ -63,7 +63,7 @@ namespace DOL.GS.Spells
 		/// <returns></returns>
 		public override int CalculateCastingTime()
 		{
-			if (Caster.EffectList.GetOfType<CallOfDarknessEffect>() != null)
+			if (Caster.EffectList.GetOfType<NfRaCallOfDarknessEffect>() != null)
 				return 3000;
 
 			return base.CalculateCastingTime();
@@ -83,7 +83,7 @@ namespace DOL.GS.Spells
 
 			// Cancel RR5 Call of Darkness if on caster.
 
-			IGameEffect callOfDarkness = FindStaticEffectOnTarget(Caster, typeof(CallOfDarknessEffect));
+			IGameEffect callOfDarkness = FindStaticEffectOnTarget(Caster, typeof(NfRaCallOfDarknessEffect));
 			if (callOfDarkness != null)
 				callOfDarkness.Cancel(false);
 		}

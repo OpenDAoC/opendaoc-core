@@ -30,7 +30,7 @@ namespace DOL.GS.Quests
     /// at the moment there are: GiveItem, TakeItem, Talk, Give Quest, Increase Quest Step, FinishQuest,
     /// etc....
 	/// </summary>
-	public class QuestBehaviour : BaseBehavior
+	public class QuestBehavior : BaseBehavior
     {
 
         public const string NUMBER_OF_EXECUTIONS = "quest.numberOfExecutions";
@@ -70,7 +70,7 @@ namespace DOL.GS.Quests
         /// </summary>
         /// <param name="questType">type of Quest this QuestPart will belong to.</param>
         /// <param name="npc">NPC associated with his questpart typically NPC talking to or mob killing, etc...</param>        
-        public QuestBehaviour(Type questType, GameNPC npc) 
+        public QuestBehavior(Type questType, GameNPC npc) 
             : this (questType,npc,-1) { }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace DOL.GS.Quests
         /// <param name="questType">type of Quest this QuestPart will belong to.</param>
         /// <param name="npc">NPC associated with his questpart typically NPC talking to or mob killing, etc...</param>        
         /// <param name="executions">Maximum number of executions the questpart should be execute during one quest for each player</param>
-        public QuestBehaviour(Type questType, GameNPC npc, int executions) : base (npc)
+        public QuestBehavior(Type questType, GameNPC npc, int executions) : base (npc)
         {
             this.questType = questType;            
             this.maxNumberOfExecutions = executions;            

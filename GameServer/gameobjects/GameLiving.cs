@@ -1165,7 +1165,7 @@ namespace DOL.GS
 					CheckRangedAttackInterrupt(attacker, attackType);
 				else if (effectListComponent.ContainsEffectForEffectType(EEffect.Volley))
 				{
-					AtlasOF_VolleyECSEffect volley = (AtlasOF_VolleyECSEffect)EffectListService.GetEffectOnTarget(this, EEffect.Volley);
+					OfRaVolleyEcsEffect volley = (OfRaVolleyEcsEffect)EffectListService.GetEffectOnTarget(this, EEffect.Volley);
 
 					if (volley != null)
 						volley.OnAttacked();
@@ -1331,7 +1331,7 @@ namespace DOL.GS
 
 			if (weapon.PoisonSpellID != 0)
 			{
-				if (ad.Target.EffectList.GetOfType<RemedyEffect>() != null)
+				if (ad.Target.EffectList.GetOfType<NfRaRemedyEffect>() != null)
 				{
 					if (this is GamePlayer)
 						(this as GamePlayer).Out.SendMessage(LanguageMgr.GetTranslation((this as GamePlayer).Client.Account.Language, "GameLiving.CheckWeaponMagicalEffect.Protected"), EChatType.CT_Important, EChatLoc.CL_SystemWindow);
@@ -1466,8 +1466,8 @@ namespace DOL.GS
 			{
 				if (player.HasAbility(Abilities.Advanced_Evade) ||
 					player.HasAbility(Abilities.Enhanced_Evade) ||
-				    player.EffectList.GetOfType<CombatAwarenessEffect>() != null ||
-				    player.EffectList.GetOfType<RuneOfUtterAgilityEffect>() != null)
+				    player.EffectList.GetOfType<NfRaCombatAwarenessEffect>() != null ||
+				    player.EffectList.GetOfType<NfRaRuneOfUtterAgilityEffect>() != null)
 					evadeChance = GetModified( EProperty.EvadeChance );
 				else if( IsObjectInFront( ad.Attacker, 180 ) && ( evadeBuff != null || player.HasAbility( Abilities.Evade ) ) )
 				{
@@ -1528,10 +1528,10 @@ namespace DOL.GS
 			GamePlayer p = ad.Attacker as GamePlayer;
 			if (p != null)
 			{
-				OverwhelmEffect Overwhelm = (OverwhelmEffect)p.EffectList.GetOfType<OverwhelmEffect>();
-				if (Overwhelm != null)
+				NfRaOverwhelmEffect overwhelm = (NfRaOverwhelmEffect)p.EffectList.GetOfType<NfRaOverwhelmEffect>();
+				if (overwhelm != null)
 				{
-					evadeChance = Math.Max(evadeChance - OverwhelmAbility.BONUS, 0);
+					evadeChance = Math.Max(evadeChance - NfRaOverwhelmHandler.BONUS, 0);
 				}
 			}
 
@@ -1565,7 +1565,7 @@ namespace DOL.GS
 			if( ad.IsMeleeAttack )
 			{
 				GamePlayer player = this as GamePlayer;
-				BladeBarrierEffect BladeBarrier = null;
+				NfRaBladeBarrierEffect BladeBarrier = null;
 
 				//GameSpellEffect parryBuff = SpellHandler.FindEffectOnTarget( this, "ParryBuff");
 				ECSGameEffect parryBuff = EffectListService.GetEffectOnTarget(this, EEffect.SavageBuff, ESpellType.SavageParryBuff);
@@ -1575,7 +1575,7 @@ namespace DOL.GS
 				if( player != null )
 				{
 					//BladeBarrier overwrites all parrying, 90% chance to parry any attack, does not consider other bonuses to parry
-					BladeBarrier = player.EffectList.GetOfType<BladeBarrierEffect>();
+					BladeBarrier = player.EffectList.GetOfType<NfRaBladeBarrierEffect>();
 					//They still need an active weapon to parry with BladeBarrier
 					if( BladeBarrier != null && (ActiveWeapon != null ) )
 					{
@@ -1635,10 +1635,10 @@ namespace DOL.GS
 			GamePlayer p = ad.Attacker as GamePlayer;
 			if (p != null)
 			{
-				OverwhelmEffect Overwhelm = (OverwhelmEffect)p.EffectList.GetOfType<OverwhelmEffect>();
-				if (Overwhelm != null)
+				NfRaOverwhelmEffect overwhelm = (NfRaOverwhelmEffect)p.EffectList.GetOfType<NfRaOverwhelmEffect>();
+				if (overwhelm != null)
 				{
-					parryChance = Math.Max(parryChance - OverwhelmAbility.BONUS, 0);
+					parryChance = Math.Max(parryChance - NfRaOverwhelmHandler.BONUS, 0);
 				}
 			}
 			return parryChance;
@@ -1746,10 +1746,10 @@ namespace DOL.GS
 			// Infi RR5
 			if (player != null)
 			{
-				OverwhelmEffect Overwhelm = player.EffectList.GetOfType<OverwhelmEffect>();
+				NfRaOverwhelmEffect overwhelm = player.EffectList.GetOfType<NfRaOverwhelmEffect>();
 
-				if (Overwhelm != null)
-					blockChance = Math.Max(blockChance - OverwhelmAbility.BONUS, 0);
+				if (overwhelm != null)
+					blockChance = Math.Max(blockChance - NfRaOverwhelmHandler.BONUS, 0);
 			}
 
 			return blockChance;
@@ -1835,7 +1835,7 @@ namespace DOL.GS
 			if (attackerPlayer != null && attackerPlayer != this)
 			{
 				// Apply Mauler RA5L
-				GiftOfPerizorEffect GiftOfPerizor = EffectList.GetOfType<GiftOfPerizorEffect>();
+				NfRaGiftOfPerizorEffect GiftOfPerizor = EffectList.GetOfType<NfRaGiftOfPerizorEffect>();
 				if (GiftOfPerizor != null)
 				{
 					int difference = (int)(0.25 * damageDealt); // RA absorb 25% damage
@@ -3399,7 +3399,7 @@ namespace DOL.GS
 			
 			#region Calculation : AtlasOF_Serenity
 			// --- [START] --- AtlasOF_Serenity -----------------------------------------------------------
-			AtlasOF_SerenityAbility raSerenity = GetAbility<AtlasOF_SerenityAbility>();
+			OfRaSerenityHandler raSerenity = GetAbility<OfRaSerenityHandler>();
 			if (raSerenity != null)
 			{
 				if (raSerenity.Level > 0)

@@ -45,7 +45,7 @@ namespace DOL.GS.PropertyCalc
 			// 	regen++;
 			
 			// --- [START] --- AtlasOF_Tireless ---------------------------------------------------------
-			var raTireless = living.GetAbility<AtlasOF_RAEndRegenEnhancer>();
+			var raTireless = living.GetAbility<OfRaEndRegenEnhancerHandler>();
 
 			if (raTireless != null)
 			{

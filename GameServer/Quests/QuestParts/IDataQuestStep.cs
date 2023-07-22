@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DOL.GS.Quests
+﻿namespace DOL.GS.Quests
 {
 	public enum eStepCheckType : int
 	{

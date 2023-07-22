@@ -155,7 +155,7 @@ namespace DOL.GS.Spells
 		protected override int CalculateEffectDuration(GameLiving target, double effectiveness)
 		{
 			double modifier = 1.0;
-			RealmAbilities.VeilRecoveryAbility ab = target.GetAbility<RealmAbilities.VeilRecoveryAbility>();
+			RealmAbilities.NfRaVeilRecoveryHandler ab = target.GetAbility<RealmAbilities.NfRaVeilRecoveryHandler>();
 			if (ab != null)
 				modifier -= ((double)ab.Amount / 100);
 

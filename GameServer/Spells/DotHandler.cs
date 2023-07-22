@@ -1,4 +1,5 @@
 using System;
+using Core.GS.RealmAbilities;
 using DOL.AI.Brain;
 using DOL.GS.Effects;
 using DOL.GS.PacketHandler;
@@ -80,7 +81,7 @@ namespace DOL.GS.Spells
 			AttackData ad = base.CalculateDamageToTarget(target, effectiveness);
             if (this.SpellLine.KeyName == GlobalSpellsLines.Mundane_Poisons)
             {
-                RealmAbilities.L3RAPropertyEnhancer ra = Caster.GetAbility<RealmAbilities.ViperAbility>();
+                L3RaPropertyEnhancer ra = Caster.GetAbility<RealmAbilities.NfRaViperAbility>();
 				if (ra != null)
 				{
 					int additional = (int)((float)ad.Damage * ((float)ra.Amount / 100));

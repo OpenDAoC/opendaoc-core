@@ -2,11 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Specialized;
 using System.Reflection;
-using System.Linq;
-
 using log4net;
-
-// using DOL.GS.Quests.Atlantis;
 using DOL.Database;
 
 namespace DOL.GS.Quests
