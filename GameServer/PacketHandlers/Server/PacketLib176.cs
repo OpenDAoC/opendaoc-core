@@ -96,7 +96,7 @@ namespace DOL.GS.PacketHandler
 				ushort model = obj.Model;
 				if (obj.IsUnderwater)
 				{
-					if (obj is GameNPC)
+					if (obj is GameNpc)
 						model |= 0x8000;
 					else
 						flag |= 0x01; // Underwater
@@ -259,7 +259,7 @@ namespace DOL.GS.PacketHandler
 							if (ServerProperties.ServerProperties.CONSIGNMENT_USE_BP)
 	                            name += "[" + item.SellPrice.ToString() + " BP]";
 	                        else
-	                            name += "[" + Money.GetString(item.SellPrice) + "]";
+	                            name += "[" + MoneyUtil.GetString(item.SellPrice) + "]";
 	                    }
 						pak.WritePascalString(name);
 					}

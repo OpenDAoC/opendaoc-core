@@ -150,9 +150,9 @@ namespace DOL.GS.Spells
 					m_handler.MessageToLiving(target, caster.GetName(0, false) + " missed!", EChatType.CT_Missed);
 					target.OnAttackedByEnemy(ad);
 					target.StartInterruptTimer(target.SpellInterruptDuration, ad.AttackType, caster);
-					if (target is GameNPC)
+					if (target is GameNpc)
 					{
-						IOldAggressiveBrain aggroBrain = ((GameNPC)target).Brain as IOldAggressiveBrain;
+						IOldAggressiveBrain aggroBrain = ((GameNpc)target).Brain as IOldAggressiveBrain;
 						if (aggroBrain != null)
 							aggroBrain.AddToAggroList(caster, 1);
 					}

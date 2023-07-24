@@ -179,7 +179,7 @@ namespace DOL.GS
 		}
 
 
-		public NpcTemplate( GameNPC mob )
+		public NpcTemplate( GameNpc mob )
 		{
 			if (mob == null)
 				throw new ArgumentNullException("data");

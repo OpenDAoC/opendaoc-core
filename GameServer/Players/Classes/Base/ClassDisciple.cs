@@ -3,8 +3,8 @@ using DOL.GS.Realm;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)ECharacterClass.Disciple, "Disciple", "Disciple")]
-	public class ClassDisciple : CharacterClassBase
+	[PlayerClass((int)ECharacterClass.Disciple, "Disciple", "Disciple")]
+	public class ClassDisciple : PlayerClassBase
 	{
 		public ClassDisciple()
 			: base()

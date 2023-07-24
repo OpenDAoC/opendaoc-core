@@ -22,7 +22,7 @@ namespace DOL.GS.DailyQuest.Albion
 		// Kill Goal
 		private const int MAX_KILLED = 10;
 		
-		private static GameNPC James = null; // Start NPC
+		private static GameNpc James = null; // Start NPC
 
 		private int danaoinKilled = 0;
 
@@ -61,10 +61,10 @@ namespace DOL.GS.DailyQuest.Albion
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("James", ERealm.Albion);
+			GameNpc[] npcs = WorldMgr.GetNPCsByName("James", ERealm.Albion);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 51 && npc.X == 534044 && npc.Y == 549664)
 					{
 						James = npc;
@@ -75,7 +75,7 @@ namespace DOL.GS.DailyQuest.Albion
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find James , creating it ...");
-				James = new GameNPC();
+				James = new GameNpc();
 				James.Model = 254;
 				James.Name = "James";
 				James.GuildName = "Advisor To The King";
@@ -340,7 +340,7 @@ namespace DOL.GS.DailyQuest.Albion
 		public override void FinishQuest()
 		{
 			m_questPlayer.ForceGainExperience((m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel)/10);
-			m_questPlayer.AddMoney(Money.GetMoney(0,0,m_questPlayer.Level,50,UtilCollection.Random(50)), "You receive {0} as a reward.");
+			m_questPlayer.AddMoney(MoneyUtil.GetMoney(0,0,m_questPlayer.Level,50,UtilCollection.Random(50)), "You receive {0} as a reward.");
 			RogMgr.GenerateReward(m_questPlayer, 100);
 			danaoinKilled = 0;
 			base.FinishQuest(); //Defined in Quest, changes the state, stores in DB etc ...

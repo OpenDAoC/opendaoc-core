@@ -86,10 +86,10 @@ namespace DOL.GS.GameEvents
 			if (STARTING_MONEY > 0)
 			{
 				long value = STARTING_MONEY;
-				ch.Copper = Money.GetCopper(value);
-				ch.Silver = Money.GetSilver(value);
-				ch.Gold = Money.GetGold(value);
-				ch.Platinum = Money.GetPlatinum(value);
+				ch.Copper = MoneyUtil.GetCopper(value);
+				ch.Silver = MoneyUtil.GetSilver(value);
+				ch.Gold = MoneyUtil.GetGold(value);
+				ch.Platinum = MoneyUtil.GetPlatinum(value);
 			}
 
 			// Property Realm Level

@@ -1,4 +1,5 @@
 ﻿using System;
+using Core.GS.Players.Classes.Animist;
 using DOL.Database;
 using DOL.Events;
 using DOL.GS;
@@ -301,7 +302,7 @@ namespace DOL.Tests.Unit.Gameserver
             var spell = NewFakeSpell();
             spell.Damage = 100;
             var source = NewFakePlayer();
-            source.fakeCharacterClass = new CharacterClassAnimist();
+            source.fakeCharacterClass = new ClassAnimistOwner();
             source.modifiedIntelligence = 100;
             var target = NewFakePlayer();
             var spellLine = NewSpellLine();
@@ -319,7 +320,7 @@ namespace DOL.Tests.Unit.Gameserver
             var spell = NewFakeSpell();
             spell.Damage = 100;
             var owner = NewFakePlayer();
-            owner.fakeCharacterClass = new CharacterClassAnimist();
+            owner.fakeCharacterClass = new ClassAnimistOwner();
             owner.modifiedIntelligence = 100;
             owner.Level = 50; 
             var brain = new FakeControlledBrain();
@@ -507,7 +508,7 @@ namespace DOL.Tests.Unit.Gameserver
 
             public FakePlayerSpy() : base()
             {
-                fakeCharacterClass = new DefaultCharacterClass();
+                fakeCharacterClass = new DefaultPlayerClass();
                 fakeRegion.FakeElapsedTime = 0;
             }
 

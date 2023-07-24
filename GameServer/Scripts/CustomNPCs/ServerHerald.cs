@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace DOL.GS.Scripts
 {
-    public class ServerHerald : GameNPC
+    public class ServerHerald : GameNpc
     {
 
         public ServerHerald() : base() { }

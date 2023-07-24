@@ -3,8 +3,8 @@ using DOL.GS.Realm;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)ECharacterClass.Seer, "Seer", "Seer")]
-	public class ClassSeer : CharacterClassBase
+	[PlayerClass((int)ECharacterClass.Seer, "Seer", "Seer")]
+	public class ClassSeer : PlayerClassBase
 	{
 		public ClassSeer()
 			: base()

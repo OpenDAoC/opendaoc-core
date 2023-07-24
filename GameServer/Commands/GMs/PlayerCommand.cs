@@ -2281,7 +2281,7 @@ namespace DOL.GS.Commands
 			text.Add("  - Realm Level Class : " + GlobalConstants.RealmToName(player.Realm) + " " + player.Level + " " +
 					 player.CharacterClass.Name);
 			text.Add(" ");
-			text.Add(Money.GetShortString(player.GetCurrentMoney()));
+			text.Add(MoneyUtil.GetShortString(player.GetCurrentMoney()));
 			text.Add(" ");
 
 			bool limitShown = false;
@@ -2437,7 +2437,7 @@ namespace DOL.GS.Commands
 				text.Add("  - Master Levels :  Not Started");
 			}
 			text.Add("  - Craftingskill : " + player.CraftingPrimarySkill + "");
-			text.Add("  - Money : " + Money.GetString(player.GetCurrentMoney()) + "");
+			text.Add("  - Money : " + MoneyUtil.GetString(player.GetCurrentMoney()) + "");
 			text.Add("  - Model ID : " + player.Model);
 			text.Add("  - Region OID : " + player.ObjectID);
 			text.Add("  - AFK Message: " + player.TempProperties.getProperty<string>(GamePlayer.AFK_MESSAGE) + "");

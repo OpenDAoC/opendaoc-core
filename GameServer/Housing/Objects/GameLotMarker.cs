@@ -30,7 +30,7 @@ namespace DOL.GS.Housing
 
 			if (string.IsNullOrEmpty(DatabaseItem.OwnerID))
 			{
-				list.Add(" It can be bought for " + Money.GetString(HouseTemplateMgr.GetLotPrice(DatabaseItem)) + ".");
+				list.Add(" It can be bought for " + MoneyUtil.GetString(HouseTemplateMgr.GetLotPrice(DatabaseItem)) + ".");
 			}
 			else if (!string.IsNullOrEmpty(DatabaseItem.Name))
 			{
@@ -59,7 +59,7 @@ namespace DOL.GS.Housing
 
 			if (string.IsNullOrEmpty(DatabaseItem.OwnerID))
 			{
-				player.Out.SendCustomDialog("Do you want to buy this lot?\r\n It costs " + Money.GetString(HouseTemplateMgr.GetLotPrice(DatabaseItem)) + "!", BuyLot);
+				player.Out.SendCustomDialog("Do you want to buy this lot?\r\n It costs " + MoneyUtil.GetString(HouseTemplateMgr.GetLotPrice(DatabaseItem)) + "!", BuyLot);
 			}
 			else
 			{

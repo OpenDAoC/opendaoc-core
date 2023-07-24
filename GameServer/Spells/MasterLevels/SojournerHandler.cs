@@ -47,7 +47,7 @@ namespace DOL.GS.Spells
             if (target == null || !target.IsAlive)
                 return;
 
-            foreach (GameNPC item in target.GetNPCsInRadius((ushort)m_spell.Radius))
+            foreach (GameNpc item in target.GetNPCsInRadius((ushort)m_spell.Radius))
             {
                 if (item != null && item is GameMine)
                 {
@@ -109,7 +109,7 @@ namespace DOL.GS.Spells
                 merchant.MaxSpeedBase = 0;
                 merchant.GuildName = "";
                 merchant.Size = 50;
-                merchant.Flags |= GameNPC.eFlags.PEACE;
+                merchant.Flags |= GameNpc.eFlags.PEACE;
                 merchant.TradeItems = new MerchantTradeItems("ML_transmuteritems");
             }
         }
@@ -165,7 +165,7 @@ namespace DOL.GS.Spells
     public class FzHandler : MasterLevelHandling
     {
         protected ECSGameTimer m_expireTimer;
-        protected GameNPC m_npc;
+        protected GameNpc m_npc;
         protected GamePlayer m_target;
 		protected IPoint3D m_loc;
 
@@ -187,7 +187,7 @@ namespace DOL.GS.Spells
                 return false;
             }
 
-            if (target is GameNPC == true)
+            if (target is GameNpc == true)
                 return false;
 
             if (!GameServer.ServerRules.IsAllowedToAttack(Caster, target, true))
@@ -199,7 +199,7 @@ namespace DOL.GS.Spells
         private void Zephyr(GamePlayer target)
         {
             if (!target.IsAlive || target.ObjectState != GameLiving.eObjectState.Active) return;
-            GameNPC npc = new GameNPC();
+            GameNpc npc = new GameNpc();
 
             m_npc = npc;
 
@@ -213,9 +213,9 @@ namespace DOL.GS.Spells
             npc.MaxSpeedBase = 400;
             npc.Level = 55;
             npc.CurrentRegion = Caster.CurrentRegion;
-            npc.Flags |= GameNPC.eFlags.PEACE;
-            npc.Flags |= GameNPC.eFlags.DONTSHOWNAME;
-			npc.Flags |= GameNPC.eFlags.CANTTARGET;
+            npc.Flags |= GameNpc.eFlags.PEACE;
+            npc.Flags |= GameNpc.eFlags.DONTSHOWNAME;
+			npc.Flags |= GameNpc.eFlags.CANTTARGET;
             BlankBrain brain = new BlankBrain();
             npc.SetOwnBrain(brain);
             npc.AddToWorld();
@@ -281,7 +281,7 @@ namespace DOL.GS.Spells
 
         private void ArriveAtTarget(CoreEvent e, object obj, EventArgs args)
         {
-            GameNPC npc = obj as GameNPC;
+            GameNpc npc = obj as GameNpc;
 
             if (npc == null) return;
 

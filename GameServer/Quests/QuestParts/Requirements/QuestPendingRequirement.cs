@@ -27,7 +27,7 @@ namespace DOL.GS.Quests.Requirements
 		/// <param name="n"></param>
 		/// <param name="v"></param>
 		/// <param name="comp"></param>
-        public QuestPendingRequirement(GameNPC defaultNPC, Object n, Object v, eComparator comp)
+        public QuestPendingRequirement(GameNpc defaultNPC, Object n, Object v, eComparator comp)
             : base(defaultNPC,eRequirementType.QuestPending, n, v, comp)
 		{   			
 		}
@@ -38,7 +38,7 @@ namespace DOL.GS.Quests.Requirements
         /// <param name="defaultNPC"></param>
         /// <param name="questType"></param>
         /// <param name="comp"></param>
-        public QuestPendingRequirement(GameNPC defaultNPC, Type questType, eComparator comp)
+        public QuestPendingRequirement(GameNpc defaultNPC, Type questType, eComparator comp)
             : this(defaultNPC, (object)questType, (object)null, comp)
 		{   			
 		}

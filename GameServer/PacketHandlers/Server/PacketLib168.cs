@@ -734,20 +734,20 @@ namespace DOL.GS.PacketHandler
 			ushort targetZone = 0;
 			byte flags = 0;
 			int targetOID = 0;
-			if (obj is GameNPC)
+			if (obj is GameNpc)
 			{
-				var npc = obj as GameNPC;
+				var npc = obj as GameNpc;
 				flags = (byte)(GameServer.ServerRules.GetLivingRealm(m_gameClient.Player, npc) << 6);
 
 				if (m_gameClient.Account.PrivLevel < 2)
 				{
 					// no name only if normal player
-					if ((npc.Flags & GameNPC.eFlags.CANTTARGET) != 0)
+					if ((npc.Flags & GameNpc.eFlags.CANTTARGET) != 0)
 						flags |= 0x01;
-					if ((npc.Flags & GameNPC.eFlags.DONTSHOWNAME) != 0)
+					if ((npc.Flags & GameNpc.eFlags.DONTSHOWNAME) != 0)
 						flags |= 0x02;
 				}
-				if ((npc.Flags & GameNPC.eFlags.STATUE) != 0)
+				if ((npc.Flags & GameNpc.eFlags.STATUE) != 0)
 				{
 					flags |= 0x01;
 				}
@@ -755,7 +755,7 @@ namespace DOL.GS.PacketHandler
 				{
 					flags |= 0x10;
 				}
-				if ((npc.Flags & GameNPC.eFlags.FLYING) != 0)
+				if ((npc.Flags & GameNpc.eFlags.FLYING) != 0)
 				{
 					flags |= 0x20;
 				}
@@ -799,7 +799,7 @@ namespace DOL.GS.PacketHandler
 			{
 				pak.WriteShort((ushort) speed);
 
-				if (obj is GameNPC)
+				if (obj is GameNpc)
 				{
 					pak.WriteShort((ushort)(obj.Heading & 0xFFF));
 				}
@@ -841,9 +841,9 @@ namespace DOL.GS.PacketHandler
 			// Update Cache
 			m_gameClient.GameObjectUpdateArray[new Tuple<ushort, ushort>(obj.CurrentRegionID, (ushort)obj.ObjectID)] = GameLoop.GetCurrentTime();
 
-			if (obj is GameNPC)
+			if (obj is GameNpc)
 			{
-				(obj as GameNPC).NPCUpdatedCallback();
+				(obj as GameNpc).NPCUpdatedCallback();
 			}
 		}
 
@@ -872,7 +872,7 @@ namespace DOL.GS.PacketHandler
 			int oType = 0;
 			if (obj is GamePlayer)
 				oType = 2;
-			else if (obj is GameNPC)
+			else if (obj is GameNpc)
 				oType = ((GameLiving) obj).IsAlive ? 1 : 0;
 
 			using (var pak = new GsTcpPacketOut(GetPacketCode(EServerPackets.RemoveObject)))
@@ -905,7 +905,7 @@ namespace DOL.GS.PacketHandler
 				ushort model = obj.Model;
 				if (obj.IsUnderwater)
 				{
-					if (obj is GameNPC)
+					if (obj is GameNpc)
 						model |= 0x8000;
 					else
 						flag |= 0x01; // Underwater
@@ -971,8 +971,8 @@ namespace DOL.GS.PacketHandler
 
 		public void SendModelChange(GameObject obj, ushort newModel)
 		{
-			if (obj is GameNPC)
-				SendModelAndSizeChange(obj, newModel, (obj as GameNPC).Size);
+			if (obj is GameNpc)
+				SendModelAndSizeChange(obj, newModel, (obj as GameNpc).Size);
 			else
 				SendModelAndSizeChange(obj, newModel, 0);
 		}
@@ -1004,7 +1004,7 @@ namespace DOL.GS.PacketHandler
 			}
 		}
 
-		public virtual void SendNPCCreate(GameNPC npc)
+		public virtual void SendNPCCreate(GameNpc npc)
 		{
 			if (m_gameClient.Player == null || npc.IsVisibleTo(m_gameClient.Player) == false)
 				return;
@@ -1036,11 +1036,11 @@ namespace DOL.GS.PacketHandler
 				pak.WriteByte(npc.GetDisplayLevel(m_gameClient.Player));
 
 				var flags = (byte) (GameServer.ServerRules.GetLivingRealm(m_gameClient.Player, npc) << 6);
-				if ((npc.Flags & GameNPC.eFlags.GHOST) != 0) flags |= 0x01;
+				if ((npc.Flags & GameNpc.eFlags.GHOST) != 0) flags |= 0x01;
 				if (npc.Inventory != null)
 					flags |= 0x02; //If mob has equipment, then only show it after the client gets the 0xBD packet
-				if ((npc.Flags & GameNPC.eFlags.PEACE) != 0) flags |= 0x10;
-				if ((npc.Flags & GameNPC.eFlags.FLYING) != 0) flags |= 0x20;
+				if ((npc.Flags & GameNpc.eFlags.PEACE) != 0) flags |= 0x10;
+				if ((npc.Flags & GameNpc.eFlags.FLYING) != 0) flags |= 0x20;
 
 				pak.WriteByte(flags);
 				pak.WriteByte(0x20); //TODO this is the default maxstick distance
@@ -1048,9 +1048,9 @@ namespace DOL.GS.PacketHandler
 				string add = "";
 				if (m_gameClient.Account.PrivLevel > 1)
 				{
-					if ((npc.Flags & GameNPC.eFlags.CANTTARGET) != 0)
+					if ((npc.Flags & GameNpc.eFlags.CANTTARGET) != 0)
 						add += "-DOR"; // indicates DOR flag for GMs
-					if ((npc.Flags & GameNPC.eFlags.DONTSHOWNAME) != 0)
+					if ((npc.Flags & GameNpc.eFlags.DONTSHOWNAME) != 0)
 						add += "-NON"; // indicates NON flag for GMs
 				}
 
@@ -1289,9 +1289,9 @@ namespace DOL.GS.PacketHandler
 		public virtual void SendRiding(GameObject rider, GameObject steed, bool dismount)
 		{
 			int slot = 0;
-			if (steed is GameNPC && rider is GamePlayer && dismount == false)
+			if (steed is GameNpc && rider is GamePlayer && dismount == false)
 			{
-				slot = (steed as GameNPC).RiderSlot(rider as GamePlayer);
+				slot = (steed as GameNpc).RiderSlot(rider as GamePlayer);
 			}
 			if (slot == -1)
 				log.Error("SendRiding error, slot is -1 with rider " + rider.Name + " steed " + steed.Name);
@@ -1396,33 +1396,33 @@ namespace DOL.GS.PacketHandler
 			}
 		}
 
-		public virtual void SendQuestOfferWindow(GameNPC questNPC, GamePlayer player, RewardQuest quest)
+		public virtual void SendQuestOfferWindow(GameNpc questNPC, GamePlayer player, RewardQuest quest)
 		{
 		}
 
-		public virtual void SendQuestRewardWindow(GameNPC questNPC, GamePlayer player, RewardQuest quest)
+		public virtual void SendQuestRewardWindow(GameNpc questNPC, GamePlayer player, RewardQuest quest)
 		{
 		}
 
-		public virtual void SendQuestOfferWindow(GameNPC questNPC, GamePlayer player, DataQuest quest)
+		public virtual void SendQuestOfferWindow(GameNpc questNPC, GamePlayer player, DataQuest quest)
 		{
 		}
 
-		public virtual void SendQuestRewardWindow(GameNPC questNPC, GamePlayer player, DataQuest quest)
+		public virtual void SendQuestRewardWindow(GameNpc questNPC, GamePlayer player, DataQuest quest)
 		{
 		}
 
-		protected virtual void SendQuestWindow(GameNPC questNPC, GamePlayer player, RewardQuest quest, bool offer)
+		protected virtual void SendQuestWindow(GameNpc questNPC, GamePlayer player, RewardQuest quest, bool offer)
 		{
 		}
 
-		protected virtual void SendQuestWindow(GameNPC questNPC, GamePlayer player, DataQuest quest, bool offer)
+		protected virtual void SendQuestWindow(GameNpc questNPC, GamePlayer player, DataQuest quest, bool offer)
 		{
 		}
 
 		// i'm reusing the questsubscribe command for quest abort since its 99% the same, only different event dets fired
 		// data 3 defines wether it's subscribe or abort
-		public virtual void SendQuestSubscribeCommand(GameNPC invitingNPC, ushort questid, string inviteMessage)
+		public virtual void SendQuestSubscribeCommand(GameNpc invitingNPC, ushort questid, string inviteMessage)
 		{
 			using (var pak = new GsTcpPacketOut(GetPacketCode(EServerPackets.Dialog)))
 			{
@@ -1443,7 +1443,7 @@ namespace DOL.GS.PacketHandler
 
 		// i'm reusing the questsubscribe command for quest abort since its 99% the same, only different event dets fired
 		// data 3 defines wether it's subscribe or abort
-		public virtual void SendQuestAbortCommand(GameNPC abortingNPC, ushort questid, string abortMessage)
+		public virtual void SendQuestAbortCommand(GameNpc abortingNPC, ushort questid, string abortMessage)
 		{
 			using (var pak = new GsTcpPacketOut(GetPacketCode(EServerPackets.Dialog)))
 			{
@@ -1930,18 +1930,18 @@ namespace DOL.GS.PacketHandler
 					pak.Fill(0x00, 10 - m_gameClient.Player.TradeWindow.TradeItems.Count);
 
 					pak.WriteShort(0x0000);
-					pak.WriteShort((ushort) Money.GetMithril(m_gameClient.Player.TradeWindow.TradeMoney));
-					pak.WriteShort((ushort) Money.GetPlatinum(m_gameClient.Player.TradeWindow.TradeMoney));
-					pak.WriteShort((ushort) Money.GetGold(m_gameClient.Player.TradeWindow.TradeMoney));
-					pak.WriteShort((ushort) Money.GetSilver(m_gameClient.Player.TradeWindow.TradeMoney));
-					pak.WriteShort((ushort) Money.GetCopper(m_gameClient.Player.TradeWindow.TradeMoney));
+					pak.WriteShort((ushort) MoneyUtil.GetMithril(m_gameClient.Player.TradeWindow.TradeMoney));
+					pak.WriteShort((ushort) MoneyUtil.GetPlatinum(m_gameClient.Player.TradeWindow.TradeMoney));
+					pak.WriteShort((ushort) MoneyUtil.GetGold(m_gameClient.Player.TradeWindow.TradeMoney));
+					pak.WriteShort((ushort) MoneyUtil.GetSilver(m_gameClient.Player.TradeWindow.TradeMoney));
+					pak.WriteShort((ushort) MoneyUtil.GetCopper(m_gameClient.Player.TradeWindow.TradeMoney));
 
 					pak.WriteShort(0x0000);
-					pak.WriteShort((ushort) Money.GetMithril(m_gameClient.Player.TradeWindow.PartnerTradeMoney));
-					pak.WriteShort((ushort) Money.GetPlatinum(m_gameClient.Player.TradeWindow.PartnerTradeMoney));
-					pak.WriteShort((ushort) Money.GetGold(m_gameClient.Player.TradeWindow.PartnerTradeMoney));
-					pak.WriteShort((ushort) Money.GetSilver(m_gameClient.Player.TradeWindow.PartnerTradeMoney));
-					pak.WriteShort((ushort) Money.GetCopper(m_gameClient.Player.TradeWindow.PartnerTradeMoney));
+					pak.WriteShort((ushort) MoneyUtil.GetMithril(m_gameClient.Player.TradeWindow.PartnerTradeMoney));
+					pak.WriteShort((ushort) MoneyUtil.GetPlatinum(m_gameClient.Player.TradeWindow.PartnerTradeMoney));
+					pak.WriteShort((ushort) MoneyUtil.GetGold(m_gameClient.Player.TradeWindow.PartnerTradeMoney));
+					pak.WriteShort((ushort) MoneyUtil.GetSilver(m_gameClient.Player.TradeWindow.PartnerTradeMoney));
+					pak.WriteShort((ushort) MoneyUtil.GetCopper(m_gameClient.Player.TradeWindow.PartnerTradeMoney));
 
 					pak.WriteShort(0x0000);
 					ArrayList items = m_gameClient.Player.TradeWindow.PartnerTradeItems;
@@ -3625,7 +3625,7 @@ namespace DOL.GS.PacketHandler
 			}
 		}
 
-		public virtual void SendNPCsQuestEffect(GameNPC npc, EQuestIndicator indicator)
+		public virtual void SendNPCsQuestEffect(GameNpc npc, EQuestIndicator indicator)
 		{
 		}
 
@@ -3645,11 +3645,11 @@ namespace DOL.GS.PacketHandler
 				SendPlayerCreate(living as GamePlayer);
 				SendLivingEquipmentUpdate(living as GamePlayer);
 			}
-			else if (living is GameNPC)
+			else if (living is GameNpc)
 			{
-				SendNPCCreate(living as GameNPC);
-				if ((living as GameNPC).Inventory != null)
-					SendLivingEquipmentUpdate(living as GameNPC);
+				SendNPCCreate(living as GameNpc);
+				if ((living as GameNpc).Inventory != null)
+					SendLivingEquipmentUpdate(living as GameNpc);
 			}
 		}
 
@@ -3864,13 +3864,13 @@ namespace DOL.GS.PacketHandler
 		{
 			using (var pak = new GsTcpPacketOut(GetPacketCode(EServerPackets.ConsignmentMerchantMoney)))
 			{
-				pak.WriteByte((byte)Money.GetCopper(money));
-				pak.WriteByte((byte)Money.GetSilver(money));
-				pak.WriteShort((ushort)Money.GetGold(money));
+				pak.WriteByte((byte)MoneyUtil.GetCopper(money));
+				pak.WriteByte((byte)MoneyUtil.GetSilver(money));
+				pak.WriteShort((ushort)MoneyUtil.GetGold(money));
 
 				// Yes, these are sent in reverse order! - tolakram confirmed 1.98 - 1.109
-				pak.WriteShort((ushort)Money.GetMithril(money));
-				pak.WriteShort((ushort)Money.GetPlatinum(money));
+				pak.WriteShort((ushort)MoneyUtil.GetMithril(money));
+				pak.WriteShort((ushort)MoneyUtil.GetPlatinum(money));
 
 				SendTCP(pak);
 			}
@@ -4178,7 +4178,7 @@ namespace DOL.GS.PacketHandler
 							if (ServerProperties.ServerProperties.CONSIGNMENT_USE_BP)
 								name += "[" + item.SellPrice + " BP]";
 							else
-								name += "[" + Money.GetString(item.SellPrice) + "]";
+								name += "[" + MoneyUtil.GetString(item.SellPrice) + "]";
 						}
 						pak.WritePascalString(name);
 					}

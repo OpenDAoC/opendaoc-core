@@ -18,9 +18,9 @@ namespace DOL.GS.Quests.Midgard
 		protected const int minimumLevel = 50;
 		protected const int maximumLevel = 50;
 
-		private static GameNPC Lynnleigh = null; // Start NPC
-		private static Ydenia Ydenia = null; // Mob to kill
-		private static GameNPC Elizabeth = null; // reward NPC
+		private static GameNpc Lynnleigh = null; // Start NPC
+		private static EpicYdenia Ydenia = null; // Mob to kill
+		private static GameNpc Elizabeth = null; // reward NPC
 
 		private static DbItemTemplates tome_enchantments = null;
 		private static DbItemTemplates sealed_pouch = null;
@@ -94,10 +94,10 @@ namespace DOL.GS.Quests.Midgard
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Lynnleigh", ERealm.Midgard);
+			GameNpc[] npcs = WorldMgr.GetNPCsByName("Lynnleigh", ERealm.Midgard);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 100 && npc.X == 760118 && npc.Y == 758453)
 					{
 						Lynnleigh = npc;
@@ -108,7 +108,7 @@ namespace DOL.GS.Quests.Midgard
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Lynnleigh , creating it ...");
-				Lynnleigh = new GameNPC();
+				Lynnleigh = new GameNpc();
 				Lynnleigh.Model = 217;
 				Lynnleigh.Name = "Lynnleigh";
 				Lynnleigh.GuildName = "";
@@ -130,7 +130,7 @@ namespace DOL.GS.Quests.Midgard
 			npcs = WorldMgr.GetNPCsByName("Elizabeth", ERealm.Midgard);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 100 && npc.X == 802597 && npc.Y == 727896)
 					{
 						Elizabeth = npc;
@@ -141,7 +141,7 @@ namespace DOL.GS.Quests.Midgard
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Elizabeth , creating it ...");
-				Elizabeth = new Enchanter();
+				Elizabeth = new EnchanterNpc();
 				Elizabeth.Model = 217;
 				Elizabeth.GuildName = "Enchanter";
 				Elizabeth.Name = "Elizabeth";
@@ -166,10 +166,10 @@ namespace DOL.GS.Quests.Midgard
 			npcs = WorldMgr.GetNPCsByName("Ydenia of the Seithkona", ERealm.None);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 100 && npc.X == 665094 && npc.Y == 894559)
 					{
-						Ydenia = npc as Ydenia;
+						Ydenia = npc as EpicYdenia;
 						break;
 					}
 
@@ -177,7 +177,7 @@ namespace DOL.GS.Quests.Midgard
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Ydenia, creating it ...");
-				Ydenia = new Ydenia();
+				Ydenia = new EpicYdenia();
 				Ydenia.Model = 439;
 				Ydenia.Name = "Ydenia of the Seithkona";
 				Ydenia.GuildName = "";
@@ -189,7 +189,7 @@ namespace DOL.GS.Quests.Midgard
 				Ydenia.Y = 894559;
 				Ydenia.Z = 1791;
 				Ydenia.Heading = 1;
-				Ydenia.Flags |= GameNPC.eFlags.GHOST;
+				Ydenia.Flags |= GameNpc.eFlags.GHOST;
 				Ydenia.MaxSpeedBase = 280;
 				Ydenia.AddToWorld();
 				if (SAVE_INTO_DATABASE)

@@ -20,12 +20,12 @@ namespace DOL.GS.Quests.Hibernia
 		private const int minimumLevel = 48;
 		private const int maximumLevel = 50;
 
-		private static GameNPC Terod = null; // Start NPC + Finish NPC
-		private static GameNPC Kredril = null; // step 2
-		private static HiberniaSITeleporter Emolia = null; // step 3
-		private static GameNPC Jandros = null; // step 4 + 6
+		private static GameNpc Terod = null; // Start NPC + Finish NPC
+		private static GameNpc Kredril = null; // step 2
+		private static HibSiTeleporter Emolia = null; // step 3
+		private static GameNpc Jandros = null; // step 4 + 6
 		
-		private static GameNPC Feairna_Athar = null; //Mob to Kill
+		private static GameNpc Feairna_Athar = null; //Mob to Kill
 		
 		private static readonly GameLocation treantLocation = new("Feairna-Athar", 181, 288348, 319950, 2328);
 		
@@ -76,7 +76,7 @@ namespace DOL.GS.Quests.Hibernia
         {
             if (log.IsWarnEnabled)
                 log.Warn("Could not find Terod, creating it ...");
-            Terod = new GameNPC();
+            Terod = new GameNpc();
             Terod.Model = 382;
             Terod.Name = "Terod";
             Terod.GuildName = "";
@@ -107,7 +107,7 @@ namespace DOL.GS.Quests.Hibernia
         {
             if (log.IsWarnEnabled)
                 log.Warn("Could not find Kredril , creating it ...");
-            Kredril = new GameNPC();
+            Kredril = new GameNpc();
             Kredril.Model = 352;
             Kredril.Name = "Kredril";
             Kredril.GuildName = "";
@@ -130,7 +130,7 @@ namespace DOL.GS.Quests.Hibernia
             foreach (var npc in npcs)
                 if (npc.CurrentRegionID == 181 && npc.X == 404696 && npc.Y == 503469)
                 {
-	                Emolia = (HiberniaSITeleporter)npc;
+	                Emolia = (HibSiTeleporter)npc;
                     break;
                 }
 
@@ -138,7 +138,7 @@ namespace DOL.GS.Quests.Hibernia
         {
             if (log.IsWarnEnabled)
                 log.Warn("Could not find Emolia , creating it ...");
-            Emolia = new HiberniaSITeleporter();
+            Emolia = new HibSiTeleporter();
             //should load equipment from script
             //Emolia.LoadEquipmentTemplateFromDatabase("Emolia");
             Emolia.Model = 714;
@@ -172,7 +172,7 @@ namespace DOL.GS.Quests.Hibernia
         {
 	        if (log.IsWarnEnabled)
 		        log.Warn("Could not find Jandros , creating it ...");
-	        Jandros = new GameNPC();
+	        Jandros = new GameNpc();
 	        Jandros.LoadEquipmentTemplateFromDatabase("d26b8dab-dbdd-4d82-b265-9376cab4deb7");
 	        Jandros.Model = 734;
 	        Jandros.Name = "Jandros";
@@ -286,7 +286,7 @@ namespace DOL.GS.Quests.Hibernia
 
 		protected virtual void CreateFeairnaAthar(GamePlayer player)
 		{
-			foreach (GameNPC npc in WorldMgr.GetNPCsCloseToSpot(181, 288348, 319950, 2328,8000))
+			foreach (GameNpc npc in WorldMgr.GetNPCsCloseToSpot(181, 288348, 319950, 2328,8000))
 			{
 				if (npc.Brain is SiNeckBossBrain)
 					return;
@@ -892,7 +892,7 @@ namespace DOL.GS.Quests.Hibernia
 						(m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel) / 2, false);
 				RemoveItem(m_questPlayer, glowing_red_jewel);
 				GiveItem(m_questPlayer, paidrean_necklace);
-				m_questPlayer.AddMoney(Money.GetMoney(0, 0, 121, 41, UtilCollection.Random(50)), "You receive {0} as a reward.");
+				m_questPlayer.AddMoney(MoneyUtil.GetMoney(0, 0, 121, 41, UtilCollection.Random(50)), "You receive {0} as a reward.");
 
 
 				base.FinishQuest(); //Defined in Quest, changes the state, stores in DB etc ...

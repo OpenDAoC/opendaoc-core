@@ -6,7 +6,7 @@ using log4net;
 
 namespace DOL.GS.Scripts
 {
-    public class BgEventTeleporter : GameNPC
+    public class BgEventTeleporter : GameNpc
 	{
 		private static new readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 		

@@ -103,7 +103,7 @@ namespace DOL.GS
 
 				//If its an npc, load from the npc template about now.
 				//By default, we ignore npctemplate if its set to 0.
-				if ((GameNPC)obj != null && !UtilCollection.IsEmpty(entry.NPCTemplate, true))
+				if ((GameNpc)obj != null && !UtilCollection.IsEmpty(entry.NPCTemplate, true))
 				{
 					var listTemplate = UtilCollection.SplitCSV(entry.NPCTemplate, true);
 					int template = 0;
@@ -114,7 +114,7 @@ namespace DOL.GS
 						//we only want to load the template if one actually exists, or there could be trouble!
 						if (npcTemplate != null)
 						{
-							((GameNPC)obj).LoadTemplate(npcTemplate);
+							((GameNpc)obj).LoadTemplate(npcTemplate);
 						}
 					}
 				}

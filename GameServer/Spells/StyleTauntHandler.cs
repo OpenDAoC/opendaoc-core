@@ -30,12 +30,12 @@ namespace DOL.GS.Spells
 
         public override void OnDirectEffect(GameLiving target, double effectiveness)
         {
-            if (target is GameNPC)
+            if (target is GameNpc)
             {
                 AttackData ad = Caster.TempProperties.getProperty<object>(GameLiving.LAST_ATTACK_DATA, null) as AttackData;
                 if (ad != null)
                 {
-                    IOldAggressiveBrain aggroBrain = ((GameNPC)target).Brain as IOldAggressiveBrain;
+                    IOldAggressiveBrain aggroBrain = ((GameNpc)target).Brain as IOldAggressiveBrain;
 					if (aggroBrain != null)
 					{
 						int aggro = Convert.ToInt32(ad.Damage * Spell.Value);

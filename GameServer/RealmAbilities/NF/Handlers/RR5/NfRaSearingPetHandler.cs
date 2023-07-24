@@ -25,7 +25,7 @@ namespace DOL.GS.RealmAbilities
             GamePlayer player = living as GamePlayer;
             if (player != null && player.ControlledBrain != null && player.ControlledBrain.Body != null)
             {
-                GameNPC pet = player.ControlledBrain.Body as GameNPC;
+                GameNpc pet = player.ControlledBrain.Body as GameNpc;
                 if (pet.IsAlive)
                 {
 					NfRaSearingPetEffect searingPet = pet.EffectList.GetOfType<NfRaSearingPetEffect>();

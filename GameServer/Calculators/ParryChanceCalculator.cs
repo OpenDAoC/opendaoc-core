@@ -53,7 +53,7 @@ namespace DOL.GS.PropertyCalc
 					return buff;
 				}
 			}			
-			GameNPC npc = living as GameNPC;
+			GameNpc npc = living as GameNpc;
 			if (npc != null)
 			{
 				return npc.ParryChance * 10;

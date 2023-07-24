@@ -5,7 +5,7 @@ namespace DOL.GS.Scripts
     /// <summary>
     /// Represents an in-game GameHealer NPC
     /// </summary>
-    public class BpMobHigh : GameNPC
+    public class BpMobHigh : GameNpc
     {
         public override void Die(GameObject killer)
         {

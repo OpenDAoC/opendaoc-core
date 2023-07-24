@@ -95,7 +95,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 						return;
 					}
 
-					if (obj is GameNPC == false || item.Count == 1)
+					if (obj is GameNpc == false || item.Count == 1)
 					{
 						// see if any event handlers will handle this move
 						client.Player.Notify(GamePlayerEvent.GiveItem, client.Player, new GiveItemEventArgs(client.Player, obj, item));
@@ -111,7 +111,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 					// if a player to a GM and item is not dropable then don't allow trade???? This seems wrong.
 					if (client.Account.PrivLevel == (uint)EPrivLevel.Player && tradeTarget != null && tradeTarget.Client.Account.PrivLevel != (uint)EPrivLevel.Player)
 					{
-						if (!item.IsDropable && !(obj is GameNPC && (obj is Blacksmith || obj is Recharger || (obj as GameNPC).CanTradeAnyItem)))
+						if (!item.IsDropable && !(obj is GameNpc && (obj is Blacksmith || obj is RechargerNpc || (obj as GameNpc).CanTradeAnyItem)))
 						{
 							client.Out.SendInventorySlotsUpdate(new int[] { fromClientSlot });
 							client.Out.SendMessage("You can not remove this item!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
@@ -151,7 +151,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 				{
 					int[] money = new int[5];
 					money[fromClientSlot - (ushort)eInventorySlot.Mithril] = itemCount;
-					long flatMoney = Money.GetMoney(money[0], money[1], money[2], money[3], money[4]);
+					long flatMoney = MoneyUtil.GetMoney(money[0], money[1], money[2], money[3], money[4]);
 
 					if (client.Version >= GameClient.EClientVersion.Version178) // add it back for proper slot update...
 					{

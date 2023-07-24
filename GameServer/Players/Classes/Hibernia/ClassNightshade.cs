@@ -3,7 +3,7 @@ using DOL.GS.Realm;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)ECharacterClass.Nightshade, "Nightshade", "Stalker")]
+	[PlayerClass((int)ECharacterClass.Nightshade, "Nightshade", "Stalker")]
 	public class ClassNightshade : ClassStalker
 	{
 		private static readonly string[] AutotrainableSkills = new[] { Specs.Stealth };

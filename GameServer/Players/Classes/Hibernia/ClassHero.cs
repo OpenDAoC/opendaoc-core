@@ -3,7 +3,7 @@ using DOL.GS.Realm;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)ECharacterClass.Hero, "Hero", "Guardian", "Heroine")]
+	[PlayerClass((int)ECharacterClass.Hero, "Hero", "Guardian", "Heroine")]
 	public class ClassHero : ClassGuardian
 	{
 		public ClassHero()

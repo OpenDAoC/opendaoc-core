@@ -950,13 +950,13 @@ namespace DOL.GS
 		/// Returns the npcs in a given region
 		/// </summary>
 		/// <returns></returns>
-		public static GameNPC[] GetNPCsFromRegion(ushort regionID)
+		public static GameNpc[] GetNPCsFromRegion(ushort regionID)
 		{
 			Region reg;
 			if (!m_regions.TryGetValue(regionID, out reg))
-				return new GameNPC[0];
+				return new GameNpc[0];
 
-			return reg.Objects.OfType<GameNPC>().ToArray();
+			return reg.Objects.OfType<GameNpc>().ToArray();
 		}
 
 		/// <summary>
@@ -979,9 +979,9 @@ namespace DOL.GS
 		/// <param name="regionID">The region to search</param>
 		/// <param name="realm">The realm of the object we search!</param>
 		/// <returns>All NPCs with the specified parameters</returns>
-		public static GameNPC[] GetNPCsByNameFromRegion(string name, ushort regionID, ERealm realm)
+		public static GameNpc[] GetNPCsByNameFromRegion(string name, ushort regionID, ERealm realm)
 		{
-			return (GameNPC[])GetObjectsByNameFromRegion(name, regionID, realm, typeof(GameNPC));
+			return (GameNpc[])GetObjectsByNameFromRegion(name, regionID, realm, typeof(GameNpc));
 		}
 
 		/// <summary>
@@ -990,9 +990,9 @@ namespace DOL.GS
 		/// <param name="name">The name of the object to search</param>
 		/// <param name="realm">The realm of the object we search!</param>
 		/// <returns>All NPCs with the specified parameters</returns>b
-		public static GameNPC[] GetNPCsByName(string name, ERealm realm)
+		public static GameNpc[] GetNPCsByName(string name, ERealm realm)
 		{
-			return (GameNPC[])GetObjectsByName(name, realm, typeof(GameNPC));
+			return (GameNpc[])GetObjectsByName(name, realm, typeof(GameNpc));
 		}
 
 		/// <summary>
@@ -1001,9 +1001,9 @@ namespace DOL.GS
 		/// <param name="guild">The guild name for the npc</param>
 		/// <param name="realm">The realm of the npc</param>
 		/// <returns>A collection of NPCs which match the result</returns>
-		public static List<GameNPC> GetNPCsByGuild(string guild, ERealm realm)
+		public static List<GameNpc> GetNPCsByGuild(string guild, ERealm realm)
 		{
-			return m_regions.Values.Select(r => r.Objects.OfType<GameNPC>().Where(npc => npc.Realm == realm && npc.GuildName == guild))
+			return m_regions.Values.Select(r => r.Objects.OfType<GameNpc>().Where(npc => npc.Realm == realm && npc.GuildName == guild))
 				.SelectMany(objs => objs).ToList();
 		}
 
@@ -1013,9 +1013,9 @@ namespace DOL.GS
 		/// <param name="type"></param>
 		/// <param name="realm"></param>
 		/// <returns></returns>
-		public static List<GameNPC> GetNPCsByType(Type type, ERealm realm)
+		public static List<GameNpc> GetNPCsByType(Type type, ERealm realm)
 		{
-			return m_regions.Values.Select(r => r.Objects.OfType<GameNPC>().Where(npc => npc.Realm == realm && type.IsInstanceOfType(npc)))
+			return m_regions.Values.Select(r => r.Objects.OfType<GameNpc>().Where(npc => npc.Realm == realm && type.IsInstanceOfType(npc)))
 				.SelectMany(objs => objs).ToList();
 		}
 
@@ -1026,13 +1026,13 @@ namespace DOL.GS
 		/// <param name="realm"></param>
 		/// <param name="region"></param>
 		/// <returns></returns>
-		public static List<GameNPC> GetNPCsByType(Type type, ERealm realm, ushort region)
+		public static List<GameNpc> GetNPCsByType(Type type, ERealm realm, ushort region)
 		{
 			Region reg;
 			if (!m_regions.TryGetValue(region, out reg))
-				return new List<GameNPC>(0);
+				return new List<GameNpc>(0);
 			
-			return reg.Objects.OfType<GameNPC>().Where(npc => npc.Realm == realm && type.IsInstanceOfType(npc)).ToList();
+			return reg.Objects.OfType<GameNpc>().Where(npc => npc.Realm == realm && type.IsInstanceOfType(npc)).ToList();
 		}
 
 		/// <summary>
@@ -1607,7 +1607,7 @@ namespace DOL.GS
 		/// <param name="y">Y inside region</param>
 		/// <param name="z">Z inside region</param>
 		/// <param name="radiusToCheck">Radius to sarch for GameNPCs</param>
-		public static HashSet<GameNPC> GetNPCsCloseToSpot(ushort regionid, int x, int y, int z, ushort radiusToCheck)
+		public static HashSet<GameNpc> GetNPCsCloseToSpot(ushort regionid, int x, int y, int z, ushort radiusToCheck)
 		{
 			Region reg = GetRegion(regionid);
 

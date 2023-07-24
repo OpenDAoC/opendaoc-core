@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace DOL.GS.Scripts
 {
-    public class BgTeleporter : GameNPC
+    public class BgTeleporter : GameNpc
 	{
 		private static new readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -18,7 +18,7 @@ namespace DOL.GS.Scripts
             GuildName = "Server Alpha";
             Level = 50;
             Size = 60;
-            Flags |= GameNPC.eFlags.PEACE;
+            Flags |= GameNpc.eFlags.PEACE;
             return base.AddToWorld();
         }
 		public override bool Interact(GamePlayer player)

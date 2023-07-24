@@ -19,7 +19,7 @@ namespace DOL.GS.DailyQuest
 		private const int minimumLevel = 1;
 		private const int maximumLevel = 49;
 
-		private static GameNPC SucciHib = null; // Start NPC
+		private static GameNpc SucciHib = null; // Start NPC
 
 		private int OrangeConKilled = 0;
 		private int MAX_KillGoal = 10;
@@ -58,10 +58,10 @@ namespace DOL.GS.DailyQuest
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Succi", ERealm.Hibernia);
+			GameNpc[] npcs = WorldMgr.GetNPCsByName("Succi", ERealm.Hibernia);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 				{
 					if (npc.CurrentRegionID == 200 && npc.X == 335117 && npc.Y == 420642)
 					{
@@ -74,7 +74,7 @@ namespace DOL.GS.DailyQuest
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find SucciHib , creating it ...");
-				SucciHib = new GameNPC();
+				SucciHib = new GameNpc();
 				SucciHib.Model = 902;
 				SucciHib.Name = "Succi";
 				SucciHib.GuildName = "Spectre of Death";
@@ -87,7 +87,7 @@ namespace DOL.GS.DailyQuest
 				SucciHib.Y = 420642;
 				SucciHib.Z = 5195;
 				SucciHib.Heading = 3723;
-				SucciHib.Flags |= GameNPC.eFlags.PEACE;
+				SucciHib.Flags |= GameNpc.eFlags.PEACE;
 				SucciHib.AddToWorld();
 				if (SAVE_INTO_DATABASE)
 				{
@@ -336,7 +336,7 @@ namespace DOL.GS.DailyQuest
 					{
 						if (living == player ||
 						    (player.ControlledBrain is {Body: { }} && player.ControlledBrain.Body == living) ||
-						    (living is BDPet bdpet &&
+						    (living is BdPet bdpet &&
 						     (bdpet.Owner == player || bdpet.Owner == player.ControlledBrain?.Body)))
 							continue;
 
@@ -381,7 +381,7 @@ namespace DOL.GS.DailyQuest
 		public override void FinishQuest()
 		{
 			m_questPlayer.ForceGainExperience((m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel)/2);
-			m_questPlayer.AddMoney(Money.GetMoney(0,0,m_questPlayer.Level*2,32,UtilCollection.Random(50)), "You receive {0} as a reward.");
+			m_questPlayer.AddMoney(MoneyUtil.GetMoney(0,0,m_questPlayer.Level*2,32,UtilCollection.Random(50)), "You receive {0} as a reward.");
 			RogMgr.GenerateReward(m_questPlayer, 150);
 			OrangeConKilled = 0;
 			base.FinishQuest(); //Defined in Quest, changes the state, stores in DB etc ...

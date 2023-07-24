@@ -450,9 +450,9 @@ namespace DOL.GS.Housing
 				text.Add(LanguageMgr.GetTranslation(player.Client.Account.Language, "House.SendHouseInfo.Level", "Lot"));
 
 			text.Add(" ");
-			text.Add(LanguageMgr.GetTranslation(player.Client.Account.Language, "House.SendHouseInfo.Lockbox", Money.GetString(KeptMoney)));
-			text.Add(LanguageMgr.GetTranslation(player.Client.Account.Language, "House.SendHouseInfo.RentalPrice", Money.GetString(HouseMgr.GetRentByModel(Model))));
-			text.Add(LanguageMgr.GetTranslation(player.Client.Account.Language, "House.SendHouseInfo.MaxLockbox", Money.GetString(HouseMgr.GetRentByModel(Model) * ServerProperties.ServerProperties.RENT_LOCKBOX_PAYMENTS)));
+			text.Add(LanguageMgr.GetTranslation(player.Client.Account.Language, "House.SendHouseInfo.Lockbox", MoneyUtil.GetString(KeptMoney)));
+			text.Add(LanguageMgr.GetTranslation(player.Client.Account.Language, "House.SendHouseInfo.RentalPrice", MoneyUtil.GetString(HouseMgr.GetRentByModel(Model))));
+			text.Add(LanguageMgr.GetTranslation(player.Client.Account.Language, "House.SendHouseInfo.MaxLockbox", MoneyUtil.GetString(HouseMgr.GetRentByModel(Model) * ServerProperties.ServerProperties.RENT_LOCKBOX_PAYMENTS)));
 			if (ServerProperties.ServerProperties.RENT_DUE_DAYS > 0)
 				text.Add(LanguageMgr.GetTranslation(player.Client.Account.Language, "House.SendHouseInfo.RentDueIn", due.Days, due.Hours));
 			else
@@ -872,7 +872,7 @@ namespace DOL.GS.Housing
 			con.Heading = heading;
 			con.Model = 144;
 
-			con.Flags |= GameNPC.eFlags.PEACE;
+			con.Flags |= GameNpc.eFlags.PEACE;
 			con.LoadedFromScript = false;
 			con.RoamingRange = 0;
 
@@ -994,7 +994,7 @@ namespace DOL.GS.Housing
 				return;
 			}
 
-			ChatUtil.SendSystemMessage(player, "House.Edit.PayForChanges", Money.GetString(price));
+			ChatUtil.SendSystemMessage(player, "House.Edit.PayForChanges", MoneyUtil.GetString(price));
 
 			// make all the changes
 			foreach (int slot in changes)

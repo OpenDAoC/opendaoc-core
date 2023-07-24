@@ -64,7 +64,7 @@ namespace DOL.GS.Spells
         }
         private void DecoyDied(CoreEvent e, object sender, EventArgs args)
         {
-            GameNPC kDecoy = sender as GameNPC;
+            GameNpc kDecoy = sender as GameNpc;
             if (kDecoy == null) return;
             if (e == GameLivingEvent.Dying)
             {
@@ -317,7 +317,7 @@ namespace DOL.GS.Spells
 
             if (trap == null) return;
             bool wasstealthed = ((GamePlayer)Caster).IsStealthed;
-            foreach (GameNPC npc in mine.GetNPCsInRadius((ushort)s.Range))
+            foreach (GameNpc npc in mine.GetNPCsInRadius((ushort)s.Range))
             {
                 if (npc is GameSiegeWeapon && npc.IsAlive && GameServer.ServerRules.IsAllowedToAttack(Caster, npc, true))
                 {

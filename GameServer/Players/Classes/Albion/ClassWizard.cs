@@ -3,7 +3,7 @@ using DOL.GS.Realm;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)ECharacterClass.Wizard, "Wizard", "Elementalist")]
+	[PlayerClass((int)ECharacterClass.Wizard, "Wizard", "Elementalist")]
 	public class ClassWizard : ClassElementalist
 	{
 		public ClassWizard()

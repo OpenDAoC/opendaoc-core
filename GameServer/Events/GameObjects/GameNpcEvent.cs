@@ -23,7 +23,7 @@ namespace DOL.Events
 		/// <returns>true if valid, false if not</returns>
 		public override bool IsValidFor(object o)
 		{
-			return o is GameNPC;
+			return o is GameNpc;
 		}
 
 		/// <summary>
@@ -38,17 +38,17 @@ namespace DOL.Events
 		public static readonly GameNpcEvent TurnToHeading = new GameNpcEvent("GameNPC.TurnToHeading");
 		/// <summary>
 		/// The ArriveAtTarget event is fired whenever the npc arrives at its WalkTo target
-		/// <see cref="DOL.GS.GameNPC.WalkTo(int, int, int, int)"/>
+		/// <see cref="GameNpc.WalkTo(int, int, int, int)"/>
 		/// </summary>
 		public static readonly GameNpcEvent ArriveAtTarget = new GameNpcEvent("GameNPC.ArriveAtTarget");
         /// <summary>
         /// The ArriveAtSpawnPoint event is fired whenever the npc arrives at its spawn point
-        /// <see cref="DOL.GS.GameNPC.WalkTo(int, int, int, int)"/>
+        /// <see cref="GameNpc.WalkTo(int, int, int, int)"/>
         /// </summary>
         public static readonly GameNpcEvent ArriveAtSpawnPoint = new GameNpcEvent("GameNPC.ArriveAtSpawnPoint");
 		/// <summary>
 		/// The CloseToTarget event is fired whenever the npc is close to its WalkTo target
-		/// <see cref="DOL.GS.GameNPC.WalkTo(int, int, int, int)"/>
+		/// <see cref="GameNpc.WalkTo(int, int, int, int)"/>
 		/// </summary>
 		public static readonly GameNpcEvent CloseToTarget = new GameNpcEvent("GameNPC.CloseToTarget");
 		/// <summary>

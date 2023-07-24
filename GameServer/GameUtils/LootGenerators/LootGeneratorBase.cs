@@ -19,7 +19,7 @@ namespace DOL.GS
 			set{ m_exclusivePriority = value; }
 		}
 
-		public virtual void Refresh(GameNPC mob)
+		public virtual void Refresh(GameNpc mob)
 		{
 		}
 
@@ -29,7 +29,7 @@ namespace DOL.GS
 		/// <param name="mob"></param>
 		/// <param name="killer"></param>
 		/// <returns></returns>
-		public virtual LootList GenerateLoot(GameNPC mob, GameObject killer)
+		public virtual LootList GenerateLoot(GameNpc mob, GameObject killer)
 		{
 			LootList loot = new LootList();
 			return loot;

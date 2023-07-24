@@ -19,8 +19,8 @@ namespace DOL.GS.Quests.Hibernia
 		protected const int maximumLevel = 50;
 		private int _GreenMawAddKilled = 0;
 
-		private static GameNPC Ainrebh = null; // Start NPC
-		private static GreenMaw GreenMaw = null; // Mob to kill
+		private static GameNpc Ainrebh = null; // Start NPC
+		private static EpicGreenMaw GreenMaw = null; // Mob to kill
 
 		private static DbItemTemplates GreenMaw_key = null; //ball of flame
 		private static DbItemTemplates RangerEpicBoots = null; //Mist Shrouded Boots 
@@ -80,10 +80,10 @@ namespace DOL.GS.Quests.Hibernia
 
 			#region NPC Declarations
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Ainrebh", ERealm.Hibernia);
+			GameNpc[] npcs = WorldMgr.GetNPCsByName("Ainrebh", ERealm.Hibernia);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 200 && npc.X == 421281 && npc.Y == 516273)
 					{
 						Ainrebh = npc;
@@ -94,7 +94,7 @@ namespace DOL.GS.Quests.Hibernia
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Ainrebh , creating it ...");
-				Ainrebh = new GameNPC();
+				Ainrebh = new GameNpc();
 				Ainrebh.Model = 384;
 				Ainrebh.Name = "Ainrebh";
 				Ainrebh.GuildName = "Enchanter";
@@ -117,10 +117,10 @@ namespace DOL.GS.Quests.Hibernia
 			npcs = WorldMgr.GetNPCsByName("Green Maw", ERealm.None);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 200 && npc.X == 488306 && npc.Y == 521440)
 					{
-						GreenMaw = npc as GreenMaw;
+						GreenMaw = npc as EpicGreenMaw;
 						break;
 					}
 
@@ -128,7 +128,7 @@ namespace DOL.GS.Quests.Hibernia
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find GreenMaw , creating it ...");
-				GreenMaw = new GreenMaw();
+				GreenMaw = new EpicGreenMaw();
 				GreenMaw.Model = 146;
 				GreenMaw.Name = "Green Maw";
 				GreenMaw.GuildName = "";

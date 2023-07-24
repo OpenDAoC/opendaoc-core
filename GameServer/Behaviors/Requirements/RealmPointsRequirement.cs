@@ -27,7 +27,7 @@ namespace DOL.GS.Behaviour.Requirements
 		/// <param name="n"></param>
 		/// <param name="v"></param>
 		/// <param name="comp"></param>
-        public RealmPointsRequirement(GameNPC defaultNPC,  Object n, Object v, eComparator comp)
+        public RealmPointsRequirement(GameNpc defaultNPC,  Object n, Object v, eComparator comp)
             : base(defaultNPC, eRequirementType.RealmPoints, n, v, comp)
 		{   			
 		}
@@ -38,7 +38,7 @@ namespace DOL.GS.Behaviour.Requirements
 		/// <param name="defaultNPC">Parent defaultNPC of this Requirement</param>		
 		/// <param name="n">First Requirement Variable, meaning depends on RequirementType</param>		
 		/// <param name="comp">Comparator used if some values are veeing compared</param>
-        public RealmPointsRequirement(GameNPC defaultNPC,  long n, eComparator comp)
+        public RealmPointsRequirement(GameNpc defaultNPC,  long n, eComparator comp)
             : this(defaultNPC,  (object)n, (object)null, comp)
 		{   			
 		}

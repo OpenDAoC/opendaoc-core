@@ -15,13 +15,13 @@ namespace DOL.GS.Behaviour.Actions
     public class DestroyItemAction : AbstractAction<DbItemTemplates,int>
     {
 
-        public DestroyItemAction(GameNPC defaultNPC,  Object p, Object q)
+        public DestroyItemAction(GameNpc defaultNPC,  Object p, Object q)
             : base(defaultNPC, EActionType.DestroyItem, p, q)
         {                
         }
 
 
-        public DestroyItemAction(GameNPC defaultNPC, DbItemTemplates itemTemplate, int quantity)
+        public DestroyItemAction(GameNpc defaultNPC, DbItemTemplates itemTemplate, int quantity)
             : this(defaultNPC, (object)itemTemplate,(object) quantity) { }
         
 

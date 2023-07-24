@@ -4,7 +4,7 @@ using DOL.GS;
 
 namespace DOL.GS.Scripts
 {
-    public class AntiPass : GameNPC
+    public class AntiPass : GameNpc
     {
         public override bool AddToWorld()
         {
@@ -12,9 +12,9 @@ namespace DOL.GS.Scripts
             Brain.Start();
             base.AddToWorld();
             Name = "No Pass";
-            Flags |= GameNPC.eFlags.PEACE;
+            Flags |= GameNpc.eFlags.PEACE;
             //Flags |= (uint)GameNPC.eFlags.CANTTARGET;
-            Flags |= GameNPC.eFlags.FLYING;      
+            Flags |= GameNpc.eFlags.FLYING;      
             Model = 10;
             Size = 50;
             Level = 90;

@@ -24,22 +24,22 @@ namespace DOL.GS
         /// <param name="mob"></param>
         /// <param name="killer"></param>
         /// <returns></returns>
-        public override LootList GenerateLoot(GameNPC mob, GameObject killer)
+        public override LootList GenerateLoot(GameNpc mob, GameObject killer)
         {
             LootList loot = base.GenerateLoot(mob, killer);
 
             try
             {
                 GamePlayer player = killer as GamePlayer;
-                if (killer is GameNPC && ((GameNPC)killer).Brain is IControlledBrain)
-                    player = ((ControlledNpcBrain)((GameNPC)killer).Brain).GetPlayerOwner();
+                if (killer is GameNpc && ((GameNpc)killer).Brain is IControlledBrain)
+                    player = ((ControlledNpcBrain)((GameNpc)killer).Brain).GetPlayerOwner();
                 if (player == null)
                     return loot;
 
                 switch (mob)
                 {
                     // Certain mobs have a 100% drop chance of multiple seals at once
-                    case KeepLord lord:
+                    case GuardLord lord:
                         if (lord.IsTowerGuard || lord.Component.Keep.BaseLevel < 50)
                             loot.AddFixed(m_SanguineDreadedSeal, 1);  // Guaranteed drop, but towers and BGs only merit 1 seal.
                         else

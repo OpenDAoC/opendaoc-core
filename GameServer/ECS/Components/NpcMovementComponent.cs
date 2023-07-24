@@ -22,7 +22,7 @@ namespace DOL.GS
         private PathCalculator _pathCalculator;
         private Action<NpcMovementComponent> _goToNextPathingNodeCallback;
 
-        public new GameNPC Owner { get; private set; }
+        public new GameNpc Owner { get; private set; }
         // 'TargetPosition' is accessed from multiple threads simultaneously (from the current NPC being updated, others NPCs checking around them, and the world update thread).
         // Actual synchronization would be expensive, so instead threads are expected to check 'IsTargetPositionValid' before using it, which is set to false when a NPC stops.
         // This however means 'TargetPosition' might be slightly outdated.
@@ -40,7 +40,7 @@ namespace DOL.GS
         public bool IsAtTargetPosition => IsTargetPositionValid && TargetPosition.X == Owner.X && TargetPosition.Y == Owner.Y && TargetPosition.Z == Owner.Z;
         public bool CanRoam => ServerProperties.ServerProperties.ALLOW_ROAM && RoamingRange != 0 && string.IsNullOrWhiteSpace(PathID);
 
-        public NpcMovementComponent(GameNPC npcOwner) : base(npcOwner)
+        public NpcMovementComponent(GameNpc npcOwner) : base(npcOwner)
         {
             Owner = npcOwner;
             _pathCalculator = new(npcOwner);
@@ -175,7 +175,7 @@ namespace DOL.GS
             {
                 if (PathID == null)
                 {
-                    GameNPC.log.Error($"Called MoveOnPath but PathID is null (NPC: {Owner})");
+                    GameNpc.log.Error($"Called MoveOnPath but PathID is null (NPC: {Owner})");
                     return;
                 }
 
@@ -183,7 +183,7 @@ namespace DOL.GS
 
                 if (CurrentWaypoint == null)
                 {
-                    GameNPC.log.Error($"Called MoveOnPath but LoadPath returned null (PathID: {PathID}) (NPC: {Owner})");
+                    GameNpc.log.Error($"Called MoveOnPath but LoadPath returned null (PathID: {PathID}) (NPC: {Owner})");
                     return;
                 }
 
@@ -209,7 +209,7 @@ namespace DOL.GS
                 PathTo(CurrentWaypoint, Owner.MaxSpeed);
             }
             else
-                GameNPC.log.Error($"Called MoveOnPath but both CurrentWaypoint and ON_PATH are already set. (NPC: {Owner})");
+                GameNpc.log.Error($"Called MoveOnPath but both CurrentWaypoint and ON_PATH are already set. (NPC: {Owner})");
         }
 
         public void StopMovingOnPath()

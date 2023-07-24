@@ -36,9 +36,9 @@ namespace DOL.GS.AtlasQuest.Midgard
 		private int _relicsCaptured = 0;
 
 		// Quest NPC
-		private static GameNPC Rengahr = null; // Start NPC
-		private static GameNPC Beetle = null;
-		private static GameNPC MobEffect = null;
+		private static GameNpc Rengahr = null; // Start NPC
+		private static GameNpc Beetle = null;
+		private static GameNpc MobEffect = null;
 
 		// prevent grey killing
 		private const int MIN_PLAYER_CON = -3;
@@ -80,10 +80,10 @@ namespace DOL.GS.AtlasQuest.Midgard
 			
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Rengahr", ERealm.Midgard);
+			GameNpc[] npcs = WorldMgr.GetNPCsByName("Rengahr", ERealm.Midgard);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 101 && npc.X == 31458 && npc.Y == 27707)
 					{
 						Rengahr = npc;
@@ -94,7 +94,7 @@ namespace DOL.GS.AtlasQuest.Midgard
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Rengahr , creating it ...");
-				Rengahr = new GameNPC();
+				Rengahr = new GameNpc();
 				Rengahr.Model = 512;
 				Rengahr.Name = "Rengahr";
 				Rengahr.GuildName = "Protector of Beetles";
@@ -328,7 +328,7 @@ namespace DOL.GS.AtlasQuest.Midgard
 		
 		private static int CreateBeetle(ECSGameTimer timer)
         {
-	        Beetle = new GameNPC();
+	        Beetle = new GameNpc();
             Beetle.Model = 670;
             Beetle.Name = "Jeremy";
             Beetle.GuildName = "";
@@ -337,7 +337,7 @@ namespace DOL.GS.AtlasQuest.Midgard
             Beetle.BodyType = (ushort) NpcTemplateMgr.EBodyType.Magical;
             Beetle.Size = 40;
             Beetle.Level = 55;
-            Beetle.Flags ^= GameNPC.eFlags.PEACE;
+            Beetle.Flags ^= GameNpc.eFlags.PEACE;
             Beetle.CurrentRegionID = 101;
             Beetle.X = 31445;
             Beetle.Y = 27618;
@@ -350,7 +350,7 @@ namespace DOL.GS.AtlasQuest.Midgard
 		
 		private static int CreateEffect(ECSGameTimer timer)
 		{
-			MobEffect = new GameNPC();
+			MobEffect = new GameNpc();
 			MobEffect.Model = 1822;
 			MobEffect.Name = "power of the beetle";
 			MobEffect.GuildName = "";
@@ -359,9 +359,9 @@ namespace DOL.GS.AtlasQuest.Midgard
 			MobEffect.BodyType = (ushort) NpcTemplateMgr.EBodyType.Magical;
 			MobEffect.Size = 25;
 			MobEffect.Level = 65;
-			MobEffect.Flags ^= GameNPC.eFlags.CANTTARGET;
-			MobEffect.Flags ^= GameNPC.eFlags.DONTSHOWNAME;
-			MobEffect.Flags ^= GameNPC.eFlags.PEACE;
+			MobEffect.Flags ^= GameNpc.eFlags.CANTTARGET;
+			MobEffect.Flags ^= GameNpc.eFlags.DONTSHOWNAME;
+			MobEffect.Flags ^= GameNpc.eFlags.PEACE;
 			
 			MobEffect.CurrentRegionID = 101;
 			MobEffect.X = 31445;
@@ -379,7 +379,7 @@ namespace DOL.GS.AtlasQuest.Midgard
 		
 		private static int RemoveEffectMob(ECSGameTimer timer)
 		{
-			foreach (GameNPC effect in Rengahr.GetNPCsInRadius(600))
+			foreach (GameNpc effect in Rengahr.GetNPCsInRadius(600))
 			{
 				if (effect.Name.ToLower() == "power of the beetle")
 					effect.RemoveFromWorld();
@@ -390,7 +390,7 @@ namespace DOL.GS.AtlasQuest.Midgard
 		
 		private static int RemoveBeetle(ECSGameTimer timer)
 		{
-			foreach (GameNPC effect in Rengahr.GetNPCsInRadius(600))
+			foreach (GameNpc effect in Rengahr.GetNPCsInRadius(600))
 			{
 				if (effect.Name.ToLower() == "jeremy")
 					effect.RemoveFromWorld();
@@ -614,7 +614,7 @@ namespace DOL.GS.AtlasQuest.Midgard
 		{
 			int reward = ServerProperties.ServerProperties.BEETLE_RVR_REWARD;
 			
-			m_questPlayer.AddMoney(Money.GetMoney(0, 0, m_questPlayer.Level * 8, 32, UtilCollection.Random(50)),
+			m_questPlayer.AddMoney(MoneyUtil.GetMoney(0, 0, m_questPlayer.Level * 8, 32, UtilCollection.Random(50)),
 				"You receive {0} as a reward.");
 			RogMgr.GenerateReward(m_questPlayer, 5000);
 			_enemiesKilled = 0;

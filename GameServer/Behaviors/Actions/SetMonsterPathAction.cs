@@ -10,25 +10,25 @@ using log4net;
 namespace DOL.GS.Behaviour.Actions
 {
     [ActionAttribute(ActionType = EActionType.SetMonsterPath,DefaultValueP=EDefaultValueConstants.NPC)]
-    public class SetMonsterPathAction : AbstractAction<PathPointUtil,GameNPC>
+    public class SetMonsterPathAction : AbstractAction<PathPointUtil,GameNpc>
     {
 
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-        public SetMonsterPathAction(GameNPC defaultNPC,  Object p, Object q)
+        public SetMonsterPathAction(GameNpc defaultNPC,  Object p, Object q)
             : base(defaultNPC, EActionType.SetMonsterPath, p, q)
         {                
         }
 
 
-        public SetMonsterPathAction(GameNPC defaultNPC,  PathPointUtil firstPathPoint, GameNPC npc)
+        public SetMonsterPathAction(GameNpc defaultNPC,  PathPointUtil firstPathPoint, GameNpc npc)
             : this(defaultNPC,  (object)firstPathPoint, (object)npc) { }
         
 
 
         public override void Perform(CoreEvent e, object sender, EventArgs args)
         {
-            GameNPC npc = Q;
+            GameNpc npc = Q;
 
             if (npc.Brain is RoundsMobBrain)
             {

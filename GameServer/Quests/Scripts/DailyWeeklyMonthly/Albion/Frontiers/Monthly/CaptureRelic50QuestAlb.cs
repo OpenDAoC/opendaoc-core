@@ -22,7 +22,7 @@ namespace DOL.GS.MonthlyQuest.Albion
 		// Capture Goal
 		private const int MAX_CAPTURED = 1;
 		
-		private static GameNPC Kelteen = null; // Start NPC
+		private static GameNpc Kelteen = null; // Start NPC
 
 		private int _isCaptured = 0;
 
@@ -61,10 +61,10 @@ namespace DOL.GS.MonthlyQuest.Albion
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Kelteen", ERealm.Albion);
+			GameNpc[] npcs = WorldMgr.GetNPCsByName("Kelteen", ERealm.Albion);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 				{
 					if (npc.CurrentRegionID == 1 && npc.X == 584592 && npc.Y == 476805)
 					{
@@ -77,7 +77,7 @@ namespace DOL.GS.MonthlyQuest.Albion
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find KelteenAlb, creating it ...");
-				Kelteen = new GameNPC();
+				Kelteen = new GameNpc();
 				Kelteen.Model = 37;
 				Kelteen.Name = "Kelteen";
 				Kelteen.GuildName = "Atlas Logistics";
@@ -90,7 +90,7 @@ namespace DOL.GS.MonthlyQuest.Albion
 				Kelteen.Y = 476805;
 				Kelteen.Z = 2600;
 				Kelteen.Heading = 4066;
-				Kelteen.Flags |= GameNPC.eFlags.PEACE;
+				Kelteen.Flags |= GameNpc.eFlags.PEACE;
 				GameNpcInventoryTemplate templateAlb = new GameNpcInventoryTemplate();
 				templateAlb.AddNPCEquipment(eInventorySlot.Cloak, 1722);
 				templateAlb.AddNPCEquipment(eInventorySlot.HeadArmor, 1288);
@@ -354,7 +354,7 @@ namespace DOL.GS.MonthlyQuest.Albion
 			if (m_questPlayer.Inventory.IsSlotsFree(3, eInventorySlot.FirstBackpack, eInventorySlot.LastBackpack))
 			{
 				m_questPlayer.ForceGainExperience((m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel));
-				m_questPlayer.AddMoney(Money.GetMoney(0,0,m_questPlayer.Level*8,0,UtilCollection.Random(50)), "You receive {0} as a reward.");
+				m_questPlayer.AddMoney(MoneyUtil.GetMoney(0,0,m_questPlayer.Level*8,0,UtilCollection.Random(50)), "You receive {0} as a reward.");
 				RogMgr.GenerateReward(m_questPlayer, 5000);
 				RogMgr.GenerateBeetleCarapace(m_questPlayer, 2);
 				RogMgr.GenerateJewel(m_questPlayer, 51);

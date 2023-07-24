@@ -19,7 +19,7 @@ namespace DOL.GS.WeeklyQuests.Hibernia
 		private const int minimumLevel = 1;
 		private const int maximumLevel = 50;
 
-		private static GameNPC ReyHib = null; // Start NPC
+		private static GameNpc ReyHib = null; // Start NPC
 
 		private int PlayersKilled = 0;
 		
@@ -62,10 +62,10 @@ namespace DOL.GS.WeeklyQuests.Hibernia
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Rey", ERealm.Hibernia);
+			GameNpc[] npcs = WorldMgr.GetNPCsByName("Rey", ERealm.Hibernia);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 				{
 					if (npc.CurrentRegionID == 200 && npc.X == 334866 && npc.Y == 420749)
 					{
@@ -78,7 +78,7 @@ namespace DOL.GS.WeeklyQuests.Hibernia
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Rey , creating it ...");
-				ReyHib = new GameNPC();
+				ReyHib = new GameNpc();
 				ReyHib.Model = 26;
 				ReyHib.Name = "Rey";
 				ReyHib.GuildName = "Bone Collector";
@@ -91,7 +91,7 @@ namespace DOL.GS.WeeklyQuests.Hibernia
 				ReyHib.Y = 420749;
 				ReyHib.Z = 5184;
 				ReyHib.Heading = 1640;
-				ReyHib.Flags |= GameNPC.eFlags.PEACE;
+				ReyHib.Flags |= GameNpc.eFlags.PEACE;
 				ReyHib.AddToWorld();
 				if (SAVE_INTO_DATABASE)
 				{
@@ -347,7 +347,7 @@ namespace DOL.GS.WeeklyQuests.Hibernia
 			int reward = ServerProperties.ServerProperties.WEEKLY_RVR_REWARD;
 			
 			m_questPlayer.ForceGainExperience((m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel)/5);
-			m_questPlayer.AddMoney(Money.GetMoney(0,0,m_questPlayer.Level * 5,32,UtilCollection.Random(50)), "You receive {0} as a reward.");
+			m_questPlayer.AddMoney(MoneyUtil.GetMoney(0,0,m_questPlayer.Level * 5,32,UtilCollection.Random(50)), "You receive {0} as a reward.");
 			RogMgr.GenerateReward(m_questPlayer, 1500);
 			RogMgr.GenerateJewel(m_questPlayer, (byte)(m_questPlayer.Level + 1), m_questPlayer.Level + UtilCollection.Random(10, 20));
 			PlayersKilled = 0;

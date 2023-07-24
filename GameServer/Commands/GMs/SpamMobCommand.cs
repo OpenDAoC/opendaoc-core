@@ -96,7 +96,7 @@ namespace DOL.GS.Commands
                         if (radius < 0) radius = 0;
                         if (radius > 5000) radius = 5000;
 
-                        foreach (GameNPC npc in client.Player.GetNPCsInRadius(radius))
+                        foreach (GameNpc npc in client.Player.GetNPCsInRadius(radius))
                             if (npc.Realm == ERealm.None && (npc is SpamMob.SpamMobNPC))
                                 remove(npc);
                     }
@@ -152,14 +152,14 @@ namespace DOL.GS.Commands
                 byte realm = 0;
 
                 //Create a new mob
-                GameNPC mob = null;
+                GameNpc mob = null;
 
                 foreach (Assembly script in ScriptMgr.GameServerScripts)
                 {
                     try
                     {
                         client.Out.SendDebugMessage(script.FullName);
-                        mob = (GameNPC) script.CreateInstance(theType, false);
+                        mob = (GameNpc) script.CreateInstance(theType, false);
 
                         if (mob != null)
                             break;
@@ -193,8 +193,8 @@ namespace DOL.GS.Commands
                 mob.MaxSpeedBase = 200;
                 mob.GuildName = "Burn Baby Burn";
                 mob.Size = 50;
-                mob.Flags |= GameNPC.eFlags.PEACE;
-                mob.Flags ^= GameNPC.eFlags.PEACE;
+                mob.Flags |= GameNpc.eFlags.PEACE;
+                mob.Flags ^= GameNpc.eFlags.PEACE;
                 mob.AddToWorld();
                 //mob.LoadedFromScript = false; // allow saving
                 //mob.SaveIntoDatabase();
@@ -203,7 +203,7 @@ namespace DOL.GS.Commands
             }
         }
         
-        private void remove(GameNPC targetMob)
+        private void remove(GameNpc targetMob)
         {
             targetMob.StopAttack();
             targetMob.StopCurrentSpellcast();
@@ -498,7 +498,7 @@ namespace DOL.GS.SpamMob
         }
     }
 
-    public class SpamMobNPC : GameNPC
+    public class SpamMobNPC : GameNpc
     {
         private Spell dot;
         private Spell af;

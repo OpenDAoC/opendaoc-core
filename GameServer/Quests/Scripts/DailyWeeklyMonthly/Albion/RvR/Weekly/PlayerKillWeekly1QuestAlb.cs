@@ -19,7 +19,7 @@ namespace DOL.GS.WeeklyQuests.Albion
 		private const int minimumLevel = 1;
 		private const int maximumLevel = 50;
 
-		private static GameNPC ReyAlb = null; // Start NPC
+		private static GameNpc ReyAlb = null; // Start NPC
 
 		private int PlayersKilled = 0;
 		
@@ -62,10 +62,10 @@ namespace DOL.GS.WeeklyQuests.Albion
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Rey", ERealm.Albion);
+			GameNpc[] npcs = WorldMgr.GetNPCsByName("Rey", ERealm.Albion);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 				{
 					if (npc.CurrentRegionID == 1 && npc.X == 583867 && npc.Y == 477355)
 					{
@@ -78,7 +78,7 @@ namespace DOL.GS.WeeklyQuests.Albion
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Rey , creating it ...");
-				ReyAlb = new GameNPC();
+				ReyAlb = new GameNpc();
 				ReyAlb.Model = 26;
 				ReyAlb.Name = "Rey";
 				ReyAlb.GuildName = "Bone Collector";
@@ -91,7 +91,7 @@ namespace DOL.GS.WeeklyQuests.Albion
 				ReyAlb.Y = 477355;
 				ReyAlb.Z = 2600;
 				ReyAlb.Heading = 3054;
-				ReyAlb.Flags |= GameNPC.eFlags.PEACE;
+				ReyAlb.Flags |= GameNpc.eFlags.PEACE;
 				ReyAlb.AddToWorld();
 				if (SAVE_INTO_DATABASE)
 				{
@@ -347,7 +347,7 @@ namespace DOL.GS.WeeklyQuests.Albion
 			int reward = ServerProperties.ServerProperties.WEEKLY_RVR_REWARD;
 			
 			m_questPlayer.ForceGainExperience((m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel)/5);
-			m_questPlayer.AddMoney(Money.GetMoney(0,0,m_questPlayer.Level * 5,32,UtilCollection.Random(50)), "You receive {0} as a reward.");
+			m_questPlayer.AddMoney(MoneyUtil.GetMoney(0,0,m_questPlayer.Level * 5,32,UtilCollection.Random(50)), "You receive {0} as a reward.");
 			RogMgr.GenerateReward(m_questPlayer, 1500);
 			RogMgr.GenerateJewel(m_questPlayer, (byte)(m_questPlayer.Level + 1), m_questPlayer.Level + UtilCollection.Random(10, 20));
 			PlayersKilled = 0;

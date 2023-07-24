@@ -3,7 +3,7 @@ using DOL.GS.Realm;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)ECharacterClass.Druid, "Druid", "Naturalist")]
+	[PlayerClass((int)ECharacterClass.Druid, "Druid", "Naturalist")]
 	public class ClassDruid : ClassNaturalist
 	{
 		public ClassDruid()

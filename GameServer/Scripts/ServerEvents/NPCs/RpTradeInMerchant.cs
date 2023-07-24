@@ -4,7 +4,7 @@ using DOL.GS.PacketHandler;
 
 namespace DOL.GS.Scripts
 {
-    public class RpTradeInMerchant : GameNPC
+    public class RpTradeInMerchant : GameNpc
     {
         #region Constructor
 

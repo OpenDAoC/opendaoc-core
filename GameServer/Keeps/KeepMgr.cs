@@ -67,7 +67,7 @@ namespace DOL.GS.Keeps
 				m_frontierRegionsList.Add(200);
 			}
 
-			KeepGuardInventoryMgr.LoadTemplates();
+			GuardInventoryMgr.LoadTemplates();
 
 			//Dinberg - moved this here, battlegrounds must be loaded before keepcomponents are.
 			LoadBattlegroundCaps();

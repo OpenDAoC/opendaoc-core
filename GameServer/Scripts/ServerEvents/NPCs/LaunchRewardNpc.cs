@@ -7,7 +7,7 @@ using log4net;
 
 namespace DOL.GS.Scripts
 {
-    public class LaunchRewardNpc : GameNPC
+    public class LaunchRewardNpc : GameNpc
     {
         private static new readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 

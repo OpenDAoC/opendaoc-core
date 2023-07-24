@@ -22,7 +22,7 @@ using log4net;
 
 namespace DOL.GS
 {
-    public class RealmPointMaster : GameNPC
+    public class RealmPointMaster : GameNpc
     {
         #region Options
 

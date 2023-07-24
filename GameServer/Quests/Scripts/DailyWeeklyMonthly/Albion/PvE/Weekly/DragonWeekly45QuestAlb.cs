@@ -26,7 +26,7 @@ namespace DOL.GS.WeeklyQuest.Albion
 		// Quest Counter
 		private int DragonKilled = 0;
 		
-		private static GameNPC Hector = null; // Start NPC
+		private static GameNpc Hector = null; // Start NPC
 
 		// Constructors
 		public DragonWeekly45QuestAlb() : base()
@@ -63,10 +63,10 @@ namespace DOL.GS.WeeklyQuest.Albion
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Hector", ERealm.Albion);
+			GameNpc[] npcs = WorldMgr.GetNPCsByName("Hector", ERealm.Albion);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 1 && npc.X == 583860 && npc.Y == 477619)
 					{
 						Hector = npc;
@@ -77,7 +77,7 @@ namespace DOL.GS.WeeklyQuest.Albion
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Hector , creating it ...");
-				Hector = new GameNPC();
+				Hector = new GameNpc();
 				Hector.Model = 716;
 				Hector.Name = "Hector";
 				Hector.GuildName = "Advisor to the King";
@@ -343,7 +343,7 @@ namespace DOL.GS.WeeklyQuest.Albion
 		public override void FinishQuest()
 		{
 			m_questPlayer.ForceGainExperience((m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel));
-			m_questPlayer.AddMoney(Money.GetMoney(0,0,m_questPlayer.Level * 5,32,UtilCollection.Random(50)), "You receive {0} as a reward.");
+			m_questPlayer.AddMoney(MoneyUtil.GetMoney(0,0,m_questPlayer.Level * 5,32,UtilCollection.Random(50)), "You receive {0} as a reward.");
 			RogMgr.GenerateReward(m_questPlayer, 1500);
 			DragonKilled = 0;
 			base.FinishQuest(); //Defined in Quest, changes the state, stores in DB etc ...

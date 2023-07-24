@@ -23,7 +23,7 @@ namespace DOL.GS.Spells
         /// <summary>
         /// Holds the charmed GameNPC for pulsing spells
         /// </summary>
-        public GameNPC m_charmedNpc;
+        public GameNpc m_charmedNpc;
 
         /// <summary>
         /// Holds the new controlled NPC's brain
@@ -94,7 +94,7 @@ namespace DOL.GS.Spells
         {
 	        if (m_charmedNpc == null)
 		        // Save target on first tick
-		        m_charmedNpc = target as GameNPC;
+		        m_charmedNpc = target as GameNpc;
 	        else
 		        // Reuse target for pulsing spells
 		        target = m_charmedNpc;
@@ -135,7 +135,7 @@ namespace DOL.GS.Spells
         public override bool CheckEndCast(GameLiving selectedTarget)
         {
         	var casterPlayer = Caster as GamePlayer;
-	        var charmMob = selectedTarget as GameNPC;
+	        var charmMob = selectedTarget as GameNpc;
 	        
 	        if (Caster == null || casterPlayer == null)
 		        return false;
@@ -237,13 +237,13 @@ namespace DOL.GS.Spells
 				        isCharmable = false;
 			        if (charmMob is GameHealer) // Healer NPCs
 				        isCharmable = false;
-			        if (charmMob is Enchanter) // Item enchanter NPCs
+			        if (charmMob is EnchanterNpc) // Item enchanter NPCs
 				        isCharmable = false;
-			        if (charmMob is Recharger) // Item recharge NPCs
+			        if (charmMob is RechargerNpc) // Item recharge NPCs
 				        isCharmable = false;
 			        if (charmMob is GameDragon) // Any endgame Dragon (e.g., Gjal)
 				        isCharmable = false;
-			        if (charmMob is GameEpicBoss or GameEpicNPC) // Any epic mobs or bosses
+			        if (charmMob is GameEpicBoss or GameEpicNpc) // Any epic mobs or bosses
 				        isCharmable = false;
 
 			        // If the mob's ClassType matches any of the above, it cannot be charmed
@@ -408,7 +408,7 @@ namespace DOL.GS.Spells
         public override void ApplyEffectOnTarget(GameLiving target, double effectiveness)
         {
             //You should be able to chain pulsing charm on the same mob
-            if (Spell.Pulse != 0 && Caster is GamePlayer && (((GamePlayer)Caster).ControlledBrain != null && ((GamePlayer)Caster).ControlledBrain.Body != (GameNPC)target))
+            if (Spell.Pulse != 0 && Caster is GamePlayer && (((GamePlayer)Caster).ControlledBrain != null && ((GamePlayer)Caster).ControlledBrain.Body != (GameNpc)target))
             {
                 ((GamePlayer)Caster).CommandNpcRelease();
             }
@@ -509,9 +509,9 @@ namespace DOL.GS.Spells
             IControlledBrain npc = null;
             
             if (e == GameLivingEvent.PetReleased)
-                npc = ((GameNPC)sender).Brain as IControlledBrain;
+                npc = ((GameNpc)sender).Brain as IControlledBrain;
             else if (e == GameLivingEvent.Dying)
-                npc = ((GameNPC)sender).Brain as IControlledBrain;
+                npc = ((GameNpc)sender).Brain as IControlledBrain;
 
             if (npc == null) 
             	return;

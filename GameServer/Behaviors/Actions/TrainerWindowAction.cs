@@ -13,11 +13,11 @@ using System.Reflection;
 namespace DOL.GS.Behaviour.Actions
 {
 	[ActionAttribute(ActionType = EActionType.TrainerWindow, IsNullableP = true)]
-	public class TrainerWindowAction : AbstractAction<Nullable<Int32>, GameNPC>
+	public class TrainerWindowAction : AbstractAction<Nullable<Int32>, GameNpc>
 	{
 		private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-		public TrainerWindowAction(GameNPC defaultNPC)
+		public TrainerWindowAction(GameNpc defaultNPC)
 			: base(defaultNPC, EActionType.TrainerWindow)
 		{
 		}

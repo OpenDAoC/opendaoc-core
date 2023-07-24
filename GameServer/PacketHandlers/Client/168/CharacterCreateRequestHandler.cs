@@ -605,7 +605,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
                     if (flagChangedStats)
                     {
-                        ICharacterClass charClass = ScriptMgr.FindCharacterClass(character.Class);
+                        IPlayerClass charClass = ScriptMgr.FindCharacterClass(character.Class);
 
                         if (charClass != null)
                         {
@@ -762,7 +762,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
                         if (flagChangedStats)
                         {
-                            ICharacterClass charClass = ScriptMgr.FindCharacterClass(character.Class);
+                            IPlayerClass charClass = ScriptMgr.FindCharacterClass(character.Class);
 
                             if (charClass != null)
                             {
@@ -1009,7 +1009,7 @@ namespace DOL.GS.PacketHandler.Client.v168
         /// <returns></returns>
         public static bool IsCustomPointsDistributionValid(DbCoreCharacters character, IDictionary<EStat, int> stats, out int points)
         {
-            ICharacterClass charClass = ScriptMgr.FindCharacterClass(character.Class);
+            IPlayerClass charClass = ScriptMgr.FindCharacterClass(character.Class);
 
             if (charClass != null)
             {
@@ -1105,7 +1105,7 @@ namespace DOL.GS.PacketHandler.Client.v168
                     valid = false;
                 }
                 
-                ICharacterClass charClass = ScriptMgr.FindCharacterClass(ch.Class);
+                IPlayerClass charClass = ScriptMgr.FindCharacterClass(ch.Class);
 
 				if(!charClass.EligibleRaces.Exists(s => (int)s.ID == ch.Race))
 				{

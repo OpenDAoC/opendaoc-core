@@ -27,11 +27,11 @@ namespace DOL.AI.Brain
 
 		protected override void CheckNPCAggro()
 		{
-			foreach (GameNPC npc in Body.GetNPCsInRadius((ushort)AggroRange))
+			foreach (GameNpc npc in Body.GetNPCsInRadius((ushort)AggroRange))
 			{
 				if (!CanAggroTarget(npc))
 					continue;
-				if ((npc.Flags & GameNPC.eFlags.FLYING) != 0)
+				if ((npc.Flags & GameNpc.eFlags.FLYING) != 0)
 					continue;
 
 				AddToAggroList(npc, npc.Level << 1);

@@ -22,7 +22,7 @@ namespace DOL.GS.WeeklyQuest.Midgard
 		// Kill Goal
 		private const int MAX_KILLED = 200;
 
-		private static GameNPC Patrick = null; // Start NPC
+		private static GameNpc Patrick = null; // Start NPC
 
 		private int _mobsKilled = 0;
 
@@ -61,10 +61,10 @@ namespace DOL.GS.WeeklyQuest.Midgard
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Patrick", ERealm.Midgard);
+			GameNpc[] npcs = WorldMgr.GetNPCsByName("Patrick", ERealm.Midgard);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 249 && npc.X == 16639 && npc.Y == 18947)
 					{
 						Patrick = npc;
@@ -75,7 +75,7 @@ namespace DOL.GS.WeeklyQuest.Midgard
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Patrick , creating it ...");
-				Patrick = new GameNPC();
+				Patrick = new GameNpc();
 				Patrick.Model = 138;
 				Patrick.Name = "Patrick";
 				Patrick.GuildName = "Realm Logistics";
@@ -88,7 +88,7 @@ namespace DOL.GS.WeeklyQuest.Midgard
 				Patrick.Y = 18947;
 				Patrick.Z = 22892;
 				Patrick.Heading = 2117;
-				Patrick.Flags |= GameNPC.eFlags.PEACE;
+				Patrick.Flags |= GameNpc.eFlags.PEACE;
 				GameNpcInventoryTemplate templateMid = new GameNpcInventoryTemplate();
 				templateMid.AddNPCEquipment(eInventorySlot.TorsoArmor, 751,0,0,3);
 				templateMid.AddNPCEquipment(eInventorySlot.LegsArmor, 752);
@@ -329,7 +329,7 @@ namespace DOL.GS.WeeklyQuest.Midgard
 			if (gArgs.Target is GameSummonedPet)
 				return;
 
-			if (gArgs.Target.Realm != 0 || gArgs.Target is not GameNPC || gArgs.Target.CurrentRegionID != 249 ||
+			if (gArgs.Target.Realm != 0 || gArgs.Target is not GameNpc || gArgs.Target.CurrentRegionID != 249 ||
 			    !(player.GetConLevel(gArgs.Target) > -2)) return;
 			if (player.Group != null)
 			{
@@ -372,7 +372,7 @@ namespace DOL.GS.WeeklyQuest.Midgard
 		public override void FinishQuest()
 		{
 			m_questPlayer.ForceGainExperience((m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel));
-			m_questPlayer.AddMoney(Money.GetMoney(0,0,m_questPlayer.Level * 5,32,UtilCollection.Random(50)), "You receive {0} as a reward.");
+			m_questPlayer.AddMoney(MoneyUtil.GetMoney(0,0,m_questPlayer.Level * 5,32,UtilCollection.Random(50)), "You receive {0} as a reward.");
 			RogMgr.GenerateReward(m_questPlayer, 1500);
 			_mobsKilled = 0;
 			base.FinishQuest(); //Defined in Quest, changes the state, stores in DB etc ...

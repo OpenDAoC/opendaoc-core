@@ -45,7 +45,7 @@ namespace DOL.AI.Brain
 	{
         EWalkState WalkState { get; }
         EAggressionState AggressionState { get; set; }
-        GameNPC Body { get; }
+        GameNpc Body { get; }
         GameLiving Owner { get; }
         void Attack(GameObject target);
         void Disengage();
@@ -56,7 +56,7 @@ namespace DOL.AI.Brain
         void Goto(GameObject target);
         void UpdatePetWindow();
         GamePlayer GetPlayerOwner();
-        GameNPC GetNPCOwner();
+        GameNpc GetNPCOwner();
         GameLiving GetLivingOwner();
         void SetAggressionState(EAggressionState state);
         bool IsMainPet { get; set; }

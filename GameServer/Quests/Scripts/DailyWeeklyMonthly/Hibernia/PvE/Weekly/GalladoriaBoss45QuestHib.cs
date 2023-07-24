@@ -23,7 +23,7 @@ namespace DOL.GS.WeeklyQuest.Hibernia
         private int _deadGallaBossMob = 0;
         private const int MAX_KILLGOAL = 3;
 
-        private static GameNPC Anthony = null; // Start NPC
+        private static GameNpc Anthony = null; // Start NPC
 
 
         // Constructors
@@ -61,10 +61,10 @@ namespace DOL.GS.WeeklyQuest.Hibernia
 
             #region defineNPCs
 
-            GameNPC[] npcs = WorldMgr.GetNPCsByName("Anthony", ERealm.Hibernia);
+            GameNpc[] npcs = WorldMgr.GetNPCsByName("Anthony", ERealm.Hibernia);
 
             if (npcs.Length > 0)
-                foreach (GameNPC npc in npcs)
+                foreach (GameNpc npc in npcs)
                     if (npc.CurrentRegionID == 181 && npc.X == 422864 && npc.Y == 444362)
                     {
                         Anthony = npc;
@@ -75,7 +75,7 @@ namespace DOL.GS.WeeklyQuest.Hibernia
             {
                 if (log.IsWarnEnabled)
                     log.Warn("Could not find Anthony , creating it ...");
-                Anthony = new GameNPC();
+                Anthony = new GameNpc();
                 Anthony.Model = 289;
                 Anthony.Name = "Anthony";
                 Anthony.GuildName = "Advisor to the King";
@@ -357,7 +357,7 @@ namespace DOL.GS.WeeklyQuest.Hibernia
         public override void FinishQuest()
         {
             m_questPlayer.ForceGainExperience((m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel));
-            m_questPlayer.AddMoney(Money.GetMoney(0, 0, m_questPlayer.Level * 5, 0, UtilCollection.Random(50)), "You receive {0} as a reward.");
+            m_questPlayer.AddMoney(MoneyUtil.GetMoney(0, 0, m_questPlayer.Level * 5, 0, UtilCollection.Random(50)), "You receive {0} as a reward.");
             RogMgr.GenerateReward(m_questPlayer, 1500);
             _deadGallaBossMob = 0;
             base.FinishQuest(); //Defined in Quest, changes the state, stores in DB etc ...

@@ -37,9 +37,9 @@ namespace DOL.GS.DatabaseConverters
 			var mobs = CoreDb<DbMobs>.SelectObjects(DB.Column("Realm").IsEqualTo(6));
 			foreach (DbMobs mob in mobs)
 			{
-				if ((mob.Flags & (uint)GameNPC.eFlags.PEACE) == 0)
+				if ((mob.Flags & (uint)GameNpc.eFlags.PEACE) == 0)
 				{
-					mob.Flags ^= (uint)GameNPC.eFlags.PEACE;
+					mob.Flags ^= (uint)GameNpc.eFlags.PEACE;
 				}
 
 				Region region = WorldMgr.GetRegion(mob.Region);

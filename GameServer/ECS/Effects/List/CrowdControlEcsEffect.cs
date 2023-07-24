@@ -16,7 +16,7 @@ namespace DOL.GS
             Owner.attackComponent.StopAttack();
             Owner.StopCurrentSpellcast();
             Owner.DisableTurning(true);
-            if (Owner is GameNPC npc)
+            if (Owner is GameNpc npc)
                 npc.StopMoving();
             if(Owner.effectListComponent.GetAllEffects().FirstOrDefault(x => x.GetType() == typeof(OfRaSpeedOfSoundEcsEffect)) == null)
                 UpdatePlayerStatus();
@@ -34,7 +34,7 @@ namespace DOL.GS
             Owner.DisableTurning(false);
             UpdatePlayerStatus();
 
-            GameNPC npc = Owner as GameNPC;
+            GameNpc npc = Owner as GameNpc;
             if (npc != null)
             {
                 IOldAggressiveBrain aggroBrain = npc.Brain as IOldAggressiveBrain;

@@ -14,7 +14,7 @@ using log4net;
 
 namespace DOL.GS.Scripts
 {
-    public class BoostNpc : GameNPC
+    public class BoostNpc : GameNpc
     {
         private static new readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         public static int EventLVCap = ServerProperties.ServerProperties.EVENT_LVCAP;

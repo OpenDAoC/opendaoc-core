@@ -22,9 +22,9 @@ namespace DOL.GS.Effects
 			{
 				((GamePlayer)m_living).Out.SendMessage("You begin to charge wildly!", EChatType.CT_Spell, EChatLoc.CL_SystemWindow);
 			}
-			else if (m_living is GameNPC)
+			else if (m_living is GameNpc)
 			{
-				IControlledBrain icb = ((GameNPC)m_living).Brain as IControlledBrain;
+				IControlledBrain icb = ((GameNpc)m_living).Brain as IControlledBrain;
 				if (icb != null && icb.Body != null)
 				{
 					GamePlayer playerowner = icb.GetPlayerOwner();
@@ -78,9 +78,9 @@ namespace DOL.GS.Effects
 				player.Out.SendUpdateMaxSpeed();
 				player.Out.SendMessage("You no longer seem so crazy!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 			}
-			else if (m_living is GameNPC)
+			else if (m_living is GameNpc)
 			{
-				IControlledBrain icb = ((GameNPC)m_living).Brain as IControlledBrain;
+				IControlledBrain icb = ((GameNpc)m_living).Brain as IControlledBrain;
 				if (icb != null && icb.Body != null)
 				{
 					GamePlayer playerowner = icb.GetPlayerOwner();
@@ -144,7 +144,7 @@ namespace DOL.GS.Effects
 		{
 			get
 			{
-				if (m_living is GameNPC) return 411;
+				if (m_living is GameNpc) return 411;
 				else return 3034;
 			}
 		}

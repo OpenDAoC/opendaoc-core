@@ -52,7 +52,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 					}
 					else
 					{
-						ChatUtil.SendMerchantMessage(client, "GameMerchant.OnPlayerWithdraw", Money.GetString(totalConMoney));
+						ChatUtil.SendMerchantMessage(client, "GameMerchant.OnPlayerWithdraw", MoneyUtil.GetString(totalConMoney));
 						client.Player.AddMoney(totalConMoney);
 						InventoryLogging.LogInventoryAction(conMerchant, client.Player, eInventoryActionType.Merchant, totalConMoney);
 					}

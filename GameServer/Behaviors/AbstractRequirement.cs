@@ -19,7 +19,7 @@ namespace DOL.GS.Behaviour
         private TypeN n;
         private TypeV v;
         private eComparator comparator;
-		private GameNPC defaultNPC;		
+		private GameNpc defaultNPC;		
 
         /// <summary>
         /// R: RequirmentType
@@ -57,14 +57,14 @@ namespace DOL.GS.Behaviour
         /// <summary>
         /// returns the NPC of the requirement
         /// </summary>
-        public GameNPC NPC
+        public GameNpc NPC
         {
             get { return defaultNPC; }
             set { defaultNPC = value; }
         }		
         
 
-        public AbstractRequirement(GameNPC npc, eRequirementType type, eComparator comp)
+        public AbstractRequirement(GameNpc npc, eRequirementType type, eComparator comp)
         {
             this.defaultNPC = npc;
             this.type = type;
@@ -79,7 +79,7 @@ namespace DOL.GS.Behaviour
 		/// <param name="n"></param>
 		/// <param name="v"></param>
 		/// <param name="comp"></param>
-        public AbstractRequirement(GameNPC defaultNPC, eRequirementType type, Object n, Object v, eComparator comp) : this(defaultNPC,type,comp)
+        public AbstractRequirement(GameNpc defaultNPC, eRequirementType type, Object n, Object v, eComparator comp) : this(defaultNPC,type,comp)
         {            			            
 
             RequirementAttribute attr = BehaviorMgr.getRequirementAttribute(this.GetType());

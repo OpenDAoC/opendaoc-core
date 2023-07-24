@@ -70,7 +70,7 @@ namespace DOL.GS.Spells
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        GameNPC summoned = null;
+        GameNpc summoned = null;
         GameSpellEffect beffect = null;
         public SummonHealingElementalHandler(GameLiving caster, Spell spell, SpellLine line)
             : base(caster, spell, line)  {}
@@ -104,7 +104,7 @@ namespace DOL.GS.Spells
 
                 BrittleBrain controlledBrain = new BrittleBrain(player);
                 controlledBrain.IsMainPet = false;
-                summoned = new GameNPC(template);
+                summoned = new GameNpc(template);
                 summoned.SetOwnBrain(controlledBrain);
                 summoned.X = summonloc.X;
                 summoned.Y = summonloc.Y;

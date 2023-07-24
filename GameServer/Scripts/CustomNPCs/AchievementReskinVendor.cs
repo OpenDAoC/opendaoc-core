@@ -8,7 +8,7 @@ using DOLDatabase.Tables;
 
 namespace DOL.GS;
 
-public class AchievementReskinVendor : GameNPC
+public class AchievementReskinVendor : GameNpc
 {
     public string TempProperty = "ItemModel";
     public string DisplayedItem = "ItemDisplay";
@@ -410,7 +410,7 @@ public class AchievementReskinVendor : GameNPC
         player.Out.SendMessage(msg, EChatType.CT_System, EChatLoc.CL_PopupWindow);
     }
 
-    private GameNPC CreateDisplayNPC(GamePlayer player, InventoryItem item)
+    private GameNpc CreateDisplayNPC(GamePlayer player, InventoryItem item)
     {
         var mob = new DisplayModel(player, item);
 
@@ -438,7 +438,7 @@ public class AchievementReskinVendor : GameNPC
 
     private void DisplayReskinPreviewTo(GamePlayer player, InventoryItem item)
     {
-        GameNPC display = CreateDisplayNPC(player, item);
+        GameNpc display = CreateDisplayNPC(player, item);
         display.AddToWorld();
 
         var tempAd = new AttackData();
@@ -469,7 +469,7 @@ public class AchievementReskinVendor : GameNPC
         // animationThread.Start();
     }
 
-    private void LoopAnimation(GamePlayer player, InventoryItem item, GameNPC display, AttackData ad)
+    private void LoopAnimation(GamePlayer player, InventoryItem item, GameNpc display, AttackData ad)
     {
         var _lastAnimation = 0l;
         while (GameLoop.GameLoopTime < display.SpawnTick)

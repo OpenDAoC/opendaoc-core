@@ -85,7 +85,7 @@ namespace DOL.GS.Spells
         private int check = 0;
         public override bool CheckBeginCast(GameLiving selectedTarget)
         {
-            if (selectedTarget is GameNPC == true)
+            if (selectedTarget is GameNpc == true)
             {
                 MessageToCaster("This spell works only on realm enemys.", EChatType.CT_SpellResisted);
                 return false;
@@ -411,9 +411,9 @@ namespace DOL.GS.Spells
             // send animation before dealing damage else dead livings show no animation
             ad.Target.OnAttackedByEnemy(ad);
             ad.Attacker.DealDamage(ad);
-            if (ad.Damage == 0 && ad.Target is GameNPC)
+            if (ad.Damage == 0 && ad.Target is GameNpc)
             {
-                IOldAggressiveBrain aggroBrain = ((GameNPC)ad.Target).Brain as IOldAggressiveBrain;
+                IOldAggressiveBrain aggroBrain = ((GameNpc)ad.Target).Brain as IOldAggressiveBrain;
                 if (aggroBrain != null)
                     aggroBrain.AddToAggroList(Caster, 1);
             }
@@ -671,9 +671,9 @@ namespace DOL.GS.Spells
                 target.LastAttackedByEnemyTickPvP = target.CurrentRegion.Time;
                 Caster.LastAttackTickPvP = Caster.CurrentRegion.Time;
             }
-            if (target is GameNPC)
+            if (target is GameNpc)
             {
-                IOldAggressiveBrain aggroBrain = ((GameNPC)target).Brain as IOldAggressiveBrain;
+                IOldAggressiveBrain aggroBrain = ((GameNpc)target).Brain as IOldAggressiveBrain;
                 if (aggroBrain != null)
                     aggroBrain.AddToAggroList(Caster, (int)Spell.Value);
             }
@@ -765,9 +765,9 @@ namespace DOL.GS.Spells
                 target.LastAttackedByEnemyTickPvP = target.CurrentRegion.Time;
                 Caster.LastAttackTickPvP = Caster.CurrentRegion.Time;
             }
-            if (target is GameNPC)
+            if (target is GameNpc)
             {
-                IOldAggressiveBrain aggroBrain = ((GameNPC)target).Brain as IOldAggressiveBrain;
+                IOldAggressiveBrain aggroBrain = ((GameNpc)target).Brain as IOldAggressiveBrain;
                 if (aggroBrain != null)
                     aggroBrain.AddToAggroList(Caster, (int)Spell.Value);
             }

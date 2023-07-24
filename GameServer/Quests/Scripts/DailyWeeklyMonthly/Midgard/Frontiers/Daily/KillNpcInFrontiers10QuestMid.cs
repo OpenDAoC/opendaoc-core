@@ -22,7 +22,7 @@ namespace DOL.GS.DailyQuest.Hibernia
 		// Kill Goal
 		protected const int MAX_KILLED = 25;
 		
-		private static GameNPC Herou = null; // Start NPC
+		private static GameNpc Herou = null; // Start NPC
 
 		private int FrontierMobsKilled = 0;
 
@@ -61,10 +61,10 @@ namespace DOL.GS.DailyQuest.Hibernia
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Herou", ERealm.Midgard);
+			GameNpc[] npcs = WorldMgr.GetNPCsByName("Herou", ERealm.Midgard);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 100 && npc.X == 766401 && npc.Y == 670349)
 					{
 						Herou = npc;
@@ -75,7 +75,7 @@ namespace DOL.GS.DailyQuest.Hibernia
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Herou , creating it ...");
-				Herou = new GameNPC();
+				Herou = new GameNpc();
 				Herou.Model = 142;
 				Herou.Name = "Herou";
 				Herou.GuildName = "Realm Logistics";
@@ -352,7 +352,7 @@ namespace DOL.GS.DailyQuest.Hibernia
 		public override void FinishQuest()
 		{
 			m_questPlayer.ForceGainExperience((m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel)/10);
-			m_questPlayer.AddMoney(Money.GetMoney(0,0,m_questPlayer.Level,50,UtilCollection.Random(50)), "You receive {0} as a reward.");
+			m_questPlayer.AddMoney(MoneyUtil.GetMoney(0,0,m_questPlayer.Level,50,UtilCollection.Random(50)), "You receive {0} as a reward.");
 			RogMgr.GenerateReward(m_questPlayer, 150);
 			RogMgr.GenerateJewel(m_questPlayer, (byte)(m_questPlayer.Level + 1), m_questPlayer.Level + UtilCollection.Random(5, 11));
 			FrontierMobsKilled = 0;

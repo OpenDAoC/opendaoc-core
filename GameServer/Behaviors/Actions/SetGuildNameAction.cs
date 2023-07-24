@@ -9,14 +9,14 @@ using DOL.Database;
 namespace DOL.GS.Behaviour.Actions
 {
     [ActionAttribute(ActionType = EActionType.SetGuildName,DefaultValueQ=EDefaultValueConstants.NPC)]
-    public class SetGuildNameAction : AbstractAction<string,GameNPC>
+    public class SetGuildNameAction : AbstractAction<string,GameNpc>
     {               
                 
-        public SetGuildNameAction(GameNPC defautNPC,  Object p, Object q)
+        public SetGuildNameAction(GameNpc defautNPC,  Object p, Object q)
             : base(defautNPC, EActionType.SetGuildName, p, q)
         { }
 
-        public SetGuildNameAction(GameNPC defaultNPC, string guildName, GameNPC npc)
+        public SetGuildNameAction(GameNpc defaultNPC, string guildName, GameNpc npc)
             : this(defaultNPC, (object)guildName, (object)npc) { }
 
         public override void Perform(CoreEvent e, object sender, EventArgs args)

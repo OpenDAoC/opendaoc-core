@@ -387,7 +387,7 @@ namespace DOL.GS.PacketHandler
 				if (ServerProperties.ServerProperties.CONSIGNMENT_USE_BP)
                     name += "[" + item.SellPrice.ToString() + " BP]";
                 else
-                    name += "[" + Money.GetShortString(item.SellPrice) + "]";
+                    name += "[" + MoneyUtil.GetShortString(item.SellPrice) + "]";
             }
 
 			if (name.Length > MAX_NAME_LENGTH)

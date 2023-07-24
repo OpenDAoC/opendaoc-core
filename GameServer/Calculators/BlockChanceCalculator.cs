@@ -26,7 +26,7 @@ namespace DOL.GS.PropertyCalc
                 return chance;
 			}
 
-			GameNPC npc = living as GameNPC;
+			GameNpc npc = living as GameNpc;
 			if (npc != null)
 			{
 				return npc.BlockChance * 10;

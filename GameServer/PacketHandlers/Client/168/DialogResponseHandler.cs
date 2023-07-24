@@ -312,9 +312,9 @@ namespace DOL.GS.PacketHandler.Client.v168
 								player.SaveIntoDatabase();
 
 								// notify the player of what we took and how long they are prepaid for
-								player.Out.SendMessage("You deposit " + Money.GetString(moneyToAdd) + " in the lockbox.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
-								player.Out.SendMessage("The lockbox now has " + Money.GetString(house.KeptMoney) + " in it.  The weekly payment is " +
-									Money.GetString(HouseMgr.GetRentByModel(house.Model)) + ".", EChatType.CT_System, EChatLoc.CL_SystemWindow);
+								player.Out.SendMessage("You deposit " + MoneyUtil.GetString(moneyToAdd) + " in the lockbox.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
+								player.Out.SendMessage("The lockbox now has " + MoneyUtil.GetString(house.KeptMoney) + " in it.  The weekly payment is " +
+									MoneyUtil.GetString(HouseMgr.GetRentByModel(house.Model)) + ".", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 								player.Out.SendMessage("The house is now prepaid for the next " + (house.KeptMoney/HouseMgr.GetRentByModel(house.Model)) +
 									" payments.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 
@@ -326,7 +326,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 								if (bpsToMoney + house.KeptMoney > HouseMgr.GetRentByModel(house.Model) * ServerProperties.ServerProperties.RENT_LOCKBOX_PAYMENTS)
 									bpsToMoney = (HouseMgr.GetRentByModel(house.Model) * ServerProperties.ServerProperties.RENT_LOCKBOX_PAYMENTS) - house.KeptMoney;
 
-								if (!player.RemoveBountyPoints(Money.GetGold(bpsToMoney)))
+								if (!player.RemoveBountyPoints(MoneyUtil.GetGold(bpsToMoney)))
 									return 0;
 
 								// add the bps to the lockbox
@@ -337,9 +337,9 @@ namespace DOL.GS.PacketHandler.Client.v168
 								player.SaveIntoDatabase();
 
 								// notify the player of what we took and how long they are prepaid for
-								player.Out.SendMessage("You deposit " + Money.GetString(bpsToMoney) + " in the lockbox.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
-								player.Out.SendMessage("The lockbox now has " + Money.GetString(house.KeptMoney) + " in it.  The weekly payment is " +
-									Money.GetString(HouseMgr.GetRentByModel(house.Model)) + ".", EChatType.CT_System, EChatLoc.CL_SystemWindow);
+								player.Out.SendMessage("You deposit " + MoneyUtil.GetString(bpsToMoney) + " in the lockbox.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
+								player.Out.SendMessage("The lockbox now has " + MoneyUtil.GetString(house.KeptMoney) + " in it.  The weekly payment is " +
+									MoneyUtil.GetString(HouseMgr.GetRentByModel(house.Model)) + ".", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 								player.Out.SendMessage("The house is now prepaid for the next " + (house.KeptMoney/HouseMgr.GetRentByModel(house.Model)) +
 									" payments.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 

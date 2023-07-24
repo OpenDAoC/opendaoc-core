@@ -21,7 +21,7 @@ using DOL.Database.UniqueID;
 
 namespace DOL.GS {
     [NpcGuild("Effect Master")]
-    public class EffectMaster : GameNPC {
+    public class EffectMaster : GameNpc {
         private string EFFECTNPC_ITEM_WEAK = "DOL.GS.Scripts.EffectNPC_Item_Manipulation";//used to store the item in the player
         private ushort spell = 7215;//The spell which is casted
         private ushort duration = 3000;//3s, the duration the spell is cast
@@ -1166,7 +1166,7 @@ namespace DOL.GS {
         
         private void DisplayReskinPreviewTo(GamePlayer player, InventoryItem item)
         {
-            GameNPC display = CreateDisplayNPC(player, item);
+            GameNpc display = CreateDisplayNPC(player, item);
             display.AddToWorld();
 
             var tempAd = new AttackData();
@@ -1197,7 +1197,7 @@ namespace DOL.GS {
             // animationThread.Start();
         }
         
-        private GameNPC CreateDisplayNPC(GamePlayer player, InventoryItem item)
+        private GameNpc CreateDisplayNPC(GamePlayer player, InventoryItem item)
         {
             var mob = new DisplayModel(player, item);
 

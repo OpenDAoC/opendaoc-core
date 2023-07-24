@@ -17,7 +17,7 @@ namespace DOL.GS.Scripts
         public EventBuffMerchant()
             : base()
         {
-            Flags |= GameNPC.eFlags.PEACE;
+            Flags |= GameNpc.eFlags.PEACE;
         }
 
         public override int Concentration
@@ -879,7 +879,7 @@ namespace DOL.GS.Scripts
 
                 if (player.GetCurrentMoney() < totalValue)
                 {
-                    player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "GameMerchant.OnPlayerBuy.YouNeed", Money.GetString(totalValue)), EChatType.CT_System, EChatLoc.CL_SystemWindow);
+                    player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "GameMerchant.OnPlayerBuy.YouNeed", MoneyUtil.GetString(totalValue)), EChatType.CT_System, EChatLoc.CL_SystemWindow);
                     return;
                 }
 
@@ -892,9 +892,9 @@ namespace DOL.GS.Scripts
 
                 string message;
                 if (amountToBuy > 1)
-                    message = LanguageMgr.GetTranslation(player.Client.Account.Language, "GameMerchant.OnPlayerBuy.BoughtPieces", amountToBuy, template.GetName(1, false), Money.GetString(totalValue));
+                    message = LanguageMgr.GetTranslation(player.Client.Account.Language, "GameMerchant.OnPlayerBuy.BoughtPieces", amountToBuy, template.GetName(1, false), MoneyUtil.GetString(totalValue));
                 else
-                    message = LanguageMgr.GetTranslation(player.Client.Account.Language, "GameMerchant.OnPlayerBuy.Bought", template.GetName(1, false), Money.GetString(totalValue));
+                    message = LanguageMgr.GetTranslation(player.Client.Account.Language, "GameMerchant.OnPlayerBuy.Bought", template.GetName(1, false), MoneyUtil.GetString(totalValue));
 
                 if (!player.RemoveMoney(totalValue, message, EChatType.CT_Merchant, EChatLoc.CL_SystemWindow))
                 {

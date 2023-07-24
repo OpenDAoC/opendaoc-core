@@ -19,7 +19,7 @@ namespace DOL.GS.MonthlyQuest.Hibernia
 		private const int minimumLevel = 45;
 		private const int maximumLevel = 50;
 
-		private static GameNPC Kelteen = null; // Start NPC
+		private static GameNpc Kelteen = null; // Start NPC
 
 		private int PlayersKilled = 0;
 		private int CapturedKeeps = 0;
@@ -65,10 +65,10 @@ namespace DOL.GS.MonthlyQuest.Hibernia
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Kelteen", ERealm.Hibernia);
+			GameNpc[] npcs = WorldMgr.GetNPCsByName("Kelteen", ERealm.Hibernia);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 				{
 					if (npc.CurrentRegionID == 200 && npc.X == 334215 && npc.Y == 421276)
 					{
@@ -81,7 +81,7 @@ namespace DOL.GS.MonthlyQuest.Hibernia
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find KelteenHib, creating it ...");
-				Kelteen = new GameNPC();
+				Kelteen = new GameNpc();
 				Kelteen.Model = 315;
 				Kelteen.Name = "Kelteen";
 				Kelteen.GuildName = "Atlas Logistics";
@@ -94,7 +94,7 @@ namespace DOL.GS.MonthlyQuest.Hibernia
 				Kelteen.Y = 421276;
 				Kelteen.Z = 5180;
 				Kelteen.Heading = 1566;
-				Kelteen.Flags |= GameNPC.eFlags.PEACE;
+				Kelteen.Flags |= GameNpc.eFlags.PEACE;
 				GameNpcInventoryTemplate templateHib = new GameNpcInventoryTemplate();
 				templateHib.AddNPCEquipment(eInventorySlot.Cloak, 1722);
 				templateHib.AddNPCEquipment(eInventorySlot.HeadArmor, 1288);
@@ -372,7 +372,7 @@ namespace DOL.GS.MonthlyQuest.Hibernia
 			if (m_questPlayer.Inventory.IsSlotsFree(3, eInventorySlot.FirstBackpack, eInventorySlot.LastBackpack))
 			{
 				m_questPlayer.ForceGainExperience((m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel));
-				m_questPlayer.AddMoney(Money.GetMoney(0, 0, m_questPlayer.Level * 8, 32, UtilCollection.Random(50)),
+				m_questPlayer.AddMoney(MoneyUtil.GetMoney(0, 0, m_questPlayer.Level * 8, 32, UtilCollection.Random(50)),
 					"You receive {0} as a reward.");
 				RogMgr.GenerateReward(m_questPlayer, 5000);
 				RogMgr.GenerateBeetleCarapace(m_questPlayer, 2);

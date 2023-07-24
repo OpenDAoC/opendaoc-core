@@ -123,9 +123,9 @@ namespace DOL.GS.Commands
 
 			try
 			{
-				GameNPC targetMob = null;
-				if (client.Player.TargetObject != null && client.Player.TargetObject is GameNPC)
-					targetMob = (GameNPC)client.Player.TargetObject;
+				GameNpc targetMob = null;
+				if (client.Player.TargetObject != null && client.Player.TargetObject is GameNpc)
+					targetMob = (GameNpc)client.Player.TargetObject;
 
 				if (args[1] != "create"
 				    && args[1] != "fastcreate"
@@ -257,7 +257,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-        private void scaling(GameClient client, GameNPC targetMob, string[] args) {
+        private void scaling(GameClient client, GameNpc targetMob, string[] args) {
 			
 			short scaleFactor;
 
@@ -290,14 +290,14 @@ namespace DOL.GS.Commands
 			}
 
 			//Create a new mob
-			GameNPC mob = null;
+			GameNpc mob = null;
 
 			foreach (Assembly script in ScriptMgr.GameServerScripts)
 			{
 				try
 				{
 					client.Out.SendDebugMessage(script.FullName);
-					mob = (GameNPC)script.CreateInstance(theType, false);
+					mob = (GameNpc)script.CreateInstance(theType, false);
 
 					if (mob != null)
 						break;
@@ -330,7 +330,7 @@ namespace DOL.GS.Commands
 			mob.MaxSpeedBase = 200;
 			mob.GuildName = "";
 			mob.Size = 50;
-			mob.Flags |= GameNPC.eFlags.PEACE;
+			mob.Flags |= GameNpc.eFlags.PEACE;
 			mob.AddToWorld();
 			mob.LoadedFromScript = false; // allow saving
 			mob.SaveIntoDatabase();
@@ -379,7 +379,7 @@ namespace DOL.GS.Commands
 			}
 
 			name = CheckName(name, client);
-			GameNPC mob = new GameNPC();
+			GameNpc mob = new GameNpc();
 
 			//Fill the object variables
 			mob.X = client.Player.X;
@@ -457,7 +457,7 @@ namespace DOL.GS.Commands
 
 			for (int i = 0; i < number; ++i)
 			{
-				GameNPC mob = new GameNPC();
+				GameNpc mob = new GameNpc();
 
 				//Fill the object variables
 				int x = client.Player.X + UtilCollection.Random(-radius, radius);
@@ -517,7 +517,7 @@ namespace DOL.GS.Commands
 
 			for (int i = 0; i < number; ++i)
 			{
-				GameNPC mob = new GameNPC();
+				GameNpc mob = new GameNpc();
 
 				//Fill the object variables
 				int x = client.Player.X + DOL.GS.UtilCollection.Random(-radius, radius);
@@ -568,7 +568,7 @@ namespace DOL.GS.Commands
 			2282, 2283,	2284, 2285, 2286, 2287, 2288, 2289, 2290, 2291, 2292, 2293, 2294, 2299, 2300, 2302, 2305, 2319, 2333, 2334, 2335,
 			2336, 2337,	2338, 2364 };
 		
-		private void modelinc(GameClient client, GameNPC targetMob, string[] args)
+		private void modelinc(GameClient client, GameNpc targetMob, string[] args)
 		{
 			if (targetMob == null)
 			{
@@ -602,7 +602,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void modeldec(GameClient client, GameNPC targetMob, string[] args)
+		private void modeldec(GameClient client, GameNpc targetMob, string[] args)
 		{
 			if (targetMob == null)
 			{
@@ -637,7 +637,7 @@ namespace DOL.GS.Commands
 		}
 		#endregion
 		
-		private void model(GameClient client, GameNPC targetMob, string[] args)
+		private void model(GameClient client, GameNpc targetMob, string[] args)
 		{
 			if (args.Length == 4)
 				targetMob = FindOID(client, targetMob, args);
@@ -664,7 +664,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		GameNPC FindOID(GameClient client, GameNPC targetMob, string[] args)
+		GameNpc FindOID(GameClient client, GameNpc targetMob, string[] args)
 		{
 			ushort mobOID;
 			if (ushort.TryParse(args[3], out mobOID))
@@ -677,9 +677,9 @@ namespace DOL.GS.Commands
 				}
 				else
 				{
-					if (obj is GameNPC)
+					if (obj is GameNpc)
 					{
-						return (GameNPC)obj;
+						return (GameNpc)obj;
 					}
 					else
 					{
@@ -695,7 +695,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void size(GameClient client, GameNPC targetMob, string[] args)
+		private void size(GameClient client, GameNpc targetMob, string[] args)
 		{
 			ushort mobSize;
 
@@ -750,7 +750,7 @@ namespace DOL.GS.Commands
 		//        DisplaySyntax(client, args[1]);
 		//}
 
-		private void name(GameClient client, GameNPC targetMob, string[] args)
+		private void name(GameClient client, GameNpc targetMob, string[] args)
 		{
 			string mobName = "";
 
@@ -769,7 +769,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void suffix(GameClient client, GameNPC targetMob, string[] args)
+		private void suffix(GameClient client, GameNpc targetMob, string[] args)
 		{
 			if (targetMob.GetType().IsSubclassOf(typeof(GameMovingObject)))
 			{
@@ -792,7 +792,7 @@ namespace DOL.GS.Commands
 				DisplaySyntax(client, args[1]);
 		}
 
-		private void guild(GameClient client, GameNPC targetMob, string[] args)
+		private void guild(GameClient client, GameNpc targetMob, string[] args)
 		{
 			string guildName = "";
 
@@ -818,7 +818,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void examinearticle(GameClient client, GameNPC targetMob, string[] args)
+		private void examinearticle(GameClient client, GameNpc targetMob, string[] args)
 		{
 			if (targetMob.GetType().IsSubclassOf(typeof(GameMovingObject)))
 			{
@@ -843,7 +843,7 @@ namespace DOL.GS.Commands
 				DisplaySyntax(client, args[1]);
 		}
 
-		private void messagearticle(GameClient client, GameNPC targetMob, string[] args)
+		private void messagearticle(GameClient client, GameNpc targetMob, string[] args)
 		{
 			if (targetMob.GetType().IsSubclassOf(typeof(GameMovingObject)))
 			{
@@ -868,14 +868,14 @@ namespace DOL.GS.Commands
 				DisplaySyntax(client, args[1]);
 		}
 
-		private void peace(GameClient client, GameNPC targetMob, string[] args)
+		private void peace(GameClient client, GameNpc targetMob, string[] args)
 		{
-			targetMob.Flags ^= GameNPC.eFlags.PEACE;
+			targetMob.Flags ^= GameNpc.eFlags.PEACE;
 			targetMob.SaveIntoDatabase();
-			client.Out.SendMessage("Mob PEACE flag is set to " + ((targetMob.Flags & GameNPC.eFlags.PEACE) != 0), EChatType.CT_System, EChatLoc.CL_SystemWindow);
+			client.Out.SendMessage("Mob PEACE flag is set to " + ((targetMob.Flags & GameNpc.eFlags.PEACE) != 0), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 
-		private void aggro(GameClient client, GameNPC targetMob, string[] args)
+		private void aggro(GameClient client, GameNpc targetMob, string[] args)
 		{
 			int aggroLevel;
 
@@ -899,7 +899,7 @@ namespace DOL.GS.Commands
 				DisplayMessage(client, "Selected mob does not have an aggressive brain.");
 		}
 
-		private void race(GameClient client, GameNPC targetMob, string[] args)
+		private void race(GameClient client, GameNpc targetMob, string[] args)
 		{
 			if (args.Length < 3)
 			{
@@ -944,7 +944,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void range(GameClient client, GameNPC targetMob, string[] args)
+		private void range(GameClient client, GameNpc targetMob, string[] args)
 		{
 			try
 			{
@@ -969,7 +969,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void distance(GameClient client, GameNPC targetMob, string[] args)
+		private void distance(GameClient client, GameNpc targetMob, string[] args)
 		{
 			try
 			{
@@ -985,7 +985,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void roaming(GameClient client, GameNPC targetMob, string[] args)
+		private void roaming(GameClient client, GameNpc targetMob, string[] args)
 		{
 			int maxRoamingRange;
 
@@ -1003,7 +1003,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void damagetype(GameClient client, GameNPC targetMob, string[] args)
+		private void damagetype(GameClient client, GameNpc targetMob, string[] args)
 		{
 			try
 			{
@@ -1018,14 +1018,14 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void movehere(GameClient client, GameNPC targetMob, string[] args)
+		private void movehere(GameClient client, GameNpc targetMob, string[] args)
 		{
 			targetMob.MoveTo(client.Player.CurrentRegionID, client.Player.X, client.Player.Y, client.Player.Z, client.Player.Heading);
 			targetMob.SaveIntoDatabase();
 			client.Out.SendMessage("Target Mob '" + targetMob.Name + "' moved to your location!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 
-		private void location(GameClient client, GameNPC targetMob, string[] args)
+		private void location(GameClient client, GameNpc targetMob, string[] args)
 		{
 			client.Out.SendMessage("\"" + targetMob.Name + "\", " +
 			                       targetMob.CurrentRegionID + ", " +
@@ -1036,7 +1036,7 @@ namespace DOL.GS.Commands
 			                       EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 
-		private void remove(GameClient client, GameNPC targetMob, string[] args)
+		private void remove(GameClient client, GameNpc targetMob, string[] args)
 		{
 			string mobName = targetMob.Name;
 
@@ -1066,7 +1066,7 @@ namespace DOL.GS.Commands
 			client.Out.SendMessage("Target Mob removed from DB.", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 
-		private void flags(GameClient client, GameNPC targetMob, string[] args)
+		private void flags(GameClient client, GameNpc targetMob, string[] args)
 		{
 			if (args.Length == 4)
 				targetMob = FindOID(client, targetMob, args);
@@ -1080,44 +1080,44 @@ namespace DOL.GS.Commands
 			uint flag;
 			uint.TryParse(args[2], out flag);
 
-			targetMob.Flags = (GameNPC.eFlags)flag;
+			targetMob.Flags = (GameNpc.eFlags)flag;
 			targetMob.SaveIntoDatabase();
 			client.Out.SendMessage("Mob flags are set to " + targetMob.Flags.ToString(), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 
-		private void ghost(GameClient client, GameNPC targetMob, string[] args)
+		private void ghost(GameClient client, GameNpc targetMob, string[] args)
 		{
-			targetMob.Flags ^= GameNPC.eFlags.GHOST;
+			targetMob.Flags ^= GameNpc.eFlags.GHOST;
 			targetMob.SaveIntoDatabase();
-			client.Out.SendMessage("Mob GHOST flag is set to " + ((targetMob.Flags & GameNPC.eFlags.GHOST) != 0), EChatType.CT_System, EChatLoc.CL_SystemWindow);
+			client.Out.SendMessage("Mob GHOST flag is set to " + ((targetMob.Flags & GameNpc.eFlags.GHOST) != 0), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 
-		private void stealth(GameClient client, GameNPC targetMob, string[] args)
+		private void stealth(GameClient client, GameNpc targetMob, string[] args)
 		{
-			targetMob.Flags ^= GameNPC.eFlags.STEALTH;
+			targetMob.Flags ^= GameNpc.eFlags.STEALTH;
 			targetMob.SaveIntoDatabase();
-			client.Out.SendMessage("Mob STEALTH flag is set to " + ((targetMob.Flags & GameNPC.eFlags.STEALTH) != 0), EChatType.CT_System, EChatLoc.CL_SystemWindow);
+			client.Out.SendMessage("Mob STEALTH flag is set to " + ((targetMob.Flags & GameNpc.eFlags.STEALTH) != 0), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 
-		private void torch(GameClient client, GameNPC targetMob, string[] args)
+		private void torch(GameClient client, GameNpc targetMob, string[] args)
 		{
-			targetMob.Flags ^= GameNPC.eFlags.TORCH;
+			targetMob.Flags ^= GameNpc.eFlags.TORCH;
 			targetMob.SaveIntoDatabase();
-			client.Out.SendMessage("Mob TORCH flag is set to " + ((targetMob.Flags & GameNPC.eFlags.TORCH) != 0), EChatType.CT_System, EChatLoc.CL_SystemWindow);
+			client.Out.SendMessage("Mob TORCH flag is set to " + ((targetMob.Flags & GameNpc.eFlags.TORCH) != 0), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 
-		private void statue(GameClient client, GameNPC targetMob, string[] args)
+		private void statue(GameClient client, GameNpc targetMob, string[] args)
 		{
-			targetMob.Flags ^= GameNPC.eFlags.STATUE;
+			targetMob.Flags ^= GameNpc.eFlags.STATUE;
 			targetMob.SaveIntoDatabase();
 
-			if ((targetMob.Flags & GameNPC.eFlags.STATUE) > 0)
+			if ((targetMob.Flags & GameNpc.eFlags.STATUE) > 0)
 				client.Out.SendMessage("You have set the STATUE flag - you will need to use \"/debug on\" to target this NPC.", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 
-			client.Out.SendMessage(targetMob.Name + "'s STATUE flag is set to " + ((targetMob.Flags & GameNPC.eFlags.STATUE) != 0), EChatType.CT_System, EChatLoc.CL_SystemWindow);
+			client.Out.SendMessage(targetMob.Name + "'s STATUE flag is set to " + ((targetMob.Flags & GameNpc.eFlags.STATUE) != 0), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 
-		private void fly(GameClient client, GameNPC targetMob, string[] args)
+		private void fly(GameClient client, GameNpc targetMob, string[] args)
 		{
 			int height = 0;
 
@@ -1131,38 +1131,38 @@ namespace DOL.GS.Commands
 				}
 			}
 
-			targetMob.Flags ^= GameNPC.eFlags.FLYING;
+			targetMob.Flags ^= GameNpc.eFlags.FLYING;
 
-			if ((targetMob.Flags & GameNPC.eFlags.FLYING) != 0)
+			if ((targetMob.Flags & GameNpc.eFlags.FLYING) != 0)
 				targetMob.MoveTo(targetMob.CurrentRegionID, targetMob.X, targetMob.Y, targetMob.Z + height, targetMob.Heading);
 
 			targetMob.SaveIntoDatabase();
 
-			client.Out.SendMessage(targetMob.Name + "'s FLYING flag is set to " + ((targetMob.Flags & GameNPC.eFlags.FLYING) != 0), EChatType.CT_System, EChatLoc.CL_SystemWindow);
+			client.Out.SendMessage(targetMob.Name + "'s FLYING flag is set to " + ((targetMob.Flags & GameNpc.eFlags.FLYING) != 0), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 
-		private void swimming(GameClient client, GameNPC targetMob, string[] args)
+		private void swimming(GameClient client, GameNpc targetMob, string[] args)
 		{
-			targetMob.Flags ^= GameNPC.eFlags.SWIMMING;
+			targetMob.Flags ^= GameNpc.eFlags.SWIMMING;
 			targetMob.SaveIntoDatabase();
-			client.Out.SendMessage("Mob SWIMMING flag is set to " + ((targetMob.Flags & GameNPC.eFlags.SWIMMING) != 0), EChatType.CT_System, EChatLoc.CL_SystemWindow);
+			client.Out.SendMessage("Mob SWIMMING flag is set to " + ((targetMob.Flags & GameNpc.eFlags.SWIMMING) != 0), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 
-		private void noname(GameClient client, GameNPC targetMob, string[] args)
+		private void noname(GameClient client, GameNpc targetMob, string[] args)
 		{
-			targetMob.Flags ^= GameNPC.eFlags.DONTSHOWNAME;
+			targetMob.Flags ^= GameNpc.eFlags.DONTSHOWNAME;
 			targetMob.SaveIntoDatabase();
-			client.Out.SendMessage("Mob DONTSHOWNAME flag is set to " + ((targetMob.Flags & GameNPC.eFlags.DONTSHOWNAME) != 0), EChatType.CT_System, EChatLoc.CL_SystemWindow);
+			client.Out.SendMessage("Mob DONTSHOWNAME flag is set to " + ((targetMob.Flags & GameNpc.eFlags.DONTSHOWNAME) != 0), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 
-		private void notarget(GameClient client, GameNPC targetMob, string[] args)
+		private void notarget(GameClient client, GameNpc targetMob, string[] args)
 		{
-			targetMob.Flags ^= GameNPC.eFlags.CANTTARGET;
+			targetMob.Flags ^= GameNpc.eFlags.CANTTARGET;
 			targetMob.SaveIntoDatabase();
-			client.Out.SendMessage("Mob CANTTARGET flag is set to " + ((targetMob.Flags & GameNPC.eFlags.CANTTARGET) != 0), EChatType.CT_System, EChatLoc.CL_SystemWindow);
+			client.Out.SendMessage("Mob CANTTARGET flag is set to " + ((targetMob.Flags & GameNpc.eFlags.CANTTARGET) != 0), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 
-		private void kill(GameClient client, GameNPC targetMob, string[] args)
+		private void kill(GameClient client, GameNpc targetMob, string[] args)
 		{
 			try
 			{
@@ -1181,7 +1181,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void heal(GameClient client, GameNPC targetMob, string[] args)
+		private void heal(GameClient client, GameNpc targetMob, string[] args)
 		{
 			try
 			{
@@ -1196,7 +1196,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void attack(GameClient client, GameNPC targetMob, string[] args)
+		private void attack(GameClient client, GameNpc targetMob, string[] args)
 		{
 
 			foreach (GamePlayer player in targetMob.GetPlayersInRadius(3000))
@@ -1209,7 +1209,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void info(GameClient client, GameNPC targetMob, string[] args)
+		private void info(GameClient client, GameNpc targetMob, string[] args)
 		{
 			var info = new List<string>();
 
@@ -1379,7 +1379,7 @@ namespace DOL.GS.Commands
 				info.Add(" ");
 			}
 
-			info.Add(string.Format(" + Flags: {0} (0x{1})", ((GameNPC.eFlags)targetMob.Flags).ToString("G"), targetMob.Flags.ToString("X")));
+			info.Add(string.Format(" + Flags: {0} (0x{1})", ((GameNpc.eFlags)targetMob.Flags).ToString("G"), targetMob.Flags.ToString("X")));
 			info.Add(" + OID: " + targetMob.ObjectID);
 			info.Add(" + Active weapon slot: " + targetMob.ActiveWeaponSlot);
 			info.Add(" + Visible weapon slot: " + targetMob.VisibleActiveWeaponSlots);
@@ -1417,7 +1417,7 @@ namespace DOL.GS.Commands
 			client.Out.SendCustomTextWindow("[ " + targetMob.Name + " ]", info);
 		}
 		
-		private void stats(GameClient client, GameNPC targetMob, string[] args)
+		private void stats(GameClient client, GameNpc targetMob, string[] args)
 		{
 			if (targetMob == null)
 			{
@@ -1454,7 +1454,7 @@ namespace DOL.GS.Commands
 			return;
 		}
 
-		private void realm(GameClient client, GameNPC targetMob, string[] args)
+		private void realm(GameClient client, GameNpc targetMob, string[] args)
 		{
 			byte realm;
 
@@ -1471,7 +1471,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void speed(GameClient client, GameNPC targetMob, string[] args)
+		private void speed(GameClient client, GameNpc targetMob, string[] args)
 		{
 			short maxSpeed;
 
@@ -1488,7 +1488,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void level(GameClient client, GameNPC targetMob, string[] args)
+		private void level(GameClient client, GameNpc targetMob, string[] args)
 		{
 			byte level;
 
@@ -1504,7 +1504,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void levela(GameClient client, GameNPC targetMob, string[] args)
+		private void levela(GameClient client, GameNpc targetMob, string[] args)
 		{
 			byte level;
 
@@ -1522,7 +1522,7 @@ namespace DOL.GS.Commands
 			}
 		}
 		
-		private void autostats(GameClient client, GameNPC targetMob)
+		private void autostats(GameClient client, GameNpc targetMob)
 		{
 
 			try
@@ -1537,7 +1537,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void brain(GameClient client, GameNPC targetMob, string[] args)
+		private void brain(GameClient client, GameNpc targetMob, string[] args)
 		{
 			try
 			{
@@ -1600,7 +1600,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void respawn(GameClient client, GameNPC targetMob, string[] args)
+		private void respawn(GameClient client, GameNpc targetMob, string[] args)
 		{
 			int interval;
 
@@ -1617,7 +1617,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void questinfo(GameClient client, GameNPC targetMob, string[] args)
+		private void questinfo(GameClient client, GameNpc targetMob, string[] args)
 		{
 			if (targetMob.QuestListToGive.Count == 0 && targetMob.DataQuestList.Count == 0)
 			{
@@ -1638,7 +1638,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void refreshquests(GameClient client, GameNPC targetMob, string[] args)
+		private void refreshquests(GameClient client, GameNpc targetMob, string[] args)
 		{
 			try
 			{
@@ -1657,7 +1657,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void equipinfo(GameClient client, GameNPC targetMob, string[] args)
+		private void equipinfo(GameClient client, GameNpc targetMob, string[] args)
 		{
 			if (targetMob.Inventory == null)
 			{
@@ -1692,7 +1692,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void equiptemplate(GameClient client, GameNPC targetMob, string[] args)
+		private void equiptemplate(GameClient client, GameNpc targetMob, string[] args)
 		{
 			if (args.Length < 3)
 			{
@@ -1922,7 +1922,7 @@ namespace DOL.GS.Commands
 			targetMob.BroadcastLivingEquipmentUpdate();
 		}
 
-		private void visibleslot(GameClient client, GameNPC targetMob, string[] args)
+		private void visibleslot(GameClient client, GameNpc targetMob, string[] args)
 		{
 			try
 			{
@@ -1964,7 +1964,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void dropcount<T>(GameClient client, GameNPC targetMob, string[] args) where T : DbMobXLootTemplates
+		private void dropcount<T>(GameClient client, GameNpc targetMob, string[] args) where T : DbMobXLootTemplates
 		{
 			var mxlt = CoreDb<T>.SelectObject(DB.Column("MobName").IsEqualTo(targetMob.Name).And(DB.Column("LootTemplateName").IsEqualTo(targetMob.Name)));
 
@@ -1999,7 +1999,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void addloot<MobXLootType, LootTemplateType>(GameClient client, GameNPC targetMob, string[] args)
+		private void addloot<MobXLootType, LootTemplateType>(GameClient client, GameNpc targetMob, string[] args)
 			where MobXLootType : DbMobXLootTemplates
 			where LootTemplateType : DbLootTemplates
 		{
@@ -2090,7 +2090,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void addotd(GameClient client, GameNPC targetMob, string[] args)
+		private void addotd(GameClient client, GameNpc targetMob, string[] args)
 		{
 			try
 			{
@@ -2136,7 +2136,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void viewloot(GameClient client, GameNPC targetMob, string[] args)
+		private void viewloot(GameClient client, GameNpc targetMob, string[] args)
 		{
 			refreshloot(client, targetMob, null);
 
@@ -2202,7 +2202,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private static void DisplayLoots<MobDropTemplateType, LootTemplateType>(List<string> text, GameNPC mob)
+		private static void DisplayLoots<MobDropTemplateType, LootTemplateType>(List<string> text, GameNpc mob)
 			where MobDropTemplateType : DbMobXLootTemplates
 			where LootTemplateType : DbLootTemplates
 		{
@@ -2246,7 +2246,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void removeloot<LootTemplateType>(GameClient client, GameNPC targetMob, string[] args)
+		private void removeloot<LootTemplateType>(GameClient client, GameNpc targetMob, string[] args)
 			where LootTemplateType : DbLootTemplates
 		{
 			string lootTemplateID = args[2];
@@ -2293,7 +2293,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void removeotd(GameClient client, GameNPC targetMob, string[] args)
+		private void removeotd(GameClient client, GameNpc targetMob, string[] args)
 		{
 			string itemTemplateID = args[2];
 			string name = targetMob.Name;
@@ -2314,12 +2314,12 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void refreshloot(GameClient client, GameNPC targetMob, string[] args)
+		private void refreshloot(GameClient client, GameNpc targetMob, string[] args)
 		{
 			LootMgr.RefreshGenerators(targetMob);
 		}
 
-		void setClass(GameClient client, GameNPC targetMob, string[] args)
+		void setClass(GameClient client, GameNpc targetMob, string[] args)
 		{
 			if (args.Length < 3)
 			{
@@ -2327,13 +2327,13 @@ namespace DOL.GS.Commands
 				return;
 			}
 
-			GameNPC mob = null;
+			GameNpc mob = null;
 
 			try
 			{
 				foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
 				{
-					mob = assembly.CreateInstance(args[2], true) as GameNPC;
+					mob = assembly.CreateInstance(args[2], true) as GameNpc;
 
 					if (mob != null)
 						break;
@@ -2350,7 +2350,7 @@ namespace DOL.GS.Commands
 				{
 					foreach (Assembly assembly in ScriptMgr.Scripts)
 					{
-						mob = assembly.CreateInstance(args[2], true) as GameNPC;
+						mob = assembly.CreateInstance(args[2], true) as GameNpc;
 
 						if (mob != null)
 							break;
@@ -2460,9 +2460,9 @@ namespace DOL.GS.Commands
 			client.Out.SendMessage("Mob class changed: OID=" + mob.ObjectID, EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 
-		private void copy(GameClient client, GameNPC targetMob, string[] args)
+		private void copy(GameClient client, GameNpc targetMob, string[] args)
 		{
-			GameNPC mob = null;
+			GameNpc mob = null;
 
 			if (args.Length > 2)
 			{
@@ -2472,10 +2472,10 @@ namespace DOL.GS.Commands
 
 				if (dbMob != null)
 				{
-					if (dbMob.ClassType == typeof(GameNPC).FullName)
+					if (dbMob.ClassType == typeof(GameNpc).FullName)
 					{
-						mob = new GameNPC();
-						targetMob = new GameNPC();
+						mob = new GameNpc();
+						targetMob = new GameNpc();
 					}
 					else
 					{
@@ -2483,8 +2483,8 @@ namespace DOL.GS.Commands
 						{
 							try
 							{
-								mob = (GameNPC)script.CreateInstance(dbMob.ClassType, false);
-								targetMob = (GameNPC)script.CreateInstance(dbMob.ClassType, false);
+								mob = (GameNpc)script.CreateInstance(dbMob.ClassType, false);
+								targetMob = (GameNpc)script.CreateInstance(dbMob.ClassType, false);
 
 								if (mob != null)
 									break;
@@ -2518,7 +2518,7 @@ namespace DOL.GS.Commands
 
 				foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
 				{
-					mob = (GameNPC)assembly.CreateInstance(targetMob.GetType().FullName, true);
+					mob = (GameNpc)assembly.CreateInstance(targetMob.GetType().FullName, true);
 					if (mob != null)
 						break;
 				}
@@ -2612,14 +2612,14 @@ namespace DOL.GS.Commands
 			mob.LoadedFromScript = false;
 			mob.SaveIntoDatabase();
 			client.Out.SendMessage("Mob created: OID=" + mob.ObjectID, EChatType.CT_System, EChatLoc.CL_SystemWindow);
-			if ((mob.Flags & GameNPC.eFlags.PEACE) != 0)
+			if ((mob.Flags & GameNpc.eFlags.PEACE) != 0)
 			{
 				// because copying 100 mobs with their peace flag set is not fun
 				client.Out.SendMessage("This mobs PEACE flag is set!", EChatType.CT_Important, EChatLoc.CL_SystemWindow);
 			}
 		}
 
-		private void npctemplate(GameClient client, GameNPC targetMob, string[] args)
+		private void npctemplate(GameClient client, GameNpc targetMob, string[] args)
 		{
 			if (args.Length < 3)
 			{
@@ -2666,7 +2666,7 @@ namespace DOL.GS.Commands
 
 			if (targetMob == null)
 			{
-				GameNPC mob = new GameNPC(template);
+				GameNpc mob = new GameNpc(template);
 				mob.X = client.Player.X;
 				mob.Y = client.Player.Y;
 				mob.Z = client.Player.Z;
@@ -2685,7 +2685,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		void npctCreate(GameClient client, GameNPC targetMob, string[] args)
+		void npctCreate(GameClient client, GameNpc targetMob, string[] args)
 		{
 			if (args.Length < 4)
 			{
@@ -2723,7 +2723,7 @@ namespace DOL.GS.Commands
 			DisplayMessage(client, "NPCTemplate saved with ID = " + id + ".");
 		}
 
-		private void path(GameClient client, GameNPC targetMob, string[] args)
+		private void path(GameClient client, GameNpc targetMob, string[] args)
 		{
 			try
 			{
@@ -2750,7 +2750,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void house(GameClient client, GameNPC targetMob, string[] args)
+		private void house(GameClient client, GameNpc targetMob, string[] args)
 		{
 			ushort house;
 			House H;
@@ -2776,7 +2776,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void stat(GameClient client, GameNPC targetMob, string[] args)
+		private void stat(GameClient client, GameNpc targetMob, string[] args)
 		{
 			string statType = args[1].ToUpper();
 			short statval;
@@ -2817,7 +2817,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void tether(GameClient client, GameNPC targetMob, string[] args)
+		private void tether(GameClient client, GameNpc targetMob, string[] args)
 		{
 			try
 			{
@@ -2832,7 +2832,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void hood(GameClient client, GameNPC targetMob, string[] args)
+		private void hood(GameClient client, GameNpc targetMob, string[] args)
 		{
 			targetMob.IsCloakHoodUp ^= true;
 			targetMob.BroadcastLivingEquipmentUpdate();
@@ -2840,7 +2840,7 @@ namespace DOL.GS.Commands
 			client.Out.SendMessage("Mob IsCloakHoodUp flag is set to " + targetMob.IsCloakHoodUp, EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 
-		private void cloak(GameClient client, GameNPC targetMob, string[] args)
+		private void cloak(GameClient client, GameNpc targetMob, string[] args)
 		{
 			targetMob.IsCloakInvisible ^= true;
 			targetMob.BroadcastLivingEquipmentUpdate();
@@ -2848,7 +2848,7 @@ namespace DOL.GS.Commands
 			client.Out.SendMessage("Mob IsCloakInvisible flag is set to " + targetMob.IsCloakHoodUp, EChatType.CT_System, EChatLoc.CL_SystemWindow);
 		}
 
-		private void bodytype(GameClient client, GameNPC targetMob, string[] args)
+		private void bodytype(GameClient client, GameNpc targetMob, string[] args)
 		{
 			ushort type;
 
@@ -2864,7 +2864,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void gender(GameClient client, GameNPC targetMob, string[] args)
+		private void gender(GameClient client, GameNpc targetMob, string[] args)
 		{
 			byte gender;
 			try
@@ -2889,7 +2889,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void packageid(GameClient client, GameNPC targetMob, string[] args)
+		private void packageid(GameClient client, GameNpc targetMob, string[] args)
 		{
 			string packageID;
 			try
@@ -2912,7 +2912,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void ownerid(GameClient client, GameNPC targetMob, string[] args)
+		private void ownerid(GameClient client, GameNpc targetMob, string[] args)
 		{
 			string ownerID;
 			try
@@ -2949,10 +2949,10 @@ namespace DOL.GS.Commands
 			return name;
 		}
 
-		private GameNPC select(ushort range, GameClient client)
+		private GameNpc select(ushort range, GameClient client)
 		{
 			// try to target another mob in radius AUTOSELECT_RADIUS units
-			foreach (GameNPC wantedMob in client.Player.GetNPCsInRadius(range))
+			foreach (GameNpc wantedMob in client.Player.GetNPCsInRadius(range))
 			{
 				if (wantedMob == null)
 				{
@@ -2968,7 +2968,7 @@ namespace DOL.GS.Commands
 			return null;
 		}
 
-		private void reload(GameClient client, GameNPC targetMob, string[] args)
+		private void reload(GameClient client, GameNpc targetMob, string[] args)
 		{
 			ArrayList mobs = new ArrayList();
 			// Find the mob(s) to reload.
@@ -2979,9 +2979,9 @@ namespace DOL.GS.Commands
 				{
 					mobs.Add(WorldMgr.GetNPCsByName(args[2], i));
 				}
-				foreach (GameNPC[] ma in mobs)
+				foreach (GameNpc[] ma in mobs)
 				{
-					foreach (GameNPC n in ma)
+					foreach (GameNpc n in ma)
 					{
 						if (n.LoadedFromScript == false)
 						{
@@ -3025,7 +3025,7 @@ namespace DOL.GS.Commands
 				{
 					Log.DebugFormat("Mob_ID {0} loaded from database.", args[2]);
 					DisplayMessage(client, "Mob_ID {0} loaded from database.", args[2]);
-					GameNPC npc = new GameNPC();
+					GameNpc npc = new GameNpc();
 					npc.LoadFromDatabase(mob);
 					npc.AddToWorld();
 					DisplayMessage(client, "Mob {0} added to the world.  Use care if this is a duplicate, removing original will delete mob from the DB!", args[2]);
@@ -3071,7 +3071,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void state(GameClient client, GameNPC targetMob)
+		private void state(GameClient client, GameNpc targetMob)
 		{
 
 			if (targetMob == null)
@@ -3157,7 +3157,7 @@ namespace DOL.GS.Commands
 			client.Out.SendCustomTextWindow("Mob State", text);
 		}
 
-		private void trigger(GameClient client, GameNPC targetMob, string[] args)
+		private void trigger(GameClient client, GameNpc targetMob, string[] args)
 		{
 			string text = "";
 			ushort emote = 0;
@@ -3182,10 +3182,10 @@ namespace DOL.GS.Commands
 						return;
 				}
 
-				GameNPC.eAmbientTrigger trig;
+				GameNpc.eAmbientTrigger trig;
 				try
 				{
-					trig = (GameNPC.eAmbientTrigger)Enum.Parse(typeof(GameNPC.eAmbientTrigger), type, true);
+					trig = (GameNpc.eAmbientTrigger)Enum.Parse(typeof(GameNpc.eAmbientTrigger), type, true);
 				}
 				catch
 				{
@@ -3234,7 +3234,7 @@ namespace DOL.GS.Commands
 			}
 		}
 
-		private void trigger_remove(GameClient client, GameNPC targetMob, string[] args)
+		private void trigger_remove(GameClient client, GameNpc targetMob, string[] args)
 		{
 			int i;
 			if (args.Length < 4 || !int.TryParse(args[3], out i))
@@ -3253,7 +3253,7 @@ namespace DOL.GS.Commands
 			ChatUtil.SendSystemMessage(client, "Trigger: \"" + trigger.Trigger + ", chance: " + trigger.Chance + ", voice: " + trigger.Voice + ", emote: " + trigger.Emote + ", text: " + trigger.Text + "\" has been removed.");
 		}
 
-		private void trigger_info(GameClient client, GameNPC targetMob)
+		private void trigger_info(GameClient client, GameNpc targetMob)
 		{
 			var triggers = GameServer.Instance.NpcManager.AmbientBehaviour[targetMob.Name];
 			client.Player.TempProperties.setProperty("mob_triggers", triggers);

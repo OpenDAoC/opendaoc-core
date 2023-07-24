@@ -3,7 +3,7 @@ using DOL.GS.Realm;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)ECharacterClass.Eldritch, "Eldritch", "Magician")]
+	[PlayerClass((int)ECharacterClass.Eldritch, "Eldritch", "Magician")]
 	public class ClassEldritch : ClassMagician
 	{
 		public ClassEldritch()

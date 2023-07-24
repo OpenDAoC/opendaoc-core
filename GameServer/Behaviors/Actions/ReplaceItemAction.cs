@@ -12,13 +12,13 @@ namespace DOL.GS.Behaviour.Actions
     public class ReplaceItemAction : AbstractAction<DbItemTemplates,DbItemTemplates>
     {               
 
-        public ReplaceItemAction(GameNPC defaultNPC,  Object p, Object q)
+        public ReplaceItemAction(GameNpc defaultNPC,  Object p, Object q)
             : base(defaultNPC, EActionType.ReplaceItem, p, q)
         {                
         }
 
 
-        public ReplaceItemAction(GameNPC defaultNPC,  DbItemTemplates oldItemTemplate, DbItemTemplates newItemTemplate)
+        public ReplaceItemAction(GameNpc defaultNPC,  DbItemTemplates oldItemTemplate, DbItemTemplates newItemTemplate)
             : this(defaultNPC, (object) oldItemTemplate,(object) newItemTemplate) { }
         
 

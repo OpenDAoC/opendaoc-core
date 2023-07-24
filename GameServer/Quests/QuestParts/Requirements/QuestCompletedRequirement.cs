@@ -27,7 +27,7 @@ namespace DOL.GS.Quests.Requirements
 		/// <param name="n"></param>
 		/// <param name="v"></param>
 		/// <param name="comp"></param>
-        public QuestCompletedRequirement(GameNPC defaultNPC, Object n, Object v, eComparator comp)
+        public QuestCompletedRequirement(GameNpc defaultNPC, Object n, Object v, eComparator comp)
             : base(defaultNPC,eRequirementType.Quest, n, v, comp)
 		{   			
 		}
@@ -39,7 +39,7 @@ namespace DOL.GS.Quests.Requirements
         /// <param name="questType"></param>
         /// <param name="v"></param>
         /// <param name="comp"></param>
-        public QuestCompletedRequirement(GameNPC defaultNPC, Type questType, int v, eComparator comp)
+        public QuestCompletedRequirement(GameNpc defaultNPC, Type questType, int v, eComparator comp)
             : this(defaultNPC, (object)questType, (object)v, comp)
 		{   			
 		}

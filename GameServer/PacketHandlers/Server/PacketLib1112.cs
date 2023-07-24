@@ -524,7 +524,7 @@ namespace DOL.GS.PacketHandler
 				if (ServerProperties.ServerProperties.CONSIGNMENT_USE_BP)
 					name += "[" + item.SellPrice.ToString() + " BP]";
 				else
-					name += "[" + Money.GetString(item.SellPrice) + "]";
+					name += "[" + MoneyUtil.GetString(item.SellPrice) + "]";
 			}
 			if (name == null) name = "";
 			if (name.Length > 55)

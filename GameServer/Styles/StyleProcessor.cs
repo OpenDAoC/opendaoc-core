@@ -542,7 +542,7 @@ namespace DOL.GS.Styles
 		/// <returns>true if correct weapon active</returns>
 		protected static bool CheckWeaponType(Style style, GameLiving living, InventoryItem weapon)
 		{
-			if (living is GameNPC)
+			if (living is GameNpc)
 				return true;
 			GamePlayer player = living as GamePlayer;
 			if (player == null) return false;

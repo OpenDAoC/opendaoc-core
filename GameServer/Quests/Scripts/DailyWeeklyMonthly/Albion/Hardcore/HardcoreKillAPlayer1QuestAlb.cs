@@ -19,7 +19,7 @@ namespace DOL.GS.DailyQuest
 		private const int minimumLevel = 1;
 		private const int maximumLevel = 50;
 
-		private static GameNPC SucciAlb = null; // Start NPC
+		private static GameNpc SucciAlb = null; // Start NPC
 
 		private int PlayerKilled = 0;
 		private int MAX_KillGoal = 1;
@@ -58,10 +58,10 @@ namespace DOL.GS.DailyQuest
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Succi", ERealm.Albion);
+			GameNpc[] npcs = WorldMgr.GetNPCsByName("Succi", ERealm.Albion);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 				{
 					if (npc.CurrentRegionID == 1 && npc.X == 584652 && npc.Y == 477773)
 					{
@@ -74,7 +74,7 @@ namespace DOL.GS.DailyQuest
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find SucciAlb , creating it ...");
-				SucciAlb = new GameNPC();
+				SucciAlb = new GameNpc();
 				SucciAlb.Model = 902;
 				SucciAlb.Name = "Succi";
 				SucciAlb.GuildName = "Spectre of Death";
@@ -87,7 +87,7 @@ namespace DOL.GS.DailyQuest
 				SucciAlb.Y = 477773;
 				SucciAlb.Z = 2600;
 				SucciAlb.Heading = 2257;
-				SucciAlb.Flags |= GameNPC.eFlags.PEACE;
+				SucciAlb.Flags |= GameNpc.eFlags.PEACE;
 				SucciAlb.AddToWorld();
 				if (SAVE_INTO_DATABASE)
 				{
@@ -353,7 +353,7 @@ namespace DOL.GS.DailyQuest
 			int reward = ServerProperties.ServerProperties.HARDCORE_RVR_REWARD;
 			
 			m_questPlayer.ForceGainExperience((m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel)/2);
-			m_questPlayer.AddMoney(Money.GetMoney(0,0,m_questPlayer.Level*2,32,UtilCollection.Random(50)), "You receive {0} as a reward.");
+			m_questPlayer.AddMoney(MoneyUtil.GetMoney(0,0,m_questPlayer.Level*2,32,UtilCollection.Random(50)), "You receive {0} as a reward.");
 			RogMgr.GenerateReward(m_questPlayer, 250);
 			PlayerKilled = 0;
 			

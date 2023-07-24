@@ -109,7 +109,7 @@ namespace DOL.GS.Spells
         {
             
             var list = new List<GameLiving>(8);
-            foreach (GameNPC storms in Caster.GetNPCsInRadius(350))
+            foreach (GameNpc storms in Caster.GetNPCsInRadius(350))
             {
                 if ((storms is GameStorm) && (GameServer.ServerRules.IsSameRealm(storms, Caster, true))) list.Add(storms);
             }
@@ -135,7 +135,7 @@ namespace DOL.GS.Spells
             {
                 if (targetStorm.Movable)
                 {
-                    GameNPC targetNPC = targetStorm as GameNPC;
+                    GameNpc targetNPC = targetStorm as GameNpc;
                     int range = UtilCollection.Random(0, 750);
                     double angle = UtilCollection.RandomDouble() * 2 * Math.PI;
                     targetNPC.WalkTo(targetNPC.X + (int)(range * Math.Cos(angle)), targetNPC.Y + (int)(range * Math.Sin(angle)), targetNPC.Z, targetNPC.MaxSpeed);

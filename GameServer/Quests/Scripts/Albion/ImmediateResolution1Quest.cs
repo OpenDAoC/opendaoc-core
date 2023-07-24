@@ -33,8 +33,8 @@ namespace DOL.GS.Quests.Albion
 
         private static DbItemTemplates waxSealedNote = null;
 
-        private static GameNPC _masterTor = null;
-        private static GameNPC _stewardWillie = null;
+        private static GameNpc _masterTor = null;
+        private static GameNpc _stewardWillie = null;
 
         private static GameGuard _gaurdsman1 = null;
         private static GameGuard _gaurdsman2 = null;
@@ -67,7 +67,7 @@ namespace DOL.GS.Quests.Albion
                 {
                     if(gArgs.Item.Id_nb == waxSealedNoteInDb)
                     {
-                        GameNPC selectedGuard = gArgs.Target as GameNPC;
+                        GameNpc selectedGuard = gArgs.Target as GameNpc;
                         INpcTemplate template = NpcTemplateMgr.GetTemplate(12211);
                         RemoveItem(selectedGuard, player, waxSealedNote);
                         selectedGuard.SayTo(player, "If you wish to assist us in our defense we would welcome it.");
@@ -77,7 +77,7 @@ namespace DOL.GS.Quests.Albion
                         {
                             for (int i = 0; i < 10; i++)
                             {
-                                GameNPC mob = new GameNPC(template)
+                                GameNpc mob = new GameNpc(template)
                                 {
                                     X = _cluster1BaseX - (i * _xDelta),
                                     Y = _cluster1BaseY + (i * _yDelta),
@@ -105,7 +105,7 @@ namespace DOL.GS.Quests.Albion
                         {
                             for (int i = 0; i < 10; i++)
                             {
-                                GameNPC mob = new GameNPC(template)
+                                GameNpc mob = new GameNpc(template)
                                 {
                                     X = _cluster2BaseX - (i * _xDelta),
                                     Y = _cluster2BaseY + (i * _yDelta),
@@ -142,7 +142,7 @@ namespace DOL.GS.Quests.Albion
             if (log.IsInfoEnabled)
                 log.Info("Quest \"" + questTitle + "\" initializing ...");
 
-            GameNPC[] gameNpcQuery = WorldMgr.GetNPCsByName(masterTorNpc, ERealm.Albion);
+            GameNpc[] gameNpcQuery = WorldMgr.GetNPCsByName(masterTorNpc, ERealm.Albion);
             if (gameNpcQuery.Length == 0)
             {
                 _logReasonQuestCantBeImplemented(masterTorNpc);
@@ -395,7 +395,7 @@ namespace DOL.GS.Quests.Albion
         {
             base.FinishQuest();
             m_questPlayer.ForceGainExperience( 50);
-            long money = Money.GetMoney(0, 0, 0, 0, 30 + UtilCollection.Random(50));
+            long money = MoneyUtil.GetMoney(0, 0, 0, 0, 30 + UtilCollection.Random(50));
             m_questPlayer.AddMoney(money, "You recieve {0} for your service.");
             InventoryLogging.LogInventoryAction("(QUEST;" + Name + ")", m_questPlayer, eInventoryActionType.Quest, money);
 
@@ -423,7 +423,7 @@ namespace DOL.GS.Quests.Albion
                 SaveInDB = false,
                 Realm = ERealm.Albion
             };
-            _gaurdsman1.Flags ^= GameNPC.eFlags.GHOST;
+            _gaurdsman1.Flags ^= GameNpc.eFlags.GHOST;
             _gaurdsman1.AddToWorld();
             _gaurdsman2 = new GameGuard(template)
             {
@@ -435,7 +435,7 @@ namespace DOL.GS.Quests.Albion
                 SaveInDB = false,
                 Realm = ERealm.Albion
             };
-            _gaurdsman2.Flags ^= GameNPC.eFlags.GHOST;
+            _gaurdsman2.Flags ^= GameNpc.eFlags.GHOST;
             _gaurdsman2.AddToWorld();
             _gaurdsman3 = new GameGuard(template)
             {
@@ -447,7 +447,7 @@ namespace DOL.GS.Quests.Albion
                 SaveInDB = false,
                 Realm = ERealm.Albion
             };
-            _gaurdsman3.Flags ^= GameNPC.eFlags.GHOST;
+            _gaurdsman3.Flags ^= GameNpc.eFlags.GHOST;
             _gaurdsman3.AddToWorld();
             _gaurdsman4 = new GameGuard(template)
             {
@@ -459,7 +459,7 @@ namespace DOL.GS.Quests.Albion
                 SaveInDB = false,
                 Realm = ERealm.Albion
             };
-            _gaurdsman4.Flags ^= GameNPC.eFlags.GHOST;
+            _gaurdsman4.Flags ^= GameNpc.eFlags.GHOST;
             _gaurdsman4.AddToWorld();
         }
     }

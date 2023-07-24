@@ -13,13 +13,13 @@ namespace DOL.GS.Behaviour.Actions
     public class MessageAction : AbstractAction<String,ETextType>
     {
 
-        public MessageAction(GameNPC defaultNPC,  Object p, Object q)
+        public MessageAction(GameNpc defaultNPC,  Object p, Object q)
             : base(defaultNPC, EActionType.Message, p, q)
         {                           
         }
 
 
-        public MessageAction(GameNPC defaultNPC, String message, ETextType messageType)
+        public MessageAction(GameNpc defaultNPC, String message, ETextType messageType)
             : this(defaultNPC, (object)message, (object)messageType) { }
         
 

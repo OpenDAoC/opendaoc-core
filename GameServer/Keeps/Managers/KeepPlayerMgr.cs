@@ -305,7 +305,7 @@ namespace DOL.GS.Keeps
 		/// Method to update stats for all players who helped kill lord
 		/// </summary>
 		/// <param name="lord">The lord object</param>
-		public static void UpdateStats(KeepLord lord)
+		public static void UpdateStats(GuardLord lord)
 		{
 			lock (lord.XPGainers.SyncRoot)
 			{

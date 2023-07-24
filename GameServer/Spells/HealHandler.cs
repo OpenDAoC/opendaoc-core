@@ -148,7 +148,7 @@ namespace DOL.GS.Spells
             double effectiveness = 0;
             if (Caster is GamePlayer)
                 effectiveness = (Caster as GamePlayer).Effectiveness + (double)(Caster.GetModified(EProperty.HealingEffectiveness)) * 0.01;
-            if (Caster is GameNPC)
+            if (Caster is GameNpc)
                 effectiveness = 1.0;
 
             //USE DOUBLE !
@@ -352,7 +352,7 @@ namespace DOL.GS.Spells
 
             foreach (var gain in attackers.ToList())
             {
-                if (gain is GameNPC npc)
+                if (gain is GameNpc npc)
                 {
                     AttackData ad = new AttackData();
                     ad.Attacker = Caster;

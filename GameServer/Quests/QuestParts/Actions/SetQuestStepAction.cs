@@ -11,12 +11,12 @@ namespace DOL.GS.Quests.Actions
     public class SetQuestStepAction: AbstractAction<Type,int>
     {
 
-        public SetQuestStepAction(GameNPC defaultNPC, Object p, Object q)
+        public SetQuestStepAction(GameNpc defaultNPC, Object p, Object q)
             : base(defaultNPC, EActionType.SetQuestStep, p, q) 
         {
         }
 
-        public SetQuestStepAction(GameNPC defaultNPC, Type questType, int questStep)
+        public SetQuestStepAction(GameNpc defaultNPC, Type questType, int questStep)
             : this(defaultNPC, (object)questType, (object)questStep)
         {
         }

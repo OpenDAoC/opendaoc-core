@@ -32,7 +32,7 @@ namespace DOL.GS.PropertyCalc
 				return evadechance;
 			}
 
-			GameNPC npc = living as GameNPC;
+			GameNpc npc = living as GameNpc;
 			if (npc != null)
 			{
 				return living.AbilityBonus[(int)property] * 10 + npc.EvadeChance * 10;

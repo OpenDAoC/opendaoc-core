@@ -3,8 +3,8 @@ using DOL.GS.Realm;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)ECharacterClass.Elementalist, "Elementalist", "Elementalist")]
-	public class ClassElementalist : CharacterClassBase
+	[PlayerClass((int)ECharacterClass.Elementalist, "Elementalist", "Elementalist")]
+	public class ClassElementalist : PlayerClassBase
 	{
 		public ClassElementalist()
 			: base()

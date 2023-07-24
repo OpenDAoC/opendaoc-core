@@ -18,9 +18,9 @@ namespace DOL.GS.Quests.Hibernia
 		protected const int minimumLevel = 50;
 		protected const int maximumLevel = 50;
 
-		private static GameNPC Revelin = null; // Start NPC
+		private static GameNpc Revelin = null; // Start NPC
 		//private static GameNPC Lauralaye = null; //Reward NPC
-		private static Cailean Cailean = null; // Mob to kill
+		private static EpicCailean Cailean = null; // Mob to kill
 
 		private static DbItemTemplates Horn = null; //ball of flame        
 		private static DbItemTemplates BlademasterEpicBoots = null; //Mist Shrouded Boots 
@@ -96,10 +96,10 @@ namespace DOL.GS.Quests.Hibernia
 
 			#region NPC Declarations
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Revelin", ERealm.Hibernia);
+			GameNpc[] npcs = WorldMgr.GetNPCsByName("Revelin", ERealm.Hibernia);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 200 && npc.X == 343442 && npc.Y == 706235)
 					{
 						Revelin = npc;
@@ -110,7 +110,7 @@ namespace DOL.GS.Quests.Hibernia
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Revelin , creating it ...");
-				Revelin = new GameNPC();
+				Revelin = new GameNpc();
 				Revelin.Model = 361;
 				Revelin.Name = "Revelin";
 				Revelin.GuildName = "";
@@ -122,7 +122,7 @@ namespace DOL.GS.Quests.Hibernia
 				Revelin.Y = 706235;
 				Revelin.Z = 6336;
 				Revelin.Heading = 2127;
-				Revelin.Flags ^= GameNPC.eFlags.PEACE;
+				Revelin.Flags ^= GameNpc.eFlags.PEACE;
 				Revelin.AddToWorld();
 				if (SAVE_INTO_DATABASE)
 				{
@@ -134,10 +134,10 @@ namespace DOL.GS.Quests.Hibernia
 			npcs = WorldMgr.GetNPCsByName("Cailean", ERealm.None);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 200 && npc.X == 479042 && npc.Y == 508134)
 					{
-						Cailean = npc as Cailean;
+						Cailean = npc as EpicCailean;
 						break;
 					}
 
@@ -145,7 +145,7 @@ namespace DOL.GS.Quests.Hibernia
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Cailean , creating it ...");
-				Cailean = new Cailean();
+				Cailean = new EpicCailean();
 				Cailean.Model = 98;
 				Cailean.Name = "Cailean";
 				Cailean.GuildName = "";

@@ -106,7 +106,7 @@ namespace DOL.GS.PropertyCalc
 
                 speed *= horseSpeed;
             }
-            else if (living is GameNPC npc)
+            else if (living is GameNpc npc)
             {
                 IControlledBrain brain = npc.Brain as IControlledBrain;
 

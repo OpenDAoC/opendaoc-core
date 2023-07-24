@@ -8,16 +8,16 @@ using DOL.GS.Behaviour.Attributes;using DOL.GS.Behaviour;
 namespace DOL.GS.Behaviour.Actions
 {
     [ActionAttribute(ActionType = EActionType.Talk,DefaultValueQ=EDefaultValueConstants.NPC)]
-    public class TalkAction : AbstractAction<String,GameNPC>
+    public class TalkAction : AbstractAction<String,GameNpc>
     {
 
-        public TalkAction(GameNPC defaultNPC,  Object p, Object q)
+        public TalkAction(GameNpc defaultNPC,  Object p, Object q)
             : base(defaultNPC, EActionType.Talk, p, q)
         {
         }
 
 
-        public TalkAction(GameNPC defaultNPC, String message, GameNPC npc)
+        public TalkAction(GameNpc defaultNPC, String message, GameNpc npc)
             : this(defaultNPC, (object)message, (object)npc) { }
         
 

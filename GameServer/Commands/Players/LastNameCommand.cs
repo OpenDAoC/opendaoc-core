@@ -42,9 +42,9 @@ namespace DOL.GS.Commands
 			}
 
 			/* When you don't have a lastname, change is for free, otherwise you need money */
-			if (client.Player.LastName != "" && client.Player.GetCurrentMoney() < Money.GetMoney(0, 0, LASTNAME_FEE, 0, 0))
+			if (client.Player.LastName != "" && client.Player.GetCurrentMoney() < MoneyUtil.GetMoney(0, 0, LASTNAME_FEE, 0, 0))
 			{
-				client.Out.SendMessage("Changing your last name costs " + Money.GetString(Money.GetMoney(0, 0, LASTNAME_FEE, 0, 0)) + "!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
+				client.Out.SendMessage("Changing your last name costs " + MoneyUtil.GetString(MoneyUtil.GetMoney(0, 0, LASTNAME_FEE, 0, 0)) + "!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				return;
 			}
 
@@ -141,9 +141,9 @@ namespace DOL.GS.Commands
 			}
 
 			/* Check money only if your lastname is not blank */
-			if (player.LastName != "" && player.GetCurrentMoney() < Money.GetMoney(0, 0, LASTNAME_FEE, 0, 0))
+			if (player.LastName != "" && player.GetCurrentMoney() < MoneyUtil.GetMoney(0, 0, LASTNAME_FEE, 0, 0))
 			{
-				player.Out.SendMessage("Changing your last name costs " + Money.GetString(Money.GetMoney(0, 0, LASTNAME_FEE, 0, 0)) + "!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
+				player.Out.SendMessage("Changing your last name costs " + MoneyUtil.GetString(MoneyUtil.GetMoney(0, 0, LASTNAME_FEE, 0, 0)) + "!", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				return;
 			}
 
@@ -156,7 +156,7 @@ namespace DOL.GS.Commands
 			/* Remove money only if your lastname is not blank and is different from the previous one */
             if (player.LastName != "" && player.LastName != NewLastName)
             {
-                player.RemoveMoney(Money.GetMoney(0, 0, LASTNAME_FEE, 0, 0), null);
+                player.RemoveMoney(MoneyUtil.GetMoney(0, 0, LASTNAME_FEE, 0, 0), null);
                 InventoryLogging.LogInventoryAction(player, player.TargetObject, eInventoryActionType.Merchant, LASTNAME_FEE * 10000);
             }
 

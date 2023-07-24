@@ -113,7 +113,7 @@ namespace DOL.AI.Brain
 			if (Body.attackComponent.AttackState)
 				return;
 
-			foreach (GameNPC npc in Body.GetNPCsInRadius((ushort)AggroRange))
+			foreach (GameNpc npc in Body.GetNPCsInRadius((ushort)AggroRange))
 			{
 				if (!npc.IsAlive || npc.ObjectState != GameObject.eObjectState.Active)
 					continue;
@@ -203,7 +203,7 @@ namespace DOL.AI.Brain
 				// for example.
 
 				log.Info(String.Format("DragonBrain.Notify: ArriveAtTarget({0})", (sender as GameObject).Name));
-				(Body as GameDragon).OnRetrieverArrived(sender as GameNPC);
+				(Body as GameDragon).OnRetrieverArrived(sender as GameNpc);
 			}
         }
 
@@ -353,7 +353,7 @@ namespace DOL.AI.Brain
 				}
 			}
 
-			foreach (GameNPC npc in dragon.GetNPCsInRadius((ushort)dragon.AttackRange))
+			foreach (GameNpc npc in dragon.GetNPCsInRadius((ushort)dragon.AttackRange))
 			{
 				if (npc.IsAlive && npc.Brain != null && npc.Brain is IControlledBrain)
 				{

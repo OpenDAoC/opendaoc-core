@@ -26,7 +26,7 @@ namespace DOL.GS.Quests.Triggers
 		/// <param name="notifyHandler"></param>
 		/// <param name="k"></param>
 		/// <param name="i"></param>
-        public AbortQuestTrigger(GameNPC defaultNPC, CoreEventHandler notifyHandler, Object k, Object i)
+        public AbortQuestTrigger(GameNpc defaultNPC, CoreEventHandler notifyHandler, Object k, Object i)
             : base(defaultNPC,notifyHandler, ETriggerType.AbortQuest, k, i)
         { }
 
@@ -36,7 +36,7 @@ namespace DOL.GS.Quests.Triggers
         /// <param name="defaultNPC"></param>
         /// <param name="notifyHandler"></param>
         /// <param name="questType"></param>
-        public AbortQuestTrigger(GameNPC defaultNPC, CoreEventHandler notifyHandler, Type questType)
+        public AbortQuestTrigger(GameNpc defaultNPC, CoreEventHandler notifyHandler, Type questType)
             : this(defaultNPC,notifyHandler, (object)null,(object) questType)
         { }
 

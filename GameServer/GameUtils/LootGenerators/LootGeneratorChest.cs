@@ -10,7 +10,7 @@ namespace DOL.GS
 	{	
 		int SMALLCHEST_CHANCE = ServerProperties.ServerProperties.BASE_SMALLCHEST_CHANCE;
 		int LARGECHEST_CHANCE = ServerProperties.ServerProperties.BASE_LARGECHEST_CHANCE;
-		public override LootList GenerateLoot(GameNPC mob, GameObject killer)
+		public override LootList GenerateLoot(GameNpc mob, GameObject killer)
 		{
 			LootList loot = base.GenerateLoot(mob, killer);
 			int small = SMALLCHEST_CHANCE;

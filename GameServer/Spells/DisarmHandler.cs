@@ -44,9 +44,9 @@ namespace DOL.GS.Spells
 			MessageToLiving(effect.Owner, Spell.Message1, EChatType.CT_Spell);
 			Message.SystemToArea(effect.Owner, UtilCollection.MakeSentence(Spell.Message2, effect.Owner.GetName(0, false)), EChatType.CT_Spell, effect.Owner);
 			effect.Owner.StartInterruptTimer(effect.Owner.SpellInterruptDuration, AttackData.EAttackType.Spell, Caster);
-			if (effect.Owner is GameNPC)
+			if (effect.Owner is GameNpc)
 			{
-				IOldAggressiveBrain aggroBrain = ((GameNPC)effect.Owner).Brain as IOldAggressiveBrain;
+				IOldAggressiveBrain aggroBrain = ((GameNpc)effect.Owner).Brain as IOldAggressiveBrain;
 				if (aggroBrain != null)
 					aggroBrain.AddToAggroList(Caster, 1);
 			}

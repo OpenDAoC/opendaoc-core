@@ -1070,7 +1070,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 			output.Add("        Color: " + item.Color);
 			output.Add("       Emblem: " + item.Emblem);
 			output.Add("       Effect: " + item.Effect);
-			output.Add("  Value/Price: " + Money.GetShortString(item.Price));
+			output.Add("  Value/Price: " + MoneyUtil.GetShortString(item.Price));
 			output.Add("       Weight: " + (item.Weight / 10.0f) + "lbs");
 			output.Add("      Quality: " + item.Quality + "%");
 			output.Add("   Durability: " + dur + "/" + item.MaxDurability);

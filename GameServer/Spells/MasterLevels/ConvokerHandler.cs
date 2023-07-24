@@ -277,7 +277,7 @@ namespace DOL.GS.Spells
 	[SpellHandlerAttribute("Battlewarder")]
 	public class BattlewarderHandler : SpellHandler
 	{
-		private GameNPC warder;
+		private GameNpc warder;
 		private GameSpellEffect m_effect;
 		/// <summary>
 		/// Execute battle warder summon spell
@@ -357,7 +357,7 @@ namespace DOL.GS.Spells
 		// Event : Battle warder has died
 		private void BattleWarderDie(CoreEvent e, object sender, EventArgs args)
 		{
-			GameNPC kWarder = sender as GameNPC;
+			GameNpc kWarder = sender as GameNpc;
 			if (kWarder == null) return;
 			if (e == GameLivingEvent.Dying)
 			{
@@ -380,7 +380,7 @@ namespace DOL.GS.Spells
 		public BattlewarderHandler(GameLiving caster, Spell spell, SpellLine line)
 			: base(caster, spell, line)
 		{
-			warder = new GameNPC();
+			warder = new GameNpc();
 			//Fill the object variables
 			warder.CurrentRegion = caster.CurrentRegion;
 			warder.Heading = (ushort)((caster.Heading + 2048) % 4096);
@@ -451,7 +451,7 @@ namespace DOL.GS.Spells
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-		GameNPC summoned = null;
+		GameNpc summoned = null;
 		GameSpellEffect beffect = null;
 		public BrittleGuardHandler(GameLiving caster, Spell spell, SpellLine line)
 			: base(caster, spell, line)
@@ -497,7 +497,7 @@ namespace DOL.GS.Spells
 
 				BrittleBrain controlledBrain = new BrittleBrain(player);
 				controlledBrain.IsMainPet = false;
-				summoned = new GameNPC(template);
+				summoned = new GameNpc(template);
 				summoned.SetOwnBrain(controlledBrain);
 				summoned.X = summonloc.X;
 				summoned.Y = summonloc.Y;
@@ -516,7 +516,7 @@ namespace DOL.GS.Spells
 		}
 		private void GuardDie(CoreEvent e, object sender, EventArgs args)
 		{
-			GameNPC bguard = sender as GameNPC;
+			GameNpc bguard = sender as GameNpc;
 			if(bguard==summoned)
 			{
 				GameEventMgr.RemoveHandler(summoned, GameLivingEvent.Dying, new CoreEventHandler(GuardDie));
@@ -548,7 +548,7 @@ namespace DOL.GS.Spells
 	public class Convoker9Handler : MasterLevelHandling
 		//public class Convoker9Handler : MasterlevelBuffHandling
 	{
-		private GameNPC m_living;
+		private GameNpc m_living;
 		private GamePlayer m_player;
 
 		//public override eProperty Property1 { get { return eProperty.MeleeDamage; } }
@@ -613,7 +613,7 @@ namespace DOL.GS.Spells
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
 		private int x, y, z;
-		GameNPC summoned = null;
+		GameNpc summoned = null;
 		ECSGameTimer m_growTimer;
 		private const int C_GROWTIMER = 2000;
 		
@@ -660,7 +660,7 @@ namespace DOL.GS.Spells
 			TitanBrain controlledBrain = new TitanBrain(player);
 			controlledBrain.IsMainPet = false;
 			controlledBrain.WalkState = EWalkState.Stay;
-			summoned = new GameNPC(template);
+			summoned = new GameNpc(template);
 			summoned.SetOwnBrain(controlledBrain);
 			//Suncheck:
 			//	Is needed, else it can cause error (i.e. /cast-command)
@@ -675,7 +675,7 @@ namespace DOL.GS.Spells
 			summoned.CurrentSpeed = 0;
 			summoned.Size = 10;
 			summoned.Level = 100;
-			summoned.Flags |= GameNPC.eFlags.PEACE;
+			summoned.Flags |= GameNpc.eFlags.PEACE;
 			summoned.AddToWorld();
 			controlledBrain.AggressionState = EAggressionState.Aggressive;
 			effect.Start(summoned);
@@ -820,7 +820,7 @@ namespace DOL.AI.Brain
 
 		public override void Think()
 		{
-			if (Body.TargetObject is GameNPC)
+			if (Body.TargetObject is GameNpc)
 				Body.TargetObject = null;
 
 			if (Body.attackComponent.AttackState)
@@ -885,11 +885,11 @@ public class MLBrain : GuardBrain
 		if (Body.attackComponent.AttackState)
 			return;
 
-		foreach (GameNPC npc in Body.GetNPCsInRadius((ushort)AggroRange))
+		foreach (GameNpc npc in Body.GetNPCsInRadius((ushort)AggroRange))
 		{
 			if (AggroTable.ContainsKey(npc))
 				continue; // add only new npcs
-			if ((npc.Flags & GameNPC.eFlags.FLYING) != 0)
+			if ((npc.Flags & GameNpc.eFlags.FLYING) != 0)
 				continue; // let's not try to attack flying mobs
 			if (!GameServer.ServerRules.IsAllowedToAttack(Body, npc, true))
 				continue;

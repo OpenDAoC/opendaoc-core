@@ -167,7 +167,7 @@ namespace DOL.GS.Keeps
 
 		public Dictionary<string, GameKeepBanner> Banners { get; set; } = new Dictionary<string, GameKeepBanner>();
 
-		public Dictionary<string, KeepGuardPatrol> Patrols { get; set; } = new Dictionary<string, KeepGuardPatrol>();
+		public Dictionary<string, GuardPatrol> Patrols { get; set; } = new Dictionary<string, GuardPatrol>();
 
 		public Region CurrentRegion { get; set; }
 
@@ -723,7 +723,7 @@ namespace DOL.GS.Keeps
 
 		protected void InitialiseTimers()
 		{
-			m_changeLevelTimer = new AuxECSGameTimer(new GameNPC());
+			m_changeLevelTimer = new AuxECSGameTimer(new GameNpc());
 			m_changeLevelTimer.Callback = new AuxECSGameTimer.AuxECSTimerCallback(ChangeLevelTimerCallback);
 
 			//Commenting out claimTimer as we dont give RPs to guilds for holding onto claimed keeps currently.
@@ -828,7 +828,7 @@ namespace DOL.GS.Keeps
 				SetGuardLevel(guard);
 			}
 
-			foreach (KeepGuardPatrol p in this.Patrols.Values)
+			foreach (GuardPatrol p in this.Patrols.Values)
 			{
 				p.ChangePatrolLevel();
 			}
@@ -849,13 +849,13 @@ namespace DOL.GS.Keeps
 		{
 			if (guard.Component == null)
 			{
-				if (guard is KeepLord)
+				if (guard is GuardLord)
 					return 75;
 				else
 					return 65;
 			}
 
-			if (guard is KeepLord)
+			if (guard is GuardLord)
 			{
 				if (guard.Component.Keep is GameKeep)
 					return (byte)(guard.Component.Keep.BaseLevel + ((guard.Component.Keep.BaseLevel / 10) + 1) * 2);
@@ -1098,11 +1098,11 @@ namespace DOL.GS.Keeps
 			//we reset the guards
 			foreach (GameKeepGuard guard in Guards.Values)
 			{
-				if (guard is KeepLord && guard.IsAlive )
+				if (guard is GuardLord && guard.IsAlive )
 				{
 					guard.RefreshTemplate();
 				}
-				else if (guard is KeepLord == false)
+				else if (guard is GuardLord == false)
 				{
 					guard.Die(guard);
 				}

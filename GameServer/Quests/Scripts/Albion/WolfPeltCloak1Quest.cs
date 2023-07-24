@@ -22,9 +22,9 @@ namespace DOL.GS.Quests.Albion
         protected const int MIN_LEVEL = 1;
         protected const int MAX_LEVEL = 11;
 
-        private static GameNPC _stewardWillie = null;
-        private static GameNPC _lynett = null;
-        private static GameNPC _don = null;
+        private static GameNpc _stewardWillie = null;
+        private static GameNpc _lynett = null;
+        private static GameNpc _don = null;
 
         private static DbItemTemplates _wolfPeltCloak = null;
         private static DbItemTemplates _wolfFur = null;
@@ -43,7 +43,7 @@ namespace DOL.GS.Quests.Albion
             if (log.IsInfoEnabled)
                 log.Info("Quest \"" + questTitle + "\" initializing ...");
 
-            GameNPC[] gameNpcQuery = WorldMgr.GetNPCsByName(stewardWillieNpcName, ERealm.Albion);
+            GameNpc[] gameNpcQuery = WorldMgr.GetNPCsByName(stewardWillieNpcName, ERealm.Albion);
             if (gameNpcQuery.Length == 0)
             {
                 _logReasonQuestCantBeImplemented(stewardWillieNpcName);
@@ -400,7 +400,7 @@ namespace DOL.GS.Quests.Albion
             GiveItem(_lynett, m_questPlayer, _wolfPeltCloak);
 
             m_questPlayer.GainExperience(EXpSource.Quest, 50, true);
-            long money = Money.GetMoney(0, 0, 0, 0, 50);
+            long money = MoneyUtil.GetMoney(0, 0, 0, 0, 50);
             m_questPlayer.AddMoney(money, "You recieve {0} for your service.");
             InventoryLogging.LogInventoryAction("(QUEST;" + Name + ")", m_questPlayer, eInventoryActionType.Quest, money);
 

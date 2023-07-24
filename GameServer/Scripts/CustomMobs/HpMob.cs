@@ -4,7 +4,7 @@
     /// Npc with a more easy to control HP, set its Max hp with /mob cha (HP Amount), HP is not affected by
     /// CON Please note CON is still needed for a Mobs Defense.
     /// </summary>
-    public class HpMob : GameNPC
+    public class HpMob : GameNpc
     {
         
         public override bool AddToWorld()

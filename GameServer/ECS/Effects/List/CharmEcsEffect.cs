@@ -15,7 +15,7 @@ namespace DOL.GS
         public override void OnStartEffect()
         {
             GamePlayer casterPlayer = SpellHandler.Caster as GamePlayer;
-            GameNPC charmMob = Owner as GameNPC;
+            GameNpc charmMob = Owner as GameNpc;
 
             if (casterPlayer != null && charmMob != null)
             {
@@ -73,7 +73,7 @@ namespace DOL.GS
         public override void OnStopEffect()
         {
             GamePlayer casterPlayer = SpellHandler.Caster as GamePlayer;
-            GameNPC charmMob = Owner as GameNPC;
+            GameNpc charmMob = Owner as GameNpc;
             CharmSpellHandler charmSpellHandler = SpellHandler as CharmSpellHandler;
 
             if (casterPlayer != null && charmMob != null)
@@ -127,7 +127,7 @@ namespace DOL.GS
                 {
                     foreach (GameObject attacker in charmMob.attackComponent.Attackers)
                     {
-                        if (attacker is GameNPC npcAttacker && npcAttacker.Brain is IOldAggressiveBrain aggressiveBrain)
+                        if (attacker is GameNpc npcAttacker && npcAttacker.Brain is IOldAggressiveBrain aggressiveBrain)
                         {
                             aggressiveBrain.RemoveFromAggroList(charmMob);
                             aggressiveBrain.AddToAggroList(casterPlayer, casterPlayer.Level * 10);
@@ -139,7 +139,7 @@ namespace DOL.GS
 
                 charmSpellHandler.m_controlledBrain?.ClearAggroList();
                 charmMob.StopFollowing();
-                charmMob.TempProperties.setProperty(GameNPC.CHARMED_TICK_PROP, charmMob.CurrentRegion.Time);
+                charmMob.TempProperties.setProperty(GameNpc.CHARMED_TICK_PROP, charmMob.CurrentRegion.Time);
 
                 foreach (GamePlayer ply in charmMob.GetPlayersInRadius(WorldMgr.VISIBILITY_DISTANCE))
                 {

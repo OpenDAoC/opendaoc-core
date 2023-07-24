@@ -39,8 +39,8 @@ namespace DOL.GS.Spells
                 m_pet.TempProperties.setProperty(BOMBER_TARGET, target);
                 m_pet.TempProperties.setProperty(BOMBER_SPAWN_TICK, GameLoop.GameLoopTime);
                 m_pet.Name = Spell.Name;
-                m_pet.Flags ^= GameNPC.eFlags.DONTSHOWNAME;
-                m_pet.Flags ^= GameNPC.eFlags.PEACE;
+                m_pet.Flags ^= GameNpc.eFlags.DONTSHOWNAME;
+                m_pet.Flags ^= GameNpc.eFlags.PEACE;
                 m_pet.FixedSpeed = true;
                 m_pet.MaxSpeedBase = 350;
                 m_pet.Follow(target, 5, Spell.Range * 5);
@@ -68,7 +68,7 @@ namespace DOL.GS.Spells
 
         private void BomberArriveAtTarget(CoreEvent e, object sender, EventArgs args)
         {
-            GameNPC bomber = sender as GameNPC;
+            GameNpc bomber = sender as GameNpc;
 
             if (bomber == null || m_pet == null || bomber != m_pet)
                 return;

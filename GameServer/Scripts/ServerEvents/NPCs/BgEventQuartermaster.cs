@@ -9,7 +9,7 @@ using log4net;
 
 namespace DOL.GS.Scripts
 {
-    public class BgEventQuartermaster : GameNPC
+    public class BgEventQuartermaster : GameNpc
 	{
 		private static new readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 		private static int freeLootLevelOffset = 2;
@@ -23,7 +23,7 @@ namespace DOL.GS.Scripts
             GuildName = "Server";
             Level = 50;
             Size = 60;
-            Flags |= GameNPC.eFlags.PEACE;
+            Flags |= GameNpc.eFlags.PEACE;
             return base.AddToWorld();
         }
 		public override bool Interact(GamePlayer player)

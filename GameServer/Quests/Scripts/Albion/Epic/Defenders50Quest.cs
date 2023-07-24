@@ -18,8 +18,8 @@ namespace DOL.GS.Quests.Albion
 		protected const int minimumLevel = 50;
 		protected const int maximumLevel = 50;
 
-		private static GameNPC Lidmann = null; // Start NPC
-		private static CailleachUragaig Uragaig = null; // Mob to kill
+		private static GameNpc Lidmann = null; // Start NPC
+		private static EpicCailleachUragaig Uragaig = null; // Mob to kill
 
 		private static DbItemTemplates sealed_pouch = null; //sealed pouch
 		private static DbItemTemplates ScoutEpicBoots = null; //Brigandine of Vigilant Defense  Boots 
@@ -79,10 +79,10 @@ namespace DOL.GS.Quests.Albion
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Lidmann Halsey", ERealm.Albion);
+			GameNpc[] npcs = WorldMgr.GetNPCsByName("Lidmann Halsey", ERealm.Albion);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 1 && npc.X == 466464 && npc.Y == 634554)
 					{
 						Lidmann = npc;
@@ -92,7 +92,7 @@ namespace DOL.GS.Quests.Albion
 			if (Lidmann == null)
 			{
 
-				Lidmann = new GameNPC();
+				Lidmann = new GameNpc();
 				Lidmann.Model = 64;
 				Lidmann.Name = "Lidmann Halsey";
 
@@ -120,10 +120,10 @@ namespace DOL.GS.Quests.Albion
 			npcs = WorldMgr.GetNPCsByName("Cailleach Uragaig", ERealm.None);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 1 && npc.X == 316218 && npc.Y == 664484)
 					{
-						Uragaig = npc as CailleachUragaig;
+						Uragaig = npc as EpicCailleachUragaig;
 						break;
 					}
 
@@ -131,7 +131,7 @@ namespace DOL.GS.Quests.Albion
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Uragaig , creating it ...");
-				Uragaig = new CailleachUragaig();
+				Uragaig = new EpicCailleachUragaig();
 				Uragaig.Model = 349;
 				Uragaig.Name = "Cailleach Uragaig";
 				Uragaig.GuildName = "";

@@ -335,13 +335,13 @@ namespace DOL.GS.ServerRules
 			GamePlayer playerDefender = defender as GamePlayer;
 
 			// if Pet, let's define the controller once
-			if (defender is GameNPC)
-				if ((defender as GameNPC).Brain is IControlledBrain)
-					playerDefender = ((defender as GameNPC).Brain as IControlledBrain).GetPlayerOwner();
+			if (defender is GameNpc)
+				if ((defender as GameNpc).Brain is IControlledBrain)
+					playerDefender = ((defender as GameNpc).Brain as IControlledBrain).GetPlayerOwner();
 
-			if (attacker is GameNPC)
-				if ((attacker as GameNPC).Brain is IControlledBrain)
-					playerAttacker = ((attacker as GameNPC).Brain as IControlledBrain).GetPlayerOwner();
+			if (attacker is GameNpc)
+				if ((attacker as GameNpc).Brain is IControlledBrain)
+					playerAttacker = ((attacker as GameNpc).Brain as IControlledBrain).GetPlayerOwner();
 
 			if (playerDefender != null && (playerDefender.Client.ClientState == GameClient.EClientState.WorldEnter || playerDefender.IsInvulnerableToAttack))
 			{
@@ -368,16 +368,16 @@ namespace DOL.GS.ServerRules
 			}
 
 			// PEACE NPCs can't be attacked/attack
-			if (attacker is GameNPC)
-				if ((((GameNPC)attacker).Flags & GameNPC.eFlags.PEACE) != 0)
+			if (attacker is GameNpc)
+				if ((((GameNpc)attacker).Flags & GameNpc.eFlags.PEACE) != 0)
 					return false;
-			if (defender is GameNPC)
-				if ((((GameNPC)defender).Flags & GameNPC.eFlags.PEACE) != 0)
+			if (defender is GameNpc)
+				if ((((GameNpc)defender).Flags & GameNpc.eFlags.PEACE) != 0)
 					return false;
 			// Players can't attack mobs while they have immunity
 			if (playerAttacker != null && defender != null)
 			{
-				if ((defender is GameNPC) && (playerAttacker.IsInvulnerableToAttack))
+				if ((defender is GameNpc) && (playerAttacker.IsInvulnerableToAttack))
 				{
 					if (quiet == false) MessageToLiving(attacker, "You can't attack until your PvP invulnerability timer wears off!");
 					return false;
@@ -424,7 +424,7 @@ namespace DOL.GS.ServerRules
 			// 	}
 			// }
 
-			if (attacker is GameNPC attacknpc && defender is GameNPC defendnpc)
+			if (attacker is GameNpc attacknpc && defender is GameNpc defendnpc)
 			{
 				// Mobs can't attack keep guards
 				if (defender is GameKeepGuard && attacker.Realm == 0)
@@ -1079,7 +1079,7 @@ namespace DOL.GS.ServerRules
 		/// </summary>
 		/// <param name="killedNPC">npc that died</param>
 		/// <param name="killer">killer</param>
-		public virtual void OnNPCKilled(GameNPC killedNPC, GameObject killer)
+		public virtual void OnNPCKilled(GameNpc killedNPC, GameObject killer)
 		{
 			System.Globalization.NumberFormatInfo format = System.Globalization.NumberFormatInfo.InvariantInfo;
 			HybridDictionary XPGainerList = new HybridDictionary();
@@ -1095,8 +1095,8 @@ namespace DOL.GS.ServerRules
 
 			//"This monster has been charmed recently and is worth no experience."
 			string message = "You gain no experience from this kill!";
-			if (killedNPC.CurrentRegion?.Time - GameNPC.CHARMED_NOEXP_TIMEOUT <
-			    killedNPC.TempProperties.getProperty<long>(GameNPC.CHARMED_TICK_PROP))
+			if (killedNPC.CurrentRegion?.Time - GameNpc.CHARMED_NOEXP_TIMEOUT <
+			    killedNPC.TempProperties.getProperty<long>(GameNpc.CHARMED_TICK_PROP))
 			{
 				message = "This monster has been charmed recently and is worth no experience.";
 			}
@@ -1226,7 +1226,7 @@ namespace DOL.GS.ServerRules
 			Diagnostics.StopPerfCounter("ReaperService-NPC-OnNPCKilled-XP-NPC("+killedNPC.GetHashCode()+")");
 		}
 
-		private void AwardExperience(DictionaryEntry de, GameNPC killedNPC, GameObject killer, float totalDamage, Dictionary<Group, int> plrGrpExp, bool isGroupInRange)
+		private void AwardExperience(DictionaryEntry de, GameNpc killedNPC, GameObject killer, float totalDamage, Dictionary<Group, int> plrGrpExp, bool isGroupInRange)
 		{
 			System.Globalization.NumberFormatInfo format = System.Globalization.NumberFormatInfo.InvariantInfo;
 			long npcExpValue = killedNPC.ExperienceValue;
@@ -1273,7 +1273,7 @@ namespace DOL.GS.ServerRules
 			int realmPoints = 0;
 
 			// Keep and Tower captures reward full RP and BP value to each player
-			if (killedNPC is KeepLord)
+			if (killedNPC is GuardLord)
 			{
 				realmPoints = npcRPValue;
 			}
@@ -1304,7 +1304,7 @@ namespace DOL.GS.ServerRules
 			int bountyPoints = 0;
 
 			// Keep and Tower captures reward full RP and BP value to each player
-			if (killedNPC is KeepLord)
+			if (killedNPC is GuardLord)
 			{
 				bountyPoints = npcBPValue;
 			}
@@ -2067,7 +2067,7 @@ namespace DOL.GS.ServerRules
 					{
 						money += killBonus;
 						//long money = (long)(Money.GetMoney(0, 0, 17, 85, 0) * damagePercent * killedPlayer.Level / 50);
-						player.AddMoney(money, "You receive {0} ("+ Money.GetShortString(killBonus) +" streak bonus)");
+						player.AddMoney(money, "You receive {0} ("+ MoneyUtil.GetShortString(killBonus) +" streak bonus)");
 						InventoryLogging.LogInventoryAction(killer, player, eInventoryActionType.Other, money);
 					}
 					else
@@ -2535,7 +2535,7 @@ namespace DOL.GS.ServerRules
 		/// </summary>
 		/// <param name="lord">The lord that was killed</param>
 		/// <param name="killer">The lord's killer</param>
-		public virtual void ResetKeep(KeepLord lord, GameObject killer)
+		public virtual void ResetKeep(GuardLord lord, GameObject killer)
 		{
 			KeepPlayerMgr.UpdateStats(lord);
 		}
@@ -2619,7 +2619,7 @@ namespace DOL.GS.ServerRules
 		/// <param name="source">The "looking" player</param>
 		/// <param name="target">The considered NPC</param>
 		/// <returns>The name of the target</returns>
-		public virtual string GetNPCName(GamePlayer source, GameNPC target)
+		public virtual string GetNPCName(GamePlayer source, GameNpc target)
 		{
 			return target.Name;
 		}
@@ -2630,7 +2630,7 @@ namespace DOL.GS.ServerRules
 		/// <param name="source">The "looking" player</param>
 		/// <param name="target">The considered NPC</param>
 		/// <returns>The guild name of the target</returns>
-		public virtual string GetNPCGuildName(GamePlayer source, GameNPC target)
+		public virtual string GetNPCGuildName(GamePlayer source, GameNpc target)
 		{
 			return target.GuildName;
 		}
@@ -2800,7 +2800,7 @@ namespace DOL.GS.ServerRules
 		/// <param name="heading"></param>
 		/// <param name="index"></param>
 		/// <returns></returns>
-		public virtual GameNPC PlaceHousingNPC(DOL.GS.Housing.House house, DbItemTemplates item, IPoint3D location, ushort heading)
+		public virtual GameNpc PlaceHousingNPC(DOL.GS.Housing.House house, DbItemTemplates item, IPoint3D location, ushort heading)
 		{
 			NpcTemplate npcTemplate = NpcTemplateMgr.GetTemplate(item.Bonus);
 
@@ -2817,12 +2817,12 @@ namespace DOL.GS.ServerRules
 					defaultClassType = npcTemplate.ClassType;
 				}
 
-				var npc = (GameNPC)Assembly.GetAssembly(typeof(GameServer)).CreateInstance(defaultClassType, false);
+				var npc = (GameNpc)Assembly.GetAssembly(typeof(GameServer)).CreateInstance(defaultClassType, false);
 				if (npc == null)
 				{
 					foreach (Assembly asm in ScriptMgr.Scripts)
 					{
-						npc = (GameNPC)asm.CreateInstance(defaultClassType, false);
+						npc = (GameNpc)asm.CreateInstance(defaultClassType, false);
 						if (npc != null) break;
 					}
 				}
@@ -2875,9 +2875,9 @@ namespace DOL.GS.ServerRules
 				npc.Z = location.Z;
 				npc.Heading = heading;
 				npc.CurrentRegionID = house.RegionID;
-				if ((npc.Flags & GameNPC.eFlags.PEACE) == 0)
+				if ((npc.Flags & GameNpc.eFlags.PEACE) == 0)
 				{
-					npc.Flags ^= GameNPC.eFlags.PEACE;
+					npc.Flags ^= GameNpc.eFlags.PEACE;
 				}
 				npc.AddToWorld();
 				return npc;

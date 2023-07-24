@@ -14,13 +14,13 @@ namespace DOL.GS.Behaviour.Actions
     public class DropItemAction : AbstractAction<DbItemTemplates,Unused>
     {               
 
-        public DropItemAction(GameNPC defaultNPC,  Object p, Object q)
+        public DropItemAction(GameNpc defaultNPC,  Object p, Object q)
             : base(defaultNPC, EActionType.DropItem, p, q)
         {                
         }
 
 
-        public DropItemAction(GameNPC defaultNPC, DbItemTemplates itemTemplate)
+        public DropItemAction(GameNpc defaultNPC, DbItemTemplates itemTemplate)
             : this(defaultNPC, (object) itemTemplate,(object) null) { }
         
 

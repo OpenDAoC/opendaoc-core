@@ -11,16 +11,16 @@ using DOL.Language;
 namespace DOL.GS.Behaviour.Actions
 {
     [ActionAttribute(ActionType = EActionType.GiveItem,IsNullableQ=true)]
-    public class GiveItemAction : AbstractAction<DbItemTemplates,GameNPC>
+    public class GiveItemAction : AbstractAction<DbItemTemplates,GameNpc>
     {               
 
-        public GiveItemAction(GameNPC defaultNPC,  Object p, Object q)
+        public GiveItemAction(GameNpc defaultNPC,  Object p, Object q)
             : base(defaultNPC, EActionType.GiveItem, p, q)
         {                
         }
 
 
-        public GiveItemAction(GameNPC defaultNPC,  DbItemTemplates itemTemplate, GameNPC itemGiver)
+        public GiveItemAction(GameNpc defaultNPC,  DbItemTemplates itemTemplate, GameNpc itemGiver)
             : this(defaultNPC, (object) itemTemplate, (object)itemGiver) { }
         
 

@@ -73,7 +73,7 @@ namespace DOL.GS
 
         private static void UpdateNpcs(GamePlayer player, long tick)
         {
-            HashSet<GameNPC> npcsInRange = player.GetNPCsInRadius(WorldMgr.VISIBILITY_DISTANCE);
+            HashSet<GameNpc> npcsInRange = player.GetNPCsInRadius(WorldMgr.VISIBILITY_DISTANCE);
 
             try
             {
@@ -82,7 +82,7 @@ namespace DOL.GS
                 {
                     Tuple<ushort, ushort> objKey = objEntry.Key;
 
-                    if (WorldMgr.GetRegion(objKey.Item1).GetObject(objKey.Item2) is not GameNPC npc)
+                    if (WorldMgr.GetRegion(objKey.Item1).GetObject(objKey.Item2) is not GameNpc npc)
                         continue;
 
                     // Brain is updating to its master, no need to handle it.
@@ -110,7 +110,7 @@ namespace DOL.GS
             try
             {
                 // Now send remaining NPCs.
-                foreach (GameNPC npc in npcsInRange)
+                foreach (GameNpc npc in npcsInRange)
                 {
                     if (!npc.IsVisibleTo(player))
                         continue;

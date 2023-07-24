@@ -19,7 +19,7 @@ namespace DOL.GS.Effects
         private const int spellDuration = 4;		// Duration of stun in seconds
 
         // Objects
-        private GameNPC[] spirits;				// Array containing spirits
+        private GameNpc[] spirits;				// Array containing spirits
         private ECSGameTimer[] spiritTimer;			// Array containing spirit timers
         private Spell spiritSpell;			// The spell to cast
         private SpellLine spiritSpellLine;	 	// The spell line
@@ -30,7 +30,7 @@ namespace DOL.GS.Effects
             : base(RealmAbilities.NfRaMinionRescueHandler.DURATION)
         {
             // Init NPC & Timer array
-            spirits = new GameNPC[spiritCount];
+            spirits = new GameNpc[spiritCount];
             spiritTimer = new ECSGameTimer[spiritCount];
 
             // Build spell
@@ -91,7 +91,7 @@ namespace DOL.GS.Effects
         // Summon a spirit that will follow target
         private void SummonSpirit(int spiritId, GamePlayer targetPlayer)
         {
-            spirits[spiritId] = new GameNPC();
+            spirits[spiritId] = new GameNpc();
             spirits[spiritId].CurrentRegion = EffectOwner.CurrentRegion;
             spirits[spiritId].Heading = (ushort)((EffectOwner.Heading + 2048) % 4096);
             spirits[spiritId].Level = spiritLevel;
@@ -105,7 +105,7 @@ namespace DOL.GS.Effects
             spirits[spiritId].X = EffectOwner.X + UtilCollection.Random(20, 40) - UtilCollection.Random(20, 40);
             spirits[spiritId].Y = EffectOwner.Y + UtilCollection.Random(20, 40) - UtilCollection.Random(20, 40);
             spirits[spiritId].Z = EffectOwner.Z;
-            spirits[spiritId].Flags |= GameNPC.eFlags.DONTSHOWNAME;
+            spirits[spiritId].Flags |= GameNpc.eFlags.DONTSHOWNAME;
             spirits[spiritId].SetOwnBrain(new StandardMobBrain());
             spirits[spiritId].AddToWorld();
             spirits[spiritId].TargetObject = targetPlayer;
@@ -116,14 +116,14 @@ namespace DOL.GS.Effects
         // Check distance between spirit and target
         private int spiritCallBack(ECSGameTimer timer)
         {
-            if (timer.TimerOwner == null || !(timer.TimerOwner is GameNPC))
+            if (timer.TimerOwner == null || !(timer.TimerOwner is GameNpc))
             {
                 timer.Stop();
                 timer = null;
                 return 0;
             }
 
-            GameNPC spirit = timer.TimerOwner as GameNPC;
+            GameNpc spirit = timer.TimerOwner as GameNpc;
             GamePlayer targetPlayer = spirit.TargetObject as GamePlayer;
 
             if (targetPlayer == null || !targetPlayer.IsAlive)

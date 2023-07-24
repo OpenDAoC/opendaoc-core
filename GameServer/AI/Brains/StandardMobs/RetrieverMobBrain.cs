@@ -34,12 +34,12 @@ namespace DOL.AI.Brain
             base.Think();
         }
 
-        private GameNPC m_master = null;
+        private GameNpc m_master = null;
 
         /// <summary>
         /// The NPC that spawned this retriever.
         /// </summary>
-        public GameNPC Master
+        public GameNpc Master
         {
             get { return m_master; }
 			set { m_master = value; }

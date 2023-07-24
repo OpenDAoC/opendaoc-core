@@ -257,7 +257,7 @@ namespace DOL.GS.Spells
                                 list.Add(player);
                             }
                         }
-                        foreach (GameNPC npc in WorldMgr.GetNPCsCloseToSpot(Caster.CurrentRegionID, Caster.GroundTarget.X, Caster.GroundTarget.Y, Caster.GroundTarget.Z, (ushort)Spell.Radius))
+                        foreach (GameNpc npc in WorldMgr.GetNPCsCloseToSpot(Caster.CurrentRegionID, Caster.GroundTarget.X, Caster.GroundTarget.Y, Caster.GroundTarget.Z, (ushort)Spell.Radius))
                         {
                             if (GameServer.ServerRules.IsAllowedToAttack(Caster, npc, true))
                             {
@@ -446,7 +446,7 @@ namespace DOL.GS.Spells
                                 list.Add(player);
                             }
                         }
-                        foreach (GameNPC npc in WorldMgr.GetNPCsCloseToSpot(Caster.CurrentRegionID, Caster.GroundTarget.X, Caster.GroundTarget.Y, Caster.GroundTarget.Z, (ushort)Spell.Radius))
+                        foreach (GameNpc npc in WorldMgr.GetNPCsCloseToSpot(Caster.CurrentRegionID, Caster.GroundTarget.X, Caster.GroundTarget.Y, Caster.GroundTarget.Z, (ushort)Spell.Radius))
                         {
                             if (GameServer.ServerRules.IsAllowedToAttack(Caster, npc, true))
                             {
@@ -635,7 +635,7 @@ namespace DOL.GS.Spells
                                 list.Add(player);
                             }
                         }
-                        foreach (GameNPC npc in WorldMgr.GetNPCsCloseToSpot(Caster.CurrentRegionID, Caster.GroundTarget.X, Caster.GroundTarget.Y, Caster.GroundTarget.Z, (ushort)Spell.Radius))
+                        foreach (GameNpc npc in WorldMgr.GetNPCsCloseToSpot(Caster.CurrentRegionID, Caster.GroundTarget.X, Caster.GroundTarget.Y, Caster.GroundTarget.Z, (ushort)Spell.Radius))
                         {
                             if (GameServer.ServerRules.IsAllowedToAttack(Caster, npc, true))
                             {
@@ -845,7 +845,7 @@ namespace DOL.GS.Spells
                                 list.Add(player);
                             }
                         }
-                        foreach (GameNPC npc in WorldMgr.GetNPCsCloseToSpot(Caster.CurrentRegionID, Caster.GroundTarget.X, Caster.GroundTarget.Y, Caster.GroundTarget.Z, (ushort)Spell.Radius))
+                        foreach (GameNpc npc in WorldMgr.GetNPCsCloseToSpot(Caster.CurrentRegionID, Caster.GroundTarget.X, Caster.GroundTarget.Y, Caster.GroundTarget.Z, (ushort)Spell.Radius))
                         {
                             if (GameServer.ServerRules.IsAllowedToAttack(Caster, npc, true))
                             {
@@ -1033,7 +1033,7 @@ namespace DOL.GS.Spells
                     heal.StartSpell((GameLiving)player);
             }
             if (!ApplyOnNPC) return;
-            foreach (GameNPC npc in font.GetNPCsInRadius(sRadius))
+            foreach (GameNpc npc in font.GetNPCsInRadius(sRadius))
             {
                 if (!Friendly && npc.IsAlive && GameServer.ServerRules.IsAllowedToAttack(Caster, npc, true) && (!npc.InCombat || ApplyOnCombat))
                     heal.StartSpell((GameLiving)npc);
@@ -1266,7 +1266,7 @@ namespace DOL.GS.Spells
 namespace DOL.GS
 {
     #region Decoy
-    public class GameDecoy : GameNPC
+    public class GameDecoy : GameNpc
     {
         public GameDecoy()
         {
@@ -1300,7 +1300,7 @@ namespace DOL.GS
             this.Realm = 0;
             this.Level = 1;
             this.MaxSpeedBase = 0;
-            this.Flags |= GameNPC.eFlags.DONTSHOWNAME;
+            this.Flags |= GameNpc.eFlags.DONTSHOWNAME;
             this.Health = this.MaxHealth;
         }
 
@@ -1403,8 +1403,8 @@ namespace DOL.GS
             this.MaxSpeedBase = 191;
             this.Model = 3457;
             this.Name = "Storm";
-            this.Flags |= GameNPC.eFlags.DONTSHOWNAME;
-			this.Flags |= GameNPC.eFlags.CANTTARGET;
+            this.Flags |= GameNpc.eFlags.DONTSHOWNAME;
+			this.Flags |= GameNpc.eFlags.CANTTARGET;
             this.Movable = true;
         }
 

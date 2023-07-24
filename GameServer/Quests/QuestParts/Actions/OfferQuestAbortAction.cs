@@ -11,13 +11,13 @@ namespace DOL.GS.Quests.Actions
     public class OfferQuestAbortAction : AbstractAction<Type,String>
     {               
 
-        public OfferQuestAbortAction(GameNPC defaultNPC, Object p, Object q)
+        public OfferQuestAbortAction(GameNpc defaultNPC, Object p, Object q)
             : base(defaultNPC, EActionType.OfferQuestAbort, p, q)
         {
         }
 
 
-        public OfferQuestAbortAction(GameNPC defaultNPC, Type questType, String offerAbortMessage)
+        public OfferQuestAbortAction(GameNpc defaultNPC, Type questType, String offerAbortMessage)
             : this(defaultNPC, (object)questType, (object)offerAbortMessage) { }
         
 

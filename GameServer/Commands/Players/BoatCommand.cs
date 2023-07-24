@@ -43,7 +43,7 @@ namespace DOL.GS.Commands
 
 							// Check to see if player has boat
 							int boatFound = 0;
-							GameBoat curBoat = BoatMgr.GetBoatByOwner(client.Player.InternalID);
+							GameBoat curBoat = GameBoatMgr.GetBoatByOwner(client.Player.InternalID);
 							if (curBoat != null)
 							{
 								if (curBoat.OwnerID == client.Player.InternalID)
@@ -76,7 +76,7 @@ namespace DOL.GS.Commands
 									playerBoat.Riders = new GamePlayer[8];
 									BlankBrain brain = new BlankBrain();
 									playerBoat.SetOwnBrain(brain);
-									playerBoat = BoatMgr.CreateBoat(client.Player, playerBoat);
+									playerBoat = GameBoatMgr.CreateBoat(client.Player, playerBoat);
 									if (client.Player.Guild != null)
 									{
 										if (client.Player.Guild.Emblem != 0)
@@ -108,7 +108,7 @@ namespace DOL.GS.Commands
 									playerBoat.Riders = new GamePlayer[32];
 									BlankBrain brain = new BlankBrain();
 									playerBoat.SetOwnBrain(brain);
-									playerBoat = BoatMgr.CreateBoat(client.Player, playerBoat);
+									playerBoat = GameBoatMgr.CreateBoat(client.Player, playerBoat);
 									if (client.Player.Guild != null)
 									{
 										if (client.Player.Guild.Emblem != 0)
@@ -140,7 +140,7 @@ namespace DOL.GS.Commands
 									playerBoat.Riders = new GamePlayer[16];
 									BlankBrain brain = new BlankBrain();
 									playerBoat.SetOwnBrain(brain);
-									playerBoat = BoatMgr.CreateBoat(client.Player, playerBoat);
+									playerBoat = GameBoatMgr.CreateBoat(client.Player, playerBoat);
 									if (client.Player.Guild != null)
 									{
 										if (client.Player.Guild.Emblem != 0)
@@ -172,7 +172,7 @@ namespace DOL.GS.Commands
 									playerBoat.Riders = new GamePlayer[8];
 									BlankBrain brain = new BlankBrain();
 									playerBoat.SetOwnBrain(brain);
-									playerBoat = BoatMgr.CreateBoat(client.Player, playerBoat);
+									playerBoat = GameBoatMgr.CreateBoat(client.Player, playerBoat);
 									if (client.Player.Guild != null)
 									{
 										if (client.Player.Guild.Emblem != 0)
@@ -204,7 +204,7 @@ namespace DOL.GS.Commands
 									playerBoat.Riders = new GamePlayer[32];
 									BlankBrain brain = new BlankBrain();
 									playerBoat.SetOwnBrain(brain);
-									playerBoat = BoatMgr.CreateBoat(client.Player, playerBoat);
+									playerBoat = GameBoatMgr.CreateBoat(client.Player, playerBoat);
 									if (client.Player.Guild != null)
 									{
 										if (client.Player.Guild.Emblem != 0)
@@ -236,7 +236,7 @@ namespace DOL.GS.Commands
 									playerBoat.Riders = new GamePlayer[31];
 									BlankBrain brain = new BlankBrain();
 									playerBoat.SetOwnBrain(brain);
-									playerBoat = BoatMgr.CreateBoat(client.Player, playerBoat);
+									playerBoat = GameBoatMgr.CreateBoat(client.Player, playerBoat);
 									if (client.Player.Guild != null)
 									{
 										if (client.Player.Guild.Emblem != 0)
@@ -268,7 +268,7 @@ namespace DOL.GS.Commands
 									playerBoat.Riders = new GamePlayer[24];
 									BlankBrain brain = new BlankBrain();
 									playerBoat.SetOwnBrain(brain);
-									playerBoat = BoatMgr.CreateBoat(client.Player, playerBoat);
+									playerBoat = GameBoatMgr.CreateBoat(client.Player, playerBoat);
 									if (client.Player.Guild != null)
 									{
 										if (client.Player.Guild.Emblem != 0)
@@ -300,7 +300,7 @@ namespace DOL.GS.Commands
 									playerBoat.Riders = new GamePlayer[64];
 									BlankBrain brain = new BlankBrain();
 									playerBoat.SetOwnBrain(brain);
-									playerBoat = BoatMgr.CreateBoat(client.Player, playerBoat);
+									playerBoat = GameBoatMgr.CreateBoat(client.Player, playerBoat);
 									if (client.Player.Guild != null)
 									{
 										if (client.Player.Guild.Emblem != 0)
@@ -332,7 +332,7 @@ namespace DOL.GS.Commands
 									playerBoat.Riders = new GamePlayer[33];
 									BlankBrain brain = new BlankBrain();
 									playerBoat.SetOwnBrain(brain);
-									playerBoat = BoatMgr.CreateBoat(client.Player, playerBoat);
+									playerBoat = GameBoatMgr.CreateBoat(client.Player, playerBoat);
 									if (client.Player.Guild != null)
 									{
 										if (client.Player.Guild.Emblem != 0)
@@ -349,7 +349,7 @@ namespace DOL.GS.Commands
 									client.Player.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "Scripts.Player.Boat.NotOwnBoat"), EChatType.CT_Guild, EChatLoc.CL_SystemWindow);
 									return;
 								}
-								BoatMgr.SaveAllBoats();
+								GameBoatMgr.SaveAllBoats();
 							}
 							else if (boatFound == 1)
 							{
@@ -382,7 +382,7 @@ namespace DOL.GS.Commands
 						}
 					case "unsummon":
 						{
-							GameBoat playerBoat = BoatMgr.GetBoatByOwner(client.Player.InternalID);
+							GameBoat playerBoat = GameBoatMgr.GetBoatByOwner(client.Player.InternalID);
 
 							if (playerBoat != null)
 							{
@@ -401,7 +401,7 @@ namespace DOL.GS.Commands
 						}
 					case "board":
 						{
-							GameBoat playerBoat = BoatMgr.GetBoatByName(client.Player.TargetObject.Name);
+							GameBoat playerBoat = GameBoatMgr.GetBoatByName(client.Player.TargetObject.Name);
 							if (client.Player.TargetObject == null)
 							{
 								client.Player.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "Scripts.Player.Boat.NoBoatSelected"), EChatType.CT_Guild, EChatLoc.CL_SystemWindow);
@@ -421,7 +421,7 @@ namespace DOL.GS.Commands
 						}
 					case "follow":
 						{
-							GameBoat targetBoat = BoatMgr.GetBoatByName(client.Player.TargetObject.Name);
+							GameBoat targetBoat = GameBoatMgr.GetBoatByName(client.Player.TargetObject.Name);
 
 							if (client.Player.Steed.OwnerID == client.Player.InternalID)// needs to be player on own boat
 							{
@@ -464,7 +464,7 @@ namespace DOL.GS.Commands
 								client.Player.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "Scripts.Player.Boat.NoBoatSelected"), EChatType.CT_Guild, EChatLoc.CL_SystemWindow);
 								break;
 							}
-							GameBoat playerBoat = BoatMgr.GetBoatByName(client.Player.TargetObject.Name);
+							GameBoat playerBoat = GameBoatMgr.GetBoatByName(client.Player.TargetObject.Name);
 
 							if (client.Player.InternalID == playerBoat.OwnerID)
 								client.Player.Out.SendCustomDialog(LanguageMgr.GetTranslation(client.Account.Language, "Scripts.Player.Boat.DeleteConfirmation", playerBoat.Name), new CustomDialogResponse(BoatDeleteConfirmation));
@@ -475,7 +475,7 @@ namespace DOL.GS.Commands
 						}
 					case "boot":
 						{
-							GameBoat playerBoat = BoatMgr.GetBoatByOwner(client.Player.InternalID);
+							GameBoat playerBoat = GameBoatMgr.GetBoatByOwner(client.Player.InternalID);
 
 							if (client.Player.InternalID == playerBoat.OwnerID)
 							{
@@ -532,10 +532,10 @@ namespace DOL.GS.Commands
 		{
 			if (response != 0x01) return;
 
-			GameBoat playerBoat = BoatMgr.GetBoatByOwner(player.InternalID);
+			GameBoat playerBoat = GameBoatMgr.GetBoatByOwner(player.InternalID);
 
 			playerBoat.RemoveFromWorld();
-			BoatMgr.DeleteBoat(playerBoat.Name);
+			GameBoatMgr.DeleteBoat(playerBoat.Name);
 		}
 	}
 }

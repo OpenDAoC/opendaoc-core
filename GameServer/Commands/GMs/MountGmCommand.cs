@@ -17,13 +17,13 @@ namespace DOL.GS.Commands
 				return;
 			}
 
-			if (client.Player.TargetObject == null || !(client.Player.TargetObject is GameNPC))
+			if (client.Player.TargetObject == null || !(client.Player.TargetObject is GameNpc))
 			{
 				DisplayMessage(client, "You can't ride THIS!");
 				return;
 			}
 
-			client.Player.MountSteed((GameNPC) client.Player.TargetObject, false);
+			client.Player.MountSteed((GameNpc) client.Player.TargetObject, false);
 		}
 	}
 }

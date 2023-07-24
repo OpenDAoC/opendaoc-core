@@ -723,7 +723,7 @@ namespace DOL.GS
 
 				//---------------------------------------------------------------
 				//Load all boats
-				if (!InitComponent(BoatMgr.LoadAllBoats(), "Boat Manager"))
+				if (!InitComponent(GameBoatMgr.LoadAllBoats(), "Boat Manager"))
 					return false;
 
 				//---------------------------------------------------------------
@@ -1559,7 +1559,7 @@ namespace DOL.GS
 
 					DoorMgr.SaveKeepDoors();
 					GuildMgr.SaveAllGuilds();
-					BoatMgr.SaveAllBoats();
+					GameBoatMgr.SaveAllBoats();
 					FactionMgr.SaveAllAggroToFaction();
 					craftingSaveCount = CraftingProgressMgr.Save();
 

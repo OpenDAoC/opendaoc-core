@@ -18,8 +18,8 @@ namespace DOL.GS.Quests.Midgard
 		protected const int minimumLevel = 50;
 		protected const int maximumLevel = 50;
 
-		private static GameNPC Danica = null; // Start NPC
-		private static Kelic Kelic = null; // Mob to kill
+		private static GameNpc Danica = null; // Start NPC
+		private static EpicKelic Kelic = null; // Mob to kill
 
 		private static DbItemTemplates kelics_totem = null;
 		private static DbItemTemplates SpiritmasterEpicBoots = null;
@@ -74,10 +74,10 @@ namespace DOL.GS.Quests.Midgard
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Danica", ERealm.Midgard);
+			GameNpc[] npcs = WorldMgr.GetNPCsByName("Danica", ERealm.Midgard);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 100 && npc.X == 802818 && npc.Y == 727413)
 					{
 						Danica = npc;
@@ -88,7 +88,7 @@ namespace DOL.GS.Quests.Midgard
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Danica , creating it ...");
-				Danica = new GameNPC();
+				Danica = new GameNpc();
 				Danica.Model = 227;
 				Danica.Name = "Danica";
 				Danica.GuildName = "";
@@ -112,10 +112,10 @@ namespace DOL.GS.Quests.Midgard
 			npcs = WorldMgr.GetNPCsByName("Kelic", ERealm.None);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 100 && npc.X == 621577 && npc.Y == 745848)
 					{
-						Kelic = npc as Kelic;
+						Kelic = npc as EpicKelic;
 						break;
 					}
 
@@ -123,7 +123,7 @@ namespace DOL.GS.Quests.Midgard
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Kelic , creating it ...");
-				Kelic = new Kelic();
+				Kelic = new EpicKelic();
 				Kelic.Model = 26;
 				Kelic.Name = "Kelic";
 				Kelic.GuildName = "";
@@ -135,7 +135,7 @@ namespace DOL.GS.Quests.Midgard
 				Kelic.Y = 745848;
 				Kelic.Z = 4593;
 				Kelic.Heading = 3538;
-				Kelic.Flags ^= GameNPC.eFlags.GHOST;
+				Kelic.Flags ^= GameNpc.eFlags.GHOST;
 				Kelic.MaxSpeedBase = 200;
 				Kelic.AddToWorld();
 				if (SAVE_INTO_DATABASE)

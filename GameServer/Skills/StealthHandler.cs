@@ -110,7 +110,7 @@ namespace DOL.GS.SkillHandler
 				}
 
 				// Check if enemy NPC is close
-				foreach (GameNPC npc in player.GetNPCsInRadius(WorldMgr.VISIBILITY_DISTANCE))
+				foreach (GameNpc npc in player.GetNPCsInRadius(WorldMgr.VISIBILITY_DISTANCE))
 				{
 					if (npc.ObjectState != GameObject.eObjectState.Active) continue;
 
@@ -140,9 +140,9 @@ namespace DOL.GS.SkillHandler
 					{
 						((GamePlayer)attacker).Out.SendChangeTarget(attacker.TargetObject);
 					}
-					if (attacker is GameNPC)
+					if (attacker is GameNpc)
 					{
-						GameNPC npc = (GameNPC)attacker;
+						GameNpc npc = (GameNpc)attacker;
 						if (npc.Brain is IOldAggressiveBrain)
 						{
 							((IOldAggressiveBrain)npc.Brain).RemoveFromAggroList(player);

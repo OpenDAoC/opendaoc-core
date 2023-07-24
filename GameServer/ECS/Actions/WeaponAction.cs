@@ -69,7 +69,7 @@ namespace DOL.GS
             double mainHandEffectiveness = m_effectiveness;
 
             // GameNPC can dual swing even with no weapon.
-            if (m_owner is GameNPC && m_owner.attackComponent.CanUseLefthandedWeapon)
+            if (m_owner is GameNpc && m_owner.attackComponent.CanUseLefthandedWeapon)
                 leftHandSwingCount = m_owner.attackComponent.CalculateLeftHandSwingCount();
             else if (m_owner.attackComponent.CanUseLefthandedWeapon &&
                      leftWeapon != null &&
@@ -108,7 +108,7 @@ namespace DOL.GS
 
             if (leftHandSwingCount > 0)
             {
-                if (m_owner is GameNPC ||
+                if (m_owner is GameNpc ||
                     mainWeapon.Object_Type == (int)EObjectType.HandToHand || 
                     leftWeapon?.Object_Type == (int)EObjectType.HandToHand || 
                     mainWeapon.Object_Type == (int)EObjectType.TwoHandedWeapon || 
@@ -129,7 +129,7 @@ namespace DOL.GS
             }
             else if (mainWeapon != null)
             {
-                if (m_owner is GameNPC ||
+                if (m_owner is GameNpc ||
                     mainWeapon.Item_Type == Slot.TWOHAND ||
                     mainWeapon.SlotPosition == Slot.RANGED)
                     usingOH = false;
@@ -323,7 +323,7 @@ namespace DOL.GS
             }
 
             // Mobs' heading isn't updated after they start attacking, so we update it after they swing.
-            if (m_owner is GameNPC npcOwner)
+            if (m_owner is GameNpc npcOwner)
                 npcOwner.TurnTo(mainHandAD.Target);
 
             return;

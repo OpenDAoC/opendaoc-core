@@ -17,9 +17,9 @@ namespace DOL.GS.Commands
 	{
 		public void OnCommand(GameClient client, string[] args)
 		{
-			GameNPC targetNPC = null;
-			if (client.Player.TargetObject != null && client.Player.TargetObject is GameNPC)
-				targetNPC = (GameNPC) client.Player.TargetObject;
+			GameNpc targetNPC = null;
+			if (client.Player.TargetObject != null && client.Player.TargetObject is GameNpc)
+				targetNPC = (GameNpc) client.Player.TargetObject;
 
 			if (args.Length == 1 && args[0] == "&stop")
 			{

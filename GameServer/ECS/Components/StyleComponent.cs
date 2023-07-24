@@ -127,7 +127,7 @@ namespace DOL.GS
 		/// <returns>Selected style</returns>
 		public Style NPCGetStyleToUse()
         {
-            var p = owner as GameNPC;
+            var p = owner as GameNpc;
             if (p.Styles == null || p.Styles.Count < 1 || p.TargetObject == null)
                 return null;
 

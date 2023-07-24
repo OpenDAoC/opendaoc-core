@@ -5,7 +5,7 @@ using DOL.GS.Realm;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)ECharacterClass.Theurgist, "Theurgist", "Elementalist")]
+	[PlayerClass((int)ECharacterClass.Theurgist, "Theurgist", "Elementalist")]
 	public class ClassTheurgist : ClassElementalist
 	{
 		public ClassTheurgist()

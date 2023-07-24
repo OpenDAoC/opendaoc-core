@@ -11,7 +11,7 @@ namespace DOL.AI.Brain
 
         public override void OnAttackedByEnemy(AttackData ad)
         {
-            UrchinAmbusher urchinAmbusher = Body as UrchinAmbusher;
+            NpcUrchinAmbusher urchinAmbusher = Body as NpcUrchinAmbusher;
             urchinAmbusher.LeaveStealth();
             base.OnAttackedByEnemy(ad);
         }

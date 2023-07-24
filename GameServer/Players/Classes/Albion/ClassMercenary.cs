@@ -3,7 +3,7 @@ using DOL.GS.Realm;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)ECharacterClass.Mercenary, "Mercenary", "Fighter")]
+	[PlayerClass((int)ECharacterClass.Mercenary, "Mercenary", "Fighter")]
 	public class ClassMercenary : ClassFighter
 	{
 		private static readonly string[] AutotrainableSkills = new[] { Specs.Slash, Specs.Thrust };

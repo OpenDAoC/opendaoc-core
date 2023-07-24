@@ -37,7 +37,7 @@ namespace DOL.GS.Commands
 			if (client.Player.TargetObject != null)
 			{
 
-				if (client.Player.TargetObject is KeepLord gl)
+				if (client.Player.TargetObject is GuardLord gl)
 				{
 					info.Add("--KEEP LORD--");
 					info.Add(" ");
@@ -49,9 +49,9 @@ namespace DOL.GS.Commands
 				
 				#region Mob
 				/********************* MOB ************************/
-				if (client.Player.TargetObject is GameNPC)
+				if (client.Player.TargetObject is GameNpc)
 				{
-					var target = client.Player.TargetObject as GameNPC;
+					var target = client.Player.TargetObject as GameNpc;
 					name = target.Name;
 					
 					
@@ -108,7 +108,7 @@ namespace DOL.GS.Commands
 					info.Add(" + Realm: " + GlobalConstants.RealmToName(target.Realm));
 					info.Add(" + Model:  " + target.Model);
 					info.Add(" + Size " + target.Size);
-					info.Add(string.Format(" + Flags: {0} (0x{1})", ((GameNPC.eFlags)target.Flags).ToString("G"), target.Flags.ToString("X")));
+					info.Add(string.Format(" + Flags: {0} (0x{1})", ((GameNpc.eFlags)target.Flags).ToString("G"), target.Flags.ToString("X")));
 					info.Add(" ");
 					
 					info.Add(" + Speed(current/max): " + target.CurrentSpeed + "/" + target.MaxSpeedBase);
@@ -401,7 +401,7 @@ namespace DOL.GS.Commands
 					info.Add("  - Model ID : " + target.Model);
 					info.Add("  - AFK Message: " + target.TempProperties.getProperty<string>(GamePlayer.AFK_MESSAGE) + "");
 					info.Add(" ");
-                    info.Add("  - Money : " + Money.GetString(target.GetCurrentMoney()) + "\n");
+                    info.Add("  - Money : " + MoneyUtil.GetString(target.GetCurrentMoney()) + "\n");
 					info.Add("  - Speed(current/max): " + target.CurrentSpeed + "/" + target.MaxSpeed);
 					info.Add("  - XPs : " + target.Experience);
 					info.Add("  - RPs : " + target.RealmPoints);
@@ -476,7 +476,7 @@ namespace DOL.GS.Commands
 					info.Add("  --------------------------------------");
 					////////////// Inventaire /////////////
 					info.Add("  ----- Money:");
-					info.Add(Money.GetShortString(target.GetCurrentMoney()));
+					info.Add(MoneyUtil.GetShortString(target.GetCurrentMoney()));
 					info.Add(" ");
 
 					info.Add("  ----- Wearing:");
@@ -760,9 +760,9 @@ namespace DOL.GS.Commands
 					if (house.Rug4Color != 0)
 						info.Add(LanguageMgr.GetTranslation(client.Account.Language, "House.SendHouseInfo.Rug4Color", Color(house.Rug4Color)));
 					info.Add(" ");
-					info.Add(LanguageMgr.GetTranslation(client.Account.Language, "House.SendHouseInfo.Lockbox", Money.GetString(house.KeptMoney)));
-					info.Add(LanguageMgr.GetTranslation(client.Account.Language, "House.SendHouseInfo.RentalPrice", Money.GetString(HouseMgr.GetRentByModel(house.Model))));
-					info.Add(LanguageMgr.GetTranslation(client.Account.Language, "House.SendHouseInfo.MaxLockbox", Money.GetString(HouseMgr.GetRentByModel(house.Model) * ServerProperties.ServerProperties.RENT_LOCKBOX_PAYMENTS)));
+					info.Add(LanguageMgr.GetTranslation(client.Account.Language, "House.SendHouseInfo.Lockbox", MoneyUtil.GetString(house.KeptMoney)));
+					info.Add(LanguageMgr.GetTranslation(client.Account.Language, "House.SendHouseInfo.RentalPrice", MoneyUtil.GetString(HouseMgr.GetRentByModel(house.Model))));
+					info.Add(LanguageMgr.GetTranslation(client.Account.Language, "House.SendHouseInfo.MaxLockbox", MoneyUtil.GetString(HouseMgr.GetRentByModel(house.Model) * ServerProperties.ServerProperties.RENT_LOCKBOX_PAYMENTS)));
 					info.Add(LanguageMgr.GetTranslation(client.Account.Language, "House.SendHouseInfo.RentDueIn", due.Days, due.Hours));
 
 					#endregion House

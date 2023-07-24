@@ -6,7 +6,7 @@ using log4net;
 
 namespace DOL.GS.Scripts
 {
-    public class ServerEventTeleporter : GameNPC
+    public class ServerEventTeleporter : GameNpc
 	{
 		private static new readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 		public static int EventRPCap = ServerProperties.ServerProperties.EVENT_RPCAP;

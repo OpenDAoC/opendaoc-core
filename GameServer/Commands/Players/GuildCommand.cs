@@ -23,7 +23,7 @@ namespace DOL.GS.Commands
 	{
 		
 		private static log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-		public long GuildFormCost = Money.GetMoney(0, 0, 1, 0, 0); //Cost to form guild : live = 1g : (mith/plat/gold/silver/copper)
+		public long GuildFormCost = MoneyUtil.GetMoney(0, 0, 1, 0, 0); //Cost to form guild : live = 1g : (mith/plat/gold/silver/copper)
 		/// <summary>
 		/// Checks if a guildname has valid characters
 		/// </summary>
@@ -40,7 +40,7 @@ namespace DOL.GS.Commands
 		}
 		private static bool IsNearRegistrar(GamePlayer player)
 		{
-			foreach (GameNPC registrar in player.GetNPCsInRadius(500))
+			foreach (GameNpc registrar in player.GetNPCsInRadius(500))
 			{
 				if (registrar is GuildRegistrar)
 					return true;
@@ -613,7 +613,7 @@ namespace DOL.GS.Commands
 								client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "Scripts.Player.Guild.InfoGuild", client.Player.Guild.Name), EChatType.CT_Guild, EChatLoc.CL_SystemWindow);
 								client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "Scripts.Player.Guild.InfoRPBPMP", client.Player.Guild.RealmPoints, client.Player.Guild.BountyPoints, client.Player.Guild.MeritPoints), EChatType.CT_Guild, EChatLoc.CL_SystemWindow);
 								client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "Scripts.Player.Guild.InfoGuildLevel", client.Player.Guild.GuildLevel), EChatType.CT_Guild, EChatLoc.CL_SystemWindow);
-								client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "Scripts.Player.Guild.InfoGDuesBank", client.Player.Guild.GetGuildDuesPercent().ToString() + "%", Money.GetString(long.Parse(client.Player.Guild.GetGuildBank().ToString()))), EChatType.CT_Guild, EChatLoc.CL_SystemWindow);
+								client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "Scripts.Player.Guild.InfoGDuesBank", client.Player.Guild.GetGuildDuesPercent().ToString() + "%", MoneyUtil.GetString(long.Parse(client.Player.Guild.GetGuildBank().ToString()))), EChatType.CT_Guild, EChatLoc.CL_SystemWindow);
 
 								client.Out.SendMessage(string.Format("Current Merit Bonus: {0}", GuildUtil.BonusTypeToName(client.Player.Guild.GuildBonusType)), EChatType.CT_Guild, EChatLoc.CL_SystemWindow);
 
@@ -1739,7 +1739,7 @@ namespace DOL.GS.Commands
 							}
 							if (client.Player.Guild.Emblem != 0)
 							{
-								if (client.Player.TargetObject is EmblemNPC == false)
+								if (client.Player.TargetObject is EmblemNpc == false)
 								{
 									client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "Scripts.Player.Guild.EmblemAlready"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 									return;
@@ -1747,7 +1747,7 @@ namespace DOL.GS.Commands
 								client.Out.SendCustomDialog(LanguageMgr.GetTranslation(client.Account.Language, "Scripts.Player.Guild.EmblemRedo"), new CustomDialogResponse(EmblemChange));
 								return;
 							}
-							if (client.Player.TargetObject is EmblemNPC == false)
+							if (client.Player.TargetObject is EmblemNpc == false)
 							{
 								client.Out.SendMessage(LanguageMgr.GetTranslation(client.Account.Language, "Scripts.Player.Guild.EmblemNPCNotSelected"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 								return;
@@ -2702,7 +2702,7 @@ namespace DOL.GS.Commands
 		{
 			if (reponse != 0x01)
 				return;
-			if (player.TargetObject is EmblemNPC == false)
+			if (player.TargetObject is EmblemNpc == false)
 			{
 				player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "Scripts.Player.Guild.EmblemNeedNPC"), EChatType.CT_System, EChatLoc.CL_SystemWindow);
 				return;

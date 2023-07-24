@@ -32,9 +32,9 @@ namespace DOL.GS.AtlasQuest.Albion
 		private int _legionKilled = 0;
 		private int _grandSummonerKilled = 0;
 
-		private static GameNPC Laura = null; // Start NPC
-		private static GameNPC Beetle = null;
-		private static GameNPC MobEffect = null;
+		private static GameNpc Laura = null; // Start NPC
+		private static GameNpc Beetle = null;
+		private static GameNpc MobEffect = null;
 		private static String ALB_DRAGON_NAME = "Golestandt";
 		private static String LEGION_NAME = "Legion";
 		private static String GRAND_SUMMONER_NAME = "Grand Summoner Govannon";
@@ -76,10 +76,10 @@ namespace DOL.GS.AtlasQuest.Albion
 			
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Laura", ERealm.Albion);
+			GameNpc[] npcs = WorldMgr.GetNPCsByName("Laura", ERealm.Albion);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 10 && npc.X == 36450 && npc.Y == 30958)
 					{
 						Laura = npc;
@@ -90,7 +90,7 @@ namespace DOL.GS.AtlasQuest.Albion
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Laura , creating it ...");
-				Laura = new GameNPC();
+				Laura = new GameNpc();
 				Laura.Model = 261;
 				Laura.Name = "Laura";
 				Laura.GuildName = "Protector of Beetles";
@@ -322,7 +322,7 @@ namespace DOL.GS.AtlasQuest.Albion
 		
 		private static int CreateBeetle(ECSGameTimer timer)
         {
-	        Beetle = new GameNPC();
+	        Beetle = new GameNpc();
             Beetle.Model = 669;
             Beetle.Name = "Francis";
             Beetle.GuildName = "";
@@ -331,7 +331,7 @@ namespace DOL.GS.AtlasQuest.Albion
             Beetle.BodyType = (ushort) NpcTemplateMgr.EBodyType.Magical;
             Beetle.Size = 40;
             Beetle.Level = 55;
-            Beetle.Flags ^= GameNPC.eFlags.PEACE;
+            Beetle.Flags ^= GameNpc.eFlags.PEACE;
             Beetle.CurrentRegionID = 10;
             Beetle.X = 36434;
             Beetle.Y = 31031;
@@ -344,7 +344,7 @@ namespace DOL.GS.AtlasQuest.Albion
 		
 		private static int CreateEffect(ECSGameTimer timer)
 		{
-			MobEffect = new GameNPC();
+			MobEffect = new GameNpc();
 			MobEffect.Model = 1822;
 			MobEffect.Name = "power of the beetle";
 			MobEffect.GuildName = "";
@@ -353,9 +353,9 @@ namespace DOL.GS.AtlasQuest.Albion
 			MobEffect.BodyType = (ushort) NpcTemplateMgr.EBodyType.Magical;
 			MobEffect.Size = 25;
 			MobEffect.Level = 65;
-			MobEffect.Flags ^= GameNPC.eFlags.CANTTARGET;
-			MobEffect.Flags ^= GameNPC.eFlags.DONTSHOWNAME;
-			MobEffect.Flags ^= GameNPC.eFlags.PEACE;
+			MobEffect.Flags ^= GameNpc.eFlags.CANTTARGET;
+			MobEffect.Flags ^= GameNpc.eFlags.DONTSHOWNAME;
+			MobEffect.Flags ^= GameNpc.eFlags.PEACE;
 			
 			MobEffect.CurrentRegionID = 10;
 			MobEffect.X = 36434;
@@ -373,7 +373,7 @@ namespace DOL.GS.AtlasQuest.Albion
 		
 		private static int RemoveEffectMob(ECSGameTimer timer)
 		{
-			foreach (GameNPC effect in Laura.GetNPCsInRadius(600))
+			foreach (GameNpc effect in Laura.GetNPCsInRadius(600))
 			{
 				if (effect.Name.ToLower() == "power of the beetle")
 					effect.RemoveFromWorld();
@@ -384,7 +384,7 @@ namespace DOL.GS.AtlasQuest.Albion
 		
 		private static int RemoveBeetle(ECSGameTimer timer)
 		{
-			foreach (GameNPC effect in Laura.GetNPCsInRadius(600))
+			foreach (GameNpc effect in Laura.GetNPCsInRadius(600))
 			{
 				if (effect.Name.ToLower() == "francis")
 					effect.RemoveFromWorld();
@@ -559,19 +559,19 @@ namespace DOL.GS.AtlasQuest.Albion
 			if (Step != 1 || e != GameLivingEvent.EnemyKilled) return;
 			EnemyKilledEventArgs gArgs = (EnemyKilledEventArgs) args;
 
-			if (gArgs.Target.Name.ToLower() == ALB_DRAGON_NAME.ToLower() && gArgs.Target is GameNPC && _dragonKilled < MAX_KILLED)
+			if (gArgs.Target.Name.ToLower() == ALB_DRAGON_NAME.ToLower() && gArgs.Target is GameNpc && _dragonKilled < MAX_KILLED)
 			{
 				_dragonKilled = 1;
 				player.Out.SendMessage("[Beetle] You killed " + ALB_DRAGON_NAME + ": (" + _dragonKilled + " | " + MAX_KILLED + ")", EChatType.CT_ScreenCenter, EChatLoc.CL_SystemWindow);
 				player.Out.SendQuestUpdate(this);
 			}
-			else if (gArgs.Target.Name.ToLower() == LEGION_NAME.ToLower() && gArgs.Target is GameNPC && _legionKilled < MAX_KILLED)
+			else if (gArgs.Target.Name.ToLower() == LEGION_NAME.ToLower() && gArgs.Target is GameNpc && _legionKilled < MAX_KILLED)
 			{
 				_legionKilled = 1;
 				player.Out.SendMessage("[Beetle] You killed " + LEGION_NAME + ": (" + _legionKilled + " | " + MAX_KILLED + ")", EChatType.CT_ScreenCenter, EChatLoc.CL_SystemWindow);
 				player.Out.SendQuestUpdate(this);
 			}
-			else if (gArgs.Target.Name.ToLower() == GRAND_SUMMONER_NAME.ToLower() && gArgs.Target is GameNPC && _grandSummonerKilled < MAX_KILLED)
+			else if (gArgs.Target.Name.ToLower() == GRAND_SUMMONER_NAME.ToLower() && gArgs.Target is GameNpc && _grandSummonerKilled < MAX_KILLED)
 			{
 				_grandSummonerKilled = 1;
 				player.Out.SendMessage("[Beetle] You killed " + GRAND_SUMMONER_NAME + ": (" + _grandSummonerKilled + " | " + MAX_KILLED + ")", EChatType.CT_ScreenCenter, EChatLoc.CL_SystemWindow);
@@ -604,7 +604,7 @@ namespace DOL.GS.AtlasQuest.Albion
 		
 		public override void FinishQuest()
 		{
-			m_questPlayer.AddMoney(Money.GetMoney(0, 0, m_questPlayer.Level * 8, 32, UtilCollection.Random(50)),
+			m_questPlayer.AddMoney(MoneyUtil.GetMoney(0, 0, m_questPlayer.Level * 8, 32, UtilCollection.Random(50)),
 				"You receive {0} as a reward.");
 			RogMgr.GenerateReward(m_questPlayer, 5000);
 			_grandSummonerKilled = 0;

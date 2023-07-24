@@ -5,7 +5,7 @@ using DOL.GS.Realm;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)ECharacterClass.Bainshee, "Bainshee", "Magician")]
+	[PlayerClass((int)ECharacterClass.Bainshee, "Bainshee", "Magician")]
 	public class ClassBainshee : ClassMagician
 	{
 		public ClassBainshee() : base()

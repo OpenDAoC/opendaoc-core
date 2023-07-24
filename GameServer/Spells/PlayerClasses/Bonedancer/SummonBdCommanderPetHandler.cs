@@ -29,10 +29,10 @@ namespace DOL.GS.Spells
 
 		protected override void OnNpcReleaseCommand(CoreEvent e, object sender, EventArgs arguments)
 		{
-			if (!(sender is CommanderPet))
+			if (!(sender is BdCommanderPet))
 				return;
 
-			CommanderPet pet = sender as CommanderPet;
+			BdCommanderPet pet = sender as BdCommanderPet;
 
 			if (pet.ControlledNpcList != null)
 			{
@@ -52,7 +52,7 @@ namespace DOL.GS.Spells
 
 		protected override GameSummonedPet GetGamePet(INpcTemplate template)
 		{
-			return new CommanderPet(template);
+			return new BdCommanderPet(template);
 		}
 
 		/// <summary>

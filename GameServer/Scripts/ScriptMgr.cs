@@ -672,7 +672,7 @@ namespace DOL.GS
 		/// </summary>
 		/// <param name="id">the classid to search</param>
 		/// <returns>ClassSpec that was found or null if not found</returns>
-		public static ICharacterClass FindCharacterClass(int id)
+		public static IPlayerClass FindCharacterClass(int id)
 		{
 			foreach (Assembly asm in GameServerScripts)
 			{
@@ -685,12 +685,12 @@ namespace DOL.GS
 
 					try
 					{
-						object[] objs = type.GetCustomAttributes(typeof(CharacterClassAttribute), false);
-						foreach (CharacterClassAttribute attrib in objs)
+						object[] objs = type.GetCustomAttributes(typeof(PlayerClassAttribute), false);
+						foreach (PlayerClassAttribute attrib in objs)
 						{
 							if (attrib.ID == id)
 							{
-								return (ICharacterClass)Activator.CreateInstance(type);
+								return (IPlayerClass)Activator.CreateInstance(type);
 							}
 						}
 					}
@@ -709,7 +709,7 @@ namespace DOL.GS
 		/// </summary>
 		/// <param name="id">the classid to search</param>
 		/// <returns>Base ClassSpec that was found or null if not found</returns>
-		public static ICharacterClass FindCharacterBaseClass(int id)
+		public static IPlayerClass FindCharacterBaseClass(int id)
 		{
 			var charClass = FindCharacterClass(id);
 
@@ -721,8 +721,8 @@ namespace DOL.GS
 
 			try
 			{
-				object[] objs = charClass.GetType().BaseType.GetCustomAttributes(typeof(CharacterClassAttribute), true);
-				foreach (CharacterClassAttribute attrib in objs)
+				object[] objs = charClass.GetType().BaseType.GetCustomAttributes(typeof(PlayerClassAttribute), true);
+				foreach (PlayerClassAttribute attrib in objs)
 				{
 					if (attrib.Name.Equals(charClass.BaseName, StringComparison.OrdinalIgnoreCase))
 					{
@@ -758,7 +758,7 @@ namespace DOL.GS
 				{
 					// Pick up a class
 					if (type.IsClass != true) continue;
-					if (!type.IsSubclassOf(typeof(GameNPC))) continue;
+					if (!type.IsSubclassOf(typeof(GameNpc))) continue;
 
 					try
 					{

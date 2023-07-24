@@ -19,7 +19,7 @@ namespace DOL.GS.DailyQuest.Midgard
 		private const int minimumLevel = 40;
 		private const int maximumLevel = 50;
 
-		private static GameNPC ReyMid = null; // Start NPC
+		private static GameNpc ReyMid = null; // Start NPC
 
 		private int _playersKilledAlb = 0;
 		private int _playersKilledHib = 0;
@@ -62,10 +62,10 @@ namespace DOL.GS.DailyQuest.Midgard
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Rey", ERealm.Midgard);
+			GameNpc[] npcs = WorldMgr.GetNPCsByName("Rey", ERealm.Midgard);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 				{
 					if (npc.CurrentRegionID == 100 && npc.X == 766491 && npc.Y == 670375)
 					{
@@ -78,7 +78,7 @@ namespace DOL.GS.DailyQuest.Midgard
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Rey , creating it ...");
-				ReyMid = new GameNPC();
+				ReyMid = new GameNpc();
 				ReyMid.Model = 26;
 				ReyMid.Name = "Rey";
 				ReyMid.GuildName = "Bone Collector";
@@ -91,7 +91,7 @@ namespace DOL.GS.DailyQuest.Midgard
 				ReyMid.Y = 670375;
 				ReyMid.Z = 5736;
 				ReyMid.Heading = 2358;
-				ReyMid.Flags |= GameNPC.eFlags.PEACE;
+				ReyMid.Flags |= GameNpc.eFlags.PEACE;
 				ReyMid.AddToWorld();
 				if (SAVE_INTO_DATABASE)
 				{
@@ -357,7 +357,7 @@ namespace DOL.GS.DailyQuest.Midgard
 			int reward = ServerProperties.ServerProperties.DAILY_RVR_REWARD;
 			
 			m_questPlayer.ForceGainExperience((m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel)/5);
-			m_questPlayer.AddMoney(Money.GetMoney(0,0,m_questPlayer.Level,32,UtilCollection.Random(50)), "You receive {0} as a reward.");
+			m_questPlayer.AddMoney(MoneyUtil.GetMoney(0,0,m_questPlayer.Level,32,UtilCollection.Random(50)), "You receive {0} as a reward.");
 			RogMgr.GenerateReward(m_questPlayer, 250);
 			RogMgr.GenerateJewel(m_questPlayer, (byte)(m_questPlayer.Level + 1), m_questPlayer.Level + UtilCollection.Random(5, 15));
 			_playersKilledHib = 0;

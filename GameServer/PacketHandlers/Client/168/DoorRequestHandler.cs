@@ -159,7 +159,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 			int doorType = m_handlerDoorID/100000000;
 			if (doorType == 7)
 			{
-				KeepGuardPositionMgr.CreateDoor(m_handlerDoorID, player);
+				GuardPositionMgr.CreateDoor(m_handlerDoorID, player);
 			}
 			else
 			{

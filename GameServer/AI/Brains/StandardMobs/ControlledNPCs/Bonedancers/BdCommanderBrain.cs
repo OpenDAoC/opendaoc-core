@@ -9,7 +9,7 @@ namespace DOL.AI.Brain
 	{
 		public BdCommanderBrain(GameLiving owner) : base(owner) { }
 
-        public bool MinionsAssisting => Body is CommanderPet commander && commander.MinionsAssisting;
+        public bool MinionsAssisting => Body is BdCommanderPet commander && commander.MinionsAssisting;
 
         /// <summary>
         /// Determines if a given controlled brain is part of the commanders subpets
@@ -192,8 +192,8 @@ namespace DOL.AI.Brain
 		{
 			bool casted = false;
 
-			if (type == eCheckSpellType.Offensive && Body is CommanderPet pet
-				&& pet.PreferredSpell != CommanderPet.eCommanderPreferredSpell.None
+			if (type == eCheckSpellType.Offensive && Body is BdCommanderPet pet
+				&& pet.PreferredSpell != BdCommanderPet.eCommanderPreferredSpell.None
 				&& !pet.IsCasting && !pet.IsBeingInterrupted && pet.TargetObject is GameLiving living && living.IsAlive)
 
 			{
@@ -206,11 +206,11 @@ namespace DOL.AI.Brain
 				Spell cast = null;
 				switch (pet.PreferredSpell)
 				{
-					case CommanderPet.eCommanderPreferredSpell.Debuff:
+					case BdCommanderPet.eCommanderPreferredSpell.Debuff:
 						if (spellDebuff != null && !living.HasEffect(spellDebuff))
 							cast = spellDebuff;
 						break;
-					case CommanderPet.eCommanderPreferredSpell.Other:
+					case BdCommanderPet.eCommanderPreferredSpell.Other:
 						cast = spellOther;
 						break;
 				}
@@ -251,7 +251,7 @@ namespace DOL.AI.Brain
 		public override int ModifyDamageWithTaunt(int damage)
 		{
 			// TODO: Move 'CommanderPet.Taunting' to the brain.
-			if (Body is CommanderPet commanderPet)
+			if (Body is BdCommanderPet commanderPet)
 			{
 				int tauntScale = GS.ServerProperties.ServerProperties.PET_BD_COMMANDER_TAUNT_VALUE;
 

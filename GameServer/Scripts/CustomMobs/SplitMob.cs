@@ -6,15 +6,15 @@ using DOL.GS.PacketHandler;
 
 namespace DOL.GS.Scripts
 {
-    public class SplitMob : GameNPC
+    public class SplitMob : GameNpc
     {
         public bool m_First = true;
         public SplitMob()
         {
         }
-        public static bool AnyMinions(GameNPC checker)
+        public static bool AnyMinions(GameNpc checker)
         {
-            foreach (GameNPC npc in checker.GetNPCsInRadius(10000))
+            foreach (GameNpc npc in checker.GetNPCsInRadius(10000))
             {
                 if (npc.Name.Contains("Minion"))
                 {
@@ -50,7 +50,7 @@ namespace DOL.GS.Scripts
 
 
         }
-        public void SetVariables(GameNPC mob)
+        public void SetVariables(GameNpc mob)
         {
             mob.X = this.X + 10;
             mob.Y = this.Y + 10;
@@ -110,7 +110,7 @@ namespace DOL.GS.Scripts
                 mob.SetOwnBrain(sbrain);
             }
         }
-        public void ResetToOriginal(GameNPC npc)
+        public void ResetToOriginal(GameNpc npc)
         {
             npc.Level = 70;
             npc.Health = this.MaxHealth;
@@ -128,7 +128,7 @@ namespace DOL.GS.Scripts
                     player.GainBountyPoints(5000, false);
 
                 }
-                foreach (GameNPC npc in this.GetNPCsInRadius(5000))
+                foreach (GameNpc npc in this.GetNPCsInRadius(5000))
                 {
                     if (npc.Name.Contains("Minion"))
                     {

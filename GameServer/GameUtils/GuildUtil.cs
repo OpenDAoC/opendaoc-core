@@ -242,7 +242,7 @@ namespace DOL.GS
                 return;
             }
 
-			donating.Out.SendMessage(LanguageMgr.GetTranslation(donating.Client, "Scripts.Player.Guild.DepositAmount", Money.GetString(long.Parse(amount.ToString()))), EChatType.CT_Loot, EChatLoc.CL_SystemWindow);
+			donating.Out.SendMessage(LanguageMgr.GetTranslation(donating.Client, "Scripts.Player.Guild.DepositAmount", MoneyUtil.GetString(long.Parse(amount.ToString()))), EChatType.CT_Loot, EChatLoc.CL_SystemWindow);
 
 			donating.Guild.UpdateGuildWindow();
 			m_DBguild.Bank += amount;
@@ -265,7 +265,7 @@ namespace DOL.GS
 				return;
 			}
 
-            withdraw.Out.SendMessage(LanguageMgr.GetTranslation(withdraw.Client, "Scripts.Player.Guild.Withdrawamount", Money.GetString(long.Parse(amount.ToString()))), EChatType.CT_Guild, EChatLoc.CL_SystemWindow);
+            withdraw.Out.SendMessage(LanguageMgr.GetTranslation(withdraw.Client, "Scripts.Player.Guild.Withdrawamount", MoneyUtil.GetString(long.Parse(amount.ToString()))), EChatType.CT_Guild, EChatLoc.CL_SystemWindow);
 			withdraw.Guild.UpdateGuildWindow();
 			m_DBguild.Bank -= amount;
 

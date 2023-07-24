@@ -747,7 +747,7 @@ namespace DOL.GS.Quests
 				ticket.IsPickable = true;
 				ticket.IsDropable = true;
 
-				ticket.Price = Money.GetMoney(0, 0, 0, 5, 3);
+				ticket.Price = MoneyUtil.GetMoney(0, 0, 0, 5, 3);
 
 				ticket.PackSize = 1;
 				ticket.Weight = 0;

@@ -185,7 +185,7 @@ namespace DOL.GS.Commands
 		private void PathTravel(GameClient client)
 		{
 			PathPointUtil path = (PathPointUtil)client.Player.TempProperties.getProperty<object>(TEMP_PATH_LAST, null);
-			if (client.Player.TargetObject == null || !(client.Player.TargetObject is GameNPC))
+			if (client.Player.TargetObject == null || !(client.Player.TargetObject is GameNpc))
 			{
 				DisplayMessage(client, "You need to select a mob first!");
 				return;
@@ -196,15 +196,15 @@ namespace DOL.GS.Commands
 				DisplayMessage(client, "No path created yet! Use /path create first!");
 				return;
 			}
-			short speed = Math.Min(((GameNPC)client.Player.TargetObject).MaxSpeedBase, path.MaxSpeed);
+			short speed = Math.Min(((GameNpc)client.Player.TargetObject).MaxSpeedBase, path.MaxSpeed);
 
 			// clear any current path
-			((GameNPC)client.Player.TargetObject).CurrentWaypoint = null;
+			((GameNpc)client.Player.TargetObject).CurrentWaypoint = null;
 
 			// set the new path
-			((GameNPC)client.Player.TargetObject).CurrentWaypoint = (PathPointUtil)client.Player.TempProperties.getProperty<object>(TEMP_PATH_FIRST, null);
+			((GameNpc)client.Player.TargetObject).CurrentWaypoint = (PathPointUtil)client.Player.TempProperties.getProperty<object>(TEMP_PATH_FIRST, null);
 
-			((GameNPC)client.Player.TargetObject).MoveOnPath(speed);
+			((GameNpc)client.Player.TargetObject).MoveOnPath(speed);
 
 			DisplayMessage(client, "{0} told to travel path!", client.Player.TargetObject.Name);
 
@@ -212,15 +212,15 @@ namespace DOL.GS.Commands
 
 		private void PathStop(GameClient client)
 		{
-			if (client.Player.TargetObject == null || !(client.Player.TargetObject is GameNPC))
+			if (client.Player.TargetObject == null || !(client.Player.TargetObject is GameNpc))
 			{
 				DisplayMessage(client, "You need to select a mob first!");
 				return;
 			}
 
 			// clear any current path
-			((GameNPC)client.Player.TargetObject).CurrentWaypoint = null;
-			((GameNPC)client.Player.TargetObject).ReturnToSpawnPoint();
+			((GameNpc)client.Player.TargetObject).CurrentWaypoint = null;
+			((GameNpc)client.Player.TargetObject).ReturnToSpawnPoint();
 
 			DisplayMessage(client, "{0} told to walk to spawn!", client.Player.TargetObject.Name);
 		}

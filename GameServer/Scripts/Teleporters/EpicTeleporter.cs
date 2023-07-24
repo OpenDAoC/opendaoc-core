@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace DOL.GS.Scripts
 {
-	public class EpicTeleporter: GameNPC
+	public class EpicTeleporter: GameNpc
 	{
 		private static new readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 

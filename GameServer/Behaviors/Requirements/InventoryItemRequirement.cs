@@ -27,7 +27,7 @@ namespace DOL.GS.Behaviour.Requirements
 		/// <param name="n"></param>
 		/// <param name="v"></param>
 		/// <param name="comp"></param>
-        public InventoryItemRequirement(GameNPC defaultNPC,  Object n, Object v, eComparator comp)
+        public InventoryItemRequirement(GameNpc defaultNPC,  Object n, Object v, eComparator comp)
             : base(defaultNPC, eRequirementType.InventoryItem, n, v, comp)
 		{   			
 		}
@@ -39,7 +39,7 @@ namespace DOL.GS.Behaviour.Requirements
 		/// <param name="n">First Requirement Variable, meaning depends on RequirementType</param>
 		/// <param name="v">Second Requirement Variable, meaning depends on RequirementType</param>
 		/// <param name="comp">Comparator used if some values are veeing compared</param>
-        public InventoryItemRequirement(GameNPC defaultNPC, DbItemTemplates n, int v, eComparator comp)
+        public InventoryItemRequirement(GameNpc defaultNPC, DbItemTemplates n, int v, eComparator comp)
             : this(defaultNPC,  (object)n, (object)v, comp)
 		{   			
 		}

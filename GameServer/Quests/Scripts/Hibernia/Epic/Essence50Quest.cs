@@ -18,7 +18,7 @@ namespace DOL.GS.Quests.Hibernia
 		protected const int minimumLevel = 50;
 		protected const int maximumLevel = 50;
 
-		private static GameNPC Brigit = null; // Start NPC        
+		private static GameNpc Brigit = null; // Start NPC        
 		private static GhostOfCaithor Caithor = null; // Mob to kill
 
 		private static DbItemTemplates Moonstone = null; //ball of flame
@@ -74,10 +74,10 @@ namespace DOL.GS.Quests.Hibernia
 
 			#region NPC Declarations
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Brigit", ERealm.Hibernia);
+			GameNpc[] npcs = WorldMgr.GetNPCsByName("Brigit", ERealm.Hibernia);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 201 && npc.X == 32927 && npc.Y == 32743)
 					{
 						Brigit = npc;
@@ -88,7 +88,7 @@ namespace DOL.GS.Quests.Hibernia
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Brigit , creating it ...");
-				Brigit = new GameNPC();
+				Brigit = new GameNpc();
 				Brigit.LoadEquipmentTemplateFromDatabase("4d0ceec2-6812-4d38-8b83-e56a7ee89821");
 				Brigit.Model = 346;
 				Brigit.Name = "Brigit";
@@ -112,7 +112,7 @@ namespace DOL.GS.Quests.Hibernia
 			npcs = WorldMgr.GetNPCsByName("Giant Caithor", ERealm.None);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 200 && npc.X == 470547 && npc.Y == 531497)
 					{
 						Caithor = npc as GhostOfCaithor;
@@ -1454,7 +1454,7 @@ namespace DOL.GS.Quests.Hibernia
 			if (Step == 1 && e == GameLivingEvent.EnemyKilled)
 			{
 				EnemyKilledEventArgs gArgs = (EnemyKilledEventArgs) args;
-				if (gArgs.Target is Caithor)
+				if (gArgs.Target is EpicCaithor)
 				{
 					m_questPlayer.Out.SendMessage("You collect the Moonstone from Caithor", EChatType.CT_System, EChatLoc.CL_SystemWindow);
 					GiveItem(player, Moonstone);

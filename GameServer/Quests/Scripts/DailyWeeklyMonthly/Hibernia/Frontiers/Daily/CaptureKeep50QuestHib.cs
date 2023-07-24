@@ -22,7 +22,7 @@ namespace DOL.GS.DailyQuest.Hibernia
 		// Capture Goal
 		private const int MAX_CAPTURED = 1;
 		
-		private static GameNPC Cola = null; // Start NPC
+		private static GameNpc Cola = null; // Start NPC
 
 		private int _isCaptured = 0;
 
@@ -61,10 +61,10 @@ namespace DOL.GS.DailyQuest.Hibernia
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Cola", ERealm.Hibernia);
+			GameNpc[] npcs = WorldMgr.GetNPCsByName("Cola", ERealm.Hibernia);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 200 && npc.X == 334793 && npc.Y == 420805)
 					{
 						Cola = npc;
@@ -75,7 +75,7 @@ namespace DOL.GS.DailyQuest.Hibernia
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Cola , creating it ...");
-				Cola = new GameNPC();
+				Cola = new GameNpc();
 				Cola.Model = 583;
 				Cola.Name = "Cola";
 				Cola.GuildName = "Realm Logistics";
@@ -343,7 +343,7 @@ namespace DOL.GS.DailyQuest.Hibernia
 			int reward = ServerProperties.ServerProperties.DAILY_RVR_REWARD;
 			
 			m_questPlayer.ForceGainExperience((m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel)/5);
-			m_questPlayer.AddMoney(Money.GetMoney(0,0,m_questPlayer.Level*2,0,UtilCollection.Random(50)), "You receive {0} as a reward.");
+			m_questPlayer.AddMoney(MoneyUtil.GetMoney(0,0,m_questPlayer.Level*2,0,UtilCollection.Random(50)), "You receive {0} as a reward.");
 			RogMgr.GenerateReward(m_questPlayer, 250);
 			RogMgr.GenerateJewel(m_questPlayer, (byte)(m_questPlayer.Level + 1), m_questPlayer.Level + UtilCollection.Random(5, 11));
 			_isCaptured = 0;

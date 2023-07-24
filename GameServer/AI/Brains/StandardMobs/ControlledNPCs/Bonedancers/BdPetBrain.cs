@@ -19,7 +19,7 @@ namespace DOL.AI.Brain
         /// <returns>Player owner at the top of the tree.  If there was no player, then return null.</returns>
         public override GamePlayer GetPlayerOwner()
         {
-            GameNPC commanderOwner = (GameNPC)Owner;
+            GameNpc commanderOwner = (GameNpc)Owner;
 
             if (commanderOwner != null && commanderOwner.Brain is IControlledBrain)
             {
@@ -33,7 +33,7 @@ namespace DOL.AI.Brain
         /// <summary>
         /// Are minions assisting the commander?
         /// </summary>
-        public bool MinionsAssisting => Owner is CommanderPet commander && commander.MinionsAssisting;
+        public bool MinionsAssisting => Owner is BdCommanderPet commander && commander.MinionsAssisting;
 
         public override void OnOwnerAttacked(AttackData ad)
         {
@@ -117,7 +117,7 @@ namespace DOL.AI.Brain
         {
             if (!Body.IsCasting && !Body.attackComponent.AttackState && Body.attackComponent.Attackers.Count == 0)
             {
-                GameNPC commander = (GameNPC)Owner;
+                GameNpc commander = (GameNpc)Owner;
                 double heading = commander.Heading * Point2D.HEADING_TO_RADIAN;
                 //Get which place we should put minion
                 int i = 0;
@@ -133,16 +133,16 @@ namespace DOL.AI.Brain
 
                 switch (commander.Formation)
                 {
-                    case GameNPC.eFormationType.Triangle:
+                    case GameNpc.eFormationType.Triangle:
                         par_slide = BASEFORMATIONDIST;
                         perp_slide = BASEFORMATIONDIST;
                         if (i != 0)
                             par_slide = BASEFORMATIONDIST * 2;
                         break;
-                    case GameNPC.eFormationType.Line:
+                    case GameNpc.eFormationType.Line:
                         par_slide = BASEFORMATIONDIST * (i + 1);
                         break;
-                    case GameNPC.eFormationType.Protect:
+                    case GameNpc.eFormationType.Protect:
                         switch (i)
                         {
                             case 0:

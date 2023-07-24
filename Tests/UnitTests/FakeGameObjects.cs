@@ -8,7 +8,7 @@ namespace DOL.Tests.Unit.Gameserver
 {
     public class FakePlayer : GamePlayer
     {
-        public ICharacterClass fakeCharacterClass = new DefaultCharacterClass();
+        public IPlayerClass fakeCharacterClass = new DefaultPlayerClass();
         public int modifiedSpecLevel;
         public int modifiedIntelligence;
         public int modifiedToHitBonus;
@@ -26,7 +26,7 @@ namespace DOL.Tests.Unit.Gameserver
             this.m_invulnerabilityTick = -1;
         }
 
-        public override ICharacterClass CharacterClass { get { return fakeCharacterClass; } }
+        public override IPlayerClass CharacterClass { get { return fakeCharacterClass; } }
         public override byte Level { get; set; }
         public override Region CurrentRegion { get { return fakeRegion; } set { } }
         public override IPacketLib Out => new FakePacketLib();
@@ -74,7 +74,7 @@ namespace DOL.Tests.Unit.Gameserver
         public override bool TargetInView { get; set; } = true;
     }
 
-    public class FakeNPC : GameNPC
+    public class FakeNPC : GameNpc
     {
         public int modifiedEffectiveLevel;
 
@@ -129,7 +129,7 @@ namespace DOL.Tests.Unit.Gameserver
         public void Follow(GameObject target) { }
         public void FollowOwner() { }
         public GameLiving GetLivingOwner() { return null; }
-        public GameNPC GetNPCOwner() { return null; }
+        public GameNpc GetNPCOwner() { return null; }
         public GamePlayer GetPlayerOwner() { return null; }
         public void Goto(GameObject target) { }
         public void SetAggressionState(EAggressionState state) { }

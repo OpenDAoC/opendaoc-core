@@ -87,14 +87,14 @@ namespace DOL.GS.Spells
 			if (Caster == null || Caster.ControlledBrain == null)
 				return;
 
-			GameNPC temppet = Caster.ControlledBrain.Body;
+			GameNpc temppet = Caster.ControlledBrain.Body;
 			//Lets let NPC's able to cast minions.  Here we make sure that the Caster is a GameNPC
 			//and that m_controlledNpc is initialized (since we aren't thread safe).
 			if (temppet == null)
 			{
-				if (Caster is GameNPC)
+				if (Caster is GameNpc)
 				{
-					temppet = (GameNPC)Caster;
+					temppet = (GameNpc)Caster;
 					//We'll give default NPCs 2 minions!
 					if (temppet.ControlledNpcList == null)
 						temppet.InitControlledBrainArray(2);
@@ -109,25 +109,25 @@ namespace DOL.GS.Spells
 				brain.SetAggressionState(EAggressionState.Passive);
 
 			// Assign weapons
-			if (m_pet is BDSubPet subPet)
+			if (m_pet is BdSubPet subPet)
 				switch (subPet.Brain)
 				{
 					case BdArcherBrain archer:
-						subPet.MinionGetWeapon(CommanderPet.eWeaponType.OneHandSword);
-						subPet.MinionGetWeapon(CommanderPet.eWeaponType.Bow);
+						subPet.MinionGetWeapon(BdCommanderPet.eWeaponType.OneHandSword);
+						subPet.MinionGetWeapon(BdCommanderPet.eWeaponType.Bow);
 						break;
 					case BbDebufferBrain debuffer:
-						subPet.MinionGetWeapon(CommanderPet.eWeaponType.OneHandHammer);
+						subPet.MinionGetWeapon(BdCommanderPet.eWeaponType.OneHandHammer);
 						break;
 					case BdBufferBrain buffer:
 					case BdCasterBrain caster:
-						subPet.MinionGetWeapon(CommanderPet.eWeaponType.Staff);
+						subPet.MinionGetWeapon(BdCommanderPet.eWeaponType.Staff);
 						break;
 					case BdMeleeBrain melee:
 						if(UtilCollection.Chance(60))
-							subPet.MinionGetWeapon(CommanderPet.eWeaponType.TwoHandAxe);
+							subPet.MinionGetWeapon(BdCommanderPet.eWeaponType.TwoHandAxe);
 						else
-							subPet.MinionGetWeapon(CommanderPet.eWeaponType.OneHandAxe);
+							subPet.MinionGetWeapon(BdCommanderPet.eWeaponType.OneHandAxe);
 						break;
 				}
 		}
@@ -140,7 +140,7 @@ namespace DOL.GS.Spells
 		/// <param name="arguments"></param>
 		protected override void OnNpcReleaseCommand(CoreEvent e, object sender, EventArgs arguments)
 		{
-			GameNPC pet = sender as GameNPC;
+			GameNpc pet = sender as GameNpc;
 			if (pet == null)
 				return;
 
@@ -155,10 +155,10 @@ namespace DOL.GS.Spells
 
 		public override int OnEffectExpires(GameSpellEffect effect, bool noMessages)
 		{
-			if ((effect.Owner is BDPet) && ((effect.Owner as BDPet).Brain is IControlledBrain) && (((effect.Owner as BDPet).Brain as IControlledBrain).Owner is CommanderPet))
+			if ((effect.Owner is BdPet) && ((effect.Owner as BdPet).Brain is IControlledBrain) && (((effect.Owner as BdPet).Brain as IControlledBrain).Owner is BdCommanderPet))
 			{
-				BDPet pet = effect.Owner as BDPet;
-				CommanderPet commander = (pet.Brain as IControlledBrain).Owner as CommanderPet;
+				BdPet pet = effect.Owner as BdPet;
+				BdCommanderPet commander = (pet.Brain as IControlledBrain).Owner as BdCommanderPet;
 				commander.RemoveControlledNpc(pet.Brain as IControlledBrain);
 			}
 			return base.OnEffectExpires(effect, noMessages);
@@ -167,33 +167,33 @@ namespace DOL.GS.Spells
 		protected override IControlledBrain GetPetBrain(GameLiving owner)
 		{
 			IControlledBrain controlledBrain = null;
-			BDSubPet.SubPetType type = (BDSubPet.SubPetType)(byte)this.Spell.DamageType;
+			BdSubPet.SubPetType type = (BdSubPet.SubPetType)(byte)this.Spell.DamageType;
 			owner = owner.ControlledBrain.Body;
 
 			switch (type)
 			{
 				//Melee
-				case BDSubPet.SubPetType.Melee:
+				case BdSubPet.SubPetType.Melee:
 					controlledBrain = new BdMeleeBrain(owner);
 					break;
 				//Healer
-				case BDSubPet.SubPetType.Healer:
+				case BdSubPet.SubPetType.Healer:
 					controlledBrain = new BdHealerBrain(owner);
 					break;
 				//Mage
-				case BDSubPet.SubPetType.Caster:
+				case BdSubPet.SubPetType.Caster:
 					controlledBrain = new BdCasterBrain(owner);
 					break;
 				//Debuffer
-				case BDSubPet.SubPetType.Debuffer:
+				case BdSubPet.SubPetType.Debuffer:
 					controlledBrain = new BbDebufferBrain(owner);
 					break;
 				//Buffer
-				case BDSubPet.SubPetType.Buffer:
+				case BdSubPet.SubPetType.Buffer:
 					controlledBrain = new BdBufferBrain(owner);
 					break;
 				//Range
-				case BDSubPet.SubPetType.Archer:
+				case BdSubPet.SubPetType.Archer:
 					controlledBrain = new BdArcherBrain(owner);
 					break;
 				//Other
@@ -207,7 +207,7 @@ namespace DOL.GS.Spells
 
 		protected override GameSummonedPet GetGamePet(INpcTemplate template)
 		{
-			return new BDSubPet(template);
+			return new BdSubPet(template);
 		}
 
 		protected override void SetBrainToOwner(IControlledBrain brain)

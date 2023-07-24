@@ -58,7 +58,7 @@ namespace DOL.GS.PropertyCalc
 					return amount;
 				else return amount / 2;
 			}
-			else if (living is GameEpicNPC epic || living is GameEpicBoss)
+			else if (living is GameEpicNpc epic || living is GameEpicBoss)
 			{
 				GameLiving bossnpc = living;
 				double epicScaleFactor = 8;
@@ -115,7 +115,7 @@ namespace DOL.GS.PropertyCalc
 				- Math.Abs(living.DebuffCategory[(int)property])/6
 				+ living.BuffBonusCategory4[(int)property] / 6;
 
-				if (living is KeepLord)
+				if (living is GuardLord)
 					baseVal += 20 * living.Level / 50;
 				
 				return baseVal;

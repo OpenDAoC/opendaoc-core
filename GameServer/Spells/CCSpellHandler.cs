@@ -54,7 +54,7 @@ namespace DOL.GS.Spells
                 if (player.Group != null)
                     player.Group.UpdateMember(player, false, false);
             }
-            else if (effect.Owner is GameNPC npc && npc.Brain is IOldAggressiveBrain aggroBrain)
+            else if (effect.Owner is GameNpc npc && npc.Brain is IOldAggressiveBrain aggroBrain)
                 aggroBrain.AddToAggroList(Caster, 1);
 
             effect.Owner.Notify(GameLivingEvent.CrowdControlExpired, effect.Owner);
@@ -167,7 +167,7 @@ namespace DOL.GS.Spells
         /// <returns>amount to subtract from effectiveness</returns>
         protected override double CalculateAreaVariance(GameLiving target, int distance, int radius)
         {
-            if (target is GamePlayer || (target is GameNPC && (target as GameNPC).Brain is IControlledBrain))
+            if (target is GamePlayer || (target is GameNpc && (target as GameNpc).Brain is IControlledBrain))
                 return (double) distance / radius / 2.0;
 
             return 0;
@@ -270,7 +270,7 @@ namespace DOL.GS.Spells
                 return;
             }
 
-            if(target is GameNPC && target.HealthPercent < 75)
+            if(target is GameNpc && target.HealthPercent < 75)
             {
                 MessageToCaster("Your target is enraged and resists the spell!", EChatType.CT_System);
                 SendEffectAnimation(target, 0, false, 0);
@@ -364,7 +364,7 @@ namespace DOL.GS.Spells
         /// <returns>amount to subtract from effectiveness</returns>
         protected override double CalculateAreaVariance(GameLiving target, int distance, int radius)
         {
-            if (target is GamePlayer || (target is GameNPC && (target as GameNPC).Brain is IControlledBrain))
+            if (target is GamePlayer || (target is GameNpc && (target as GameNpc).Brain is IControlledBrain))
                 return (double) distance / radius / 2.0;
 
             return 0;

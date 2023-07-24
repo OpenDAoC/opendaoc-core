@@ -27,7 +27,7 @@ namespace DOL.GS.Behaviour.Requirements
 		/// <param name="n"></param>
 		/// <param name="v"></param>
 		/// <param name="comp"></param>
-        public RegionRequirement(GameNPC defaultNPC,  Object n, Object v, eComparator comp)
+        public RegionRequirement(GameNpc defaultNPC,  Object n, Object v, eComparator comp)
             : base(defaultNPC, eRequirementType.Region, n, v, comp)
 		{   			
 		}
@@ -38,7 +38,7 @@ namespace DOL.GS.Behaviour.Requirements
         /// <param name="defaultNPC"></param>
         /// <param name="n"></param>
         /// <param name="v"></param>
-        public RegionRequirement(GameNPC defaultNPC, int n, int v)
+        public RegionRequirement(GameNpc defaultNPC, int n, int v)
             : this(defaultNPC, (object)n, (object)v, eComparator.None)
 		{
 		}

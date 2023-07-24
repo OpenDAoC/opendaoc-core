@@ -18,9 +18,9 @@ namespace DOL.GS.Quests.Midgard
 		protected const int minimumLevel = 50;
 		protected const int maximumLevel = 50;
 
-		private static GameNPC Masrim = null; // Start NPC
-		private static Oona Oona = null; // Mob to kill
-		private static GameNPC MorlinCaan = null; // Trainer for reward
+		private static GameNpc Masrim = null; // Start NPC
+		private static EpicOona Oona = null; // Mob to kill
+		private static GameNpc MorlinCaan = null; // Trainer for reward
 
 		private static DbItemTemplates oona_head = null; //ball of flame
 		private static DbItemTemplates sealed_pouch = null; //sealed pouch
@@ -63,10 +63,10 @@ namespace DOL.GS.Quests.Midgard
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Masrim", ERealm.Midgard);
+			GameNpc[] npcs = WorldMgr.GetNPCsByName("Masrim", ERealm.Midgard);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 100 && npc.X == 749099 && npc.Y == 813104)
 					{
 						Masrim = npc;
@@ -77,7 +77,7 @@ namespace DOL.GS.Quests.Midgard
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Masrim , creating it ...");
-				Masrim = new GameNPC();
+				Masrim = new GameNpc();
 				Masrim.Model = 177;
 				Masrim.Name = "Masrim";
 				Masrim.GuildName = "";
@@ -100,10 +100,10 @@ namespace DOL.GS.Quests.Midgard
 			npcs = WorldMgr.GetNPCsByName("Oona", ERealm.None);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 100 && npc.X == 607233 && npc.Y == 786850)
 					{
-						Oona = npc as Oona;
+						Oona = npc as EpicOona;
 						break;
 					}
 
@@ -111,7 +111,7 @@ namespace DOL.GS.Quests.Midgard
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Oona , creating it ...");
-				Oona = new Oona();
+				Oona = new EpicOona();
 				Oona.Model = 356;
 				Oona.Name = "Oona";
 				Oona.GuildName = "";
@@ -123,7 +123,7 @@ namespace DOL.GS.Quests.Midgard
 				Oona.Y = 786850;
 				Oona.Z = 4384;
 				Oona.Heading = 3891;
-				Oona.Flags ^= GameNPC.eFlags.GHOST;
+				Oona.Flags ^= GameNpc.eFlags.GHOST;
 				Oona.AddToWorld();
 				if (SAVE_INTO_DATABASE)
 				{
@@ -135,7 +135,7 @@ namespace DOL.GS.Quests.Midgard
 			npcs = WorldMgr.GetNPCsByName("Morlin Caan", ERealm.Midgard);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 101 && npc.X == 33400 && npc.Y == 33620)
 					{
 						MorlinCaan = npc;
@@ -146,7 +146,7 @@ namespace DOL.GS.Quests.Midgard
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Morlin Caan , creating it ...");
-				MorlinCaan = new GameNPC();
+				MorlinCaan = new GameNpc();
 				MorlinCaan.Model = 235;
 				MorlinCaan.Name = "Morlin Caan";
 				MorlinCaan.GuildName = "Smith";

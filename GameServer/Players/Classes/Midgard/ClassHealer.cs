@@ -3,7 +3,7 @@ using DOL.GS.Realm;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)ECharacterClass.Healer, "Healer", "Seer")]
+	[PlayerClass((int)ECharacterClass.Healer, "Healer", "Seer")]
 	public class ClassHealer : ClassSeer
 	{
 		public ClassHealer()

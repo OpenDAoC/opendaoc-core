@@ -9,16 +9,16 @@ using DOL.Database;
 namespace DOL.GS.Behaviour.Actions
 {
     [ActionAttribute(ActionType = EActionType.WalkToSpawn,DefaultValueP=EDefaultValueConstants.NPC)]
-    public class WalkToSpawnAction : AbstractAction<GameNPC,Unused>
+    public class WalkToSpawnAction : AbstractAction<GameNpc,Unused>
     {               
 
-        public WalkToSpawnAction(GameNPC defaultNPC,  Object p, Object q)
+        public WalkToSpawnAction(GameNpc defaultNPC,  Object p, Object q)
             : base(defaultNPC, EActionType.WalkToSpawn, p, q)
         {                
         }
 
 
-        public WalkToSpawnAction(GameNPC defaultNPC, GameNPC npc)
+        public WalkToSpawnAction(GameNpc defaultNPC, GameNpc npc)
             : this(defaultNPC,  (object)npc, (object)null) { }
         
 

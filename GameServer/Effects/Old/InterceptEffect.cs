@@ -55,7 +55,7 @@ namespace DOL.GS.Effects
 				if (pet == null) { return 0; }
 				if (pet.Brain is BrittleBrain)
 					return 100;
-				else if (pet is BDSubPet)
+				else if (pet is BdSubPet)
 					// Patch 1.123: The intercept chance on the Fossil Defender has been reduced by 20%.
 					// Can't find documentation for previous intercept chance, so assuming 50%
 					return 30;
@@ -164,7 +164,7 @@ namespace DOL.GS.Effects
 			get
 			{
 				//let's not display this icon on NPC's because i use this for spiritmasters
-				if (m_owner is GameNPC)
+				if (m_owner is GameNpc)
 					return 7249;
 				return 410;
 			}

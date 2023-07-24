@@ -27,7 +27,7 @@ namespace DOL.GS.Behaviour.Requirements
 		/// <param name="n"></param>
 		/// <param name="v"></param>
 		/// <param name="comp"></param>
-        public ClassRequirement(GameNPC defaultNPC,  Object n, Object v, eComparator comp)
+        public ClassRequirement(GameNpc defaultNPC,  Object n, Object v, eComparator comp)
             : base(defaultNPC, eRequirementType.Class, n, v, comp)
 		{   			
 		}
@@ -37,7 +37,7 @@ namespace DOL.GS.Behaviour.Requirements
 		/// </summary>
 		/// <param name="defaultNPC">Parent defaultNPC of this Requirement</param>		
 		/// <param name="n">First Requirement Variable, meaning depends on RequirementType</param>			
-        public ClassRequirement(GameNPC defaultNPC,  int n)
+        public ClassRequirement(GameNpc defaultNPC,  int n)
             : this(defaultNPC, (object)n, true, eComparator.None)
 		{   			
 		}
@@ -47,7 +47,7 @@ namespace DOL.GS.Behaviour.Requirements
 		/// </summary>
 		/// <param name="defaultNPC">Parent defaultNPC of this Requirement</param>		
 		/// <param name="n">First Requirement Variable, meaning depends on RequirementType</param>			
-		public ClassRequirement(GameNPC defaultNPC, ECharacterClass c)
+		public ClassRequirement(GameNpc defaultNPC, ECharacterClass c)
 			: this(defaultNPC, (int)c, true, eComparator.None)
 		{
 		}
@@ -57,7 +57,7 @@ namespace DOL.GS.Behaviour.Requirements
 		/// </summary>
 		/// <param name="defaultNPC">Parent defaultNPC of this Requirement</param>		
 		/// <param name="n">First Requirement Variable, meaning depends on RequirementType</param>			
-		public ClassRequirement(GameNPC defaultNPC, ECharacterClass c, bool notThisClass)
+		public ClassRequirement(GameNpc defaultNPC, ECharacterClass c, bool notThisClass)
 			: this(defaultNPC, (int)c, notThisClass, eComparator.None)
 		{
 		}

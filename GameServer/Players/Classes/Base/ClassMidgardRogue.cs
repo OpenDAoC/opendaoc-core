@@ -3,8 +3,8 @@ using DOL.GS.Realm;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)ECharacterClass.MidgardRogue, "Rogue", "Rogue")]
-	public class ClassMidgardRogue : CharacterClassBase
+	[PlayerClass((int)ECharacterClass.MidgardRogue, "Rogue", "Rogue")]
+	public class ClassMidgardRogue : PlayerClassBase
 	{
 		public ClassMidgardRogue()
 			: base()

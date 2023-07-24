@@ -57,15 +57,15 @@ namespace DOL.GS.Commands
 			{
 				//Triangle Formation
 				case "triangle":
-					player.ControlledBrain.Body.Formation = GameNPC.eFormationType.Triangle;
+					player.ControlledBrain.Body.Formation = GameNpc.eFormationType.Triangle;
 					break;
 				//Line formation
 				case "line":
-					player.ControlledBrain.Body.Formation = GameNPC.eFormationType.Line;
+					player.ControlledBrain.Body.Formation = GameNpc.eFormationType.Line;
 					break;
 				//Protect formation
 				case "protect":
-					player.ControlledBrain.Body.Formation = GameNPC.eFormationType.Protect;
+					player.ControlledBrain.Body.Formation = GameNpc.eFormationType.Protect;
 					break;
 				default:
 					client.Out.SendMessage("Unrecognized argument: " + args[1], EChatType.CT_System, EChatLoc.CL_SystemWindow);

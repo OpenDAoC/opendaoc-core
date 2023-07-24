@@ -14,7 +14,7 @@ namespace DOL.GS.Spells
 		/// <summary>
 		/// Dictionary to Keep track of Friend Brains Attached to NPC
 		/// </summary>
-		private readonly ReaderWriterDictionary<GameNPC, FriendBrain> m_NPCFriendBrain = new ReaderWriterDictionary<GameNPC, FriendBrain>();
+		private readonly ReaderWriterDictionary<GameNpc, FriendBrain> m_NPCFriendBrain = new ReaderWriterDictionary<GameNpc, FriendBrain>();
 		
 		/// <summary>
 		/// Consume Power on Spell Start
@@ -33,7 +33,7 @@ namespace DOL.GS.Spells
 		/// <returns></returns>
 		public override IList<GameLiving> SelectTargets(GameObject castTarget)
 		{
-			return base.SelectTargets(castTarget).Where(t => t is GameNPC).ToList();
+			return base.SelectTargets(castTarget).Where(t => t is GameNpc).ToList();
 		}
 
 		/// <summary>
@@ -41,7 +41,7 @@ namespace DOL.GS.Spells
 		/// </summary>
 		public override void ApplyEffectOnTarget(GameLiving target, double effectiveness)
 		{
-			var npcTarget = target as GameNPC;
+			var npcTarget = target as GameNpc;
 			if (npcTarget == null) return;
 			
 			if (npcTarget.Level > Spell.Value)
@@ -68,7 +68,7 @@ namespace DOL.GS.Spells
 		/// <param name="effect"></param>
 		public override void OnEffectStart(GameSpellEffect effect)
 		{
-			var npcTarget = effect.Owner as GameNPC;
+			var npcTarget = effect.Owner as GameNpc;
 			
 			var currentBrain = npcTarget.Brain as IOldAggressiveBrain;
 			var friendBrain = new FriendBrain(this);
@@ -92,7 +92,7 @@ namespace DOL.GS.Spells
 		/// <returns></returns>
 		public override int OnEffectExpires(GameSpellEffect effect, bool noMessages)
 		{
-			var npcTarget = effect.Owner as GameNPC;
+			var npcTarget = effect.Owner as GameNpc;
 
 			FriendBrain fearBrain;
 			if (m_NPCFriendBrain.TryRemove(npcTarget, out fearBrain))

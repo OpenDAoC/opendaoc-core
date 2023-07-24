@@ -113,7 +113,7 @@ namespace DOL.AI.Brain
 		public bool CheckStorm()
 		{
 			var currentStorm = GameServer.Instance.WorldManager.WeatherManager[Body.CurrentRegionID];
-			var Glob = Body as Alluvian;
+			var Glob = Body as NpcAlluvian;
 			if (currentStorm != null)
 			{
 				var weatherCurrentPosition = currentStorm.CurrentPosition(SimpleScheduler.Ticks);

@@ -13,8 +13,8 @@ namespace DOL.AI.Brain
 		/// </summary>
 		public override void Think()
 		{
-			Alluvian mob = Body as Alluvian;
-			if (Alluvian.GlobuleNumber < 12)
+			NpcAlluvian mob = Body as NpcAlluvian;
+			if (NpcAlluvian.GlobuleNumber < 12)
 			{
 				mob.SpawnGlobule();
 			}

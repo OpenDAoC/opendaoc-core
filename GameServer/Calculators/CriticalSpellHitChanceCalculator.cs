@@ -33,7 +33,7 @@ namespace DOL.GS.PropertyCalc
 				chance += necroPet.Owner.AbilityBonus[(int)property];
 			}
             // Summoned or Charmed pet.
-            else if (living is GameNPC npc && ServerProperties.ServerProperties.EXPAND_WILD_MINION)
+            else if (living is GameNpc npc && ServerProperties.ServerProperties.EXPAND_WILD_MINION)
             {
                 if (npc.Brain is IControlledBrain petBrain && petBrain.GetPlayerOwner() is GamePlayer playerOwner)
                     chance += playerOwner.GetAbility<RealmAbilities.OfRaWildMinionHandler>()?.Amount ?? 0;

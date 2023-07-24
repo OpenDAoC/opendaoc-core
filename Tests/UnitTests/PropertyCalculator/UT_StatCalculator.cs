@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Core.GS.Players.Classes.Animist;
+using NUnit.Framework;
 using DOL.GS;
 using DOL.GS.PropertyCalc;
 
@@ -104,7 +105,7 @@ namespace DOL.Tests.Unit.Gameserver.PropertyCalc
         public void CalcValueFromItems_IntelligenceOfLevel50AnimistWith50AcuityFromItems_50()
         {
             var player = NewPlayer();
-            player.fakeCharacterClass = new CharacterClassAnimist();
+            player.fakeCharacterClass = new ClassAnimistOwner();
             player.Level = 50;
             player.ItemBonus[EProperty.Acuity] = 50;
 
@@ -213,7 +214,7 @@ namespace DOL.Tests.Unit.Gameserver.PropertyCalc
         public void CalcValue_GetIntelligenceFromLevel50AnimistWith50Acuity_50()
         {
             var player = NewPlayer();
-            player.fakeCharacterClass = new CharacterClassAnimist();
+            player.fakeCharacterClass = new ClassAnimistOwner();
             player.Level = 50;
             player.BaseBuffBonusCategory[(int)EProperty.Acuity] = 50;
 

@@ -21,7 +21,7 @@ namespace DOL.GS.Effects
         private SpellLine petSpellLine;	 		// The spell line
         private ISpellHandler pbaoe;					// The Spell handler
         private GamePlayer EffectOwner;			// Owner of the effect
-        private GameNPC pet;					// The pet
+        private GameNpc pet;					// The pet
         private ECSGameTimer pulseTimer;				// Pulse timer
         private int currentTick = 0;		// Count ticks
 
@@ -56,9 +56,9 @@ namespace DOL.GS.Effects
         public override void Start(GameLiving target)
         {
             base.Start(target);
-            if (target is GameNPC)
+            if (target is GameNpc)
             {
-                pet = target as GameNPC;
+                pet = target as GameNpc;
                 pbaoe = ScriptMgr.CreateSpellHandler(EffectOwner, petSpell, petSpellLine);
                 pulseTimer = new ECSGameTimer(EffectOwner, new ECSGameTimer.ECSTimerCallback(PulseTimer), 1000);
                 GameEventMgr.AddHandler(EffectOwner, GamePlayerEvent.Quit, new CoreEventHandler(PlayerLeftWorld));
@@ -86,7 +86,7 @@ namespace DOL.GS.Effects
                 {
                     pbaoe.StartSpell(target);
                 }
-                foreach (GameNPC npc in pet.GetNPCsInRadius(spellRadius))
+                foreach (GameNpc npc in pet.GetNPCsInRadius(spellRadius))
                 {
                     pbaoe.StartSpell(npc);
                 }
@@ -106,7 +106,7 @@ namespace DOL.GS.Effects
             GamePlayer player = sender as GamePlayer;
             if (player != null && player.ControlledBrain != null && player.ControlledBrain.Body != null)
             {
-                GameNPC pet = player.ControlledBrain.Body as GameNPC;
+                GameNpc pet = player.ControlledBrain.Body as GameNpc;
 				NfRaSearingPetEffect searingPet = pet.EffectList.GetOfType<NfRaSearingPetEffect>();
                 if (searingPet != null)
                     searingPet.Cancel(false);

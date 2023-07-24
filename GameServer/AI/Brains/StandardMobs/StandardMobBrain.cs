@@ -165,7 +165,7 @@ namespace DOL.AI.Brain
         /// </summary>
         protected virtual void CheckNPCAggro()
         {
-            foreach (GameNPC npc in Body.GetNPCsInRadius((ushort)AggroRange, !Body.CurrentRegion.IsDungeon))
+            foreach (GameNpc npc in Body.GetNPCsInRadius((ushort)AggroRange, !Body.CurrentRegion.IsDungeon))
             {
                 if (!CanAggroTarget(npc))
                     continue;
@@ -203,7 +203,7 @@ namespace DOL.AI.Brain
                 {
                     if (!PlayersSeen.Contains(player))
                     {
-                        Body.FireAmbientSentence(GameNPC.eAmbientTrigger.seeing, player);
+                        Body.FireAmbientSentence(GameNpc.eAmbientTrigger.seeing, player);
                         PlayersSeen.Add(player);
                     }
                     currentPlayersSeen.Add(player);
@@ -321,7 +321,7 @@ namespace DOL.AI.Brain
 
             // Handle trigger to say sentance on first aggro.
             if (AggroTable.Count < 1)
-                Body.FireAmbientSentence(GameNPC.eAmbientTrigger.aggroing, living);
+                Body.FireAmbientSentence(GameNpc.eAmbientTrigger.aggroing, living);
 
             // Only protect if gameplayer and aggroAmount > 0
             if (living is GamePlayer player && aggroAmount > 0)
@@ -582,7 +582,7 @@ namespace DOL.AI.Brain
             // Get owner if target is pet or subpet
             GameLiving realTarget = target;
 
-            if (realTarget is GameNPC npcTarget && npcTarget.Brain is IControlledBrain npcTargetBrain)
+            if (realTarget is GameNpc npcTarget && npcTarget.Brain is IControlledBrain npcTargetBrain)
                 realTarget = npcTargetBrain.GetPlayerOwner();
 
             // Only attack if green+ to target
@@ -594,12 +594,12 @@ namespace DOL.AI.Brain
             {
                 if (realTarget is GamePlayer)
                     return Body.Faction.GetAggroToFaction((GamePlayer)realTarget) > 75;
-                else if (realTarget is GameNPC && Body.Faction.EnemyFactions.Contains(((GameNPC)realTarget).Faction))
+                else if (realTarget is GameNpc && Body.Faction.EnemyFactions.Contains(((GameNpc)realTarget).Faction))
                     return true;
             }
 
             // We put this here to prevent aggroing non-factions npcs
-            if (Body.Realm == ERealm.None && realTarget is GameNPC)
+            if (Body.Realm == ERealm.None && realTarget is GameNpc)
                 return false;
 
             return AggroLevel > 0;
@@ -640,7 +640,7 @@ namespace DOL.AI.Brain
 		/// </summary>
 		protected virtual void ConvertDamageToAggroAmount(GameLiving attacker, int damage)
 		{
-			if (attacker is GameNPC NpcAttacker && NpcAttacker.Brain is ControlledNpcBrain controlledBrain)
+			if (attacker is GameNpc NpcAttacker && NpcAttacker.Brain is ControlledNpcBrain controlledBrain)
 			{
 				damage = controlledBrain.ModifyDamageWithTaunt(damage);
 
@@ -722,7 +722,7 @@ namespace DOL.AI.Brain
                 puller = owner;
                 actualPuller = attacker;
             }
-            else if (attacker is BDSubPet bdSubPet && bdSubPet.Owner is GameSummonedPet bdPet && bdPet.Owner is GamePlayer bdOwner)
+            else if (attacker is BdSubPet bdSubPet && bdSubPet.Owner is GameSummonedPet bdPet && bdPet.Owner is GamePlayer bdOwner)
             {
                 puller = bdOwner;
                 actualPuller = bdPet;
@@ -819,7 +819,7 @@ namespace DOL.AI.Brain
                 // Try to bring closer friends before distant ones.
                 while (numAdds < maxAdds && range <= BAFMaxRange)
                 {
-                    foreach (GameNPC npc in Body.GetNPCsInRadius(range))
+                    foreach (GameNpc npc in Body.GetNPCsInRadius(range))
                     {
                         if (numAdds >= maxAdds)
                             break;
@@ -1185,7 +1185,7 @@ namespace DOL.AI.Brain
                 //If instant cast and spell casted, and current follow target is not the target object, then switch follow target to current TargetObject
                 else if(casted && (spell.CastTime == 0 && Body.FollowTarget != Body.TargetObject))
                 {
-                    Body.Follow(Body.TargetObject, GameNPC.STICK_MINIMUM_RANGE, GameNPC.STICK_MAXIMUM_RANGE);
+                    Body.Follow(Body.TargetObject, GameNpc.STICK_MINIMUM_RANGE, GameNpc.STICK_MAXIMUM_RANGE);
                 }
             }
             return casted;

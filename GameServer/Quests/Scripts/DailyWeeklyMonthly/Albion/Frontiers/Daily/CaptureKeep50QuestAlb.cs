@@ -22,7 +22,7 @@ namespace DOL.GS.DailyQuest.Albion
 		// Capture Goal
 		private const int MAX_CAPTURED = 1;
 		
-		private static GameNPC Haszan = null; // Start NPC
+		private static GameNpc Haszan = null; // Start NPC
 
 		private int _isCaptured = 0;
 
@@ -61,10 +61,10 @@ namespace DOL.GS.DailyQuest.Albion
 
 			#region defineNPCs
 
-			GameNPC[] npcs = WorldMgr.GetNPCsByName("Haszan", ERealm.Albion);
+			GameNpc[] npcs = WorldMgr.GetNPCsByName("Haszan", ERealm.Albion);
 
 			if (npcs.Length > 0)
-				foreach (GameNPC npc in npcs)
+				foreach (GameNpc npc in npcs)
 					if (npc.CurrentRegionID == 1 && npc.X == 583866 && npc.Y == 477497)
 					{
 						Haszan = npc;
@@ -75,7 +75,7 @@ namespace DOL.GS.DailyQuest.Albion
 			{
 				if (log.IsWarnEnabled)
 					log.Warn("Could not find Haszan , creating it ...");
-				Haszan = new GameNPC();
+				Haszan = new GameNpc();
 				Haszan.Model = 51;
 				Haszan.Name = "Haszan";
 				Haszan.GuildName = "Realm Logistics";
@@ -345,7 +345,7 @@ namespace DOL.GS.DailyQuest.Albion
 			int reward = ServerProperties.ServerProperties.DAILY_RVR_REWARD;
 			
 			m_questPlayer.ForceGainExperience((m_questPlayer.ExperienceForNextLevel - m_questPlayer.ExperienceForCurrentLevel)/5);
-			m_questPlayer.AddMoney(Money.GetMoney(0,0,m_questPlayer.Level*2,0,UtilCollection.Random(50)), "You receive {0} as a reward.");
+			m_questPlayer.AddMoney(MoneyUtil.GetMoney(0,0,m_questPlayer.Level*2,0,UtilCollection.Random(50)), "You receive {0} as a reward.");
 			RogMgr.GenerateReward(m_questPlayer, 250);
 			RogMgr.GenerateJewel(m_questPlayer, (byte)(m_questPlayer.Level + 1), m_questPlayer.Level + UtilCollection.Random(5, 11));
 			_isCaptured = 0;

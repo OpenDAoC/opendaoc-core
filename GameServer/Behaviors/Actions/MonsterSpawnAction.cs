@@ -13,13 +13,13 @@ namespace DOL.GS.Behaviour.Actions
     public class MonsterSpawnAction : AbstractAction<GameLiving,Unused>
     {               
 
-        public MonsterSpawnAction(GameNPC defaultNPC,  Object p, Object q)
+        public MonsterSpawnAction(GameNpc defaultNPC,  Object p, Object q)
             : base(defaultNPC, EActionType.MonsterSpawn, p, q)
         {                
         }
 
 
-        public MonsterSpawnAction(GameNPC defaultNPC,  GameLiving npcToSpawn)
+        public MonsterSpawnAction(GameNpc defaultNPC,  GameLiving npcToSpawn)
             : this(defaultNPC,  (object)npcToSpawn, (object)null) { }
 
         public override void Perform(CoreEvent e, object sender, EventArgs args)
