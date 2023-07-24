@@ -39,7 +39,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 
 					if (cachedCharacter != null)
 					{
-						cachedCharacter = client.Player.DBCharacter;
+						cachedCharacter = client.Player.DbCharacter;
 					}
 				}
 				catch (System.Exception ex)
@@ -135,7 +135,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 					}
 
 					if (cachedCharacter != null)
-						cachedCharacter = client.Player.DBCharacter;
+						cachedCharacter = client.Player.DbCharacter;
 				}
 				catch (System.Exception ex)
 				{

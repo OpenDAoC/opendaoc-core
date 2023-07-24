@@ -244,7 +244,7 @@ namespace DOL.GS.Keeps
 			log.Info("Loading HookPoint items");
 
 			//fill existing hookpoints with objects
-			IList<DBKeepHookPointItem> items = GameServer.Database.SelectAllObjects<DBKeepHookPointItem>();
+			IList<DbKeepHookPointItems> items = GameServer.Database.SelectAllObjects<DbKeepHookPointItems>();
 			foreach (AbstractGameKeep keep in m_keepList.Values)
 			{
 				foreach (var component in keep.KeepComponents)

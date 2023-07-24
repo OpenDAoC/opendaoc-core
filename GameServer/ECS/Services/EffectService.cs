@@ -784,7 +784,7 @@ namespace DOL.GS
         {
             GamePlayer player = p;
 
-            if (player == null || player.DBCharacter == null || GameServer.Database == null)
+            if (player == null || player.DbCharacter == null || GameServer.Database == null)
                 return;
 
             IList<DbPlayerXEffects> effs = CoreDb<DbPlayerXEffects>.SelectObjects(DB.Column("ChardID").IsEqualTo(player.ObjectId));

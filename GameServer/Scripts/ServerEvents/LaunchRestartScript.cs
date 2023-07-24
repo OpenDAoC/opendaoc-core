@@ -50,7 +50,7 @@ namespace DOL.GS.GameEvents
             
             var launch = new DateTime(2022, 07, 04, 15, 00, 00);
             
-            var creationDate = player.DBCharacter.CreationDate;
+            var creationDate = player.DbCharacter.CreationDate;
 
             if (creationDate >= launch) return;
 

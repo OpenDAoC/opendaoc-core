@@ -23,7 +23,7 @@ namespace DOL.GS
         public GameObject AutoFireTarget { get; set; } // Used to shoot at a different target than the one currently selected. Always null for NPCs.
         public ERangedAttackState RangedAttackState { get; set; }
         public ERangedAttackType RangedAttackType { get; set; }
-        public eActiveQuiverSlot ActiveQuiverSlot { get; set; }
+        public EActiveQuiverSlot ActiveQuiverSlot { get; set; }
         public InventoryItem Ammo { get; private set; }
         public bool IsAmmoCompatible { get; private set; }
 
@@ -31,15 +31,15 @@ namespace DOL.GS
         {
             switch (ActiveQuiverSlot)
             {
-                case eActiveQuiverSlot.First:
+                case EActiveQuiverSlot.First:
                     return m_owner.Inventory.GetItem(eInventorySlot.FirstQuiver);
-                case eActiveQuiverSlot.Second:
+                case EActiveQuiverSlot.Second:
                     return m_owner.Inventory.GetItem(eInventorySlot.SecondQuiver);
-                case eActiveQuiverSlot.Third:
+                case EActiveQuiverSlot.Third:
                     return m_owner.Inventory.GetItem(eInventorySlot.ThirdQuiver);
-                case eActiveQuiverSlot.Fourth:
+                case EActiveQuiverSlot.Fourth:
                     return m_owner.Inventory.GetItem(eInventorySlot.FourthQuiver);
-                case eActiveQuiverSlot.None:
+                case EActiveQuiverSlot.None:
                     return m_owner.Inventory.GetFirstItemByObjectType((int)ammoType, eInventorySlot.FirstBackpack, eInventorySlot.LastBackpack);
             }
 

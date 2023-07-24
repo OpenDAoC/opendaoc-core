@@ -92,8 +92,8 @@ namespace DOL.GS
         /// </summary>
         public bool CancelStyle
         {
-            get { return (owner as GamePlayer).DBCharacter != null ? (owner as GamePlayer).DBCharacter.CancelStyle : false; }
-            set { if ((owner as GamePlayer).DBCharacter != null) (owner as GamePlayer).DBCharacter.CancelStyle = value; }
+            get { return (owner as GamePlayer).DbCharacter != null ? (owner as GamePlayer).DbCharacter.CancelStyle : false; }
+            set { if ((owner as GamePlayer).DbCharacter != null) (owner as GamePlayer).DbCharacter.CancelStyle = value; }
         }
 
         public void ExecuteWeaponStyle(Style style)

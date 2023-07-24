@@ -166,7 +166,7 @@ namespace DOL.GS.PacketHandler.Client.v168
 					{
 						try
 						{
-							IList<TempPropertiesMgr.TempPropContainer> TempPropContainerList = TempPropertiesMgr.TempPropContainerList.Where(item => item.OwnerID == player.DBCharacter.ObjectId).ToList();
+							IList<TempPropertiesMgr.TempPropContainer> TempPropContainerList = TempPropertiesMgr.TempPropContainerList.Where(item => item.OwnerID == player.DbCharacter.ObjectId).ToList();
 
 							foreach (TempPropertiesMgr.TempPropContainer container in TempPropContainerList)
 							{

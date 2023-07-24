@@ -147,7 +147,7 @@ namespace DOL.GS.Effects
 		{
 			GamePlayer player = m_owner as GamePlayer;
 			
-			if (player == null || player.DBCharacter == null || GameServer.Database == null)
+			if (player == null || player.DbCharacter == null || GameServer.Database == null)
 				return;
 
 			var effs = CoreDb<DbPlayerXEffects>.SelectObjects(DB.Column("ChardID").IsEqualTo(player.ObjectId));

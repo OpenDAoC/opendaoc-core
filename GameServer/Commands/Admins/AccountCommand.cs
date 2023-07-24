@@ -641,7 +641,7 @@ namespace DOL.GS.Commands
 		{
 			GameClient client = WorldMgr.GetClientByPlayerName(charname, true, false);
 			if (client != null)
-				return client.Player.DBCharacter;
+				return client.Player.DbCharacter;
 			return CoreDb<DbCoreCharacters>.SelectObject(DB.Column("Name").IsEqualTo(charname));
 		}
 
