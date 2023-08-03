@@ -238,7 +238,7 @@ namespace DOL.GS
 			root["Server"]["ServerName"].Set(m_ServerName);
 			root["Server"]["ServerNameShort"].Set(m_ServerNameShort);
 			// Removed to not confuse users
-//			root["Server"]["RootDirectory"].Set(m_rootDirectory);
+			// root["Server"]["RootDirectory"].Set(m_rootDirectory);
 			root["Server"]["LogConfigFile"].Set(m_logConfigFile);
 
 			root["Server"]["ScriptCompilationTarget"].Set(m_scriptCompilationTarget);
@@ -301,8 +301,8 @@ namespace DOL.GS
 			case EConnectionType.DATABASE_OLEDB:
 				db = "OLEDB";
 					break;
-				default:
-					m_dbType = EConnectionType.DATABASE_XML;
+			default:
+				m_dbType = EConnectionType.DATABASE_XML;
 					break;
 			}
 			root["Server"]["DBType"].Set(db);
@@ -325,8 +325,8 @@ namespace DOL.GS
 		/// </summary>
 		public GameServerConfiguration() : base()
 		{
-			m_ServerName = "Dawn Of Light";
-			m_ServerNameShort = "DOLSERVER";
+			m_ServerName = "OpenDAoC";
+			m_ServerNameShort = "OpenDAoC";
 			
 			if (Assembly.GetEntryAssembly() != null)
 				m_rootDirectory = new FileInfo(Assembly.GetEntryAssembly().Location).DirectoryName;

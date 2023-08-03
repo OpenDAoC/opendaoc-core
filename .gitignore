@@ -45,3 +45,6 @@ mono_crash.*
 /heidisql - Shortcut.lnk
 /.editorconfig
 /Pathing/Detour/build
+.DS_Store
+DummyDB.sql
+global.json

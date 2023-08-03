@@ -9,9 +9,9 @@
         <UdpPort>10400</UdpPort>
         <EnableUPnP>True</EnableUPnP>
         <DetectRegionIP>True</DetectRegionIP>
-        <ServerName>Dawn Of Light</ServerName>
-        <ServerNameShort>DOLSERVER</ServerNameShort>
-        <LogConfigFile>./config/logconfig.xml</LogConfigFile>
+        <ServerName>OpenDAoC</ServerName>
+        <ServerNameShort>OpenDAoC</ServerNameShort>
+        <LogConfigFile>./Config/logConfig.xml</LogConfigFile>
         <ScriptCompilationTarget>./lib/GameServerScripts.dll</ScriptCompilationTarget>
         <ScriptAssemblies> </ScriptAssemblies>
         <EnableCompilation>True</EnableCompilation>
@@ -19,7 +19,7 @@
         <GameType>Normal</GameType>
         <CheatLoggerName>cheats</CheatLoggerName>
         <GMActionLoggerName>gmactions</GMActionLoggerName>
-        <InvalidNamesFile>./config/invalidnames.txt</InvalidNamesFile>
+        <InvalidNamesFile>./Config/invalidNames.txt</InvalidNamesFile>
         <DBType>MYSQL</DBType>
         <DBConnectionString>server=localhost;port=3306;database=DBNAME;userid=USERNAME;password=PASSWORD;treattinyasboolean=false</DBConnectionString>
         <DBAutosave>True</DBAutosave>

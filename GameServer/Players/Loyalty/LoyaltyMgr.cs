@@ -123,7 +123,7 @@ public class LoyaltyMgr
         };
         
         /*
-        List<AccountXRealmLoyalty> Loyalty = new List<AccountXRealmLoyalty>(DOLDB<AccountXRealmLoyalty>.SelectObjects(DB.Column("AccountID").IsEqualTo(player.Client.Account.ObjectId)));
+        List<DbAccountXRealmLoyalty > Loyalty = new List<DbAccountXRealmLoyalty >(DOLDB<DbAccountXRealmLoyalty >.SelectObjects(DB.Column("AccountID").IsEqualTo(player.Client.Account.ObjectId)));
 
         int days = 0;
         double percent = 0;

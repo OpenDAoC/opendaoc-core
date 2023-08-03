@@ -42,13 +42,13 @@
     </ItemGroup>
     <ItemGroup>
         <ScriptFiles Include="..\GameServerScripts\**\*.cs" />
-        <DbUpdaterFiles Include="..\GameServerScripts\dbupdater\**\*.xml" />
-        <TranslationFiles Include="..\GameServer\language\**\*.txt" />
+        <DbUpdaterFiles Include="..\GameServerScripts\DbUpdater\**\*.xml" />
+        <TranslationFiles Include="..\GameServer\Language\**\*.txt" />
     </ItemGroup>
     <Target Name="CopyFiles" AfterTargets="AfterBuild">
-        <Copy SourceFiles="@(ScriptFiles)" DestinationFiles="@(ScriptFiles->'$(MSBuildProjectDirectory)\$(OutputPath)\..\scripts\%(RecursiveDir)%(Filename)%(Extension)')" />
-        <Copy SourceFiles="@(DbUpdaterFiles)" DestinationFiles="@(DbUpdaterFiles->'$(MSBuildProjectDirectory)\$(OutputPath)\..\scripts\dbupdater\%(RecursiveDir)%(Filename)%(Extension)')" />
-        <Copy SourceFiles="@(TranslationFiles)" DestinationFiles="@(TranslationFiles->'$(MSBuildProjectDirectory)\$(OutputPath)\..\languages\%(RecursiveDir)%(Filename)%(Extension)')" />
+        <Copy SourceFiles="@(ScriptFiles)" DestinationFiles="@(ScriptFiles->'$(MSBuildProjectDirectory)\$(OutputPath)\..\Scripts\%(RecursiveDir)%(Filename)%(Extension)')" />
+        <Copy SourceFiles="@(DbUpdaterFiles)" DestinationFiles="@(DbUpdaterFiles->'$(MSBuildProjectDirectory)\$(OutputPath)\..\Scripts\DbUpdater\%(RecursiveDir)%(Filename)%(Extension)')" />
+        <Copy SourceFiles="@(TranslationFiles)" DestinationFiles="@(TranslationFiles->'$(MSBuildProjectDirectory)\$(OutputPath)\..\Languages\%(RecursiveDir)%(Filename)%(Extension)')" />
     </Target>
     <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
 </Project>

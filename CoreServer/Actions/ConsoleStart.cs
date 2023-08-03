@@ -66,7 +66,7 @@ namespace DOL.DOLServer.Actions
 			else
 			{
 				currentAssembly = new FileInfo(Assembly.GetEntryAssembly().Location);
-				configFile = new FileInfo(currentAssembly.DirectoryName + Path.DirectorySeparatorChar + "config" + Path.DirectorySeparatorChar + "serverConfig.xml");
+				configFile = new FileInfo(currentAssembly.DirectoryName + Path.DirectorySeparatorChar + "Config" + Path.DirectorySeparatorChar + "serverConfig.xml");
 			}
 			if (parameters.ContainsKey("-crashonfail")) crashOnFail = true;
 

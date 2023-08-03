@@ -8,6 +8,7 @@ using DOL.Events;
 using DOL.GS.PacketHandler;
 using log4net;
 
+/*
 namespace DOL.GS.Scripts
 {
 	/// <summary>
@@ -353,3 +354,4 @@ namespace DOL.GS.Scripts
 		}
 	}
 }
+*/

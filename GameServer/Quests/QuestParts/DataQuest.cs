@@ -774,7 +774,7 @@ namespace DOL.GS.Quests
 		}
 
 		/// <summary>
-		/// The DBDataQuest for this quest
+		/// The DbDataQuest for this quest
 		/// </summary>
 		public virtual DbDataQuest DBDataQuest
 		{

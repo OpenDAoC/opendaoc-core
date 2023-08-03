@@ -52,12 +52,12 @@ namespace DOL.GS.Keeps
 			/*
 			switch (GameServer.Instance.Configuration.ServerType)
 			{
-				case eGameServerType.GST_Normal:
+				case EGameServerType.GST_Normal:
 					{
 						message = string.Format("The forces of {0} have captured {1}!", GlobalConstants.RealmToName((eRealm)keep.Realm), keep.Name);
 						break;
 					}
-				case eGameServerType.GST_PvP:
+				case EGameServerType.GST_PvP:
 					{
 						string defeatersStr = "";
 						message = string.Format("The forces of {0} have defeated the defenders of {1}!", defeatersStr, keep.Name);

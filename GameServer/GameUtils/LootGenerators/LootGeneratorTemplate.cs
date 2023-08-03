@@ -373,8 +373,8 @@ namespace DOL.GS
                                             long nextDropTime = GameLoop.GameLoopTime;
 
                                             /*
-                                            AccountXRealmLoyalty realmLoyalty =
-                                                DOLDB<AccountXRealmLoyalty>.SelectObject(DB.Column("AccountID")
+                                            DbAccountXRealmLoyalty  realmLoyalty =
+                                                DOLDB<DbAccountXRealmLoyalty >.SelectObject(DB.Column("AccountID")
                                                     .IsEqualTo(player.Client.Account.ObjectId)
                                                     .And(DB.Column("Realm").IsEqualTo(player.Realm)));*/
                                             var realmLoyalty = LoyaltyMgr.GetPlayerRealmLoyalty(player);
@@ -401,8 +401,8 @@ namespace DOL.GS
                                         {
                                             long nextDropTime = GameLoop.GameLoopTime;
                                             /*
-                                            AccountXRealmLoyalty realmLoyalty =
-                                                DOLDB<AccountXRealmLoyalty>.SelectObject(DB.Column("AccountID")
+                                            DbAccountXRealmLoyalty  realmLoyalty =
+                                                DOLDB<DbAccountXRealmLoyalty >.SelectObject(DB.Column("AccountID")
                                                     .IsEqualTo(GroupedTimerToUse.Client.Account.ObjectId)
                                                     .And(DB.Column("Realm").IsEqualTo(player.Realm)));*/
                                             var realmLoyalty = LoyaltyMgr.GetPlayerRealmLoyalty(GroupedTimerToUse);
@@ -523,8 +523,8 @@ namespace DOL.GS
                                         {
                                             long nextDropTime = GameLoop.GameLoopTime;
                                             /*
-                                            AccountXRealmLoyalty realmLoyalty =
-                                                DOLDB<AccountXRealmLoyalty>.SelectObject(DB.Column("AccountID")
+                                            DbAccountXRealmLoyalty  realmLoyalty =
+                                                DOLDB<DbAccountXRealmLoyalty >.SelectObject(DB.Column("AccountID")
                                                     .IsEqualTo(player.Client.Account.ObjectId)
                                                     .And(DB.Column("Realm").IsEqualTo(player.Realm)));*/
                                             var realmLoyalty = LoyaltyMgr.GetPlayerRealmLoyalty(player);
@@ -550,8 +550,8 @@ namespace DOL.GS
                                         else if (GroupedTimerToUse != null)
                                         {
                                             long nextDropTime = GameLoop.GameLoopTime;
-                                            /*AccountXRealmLoyalty realmLoyalty =
-                                                DOLDB<AccountXRealmLoyalty>.SelectObject(DB.Column("AccountID")
+                                            /*DbAccountXRealmLoyalty  realmLoyalty =
+                                                DOLDB<DbAccountXRealmLoyalty >.SelectObject(DB.Column("AccountID")
                                                     .IsEqualTo(GroupedTimerToUse.Client.Account.ObjectId)
                                                     .And(DB.Column("Realm").IsEqualTo(player.Realm)));*/
                                             var realmLoyalty = LoyaltyMgr.GetPlayerRealmLoyalty(GroupedTimerToUse);

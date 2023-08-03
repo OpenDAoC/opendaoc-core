@@ -50,7 +50,7 @@
     <APIDocs Include=".\API\Docs\*" />
   </ItemGroup>
   <Target Name="CopyFiles" AfterTargets="AfterBuild">
-    <Copy SourceFiles="@(TranslationFiles)" DestinationFiles="@(TranslationFiles->'$(MSBuildProjectDirectory)\..\$(Configuration)\languages\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(TranslationFiles)" DestinationFiles="@(TranslationFiles->'$(MSBuildProjectDirectory)\..\$(Configuration)\Languages\%(RecursiveDir)%(Filename)%(Extension)')" />
     <Copy SourceFiles="@(APIDocs)" DestinationFiles="@(APIDocs->'$(MSBuildProjectDirectory)\..\$(Configuration)\wwwroot\docs\%(RecursiveDir)%(Filename)%(Extension)')" />
   </Target>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />

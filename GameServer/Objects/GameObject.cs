@@ -841,7 +841,7 @@ namespace DOL.GS
 		#region Quests
 
 		/// <summary>
-		/// A cache of every DBDataQuest object
+		/// A cache of every DbDataQuest object
 		/// </summary>
 		protected static ILookup<ushort, DbDataQuest> m_dataQuestCache = null;
 
@@ -856,7 +856,7 @@ namespace DOL.GS
 		protected bool m_isDataQuestsLoaded = false;
 
 		/// <summary>
-		/// Fill the data quest cache with all DBDataQuest objects
+		/// Fill the data quest cache with all DbDataQuest objects
 		/// </summary>
 		public static void FillDataQuestCache()
 		{

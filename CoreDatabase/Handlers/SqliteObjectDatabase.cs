@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SQLite;
 using DOL.Database.Connection;
+using IsolationLevel = DOL.Database.Transaction;
 
 namespace DOL.Database.Handlers
 {

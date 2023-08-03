@@ -33,13 +33,13 @@ namespace DOL.GS.DatabaseUpdate
 		/// <summary>
 		/// Set Default Path for Loading "Insert" XML Package Directory
 		/// </summary>
-		[ServerProperty("xmlautoload", "xml_load_insert_directory", "Enforce directory path where the XML Insert Packages are Loaded To Database (Relative to Scripts or Absolute...)", "dbupdater/insert")]
+		[ServerProperty("xmlautoload", "xml_load_insert_directory", "Enforce directory path where the XML Insert Packages are Loaded To Database (Relative to Scripts or Absolute...)", "DbUpdater/Insert")]
 		public static string XML_LOAD_INSERT_DIRECTORY;
 
 		/// <summary>
 		/// Set Default Path for Loading "Replace" XML Package Directory
 		/// </summary>
-		[ServerProperty("xmlautoload", "xml_load_replace_directory", "Enforce directory path to where the XML Replace Packages are Loaded To Database (Relative to Scripts or Absolute...)", "dbupdater/replace")]
+		[ServerProperty("xmlautoload", "xml_load_replace_directory", "Enforce directory path to where the XML Replace Packages are Loaded To Database (Relative to Scripts or Absolute...)", "DbUpdater/replace")]
 		public static string XML_LOAD_REPLACE_DIRECTORY;
 		#endregion
 		
@@ -65,12 +65,12 @@ namespace DOL.GS.DatabaseUpdate
 				log.Info("Loading Auto XML Database Updates... (this can take a few minutes)");
 			try
 			{
-				var insertdir = Path.IsPathRooted(XML_LOAD_INSERT_DIRECTORY) ? XML_LOAD_INSERT_DIRECTORY : string.Format("{0}{1}scripts{1}{2}", GameServer.Instance.Configuration.RootDirectory, Path.DirectorySeparatorChar, XML_LOAD_INSERT_DIRECTORY);
+				var insertdir = Path.IsPathRooted(XML_LOAD_INSERT_DIRECTORY) ? XML_LOAD_INSERT_DIRECTORY : string.Format("{0}{1}Scripts{1}{2}", GameServer.Instance.Configuration.RootDirectory, Path.DirectorySeparatorChar, XML_LOAD_INSERT_DIRECTORY);
 					
 				if (!Directory.Exists(insertdir))
 					Directory.CreateDirectory(insertdir);
 				
-				var replacedir = Path.IsPathRooted(XML_LOAD_REPLACE_DIRECTORY) ? XML_LOAD_REPLACE_DIRECTORY : string.Format("{0}{1}scripts{1}{2}", GameServer.Instance.Configuration.RootDirectory, Path.DirectorySeparatorChar, XML_LOAD_REPLACE_DIRECTORY);
+				var replacedir = Path.IsPathRooted(XML_LOAD_REPLACE_DIRECTORY) ? XML_LOAD_REPLACE_DIRECTORY : string.Format("{0}{1}Scripts{1}{2}", GameServer.Instance.Configuration.RootDirectory, Path.DirectorySeparatorChar, XML_LOAD_REPLACE_DIRECTORY);
 					
 				if (!Directory.Exists(replacedir))
 					Directory.CreateDirectory(replacedir);

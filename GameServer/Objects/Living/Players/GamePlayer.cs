@@ -306,7 +306,7 @@ namespace DOL.GS
         /// <summary>
         /// Is this player PvP enabled
         /// </summary>
-        public virtual bool IsPvP { get { return GameServer.Instance.Configuration.ServerType == eGameServerType.GST_PvP || (this.CurrentRegionID == 27 && ServerProperties.ServerProperties.EVENT_PVP); }}
+        public virtual bool IsPvP { get { return GameServer.Instance.Configuration.ServerType == EGameServerType.GST_PvP || (this.CurrentRegionID == 27 && ServerProperties.ServerProperties.EVENT_PVP); }}
 
         /// <summary>
         /// Can this player use cross realm items
@@ -1086,7 +1086,7 @@ namespace DOL.GS
             }
 
             // Check for battleground caps.
-            Battleground bg = GameServer.KeepManager.GetBattleground(CurrentRegionID);
+            DbBattlegrounds bg = GameServer.KeepManager.GetBattleground(CurrentRegionID);
             if (bg != null)
             {
                 if (Level > bg.MaxLevel || RealmLevel >= bg.MaxRealmLevel)
@@ -1527,7 +1527,7 @@ namespace DOL.GS
             }
 
             //battlegrounds caps
-            Battleground bg = GameServer.KeepManager.GetBattleground(CurrentRegionID);
+            DbBattlegrounds bg = GameServer.KeepManager.GetBattleground(CurrentRegionID);
             if (bg != null && releaseCommand == EReleaseType.RvR)
             {
                 if (Level > bg.MaxLevel)
@@ -5180,10 +5180,10 @@ namespace DOL.GS
             //check for cached loyalty days, and grab value if needed
             if (numCurrentLoyalDays == null || numCurrentLoyalDays == 0)
             {
-                AccountXRealmLoyalty realmLoyalty = CoreDb<AccountXRealmLoyalty>.SelectObject(DB.Column("AccountID").IsEqualTo(this.Client.Account.ObjectId).And(DB.Column("Realm").IsEqualTo(this.Realm)));
+                DbAccountXRealmLoyalty realmLoyalty = CoreDb<DbAccountXRealmLoyalty >.SelectObject(DB.Column("AccountID").IsEqualTo(this.Client.Account.ObjectId).And(DB.Column("Realm").IsEqualTo(this.Realm)));
                 if (realmLoyalty == null)
                 {
-                    AccountXRealmLoyalty newLoyalty = new AccountXRealmLoyalty();
+                    DbAccountXRealmLoyalty  newLoyalty = new DbAccountXRealmLoyalty ();
                     newLoyalty.AccountId = this.Client.Account.ObjectId;
                     newLoyalty.Realm = (int)this.Realm;
                     newLoyalty.LoyalDays = 1;
@@ -5206,7 +5206,7 @@ namespace DOL.GS
 
             if (loyaltyCheck < DateTime.Now.AddDays(-1))
             {
-                List<AccountXRealmLoyalty> rloyal = new List<AccountXRealmLoyalty>(CoreDb<AccountXRealmLoyalty>.SelectObjects(DB.Column("AccountID").IsEqualTo(this.Client.Account.ObjectId)));
+                List<DbAccountXRealmLoyalty > rloyal = new List<DbAccountXRealmLoyalty >(CoreDb<DbAccountXRealmLoyalty >.SelectObjects(DB.Column("AccountID").IsEqualTo(this.Client.Account.ObjectId)));
                 bool realmFound = false;
                 foreach (var rl in rloyal)
                 {
@@ -5239,7 +5239,7 @@ namespace DOL.GS
 
                 if (realmFound == false)
                 {
-                    AccountXRealmLoyalty newLoyalty = new AccountXRealmLoyalty();
+                    DbAccountXRealmLoyalty  newLoyalty = new DbAccountXRealmLoyalty ();
                     newLoyalty.AccountId = this.Client.Account.ObjectId;
                     newLoyalty.Realm = (int)this.Realm;
                     newLoyalty.LoyalDays = 1;
@@ -5920,7 +5920,7 @@ namespace DOL.GS
 
         public void RaiseRealmLoyaltyFloor(int amount)
         {
-            AccountXRealmLoyalty realmLoyalty = CoreDb<AccountXRealmLoyalty>.SelectObject(DB.Column("AccountID").IsEqualTo(this.Client.Account.ObjectId).And(DB.Column("Realm").IsEqualTo(this.Realm)));
+            DbAccountXRealmLoyalty  realmLoyalty = CoreDb<DbAccountXRealmLoyalty >.SelectObject(DB.Column("AccountID").IsEqualTo(this.Client.Account.ObjectId).And(DB.Column("Realm").IsEqualTo(this.Realm)));
 
             if (realmLoyalty != null)
             {
@@ -5929,7 +5929,7 @@ namespace DOL.GS
             }
             else
             {
-                AccountXRealmLoyalty newLoyalty = new AccountXRealmLoyalty();
+                DbAccountXRealmLoyalty  newLoyalty = new DbAccountXRealmLoyalty ();
                 newLoyalty.AccountId = this.Client.Account.ObjectId;
                 newLoyalty.Realm = (int)this.Realm;
                 newLoyalty.MinimumLoyalDays = amount;
@@ -7106,13 +7106,13 @@ namespace DOL.GS
                     int conpenalty = 0;
                     switch (GameServer.Instance.Configuration.ServerType)
                     {
-                        case eGameServerType.GST_Normal:
+                        case EGameServerType.GST_Normal:
                             Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GamePlayer.Die.DeadRVR"), EChatType.CT_YouDied, EChatLoc.CL_SystemWindow);
                             xpLossPercent = 0;
                             m_deathtype = EDeathType.RvR;
                             break;
 
-                        case eGameServerType.GST_PvP:
+                        case EGameServerType.GST_PvP:
                             Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GamePlayer.Die.DeadRVR"), EChatType.CT_YouDied, EChatLoc.CL_SystemWindow);
                             xpLossPercent = 0;
                             m_deathtype = EDeathType.PvP;
@@ -9171,7 +9171,7 @@ namespace DOL.GS
 
             RefreshItemBonuses();
 
-            var playerDeck = CoreDb<DOLCharactersXDeck>.SelectObject(DB.Column("DOLCharactersObjectId").IsEqualTo(this.ObjectId));
+            var playerDeck = CoreDb<DbCoreCharactersXDeck>.SelectObject(DB.Column("DOLCharactersObjectId").IsEqualTo(this.ObjectId));
             if (playerDeck != null)
             {
                 this.RandomNumberDeck.LoadDeckFromJSON((playerDeck.Deck));
@@ -9310,7 +9310,7 @@ namespace DOL.GS
             // Remove the last update tick property to prevent speedhack messages during zoning and teleporting.
             LastPositionUpdateTick = 0;
 
-            if (ControlledBrain != null && ControlledBrain.WalkState != eWalkState.Stay)
+            if (ControlledBrain != null && ControlledBrain.WalkState != EWalkState.Stay)
             {
                 if (CharacterClass.ID is not ((int) ECharacterClass.Theurgist) and not ((int) ECharacterClass.Animist))
                     hasPetToMove = true;
@@ -9440,7 +9440,7 @@ namespace DOL.GS
                 //now ban him
                 if (ServerProperties.ServerProperties.BAN_HACKERS)
                 {
-                    DBBannedAccount b = new DBBannedAccount();
+                    DbBans b = new DbBans();
                     b.Author = "SERVER";
                     b.Ip = Client.TcpEndpointAddress;
                     b.Account = Client.Account.Name;
@@ -9467,7 +9467,7 @@ namespace DOL.GS
         #region Group/Friendlist/guild
 
         private GuildUtil m_guild;
-        private DBRank m_guildRank;
+        private DbGuildRanks m_guildRank;
 
         /// <summary>
         /// Gets or sets the player's guild
@@ -9503,7 +9503,7 @@ namespace DOL.GS
         /// <summary>
         /// Gets or sets the player's guild rank
         /// </summary>
-        public DBRank GuildRank
+        public DbGuildRanks GuildRank
         {
             get { return m_guildRank; }
             set
@@ -11340,7 +11340,7 @@ namespace DOL.GS
                 GameHouseVault houseVault = floorObject as GameHouseVault;
                 if (houseVault.Detach(this))
                 {
-                    ItemTemplate template = GameServer.Database.FindObjectByKey<ItemTemplate>(houseVault.TemplateID);
+                    DbItemTemplates template = GameServer.Database.FindObjectByKey<DbItemTemplates>(houseVault.TemplateID);
                     Inventory.AddItem(eInventorySlot.FirstEmptyBackpack, GameInventoryItem.Create(template));
                     InventoryLogging.LogInventoryAction("(HOUSE;" + floorObject.CurrentHouse.HouseNumber + ")", this, eInventoryActionType.Other, template);
                 }
@@ -11780,7 +11780,7 @@ namespace DOL.GS
             m_dbCharacter = (DbCoreCharacters)obj;
 
             LoyaltyMgr.CachePlayer(this);
-            List<AccountXRealmLoyalty> realmLoyaltyList = CoreDb<AccountXRealmLoyalty>.SelectObjects(DB.Column("AccountID").IsEqualTo(this.Client.Account.ObjectId)) as List<AccountXRealmLoyalty>;
+            List<DbAccountXRealmLoyalty > realmLoyaltyList = CoreDb<DbAccountXRealmLoyalty >.SelectObjects(DB.Column("AccountID").IsEqualTo(this.Client.Account.ObjectId)) as List<DbAccountXRealmLoyalty >;
             DateTime lastRealmLoyaltyUpdateTime = DateTime.UnixEpoch;
             int loyaltyDays = 0;
 
@@ -11801,7 +11801,7 @@ namespace DOL.GS
             this.TempProperties.setProperty(REALM_LOYALTY_KEY, lastRealmLoyaltyUpdateTime);
             this.TempProperties.setProperty(CURRENT_LOYALTY_KEY, loyaltyDays);
 
-            AccountXMoney MoneyForRealm = CoreDb<AccountXMoney>.SelectObject(DB.Column("AccountID").IsEqualTo(this.Client.Account.ObjectId).And(DB.Column("Realm").IsEqualTo(this.Realm)));
+            DbAccountXMoney MoneyForRealm = CoreDb<DbAccountXMoney>.SelectObject(DB.Column("AccountID").IsEqualTo(this.Client.Account.ObjectId).And(DB.Column("Realm").IsEqualTo(this.Realm)));
 
             if (MoneyForRealm == null)
             {
@@ -11811,7 +11811,7 @@ namespace DOL.GS
                 int realmSilver = 0;
                 int realmCopper = 0;
 
-                AccountXMoney newMoney = new AccountXMoney();
+                DbAccountXMoney  newMoney = new DbAccountXMoney ();
                 newMoney.AccountId = this.Client.Account.ObjectId;
                 newMoney.Realm = (int)this.Realm;
 
@@ -11881,7 +11881,7 @@ namespace DOL.GS
 
             if (m_guild != null)
             {
-                foreach (DBRank rank in m_guild.Ranks)
+                foreach (DbGuildRanks rank in m_guild.Ranks)
                 {
                     if (rank == null) continue;
                     if (rank.RankLevel == DbCharacter.GuildRank)
@@ -11985,10 +11985,10 @@ namespace DOL.GS
             }
 
             // Load ML steps of player ...
-            var mlsteps = CoreDb<DBCharacterXMasterLevel>.SelectObjects(DB.Column("Character_ID").IsEqualTo(QuestPlayerID));
+            var mlsteps = CoreDb<DbCharacterXMasterLevel>.SelectObjects(DB.Column("Character_ID").IsEqualTo(QuestPlayerID));
             if (mlsteps.Count > 0)
             {
-                foreach (DBCharacterXMasterLevel mlstep in mlsteps)
+                foreach (DbCharacterXMasterLevel mlstep in mlsteps)
                     m_mlSteps.Add(mlstep);
             }
 
@@ -12032,7 +12032,7 @@ namespace DOL.GS
         {
             try
             {
-                var existingDeck = CoreDb<DOLCharactersXDeck>.SelectObject(DB.Column("DOLCharactersObjectId").IsEqualTo(this.ObjectId));
+                var existingDeck = CoreDb<DbCoreCharactersXDeck>.SelectObject(DB.Column("DOLCharactersObjectId").IsEqualTo(this.ObjectId));
                 if (existingDeck != null)
                 {
                     existingDeck.Deck = RandomNumberDeck.SaveDeckToJSON();
@@ -12040,17 +12040,17 @@ namespace DOL.GS
                 }
                 else
                 {
-                    DOLCharactersXDeck playerDeck = new DOLCharactersXDeck();
+                    DbCoreCharactersXDeck playerDeck = new DbCoreCharactersXDeck();
                     playerDeck.DOLCharactersObjectId = this.ObjectId;
                     playerDeck.Deck = RandomNumberDeck.SaveDeckToJSON();
                     GameServer.Database.AddObject(playerDeck);
                 }
 
-                AccountXRealmLoyalty realmLoyalty = CoreDb<AccountXRealmLoyalty>.SelectObject(DB.Column("AccountID").IsEqualTo(this.Client.Account.ObjectId).And(DB.Column("Realm").IsEqualTo(this.Realm)));
+                DbAccountXRealmLoyalty  realmLoyalty = CoreDb<DbAccountXRealmLoyalty >.SelectObject(DB.Column("AccountID").IsEqualTo(this.Client.Account.ObjectId).And(DB.Column("Realm").IsEqualTo(this.Realm)));
 
                 if (realmLoyalty == null)
                 {
-                    realmLoyalty = new AccountXRealmLoyalty();
+                    realmLoyalty = new DbAccountXRealmLoyalty ();
                     realmLoyalty.AccountId = this.Client.Account.ObjectId;
                     realmLoyalty.Realm = (int)this.Realm;
                     realmLoyalty.LoyalDays = 1;
@@ -12063,11 +12063,11 @@ namespace DOL.GS
                     GameServer.Database.SaveObject(realmLoyalty);
                 }
 
-                AccountXMoney MoneyForRealm = CoreDb<AccountXMoney>.SelectObject(DB.Column("AccountID").IsEqualTo(this.Client.Account.ObjectId).And(DB.Column("Realm").IsEqualTo(this.Realm)));
+                DbAccountXMoney  MoneyForRealm = CoreDb<DbAccountXMoney >.SelectObject(DB.Column("AccountID").IsEqualTo(this.Client.Account.ObjectId).And(DB.Column("Realm").IsEqualTo(this.Realm)));
 
                 if (MoneyForRealm == null)
                 {
-                    AccountXMoney newMoney = new AccountXMoney();
+                    DbAccountXMoney  newMoney = new DbAccountXMoney ();
                     newMoney.AccountId = this.Client.Account.ObjectId;
                     newMoney.Realm = (int)this.Realm;
                     newMoney.Copper = DbCharacter.Copper;
@@ -12161,7 +12161,7 @@ namespace DOL.GS
 
 
                 if (m_mlSteps != null)
-                    GameServer.Database.SaveObject(m_mlSteps.OfType<DBCharacterXMasterLevel>());
+                    GameServer.Database.SaveObject(m_mlSteps.OfType<DbCharacterXMasterLevel>());
 
                 if (log.IsInfoEnabled)
                     log.InfoFormat("{0} saved!", DbCharacter.Name);
@@ -12294,7 +12294,7 @@ namespace DOL.GS
             string message = "";
             switch (GameServer.Instance.Configuration.ServerType)
             {//FIXME: Better extract this to a new function in ServerRules !!! (VaNaTiC)
-                case eGameServerType.GST_Normal:
+                case EGameServerType.GST_Normal:
                 {
                     if (Realm == player.Realm || Client.Account.PrivLevel > 1 || player.Client.Account.PrivLevel > 1)
                         message = LanguageMgr.GetTranslation(player.Client.Account.Language, "GamePlayer.GetExamineMessages.RealmMember", player.GetName(this), GetPronoun(Client, 0, true), CharacterClass.Name);
@@ -12303,7 +12303,7 @@ namespace DOL.GS
                     break;
                 }
 
-                case eGameServerType.GST_PvP:
+                case EGameServerType.GST_PvP:
                 {
                     if (Client.Account.PrivLevel > 1 || player.Client.Account.PrivLevel > 1)
                         message = LanguageMgr.GetTranslation(player.Client.Account.Language, "GamePlayer.GetExamineMessages.YourGuildMember", player.GetName(this), GetPronoun(Client, 0, true), CharacterClass.Name);
@@ -12750,8 +12750,8 @@ namespace DOL.GS
             m_questListFinished.Clear();
 
             // Scripted quests
-            var quests = CoreDb<DBQuest>.SelectObjects(DB.Column("Character_ID").IsEqualTo(QuestPlayerID));
-            foreach (DBQuest dbquest in quests)
+            var quests = CoreDb<DbQuests>.SelectObjects(DB.Column("Character_ID").IsEqualTo(QuestPlayerID));
+            foreach (DbQuests dbquest in quests)
             {
                 AbstractQuest quest = AbstractQuest.LoadFromDatabase(this, dbquest);
                 if (quest != null)
@@ -12782,10 +12782,10 @@ namespace DOL.GS
             }
 
             // Data driven quests for this player
-            var dataQuests = CoreDb<CharacterXDataQuest>.SelectObjects(DB.Column("Character_ID").IsEqualTo(QuestPlayerID));
-            foreach (CharacterXDataQuest quest in dataQuests)
+            var dataQuests = CoreDb<DbCharacterXDataQuest>.SelectObjects(DB.Column("Character_ID").IsEqualTo(QuestPlayerID));
+            foreach (DbCharacterXDataQuest quest in dataQuests)
             {
-                DBDataQuest dbDataQuest = GameServer.Database.FindObjectByKey<DBDataQuest>(quest.DataQuestID);
+                DbDataQuest dbDataQuest = GameServer.Database.FindObjectByKey<DbDataQuest>(quest.DataQuestID);
                 if (dbDataQuest != null && dbDataQuest.StartType != (byte)DataQuest.eStartType.Collection)
                 {
                     DataQuest dataQuest = new DataQuest(this, dbDataQuest, quest);
@@ -13301,11 +13301,11 @@ namespace DOL.GS
             if (DbCharacter == null)
                 return;
 
-            AccountXCrafting CraftingForRealm = CoreDb<AccountXCrafting>.SelectObject(DB.Column("AccountID").IsEqualTo(this.AccountName).And(DB.Column("Realm").IsEqualTo(this.Realm)));
+            DbAccountXCrafting CraftingForRealm = CoreDb<DbAccountXCrafting>.SelectObject(DB.Column("AccountID").IsEqualTo(this.AccountName).And(DB.Column("Realm").IsEqualTo(this.Realm)));
 
             if (CraftingForRealm == null)
             {
-                AccountXCrafting newCrafting = new AccountXCrafting();
+                DbAccountXCrafting newCrafting = new DbAccountXCrafting();
                 newCrafting.AccountId = this.AccountName;
                 newCrafting.Realm = (int)this.Realm;
                 newCrafting.CraftingPrimarySkill = 15;
@@ -13720,7 +13720,7 @@ namespace DOL.GS
             }
 
             Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GamePlayer.CommandNpcAttack.Passive", npc.Body.GetName(0, false)), EChatType.CT_System, EChatLoc.CL_SystemWindow);
-            npc.SetAggressionState(eAggressionState.Passive);
+            npc.SetAggressionState(EAggressionState.Passive);
         }
 
         /// <summary>
@@ -13739,7 +13739,7 @@ namespace DOL.GS
             }
 
             Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GamePlayer.CommandNpcAttack.Aggressive", npc.Body.GetName(0, false)), EChatType.CT_System, EChatLoc.CL_SystemWindow);
-            npc.SetAggressionState(eAggressionState.Aggressive);
+            npc.SetAggressionState(EAggressionState.Aggressive);
         }
 
         /// <summary>
@@ -13758,7 +13758,7 @@ namespace DOL.GS
             }
 
             Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GamePlayer.CommandNpcAttack.Denfensive", npc.Body.GetName(0, false)), EChatType.CT_System, EChatLoc.CL_SystemWindow);
-            npc.SetAggressionState(eAggressionState.Defensive);
+            npc.SetAggressionState(EAggressionState.Defensive);
         }
         #endregion
 
@@ -13906,7 +13906,7 @@ namespace DOL.GS
         /// <returns>true if invulnerability was set (smaller than old invulnerability)</returns>
         public virtual bool StartInvulnerabilityTimer(int duration, InvulnerabilityExpiredCallback callback)
         {
-            if (GameServer.Instance.Configuration.ServerType == eGameServerType.GST_PvE)
+            if (GameServer.Instance.Configuration.ServerType == EGameServerType.GST_PvE)
                 return false;
 
             if (duration < 1)
@@ -14098,11 +14098,11 @@ namespace DOL.GS
         public void Achieve(string achievementName, int count = 1)
         {
             //DOL.Database.Achievement
-            Achievement achievement = CoreDb<Achievement>.SelectObject(DB.Column("AccountID").IsEqualTo(this.Client.Account.ObjectId).And(DB.Column("Realm").IsEqualTo((int)this.Realm)).And(DB.Column("AchievementName").IsEqualTo(achievementName)));
+            DbAchievements achievement = CoreDb<DbAchievements>.SelectObject(DB.Column("AccountID").IsEqualTo(this.Client.Account.ObjectId).And(DB.Column("Realm").IsEqualTo((int)this.Realm)).And(DB.Column("AchievementName").IsEqualTo(achievementName)));
 
             if (achievement == null)
             {
-                achievement = new Achievement();
+                achievement = new DbAchievements();
                 achievement.AccountId = this.Client.Account.ObjectId;
                 achievement.AchievementName = achievementName;
                 achievement.Realm = (int) this.Realm;
@@ -14118,11 +14118,11 @@ namespace DOL.GS
         public void SetAchievementTo(string achievementName, int value)
         {
             //DOL.Database.Achievement
-            Achievement achievement = CoreDb<Achievement>.SelectObject(DB.Column("AccountID").IsEqualTo(this.Client.Account.ObjectId).And(DB.Column("Realm").IsEqualTo((int)this.Realm)).And(DB.Column("AchievementName").IsEqualTo(achievementName)));
+            DbAchievements achievement = CoreDb<DbAchievements>.SelectObject(DB.Column("AccountID").IsEqualTo(this.Client.Account.ObjectId).And(DB.Column("Realm").IsEqualTo((int)this.Realm)).And(DB.Column("AchievementName").IsEqualTo(achievementName)));
 
             if (achievement == null)
             {
-                achievement = new Achievement();
+                achievement = new DbAchievements();
                 achievement.AccountId = this.Client.Account.ObjectId;
                 achievement.AchievementName = achievementName;
                 achievement.Realm = (int) this.Realm;
@@ -14137,7 +14137,7 @@ namespace DOL.GS
 
         public int GetAchievementProgress(string achievementName)
         {
-            Achievement achievement = CoreDb<Achievement>.SelectObject(DB.Column("AccountID")
+            DbAchievements achievement = CoreDb<DbAchievements>.SelectObject(DB.Column("AccountID")
                 .IsEqualTo(this.Client.Account.ObjectId).And(DB.Column("Realm").IsEqualTo((int)this.Realm)).And(DB.Column("AchievementName").IsEqualTo(achievementName)));
 
             if (achievement == null)
@@ -15038,7 +15038,7 @@ namespace DOL.GS
             if (MLLevel >= mlLevel) return true;
 
             // Check current registered steps
-            foreach (DBCharacterXMasterLevel mlStep in m_mlSteps)
+            foreach (DbCharacterXMasterLevel mlStep in m_mlSteps)
             {
                 // Found so return value
                 if (mlStep.MLLevel == mlLevel && mlStep.MLStep == step)
@@ -15060,7 +15060,7 @@ namespace DOL.GS
             // Check current registered steps in case of previous GM rollback command
             if (m_mlSteps != null)
             {
-                foreach (DBCharacterXMasterLevel mlStep in m_mlSteps)
+                foreach (DbCharacterXMasterLevel mlStep in m_mlSteps)
                 {
                     if (mlStep.MLLevel == mlLevel && mlStep.MLStep == step)
                     {
@@ -15073,7 +15073,7 @@ namespace DOL.GS
             if (setFinished)
             {
                 // Register new step
-                DBCharacterXMasterLevel newStep = new DBCharacterXMasterLevel();
+                DbCharacterXMasterLevel newStep = new DbCharacterXMasterLevel();
                 newStep.Character_ID = QuestPlayerID;
                 newStep.MLLevel = mlLevel;
                 newStep.MLStep = step;
@@ -15259,9 +15259,9 @@ namespace DOL.GS
                 GameInventoryItem tempItem = GameInventoryItem.Create(item as InventoryItem);
                 tempItem.Delve(delveInfo, this);
             }
-            else if (item is ItemTemplate)
+            else if (item is DbItemTemplates)
             {
-                GameInventoryItem tempItem = GameInventoryItem.Create(item as ItemTemplate);
+                GameInventoryItem tempItem = GameInventoryItem.Create(item as DbItemTemplates);
                 tempItem.Delve(delveInfo, this);
             }
             else
