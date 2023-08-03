@@ -9,6 +9,7 @@ using DOL.GS;
 using DOL.GS.Keeps;
 using DOL.GS.PacketHandler;
 using System.Collections.Generic;
+using Core.Base.Enums;
 
 namespace DOL.GS.ServerRules
 {

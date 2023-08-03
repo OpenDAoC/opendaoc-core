@@ -1,4 +1,5 @@
 using System;
+using Core.Base.Enums;
 using DOL.AI.Brain;
 using DOL.Database;
 using DOL.GS.PacketHandler;

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Linq;
+using Core.Base.Enums;
 using DOL.AI.Brain;
 using DOL.Database;
 using DOL.GS.Keeps;

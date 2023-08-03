@@ -1,6 +1,4 @@
-//Written by the DotNetFTPClient team: http://www.sourceforge.net/projects/dotnetftpclient
-
-namespace DOL.FTP
+namespace Core.Base.FTP
 {
 	/// <summary>
 	/// The FTP transfer type

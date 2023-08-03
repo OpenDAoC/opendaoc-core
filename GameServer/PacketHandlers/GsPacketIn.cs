@@ -1,5 +1,6 @@
 using System.Reflection;
-using DOL.Network;
+using Core.Base;
+using Core.Base.Network;
 using log4net;
 
 namespace DOL.GS

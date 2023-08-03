@@ -5,6 +5,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using Core.Base.Enums;
 using DOL.AI.Brain;
 using DOL.Database;
 using DOL.Events;

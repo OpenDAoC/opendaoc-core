@@ -3,6 +3,7 @@ using System.Collections;
 using System.Diagnostics;
 using System.Reflection;
 using System.Threading;
+using Core.Base;
 using DOL.Database;
 using DOL.Events;
 using log4net;

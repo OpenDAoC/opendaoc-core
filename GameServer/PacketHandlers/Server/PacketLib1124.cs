@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Reflection;
+using Core.Base.Enums;
 using DOL.AI.Brain;
 using DOL.Database;
 using DOL.GS.Keeps;

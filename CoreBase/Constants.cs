@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace DOL
+namespace Core.Base
 {
 	public static class Constants
 	{

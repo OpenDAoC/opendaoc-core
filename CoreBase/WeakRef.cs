@@ -1,6 +1,6 @@
 using System;
 
-namespace DOL
+namespace Core.Base
 {
 	/// <summary>
 	/// A wrapper for <see cref="WeakReference" /> to handle null targets under Mono.

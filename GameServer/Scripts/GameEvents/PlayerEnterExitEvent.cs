@@ -1,4 +1,5 @@
 using System;
+using Core.Base.Enums;
 using DOL.Events;
 using DOL.GS.PacketHandler;
 using DOL.Language;

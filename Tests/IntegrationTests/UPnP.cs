@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Core.Base.Network;
+using NUnit.Framework;
 
 namespace DOL.Tests.Integration.Net
 {

@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
+using Core.Base.Enums;
 using DOL.Database;
 using DOL.Events;
 using DOL.GS.PacketHandler;

@@ -1,6 +1,6 @@
 using System.Reflection;
 using DOL;
-using DOL.Network;
+using Core.Base.Network;
 using log4net;
 
 namespace DOL.GS.PacketHandler.Client.v168

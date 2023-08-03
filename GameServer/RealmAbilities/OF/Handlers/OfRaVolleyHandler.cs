@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Core.Base.Enums;
 using DOL.Database;
 using DOL.GS.Effects;
 using DOL.GS.Keeps;

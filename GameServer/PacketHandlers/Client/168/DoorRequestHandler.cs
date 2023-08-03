@@ -1,8 +1,7 @@
-
 using System.Collections.Generic;
+using Core.Base.Enums;
 using DOL.Database;
 using DOL.GS.Keeps;
-using DOL.GS.ServerProperties;
 using DOL.Language;
 
 namespace DOL.GS.PacketHandler.Client.v168

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Core.Base.Enums;
 using DOL.Database;
 using DOL.GS.PacketHandler;
 using log4net;

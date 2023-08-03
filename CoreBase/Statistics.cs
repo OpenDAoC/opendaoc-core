@@ -1,4 +1,4 @@
-namespace DOL
+namespace Core.Base
 {
 	/// <summary>
 	/// Static class that holds various statistics about the server instance.

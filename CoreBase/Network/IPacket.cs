@@ -1,4 +1,4 @@
-namespace DOL.Network
+namespace Core.Base.Network
 {
 	/// <summary>
 	/// Defines the base functionality all packet wrappers must have.

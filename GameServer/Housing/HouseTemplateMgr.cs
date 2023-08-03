@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Core.Base.Enums;
 using DOL.Database;
 using DOL.GS.ServerProperties;
 

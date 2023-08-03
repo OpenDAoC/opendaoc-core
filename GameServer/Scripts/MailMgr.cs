@@ -7,7 +7,7 @@ using System.Net.Mail;
 using System.Reflection;
 using System.Threading;
 using System.Xml;
-using DOL.Config;
+using Core.Base.Config;
 using DOL.GS;
 using log4net;
 

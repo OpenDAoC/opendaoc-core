@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace DOL.Network
+namespace Core.Base.Network
 {
 	/// <summary>
 	/// Writes primitives data types to an underlying stream.

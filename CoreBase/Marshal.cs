@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace DOL
+namespace Core.Base
 {
 	/// <summary>
 	/// Provides basic functionality to convert data types.

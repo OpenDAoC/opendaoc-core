@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace DOL.Network
+namespace Core.Base.Network
 {
 	/// <summary>
 	/// Reads primitive data types from an underlying stream.

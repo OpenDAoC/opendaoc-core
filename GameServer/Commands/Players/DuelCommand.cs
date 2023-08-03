@@ -1,5 +1,4 @@
-using System;
-using DOL.Events;
+using Core.Base;
 using DOL.Language;
 using DOL.GS.PacketHandler;
 

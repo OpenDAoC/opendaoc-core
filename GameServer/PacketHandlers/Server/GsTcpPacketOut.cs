@@ -1,4 +1,4 @@
-using DOL.Network;
+using Core.Base.Network;
 
 namespace DOL.GS.PacketHandler
 {

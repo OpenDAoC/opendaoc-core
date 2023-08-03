@@ -1,6 +1,6 @@
 
 using System;
-
+using Core.Base.Enums;
 using DOL.Language;
 using DOL.GS.Keeps;
 using DOL.GS.PacketHandler;

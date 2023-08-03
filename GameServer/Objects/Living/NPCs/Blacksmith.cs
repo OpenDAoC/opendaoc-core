@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Core.Base;
 using DOL.Database;
 using DOL.Events;
 using DOL.GS.PacketHandler;

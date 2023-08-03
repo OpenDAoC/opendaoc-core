@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Text;
 
-namespace DOL.MPK
+namespace Core.Base.MPK
 {
 	/// <summary>
 	/// Represents the header of an internal file in an MPK archive.

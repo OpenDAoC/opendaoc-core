@@ -1,5 +1,6 @@
 ﻿using System;
 using Core.GS.Players.Loyalty;
+using Core.Base.Enums;
 using DOL.Database;
 using DOL.GS.PacketHandler;
 using DOL.Language;

@@ -8,8 +8,9 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Timers;
+using Core.Base;
 using DOL.GS.ServerProperties;
-using DOL.Network;
+using Core.Base.Network;
 using log4net;
 using Timer = System.Timers.Timer;
 

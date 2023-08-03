@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Core.Base.Enums;
 using DOL.GS;
 using NUnit.Framework;
 

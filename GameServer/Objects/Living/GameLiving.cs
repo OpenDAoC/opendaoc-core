@@ -6,6 +6,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
+using Core.Base;
 using DOL.AI.Brain;
 using DOL.Database;
 using DOL.Events;

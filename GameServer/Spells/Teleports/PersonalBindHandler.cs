@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Core.Base.Enums;
 using DOL.GS.Effects;
 using DOL.GS.PacketHandler;
 using DOL.Language;

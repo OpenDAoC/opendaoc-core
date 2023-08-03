@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 
-namespace DOL.FTP
+namespace Core.Base.FTP
 {
 	/// <summary>
 	/// Summary description for FTPAsynchronousConnection.

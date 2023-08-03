@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace DOL.Config
+namespace Core.Base.Config
 {
 	/// <summary>
 	/// This class represents a single element in a configuration file.

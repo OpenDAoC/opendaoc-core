@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using Core.Base;
 using DOL.Database;
 using DOL.GS.Housing;
-using DOL.GS.ServerProperties;
 using DOL.GS.Utils;
 using DOL.Language;
 using log4net;

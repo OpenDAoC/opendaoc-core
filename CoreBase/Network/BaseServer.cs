@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Reflection;
-using DOL.Config;
+using Core.Base.Config;
 using log4net;
 
-namespace DOL.Network
+namespace Core.Base.Network
 {
 	/// <summary>
 	/// Base class for a server using overlapped socket IO.

@@ -4,7 +4,7 @@ using System.Net.Sockets;
 using System.Reflection;
 using log4net;
 
-namespace DOL.Network
+namespace Core.Base.Network
 {
 	/// <summary>
 	/// Base class representing a game client.

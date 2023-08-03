@@ -4,7 +4,7 @@ using System.Text;
 using ICSharpCode.SharpZipLib.Checksum;
 using ICSharpCode.SharpZipLib.Zip.Compression;
 
-namespace DOL.MPK
+namespace Core.Base.MPK
 {
 	/// <summary>
 	/// Represents a file stored in an MPK archive.

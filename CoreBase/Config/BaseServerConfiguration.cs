@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Net;
 
-namespace DOL.Config
+namespace Core.Base.Config
 {
 	/// <summary>
 	/// Base configuration for the server.

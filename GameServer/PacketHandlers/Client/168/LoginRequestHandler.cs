@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Reflection;
@@ -8,9 +7,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Threading.Tasks;
+using Core.Base.Enums;
 using DOL.Database;
-using DOL.GS.ServerProperties;
 using log4net;
 
 namespace DOL.GS.PacketHandler.Client.v168

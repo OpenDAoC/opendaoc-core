@@ -8,6 +8,8 @@ using Core.GS.GameUtils;
 using Core.GS.Players.Classes.Bonedancer;
 using Core.GS.Players.Loyalty;
 using Core.GS.RealmAbilities;
+using Core.Base;
+using Core.Base.Enums;
 using DOL.AI;
 using DOL.AI.Brain;
 using DOL.Database;

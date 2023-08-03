@@ -4,8 +4,8 @@ using System.Net;
 using System.Net.Sockets;
 using System.Reflection;
 using System.Linq;
-
-using DOL.Config;
+using Core.Base.Config;
+using Core.Base.Enums;
 using DOL.Database.Connection;
 
 namespace DOL.GS

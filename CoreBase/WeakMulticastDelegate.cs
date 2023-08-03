@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Text;
 using log4net;
 
-namespace DOL
+namespace Core.Base
 {
 	/// <summary>
 	/// Represents a weak-referenced multicast delegate.

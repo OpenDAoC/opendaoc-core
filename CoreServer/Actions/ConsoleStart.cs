@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.IO;
 using System.Reflection;
+using Core.Base.Enums;
 using DOL.GS;
 using DOL.GS.PacketHandler;
 using DOLGameServerConsole;

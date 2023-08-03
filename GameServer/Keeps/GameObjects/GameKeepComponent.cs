@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
+using Core.Base.Enums;
 using DOL.Database;
 using DOL.Events;
 using DOL.GS.ServerProperties;

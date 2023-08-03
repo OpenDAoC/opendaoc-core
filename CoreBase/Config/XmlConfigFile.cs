@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 using System.Xml;
 
-namespace DOL.Config
+namespace Core.Base.Config
 {
 	/// <summary>
 	/// Reads and writes an XML configuration file.

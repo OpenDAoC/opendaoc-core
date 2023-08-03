@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -7,11 +6,11 @@ using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Threading;
+using Core.Base;
 using DOL.Database;
 using DOL.Events;
 using DOL.GS.PacketHandler;
-using DOL.GS.ServerProperties;
-using DOL.Network;
+using Core.Base.Network;
 using log4net;
 
 namespace DOL.GS

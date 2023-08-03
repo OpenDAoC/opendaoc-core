@@ -5,7 +5,7 @@ using System.Text;
 using ICSharpCode.SharpZipLib.Checksum;
 using ICSharpCode.SharpZipLib.Zip.Compression;
 
-namespace DOL.MPK
+namespace Core.Base.MPK
 {
 	/// <summary>
 	/// Handles the reading and writing to MPK files.
