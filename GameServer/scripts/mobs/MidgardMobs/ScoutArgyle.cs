@@ -30,7 +30,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class ScoutArgyleBrain : StandardMobBrain
+	public class ScoutArgyleBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public ScoutArgyleBrain() : base()
@@ -46,7 +46,7 @@ namespace DOL.AI.Brain
 				foreach (GameNPC npc in Body.GetNPCsInRadius(1000))
 				{
 					if (npc != null && npc.IsAlive && npc.PackageID == "ScoutArgyleBaf")
-						AddAggroListTo(npc.Brain as StandardMobBrain);
+						AddAggroListTo(npc.Brain as StandardNpcBrain);
 				}
 			}
 			base.Think();

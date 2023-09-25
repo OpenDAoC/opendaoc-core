@@ -512,7 +512,7 @@ namespace DOL.GS.Quests.Hibernia
                 }
                 MobEffect.AddToWorld();
 
-                var brain = new StandardMobBrain();
+                var brain = new StandardNpcBrain();
                 brain.AggroLevel = 200;
                 brain.AggroRange = 500;
                 MobEffect.SetOwnBrain(brain);

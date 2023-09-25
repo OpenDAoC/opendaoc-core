@@ -130,7 +130,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class AmphiptereBrain : StandardMobBrain
+	public class AmphiptereBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public AmphiptereBrain() : base()
@@ -384,7 +384,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class AmphiptereAddsBrain : StandardMobBrain
+	public class AmphiptereAddsBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public AmphiptereAddsBrain() : base()

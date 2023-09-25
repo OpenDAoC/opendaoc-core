@@ -35,7 +35,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class RainbowSpriteTanBrain : StandardMobBrain
+	public class RainbowSpriteTanBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public RainbowSpriteTanBrain() : base()
@@ -57,7 +57,7 @@ namespace DOL.AI.Brain
 						foreach (GameNPC npc in Body.GetNPCsInRadius(1000))
 						{
 							GameLiving target = Body.TargetObject as GameLiving;
-							if (npc != null && npc.IsAlive && npc.Name.ToLower() == "rainbow sprite" && npc.Brain is not ControlledNpcBrain && npc.Brain is RainbowSpriteTanBrain brain && npc != Body)
+							if (npc != null && npc.IsAlive && npc.Name.ToLower() == "rainbow sprite" && npc.Brain is not NpcControlledBrain && npc.Brain is RainbowSpriteTanBrain brain && npc != Body)
 							{
 								if (target != null && target.IsAlive && brain != null && !brain.HasAggro)
 									brain.AddToAggroList(target, 10);
@@ -106,7 +106,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class RainbowSpriteWhiteBrain : StandardMobBrain
+	public class RainbowSpriteWhiteBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public RainbowSpriteWhiteBrain() : base()
@@ -128,7 +128,7 @@ namespace DOL.AI.Brain
 						foreach (GameNPC npc in Body.GetNPCsInRadius(1000))
 						{
 							GameLiving target = Body.TargetObject as GameLiving;
-							if (npc != null && npc.IsAlive && npc.Name.ToLower() == "rainbow sprite" && npc.Brain is not ControlledNpcBrain && npc.Brain is RainbowSpriteWhiteBrain brain && npc != Body)
+							if (npc != null && npc.IsAlive && npc.Name.ToLower() == "rainbow sprite" && npc.Brain is not NpcControlledBrain && npc.Brain is RainbowSpriteWhiteBrain brain && npc != Body)
 							{
 								if (target != null && target.IsAlive && brain != null && !brain.HasAggro)
 									brain.AddToAggroList(target, 10);
@@ -177,7 +177,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class RainbowSpriteBlueBrain : StandardMobBrain
+	public class RainbowSpriteBlueBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public RainbowSpriteBlueBrain() : base()
@@ -199,7 +199,7 @@ namespace DOL.AI.Brain
 						foreach (GameNPC npc in Body.GetNPCsInRadius(1000))
 						{
 							GameLiving target = Body.TargetObject as GameLiving;
-							if (npc != null && npc.IsAlive && npc.Name.ToLower() == "rainbow sprite" && npc.Brain is not ControlledNpcBrain && npc.Brain is RainbowSpriteBlueBrain brain && npc != Body)
+							if (npc != null && npc.IsAlive && npc.Name.ToLower() == "rainbow sprite" && npc.Brain is not NpcControlledBrain && npc.Brain is RainbowSpriteBlueBrain brain && npc != Body)
 							{
 								if (target != null && target.IsAlive && brain != null && !brain.HasAggro)
 									brain.AddToAggroList(target, 10);
@@ -248,7 +248,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class RainbowSpriteGreenBrain : StandardMobBrain
+	public class RainbowSpriteGreenBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public RainbowSpriteGreenBrain() : base()
@@ -273,7 +273,7 @@ namespace DOL.AI.Brain
 						foreach (GameNPC npc in Body.GetNPCsInRadius(1000))
 						{
 							GameLiving target = Body.TargetObject as GameLiving;
-							if (npc != null && npc.IsAlive && npc.Name.ToLower() == "rainbow sprite" && npc.Brain is not ControlledNpcBrain && npc.Brain is RainbowSpriteGreenBrain brain && npc != Body)
+							if (npc != null && npc.IsAlive && npc.Name.ToLower() == "rainbow sprite" && npc.Brain is not NpcControlledBrain && npc.Brain is RainbowSpriteGreenBrain brain && npc != Body)
 							{
 								if (target != null && target.IsAlive && brain != null && !brain.HasAggro)
 									brain.AddToAggroList(target, 10);

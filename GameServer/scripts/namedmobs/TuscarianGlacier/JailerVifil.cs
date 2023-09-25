@@ -120,7 +120,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class JailerBrain : StandardMobBrain
+    public class JailerBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -349,7 +349,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class JailerAddBrain : StandardMobBrain
+    public class JailerAddBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);

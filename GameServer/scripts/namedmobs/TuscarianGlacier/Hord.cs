@@ -98,7 +98,7 @@ namespace DOL.GS.Scripts
 }
 namespace DOL.AI.Brain
 {
-    public class HordBrain : StandardMobBrain
+    public class HordBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         protected String m_HealAnnounce;

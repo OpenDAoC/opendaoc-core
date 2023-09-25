@@ -32,7 +32,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class ThroatripperBrain : StandardMobBrain
+	public class ThroatripperBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public ThroatripperBrain() : base()
@@ -124,7 +124,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class ThroatripperAddBrain : StandardMobBrain
+	public class ThroatripperAddBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public ThroatripperAddBrain() : base()

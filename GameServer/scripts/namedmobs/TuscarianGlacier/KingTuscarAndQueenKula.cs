@@ -259,7 +259,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class QueenKulaBrain : StandardMobBrain
+    public class QueenKulaBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public QueenKulaBrain()
@@ -902,7 +902,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class KingTuscarBrain : StandardMobBrain
+    public class KingTuscarBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public KingTuscarBrain()

@@ -158,7 +158,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class AbomosSoultrapperBrain : StandardMobBrain
+	public class AbomosSoultrapperBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public AbomosSoultrapperBrain() : base()
@@ -290,7 +290,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-	public class AbomosAddBrain : StandardMobBrain
+	public class AbomosAddBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log =
 			log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);

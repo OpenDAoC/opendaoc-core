@@ -88,7 +88,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class RotoddjurBrain : StandardMobBrain
+	public class RotoddjurBrain : StandardNpcBrain
 	{
 		public RotoddjurBrain()
 			: base()
@@ -193,7 +193,7 @@ namespace DOL.AI.Brain
 /////////////////////////////////////////////////////////////////adds///////////////////////////////////////////////////
 namespace DOL.AI.Brain
 {
-	public class RotoddjurAddBrain : StandardMobBrain
+	public class RotoddjurAddBrain : StandardNpcBrain
 	{
 		public RotoddjurAddBrain()
 			: base()

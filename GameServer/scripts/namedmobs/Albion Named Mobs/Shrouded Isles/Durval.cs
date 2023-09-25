@@ -85,7 +85,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class DurvalBrain : StandardMobBrain
+	public class DurvalBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public DurvalBrain() : base()
@@ -119,7 +119,7 @@ namespace DOL.AI.Brain
 				foreach (GameNPC npc in WorldMgr.GetNPCsFromRegion(3500))
 				{
 					if (npc != null && npc.IsAlive && npc.PackageID == "DurvalBaf")
-						AddAggroListTo(npc.Brain as StandardMobBrain);
+						AddAggroListTo(npc.Brain as StandardNpcBrain);
 				}
 				if (Body.TargetObject != null)
 				{

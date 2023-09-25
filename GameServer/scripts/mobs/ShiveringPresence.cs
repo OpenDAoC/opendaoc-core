@@ -22,7 +22,7 @@ namespace DOL.GS.Scripts
 
 namespace DOL.AI.Brain
 {
-    public class ShiveringPresenceBrain : StandardMobBrain
+    public class ShiveringPresenceBrain : StandardNpcBrain
     {
         public override int ThinkInterval
         {

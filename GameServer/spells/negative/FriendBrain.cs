@@ -4,7 +4,7 @@ using DOL.GS.Effects;
 
 namespace DOL.AI.Brain
 {
-	public class FriendBrain : StandardMobBrain
+	public class FriendBrain : StandardNpcBrain
 	{
 		SpellHandler m_spellHandler = null;
 		public FriendBrain(SpellHandler spellHandler) : base()

@@ -776,7 +776,7 @@ namespace DOL.GS.Keeps
 				attackComponent.StopAttack();
 				StopFollowing();
 
-				StandardMobBrain brain = Brain as StandardMobBrain;
+				StandardNpcBrain brain = Brain as StandardNpcBrain;
 				if (brain != null && brain.HasAggro)
 				{
 					brain.ClearAggroList();

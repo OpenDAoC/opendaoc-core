@@ -79,7 +79,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class ChiefTarekBrain : StandardMobBrain
+	public class ChiefTarekBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public ChiefTarekBrain() : base()
@@ -102,7 +102,7 @@ namespace DOL.AI.Brain
 				foreach (GameNPC npc in Body.GetNPCsInRadius(2500))
 				{
 					if (npc != null && npc.IsAlive && npc.PackageID == "ChiefTarekBaf")
-						AddAggroListTo(npc.Brain as StandardMobBrain);
+						AddAggroListTo(npc.Brain as StandardNpcBrain);
 				}
 			}
 			if (Body.HealthPercent <= 50 && !Body.IsCasting)

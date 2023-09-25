@@ -80,7 +80,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class UlfketillBrain : StandardMobBrain
+	public class UlfketillBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public UlfketillBrain() : base()
@@ -203,7 +203,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class UlfketillAddsBrain : StandardMobBrain
+	public class UlfketillAddsBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public UlfketillAddsBrain() : base()

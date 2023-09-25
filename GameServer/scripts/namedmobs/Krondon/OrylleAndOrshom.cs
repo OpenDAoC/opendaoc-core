@@ -93,7 +93,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class OrylleBrain : StandardMobBrain
+    public class OrylleBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public OrylleBrain() : base()
@@ -272,7 +272,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class OrshomBrain : StandardMobBrain
+    public class OrshomBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public OrshomBrain() : base()
@@ -508,7 +508,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class OrshomFireBrain : StandardMobBrain
+    public class OrshomFireBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public OrshomFireBrain() : base()

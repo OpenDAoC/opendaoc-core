@@ -162,7 +162,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class SummonerLossrenBrain : StandardMobBrain
+	public class SummonerLossrenBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public SummonerLossrenBrain() : base()
@@ -335,7 +335,7 @@ namespace DOL.AI.Brain
 /////////////////////////////////////////////////////////////Adds...many adds... and even more adds !!!!!!!! /////////////////////////////////////////
 namespace DOL.AI.Brain
 {
-	public class TorturedSoulsBrain : StandardMobBrain
+	public class TorturedSoulsBrain : StandardNpcBrain
 	{
 		public TorturedSoulsBrain()
 			: base()
@@ -434,7 +434,7 @@ namespace DOL.GS
 //////////////////////////////////////////////////////////////////////slow explode zombie///////////////////////////////////////////////////
 namespace DOL.AI.Brain
 {
-	public class ExplodeUndeadBrain : StandardMobBrain
+	public class ExplodeUndeadBrain : StandardNpcBrain
 	{
 		public ExplodeUndeadBrain()
 			: base()

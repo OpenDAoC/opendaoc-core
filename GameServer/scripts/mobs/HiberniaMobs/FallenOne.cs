@@ -30,7 +30,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class FallenOneBrain : StandardMobBrain
+	public class FallenOneBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public FallenOneBrain() : base()

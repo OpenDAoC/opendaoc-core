@@ -148,7 +148,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class SarcondinaBrain : StandardMobBrain
+	public class SarcondinaBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public SarcondinaBrain() : base()
@@ -204,7 +204,7 @@ namespace DOL.AI.Brain
 				add.Heading = Body.Heading;
 				add.Faction = FactionMgr.GetFactionByID(64);
 				add.Faction.AddFriendFaction(FactionMgr.GetFactionByID(64));
-				StandardMobBrain brain = new StandardMobBrain();
+				StandardNpcBrain brain = new StandardNpcBrain();
 				add.SetOwnBrain(brain);
 				brain.AggroRange = 800;
 				brain.AggroLevel = 100;

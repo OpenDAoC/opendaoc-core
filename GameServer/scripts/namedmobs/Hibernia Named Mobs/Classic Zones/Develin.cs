@@ -39,7 +39,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class DevelinBrain : StandardMobBrain
+	public class DevelinBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public DevelinBrain() : base()
@@ -131,7 +131,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class DevelinAddBrain : StandardMobBrain
+	public class DevelinAddBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public DevelinAddBrain() : base()

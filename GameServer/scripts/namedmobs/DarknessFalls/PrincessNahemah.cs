@@ -92,7 +92,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class PrincessNahemahBrain : StandardMobBrain
+    public class PrincessNahemahBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -259,7 +259,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class NahemahMinionBrain : StandardMobBrain
+    public class NahemahMinionBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);

@@ -28,7 +28,7 @@ namespace DOL.Tests.Unit.Gameserver
         public void GetPlayerOwner_InitWithPlayer_Player()
         {
             var player = new FakePlayer();
-            var brain = new ControlledNpcBrain(player);
+            var brain = new NpcControlledBrain(player);
 
             var actual = brain.GetPlayerOwner();
 

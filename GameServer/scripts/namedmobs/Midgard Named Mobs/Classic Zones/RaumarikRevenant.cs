@@ -115,7 +115,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class RaumarikRevenantBrain : StandardMobBrain
+	public class RaumarikRevenantBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public RaumarikRevenantBrain() : base()
@@ -138,7 +138,7 @@ namespace DOL.AI.Brain
 				foreach (GameNPC npc in Body.GetNPCsInRadius(2500))
 				{
 					if (npc != null && npc.IsAlive && npc.PackageID == "RevenantBaf")
-						AddAggroListTo(npc.Brain as StandardMobBrain);
+						AddAggroListTo(npc.Brain as StandardNpcBrain);
 				}
 			}
 			base.Think();

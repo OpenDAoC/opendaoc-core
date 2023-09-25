@@ -203,7 +203,7 @@ namespace DOL.GS.Scripts
 
     namespace DOL.AI.Brain
     {
-        public class UaimhLairmasterBrain : StandardMobBrain
+        public class UaimhLairmasterBrain : StandardNpcBrain
         {
             protected byte MAX_Size = 100;
             protected byte MIN_Size = 60;

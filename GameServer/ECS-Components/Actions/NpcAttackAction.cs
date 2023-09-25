@@ -68,7 +68,7 @@ namespace DOL.GS
             // The target isn't in melee range yet. Check if another target is in range to attack on the way to the main target.
             if (_target != null &&
                 _npcOwner.Brain is not IControlledBrain &&
-                _npcOwner.Brain is StandardMobBrain npcBrain &&
+                _npcOwner.Brain is StandardNpcBrain npcBrain &&
                 npcBrain.AggroTable.Count > 0 &&
                 !_npcOwner.IsWithinRadius(_target, _attackComponent.AttackRange))
             {
@@ -159,7 +159,7 @@ namespace DOL.GS
         {
             _petLosCheckInterval = 0;
 
-            if (_npcOwner.Brain is NecromancerPetBrain necromancerPetBrain)
+            if (_npcOwner.Brain is PetServantBrain necromancerPetBrain)
                 necromancerPetBrain.ClearAttackSpellQueue();
 
             base.CleanUp();

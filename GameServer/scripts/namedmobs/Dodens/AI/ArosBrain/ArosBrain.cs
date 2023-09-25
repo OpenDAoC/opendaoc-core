@@ -15,7 +15,7 @@ using log4net;
 
 namespace DOL.AI.Brain
 {
-    public class ArosBrain : StandardMobBrain
+    public class ArosBrain : StandardNpcBrain
     {
         /// <summary>
         /// Defines a logger for this class.
@@ -33,11 +33,11 @@ namespace DOL.AI.Brain
 
             FSM.ClearStates();
 
-            FSM.Add(new StandardMobState_WAKING_UP(this));
+            FSM.Add(new StandardNpcState_WakingUp(this));
             FSM.Add(new ArosState_RETURN_TO_SPAWN(this));
             FSM.Add(new ArosState_IDLE(this));
             FSM.Add(new ArosState_AGGRO(this));
-            FSM.Add(new StandardMobState_DEAD(this));
+            FSM.Add(new StandardNpcState_Dead(this));
 
             FSM.SetCurrentState(eFSMStateType.WAKING_UP);
         }

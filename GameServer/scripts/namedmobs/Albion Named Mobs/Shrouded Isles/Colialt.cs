@@ -126,7 +126,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class ColialtBrain : StandardMobBrain
+	public class ColialtBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public ColialtBrain() : base()
@@ -284,7 +284,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class ColialtAddsBrain : StandardMobBrain
+	public class ColialtAddsBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public ColialtAddsBrain() : base()

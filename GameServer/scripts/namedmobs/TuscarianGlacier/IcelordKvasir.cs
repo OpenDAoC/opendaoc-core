@@ -143,7 +143,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class KvasirBrain : StandardMobBrain
+    public class KvasirBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -188,7 +188,7 @@ namespace DOL.AI.Brain
                     {
                         if (npc.IsAlive && npc.PackageID == "KvasirBaf")
                         {
-                            AddAggroListTo(npc.Brain as StandardMobBrain);
+                            AddAggroListTo(npc.Brain as StandardNpcBrain);
                             IsPulled = true;
                         }
                     }
@@ -353,7 +353,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class TunnelsBrain : StandardMobBrain
+    public class TunnelsBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public TunnelsBrain()

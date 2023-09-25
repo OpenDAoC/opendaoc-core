@@ -125,7 +125,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class NorsobAnnihilatorBrain : StandardMobBrain
+	public class NorsobAnnihilatorBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public NorsobAnnihilatorBrain() : base()
@@ -273,7 +273,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class SarganConquerorBrain : StandardMobBrain
+	public class SarganConquerorBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public SarganConquerorBrain() : base()

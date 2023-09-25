@@ -744,7 +744,7 @@ namespace DOL.GS
     {
         public GameDecoy()
         {
-            SetOwnBrain(new BlankBrain());
+            SetOwnBrain(new BrainBlank());
             this.MaxSpeedBase = 0;
         }
         public override void Die(GameObject killer)
@@ -770,7 +770,7 @@ namespace DOL.GS
     {
         public GameFont()
         {
-            SetOwnBrain(new BlankBrain());
+            SetOwnBrain(new BrainBlank());
             this.Realm = 0;
             this.Level = 1;
             this.MaxSpeedBase = 0;
@@ -871,7 +871,7 @@ namespace DOL.GS
     {
         public GameStorm()
         {
-            SetOwnBrain(new BlankBrain());
+            SetOwnBrain(new BrainBlank());
             this.Realm = 0;
             this.Level = 60;
             this.MaxSpeedBase = 191;

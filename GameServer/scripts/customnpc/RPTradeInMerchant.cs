@@ -16,7 +16,7 @@ namespace DOL.GS.Scripts
         public RPTradeInMerchant()
             : base()
         {
-            SetOwnBrain(new BlankBrain());
+            SetOwnBrain(new BrainBlank());
         }
 
         #endregion Constructor

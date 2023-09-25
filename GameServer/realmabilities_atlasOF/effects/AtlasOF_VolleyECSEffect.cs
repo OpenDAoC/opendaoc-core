@@ -392,7 +392,7 @@ namespace DOL.GS.Effects
             Flags ^= eFlags.CANTTARGET;
             RespawnInterval = -1;
 
-            StandardMobBrain volley = new();
+            StandardNpcBrain volley = new();
             SetOwnBrain(volley);
             bool success = base.AddToWorld();
 

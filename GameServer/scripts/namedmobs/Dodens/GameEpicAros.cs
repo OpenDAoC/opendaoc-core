@@ -266,22 +266,22 @@ namespace DOL.GS.Scripts
             if (summonedGuardian.Inventory != null)
                 summonedGuardian.SwitchWeapon(this.ActiveWeaponSlot);
 
-            ABrain mobBrain = null;
+            BrainBase mobBrain = null;
             foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
-                mobBrain = (ABrain) assembly.CreateInstance(this.Brain.GetType().FullName, true);
+                mobBrain = (BrainBase) assembly.CreateInstance(this.Brain.GetType().FullName, true);
                 if (mobBrain != null)
                     break;
             }
 
             if (mobBrain == null)
             {
-                summonedGuardian.SetOwnBrain(new StandardMobBrain());
+                summonedGuardian.SetOwnBrain(new StandardNpcBrain());
             }
-            else if (mobBrain is StandardMobBrain)
+            else if (mobBrain is StandardNpcBrain)
             {
-                StandardMobBrain sbrain = (StandardMobBrain) mobBrain;
-                StandardMobBrain tbrain = (StandardMobBrain) Brain;
+                StandardNpcBrain sbrain = (StandardNpcBrain) mobBrain;
+                StandardNpcBrain tbrain = (StandardNpcBrain) Brain;
                 sbrain.AggroLevel = tbrain.AggroLevel;
                 sbrain.AggroRange = tbrain.AggroRange;
                 summonedGuardian.SetOwnBrain(sbrain);

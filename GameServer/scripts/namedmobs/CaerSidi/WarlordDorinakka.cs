@@ -87,7 +87,7 @@ namespace DOL.GS.Scripts
 }
 namespace DOL.AI.Brain
 {
-    public class WarlordDorinakkaBrain : StandardMobBrain
+    public class WarlordDorinakkaBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -116,7 +116,7 @@ namespace DOL.AI.Brain
 					{
 						if (npc.IsAlive && npc.PackageID == "DorinakkaBaf")
 						{
-							AddAggroListTo(npc.Brain as StandardMobBrain); // add to aggro mobs with CryptLordBaf PackageID
+							AddAggroListTo(npc.Brain as StandardNpcBrain); // add to aggro mobs with CryptLordBaf PackageID
 						}
 					}
 				}

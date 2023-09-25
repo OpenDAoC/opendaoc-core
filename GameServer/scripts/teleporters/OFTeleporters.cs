@@ -785,7 +785,7 @@ namespace DOL.GS.Scripts
         }
     }
 
-    public class MainTeleporterBrain : StandardMobBrain
+    public class MainTeleporterBrain : StandardNpcBrain
     {
         public override void Think()
         {
@@ -808,7 +808,7 @@ namespace DOL.GS.Scripts
         }
     }
 
-    public class AssistantTeleporterBrain : StandardMobBrain
+    public class AssistantTeleporterBrain : StandardNpcBrain
     {
         public override void Think()
         {

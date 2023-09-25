@@ -166,7 +166,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    class BlackLadyBrain : StandardMobBrain
+    class BlackLadyBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public BlackLadyBrain()
@@ -346,7 +346,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    class OgressBrain : StandardMobBrain
+    class OgressBrain : StandardNpcBrain
     {
         public OgressBrain()
             : base()

@@ -81,7 +81,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class DagarBrain : StandardMobBrain
+	public class DagarBrain : StandardNpcBrain
 	{
 		public DagarBrain()
 			: base()
@@ -100,7 +100,7 @@ namespace DOL.AI.Brain
 					{
 						if (npc.IsAlive && npc.PackageID == "DagarBaf")
 						{
-							AddAggroListTo(npc.Brain as StandardMobBrain);
+							AddAggroListTo(npc.Brain as StandardNpcBrain);
 						}
 					}
 				}

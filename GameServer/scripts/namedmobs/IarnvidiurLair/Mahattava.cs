@@ -85,7 +85,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class MahattavaBrain : StandardMobBrain
+	public class MahattavaBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public MahattavaBrain() : base()
@@ -114,7 +114,7 @@ namespace DOL.AI.Brain
 						{
 							if (npc.IsAlive && npc.PackageID == "MahattavaBaf")
 							{
-								AddAggroListTo(npc.Brain as StandardMobBrain);
+								AddAggroListTo(npc.Brain as StandardNpcBrain);
 							}
 						}
 					}

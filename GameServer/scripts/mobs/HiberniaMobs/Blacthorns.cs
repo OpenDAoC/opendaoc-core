@@ -31,7 +31,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class BlackthornBrain : StandardMobBrain
+	public class BlackthornBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public BlackthornBrain() : base()
@@ -76,7 +76,7 @@ namespace DOL.AI.Brain
 					if (RandomNpc != null && RandomNpc.IsAlive)
 					{
 						if (mob == RandomNpc)
-							AddAggroListTo(mob.Brain as StandardMobBrain);
+							AddAggroListTo(mob.Brain as StandardNpcBrain);
 					}
 				}
             }

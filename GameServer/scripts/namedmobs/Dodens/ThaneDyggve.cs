@@ -93,7 +93,7 @@ namespace DOL.GS.Scripts
 
 	namespace DOL.AI.Brain
 	{
-		public class ThaneDyggveBrain : StandardMobBrain
+		public class ThaneDyggveBrain : StandardNpcBrain
 		{
 			protected String[] m_MjollnirAnnounce;
 			protected bool castsMjollnir = true;
@@ -122,7 +122,7 @@ namespace DOL.GS.Scripts
 						foreach (GameNPC npc in Body.GetNPCsInRadius(2500))
 						{
 							if (npc != null && npc.IsAlive && npc.PackageID == "ThaneDyggveBaf")
-								AddAggroListTo(npc.Brain as StandardMobBrain);
+								AddAggroListTo(npc.Brain as StandardNpcBrain);
 						}
 						if (!CanCastSpell)
 						{

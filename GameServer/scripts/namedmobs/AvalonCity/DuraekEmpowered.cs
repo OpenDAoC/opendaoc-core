@@ -149,7 +149,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class DuraekEmpoweredBrain : StandardMobBrain
+	public class DuraekEmpoweredBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public DuraekEmpoweredBrain() : base()
@@ -178,7 +178,7 @@ namespace DOL.AI.Brain
 						{
 							if (npc.IsAlive && npc.PackageID == "DuraekBaf")
 							{
-								AddAggroListTo(npc.Brain as StandardMobBrain); // add to aggro mobs with IssordenBaf PackageID
+								AddAggroListTo(npc.Brain as StandardNpcBrain); // add to aggro mobs with IssordenBaf PackageID
 							}
 						}
 					}

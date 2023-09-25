@@ -16,7 +16,7 @@ namespace DOL.GS.Spells
 
 		protected override IControlledBrain GetPetBrain(GameLiving owner)
 		{
-			return new JuggernautBrain(owner);
+			return new PetJuggernautBrain(owner);
 		}
 		
 		protected override void OnNpcReleaseCommand(DOLEvent e, object sender, EventArgs arguments)
@@ -24,7 +24,7 @@ namespace DOL.GS.Spells
 			if (e != GameLivingEvent.PetReleased || sender is not GameNPC gameNpc)
 				return;
 
-			if (gameNpc.Brain is not JuggernautBrain juggernautBrain)
+			if (gameNpc.Brain is not PetJuggernautBrain juggernautBrain)
 				return;
 
 			var player = juggernautBrain.Owner as GamePlayer;

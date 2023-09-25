@@ -110,7 +110,7 @@ namespace DOL.GS.Spells
 
 		protected virtual IControlledBrain GetPetBrain(GameLiving owner)
 		{
-			return new ControlledNpcBrain(owner);
+			return new NpcControlledBrain(owner);
 		}
 
 		protected virtual void SetBrainToOwner(IControlledBrain brain)
@@ -152,7 +152,7 @@ namespace DOL.GS.Spells
 				brain = GetPetBrain(Caster);
 
 			m_pet = GetGamePet(template);
-			m_pet.SetOwnBrain(brain as AI.ABrain);
+			m_pet.SetOwnBrain(brain as AI.BrainBase);
 
 			m_pet.SummonSpellDamage = Spell.Damage;
 			m_pet.SummonSpellValue = Spell.Value;
@@ -177,8 +177,8 @@ namespace DOL.GS.Spells
 			m_pet.AddToWorld();
 			
 			// Check for buffs
-			if (brain is ControlledNpcBrain)
-				(brain as ControlledNpcBrain).CheckSpells(StandardMobBrain.eCheckSpellType.Defensive);
+			if (brain is NpcControlledBrain)
+				(brain as NpcControlledBrain).CheckSpells(StandardNpcBrain.eCheckSpellType.Defensive);
 
 			AddHandlers();
 			SetBrainToOwner(brain);

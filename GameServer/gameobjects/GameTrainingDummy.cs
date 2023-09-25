@@ -31,7 +31,7 @@ namespace DOL.GS
         public GameTrainingDummy() : base()
         {
             MaxSpeedBase = 0;
-            SetOwnBrain(new BlankBrain());
+            SetOwnBrain(new BrainBlank());
         }
 
         

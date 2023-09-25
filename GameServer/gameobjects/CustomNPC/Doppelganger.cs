@@ -44,7 +44,7 @@ namespace DOL.GS
         override public byte PetSize { get { return 50; } }
 
         public Doppelganger() : base() { }
-        public Doppelganger(ABrain defaultBrain) : base(defaultBrain) { }
+        public Doppelganger(BrainBase defaultBrain) : base(defaultBrain) { }
         public Doppelganger(INpcTemplate template) : base(template) { }
 
         static Doppelganger()

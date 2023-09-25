@@ -100,7 +100,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class MelancholicFairyQueenBrain : StandardMobBrain
+	public class MelancholicFairyQueenBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public MelancholicFairyQueenBrain() : base()
@@ -280,7 +280,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class MFQGuardsBrain : StandardMobBrain
+	public class MFQGuardsBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public MFQGuardsBrain() : base()

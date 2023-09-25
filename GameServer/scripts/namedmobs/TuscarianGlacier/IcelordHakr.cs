@@ -153,7 +153,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class HakrBrain : StandardMobBrain
+    public class HakrBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public HakrBrain()
@@ -360,7 +360,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class HakrAddBrain : StandardMobBrain
+    public class HakrAddBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public HakrAddBrain()

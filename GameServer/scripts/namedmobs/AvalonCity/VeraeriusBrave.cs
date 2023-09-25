@@ -108,7 +108,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class VeraeriusBraveBrain : StandardMobBrain
+	public class VeraeriusBraveBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public VeraeriusBraveBrain() : base()
@@ -137,7 +137,7 @@ namespace DOL.AI.Brain
 						{
 							if (npc.IsAlive && npc.PackageID == "VeraeriusBaf")
 							{
-								AddAggroListTo(npc.Brain as StandardMobBrain); // add to aggro mobs with IssordenBaf PackageID
+								AddAggroListTo(npc.Brain as StandardNpcBrain); // add to aggro mobs with IssordenBaf PackageID
 							}
 						}
 					}

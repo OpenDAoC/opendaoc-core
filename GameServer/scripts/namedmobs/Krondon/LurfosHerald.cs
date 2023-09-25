@@ -163,7 +163,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class LurfosHeraldBrain : StandardMobBrain
+	public class LurfosHeraldBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public LurfosHeraldBrain() : base()

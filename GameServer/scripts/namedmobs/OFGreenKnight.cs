@@ -682,7 +682,7 @@ namespace DOL.AI.Brain
 
 namespace DOL.AI.Brain
 {
-    public class GKTreesBrain : StandardMobBrain
+    public class GKTreesBrain : StandardNpcBrain
     {
         public GKTreesBrain()
             : base()

@@ -122,7 +122,7 @@ namespace DOL.GS.Scripts
 
 	namespace DOL.AI.Brain
     {
-        public class HamarBrain : StandardMobBrain
+        public class HamarBrain : StandardNpcBrain
 		{
 			private bool _startAttack = true;
 			public HamarBrain() : base()

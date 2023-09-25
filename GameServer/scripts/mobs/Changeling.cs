@@ -22,7 +22,7 @@ namespace DOL.GS.Scripts
 
 namespace DOL.AI.Brain
 {
-    public class ChangelingBrain : StandardMobBrain
+    public class ChangelingBrain : StandardNpcBrain
     {
         public ChangelingBrain()
             : base()

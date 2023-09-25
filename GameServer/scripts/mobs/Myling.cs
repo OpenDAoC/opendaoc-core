@@ -6,7 +6,7 @@ namespace DOL.GS.Scripts
     {
         
         public Myling() : base() { }
-        public Myling(ABrain defaultBrain) : base(defaultBrain) { }
+        public Myling(BrainBase defaultBrain) : base(defaultBrain) { }
         public Myling(INpcTemplate template) : base(template) { }
         
         public bool IsRevealed = false;

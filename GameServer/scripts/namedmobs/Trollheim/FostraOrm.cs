@@ -74,7 +74,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class FostraOrmBrain : StandardMobBrain
+	public class FostraOrmBrain : StandardNpcBrain
 	{
 		public FostraOrmBrain()
 			: base()

@@ -51,7 +51,7 @@ namespace DOL.GS
 
             if (Brain is IControlledBrain brain)
             {
-                if (brain.AggressionState == eAggressionState.Passive)
+                if (brain.AggressionState == EAggressionState.Passive)
                     return;
             }
 
@@ -62,7 +62,7 @@ namespace DOL.GS
             else
                 m_lastAttackTickPvP = GameLoop.GameLoopTime;
 
-            if (Brain is TurretMainPetTankBrain)
+            if (Brain is TurretMainTankBrain)
                 attackComponent.RequestStartAttack(TargetObject);
         }
 

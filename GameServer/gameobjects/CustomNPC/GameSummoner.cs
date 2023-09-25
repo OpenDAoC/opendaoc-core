@@ -55,7 +55,7 @@ namespace DOL.GS
         private long m_resummonTime = 0;
 
         public GameSummoner() : base() { }
-        public GameSummoner(ABrain defaultBrain) : base(defaultBrain) { }
+        public GameSummoner(BrainBase defaultBrain) : base(defaultBrain) { }
         public GameSummoner(INpcTemplate template) : base(template) { }
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace DOL.GS
                     SummonPet();
             }
 
-            if (m_pet != null && m_pet.IsAlive && !m_pet.InCombat && m_pet.Brain is StandardMobBrain petBrain)
+            if (m_pet != null && m_pet.IsAlive && !m_pet.InCombat && m_pet.Brain is StandardNpcBrain petBrain)
             {
                 petBrain.AddToAggroList(ad.Attacker, 1);
                 petBrain.Think();
@@ -170,7 +170,7 @@ namespace DOL.GS
 
                     m_pet.AutoSetStats();
 
-                    if (m_pet.Brain is StandardMobBrain petBrain && Brain is StandardMobBrain brain && TargetObject is GameLiving living)
+                    if (m_pet.Brain is StandardNpcBrain petBrain && Brain is StandardNpcBrain brain && TargetObject is GameLiving living)
                     {
                         petBrain.CanBAF = false;
                         brain.AddAggroListTo(petBrain);

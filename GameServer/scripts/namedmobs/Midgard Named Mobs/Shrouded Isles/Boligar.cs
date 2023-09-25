@@ -82,7 +82,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class BoligarBrain : StandardMobBrain
+	public class BoligarBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public BoligarBrain() : base()

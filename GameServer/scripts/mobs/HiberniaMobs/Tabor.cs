@@ -70,7 +70,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class TaborBrain : StandardMobBrain
+    public class TaborBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public TaborBrain() : base()
@@ -284,7 +284,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class TaborGhostBrain : StandardMobBrain
+    public class TaborGhostBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public TaborGhostBrain() : base()
@@ -519,7 +519,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class SwirlDirtBrain : StandardMobBrain
+    public class SwirlDirtBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public SwirlDirtBrain() : base()

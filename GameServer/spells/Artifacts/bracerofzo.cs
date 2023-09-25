@@ -57,7 +57,7 @@ namespace DOL.GS.Spells
             for(i=0;i<3;i++)
             {               
                 deamons[i] = new ZoarkatPet(template);
-                deamons[i].SetOwnBrain(new ProcPetBrain(player));
+                deamons[i].SetOwnBrain(new PetProcBrain(player));
                 deamons[i].X = spawnPoint.X + Util.Random(20,40) - Util.Random(20,40);
                 deamons[i].Y = spawnPoint.Y + Util.Random(20,40) - Util.Random(20,40);
                 deamons[i].Z = Caster.Z;
@@ -69,7 +69,7 @@ namespace DOL.GS.Spells
                 deamons[i].Flags |= GameNPC.eFlags.FLYING;
                 deamons[i].AddToWorld();
 				(deamons[i].Brain as IOldAggressiveBrain).AddToAggroList(Caster.TargetObject as GameLiving, 1);
-				(deamons[i].Brain as ProcPetBrain).Think();
+				(deamons[i].Brain as PetProcBrain).Think();
             }			
 		}
 

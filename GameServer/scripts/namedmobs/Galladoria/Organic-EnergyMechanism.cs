@@ -112,7 +112,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class OrganicEnergyMechanismBrain : StandardMobBrain
+    public class OrganicEnergyMechanismBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public OrganicEnergyMechanismBrain()
@@ -463,7 +463,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class OEMAddBrain : StandardMobBrain
+    public class OEMAddBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);

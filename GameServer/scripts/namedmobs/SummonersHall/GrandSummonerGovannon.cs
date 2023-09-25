@@ -225,7 +225,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class GrandSummonerGovannonBrain : StandardMobBrain
+	public class GrandSummonerGovannonBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public GrandSummonerGovannonBrain() : base()
@@ -457,7 +457,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class SummonedSacrificeBrain : StandardMobBrain
+	public class SummonedSacrificeBrain : StandardNpcBrain
 	{
 		public SummonedSacrificeBrain()
 			: base()
@@ -543,7 +543,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class SummonedDemonBrain : StandardMobBrain
+	public class SummonedDemonBrain : StandardNpcBrain
 	{
 		public SummonedDemonBrain()
 			: base()
@@ -677,7 +677,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class ShadeOfAelfgarBrain : StandardMobBrain
+	public class ShadeOfAelfgarBrain : StandardNpcBrain
 	{
 		public ShadeOfAelfgarBrain()
 			: base()

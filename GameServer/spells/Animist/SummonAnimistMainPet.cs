@@ -52,12 +52,12 @@ namespace DOL.GS.Spells
     {
       if(Spell.DamageType == 0)
       {
-        return new TurretMainPetCasterBrain(owner);
+        return new TurretMainCasterBrain(owner);
       }
       //[Ganrod] Nidel: Spell.DamageType : 1 for tank pet
       if(Spell.DamageType == (eDamageType) 1)
       {
-        return new TurretMainPetTankBrain(owner);
+        return new TurretMainTankBrain(owner);
       }
       return base.GetPetBrain(owner);
     }

@@ -24,7 +24,7 @@ namespace DOL.GS.Spells
 			base.ApplyEffectOnTarget(target);
 
 			m_pet.Brain.Think();
-			((ControlledNpcBrain)m_pet.Brain).Stay();
+			((NpcControlledBrain)m_pet.Brain).Stay();
 		}
 
 		protected override GameSummonedPet GetGamePet(INpcTemplate template)

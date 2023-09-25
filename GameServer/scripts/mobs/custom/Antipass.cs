@@ -35,7 +35,7 @@ namespace DOL.GS.Scripts
 
 namespace DOL.AI.Brain
 {
-    public class AntipassBrain : StandardMobBrain
+    public class AntipassBrain : StandardNpcBrain
     {
         public AntipassBrain()
             : base()

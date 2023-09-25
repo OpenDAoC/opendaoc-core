@@ -46,7 +46,7 @@ namespace DOL.GS
 			ScalingFactor = 14;
 		}
 
-		public GameSummonedPet(ABrain brain) : base(brain) { }
+		public GameSummonedPet(BrainBase brain) : base(brain) { }
 
 		/// <summary>
 		/// The owner of this pet
@@ -380,7 +380,7 @@ namespace DOL.GS
 		{
 			try
 			{
-				(Brain as ControlledNpcBrain)?.StripCastedBuffs();
+				(Brain as NpcControlledBrain)?.StripCastedBuffs();
 				GameEventMgr.Notify(GameLivingEvent.PetReleased, this);
 			}
 			finally

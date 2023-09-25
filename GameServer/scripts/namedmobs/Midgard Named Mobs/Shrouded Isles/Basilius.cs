@@ -156,7 +156,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class BasiliusBrain : StandardMobBrain
+	public class BasiliusBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public BasiliusBrain() : base()
@@ -179,7 +179,7 @@ namespace DOL.AI.Brain
 				foreach (GameNPC npc in Body.GetNPCsInRadius(2500))
 				{
 					if (npc != null && npc.IsAlive && npc.PackageID == "BasiliusBaf")
-						AddAggroListTo(npc.Brain as StandardMobBrain);
+						AddAggroListTo(npc.Brain as StandardNpcBrain);
 				}
 			}
 			base.Think();

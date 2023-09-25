@@ -82,7 +82,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class QanrisDurosBrain : StandardMobBrain
+	public class QanrisDurosBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public QanrisDurosBrain() : base()
@@ -105,7 +105,7 @@ namespace DOL.AI.Brain
 				foreach (GameNPC npc in WorldMgr.GetNPCsFromRegion(3500))
 				{
 					if (npc != null && npc.IsAlive && npc.PackageID == "DurosBaf")
-						AddAggroListTo(npc.Brain as StandardMobBrain);
+						AddAggroListTo(npc.Brain as StandardNpcBrain);
 				}
 				if (!Body.IsCasting && Util.Chance(30))
 				{

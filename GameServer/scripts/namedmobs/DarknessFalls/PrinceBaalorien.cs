@@ -99,7 +99,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class BaalorienBrain : StandardMobBrain
+    public class BaalorienBrain : StandardNpcBrain
     {
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 

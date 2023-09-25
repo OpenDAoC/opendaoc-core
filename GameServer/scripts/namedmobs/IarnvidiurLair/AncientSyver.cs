@@ -123,7 +123,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class AncientSyverBrain : StandardMobBrain
+	public class AncientSyverBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public AncientSyverBrain() : base()
@@ -152,7 +152,7 @@ namespace DOL.AI.Brain
 						{
 							if (npc.IsAlive && npc.PackageID == "AncientSyverBaf")
 							{
-								AddAggroListTo(npc.Brain as StandardMobBrain);
+								AddAggroListTo(npc.Brain as StandardNpcBrain);
 							}
 						}
 					}

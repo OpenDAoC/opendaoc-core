@@ -215,7 +215,7 @@ namespace DOL.GS.Commands
 
 namespace DOL.GS.SpamMob
 {
-    public class SpamMobBrain : StandardMobBrain
+    public class SpamMobBrain : StandardNpcBrain
     {
         public SpamMobBrain()
         {

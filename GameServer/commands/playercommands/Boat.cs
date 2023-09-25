@@ -74,7 +74,7 @@ namespace DOL.GS.Commands
 									client.Player.Inventory.RemoveItem(item);
 									InventoryLogging.LogInventoryAction(client.Player, "(ground)", eInventoryActionType.Other, item.Template, item.Count);
 									playerBoat.Riders = new GamePlayer[8];
-									BlankBrain brain = new BlankBrain();
+									BrainBlank brain = new BrainBlank();
 									playerBoat.SetOwnBrain(brain);
 									playerBoat = BoatMgr.CreateBoat(client.Player, playerBoat);
 									if (client.Player.Guild != null)
@@ -106,7 +106,7 @@ namespace DOL.GS.Commands
 									client.Player.Inventory.RemoveItem(item);
 									InventoryLogging.LogInventoryAction(client.Player, "(ground)", eInventoryActionType.Other, item.Template, item.Count);
 									playerBoat.Riders = new GamePlayer[32];
-									BlankBrain brain = new BlankBrain();
+									BrainBlank brain = new BrainBlank();
 									playerBoat.SetOwnBrain(brain);
 									playerBoat = BoatMgr.CreateBoat(client.Player, playerBoat);
 									if (client.Player.Guild != null)
@@ -138,7 +138,7 @@ namespace DOL.GS.Commands
 									client.Player.Inventory.RemoveItem(item);
 									InventoryLogging.LogInventoryAction(client.Player, "(ground)", eInventoryActionType.Other, item.Template, item.Count);
 									playerBoat.Riders = new GamePlayer[16];
-									BlankBrain brain = new BlankBrain();
+									BrainBlank brain = new BrainBlank();
 									playerBoat.SetOwnBrain(brain);
 									playerBoat = BoatMgr.CreateBoat(client.Player, playerBoat);
 									if (client.Player.Guild != null)
@@ -170,7 +170,7 @@ namespace DOL.GS.Commands
 									client.Player.Inventory.RemoveItem(item);
 									InventoryLogging.LogInventoryAction(client.Player, "(ground)", eInventoryActionType.Other, item.Template, item.Count);
 									playerBoat.Riders = new GamePlayer[8];
-									BlankBrain brain = new BlankBrain();
+									BrainBlank brain = new BrainBlank();
 									playerBoat.SetOwnBrain(brain);
 									playerBoat = BoatMgr.CreateBoat(client.Player, playerBoat);
 									if (client.Player.Guild != null)
@@ -202,7 +202,7 @@ namespace DOL.GS.Commands
 									client.Player.Inventory.RemoveItem(item);
 									InventoryLogging.LogInventoryAction(client.Player, "(ground)", eInventoryActionType.Other, item.Template, item.Count);
 									playerBoat.Riders = new GamePlayer[32];
-									BlankBrain brain = new BlankBrain();
+									BrainBlank brain = new BrainBlank();
 									playerBoat.SetOwnBrain(brain);
 									playerBoat = BoatMgr.CreateBoat(client.Player, playerBoat);
 									if (client.Player.Guild != null)
@@ -234,7 +234,7 @@ namespace DOL.GS.Commands
 									client.Player.Inventory.RemoveItem(item);
 									InventoryLogging.LogInventoryAction(client.Player, "(ground)", eInventoryActionType.Other, item.Template, item.Count);
 									playerBoat.Riders = new GamePlayer[31];
-									BlankBrain brain = new BlankBrain();
+									BrainBlank brain = new BrainBlank();
 									playerBoat.SetOwnBrain(brain);
 									playerBoat = BoatMgr.CreateBoat(client.Player, playerBoat);
 									if (client.Player.Guild != null)
@@ -266,7 +266,7 @@ namespace DOL.GS.Commands
 									client.Player.Inventory.RemoveItem(item);
 									InventoryLogging.LogInventoryAction(client.Player, "(ground)", eInventoryActionType.Other, item.Template, item.Count);
 									playerBoat.Riders = new GamePlayer[24];
-									BlankBrain brain = new BlankBrain();
+									BrainBlank brain = new BrainBlank();
 									playerBoat.SetOwnBrain(brain);
 									playerBoat = BoatMgr.CreateBoat(client.Player, playerBoat);
 									if (client.Player.Guild != null)
@@ -298,7 +298,7 @@ namespace DOL.GS.Commands
 									client.Player.Inventory.RemoveItem(item);
 									InventoryLogging.LogInventoryAction(client.Player, "(ground)", eInventoryActionType.Other, item.Template, item.Count);
 									playerBoat.Riders = new GamePlayer[64];
-									BlankBrain brain = new BlankBrain();
+									BrainBlank brain = new BrainBlank();
 									playerBoat.SetOwnBrain(brain);
 									playerBoat = BoatMgr.CreateBoat(client.Player, playerBoat);
 									if (client.Player.Guild != null)
@@ -330,7 +330,7 @@ namespace DOL.GS.Commands
 									client.Player.Inventory.RemoveItem(item);
 									InventoryLogging.LogInventoryAction(client.Player, "(ground)", eInventoryActionType.Other, item.Template, item.Count);
 									playerBoat.Riders = new GamePlayer[33];
-									BlankBrain brain = new BlankBrain();
+									BrainBlank brain = new BrainBlank();
 									playerBoat.SetOwnBrain(brain);
 									playerBoat = BoatMgr.CreateBoat(client.Player, playerBoat);
 									if (client.Player.Guild != null)
@@ -368,7 +368,7 @@ namespace DOL.GS.Commands
 								curBoat.Realm = client.Player.Realm;
 								curBoat.CurrentRegionID = client.Player.CurrentRegionID;
 								curBoat.Riders = new GamePlayer[32];
-								BlankBrain brain = new BlankBrain();
+								BrainBlank brain = new BrainBlank();
 								curBoat.SetOwnBrain(brain);
 								curBoat.AddToWorld();
 								client.Player.MountSteed(curBoat, true);

@@ -119,7 +119,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class GreenMawBrain : StandardMobBrain
+	public class GreenMawBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public GreenMawBrain() : base()
@@ -226,7 +226,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class GreenMawAddBrain : StandardMobBrain
+	public class GreenMawAddBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public GreenMawAddBrain() : base()
@@ -327,7 +327,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class GreenMawAdd2Brain : StandardMobBrain
+	public class GreenMawAdd2Brain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public GreenMawAdd2Brain() : base()
@@ -408,7 +408,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class GreenMawAdd3Brain : StandardMobBrain
+	public class GreenMawAdd3Brain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public GreenMawAdd3Brain() : base()

@@ -91,7 +91,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class OtryggBrain : StandardMobBrain
+    public class OtryggBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -257,7 +257,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class OtryggAddBrain : StandardMobBrain
+    public class OtryggAddBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public OtryggAddBrain()

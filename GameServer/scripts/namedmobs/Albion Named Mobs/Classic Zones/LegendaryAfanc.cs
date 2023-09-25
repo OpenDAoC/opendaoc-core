@@ -96,7 +96,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class LegendaryAfancBrain : StandardMobBrain
+	public class LegendaryAfancBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public LegendaryAfancBrain() : base()
@@ -204,7 +204,7 @@ namespace DOL.AI.Brain
 					add.PackageID = "AfancMinion";
 					add.Faction = FactionMgr.GetFactionByID(18);
 					add.Faction.AddFriendFaction(FactionMgr.GetFactionByID(18));
-					StandardMobBrain brain = new StandardMobBrain();
+					StandardNpcBrain brain = new StandardNpcBrain();
 					add.SetOwnBrain(brain);
 					brain.AggroRange = 1000;
 					brain.AggroLevel = 100;

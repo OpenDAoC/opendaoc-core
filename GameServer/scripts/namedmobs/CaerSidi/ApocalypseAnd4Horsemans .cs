@@ -269,7 +269,7 @@ namespace DOL.GS
 #region Initializator Brain
 namespace DOL.AI.Brain
 {
-    public class ApocIniBrain : StandardMobBrain
+    public class ApocIniBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public ApocIniBrain()
@@ -485,7 +485,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class FamesBrain : StandardMobBrain
+    public class FamesBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public FamesBrain()
@@ -533,7 +533,7 @@ namespace DOL.AI.Brain
                         {
                             if (npc.IsAlive && npc.PackageID == "FamesBaf" && npc is GameEpicNPC)
                             {
-                                AddAggroListTo(npc.Brain as StandardMobBrain);// add to aggro mobs with FamesBaf PackageID
+                                AddAggroListTo(npc.Brain as StandardNpcBrain);// add to aggro mobs with FamesBaf PackageID
                                 BafMobs = true;
                             }
                         }
@@ -724,7 +724,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class BellumBrain : StandardMobBrain
+    public class BellumBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public BellumBrain()
@@ -907,7 +907,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class WarIncarnateCrushBrain : StandardMobBrain
+    public class WarIncarnateCrushBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public WarIncarnateCrushBrain()
@@ -1076,7 +1076,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class WarIncarnateSlashBrain : StandardMobBrain
+    public class WarIncarnateSlashBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public WarIncarnateSlashBrain()
@@ -1245,7 +1245,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class WarIncarnateThrustBrain : StandardMobBrain
+    public class WarIncarnateThrustBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public WarIncarnateThrustBrain()
@@ -1517,7 +1517,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class MorbusBrain : StandardMobBrain
+    public class MorbusBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public MorbusBrain()
@@ -1828,7 +1828,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class MorbusSwarmBrain : StandardMobBrain
+    public class MorbusSwarmBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public MorbusSwarmBrain()
@@ -2073,7 +2073,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class FunusBrain : StandardMobBrain
+    public class FunusBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public FunusBrain()
@@ -2115,7 +2115,7 @@ namespace DOL.AI.Brain
                         {
                             if (npc.IsAlive && npc.PackageID == "FunusBaf" && npc is GameEpicNPC)
                             {
-                                AddAggroListTo(npc.Brain as StandardMobBrain);// add to aggro mobs with FamesBaf PackageID
+                                AddAggroListTo(npc.Brain as StandardNpcBrain);// add to aggro mobs with FamesBaf PackageID
                                 BafMobs4 = true;
                             }
                         }
@@ -2295,7 +2295,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class ApocalypseBrain : StandardMobBrain
+    public class ApocalypseBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public ApocalypseBrain()
@@ -2670,7 +2670,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class HarbringerOfFateBrain : StandardMobBrain
+    public class HarbringerOfFateBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public HarbringerOfFateBrain()
@@ -2772,7 +2772,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class RainOfFireBrain : StandardMobBrain
+    public class RainOfFireBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public RainOfFireBrain()

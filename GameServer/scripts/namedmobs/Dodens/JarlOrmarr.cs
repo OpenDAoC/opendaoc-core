@@ -125,7 +125,7 @@ namespace DOL.GS.Scripts
 	}
 	namespace DOL.AI.Brain
     {
-        public class JarlOrmarrBrain : StandardMobBrain
+        public class JarlOrmarrBrain : StandardNpcBrain
 		{
 			protected String[] m_HitAnnounce;
 			public JarlOrmarrBrain() : base()

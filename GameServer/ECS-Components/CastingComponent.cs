@@ -178,7 +178,7 @@ namespace DOL.GS
             }
             else if (Owner is NecromancerPet necroPet)
             {
-                if (necroPet.Brain is NecromancerPetBrain necroBrain)
+                if (necroPet.Brain is PetServantBrain necroBrain)
                 {
                     if (currentSpell.CastTime > 0)
                     {

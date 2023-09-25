@@ -275,7 +275,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class HibCuuldurachBrain : StandardMobBrain
+	public class HibCuuldurachBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public HibCuuldurachBrain()
@@ -1071,7 +1071,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-	public class CuuldurachMessengerBrain : StandardMobBrain
+	public class CuuldurachMessengerBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -1411,7 +1411,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class CuuldurachSpawnedAdBrain : StandardMobBrain
+	public class CuuldurachSpawnedAdBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 

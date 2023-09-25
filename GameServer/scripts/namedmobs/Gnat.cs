@@ -42,7 +42,7 @@ namespace DOL.GS.Scripts
 
 namespace DOL.AI.Brain
 {
-    public class GnatBrain : StandardMobBrain
+    public class GnatBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -159,7 +159,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class GnatAntsBrain : StandardMobBrain
+    public class GnatAntsBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);

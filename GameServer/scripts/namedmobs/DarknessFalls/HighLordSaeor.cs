@@ -118,7 +118,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class SaeorBrain : StandardMobBrain
+    public class SaeorBrain : StandardNpcBrain
     {
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 

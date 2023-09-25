@@ -14,16 +14,16 @@ namespace DOL.GS.Commands
 			if (IsSpammingCommand(client.Player, "dismisspet"))
 				return;
 
-			if (client.Player.TempProperties.GetProperty<bool>(NoveltyPetBrain.HAS_PET, false))
+			if (client.Player.TempProperties.GetProperty<bool>(PetNoveltyBrain.HAS_PET, false))
 			{
 				foreach (GameSummonedPet pet in client.Player.GetNPCsInRadius(500))
 				{
-					if (pet.Brain is NoveltyPetBrain)
+					if (pet.Brain is PetNoveltyBrain)
 					{
 						if (pet.Owner == client.Player)
 						{
 							pet.RemoveFromWorld();
-							client.Player.TempProperties.RemoveProperty(NoveltyPetBrain.HAS_PET);
+							client.Player.TempProperties.RemoveProperty(PetNoveltyBrain.HAS_PET);
 							client.Player.MessageToSelf("You have dismissed your companion pet.",eChatType.CT_Spell);
 						}
 		

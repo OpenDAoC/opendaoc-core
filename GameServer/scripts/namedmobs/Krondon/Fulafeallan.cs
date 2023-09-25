@@ -103,7 +103,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class FulafeallanBrain : StandardMobBrain
+	public class FulafeallanBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public FulafeallanBrain() : base()
@@ -235,7 +235,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class FulafeallanAddBrain : StandardMobBrain
+	public class FulafeallanAddBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public FulafeallanAddBrain() : base()

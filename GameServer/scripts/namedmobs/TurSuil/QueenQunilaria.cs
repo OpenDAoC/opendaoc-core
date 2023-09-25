@@ -138,7 +138,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class QueenQunilariaBrain : StandardMobBrain
+	public class QueenQunilariaBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public QueenQunilariaBrain() : base()
@@ -207,7 +207,7 @@ namespace DOL.AI.Brain
 /// </summary>
 namespace DOL.AI.Brain
 {
-	public class QunilariaAddBrain : StandardMobBrain
+	public class QunilariaAddBrain : StandardNpcBrain
 	{
 		public QunilariaAddBrain()
 			: base()

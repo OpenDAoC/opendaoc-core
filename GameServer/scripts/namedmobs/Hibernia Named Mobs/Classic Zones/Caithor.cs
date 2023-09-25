@@ -109,7 +109,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class CaithorBrain : StandardMobBrain
+	public class CaithorBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public CaithorBrain() : base()
@@ -139,7 +139,7 @@ namespace DOL.AI.Brain
 							if (brain != null && target != null && !brain.HasAggro && target.IsAlive)
 								brain.AddToAggroList(target, 10);
 						}
-						if(npc.PackageID == "RealCaithorDorocha" && npc.Brain is StandardMobBrain brain2)
+						if(npc.PackageID == "RealCaithorDorocha" && npc.Brain is StandardNpcBrain brain2)
                         {
 							if (brain2 != null && target != null && !brain2.HasAggro && target.IsAlive)
 								brain2.AddToAggroList(target, 10);
@@ -255,7 +255,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class GhostOfCaithorBrain : StandardMobBrain
+	public class GhostOfCaithorBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public GhostOfCaithorBrain() : base()
@@ -372,7 +372,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class CaithorDorochaBrain : StandardMobBrain
+	public class CaithorDorochaBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public CaithorDorochaBrain() : base()

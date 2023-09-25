@@ -188,7 +188,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class LieutenantMeadeBrain : StandardMobBrain
+    public class LieutenantMeadeBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);

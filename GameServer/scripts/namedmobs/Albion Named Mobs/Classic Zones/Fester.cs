@@ -125,7 +125,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class FesterBrain : StandardMobBrain
+	public class FesterBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public FesterBrain() : base()

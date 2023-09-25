@@ -39,7 +39,7 @@ namespace DOL.GS
             Flags = eFlags.PEACE;
             Name = "boat";
             MaxSpeedBase = 1000;
-            BlankBrain brain = new();
+            BrainBlank brain = new();
             SetOwnBrain(brain);
         }
 

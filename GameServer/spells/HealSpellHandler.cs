@@ -365,7 +365,7 @@ namespace DOL.GS.Spells
                     ad.DamageType = Spell.DamageType;
                     ad.CausesCombat = false;
                     //npc.OnAttackedByEnemy(ad);
-                    if (npc.Brain is StandardMobBrain mobBrain)
+                    if (npc.Brain is StandardNpcBrain mobBrain)
                     {
                         mobBrain.AddToAggroList(Caster, ad.Damage);
                     }

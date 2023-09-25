@@ -106,7 +106,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class CurengkurBrain : StandardMobBrain
+	public class CurengkurBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public CurengkurBrain() : base()
@@ -258,7 +258,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class CurengkurNestBrain : StandardMobBrain
+	public class CurengkurNestBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public CurengkurNestBrain() : base()

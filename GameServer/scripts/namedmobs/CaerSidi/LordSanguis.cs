@@ -179,7 +179,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class LordSanguisBrain : StandardMobBrain
+    public class LordSanguisBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -337,7 +337,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class LichLordSanguisBrain : StandardMobBrain
+    public class LichLordSanguisBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -468,7 +468,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class BloodMageBrain : StandardMobBrain
+    public class BloodMageBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);

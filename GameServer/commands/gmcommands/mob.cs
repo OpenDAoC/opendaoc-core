@@ -1537,13 +1537,13 @@ namespace DOL.GS.Commands
 		{
 			try
 			{
-				ABrain brains = null;
+				BrainBase brains = null;
 				string brainType = args[2];
 
 				try
 				{
 					client.Out.SendDebugMessage(Assembly.GetAssembly(typeof(GameServer)).FullName);
-					brains = (ABrain)Assembly.GetAssembly(typeof(GameServer)).CreateInstance(brainType, false);
+					brains = (BrainBase)Assembly.GetAssembly(typeof(GameServer)).CreateInstance(brainType, false);
 				}
 				catch (Exception e)
 				{
@@ -1555,7 +1555,7 @@ namespace DOL.GS.Commands
 					try
 					{
 						client.Out.SendDebugMessage(Assembly.GetExecutingAssembly().FullName);
-						brains = (ABrain)Assembly.GetExecutingAssembly().CreateInstance(brainType, false);
+						brains = (BrainBase)Assembly.GetExecutingAssembly().CreateInstance(brainType, false);
 					}
 					catch (Exception e)
 					{
@@ -1569,7 +1569,7 @@ namespace DOL.GS.Commands
 						try
 						{							
 							client.Out.SendDebugMessage(script.FullName);
-							brains = (ABrain)script.CreateInstance(brainType, false);
+							brains = (BrainBase)script.CreateInstance(brainType, false);
 							
 							if (brains != null) break;
 						}
@@ -2397,12 +2397,12 @@ namespace DOL.GS.Commands
 			if (mob.Inventory != null)
 				mob.SwitchWeapon(targetMob.ActiveWeaponSlot);
 
-			ABrain brain = null;
+			BrainBase brain = null;
 			try
 			{
 				foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
 				{
-					brain = (ABrain)assembly.CreateInstance(targetMob.Brain.GetType().FullName, true);
+					brain = (BrainBase)assembly.CreateInstance(targetMob.Brain.GetType().FullName, true);
 					if (brain != null)
 						break;
 				}
@@ -2418,7 +2418,7 @@ namespace DOL.GS.Commands
 				{
 					foreach (Assembly assembly in ScriptMgr.Scripts)
 					{
-						brain = assembly.CreateInstance(targetMob.Brain.GetType().FullName, true) as ABrain;
+						brain = assembly.CreateInstance(targetMob.Brain.GetType().FullName, true) as BrainBase;
 
 						if (brain != null)
 							break;
@@ -2433,12 +2433,12 @@ namespace DOL.GS.Commands
 			if (brain == null)
 			{
 				client.Out.SendMessage("Cannot create brain, standard brain being applied", eChatType.CT_System, eChatLoc.CL_SystemWindow);
-				mob.SetOwnBrain(new StandardMobBrain());
+				mob.SetOwnBrain(new StandardNpcBrain());
 			}
 			else
 			{
-				StandardMobBrain sbrain = (StandardMobBrain)brain;
-				StandardMobBrain tsbrain = (StandardMobBrain)targetMob.Brain;
+				StandardNpcBrain sbrain = (StandardNpcBrain)brain;
+				StandardNpcBrain tsbrain = (StandardNpcBrain)targetMob.Brain;
 				sbrain.AggroLevel = tsbrain.AggroLevel;
 				sbrain.AggroRange = tsbrain.AggroRange;
 				mob.SetOwnBrain(sbrain);
@@ -2578,10 +2578,10 @@ namespace DOL.GS.Commands
 				((GameMerchant)mob).TradeItems = ((GameMerchant)targetMob).TradeItems;
 			}
 
-			ABrain brain = null;
+			BrainBase brain = null;
 			foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
 			{
-				brain = (ABrain)assembly.CreateInstance(targetMob.Brain.GetType().FullName, true);
+				brain = (BrainBase)assembly.CreateInstance(targetMob.Brain.GetType().FullName, true);
 				if (brain != null)
 					break;
 			}
@@ -2589,12 +2589,12 @@ namespace DOL.GS.Commands
 			if (brain == null)
 			{
 				client.Out.SendMessage("Cannot create brain, standard brain being applied", eChatType.CT_System, eChatLoc.CL_SystemWindow);
-				mob.SetOwnBrain(new StandardMobBrain());
+				mob.SetOwnBrain(new StandardNpcBrain());
 			}
-			else if (brain is StandardMobBrain)
+			else if (brain is StandardNpcBrain)
 			{
-				StandardMobBrain sbrain = (StandardMobBrain)brain;
-				StandardMobBrain tsbrain = (StandardMobBrain)targetMob.Brain;
+				StandardNpcBrain sbrain = (StandardNpcBrain)brain;
+				StandardNpcBrain tsbrain = (StandardNpcBrain)targetMob.Brain;
 				sbrain.AggroLevel = tsbrain.AggroLevel;
 				sbrain.AggroRange = tsbrain.AggroRange;
 				mob.SetOwnBrain(sbrain);
@@ -3076,7 +3076,7 @@ namespace DOL.GS.Commands
 			}
 
 			List<string> text = new();
-			ABrain brain = targetMob.Brain;
+			BrainBase brain = targetMob.Brain;
 
 			if (brain != null)
 			{
@@ -3084,7 +3084,7 @@ namespace DOL.GS.Commands
 				text.Add("");
 				text.Add($"Brain: {brain.GetType().FullName}");
 
-				FSMState fsm = brain.FSM?.GetCurrentState();
+				FsmAttribute fsm = brain.FSM?.GetCurrentState();
 
 				if (fsm != null)
 					text.Add($"FSM State: {fsm.GetType().FullName}");
@@ -3116,9 +3116,9 @@ namespace DOL.GS.Commands
 				text.Add("InView: " + targetMob.TargetInView);
 			}
 
-			if (targetMob.Brain != null && targetMob.Brain is StandardMobBrain)
+			if (targetMob.Brain != null && targetMob.Brain is StandardNpcBrain)
 			{
-				Dictionary<GameLiving, long> aggroList = (targetMob.Brain as StandardMobBrain).AggroTable;
+				Dictionary<GameLiving, long> aggroList = (targetMob.Brain as StandardNpcBrain).AggroTable;
 
 				if (aggroList.Count > 0)
 				{

@@ -139,7 +139,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class MouthBrain : StandardMobBrain
+	public class MouthBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public MouthBrain() : base()
@@ -201,7 +201,7 @@ namespace DOL.AI.Brain
 				add.Heading = Body.Heading;
 				add.Faction = FactionMgr.GetFactionByID(18);
 				add.Faction.AddFriendFaction(FactionMgr.GetFactionByID(18));
-				StandardMobBrain brain = new StandardMobBrain();
+				StandardNpcBrain brain = new StandardNpcBrain();
 				add.SetOwnBrain(brain);
 				brain.AggroRange = 600;
 				brain.AggroLevel = 100;

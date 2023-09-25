@@ -312,7 +312,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class MyrddraxisBrain : StandardMobBrain
+	public class MyrddraxisBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public MyrddraxisBrain() : base()
@@ -936,7 +936,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class MyrddraxisSecondHeadBrain : StandardMobBrain
+	public class MyrddraxisSecondHeadBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public MyrddraxisSecondHeadBrain() : base()
@@ -1153,7 +1153,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class MyrddraxisThirdHeadBrain : StandardMobBrain
+	public class MyrddraxisThirdHeadBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public MyrddraxisThirdHeadBrain() : base()
@@ -1370,7 +1370,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class MyrddraxisFourthHeadBrain : StandardMobBrain
+	public class MyrddraxisFourthHeadBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public MyrddraxisFourthHeadBrain() : base()
@@ -1586,7 +1586,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class MyrddraxisFifthHeadBrain : StandardMobBrain
+	public class MyrddraxisFifthHeadBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public MyrddraxisFifthHeadBrain() : base()

@@ -97,7 +97,7 @@ namespace DOL.GS {
 	}
 
 
-    public class LordOfBattleBrain : StandardMobBrain {
+    public class LordOfBattleBrain : StandardNpcBrain {
 
         public int timeBeforeRez = 3000; //3 seconds
 

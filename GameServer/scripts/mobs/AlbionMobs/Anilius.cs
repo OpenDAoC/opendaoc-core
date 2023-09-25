@@ -39,7 +39,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class AniliusBrain : StandardMobBrain
+	public class AniliusBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public AniliusBrain() : base()
@@ -130,7 +130,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class AniliusAddBrain : StandardMobBrain
+	public class AniliusAddBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public AniliusAddBrain() : base()

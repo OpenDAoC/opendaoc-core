@@ -27,7 +27,7 @@ namespace DOL.GS.Effects
 
         public override void OnStopEffect()
         {
-            if (Owner.ControlledBrain is JuggernautBrain juggernautBrain)
+            if (Owner.ControlledBrain is PetJuggernautBrain juggernautBrain)
                 juggernautBrain.Body.TakeDamage(null, eDamageType.Natural, int.MaxValue, 0);
 
             base.OnStopEffect();

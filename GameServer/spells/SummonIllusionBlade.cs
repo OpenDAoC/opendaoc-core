@@ -46,7 +46,7 @@ namespace DOL.GS.Spells
             GameSpellEffect effect = CreateSpellEffect(target, Effectiveness);
             IControlledBrain brain = GetPetBrain(Caster);
             m_pet = GetGamePet(template);
-            m_pet.SetOwnBrain(brain as AI.ABrain);
+            m_pet.SetOwnBrain(brain as AI.BrainBase);
             int x, y, z;
             ushort heading;
             Region region;
@@ -64,8 +64,8 @@ namespace DOL.GS.Spells
             m_pet.Level = 44; // lowered in patch 1109b, also calls AutoSetStats()
             m_pet.AddToWorld();
             //Check for buffs
-            if (brain is ControlledNpcBrain)
-                (brain as ControlledNpcBrain).CheckSpells(StandardMobBrain.eCheckSpellType.Defensive);
+            if (brain is NpcControlledBrain)
+                (brain as NpcControlledBrain).CheckSpells(StandardNpcBrain.eCheckSpellType.Defensive);
 
             AddHandlers();
             SetBrainToOwner(brain);
@@ -75,7 +75,7 @@ namespace DOL.GS.Spells
         }
 
         protected override GameSummonedPet GetGamePet(INpcTemplate template) { return new IllusionBladePet(template); }
-        protected override IControlledBrain GetPetBrain(GameLiving owner) { return new ProcPetBrain(owner); }
+        protected override IControlledBrain GetPetBrain(GameLiving owner) { return new PetProcBrain(owner); }
         protected override void SetBrainToOwner(IControlledBrain brain) { }
         protected override void AddHandlers() { GameEventMgr.AddHandler(m_pet, GameLivingEvent.AttackFinished, EventHandler); }
 

@@ -90,7 +90,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class DebenSeGecyndeBrain : StandardMobBrain
+	public class DebenSeGecyndeBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public DebenSeGecyndeBrain() : base()
@@ -135,7 +135,7 @@ namespace DOL.AI.Brain
                         {
 							if(npc.IsAlive && npc.PackageID == "DebenBaf")
                             {
-								AddAggroListTo(npc.Brain as StandardMobBrain);
+								AddAggroListTo(npc.Brain as StandardNpcBrain);
 								IsPulled = true;
                             }
                         }
@@ -251,7 +251,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class DebenFighterBrain : StandardMobBrain
+	public class DebenFighterBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public DebenFighterBrain() : base()
@@ -340,7 +340,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class DebenMageBrain : StandardMobBrain
+	public class DebenMageBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public DebenMageBrain() : base()

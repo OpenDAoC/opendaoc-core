@@ -127,7 +127,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class DyranapurBrain : StandardMobBrain
+	public class DyranapurBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public DyranapurBrain() : base()
@@ -156,7 +156,7 @@ namespace DOL.AI.Brain
 						{
 							if (npc.IsAlive && npc.PackageID == "DyranapurBaf")
 							{
-								AddAggroListTo(npc.Brain as StandardMobBrain);
+								AddAggroListTo(npc.Brain as StandardNpcBrain);
 							}
 						}
 					}

@@ -117,7 +117,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class WrethOfWinterScorpBrain : StandardMobBrain
+	public class WrethOfWinterScorpBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public WrethOfWinterScorpBrain() : base()
@@ -256,7 +256,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class WrethOfWinterSpiderBrain : StandardMobBrain
+	public class WrethOfWinterSpiderBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public WrethOfWinterSpiderBrain() : base()
@@ -395,7 +395,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class WrethOfWinterCrabBrain : StandardMobBrain
+	public class WrethOfWinterCrabBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public WrethOfWinterCrabBrain() : base()
@@ -525,7 +525,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class WrethOfWinterJotunBrain : StandardMobBrain
+	public class WrethOfWinterJotunBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public WrethOfWinterJotunBrain() : base()
@@ -656,7 +656,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class WrethOfWinterOgreBrain : StandardMobBrain
+	public class WrethOfWinterOgreBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public WrethOfWinterOgreBrain() : base()
@@ -787,7 +787,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class WrethOfWinterIceBrain : StandardMobBrain
+	public class WrethOfWinterIceBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public WrethOfWinterIceBrain() : base()
@@ -918,7 +918,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class WrethOfWinterRaumarikBrain : StandardMobBrain
+	public class WrethOfWinterRaumarikBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public WrethOfWinterRaumarikBrain() : base()
@@ -1049,7 +1049,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class WrethOfWinterLichBrain : StandardMobBrain
+	public class WrethOfWinterLichBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public WrethOfWinterLichBrain() : base()
@@ -1189,7 +1189,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class WrethOfWinterArachiteBrain : StandardMobBrain
+	public class WrethOfWinterArachiteBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public WrethOfWinterArachiteBrain() : base()

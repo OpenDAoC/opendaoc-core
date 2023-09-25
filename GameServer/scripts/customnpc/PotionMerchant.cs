@@ -20,7 +20,7 @@ namespace DOL.GS.Scripts
         public PotionMerchant()
             : base()
         {
-            SetOwnBrain(new BlankBrain());
+            SetOwnBrain(new BrainBlank());
         }
 
         #endregion Constructor

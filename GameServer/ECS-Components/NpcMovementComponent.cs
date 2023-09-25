@@ -225,7 +225,7 @@ namespace DOL.GS
             StopFollowing();
             Owner.TargetObject = null;
             Owner.attackComponent.StopAttack();
-            (Owner.Brain as StandardMobBrain)?.ClearAggroList();
+            (Owner.Brain as StandardNpcBrain)?.ClearAggroList();
             IsReturningToSpawnPoint = true;
             PathTo(Owner.SpawnPoint, speed);
         }
@@ -353,7 +353,7 @@ namespace DOL.GS
 
             Point3D targetPosition;
 
-            if (Owner.Brain is StandardMobBrain brain)
+            if (Owner.Brain is StandardNpcBrain brain)
             {
                 // If the npc hasn't hit or been hit in a while, stop following and return home.
                 if (brain is not IControlledBrain)
@@ -416,7 +416,7 @@ namespace DOL.GS
             targetPosition = new((int) (FollowTarget.X - diffX), (int) (FollowTarget.Y - diffY), (int) (FollowTarget.Z - diffZ));
 
             // Slow down out of combat pets when they're close.
-            if (!Owner.InCombat && Owner.Brain is ControlledNpcBrain controlledBrain && controlledBrain.Owner == Owner.FollowTarget)
+            if (!Owner.InCombat && Owner.Brain is NpcControlledBrain controlledBrain && controlledBrain.Owner == Owner.FollowTarget)
                 PathTo(targetPosition, (short) Math.Max(Math.Min(MaxSpeed, Owner.GetDistance(targetPosition) * FOLLOW_SPEED_SCALAR), 50));
             else
                 PathTo(targetPosition, MaxSpeed);

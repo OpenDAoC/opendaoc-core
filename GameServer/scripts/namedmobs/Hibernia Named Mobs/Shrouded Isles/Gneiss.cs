@@ -79,7 +79,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class GneissBrain : StandardMobBrain
+	public class GneissBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public GneissBrain() : base()
@@ -114,7 +114,7 @@ namespace DOL.AI.Brain
 				foreach (GameNPC npc in Body.GetNPCsInRadius(2500))
 				{
 					if (npc != null && npc.IsAlive && npc.PackageID == "GneissBaf")
-						AddAggroListTo(npc.Brain as StandardMobBrain);
+						AddAggroListTo(npc.Brain as StandardNpcBrain);
 				}
 				if (!CanSpawnAdd)
 				{
@@ -204,7 +204,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class GneissAddBrain : StandardMobBrain
+	public class GneissAddBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public GneissAddBrain() : base()

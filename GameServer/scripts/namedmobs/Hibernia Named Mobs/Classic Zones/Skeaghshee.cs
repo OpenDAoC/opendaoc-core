@@ -155,7 +155,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class SkeaghsheeBrain : StandardMobBrain
+	public class SkeaghsheeBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public SkeaghsheeBrain() : base()

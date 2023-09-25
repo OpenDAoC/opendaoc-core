@@ -105,7 +105,7 @@ namespace DOL.GS.Spells
 			}
 
 			if(npcTarget.Brain == null)
-				npcTarget.AddBrain(new StandardMobBrain());
+				npcTarget.AddBrain(new StandardNpcBrain());
 
 			return base.OnEffectExpires(effect, noMessages);
 		}

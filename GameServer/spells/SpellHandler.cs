@@ -490,7 +490,7 @@ namespace DOL.GS.Spells
 						Target = Caster?.TargetObject as GameLiving;
 
 					if (Target == null && Caster is NecromancerPet nPet)
-						Target = (nPet.Brain as NecromancerPetBrain).GetSpellTarget();
+						Target = (nPet.Brain as PetServantBrain).GetSpellTarget();
 
 					break;
 				}
@@ -628,7 +628,7 @@ namespace DOL.GS.Spells
 						return false;
 					}
 				}
-				else if (m_caster is NecromancerPet necroPet && necroPet.Brain is NecromancerPetBrain)
+				else if (m_caster is NecromancerPet necroPet && necroPet.Brain is PetServantBrain)
 				{
 					if (!necroPet.effectListComponent.ContainsEffectForEffectType(eEffect.FacilitatePainworking))
 					{
@@ -843,7 +843,7 @@ namespace DOL.GS.Spells
 					engage.Cancel(false, false);
 			}
 
-			if (Caster is NecromancerPet necromancerPet && necromancerPet.Brain is NecromancerPetBrain necromancerPetBrain)
+			if (Caster is NecromancerPet necromancerPet && necromancerPet.Brain is PetServantBrain necromancerPetBrain)
 				necromancerPetBrain.OnPetBeginCast(Spell, SpellLine);
 
 			return true;
@@ -1973,7 +1973,7 @@ namespace DOL.GS.Spells
 								}
 							}
 						}// if (m_caster is GamePlayer)
-						else if (m_caster is GameNPC && (m_caster as GameNPC).Brain is ControlledNpcBrain)
+						else if (m_caster is GameNPC && (m_caster as GameNPC).Brain is NpcControlledBrain)
 						{
 							IControlledBrain casterbrain = (m_caster as GameNPC).Brain as IControlledBrain;
 
@@ -2250,7 +2250,7 @@ namespace DOL.GS.Spells
 					ApplyEffectOnTarget(targetInList);
 				}
 
-				if (Spell.IsConcentration && Caster is GameNPC npc && npc.Brain is ControlledNpcBrain npcBrain && Spell.IsBuff)
+				if (Spell.IsConcentration && Caster is GameNPC npc && npc.Brain is NpcControlledBrain npcBrain && Spell.IsBuff)
 					npcBrain.AddBuffedTarget(Target);
 			}
 

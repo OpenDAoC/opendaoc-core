@@ -80,7 +80,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class MistressRunesBrain : StandardMobBrain
+	public class MistressRunesBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public MistressRunesBrain() : base()

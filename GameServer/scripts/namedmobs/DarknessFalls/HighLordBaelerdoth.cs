@@ -147,7 +147,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class BaelerdothBrain : StandardMobBrain
+    public class BaelerdothBrain : StandardNpcBrain
     {
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 

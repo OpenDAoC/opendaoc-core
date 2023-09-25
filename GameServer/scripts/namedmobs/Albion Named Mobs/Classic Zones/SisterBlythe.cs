@@ -136,7 +136,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class SisterBlytheBrain : StandardMobBrain
+	public class SisterBlytheBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public SisterBlytheBrain() : base()
@@ -277,7 +277,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class FallenExecutionerBrain : StandardMobBrain
+	public class FallenExecutionerBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public FallenExecutionerBrain() : base()

@@ -160,7 +160,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class KieracDestroyerBrain : StandardMobBrain
+	public class KieracDestroyerBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public KieracDestroyerBrain() : base()
@@ -331,7 +331,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class MasterOfPainBrain : StandardMobBrain
+	public class MasterOfPainBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public MasterOfPainBrain() : base()

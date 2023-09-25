@@ -126,7 +126,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class LokenBrain : StandardMobBrain
+	public class LokenBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public LokenBrain() : base()
@@ -337,7 +337,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class LokenWolfBrain : StandardMobBrain
+	public class LokenWolfBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public LokenWolfBrain() : base()

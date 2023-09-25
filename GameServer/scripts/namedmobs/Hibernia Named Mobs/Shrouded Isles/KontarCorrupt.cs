@@ -98,7 +98,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class KontarCorruptBrain : StandardMobBrain
+	public class KontarCorruptBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public KontarCorruptBrain() : base()
@@ -260,7 +260,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class CorruptorBodyguardBrain : StandardMobBrain
+	public class CorruptorBodyguardBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public CorruptorBodyguardBrain() : base()

@@ -289,7 +289,7 @@ namespace DOL.GS
 				}
 			}
 
-			AI.Brain.StandardMobBrain brain = mob.Brain as AI.Brain.StandardMobBrain;
+			AI.Brain.StandardNpcBrain brain = mob.Brain as AI.Brain.StandardNpcBrain;
 			if (brain != null)
 			{
 				m_aggroLevel = (byte)brain.AggroLevel;

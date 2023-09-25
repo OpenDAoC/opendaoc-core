@@ -144,7 +144,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class CronwortBrain : StandardMobBrain
+	public class CronwortBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public CronwortBrain() : base()
@@ -235,7 +235,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class BreanwortBrain : StandardMobBrain
+	public class BreanwortBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public BreanwortBrain() : base()

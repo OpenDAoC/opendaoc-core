@@ -170,7 +170,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class SpindlerBroodmotherBrain : StandardMobBrain
+    public class SpindlerBroodmotherBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -490,7 +490,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class SBAddsBrain : StandardMobBrain
+    public class SBAddsBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -590,7 +590,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class SBDeadAddsBrain : StandardMobBrain
+    public class SBDeadAddsBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);

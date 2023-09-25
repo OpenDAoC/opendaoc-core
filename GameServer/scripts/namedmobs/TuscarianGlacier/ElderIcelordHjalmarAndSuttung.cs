@@ -143,7 +143,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class SuttungBrain : StandardMobBrain
+    public class SuttungBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -433,7 +433,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class HjalmarBrain : StandardMobBrain
+    public class HjalmarBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -667,7 +667,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class MorkimmaBrain : StandardMobBrain
+    public class MorkimmaBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -752,7 +752,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class HjalmarSuttungControllerBrain : APlayerVicinityBrain
+    public class HjalmarSuttungControllerBrain : PlayerVicinityBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);

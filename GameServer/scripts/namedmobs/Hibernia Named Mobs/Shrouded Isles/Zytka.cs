@@ -130,7 +130,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class ZytkaBrain : StandardMobBrain
+	public class ZytkaBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public ZytkaBrain() : base()
@@ -254,7 +254,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class ZytkaAddBrain : StandardMobBrain
+	public class ZytkaAddBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public ZytkaAddBrain() : base()

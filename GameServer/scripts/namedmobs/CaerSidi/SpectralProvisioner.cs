@@ -125,7 +125,7 @@ namespace DOL.GS.Scripts
 
 namespace DOL.AI.Brain
 {
-	public class SpectralProvisionerBrain : StandardMobBrain
+	public class SpectralProvisionerBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public SpectralProvisionerBrain()
@@ -353,7 +353,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class SpectralProvisionerSpawnerBrain : StandardMobBrain
+	public class SpectralProvisionerSpawnerBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log =
 			log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);

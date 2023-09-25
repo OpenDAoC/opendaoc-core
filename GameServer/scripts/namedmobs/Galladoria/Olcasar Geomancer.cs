@@ -195,7 +195,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class OlcasarGeomancerBrain : StandardMobBrain
+    public class OlcasarGeomancerBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -593,7 +593,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class OGAddsBrain : StandardMobBrain
+    public class OGAddsBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);

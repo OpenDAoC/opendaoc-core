@@ -126,7 +126,7 @@ namespace DOL.GS
     }
 }
 
-public class GiantSporiteClusterBrain : StandardMobBrain
+public class GiantSporiteClusterBrain : StandardNpcBrain
 {
     private static readonly log4net.ILog log =
         log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -315,7 +315,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class GSCAddsBrain : StandardMobBrain
+    public class GSCAddsBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);

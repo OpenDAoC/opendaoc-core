@@ -164,7 +164,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class OonaBrain : StandardMobBrain
+	public class OonaBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public OonaBrain() : base()
@@ -321,7 +321,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class OonaUndeadSoldierBrain : StandardMobBrain
+	public class OonaUndeadSoldierBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public OonaUndeadSoldierBrain() : base()
@@ -362,7 +362,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class OonaUndeadAddBrain : StandardMobBrain
+	public class OonaUndeadAddBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public OonaUndeadAddBrain() : base()

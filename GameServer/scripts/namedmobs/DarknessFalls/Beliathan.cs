@@ -68,7 +68,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class BeliathanInitBrain : StandardMobBrain
+    public class BeliathanInitBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -263,7 +263,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class BeliathanBrain : StandardMobBrain
+    public class BeliathanBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -343,7 +343,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class BeliathanMinionBrain : StandardMobBrain
+    public class BeliathanMinionBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);

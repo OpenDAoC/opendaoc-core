@@ -86,13 +86,13 @@ namespace DOL.GS.Spells
         {
             //Set pet infos & Brain
             base.ApplyEffectOnTarget(target);
-            ProcPetBrain petBrain = (ProcPetBrain) m_pet.Brain;
+            PetProcBrain petBrain = (PetProcBrain) m_pet.Brain;
             petBrain.AddToAggroList(target, 1);
             petBrain.Think();
         }
 
         protected override GameSummonedPet GetGamePet(INpcTemplate template) { return new TraitorDaggerPet(template); }
-        protected override IControlledBrain GetPetBrain(GameLiving owner) { return new ProcPetBrain(owner); }
+        protected override IControlledBrain GetPetBrain(GameLiving owner) { return new PetProcBrain(owner); }
         protected override void SetBrainToOwner(IControlledBrain brain) { }
         protected override void AddHandlers() { GameEventMgr.AddHandler(m_pet, GameLivingEvent.AttackFinished, EventHandler); }
 

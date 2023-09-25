@@ -81,7 +81,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class DroomBrain : StandardMobBrain
+	public class DroomBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public DroomBrain() : base()
@@ -110,7 +110,7 @@ namespace DOL.AI.Brain
 						{
 							if (npc.IsAlive && npc.PackageID == "DroomBaf")
 							{
-								AddAggroListTo(npc.Brain as StandardMobBrain);
+								AddAggroListTo(npc.Brain as StandardNpcBrain);
 							}
 						}
 					}

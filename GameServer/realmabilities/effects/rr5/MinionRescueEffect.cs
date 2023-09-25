@@ -130,7 +130,7 @@ namespace DOL.GS.Effects
             spirits[spiritId].Y = EffectOwner.Y + Util.Random(20, 40) - Util.Random(20, 40);
             spirits[spiritId].Z = EffectOwner.Z;
             spirits[spiritId].Flags |= GameNPC.eFlags.DONTSHOWNAME;
-            spirits[spiritId].SetOwnBrain(new StandardMobBrain());
+            spirits[spiritId].SetOwnBrain(new StandardNpcBrain());
             spirits[spiritId].AddToWorld();
             spirits[spiritId].TargetObject = targetPlayer;
             spirits[spiritId].Follow(targetPlayer, 0, RealmAbilities.MinionRescueAbility.SpellRadius + 100);

@@ -129,7 +129,7 @@ namespace DOL.GS.Scripts
 }
 namespace DOL.AI.Brain
 {
-    public class MistressOfRunesBrain : StandardMobBrain
+    public class MistressOfRunesBrain : StandardNpcBrain
 	{
 		protected String[] m_SpearAnnounce;
 		protected String m_NearsightAnnounce;

@@ -58,7 +58,7 @@ namespace DOL.GS
 /// </summary>
 namespace DOL.AI.Brain
 {
-    public class OIBrain : StandardMobBrain
+    public class OIBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public OIBrain()
@@ -550,7 +550,7 @@ namespace DOL.GS
 #region Olcasgean Brain
 namespace DOL.AI.Brain
 {
-    public class OlcasgeanBrain : StandardMobBrain
+    public class OlcasgeanBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public OlcasgeanBrain()
@@ -1075,7 +1075,7 @@ namespace DOL.GS
 #region Olcasgean2 Brain
 namespace DOL.AI.Brain
 {
-    public class OlcasgeanBrain2 : StandardMobBrain
+    public class OlcasgeanBrain2 : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public OlcasgeanBrain2()
@@ -1230,7 +1230,7 @@ namespace DOL.GS
 /// </summary>
 namespace DOL.AI.Brain
 {
-    public class AirPrimalBrain : StandardMobBrain
+    public class AirPrimalBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public AirPrimalBrain()
@@ -1701,7 +1701,7 @@ namespace DOL.GS
 /// </summary>
 namespace DOL.AI.Brain
 {
-    public class WaterPrimalBrain : StandardMobBrain
+    public class WaterPrimalBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public WaterPrimalBrain()
@@ -2003,7 +2003,7 @@ namespace DOL.GS
 /// </summary>
 namespace DOL.AI.Brain
 {
-    public class FirePrimalBrain : StandardMobBrain
+    public class FirePrimalBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public FirePrimalBrain()
@@ -2282,7 +2282,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class TrailOfFireBrain : StandardMobBrain
+    public class TrailOfFireBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public TrailOfFireBrain()
@@ -2399,7 +2399,7 @@ namespace DOL.GS
 /// </summary>
 namespace DOL.AI.Brain
 {
-    public class EarthPrimalBrain : StandardMobBrain
+    public class EarthPrimalBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public EarthPrimalBrain()
@@ -2612,7 +2612,7 @@ namespace DOL.GS
 /// </summary>
 namespace DOL.AI.Brain
 {
-    public class GuardianEarthmenderBrain : StandardMobBrain
+    public class GuardianEarthmenderBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public GuardianEarthmenderBrain()
@@ -2823,7 +2823,7 @@ namespace DOL.GS
 /// </summary>
 namespace DOL.AI.Brain
 {
-    public class MagicalEarthmenderBrain : StandardMobBrain
+    public class MagicalEarthmenderBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public MagicalEarthmenderBrain()
@@ -3031,7 +3031,7 @@ namespace DOL.GS
 /// </summary>
 namespace DOL.AI.Brain
 {
-    public class NaturalEarthmenderBrain : StandardMobBrain
+    public class NaturalEarthmenderBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public NaturalEarthmenderBrain()
@@ -3239,7 +3239,7 @@ namespace DOL.GS
 /// </summary>
 namespace DOL.AI.Brain
 {
-    public class ShadowyEarthmenderBrain : StandardMobBrain
+    public class ShadowyEarthmenderBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public ShadowyEarthmenderBrain()
@@ -3420,7 +3420,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class VortexBrain : StandardMobBrain
+    public class VortexBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public VortexBrain()
@@ -3506,7 +3506,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class WaterfallAntipassBrain : StandardMobBrain
+    public class WaterfallAntipassBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public WaterfallAntipassBrain()
@@ -3589,7 +3589,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class OlcasgeanEffectBrain : StandardMobBrain
+    public class OlcasgeanEffectBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public OlcasgeanEffectBrain()

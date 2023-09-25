@@ -103,7 +103,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class YarBrain : StandardMobBrain
+    public class YarBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public YarBrain()
@@ -446,7 +446,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class YarAddBrain : StandardMobBrain
+    public class YarAddBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public YarAddBrain()

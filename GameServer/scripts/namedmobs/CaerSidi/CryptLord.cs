@@ -94,7 +94,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class CryptLordBrain : StandardMobBrain
+    public class CryptLordBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -284,7 +284,7 @@ namespace DOL.AI.Brain
                 {
                     if (npc != null)
                     {
-                        if (npc.IsAlive && npc.PackageID == "CryptLordBaf" && AggroTable.Count > 0 && npc.Brain is StandardMobBrain brain)
+                        if (npc.IsAlive && npc.PackageID == "CryptLordBaf" && AggroTable.Count > 0 && npc.Brain is StandardNpcBrain brain)
                         {
                             if (brain != null && !brain.HasAggro && target != null && target.IsAlive)
                                 brain.AddToAggroList(target, 10);

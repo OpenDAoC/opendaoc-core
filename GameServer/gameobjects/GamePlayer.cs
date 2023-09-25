@@ -3502,7 +3502,7 @@ namespace DOL.GS
                 && DOL.GS.ServerProperties.Properties.PET_CAP_BD_MINION_SPELL_SCALING_BY_SPEC
                 && ControlledBrain is IControlledBrain brain && brain.Body is GameSummonedPet pet
                 && pet.ControlledNpcList != null)
-                foreach (ABrain subBrain in pet.ControlledNpcList)
+                foreach (BrainBase subBrain in pet.ControlledNpcList)
                     if (subBrain != null && subBrain.Body is BDSubPet subPet && subPet.PetSpecLine == specLine.KeyName)
                         subPet.SortSpells();
 
@@ -5733,7 +5733,7 @@ namespace DOL.GS
 
             // Level up pets and subpets
             if (DOL.GS.ServerProperties.Properties.PET_LEVELS_WITH_OWNER &&
-                ControlledBrain is ControlledNpcBrain brain && brain.Body is GameSummonedPet pet)
+                ControlledBrain is NpcControlledBrain brain && brain.Body is GameSummonedPet pet)
             {
                 if (pet.SetPetLevel())
                 {
@@ -5745,7 +5745,7 @@ namespace DOL.GS
 
                 // subpets
                 if (pet.ControlledNpcList != null)
-                    foreach (ABrain subBrain in pet.ControlledNpcList)
+                    foreach (BrainBase subBrain in pet.ControlledNpcList)
                         if (subBrain != null && subBrain.Body is GameSummonedPet subPet)
                             if (subPet.SetPetLevel()) // Levels up subpet
                                 if (DOL.GS.ServerProperties.Properties.PET_SCALE_SPELL_MAX_LEVEL > 0)
@@ -6145,9 +6145,9 @@ namespace DOL.GS
                 IsOnHorse = false;
             base.OnAttackedByEnemy(ad);
 
-            if(ControlledBrain != null && ControlledBrain is ControlledNpcBrain)
+            if(ControlledBrain != null && ControlledBrain is NpcControlledBrain)
             {
-                var brain = (ControlledNpcBrain) ControlledBrain;
+                var brain = (NpcControlledBrain) ControlledBrain;
                 brain.OnOwnerAttacked(ad);
             }
 
@@ -9169,7 +9169,7 @@ namespace DOL.GS
             // Remove the last update tick property to prevent speedhack messages during zoning and teleporting.
             LastPositionUpdateTick = 0;
 
-            if (ControlledBrain != null && ControlledBrain.WalkState != eWalkState.Stay)
+            if (ControlledBrain != null && ControlledBrain.WalkState != EWalkState.Stay)
             {
                 if (CharacterClass.ID is not ((int) eCharacterClass.Theurgist) and not ((int) eCharacterClass.Animist))
                     hasPetToMove = true;
@@ -13579,7 +13579,7 @@ namespace DOL.GS
             }
 
             Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GamePlayer.CommandNpcAttack.Passive", npc.Body.GetName(0, false)), eChatType.CT_System, eChatLoc.CL_SystemWindow);
-            npc.SetAggressionState(eAggressionState.Passive);
+            npc.SetAggressionState(EAggressionState.Passive);
         }
 
         /// <summary>
@@ -13598,7 +13598,7 @@ namespace DOL.GS
             }
 
             Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GamePlayer.CommandNpcAttack.Aggressive", npc.Body.GetName(0, false)), eChatType.CT_System, eChatLoc.CL_SystemWindow);
-            npc.SetAggressionState(eAggressionState.Aggressive);
+            npc.SetAggressionState(EAggressionState.Aggressive);
         }
 
         /// <summary>
@@ -13617,7 +13617,7 @@ namespace DOL.GS
             }
 
             Out.SendMessage(LanguageMgr.GetTranslation(Client.Account.Language, "GamePlayer.CommandNpcAttack.Denfensive", npc.Body.GetName(0, false)), eChatType.CT_System, eChatLoc.CL_SystemWindow);
-            npc.SetAggressionState(eAggressionState.Defensive);
+            npc.SetAggressionState(EAggressionState.Defensive);
         }
         #endregion
 

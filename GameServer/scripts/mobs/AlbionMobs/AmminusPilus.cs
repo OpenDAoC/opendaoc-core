@@ -80,7 +80,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class AmminusPilusBrain : StandardMobBrain
+    public class AmminusPilusBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public AmminusPilusBrain() : base()
@@ -181,7 +181,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class PilusAddBrain : StandardMobBrain
+    public class PilusAddBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public PilusAddBrain() : base()

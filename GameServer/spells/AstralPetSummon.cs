@@ -32,12 +32,12 @@ namespace DOL.GS.Spells
 
             m_pet.TempProperties.SetProperty("target", target);
             (m_pet.Brain as IOldAggressiveBrain).AddToAggroList(target, 1);
-            (m_pet.Brain as ProcPetBrain).Think();
+            (m_pet.Brain as PetProcBrain).Think();
 
         }
 
         protected override GameSummonedPet GetGamePet(INpcTemplate template) { return new AstralPet(template); }
-        protected override IControlledBrain GetPetBrain(GameLiving owner) { return new ProcPetBrain(owner); }
+        protected override IControlledBrain GetPetBrain(GameLiving owner) { return new PetProcBrain(owner); }
         protected override void SetBrainToOwner(IControlledBrain brain) {}
 
         protected override void OnNpcReleaseCommand(DOLEvent e, object sender, EventArgs arguments)

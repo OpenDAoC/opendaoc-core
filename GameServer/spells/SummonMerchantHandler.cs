@@ -85,7 +85,7 @@ namespace DOL.GS.Spells
                     Npc.Model = 10;
                     break;
             }
-            Npc.SetOwnBrain(new BlankBrain());
+            Npc.SetOwnBrain(new BrainBlank());
             Npc.AddToWorld();
            // SummonedTick = GameLoop.GameLoopTime;
             //EndTick = GameLoop.GameLoopTime + Spell.Duration * 1000;

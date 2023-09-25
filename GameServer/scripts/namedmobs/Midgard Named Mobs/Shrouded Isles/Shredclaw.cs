@@ -168,7 +168,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class ShredclawBrain : StandardMobBrain
+	public class ShredclawBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public ShredclawBrain() : base()
@@ -191,7 +191,7 @@ namespace DOL.AI.Brain
 				foreach (GameNPC npc in Body.GetNPCsInRadius(2500))
 				{
 					if (npc != null && npc.IsAlive && npc.PackageID == "ShredclawBaf")
-						AddAggroListTo(npc.Brain as StandardMobBrain);
+						AddAggroListTo(npc.Brain as StandardNpcBrain);
 				}
 			}
 			base.Think();

@@ -193,7 +193,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class BlightBrain : StandardMobBrain
+    public class BlightBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public BlightBrain() : base()
@@ -319,7 +319,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class FireBlightBrain : StandardMobBrain
+    public class FireBlightBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public FireBlightBrain() : base()
@@ -428,7 +428,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class LateBlightBrain : StandardMobBrain
+    public class LateBlightBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public LateBlightBrain() : base()
@@ -537,7 +537,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class FleshBlightBrain : StandardMobBrain
+    public class FleshBlightBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public FleshBlightBrain() : base()
@@ -623,7 +623,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class BlightControllerBrain : APlayerVicinityBrain
+    public class BlightControllerBrain : PlayerVicinityBrain
 	{
 		private static readonly log4net.ILog log =
 			log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);

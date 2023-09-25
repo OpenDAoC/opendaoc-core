@@ -166,7 +166,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class ScurceolHyrdeBrain : StandardMobBrain
+	public class ScurceolHyrdeBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public ScurceolHyrdeBrain() : base()
@@ -269,7 +269,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class LyftMihtBrain1 : StandardMobBrain
+	public class LyftMihtBrain1 : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public LyftMihtBrain1() : base()
@@ -399,7 +399,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class LyftMihtBrain2 : StandardMobBrain
+	public class LyftMihtBrain2 : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public LyftMihtBrain2() : base()
@@ -529,7 +529,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class LyftMihtBrain3 : StandardMobBrain
+	public class LyftMihtBrain3 : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public LyftMihtBrain3() : base()
@@ -659,7 +659,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class LyftMihtBrain4 : StandardMobBrain
+	public class LyftMihtBrain4 : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public LyftMihtBrain4() : base()

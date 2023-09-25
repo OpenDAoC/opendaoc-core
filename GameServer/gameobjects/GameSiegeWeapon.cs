@@ -36,7 +36,7 @@ namespace DOL.GS
 	{
 		public GameSiegeWeapon()
 		{
-			SetOwnBrain(new BlankBrain());
+			SetOwnBrain(new BrainBlank());
 			this.Realm = 0;
 			Level = 1;
 			CurrentState = eState.Inactive;

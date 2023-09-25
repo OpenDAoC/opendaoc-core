@@ -22,7 +22,7 @@ using DOL.GS;
 
 namespace DOL.AI.Brain
 {
-	public class FearBrain : StandardMobBrain
+	public class FearBrain : StandardNpcBrain
 	{
 		/// <summary>
 		/// Fixed thinking Interval for Fleeing

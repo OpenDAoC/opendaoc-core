@@ -94,7 +94,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class AnurigundaBrain : StandardMobBrain
+	public class AnurigundaBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public AnurigundaBrain() : base()
@@ -160,7 +160,7 @@ namespace DOL.AI.Brain
 						{
 							if (npc.IsAlive && npc.PackageID == "AnurigundaBaf")
 							{
-								AddAggroListTo(npc.Brain as StandardMobBrain);
+								AddAggroListTo(npc.Brain as StandardNpcBrain);
 							}
 						}
 					}
@@ -251,7 +251,7 @@ namespace DOL.AI.Brain
 ////////////////////////////////////////////////////////////////adds/////////////////////////////////////////////////
 namespace DOL.AI.Brain
 {
-	public class AnurigundaAddsBrain : StandardMobBrain
+	public class AnurigundaAddsBrain : StandardNpcBrain
 	{
 		public AnurigundaAddsBrain()
 			: base()

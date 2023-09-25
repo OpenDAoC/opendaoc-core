@@ -32,7 +32,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class QueenMajorBrain : StandardMobBrain
+	public class QueenMajorBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public QueenMajorBrain() : base()
@@ -88,7 +88,7 @@ namespace DOL.AI.Brain
 				foreach (GameNPC npc in Body.GetNPCsInRadius(1000))
 				{
 					if (npc != null && npc.IsAlive && npc.PackageID == "QueenMajorBaf")
-						AddAggroListTo(npc.Brain as StandardMobBrain);
+						AddAggroListTo(npc.Brain as StandardNpcBrain);
 				}
 			}
 			base.Think();
@@ -131,7 +131,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class QueenMajorAddBrain : StandardMobBrain
+	public class QueenMajorAddBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public QueenMajorAddBrain() : base()

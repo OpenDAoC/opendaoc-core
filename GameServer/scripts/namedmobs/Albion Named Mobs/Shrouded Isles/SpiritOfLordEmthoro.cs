@@ -123,7 +123,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class SpiritOfLordEmthoroBrain : StandardMobBrain
+	public class SpiritOfLordEmthoroBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public SpiritOfLordEmthoroBrain() : base()
@@ -161,7 +161,7 @@ namespace DOL.AI.Brain
 				foreach (GameNPC npc in Body.GetNPCsInRadius(3000))
 				{
 					if (npc != null && npc.IsAlive && npc.RespawnInterval == -1 && npc.PackageID == "EmthoroAdd")
-							AddAggroListTo(npc.Brain as StandardMobBrain);
+							AddAggroListTo(npc.Brain as StandardNpcBrain);
 				}
 				Point3D spawn = new Point3D(Body.SpawnPoint.X, Body.SpawnPoint.Y, Body.SpawnPoint.Z);				
 				INpcTemplate npcTemplate = NpcTemplateMgr.GetTemplate(60166454);
@@ -208,7 +208,7 @@ namespace DOL.AI.Brain
 				add.Heading = Body.Heading;
 				add.Faction = FactionMgr.GetFactionByID(64);
 				add.Faction.AddFriendFaction(FactionMgr.GetFactionByID(64));
-				StandardMobBrain brain = new StandardMobBrain();
+				StandardNpcBrain brain = new StandardNpcBrain();
 				add.SetOwnBrain(brain);
 				brain.AggroRange = 800;
 				brain.AggroLevel = 100;

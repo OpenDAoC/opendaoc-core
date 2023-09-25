@@ -62,7 +62,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class IckBrain : StandardMobBrain
+	public class IckBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public IckBrain() : base()
@@ -172,7 +172,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class IckAddBrain : StandardMobBrain
+	public class IckAddBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public IckAddBrain() : base()

@@ -273,7 +273,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class MidGjalpinulvaBrain : StandardMobBrain
+	public class MidGjalpinulvaBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public MidGjalpinulvaBrain()
@@ -1073,7 +1073,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-	public class GjalpinulvaMessengerBrain : StandardMobBrain
+	public class GjalpinulvaMessengerBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -1402,7 +1402,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class GjalpinulvaSpawnedAdBrain : StandardMobBrain
+	public class GjalpinulvaSpawnedAdBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 

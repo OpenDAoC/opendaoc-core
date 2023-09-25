@@ -883,7 +883,7 @@ namespace DOL.GS
 
             if (npc.Brain != null && npc.Brain is IControlledBrain)
             {
-                if ((npc.Brain as IControlledBrain).AggressionState == eAggressionState.Passive)
+                if ((npc.Brain as IControlledBrain).AggressionState == EAggressionState.Passive)
                     return;
             }
 
@@ -1087,7 +1087,7 @@ namespace DOL.GS
             else
             {
                 if (owner is NecromancerPet necromancerPet)
-                    ((NecromancerPetBrain)necromancerPet.Brain).CheckAttackSpellQueue();
+                    ((PetServantBrain)necromancerPet.Brain).CheckAttackSpellQueue();
                 else
                     effectiveness = 1;
 
@@ -1453,7 +1453,7 @@ namespace DOL.GS
                         }
                         else if (owner is GameNPC)
                         {
-                            ControlledNpcBrain brain = ((GameNPC) owner).Brain as ControlledNpcBrain;
+                            NpcControlledBrain brain = ((GameNPC) owner).Brain as NpcControlledBrain;
 
                             if (brain != null)
                             {

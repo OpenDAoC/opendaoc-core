@@ -41,7 +41,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-	public class GiantLemerBrain : StandardMobBrain
+	public class GiantLemerBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public GiantLemerBrain() : base()
@@ -169,7 +169,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class GiantLemerAddBrain : StandardMobBrain
+	public class GiantLemerAddBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public GiantLemerAddBrain() : base()

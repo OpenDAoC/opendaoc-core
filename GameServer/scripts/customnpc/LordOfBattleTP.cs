@@ -18,7 +18,7 @@ namespace DOL.GS {
             Size = 15;
             Level = 75;
             Inventory = new GameNPCInventory(GameNpcInventoryTemplate.EmptyTemplate);
-            SetOwnBrain(new BlankBrain());
+            SetOwnBrain(new BrainBlank());
 
             return base.AddToWorld(); // Finish up and add him to the world.
         }

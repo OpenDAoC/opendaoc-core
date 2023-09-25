@@ -372,7 +372,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class NosdodenBrain : StandardMobBrain
+	public class NosdodenBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public NosdodenBrain()
@@ -769,7 +769,7 @@ namespace DOL.AI.Brain
 ////////////////////////////////////////////////////////////////////////Nosdoden spawned ghosts///////////////////////////////////////////////////
 namespace DOL.AI.Brain
 {
-	public class NosdodenGhostAddBrain : StandardMobBrain
+	public class NosdodenGhostAddBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public NosdodenGhostAddBrain()
@@ -1260,7 +1260,7 @@ namespace DOL.AI.Brain
                     {
 						if(npc != null)
                         {
-							if (npc.IsAlive && npc.RespawnInterval == -1 && npc.PackageID == "GhostHunterPet" && npc.Brain is StandardMobBrain brain && !brain.HasAggro)
+							if (npc.IsAlive && npc.RespawnInterval == -1 && npc.PackageID == "GhostHunterPet" && npc.Brain is StandardNpcBrain brain && !brain.HasAggro)
 								npc.Die(npc);
                         }
                     }
@@ -2034,7 +2034,7 @@ namespace DOL.AI.Brain
 				pet.CurrentRegionID = Body.CurrentRegionID;
 				pet.PackageID = "GhostHunterPet";
 				pet.RespawnInterval = -1;
-				StandardMobBrain sbrain = new StandardMobBrain();
+				StandardNpcBrain sbrain = new StandardNpcBrain();
 				pet.SetOwnBrain(sbrain);
 				sbrain.AggroRange = 500;
 				sbrain.AggroLevel = 100;
@@ -2614,7 +2614,7 @@ namespace DOL.GS
 					if (npc != null)
 					{
 						if (npc.IsAlive && npc.RespawnInterval == -1 && npc.PackageID == "GhostHunterPet"
-							&& npc.Brain is StandardMobBrain brain && !brain.HasAggro)
+							&& npc.Brain is StandardNpcBrain brain && !brain.HasAggro)
 							npc.Die(npc);
 					}
 				}
@@ -2816,7 +2816,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class GhostSpiritChampionBrain : StandardMobBrain
+	public class GhostSpiritChampionBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -2929,7 +2929,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-	public class GhostSkeletalCommanderBrain : StandardMobBrain
+	public class GhostSkeletalCommanderBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -3058,7 +3058,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-	public class SkeletalCommanderHealerBrain : StandardMobBrain
+	public class SkeletalCommanderHealerBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -3214,7 +3214,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-	public class NosdodenSummonedAddsBrain : StandardMobBrain
+	public class NosdodenSummonedAddsBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 

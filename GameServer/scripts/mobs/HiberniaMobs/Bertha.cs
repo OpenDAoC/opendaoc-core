@@ -30,7 +30,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class BerthaBrain : StandardMobBrain
+	public class BerthaBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public BerthaBrain() : base()
@@ -46,7 +46,7 @@ namespace DOL.AI.Brain
 				foreach (GameNPC npc in Body.GetNPCsInRadius(1500))
 				{
 					if (npc != null && npc.IsAlive && npc.PackageID == "BerthaBaf")
-						AddAggroListTo(npc.Brain as StandardMobBrain);
+						AddAggroListTo(npc.Brain as StandardNpcBrain);
 				}
 			}
 			base.Think();

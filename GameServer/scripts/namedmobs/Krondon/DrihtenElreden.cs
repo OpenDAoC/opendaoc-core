@@ -143,7 +143,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class DrihtenElredenBrain : StandardMobBrain
+	public class DrihtenElredenBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public DrihtenElredenBrain() : base()
@@ -170,7 +170,7 @@ namespace DOL.AI.Brain
             {
 				GameNPC friend = CallHelp[Util.Random(0, CallHelp.Count - 1)];
 				GameLiving target = Body.TargetObject as GameLiving;
-				if(target != null && target.IsAlive && friend != null && friend.Brain is StandardMobBrain brain)
+				if(target != null && target.IsAlive && friend != null && friend.Brain is StandardNpcBrain brain)
                 {
 					if (!brain.HasAggro)
 					{

@@ -32,11 +32,11 @@ namespace DOL.GS
                 _nullBrainCount = 0;
             }
 
-            List<ABrain> list = EntityManager.UpdateAndGetAll<ABrain>(EntityManager.EntityType.Brain, out int lastValidIndex);
+            List<BrainBase> list = EntityManager.UpdateAndGetAll<BrainBase>(EntityManager.EntityType.Brain, out int lastValidIndex);
 
             Parallel.For(0, lastValidIndex + 1, i =>
             {
-                ABrain brain = list[i];
+                BrainBase brain = list[i];
 
                 if (brain?.EntityManagerId.IsSet != true)
                 {
@@ -71,7 +71,7 @@ namespace DOL.GS
                         brain.LastThinkTick = tick;
 
                         // Offset LastThinkTick for non-controlled mobs so that 'Think' ticks are not all "grouped" in one server tick.
-                        if (brain is not ControlledNpcBrain)
+                        if (brain is not NpcControlledBrain)
                             brain.LastThinkTick += Util.Random(-2, 2) * GameLoop.TICK_RATE;
                     }
 

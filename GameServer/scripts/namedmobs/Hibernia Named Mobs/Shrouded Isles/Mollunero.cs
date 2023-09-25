@@ -126,7 +126,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class MolluneroBrain : StandardMobBrain
+	public class MolluneroBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public MolluneroBrain() : base()
@@ -250,7 +250,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class MolluneroAddBrain : StandardMobBrain
+	public class MolluneroAddBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public MolluneroAddBrain() : base()

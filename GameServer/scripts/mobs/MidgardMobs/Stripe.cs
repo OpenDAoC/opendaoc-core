@@ -32,7 +32,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class StripeBrain : StandardMobBrain
+	public class StripeBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public StripeBrain() : base()
@@ -111,7 +111,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class StripeAddBrain : StandardMobBrain
+	public class StripeAddBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public StripeAddBrain() : base()

@@ -84,7 +84,7 @@ namespace DOL.GS.Spells
             if (powerCost > 0)
                 playerCaster.ChangeMana(playerCaster, eManaChangeType.Spell, -powerCost);
 
-            if (playerCaster.ControlledBrain is NecromancerPetBrain petBrain && Spell.SubSpellID > 0)
+            if (playerCaster.ControlledBrain is PetServantBrain petBrain && Spell.SubSpellID > 0)
             {
                 Spell spell = SkillBase.GetSpellByID(Spell.SubSpellID);
 

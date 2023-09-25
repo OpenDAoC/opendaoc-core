@@ -112,7 +112,7 @@ namespace DOL.GS.Scripts
 
 	namespace DOL.AI.Brain
 	{
-		public class GudlaugrBrain : StandardMobBrain
+		public class GudlaugrBrain : StandardNpcBrain
 		{
 			public GudlaugrBrain() : base() { }
 

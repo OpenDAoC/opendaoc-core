@@ -33,7 +33,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class QuillanMuireBrain : StandardMobBrain
+    public class QuillanMuireBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public QuillanMuireBrain() : base()
@@ -63,7 +63,7 @@ namespace DOL.AI.Brain
 				foreach (GameNPC npc in WorldMgr.GetNPCsFromRegion(Body.CurrentRegionID))
 				{
 					if (npc != null && npc.IsAlive && npc.PackageID == "QuillanBaf")
-						AddAggroListTo(npc.Brain as StandardMobBrain); 
+						AddAggroListTo(npc.Brain as StandardNpcBrain); 
 				}
 			}
 			base.Think();
@@ -162,7 +162,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class MuireHerbalistBrain : StandardMobBrain
+    public class MuireHerbalistBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public MuireHerbalistBrain() : base()

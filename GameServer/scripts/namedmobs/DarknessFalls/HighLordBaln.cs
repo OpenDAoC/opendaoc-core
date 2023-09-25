@@ -109,7 +109,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class BalnBrain : StandardMobBrain
+    public class BalnBrain : StandardNpcBrain
     {
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         public BalnBrain()
@@ -215,7 +215,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class BalnMinionBrain : StandardMobBrain
+    public class BalnMinionBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);

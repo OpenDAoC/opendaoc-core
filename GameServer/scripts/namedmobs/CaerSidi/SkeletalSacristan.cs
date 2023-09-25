@@ -90,7 +90,7 @@ namespace DOL.GS.Scripts
 }
 namespace DOL.AI.Brain
 {
-	public class SkeletalSacristanBrain : StandardMobBrain
+	public class SkeletalSacristanBrain : StandardNpcBrain
 	{
         public SkeletalSacristanBrain()
         {

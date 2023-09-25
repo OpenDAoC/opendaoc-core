@@ -85,18 +85,18 @@ namespace DOL.GS.Quests.Albion
                                     CurrentRegionID = 1,
                                     SaveInDB = false
                                 };
-                                mob.AddBrain(new StandardMobBrain());
+                                mob.AddBrain(new StandardNpcBrain());
                                 mob.TargetObject = gArgs.Target;
                                 mob.AddToWorld();
                                 if (i <= 5)
                                 {                                    
                                     mob.WalkTo(_gaurdsman2, 180);
-                                    (mob.Brain as StandardMobBrain).AddToAggroList(_gaurdsman2, 1000);
+                                    (mob.Brain as StandardNpcBrain).AddToAggroList(_gaurdsman2, 1000);
                                 }
                                 else
                                 {
                                     mob.WalkTo(_gaurdsman1, 180);
-                                    (mob.Brain as StandardMobBrain).AddToAggroList(_gaurdsman1, 1000);
+                                    (mob.Brain as StandardNpcBrain).AddToAggroList(_gaurdsman1, 1000);
                                 }
                             }
                         }
@@ -113,18 +113,18 @@ namespace DOL.GS.Quests.Albion
                                     CurrentRegionID = 1,
                                     SaveInDB = false
                                 };
-                                mob.AddBrain(new StandardMobBrain());
+                                mob.AddBrain(new StandardNpcBrain());
                                 mob.TargetObject = gArgs.Target;
                                 mob.AddToWorld();
                                 if (i <= 5)
                                 {
                                     mob.WalkTo(_gaurdsman4, 180);
-                                    (mob.Brain as StandardMobBrain).AddToAggroList(_gaurdsman4, 1000);
+                                    (mob.Brain as StandardNpcBrain).AddToAggroList(_gaurdsman4, 1000);
                                 }
                                 else
                                 {
                                     mob.WalkTo(_gaurdsman3, 180);
-                                    (mob.Brain as StandardMobBrain).AddToAggroList(_gaurdsman3, 1000);
+                                    (mob.Brain as StandardNpcBrain).AddToAggroList(_gaurdsman3, 1000);
                                 }
                             }
                         }

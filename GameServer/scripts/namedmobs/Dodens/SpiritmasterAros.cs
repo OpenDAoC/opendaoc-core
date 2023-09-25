@@ -118,7 +118,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class SpiritmasterArosBrain : StandardMobBrain
+	public class SpiritmasterArosBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -500,7 +500,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class SpiritmasterArosPetBrain : StandardMobBrain
+	public class SpiritmasterArosPetBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 

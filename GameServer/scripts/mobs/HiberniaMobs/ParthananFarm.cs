@@ -373,7 +373,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class AmalgamateParthananBrain : StandardMobBrain
+	public class AmalgamateParthananBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public AmalgamateParthananBrain() : base()
@@ -498,7 +498,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class ParthananBrain : StandardMobBrain
+	public class ParthananBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public ParthananBrain() : base()
@@ -906,7 +906,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-	public class ParthananFarmController1Brain : APlayerVicinityBrain
+	public class ParthananFarmController1Brain : PlayerVicinityBrain
 	{
 		private static readonly log4net.ILog log =
 			log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -1007,7 +1007,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-	public class ParthananFarmController2Brain : APlayerVicinityBrain
+	public class ParthananFarmController2Brain : PlayerVicinityBrain
 	{
 		private static readonly log4net.ILog log =
 			log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -1110,7 +1110,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-	public class ParthananFarmController2bBrain : APlayerVicinityBrain
+	public class ParthananFarmController2bBrain : PlayerVicinityBrain
 	{
 		private static readonly log4net.ILog log =
 			log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -1211,7 +1211,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-	public class ParthananFarmController3Brain : StandardMobBrain
+	public class ParthananFarmController3Brain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log =
 			log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -1311,7 +1311,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-	public class ParthananFarmController3bBrain : StandardMobBrain
+	public class ParthananFarmController3bBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log =
 			log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);

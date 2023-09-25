@@ -106,7 +106,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class MokkurvalveBrain : StandardMobBrain
+	public class MokkurvalveBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public MokkurvalveBrain() : base()
@@ -229,7 +229,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class MokkurvalveAddsBrain : StandardMobBrain
+	public class MokkurvalveAddsBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public MokkurvalveAddsBrain() : base()

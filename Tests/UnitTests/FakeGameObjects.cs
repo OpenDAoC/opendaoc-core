@@ -78,7 +78,7 @@ namespace DOL.Tests.Unit.Gameserver
     {
         public int modifiedEffectiveLevel;
 
-        public FakeNPC(ABrain defaultBrain) : base(defaultBrain)
+        public FakeNPC(BrainBase defaultBrain) : base(defaultBrain)
         {
             this.ObjectState = eObjectState.Active;
         }
@@ -113,7 +113,7 @@ namespace DOL.Tests.Unit.Gameserver
         public override eGameObjectType GameObjectType => throw new System.NotImplementedException();
     }
 
-    public class FakeControlledBrain : ABrain, IControlledBrain
+    public class FakeControlledBrain : BrainBase, IControlledBrain
     {
         public GameLiving fakeOwner;
         public bool receivedUpdatePetWindow = false;
@@ -121,8 +121,8 @@ namespace DOL.Tests.Unit.Gameserver
         public GameLiving Owner => fakeOwner;
         public void UpdatePetWindow() { receivedUpdatePetWindow = true; }
 
-        public eWalkState WalkState { get; }
-        public eAggressionState AggressionState { get; set; }
+        public EWalkState WalkState { get; }
+        public EAggressionState AggressionState { get; set; }
         public bool IsMainPet { get; set; }
         public void Attack(GameObject target) { }
         public void Disengage() { }
@@ -133,14 +133,14 @@ namespace DOL.Tests.Unit.Gameserver
         public GameNPC GetNPCOwner() { return null; }
         public GamePlayer GetPlayerOwner() { return null; }
         public void Goto(GameObject target) { }
-        public void SetAggressionState(eAggressionState state) { }
+        public void SetAggressionState(EAggressionState state) { }
         public void Stay() { }
         public override void Think() { }
 
         public override void KillFSM() { }
     }
 
-    public class FakeBrain : ABrain
+    public class FakeBrain : BrainBase
     {
         public override void Think() { }
         public override void KillFSM() { }

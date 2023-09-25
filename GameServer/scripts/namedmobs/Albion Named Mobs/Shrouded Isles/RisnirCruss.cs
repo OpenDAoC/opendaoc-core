@@ -101,7 +101,7 @@ namespace DOL.GS
 				add.Heading = Heading;
 				add.Faction = FactionMgr.GetFactionByID(20);
 				add.Faction.AddFriendFaction(FactionMgr.GetFactionByID(20));
-				StandardMobBrain brain = new StandardMobBrain();
+				StandardNpcBrain brain = new StandardNpcBrain();
 				add.SetOwnBrain(brain);
 				brain.AggroRange = 600;
 				brain.AggroLevel = 100;
@@ -122,7 +122,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class RisnirCrussBrain : StandardMobBrain
+    public class RisnirCrussBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public RisnirCrussBrain() : base()

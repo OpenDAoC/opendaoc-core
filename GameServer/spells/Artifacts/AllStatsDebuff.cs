@@ -96,7 +96,7 @@ namespace DOL.GS.Spells.Atlantis
 			}
 			if (target is GameNPC)
 			{
-				var aggroBrain = ((GameNPC)target).Brain as StandardMobBrain;
+				var aggroBrain = ((GameNPC)target).Brain as StandardNpcBrain;
 				if (aggroBrain != null)
 					aggroBrain.AddToAggroList(Caster, (int)Spell.Value);
 			}

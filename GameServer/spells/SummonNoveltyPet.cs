@@ -46,7 +46,7 @@ namespace DOL.GS.Spells
 				//No brain for now, so just follow owner.
 				m_pet.Follow(Caster, 100, WorldMgr.VISIBILITY_DISTANCE);
 
-				Caster.TempProperties.SetProperty(NoveltyPetBrain.HAS_PET, true);
+				Caster.TempProperties.SetProperty(PetNoveltyBrain.HAS_PET, true);
 			}
         }
 
@@ -58,7 +58,7 @@ namespace DOL.GS.Spells
                 return false;
             }
 
-			if (Caster.TempProperties.GetProperty<bool>(NoveltyPetBrain.HAS_PET, false))
+			if (Caster.TempProperties.GetProperty<bool>(PetNoveltyBrain.HAS_PET, false))
 			{
 				// no message
 				MessageToCaster("You already have a pet by your side!", PacketHandler.eChatType.CT_SpellResisted);
@@ -78,7 +78,7 @@ namespace DOL.GS.Spells
 
         protected override IControlledBrain GetPetBrain(GameLiving owner)
         {
-            return new NoveltyPetBrain(owner as GamePlayer);
+            return new PetNoveltyBrain(owner as GamePlayer);
         }
 
 		public override IList<string> DelveInfo

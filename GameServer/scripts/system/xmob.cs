@@ -340,10 +340,10 @@ namespace DOL.GS.Commands
                                 ((GameMerchant)mob).TradeItems = ((GameMerchant)targetMob).TradeItems;
                             }
 
-                            ABrain brain = null;
+                            BrainBase brain = null;
                             foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
                             {
-                                brain = (ABrain)assembly.CreateInstance(targetMob.Brain.GetType().FullName, true);
+                                brain = (BrainBase)assembly.CreateInstance(targetMob.Brain.GetType().FullName, true);
                                 if (brain != null)
                                     break;
                             }
@@ -351,12 +351,12 @@ namespace DOL.GS.Commands
                             if (brain == null)
                             {
                                 client.Out.SendMessage("Cannot create brain, standard brain being applied", eChatType.CT_System, eChatLoc.CL_SystemWindow);
-                                mob.SetOwnBrain(new StandardMobBrain());
+                                mob.SetOwnBrain(new StandardNpcBrain());
                             }
-                            else if (brain is StandardMobBrain)
+                            else if (brain is StandardNpcBrain)
                             {
-                                StandardMobBrain sbrain = (StandardMobBrain)brain;
-                                StandardMobBrain tsbrain = (StandardMobBrain)targetMob.Brain;
+                                StandardNpcBrain sbrain = (StandardNpcBrain)brain;
+                                StandardNpcBrain tsbrain = (StandardNpcBrain)targetMob.Brain;
                                 sbrain.AggroLevel = tsbrain.AggroLevel;
                                 sbrain.AggroRange = tsbrain.AggroRange;
                                 mob.SetOwnBrain(sbrain);
@@ -618,10 +618,10 @@ namespace DOL.GS.Commands
                     ((GameMerchant)mob).TradeItems = ((GameMerchant)targetMob).TradeItems;
                 }
 
-                ABrain brain = null;
+                BrainBase brain = null;
                 foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
                 {
-                    brain = (ABrain)assembly.CreateInstance(targetMob.Brain.GetType().FullName, true);
+                    brain = (BrainBase)assembly.CreateInstance(targetMob.Brain.GetType().FullName, true);
                     if (brain != null)
                         break;
                 }
@@ -629,12 +629,12 @@ namespace DOL.GS.Commands
                 if (brain == null)
                 {
                     client.Out.SendMessage("Cannot create brain, standard brain being applied", eChatType.CT_System, eChatLoc.CL_SystemWindow);
-                    mob.SetOwnBrain(new StandardMobBrain());
+                    mob.SetOwnBrain(new StandardNpcBrain());
                 }
-                else if (brain is StandardMobBrain)
+                else if (brain is StandardNpcBrain)
                 {
-                    StandardMobBrain sbrain = (StandardMobBrain)brain;
-                    StandardMobBrain tsbrain = (StandardMobBrain)targetMob.Brain;
+                    StandardNpcBrain sbrain = (StandardNpcBrain)brain;
+                    StandardNpcBrain tsbrain = (StandardNpcBrain)targetMob.Brain;
                     sbrain.AggroLevel = tsbrain.AggroLevel;
                     sbrain.AggroRange = tsbrain.AggroRange;
                     mob.SetOwnBrain(sbrain);

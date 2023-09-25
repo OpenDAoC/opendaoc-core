@@ -17,7 +17,7 @@ namespace DOL.GS.Scripts
         public OFMerchant()
             : base()
         {
-            SetOwnBrain(new BlankBrain());
+            SetOwnBrain(new BrainBlank());
         }
 
         #endregion Constructor
@@ -68,7 +68,7 @@ namespace DOL.GS.Scripts
         public OFMerchantHome()
             : base()
         {
-            SetOwnBrain(new BlankBrain());
+            SetOwnBrain(new BrainBlank());
         }
 
         #endregion Constructor

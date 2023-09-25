@@ -31,7 +31,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class KoalinthCastellanBrain : StandardMobBrain
+	public class KoalinthCastellanBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public KoalinthCastellanBrain() : base()
@@ -47,7 +47,7 @@ namespace DOL.AI.Brain
 				foreach (GameNPC npc in Body.GetNPCsInRadius(1500))
 				{
 					if (npc != null && npc.IsAlive && npc.PackageID == "KoalinthCastellanBaf")
-						AddAggroListTo(npc.Brain as StandardMobBrain);
+						AddAggroListTo(npc.Brain as StandardNpcBrain);
 				}
 				GameLiving target = Body.TargetObject as GameLiving;
 				if (Util.Chance(25) && !Body.IsCasting && !target.effectListComponent.ContainsEffectForEffectType(eEffect.MeleeHasteDebuff))

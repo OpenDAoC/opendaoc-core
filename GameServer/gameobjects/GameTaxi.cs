@@ -33,13 +33,13 @@ namespace DOL.GS
 			Size = 50;
 			Level = 55;
 			Name = "horse";
-			BlankBrain brain = new BlankBrain();
+			BrainBlank brain = new BrainBlank();
 			SetOwnBrain(brain);
 		}
 		
 		public GameTaxi(INpcTemplate templateid) : base(templateid)
 		{
-			BlankBrain brain = new BlankBrain();
+			BrainBlank brain = new BrainBlank();
 			SetOwnBrain(brain);
 		}
 		

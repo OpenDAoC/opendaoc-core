@@ -793,7 +793,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class LegionAddBrain : StandardMobBrain
+    public class LegionAddBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -902,7 +902,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class BehemothBrain : StandardMobBrain
+    public class BehemothBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);

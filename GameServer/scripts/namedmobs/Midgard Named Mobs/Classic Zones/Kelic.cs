@@ -103,7 +103,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class KelicBrain : StandardMobBrain
+	public class KelicBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public KelicBrain() : base()
@@ -125,7 +125,7 @@ namespace DOL.AI.Brain
 				GameLiving target = Body.TargetObject as GameLiving;
 				foreach (GameNPC npc in Body.GetNPCsInRadius(2500))
 				{
-					if (npc != null && npc.IsAlive && npc.Name.ToLower() == "servant of kelic" && npc.Brain is StandardMobBrain brain && npc != Body)
+					if (npc != null && npc.IsAlive && npc.Name.ToLower() == "servant of kelic" && npc.Brain is StandardNpcBrain brain && npc != Body)
 					{
 						if (brain != null && !brain.HasAggro && target != null && target.IsAlive)
 							brain.AddToAggroList(target, 100);

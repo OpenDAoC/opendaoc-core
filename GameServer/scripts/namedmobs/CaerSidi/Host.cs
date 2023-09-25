@@ -198,7 +198,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class HIBrain : StandardMobBrain
+    public class HIBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -387,7 +387,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class HostBrain : StandardMobBrain
+    public class HostBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -4097,7 +4097,7 @@ namespace DOL.AI.Brain
                         {
                             if (npc2.IsAlive && npc2.PackageID == "HostBaf")
                             {
-                                AddAggroListTo(npc2.Brain as StandardMobBrain);
+                                AddAggroListTo(npc2.Brain as StandardNpcBrain);
                                 BafMobs = true;
                             }
                         }

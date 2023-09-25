@@ -77,7 +77,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class FateChosenBrain : StandardMobBrain
+	public class FateChosenBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public FateChosenBrain() : base()

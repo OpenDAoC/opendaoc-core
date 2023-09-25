@@ -168,7 +168,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class VortanosBrain : StandardMobBrain
+	public class VortanosBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public VortanosBrain() : base()
@@ -482,7 +482,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class VortanosAddBrain : StandardMobBrain
+	public class VortanosAddBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public VortanosAddBrain() : base()

@@ -117,11 +117,11 @@ namespace DOL.GS.Spells
 			switch (m_petType)
 			{
 				case PetType.Earth:
-					return new TheurgistEarthPetBrain(owner);
+					return new PetEarthBrain(owner);
 				case PetType.Ice:
-					return new TheurgistIcePetBrain(owner);
+					return new PetIceBrain(owner);
 				case PetType.Air:
-					return new TheurgistAirPetBrain(owner);
+					return new PetAirBrain(owner);
 			}
 
 			// Happens only if the name of the spell doesn't contains "earth", "ice", or "air".

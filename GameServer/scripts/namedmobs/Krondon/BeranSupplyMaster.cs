@@ -91,7 +91,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class BeranSupplyMasterBrain : StandardMobBrain
+    public class BeranSupplyMasterBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public BeranSupplyMasterBrain() : base()
@@ -161,7 +161,7 @@ namespace DOL.AI.Brain
 					add.MaxSpeedBase = 225;
 					add.Faction = FactionMgr.GetFactionByID(8);
 					add.Faction.AddFriendFaction(FactionMgr.GetFactionByID(8));
-					StandardMobBrain brain = new StandardMobBrain();
+					StandardNpcBrain brain = new StandardNpcBrain();
 					add.SetOwnBrain(brain);
 					brain.AggroRange = 1000;
 					brain.AggroLevel = 100;
@@ -332,7 +332,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class BarrelExplosiveBrain : StandardMobBrain
+    public class BarrelExplosiveBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public BarrelExplosiveBrain() : base()

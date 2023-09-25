@@ -172,7 +172,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class XanxicarBrain : StandardMobBrain
+	public class XanxicarBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public XanxicarBrain() : base()
@@ -555,7 +555,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class XanxicarianChampionBrain : StandardMobBrain
+    public class XanxicarianChampionBrain : StandardNpcBrain
 	{
 		public XanxicarianChampionBrain()
 			: base()

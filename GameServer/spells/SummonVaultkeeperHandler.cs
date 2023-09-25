@@ -78,7 +78,7 @@ namespace DOL.GS.Spells
                     Npc.Model = 10;
                     break;
             }
-            Npc.SetOwnBrain(new BlankBrain());
+            Npc.SetOwnBrain(new BrainBlank());
             Npc.AddToWorld();
             timer = new ECSGameTimer(Npc, new ECSGameTimer.ECSTimerCallback(OnEffectExpires), Spell.Duration);
         }

@@ -95,22 +95,22 @@ namespace DOL.GS.Scripts
 			if (mob.Inventory != null)
 				mob.SwitchWeapon(this.ActiveWeaponSlot);
 
-			ABrain brain = null;
+			BrainBase brain = null;
 			foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
 			{
-				brain = (ABrain)assembly.CreateInstance(this.Brain.GetType().FullName, true);
+				brain = (BrainBase)assembly.CreateInstance(this.Brain.GetType().FullName, true);
 				if (brain != null)
 					break;
 			}
 
 			if (brain == null)
 			{
-				mob.SetOwnBrain(new StandardMobBrain());
+				mob.SetOwnBrain(new StandardNpcBrain());
 			}
-			else if (brain is StandardMobBrain)
+			else if (brain is StandardNpcBrain)
 			{
-				StandardMobBrain sbrain = (StandardMobBrain)brain;
-				StandardMobBrain tsbrain = (StandardMobBrain)this.Brain;
+				StandardNpcBrain sbrain = (StandardNpcBrain)brain;
+				StandardNpcBrain tsbrain = (StandardNpcBrain)this.Brain;
 				sbrain.AggroLevel = tsbrain.AggroLevel;
 				sbrain.AggroRange = tsbrain.AggroRange;
                 mob.SetOwnBrain(sbrain);

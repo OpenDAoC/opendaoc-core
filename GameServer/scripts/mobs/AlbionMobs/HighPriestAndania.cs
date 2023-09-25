@@ -44,7 +44,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class HighPriestAndaniaBrain : StandardMobBrain
+	public class HighPriestAndaniaBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public HighPriestAndaniaBrain() : base()
@@ -112,7 +112,7 @@ namespace DOL.AI.Brain
 				foreach (GameNPC npc in Body.GetNPCsInRadius(1500))
 				{
 					if (npc != null && npc.IsAlive && npc.PackageID == "AndaniaBaf")
-						AddAggroListTo(npc.Brain as StandardMobBrain);
+						AddAggroListTo(npc.Brain as StandardNpcBrain);
 				}
 			}
 			base.Think();

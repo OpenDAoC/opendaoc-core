@@ -21,7 +21,7 @@ namespace DOL.GS.Scripts
 
 namespace DOL.AI.Brain
 {
-    public class StranglerBrain : StandardMobBrain
+    public class StranglerBrain : StandardNpcBrain
     {
         public override int ThinkInterval
         {

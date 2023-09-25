@@ -55,7 +55,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class RunilBrain : StandardMobBrain
+	public class RunilBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public RunilBrain() : base()
@@ -71,7 +71,7 @@ namespace DOL.AI.Brain
 				GameLiving target = Body.TargetObject as GameLiving;
 				foreach (GameNPC npc in Body.GetNPCsInRadius(1500))
 				{
-					if (npc != null && npc.IsAlive && npc.PackageID == "RunilBaf" && npc.Brain is StandardMobBrain brain)
+					if (npc != null && npc.IsAlive && npc.PackageID == "RunilBaf" && npc.Brain is StandardNpcBrain brain)
                     {
 						if (brain != null && !brain.HasAggro && target != null && target.IsAlive)
 							brain.AddToAggroList(target, 100);

@@ -50,7 +50,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class JariBrain : StandardMobBrain
+	public class JariBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public JariBrain() : base()

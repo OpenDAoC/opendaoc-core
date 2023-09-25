@@ -3,7 +3,7 @@ using DOL.GS;
 
 namespace DOL.AI.Brain
 {
-    public class ArosState : StandardMobState
+    public class ArosState : StandardNpcState
     {
         protected new ArosBrain _brain = null;
 

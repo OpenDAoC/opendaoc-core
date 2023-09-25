@@ -119,7 +119,7 @@ namespace DOL.GS.Commands
 					{
 						info.Add(" + Aggro level: " + aggroBrain.AggroLevel);
 						info.Add(" + Aggro range: " + aggroBrain.AggroRange);
-						if(aggroBrain is StandardMobBrain mobBrain)
+						if(aggroBrain is StandardNpcBrain mobBrain)
 							info.Add(" + ThinkInterval: " + mobBrain.ThinkInterval +"ms");
 
 						if (target.MaxDistance < 0)
@@ -285,9 +285,9 @@ namespace DOL.GS.Commands
 						info.Add("InView: " + target.TargetInView);
 					}
 
-					if (target.Brain != null && target.Brain is StandardMobBrain)
+					if (target.Brain != null && target.Brain is StandardNpcBrain)
 					{
-						Dictionary<GameLiving, long> aggroList = (target.Brain as StandardMobBrain).AggroTable;
+						Dictionary<GameLiving, long> aggroList = (target.Brain as StandardNpcBrain).AggroTable;
 
 						if (aggroList.Count > 0)
 						{

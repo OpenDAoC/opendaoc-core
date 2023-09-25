@@ -161,7 +161,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class AidonTheArchwizardBrain : StandardMobBrain
+    public class AidonTheArchwizardBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -519,7 +519,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class AidonCopyFireBrain : StandardMobBrain
+    public class AidonCopyFireBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -652,7 +652,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class AidonCopyIceBrain : StandardMobBrain
+    public class AidonCopyIceBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -785,7 +785,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class AidonCopyAirBrain : StandardMobBrain
+    public class AidonCopyAirBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -916,7 +916,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class AidonCopyEarthBrain : StandardMobBrain
+    public class AidonCopyEarthBrain : StandardNpcBrain
     {
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);

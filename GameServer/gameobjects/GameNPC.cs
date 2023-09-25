@@ -1083,10 +1083,10 @@ namespace DOL.GS
 			{
 				try
 				{
-					ABrain brain = null;
+					BrainBase brain = null;
 					foreach (Assembly asm in ScriptMgr.GameServerScripts)
 					{
-						brain = (ABrain) asm.CreateInstance(dbMob.Brain, false);
+						brain = (BrainBase) asm.CreateInstance(dbMob.Brain, false);
 
 						if (brain != null)
 							break;
@@ -1231,7 +1231,7 @@ namespace DOL.GS
 			mob.HouseNumber = HouseNumber;
 			mob.RoamingRange = RoamingRange;
 
-			if (Brain.GetType().FullName != typeof(StandardMobBrain).FullName)
+			if (Brain.GetType().FullName != typeof(StandardNpcBrain).FullName)
 				mob.Brain = Brain.GetType().FullName;
 
 			if (Brain is IOldAggressiveBrain aggroBrain)
@@ -1472,7 +1472,7 @@ namespace DOL.GS
 			BuffBonusCategory4[(int)eStat.EMP] += template.Empathy;
 			BuffBonusCategory4[(int)eStat.CHR] += template.Charisma;
 
-			m_ownBrain = new StandardMobBrain
+			m_ownBrain = new StandardNpcBrain
 			{
 				Body = this,
 				AggroLevel = template.AggroLevel,
@@ -2080,7 +2080,7 @@ namespace DOL.GS
 					return false;
 
 				// Only move pet if it's following the owner.
-				if (Brain is ControlledNpcBrain controlledBrain && controlledBrain.WalkState != eWalkState.Follow)
+				if (Brain is NpcControlledBrain controlledBrain && controlledBrain.WalkState != EWalkState.Follow)
 					return false;
 			}
 
@@ -2158,7 +2158,7 @@ namespace DOL.GS
 		/// <summary>
 		/// Holds the own NPC brain
 		/// </summary>
-		protected ABrain m_ownBrain;
+		protected BrainBase m_ownBrain;
 
 		/// <summary>
 		/// Holds the all added to this npc brains
@@ -2168,13 +2168,13 @@ namespace DOL.GS
 		/// <summary>
 		/// Gets the current brain of this NPC
 		/// </summary>
-		public ABrain Brain
+		public BrainBase Brain
 		{
 			get
 			{
 				ArrayList brains = m_brains;
 				if (brains.Count > 0)
-					return (ABrain)brains[brains.Count - 1];
+					return (BrainBase)brains[brains.Count - 1];
 				return m_ownBrain;
 			}
 		}
@@ -2184,14 +2184,14 @@ namespace DOL.GS
 		/// </summary>
 		/// <param name="brain">The new brain</param>
 		/// <returns>The old own brain</returns>
-		public virtual ABrain SetOwnBrain(ABrain brain)
+		public virtual BrainBase SetOwnBrain(BrainBase brain)
 		{
 			if (brain == null)
 				return null;
 			if (brain.IsActive)
 				throw new ArgumentException("The new brain is already active.", "brain");
 
-			ABrain oldBrain = m_ownBrain;
+			BrainBase oldBrain = m_ownBrain;
 			bool activate = oldBrain.IsActive;
 			if (activate)
 				oldBrain.Stop();
@@ -2207,7 +2207,7 @@ namespace DOL.GS
 		/// Adds a temporary brain to Npc, last added brain is active
 		/// </summary>
 		/// <param name="newBrain"></param>
-		public virtual void AddBrain(ABrain newBrain)
+		public virtual void AddBrain(BrainBase newBrain)
 		{
 			if (newBrain == null)
 				throw new ArgumentNullException("newBrain");
@@ -2227,7 +2227,7 @@ namespace DOL.GS
 		/// </summary>
 		/// <param name="removeBrain">The brain to remove</param>
 		/// <returns>True if brain was found</returns>
-		public virtual bool RemoveBrain(ABrain removeBrain)
+		public virtual bool RemoveBrain(BrainBase removeBrain)
 		{
 			if (removeBrain == null)
 			{
@@ -3279,7 +3279,7 @@ namespace DOL.GS
 
 		public override void OnAttackedByEnemy(AttackData ad)
 		{
-			if (Brain is StandardMobBrain standardMobBrain)
+			if (Brain is StandardNpcBrain standardMobBrain)
 				standardMobBrain.OnAttackedByEnemy(ad);
 
 			if ((Flags & eFlags.STEALTH) != 0)
@@ -3522,7 +3522,7 @@ namespace DOL.GS
 				this.AddXPGainer(healSource, (float)healAmount);
 			}
 
-			if (Brain is StandardMobBrain mobBrain)
+			if (Brain is StandardNpcBrain mobBrain)
 			{
 				// first check to see if the healer is in our aggrolist so we don't go attacking anyone who heals
 				if (mobBrain.AggroTable.ContainsKey(healSource as GameLiving))
@@ -4150,7 +4150,7 @@ namespace DOL.GS
 		{
 			base.Notify(e, sender, args);
 
-			ABrain brain = Brain;
+			BrainBase brain = Brain;
 			if (brain != null)
 				brain.Notify(e, sender, args);
 
@@ -4341,7 +4341,7 @@ namespace DOL.GS
 		{
 			get
 			{
-				ABrain brain = Brain;
+				BrainBase brain = Brain;
 				return (brain == null) ? false : (brain is IOldAggressiveBrain);
 			}
 		}
@@ -4462,10 +4462,10 @@ namespace DOL.GS
 				}
 			}
 
-			ABrain brain = null;
+			BrainBase brain = null;
 			foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
 			{
-				brain = (ABrain)assembly.CreateInstance(Brain.GetType().FullName, true);
+				brain = (BrainBase)assembly.CreateInstance(Brain.GetType().FullName, true);
 				if (brain != null)
 					break;
 			}
@@ -4473,11 +4473,11 @@ namespace DOL.GS
 			if (brain == null)
 			{
 				log.Warn("GameNPC.Copy():  Unable to create brain:  " + Brain.GetType().FullName + ", using StandardMobBrain.");
-				brain = new StandardMobBrain();
+				brain = new StandardNpcBrain();
 			}
 
-			StandardMobBrain newBrainSMB = brain as StandardMobBrain;
-			StandardMobBrain thisBrainSMB = this.Brain as StandardMobBrain;
+			StandardNpcBrain newBrainSMB = brain as StandardNpcBrain;
+			StandardNpcBrain thisBrainSMB = this.Brain as StandardNpcBrain;
 
 			if (newBrainSMB != null && thisBrainSMB != null)
 			{
@@ -4507,7 +4507,7 @@ namespace DOL.GS
 			return copyTarget;
 		}
 
-		public GameNPC(ABrain defaultBrain) : base()
+		public GameNPC(BrainBase defaultBrain) : base()
 		{
 			if (movementComponent == null)
 				movementComponent = (NpcMovementComponent) base.movementComponent;
@@ -4534,7 +4534,7 @@ namespace DOL.GS
 			}
 		}
 
-		public GameNPC() : this(new StandardMobBrain()) { }
+		public GameNPC() : this(new StandardNpcBrain()) { }
 
 		public GameNPC(INpcTemplate template) : this()
 		{

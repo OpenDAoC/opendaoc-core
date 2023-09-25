@@ -94,7 +94,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class TeazanodwcBrain : StandardMobBrain
+	public class TeazanodwcBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public TeazanodwcBrain() : base()
@@ -175,7 +175,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class TeazanodwcAddBrain : StandardMobBrain
+	public class TeazanodwcAddBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public TeazanodwcAddBrain() : base()

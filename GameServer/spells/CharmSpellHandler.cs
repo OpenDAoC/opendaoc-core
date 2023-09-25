@@ -47,7 +47,7 @@ namespace DOL.GS.Spells
         /// <summary>
         /// Holds the new controlled NPC's brain
         /// </summary>
-        public ControlledNpcBrain m_controlledBrain;
+        public NpcControlledBrain m_controlledBrain;
 
         /// <summary>
         /// Tells pulsing spells to not add a controlled brain if it has not been previously removed by OnStopEffect()

@@ -103,7 +103,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class RiftBrain : StandardMobBrain
+	public class RiftBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public RiftBrain() : base()
@@ -250,7 +250,7 @@ namespace DOL.AI.Brain
 //////////////////////////////////////////////////////////////////////////////////////////Rift Adds/////////////////////////////////////////////////////
 namespace DOL.AI.Brain
 {
-	public class MorkenhetBrain : StandardMobBrain
+	public class MorkenhetBrain : StandardNpcBrain
 	{
 		public MorkenhetBrain()
 			: base()

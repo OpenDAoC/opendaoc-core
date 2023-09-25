@@ -11,7 +11,7 @@ namespace DOL.GS.Scripts
         {
         }
 
-        public BotonidSeedling(ABrain defaultBrain) : base(defaultBrain)
+        public BotonidSeedling(BrainBase defaultBrain) : base(defaultBrain)
         {
         }
 
@@ -55,7 +55,7 @@ namespace DOL.GS.Scripts
 
     namespace DOL.AI.Brain
     {
-        public class BotonidBrain : StandardMobBrain
+        public class BotonidBrain : StandardNpcBrain
         {
             public BotonidBrain() : base()
             {

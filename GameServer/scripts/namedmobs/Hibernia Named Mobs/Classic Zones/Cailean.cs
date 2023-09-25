@@ -129,7 +129,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class CaileanBrain : StandardMobBrain
+	public class CaileanBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public CaileanBrain() : base()
@@ -398,7 +398,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class WalkingTreeBrain : StandardMobBrain
+	public class WalkingTreeBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public WalkingTreeBrain() : base()
@@ -540,7 +540,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-	public class WalkingTree2Brain : StandardMobBrain
+	public class WalkingTree2Brain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public WalkingTree2Brain() : base()

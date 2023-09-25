@@ -95,7 +95,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class AbdinBrain : StandardMobBrain
+    public class AbdinBrain : StandardNpcBrain
     {
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 

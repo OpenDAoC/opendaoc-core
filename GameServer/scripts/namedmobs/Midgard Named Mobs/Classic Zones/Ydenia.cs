@@ -89,7 +89,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class YdeniaBrain : StandardMobBrain
+    public class YdeniaBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public YdeniaBrain() : base()
@@ -126,7 +126,7 @@ namespace DOL.AI.Brain
 				GameLiving target = Body.TargetObject as GameLiving;
 				foreach (GameNPC npc in Body.GetNPCsInRadius(2500))
 				{
-					if (npc != null && npc.IsAlive && npc.Name.ToLower() == "dark seithkona" && npc.Brain is StandardMobBrain brain)
+					if (npc != null && npc.IsAlive && npc.Name.ToLower() == "dark seithkona" && npc.Brain is StandardNpcBrain brain)
 					{
 						if (brain != null && !brain.HasAggro && target != null && target.IsAlive)
 							brain.AddToAggroList(target, 100);

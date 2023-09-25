@@ -83,7 +83,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class UnnaturalStormBrain : StandardMobBrain
+    public class UnnaturalStormBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public UnnaturalStormBrain() : base()
@@ -194,7 +194,7 @@ namespace DOL.GS
 }
 namespace DOL.AI.Brain
 {
-    public class UnnaturalStormAddsBrain : StandardMobBrain
+    public class UnnaturalStormAddsBrain : StandardNpcBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		public UnnaturalStormAddsBrain() : base()
@@ -239,7 +239,7 @@ namespace DOL.GS
 
 namespace DOL.AI.Brain
 {
-    public class UnnaturalStormControllerBrain : APlayerVicinityBrain
+    public class UnnaturalStormControllerBrain : PlayerVicinityBrain
 	{
 		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
