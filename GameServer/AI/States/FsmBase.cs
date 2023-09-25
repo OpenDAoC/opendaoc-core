@@ -3,6 +3,9 @@ using DOL.GS;
 
 namespace DOL.AI
 {
+    /// <summary>
+    /// Base class for the FiniteStateManager.
+    /// </summary>
     public class FsmBase
     {
         protected Dictionary<eFSMStateType, FsmAttribute> _states = new();
